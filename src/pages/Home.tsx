@@ -5,7 +5,6 @@ import { siById } from "@/data/taxonomy";
 import { siImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
 import { ButtonLink, Button, Eyebrow } from "@/components/ui/primitives";
-import { SiPickBar } from "@/components/ui/SiPickBar";
 import { cx } from "@/lib/utils";
 
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
@@ -368,8 +367,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <SiPickBar />
     </>
   );
 }
