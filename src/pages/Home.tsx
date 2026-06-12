@@ -1,77 +1,237 @@
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { SIS } from "@/data/taxonomy";
-import { DESTINATIONS } from "@/data/places";
-import { img, siImg, regionImg } from "@/lib/images";
+import { siById } from "@/data/taxonomy";
+import { siImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { ButtonLink, Button, Eyebrow, Pill } from "@/components/ui/primitives";
+import { ButtonLink, Button, Eyebrow } from "@/components/ui/primitives";
 import { SiPickBar } from "@/components/ui/SiPickBar";
 import { cx } from "@/lib/utils";
 
+/* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
-  { n: 1, icon: "sparkle", title: "Start with a feeling", body: "Pick the Special Interests that move you — safari, romance, a table worth the flight." },
-  { n: 2, icon: "pin", title: "Find your place", body: "We rank 13 regions by how well they fit the way you love to travel." },
-  { n: 3, icon: "compass", title: "Cover your Wells", body: "Ten Wells — Fly, Stay, Eat and more — scoped to your trip and budget." },
-  { n: 4, icon: "check", title: "Book it, beautifully", body: "Vetted partners, disclosed every time. You always choose; we never book for you." },
+  { n: 1, icon: "sparkle", title: "Tell us what moves you", body: "Pick the ways you love to travel — safari, romance, culinary, and more. Or just speak with Atlas." },
+  { n: 2, icon: "globe", title: "Choose where in the world", body: "Thirteen regions, each with researched destinations and an honest Safety Card you can trust." },
+  { n: 3, icon: "menu", title: "Move through the Wells", body: "Flights, stays, dining, transport, activities — each Well surfaces the best 6 providers, matched to you." },
+  { n: 4, icon: "shield", title: "Book it — all in one trip", body: "Everything lands in a single itinerary, always saved. You always choose, and you always book." },
 ];
 
-const ATLAS_FEATS = [
-  { icon: "message", b: "Type or talk", s: "Plan from a single sentence, or just keep company while you browse." },
-  { icon: "sound", b: "Read or hear", s: "Atlas can speak its answers back — your choice, remembered." },
-  { icon: "globe", b: "Always honest", s: "Real, in-system options with reasons. It never books for you." },
-  { icon: "stop", b: "You're in control", s: "Say “stop” anytime and Atlas steps back gracefully." },
-];
+/* ---- Featured SIs: David's 6, paired by row ---- */
+const FEAT_ORDER = ["romance", "tropical", "safari", "expedition", "ultra", "river"];
 
+/* ---- The four cinematic "Operating System" feature bands ---- */
+const OS_BANDS = [
+  {
+    side: "left", num: "25", numSub: "", eyebrow: "Ways to travel", title: "Special Interests",
+    body: "Twenty-five reasons to go — from Safari & Wildlife to Culinary Journeys to Wellness. Pick one or two, and the system shapes everything else around them.",
+    chips: ["Safari & Wildlife", "Culinary Journeys", "Wellness & Spa", "+22 more"], to: "/special-interests", cta: "Explore all 25",
+    bg: "radial-gradient(120% 90% at 25% 15%, #d8b35e 0%, transparent 55%), linear-gradient(120deg, #8a5a2a 0%, #4a3019 55%, #28190d 100%)",
+    image: "desertDunes",
+  },
+  {
+    side: "right", num: "10", numSub: "", eyebrow: "Every travel need, met", title: "The Wells",
+    body: "Each Well maps to a need the way an organ maps to the body — Fly, Stay, Eat, Move, and more. Fill them as you go; the journey is whole when they are.",
+    chips: ["Fly-Well", "Stay-Well", "Eat-Well"], soonChip: "Insure-Well · soon", to: "/wells", cta: "Discover the Wells",
+    bg: "radial-gradient(120% 90% at 75% 20%, #56a89c 0%, transparent 55%), linear-gradient(240deg, #2c6e68 0%, #1c4541 55%, #102825 100%)",
+    image: "oceanAerial",
+  },
+  {
+    side: "left", num: "13", numSub: "", eyebrow: "From 01F to 13A", title: "World Regions",
+    body: "The whole map, organized — Western Europe to the Caribbean, each region scored for safety and stitched into your route, never a detour off it.",
+    chips: ["01F · Western Europe", "05A · East Africa", "11C · Caribbean", "+10 more"], to: "/regions", cta: "Browse all 13 regions",
+    bg: "radial-gradient(120% 90% at 25% 15%, #7b91c4 0%, transparent 55%), linear-gradient(120deg, #3a4f7a 0%, #25304f 55%, #141a2e 100%)",
+    image: "mountainValley",
+  },
+  {
+    side: "right", num: "6", numSub: "to choose from", eyebrow: "Curated, never overwhelming", title: "The best matches, not endless lists",
+    body: "Six best recommendations for each part of your trip — matched to you and your budget. Want more? Tap “See more.” And if a booking earns us a commission, we say so right there.",
+    chips: ["Top picks first", "Honest about commissions", "You decide & book"], to: "/wells-surface", cta: "See how it works",
+    bg: "radial-gradient(120% 90% at 75% 20%, #cf9468 0%, transparent 55%), linear-gradient(240deg, #9c5b3b 0%, #5e3520 55%, #2e1a10 100%)",
+    image: "luxuryPool",
+  },
+] as const;
+
+/* ============================================================================
+   Atlas "live looping demo" — faithful React port of the prototype's script.
+   Sequence: greet → user types in the input → user bubble → typing dots →
+   bot reply → 3 reco cards → closing line → loop. Honors reduced-motion and
+   only starts when scrolled into view.
+   ========================================================================== */
+type DemoItem =
+  | { t: "bot" | "user"; html: string }
+  | { t: "typing" }
+  | { t: "reco"; n: number; name: string; why: string };
+
+const RECOS: [string, string][] = [
+  ["Angama Mara", "Clifftop suites over the Mara — <b>romance + safari</b>"],
+  ["Governors’ Camp", "Front-row Great Migration — <b>fits your July dates</b>"],
+  ["Mahali Mzuri", "Branson’s tented camp — <b>made for two</b>"],
+];
+const USER_TEXT = "A safari for our anniversary in July";
+
+function TalkDemo() {
+  const [items, setItems] = useState<DemoItem[]>([]);
+  const [typed, setTyped] = useState("");
+  const rootRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+  }, [items]);
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let token = 0;
+    let cancelled = false;
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+    async function run() {
+      const mine = ++token;
+      setItems([]);
+      setTyped("");
+
+      if (reduce) {
+        setItems([
+          { t: "bot", html: "Hi! Tell me your dream in a sentence — I’ll start building it." },
+          { t: "user", html: USER_TEXT + " 🦁" },
+          { t: "bot", html: "The Great Migration peaks then. Here are <b>3 that fit you</b>:" },
+          ...RECOS.map(([name, why], i) => ({ t: "reco" as const, n: i + 1, name, why })),
+          { t: "bot", html: "Want me to add these to your trip? ✨" },
+        ]);
+        return;
+      }
+
+      await wait(500); if (mine !== token || cancelled) return;
+      setItems([{ t: "bot", html: "Hi! Tell me your dream in a sentence — I’ll start building it." }]);
+      await wait(900); if (mine !== token || cancelled) return;
+
+      for (let i = 0; i <= USER_TEXT.length; i++) {
+        if (mine !== token || cancelled) return;
+        setTyped(USER_TEXT.slice(0, i));
+        await wait(34);
+      }
+      await wait(450); if (mine !== token || cancelled) return;
+      setTyped("");
+      setItems((p) => [...p, { t: "user", html: USER_TEXT + " 🦁" }]);
+      await wait(650); if (mine !== token || cancelled) return;
+
+      setItems((p) => [...p, { t: "typing" }]);
+      await wait(1300); if (mine !== token || cancelled) return;
+      setItems((p) => {
+        const c = [...p];
+        c[c.length - 1] = { t: "bot", html: "The Great Migration peaks then. Here are <b>3 that fit you</b>:" };
+        return c;
+      });
+
+      for (let i = 0; i < RECOS.length; i++) {
+        await wait(520); if (mine !== token || cancelled) return;
+        setItems((p) => [...p, { t: "reco", n: i + 1, name: RECOS[i][0], why: RECOS[i][1] }]);
+      }
+      await wait(650); if (mine !== token || cancelled) return;
+      setItems((p) => [...p, { t: "bot", html: "Want me to add these to your trip? ✨" }]);
+
+      await wait(3600); if (mine !== token || cancelled) return;
+      run(); // loop
+    }
+
+    let started = false;
+    const begin = () => { if (started) return; started = true; run(); };
+    let obs: IntersectionObserver | undefined;
+    try {
+      obs = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) begin(); }, { threshold: 0.3 });
+      if (rootRef.current) obs.observe(rootRef.current);
+    } catch { /* ignore */ }
+    const safety = setTimeout(begin, 1200);
+
+    return () => { cancelled = true; token++; clearTimeout(safety); obs?.disconnect(); };
+  }, []);
+
+  return (
+    <div className="talk__demo" aria-hidden="true" ref={rootRef}>
+      <div className="talk__demo-head">
+        <div className="talk__demo-av"><Icon name="sparkles" small /></div>
+        <div>
+          <div className="talk__demo-title">Speak with Atlas</div>
+          <div className="talk__demo-sub"><span className="dot" /> Your Concierge · online</div>
+        </div>
+        <span className="talk__demo-tag">Live demo</span>
+      </div>
+      <div className="talk__demo-body" ref={bodyRef}>
+        {items.map((it, idx) => {
+          if (it.t === "reco") {
+            return (
+              <div className="talk-rec" key={idx}>
+                <div className="talk-rec__num">{it.n}</div>
+                <div>
+                  <div className="talk-rec__name">{it.name}</div>
+                  <div className="talk-rec__why" dangerouslySetInnerHTML={{ __html: it.why }} />
+                </div>
+              </div>
+            );
+          }
+          if (it.t === "typing") {
+            return <div className="talk-msg talk-msg--bot" key={idx}><span className="talk-typing"><span /><span /><span /></span></div>;
+          }
+          return <div className={`talk-msg talk-msg--${it.t}`} key={idx} dangerouslySetInnerHTML={{ __html: it.html }} />;
+        })}
+      </div>
+      <div className="talk__demo-foot">
+        <div className="talk__demo-input"><span>{typed}</span><span className="caret" /></div>
+        <div className="talk__demo-mic"><Icon name="mic" small /></div>
+        <div className="talk__demo-send"><Icon name="send" small /></div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================================ */
 export default function Home() {
   const { journeySIs, toggleSI, openPanel } = useStore();
-  const liveSIs = SIS.filter((s) => s.status === "live").slice(0, 4);
-  const featuredDest = [DESTINATIONS["05A"][0], DESTINATIONS["02F"][0], DESTINATIONS["04A"][0]];
+  const featured = FEAT_ORDER.map((id) => siById(id)).filter(Boolean) as NonNullable<ReturnType<typeof siById>>[];
+
+  const TALK_FEATS = [
+    { icon: "message", b: "Type or talk", s: "Chat by keyboard or just speak — whatever feels easy." },
+    { icon: "sound", b: "Read or hear it", s: "It answers in text, or reads replies aloud to you." },
+    { icon: "sparkle", b: "It knows your trip", s: "Sees your interests, region & plan — so advice fits you." },
+    { icon: "check", b: "You're in control", s: "It suggests; you always choose and book. Say “stop” anytime." },
+  ];
 
   return (
     <>
-      {/* ---- Hero ---- */}
+      {/* ---- HERO ---- */}
       <section className="hero band-ivory">
         <div className="hero__inner">
           <div className="hero__copy">
             <Eyebrow>A Travel Operating System</Eyebrow>
-            <h1 style={{ marginTop: 14 }}>
-              Your next journey,<br /><span className="accent">designed around you.</span>
-            </h1>
-            <p className="hero__lead">
-              Tell us what moves you. We route you from a single spark — an interest, a place, a feeling —
-              all the way to a booked, beautifully organized trip. One clear step at a time.
+            <h1 style={{ marginTop: 14 }}>Your next journey, <span className="accent">designed around you.</span></h1>
+            <p className="hero__lead t-lead" style={{ color: "var(--foreground)" }}>
+              Tell us what moves you. We route you from a single spark — an interest, a place, a feeling — all the way to a booked, beautifully organized trip. One clear step at a time.
             </p>
             <div className="hero__cta">
-              <ButtonLink to="/special-interests">Design Your Dream Journey</ButtonLink>
-              <Button variant="secondary" onClick={() => openPanel("concierge")}>Not sure? Speak with Atlas</Button>
+              <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>Design Your Dream Journey</ButtonLink>
+              <Button variant="secondary" style={{ height: 52 }} onClick={() => openPanel("concierge")}>Not sure? Speak with Atlas</Button>
             </div>
-            <div className="hero__taps">
-              4–5 taps from here to a booked trip <span className="dot" /> No account needed to start
-            </div>
+            <p className="hero__taps"><span>4–5 taps from here to a booked trip</span><span className="dot" /><span>No account needed to start</span></p>
           </div>
           <div className="hero__media">
-            <img className="m1" src={img("safariJeep", 1200)} alt="A safari vehicle at golden hour in East Africa"
+            <img className="m1" src={img("safariGiraffe", 1100)} alt="" referrerPolicy="no-referrer"
               style={{ position: "absolute", inset: "48px 0", width: "auto", height: "auto", objectFit: "cover", borderRadius: "var(--radius-lg)", boxShadow: "var(--e2)" }} />
             <div className="m-tag">
               <div className="ic-chip"><Icon name="plane" /></div>
-              <div className="txt">
-                <div className="t">Safari &amp; Wildlife · East Africa</div>
-                <div className="s">Your journey, ready to design</div>
-              </div>
+              <div className="txt"><div className="t">Safari &amp; Wildlife · East Africa</div><div className="s">A live journey, ready to design</div></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ---- What is TravelWell ---- */}
-      <section className="section band-linen">
-        <div className="container what">
+      {/* ---- WHAT IS TRAVELWELL ---- */}
+      <section className="section band-linen what">
+        <div className="container">
           <div className="what__head">
-            <Eyebrow>How it works</Eyebrow>
-            <h2 className="what__title">From a feeling to a booked trip, in a few clear steps.</h2>
+            <Eyebrow>What is TravelWell</Eyebrow>
+            <h2 className="what__title">A travel operating system that designs the whole trip — <span className="accent">around you.</span></h2>
             <p className="what__lead">
-              TravelWell.World is the operating system for a great trip — it connects the dots between what you love,
-              where you go, and everything you need once you're there.
+              Most sites sell you one booking and leave the rest to you. TravelWell starts with what moves you, then assembles every piece — flights, stays, dining, transport, activities and more — into one beautifully organized journey you actually control.
             </p>
           </div>
           <div className="what__steps">
@@ -85,47 +245,58 @@ export default function Home() {
             ))}
           </div>
           <div className="what__cta">
-            <ButtonLink to="/special-interests">Start with what moves you</ButtonLink>
-            <span className="what__cta-note">No account needed · everything is saved as you go.</span>
+            <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>Start designing — it's free</ButtonLink>
+            <span className="what__cta-note">4–5 taps to a booked trip · no account needed to start</span>
           </div>
         </div>
       </section>
 
-      {/* ---- Special Interests (selectable) ---- */}
+      {/* ---- FEATURED SPECIAL INTERESTS (selectable) ---- */}
       <section className="section band-ivory">
         <div className="container">
           <div className="section__head">
             <div>
-              <Eyebrow>Begin here</Eyebrow>
-              <h2>How do you love to travel?</h2>
-              <p>Pick up to 3 — 1–2 is the sweet spot. Your choices carry through the whole journey.</p>
+              <Eyebrow>Start with what moves you</Eyebrow>
+              <h2>Pick up to 3. Two is the sweet spot.</h2>
+              <p>Tap the ways you love to travel — they light up as you go. Most journeys shine with 1–2, but some need 3 (Family + Tropical + Romance, say). You can fine-tune anytime.</p>
             </div>
             <Link className="section__link" to="/special-interests">All 25 interests <Icon name="arrow" small /></Link>
           </div>
           <div className="si-rail">
-            {liveSIs.map((s) => {
-              const picked = journeySIs.includes(s.id);
-              return (
-                <div
-                  key={s.id} className={cx("si-card", picked && "is-picked")} data-sipick role="button"
-                  tabIndex={0} aria-pressed={picked}
-                  onClick={() => toggleSI(s.id)}
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSI(s.id); } }}
-                >
-                  <div className="si-card__media" style={{ position: "relative" }}>
-                    <img src={siImg(s.id, 700)} alt="" loading="lazy" referrerPolicy="no-referrer"
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                    <span className="si-card__pill"><Pill kind="live">Live</Pill></span>
-                    <span className="si-card__check">{picked ? journeySIs.indexOf(s.id) + 1 : ""}</span>
+            {featured.map((s) => {
+              const live = s.status === "live";
+              const on = journeySIs.includes(s.id);
+              const order = journeySIs.indexOf(s.id) + 1;
+              const media = {
+                backgroundImage: `linear-gradient(150deg, color-mix(in oklch, ${s.accent} 30%, transparent), rgba(20,18,14,.55)), url('${siImg(s.id, 800)}')`,
+                backgroundSize: "cover", backgroundPosition: "center",
+              };
+              const inner = (
+                <>
+                  <div className="si-card__media" style={media}>
+                    <span className={cx("si-card__pill pill", live ? "pill-live" : "pill-preview")} style={{ background: "rgba(255,255,255,.92)" }}>{live ? "Live" : "Preview"}</span>
+                    {live && <span className="si-card__check" aria-hidden="true">{on ? order : ""}</span>}
                   </div>
                   <div className="si-card__body">
                     <h3>{s.name}</h3>
-                    <p className="sig">{s.sig}</p>
+                    <p className="sig">If it's {s.sig}… <span className="tw">Travel Well.</span></p>
                     <div className="si-card__foot">
-                      <span>{picked ? "Added to your journey" : "Tap to choose"}</span>
-                      <Icon name={picked ? "check" : "arrow"} small />
+                      <span>{s.lux ? "Luxury & Ultra" : "All travelers"}</span>
+                      <span style={{ color: "var(--primary)", fontWeight: 600 }}>{live ? (on ? "Selected ✓" : "Tap to choose") : "Notify me →"}</span>
                     </div>
                   </div>
+                </>
+              );
+              if (!live) {
+                return <Link key={s.id} className="si-card is-preview" to={`/si/${s.id}`}>{inner}</Link>;
+              }
+              return (
+                <div
+                  key={s.id} className={cx("si-card", on && "is-picked")} role="button" tabIndex={0} aria-pressed={on}
+                  onClick={() => toggleSI(s.id)}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSI(s.id); } }}
+                >
+                  {inner}
                 </div>
               );
             })}
@@ -133,123 +304,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---- Atlas / Talk feature ---- */}
-      <section className="section band-linen">
+      {/* ---- A TRAVEL OPERATING SYSTEM — cinematic bands ---- */}
+      <section className="section band-ivory" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="os-intro">
+            <Eyebrow>How it all fits together</Eyebrow>
+            <h2>A Travel Operating <em>System</em>.</h2>
+            <p>Behind the calm surface, an organized engine routes every traveler from a spark of interest, to a place, to what excites them, to every need met — ending in a vetted, booked plan. Four moving parts, one effortless journey.</p>
+          </div>
+
+          {OS_BANDS.map((b) => (
+            <article key={b.title} className={`os-feature os-feature--${b.side}`}>
+              <div className="os-feature__bg" style={{ background: b.bg }} />
+              <img src={img(b.image, 1500)} alt="" referrerPolicy="no-referrer"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} />
+              <div className="os-feature__scrim" />
+              <div className="os-feature__content">
+                <div className="os-feature__num">{b.num}{b.numSub && <span style={{ fontSize: ".42em", fontWeight: 600, verticalAlign: "middle", opacity: 0.85 }}> {b.numSub}</span>}</div>
+                <Eyebrow>{b.eyebrow}</Eyebrow>
+                <h3>{b.title}</h3>
+                <p>{b.body}</p>
+                <div className="os-feature__chips">
+                  {b.chips.map((c) => <span key={c} className="os-feature__chip">{c}</span>)}
+                  {"soonChip" in b && b.soonChip && <span className="os-feature__chip soon">{b.soonChip}</span>}
+                </div>
+                <Link className="os-feature__cta" to={b.to}>{b.cta} <Icon name="arrow" small /></Link>
+              </div>
+            </article>
+          ))}
+
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <ButtonLink to="/about" variant="gold" style={{ height: 50, padding: "0 28px", fontSize: 15 }}>See the full architecture</ButtonLink>
+          </div>
+        </div>
+      </section>
+
+      {/* ---- TALK TO ME — Atlas feature + looping demo ---- */}
+      <section className="section band-ivory" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="talk">
             <div className="talk__inner">
-              <div>
-                <span className="talk__eyebrow eyebrow"><span className="dot" /> Your Concierge</span>
-                <h2>Meet <em>Atlas</em> — plan out loud.</h2>
-                <p className="talk__lead">
-                  Atlas listens, suggests, and shapes your trip in plain language — then hands you clean, honest options.
-                  Powered by Claude.
-                </p>
+              <div className="talk__copy">
+                <span className="eyebrow talk__eyebrow"><span className="dot" /> Meet your Concierge</span>
+                <h2>Don't know where to start? <em>Just talk to me.</em></h2>
+                <p className="talk__lead">Your Concierge is a travel expert that lives on every page. Tell it your dream in plain words — by typing or speaking — and watch a real, bookable trip take shape in seconds. No forms, no jargon.</p>
                 <div className="talk__feats">
-                  {ATLAS_FEATS.map((f) => (
+                  {TALK_FEATS.map((f) => (
                     <div className="talk__feat" key={f.b}>
-                      <div className="fic"><Icon name={f.icon} small /></div>
+                      <div className="fic"><Icon name={f.icon} /></div>
                       <div><b>{f.b}</b><span>{f.s}</span></div>
                     </div>
                   ))}
                 </div>
                 <div className="talk__cta-row">
-                  <Button onClick={() => openPanel("concierge")}><Icon name="sparkles" small /> Speak with Atlas</Button>
-                  <span className="note">Powered by Claude · it never books for you.</span>
+                  <Button onClick={() => openPanel("concierge")} style={{ height: 52, padding: "0 26px", fontSize: 16 }}>
+                    <Icon name="sparkles" small /> Try the Concierge
+                  </Button>
+                  <span className="note">Free to try · no account needed · powered by Claude</span>
                 </div>
               </div>
-              <div className="talk__demo">
-                <div className="talk__demo-head">
-                  <div className="talk__demo-av"><Icon name="sparkles" small /></div>
-                  <div>
-                    <div className="talk__demo-title">Atlas</div>
-                    <div className="talk__demo-sub"><span className="dot" /> Online · powered by Claude</div>
-                  </div>
-                  <span className="talk__demo-tag">Live demo</span>
-                </div>
-                <div className="talk__demo-body">
-                  <div className="talk-msg talk-msg--user" style={{ animationDelay: ".1s" }}>We want a safari for our anniversary in July.</div>
-                  <div className="talk-msg talk-msg--bot" style={{ animationDelay: ".5s" }}>July is peak Great Migration — perfect timing. Here are three camps that lean romantic:</div>
-                  {[
-                    { n: 1, name: "Angama Mara", why: "Clifftop suites over the Mara triangle — <b>matches luxury + safari</b>." },
-                    { n: 2, name: "Mahali Mzuri", why: "Branson's tented camp — <b>great for a romance-leaning safari</b>." },
-                    { n: 3, name: "Governors' Camp", why: "Front-row migration access — <b>fits your July dates</b>." },
-                  ].map((r, i) => (
-                    <div className="talk-rec" key={r.n} style={{ animationDelay: `${0.9 + i * 0.25}s` }}>
-                      <div className="talk-rec__num">{r.n}</div>
-                      <div>
-                        <div className="talk-rec__name">{r.name}</div>
-                        <div className="talk-rec__why" dangerouslySetInnerHTML={{ __html: r.why }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="talk__demo-foot">
-                  <div className="talk__demo-input">Tell me your dream…<span className="caret" /></div>
-                  <div className="talk__demo-mic"><Icon name="mic" small /></div>
-                  <div className="talk__demo-send"><Icon name="send" small /></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---- Featured destinations ---- */}
-      <section className="section band-ivory">
-        <div className="container">
-          <div className="section__head">
-            <div>
-              <Eyebrow>Where it leads</Eyebrow>
-              <h2>Destinations worth designing around.</h2>
-            </div>
-            <Link className="section__link" to="/destinations">All destinations <Icon name="arrow" small /></Link>
-          </div>
-          <div className="dest-rail">
-            {featuredDest.map((d) => (
-              <Link key={d.id} className="dest-card" to={`/destination/${d.id}`}>
-                <img src={img(d.img, 800)} alt="" loading="lazy" referrerPolicy="no-referrer"
-                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-                <div className="dest-card__scrim" />
-                <div className="dest-card__top"><Pill kind={d.status === "live" ? "live" : "preview"}>{d.status === "live" ? "Live" : "Preview"}</Pill></div>
-                <div className="dest-card__body">
-                  <h3>{d.name}</h3>
-                  <div className="meta"><Icon name="pin" small /> {d.country} · {d.line}</div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---- OS stats band ---- */}
-      <section className="section band-ivory" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <div className="os-band">
-            <div className="os-band__inner">
-              <div>
-                <Eyebrow>The system underneath</Eyebrow>
-                <h2>One operating system for the whole trip.</h2>
-                <p>
-                  Twenty-five ways to travel, thirteen regions, ten Wells, and a vetted partner network —
-                  all connected, all honest about what's live today.
-                </p>
-                <img src={regionImg("05A", 80)} alt="" style={{ display: "none" }} />
-              </div>
-              <div className="os-stats">
-                {[
-                  { n: "25", l: "Special Interests", b: "ways to travel" },
-                  { n: "13", l: "Regions", b: "01F – 13A" },
-                  { n: "10", l: "Wells", b: "+2 luxury" },
-                  { n: "200+", l: "Partners", b: "vetted · disclosed" },
-                ].map((s) => (
-                  <div className="os-stat" key={s.l}>
-                    <div className="n">{s.n}</div>
-                    <div className="l">{s.l}</div>
-                    <div className="b">{s.b}</div>
-                  </div>
-                ))}
-              </div>
+              <TalkDemo />
             </div>
           </div>
         </div>
