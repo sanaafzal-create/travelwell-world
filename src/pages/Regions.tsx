@@ -1,0 +1,94 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Icon } from "@/lib/icons";
+import { REGIONS, REGION_SI, siById } from "@/data/taxonomy";
+import { regionImg } from "@/lib/images";
+import { useStore } from "@/store/useStore";
+import { Eyebrow, Pill } from "@/components/ui/primitives";
+import { JourneyBar } from "@/components/ui/StepIndicator";
+import { cx } from "@/lib/utils";
+
+type Sort = "match" | "az" | "all";
+
+function scoreFor(code: string, sis: string[]) {
+  const tags = REGION_SI[code] || [];
+  return sis.reduce((n, si) => n + (tags.includes(si) ? 1 : 0), 0);
+}
+
+export default function Regions() {
+  const { journeySIs, setRegion } = useStore();
+  const [sort, setSort] = useState<Sort>(journeySIs.length ? "match" : "all");
+
+  const regions = [...REGIONS];
+  if (sort === "az") regions.sort((a, b) => a.name.localeCompare(b.name));
+  else if (sort === "match" && journeySIs.length) regions.sort((a, b) => scoreFor(b.code, journeySIs) - scoreFor(a.code, journeySIs));
+
+  return (
+    <>
+      <JourneyBar current={2} crumbs={[{ label: "Home", to: "/" }, { label: "Special Interests", to: "/special-interests" }, { label: "Regions" }]} />
+
+      <div className="container jn-intro">
+        <Eyebrow>The Dream Journey · Step 2 of 5</Eyebrow>
+        <h1>Now — where in the world?</h1>
+        <p className="lead">Thirteen regions, each a different promise. We've ordered them by how well they fit the way you love to travel.</p>
+
+        {journeySIs.length > 0 && (
+          <div className="jn-context">
+            <div className="jn-context__ic"><Icon name="compass" small /></div>
+            <div><b>Ranked for your interests.</b> Regions that fit {journeySIs.map((s) => siById(s)?.name).filter(Boolean).join(" + ")} rise to the top.</div>
+            <span className="lit">{journeySIs.map((s) => <span key={s}>{siById(s)?.name}</span>)}</span>
+          </div>
+        )}
+
+        <div className="jn-toolbar">
+          <div className="rg-jump jn-filter" role="group" aria-label="Sort regions">
+            <button aria-pressed={sort === "match"} onClick={() => setSort("match")} disabled={!journeySIs.length}>Best for your interests</button>
+            <button aria-pressed={sort === "az"} onClick={() => setSort("az")}>A–Z</button>
+            <button aria-pressed={sort === "all"} onClick={() => setSort("all")}>All regions</button>
+          </div>
+          <span className="jn-sweet"><Icon name="globe" small /> 13 regions · pick one to keep building</span>
+        </div>
+      </div>
+
+      <div className="container" style={{ paddingBottom: 80 }}>
+        <div className="rg-grid">
+          {regions.map((r) => {
+            const score = scoreFor(r.code, journeySIs);
+            const strong = score >= 2;
+            return (
+              <Link
+                key={r.code}
+                className={cx("rg-card", r.status !== "live" && "rg-card--preview")}
+                to={`/region/${r.code}`}
+                onClick={() => setRegion(r.code)}
+              >
+                <div className="rg-card__media">
+                  <img src={regionImg(r.code, 800)} alt="" loading="lazy" referrerPolicy="no-referrer" />
+                  <div className="scrim" />
+                  <span className="rg-card__code">{r.code}</span>
+                  <span className="rg-card__top-badge"><Pill kind={r.status === "live" ? "live" : "preview"}>{r.status === "live" ? "Live" : "Preview"}</Pill></span>
+                  <span className="rg-card__name">{r.name}</span>
+                </div>
+                <div className="rg-card__body">
+                  <span className="rg-card__line">{r.line}</span>
+                  <div className="rg-card__meta">
+                    <span className="rg-card__stat"><span className="k">Countries</span><span className="v">{r.countries}{r.sub ? " · sub-regions" : ""}</span></span>
+                    <span className="rg-card__stat"><span className="k">Gateways</span><span className="v rg-card__gw">{r.gateways}</span></span>
+                  </div>
+                  <div className="rg-card__foot">
+                    {journeySIs.length ? (
+                      <span className="rg-card__match">{strong ? "Strong match" : score > 0 ? "Good match" : "Explore"}</span>
+                    ) : (
+                      <span className="rg-card__match" style={{ color: "var(--muted-foreground)" }}>{r.sub ? <span className="rg-sub-chip">Sub-regions</span> : "Discover"}</span>
+                    )}
+                    <span className="rg-card__cta">Explore <Icon name="arrow" small /></span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
+}
