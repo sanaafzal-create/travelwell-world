@@ -1,103 +1,161 @@
-import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { regionByCode, SUBREGIONS } from "@/data/taxonomy";
 import { REGION_DETAIL, DESTINATIONS, SUBREGION_TOP } from "@/data/places";
 import { regionImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { Eyebrow, Pill, ButtonLink } from "@/components/ui/primitives";
+import { Eyebrow } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
+import { cx } from "@/lib/utils";
+
+const AIRPORTS: Record<string, string> = {
+  CDG: "Paris", LHR: "London", AMS: "Amsterdam", BCN: "Barcelona", FCO: "Rome", ATH: "Athens",
+  CPH: "Copenhagen", OSL: "Oslo", HEL: "Helsinki", DXB: "Dubai", DOH: "Doha", AUH: "Abu Dhabi",
+  NBO: "Nairobi", JRO: "Kilimanjaro", KGL: "Kigali", CPT: "Cape Town", JNB: "Johannesburg", WDH: "Windhoek",
+  BKK: "Bangkok", SIN: "Singapore", DPS: "Bali (Denpasar)", NRT: "Tokyo", ICN: "Seoul", HKG: "Hong Kong",
+  SYD: "Sydney", AKL: "Auckland", NAN: "Nadi, Fiji", MEX: "Mexico City", LIM: "Lima", GIG: "Rio de Janeiro",
+  NAS: "Nassau", PUJ: "Punta Cana", SJU: "San Juan", JFK: "New York", LAX: "Los Angeles", ORD: "Chicago",
+  YYZ: "Toronto", YVR: "Vancouver", YUL: "Montréal",
+};
 
 export default function RegionDetail() {
   const { code = "" } = useParams();
   const { setRegion } = useStore();
-  const region = regionByCode(code);
-  const detail = REGION_DETAIL[code];
-
-  if (!region) return <div className="container" style={{ padding: "80px 0" }}><h1 className="t-display-l">Region not found.</h1><Link className="btn btn-primary" to="/regions" style={{ marginTop: 20 }}>All regions</Link></div>;
-
-  const dests = DESTINATIONS[code] || [];
-  const subs = SUBREGIONS[code];
+  const R = regionByCode(code) || regionByCode("05A")!;
+  const DET = REGION_DETAIL[R.code] || ({} as (typeof REGION_DETAIL)[string]);
+  const DESTS = DESTINATIONS[R.code] || [];
+  const isSub = Boolean(DET.sub);
+  const subList = SUBREGIONS[R.code] || [];
+  const [open, setOpen] = useState(0);
 
   return (
     <>
-      <JourneyBar current={2} crumbs={[{ label: "Home", to: "/" }, { label: "Regions", to: "/regions" }, { label: region.name }]} />
+      <JourneyBar current={2} crumbs={[{ label: "Home", to: "/" }, { label: "Regions", to: "/regions" }, { label: R.name }]} />
 
-      <section style={{ position: "relative", minHeight: 440, display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-        <img src={regionImg(code, 1600)} alt="" referrerPolicy="no-referrer" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: region.status !== "live" ? "saturate(.25) brightness(1.02)" : undefined }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,18,14,.85), rgba(20,18,14,.1) 60%)" }} />
-        <div className="container" style={{ position: "relative", zIndex: 2, padding: "0 var(--gutter) 44px", color: "#fff" }}>
-          <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 12 }}>
-            <span className="pill" style={{ background: "rgba(255,255,255,.16)", color: "#fff", border: "1px solid rgba(255,255,255,.3)", fontFamily: "var(--font-mono)" }}>{region.code}</span>
-            <Pill kind={region.status === "live" ? "live" : "preview"}>{region.status === "live" ? "Live" : "Preview"}</Pill>
+      <section className="rd-hero">
+        <div className="rd-hero__img"><img src={regionImg(R.code, 1800)} alt="" referrerPolicy="no-referrer" /></div>
+        <div className="rd-hero__scrim" />
+        <div className="rd-hero__inner">
+          <div className="rd-hero__code">REGION {R.code}</div>
+          <h1 className="rd-hero__title">{R.name}</h1>
+          <p className="rd-hero__line">{R.line}</p>
+          <div className="rd-hero__badges">
+            {R.status === "live"
+              ? <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live region</span>
+              : <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview region</span>}
+            <span className="pill pill-engine">{DET.countries ? DET.countries.length : R.countries} {isSub ? "country" : "countries"}</span>
+            {isSub && <span className="pill" style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}>{subList.length} travel sub-regions</span>}
           </div>
-          <h1 className="t-display-l" style={{ color: "#fff" }}>{region.name}</h1>
-          <p className="t-lead" style={{ color: "rgba(255,255,255,.92)", marginTop: 8, maxWidth: "52ch" }}>{detail?.blurb || region.line}</p>
         </div>
       </section>
 
-      <div className="container" style={{ padding: "40px 0 0", display: "grid", gridTemplateColumns: "1fr 300px", gap: 36, alignItems: "start" }}>
-        <div>
-          {detail?.season && (
-            <>
-              <Eyebrow>When to go</Eyebrow>
-              <div className="si-grid" style={{ gridTemplateColumns: `repeat(${Math.min(3, detail.season.length)}, 1fr)`, marginTop: 14 }}>
-                {detail.season.map((s) => (
-                  <div key={s.l} className="card" style={{ padding: 18 }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                      <strong style={{ fontFamily: "var(--font-display)", fontSize: 18 }}>{s.l}</strong>
-                      <span className="t-body-s" style={{ color: "var(--primary)", fontWeight: 600 }}>{s.m}</span>
-                    </div>
-                    <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 6 }}>{s.note}</p>
-                  </div>
+      <div className="rd-body">
+        <p className="rd-blurb">{DET.blurb || R.line}</p>
+        <div className="rd-facts">
+          <div className="rd-fact">
+            <div className="rd-fact__k">{isSub ? "Country" : "Member countries"}</div>
+            <div className="rd-fact__v"><div className="rd-countries">{(DET.countries || []).map((c) => <span key={c} className="rd-country">{c}</span>)}</div></div>
+            <div className="rd-fact__cap">{(DET.countries || []).length} {isSub ? "nation" : "countries"} in this {isSub ? "region" : "world region"}{isSub ? "" : " · visa-friendly routings"}</div>
+          </div>
+          <div className="rd-fact">
+            <div className="rd-fact__k">Gateway airports</div>
+            <div className="rd-fact__v">
+              <div className="rd-gw-chips">
+                {R.gateways.split("·").map((c) => c.trim()).map((g) => (
+                  <div key={g} className="rd-gw-chip"><span className="code">{g}</span><span className="city">{AIRPORTS[g] || "International gateway"}</span></div>
                 ))}
               </div>
-            </>
-          )}
-
-          {dests.length > 0 && (
-            <section style={{ marginTop: 40 }}>
-              <Eyebrow>Destinations</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>Where to point yourself.</h2>
-              <div className="dest-rail" style={{ marginTop: 18 }}>
-                {dests.map((d) => (
-                  <Link key={d.id} className="dest-card" to={`/destination/${d.id}`}>
-                    <img src={img(d.img, 700)} alt="" loading="lazy" referrerPolicy="no-referrer" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-                    <div className="dest-card__scrim" />
-                    <div className="dest-card__top"><Pill kind={d.status === "live" ? "live" : "preview"}>{d.status === "live" ? "Live" : "Preview"}</Pill></div>
-                    <div className="dest-card__body"><h3>{d.name}</h3><div className="meta">{d.country}</div></div>
-                  </Link>
+            </div>
+            <div className="rd-fact__cap">Primary international arrivals · connections region-wide</div>
+          </div>
+          <div className="rd-fact">
+            <div className="rd-fact__k">When to go</div>
+            <div className="rd-fact__v">
+              <div className="rd-seasons">
+                {(DET.season || []).map((s) => (
+                  <div key={s.l} className="rd-season"><span className="rd-season__l">{s.l}</span><span className="rd-season__m">{s.m}</span><span className="rd-season__n">{s.note}</span></div>
                 ))}
               </div>
-            </section>
-          )}
-
-          {subs && (
-            <section style={{ marginTop: 40 }}>
-              <Eyebrow>Travel sub-regions</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>{region.name}, by region.</h2>
-              <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", marginTop: 18 }}>
-                {subs.map((s) => (
-                  <div key={s} className="card" style={{ padding: 18 }}>
-                    <h3 className="t-h3" style={{ fontSize: 19 }}>{s}</h3>
-                    <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 6 }}>Top: {(SUBREGION_TOP[s] || []).join(" · ")}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
-
-        <aside style={{ position: "sticky", top: 88, display: "flex", flexDirection: "column", gap: 16 }}>
-          <div className="card" style={{ padding: 20 }}>
-            <Eyebrow>At a glance</Eyebrow>
-            <div style={{ marginTop: 14, display: "flex", flexDirection: "column", gap: 12 }}>
-              <div><div className="t-micro" style={{ color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: ".08em" }}>Countries</div><div className="t-body" style={{ fontWeight: 600 }}>{region.countries}</div></div>
-              <div><div className="t-micro" style={{ color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: ".08em" }}>Gateways</div><div className="t-body" style={{ fontWeight: 600, fontFamily: "var(--font-mono)" }}>{region.gateways}</div></div>
-              {detail?.countries && <div><div className="t-micro" style={{ color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: ".08em" }}>Includes</div><div className="t-body-s">{detail.countries.join(", ")}</div></div>}
             </div>
           </div>
-          <ButtonLink to="/activities" onClick={() => setRegion(code)} style={{ width: "100%" }}>Continue to activities <Icon name="arrow" small /></ButtonLink>
-        </aside>
+        </div>
+      </div>
+
+      {DESTS.length > 0 && (
+        <section className="rd-section">
+          <div className="rd-section__head">
+            <div><h2>Destinations within</h2><p>Hand-picked places — stay inside the region as you build.</p></div>
+            <Link className="btn btn-secondary" to="/destinations">See all <Icon name="arrow" small /></Link>
+          </div>
+          <div className="rd-dest-grid">
+            {DESTS.map((d) => (
+              <Link key={d.id} className={cx("rd-dest", d.status === "stub" && "rd-dest--stub")} to={`/destination/${d.id}`}>
+                <img src={img(d.img, 600)} alt="" loading="lazy" referrerPolicy="no-referrer" />
+                <span className="rd-dest__scrim" />
+                <span className="rd-dest__badge">
+                  {d.status === "live"
+                    ? <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
+                    : <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>}
+                </span>
+                <span className="rd-dest__body">
+                  <span className="rd-dest__country">{d.country}</span>
+                  <span className="rd-dest__name">{d.name}</span>
+                  <span className="rd-dest__line">{d.line}</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {isSub && (
+        <section className="rd-section">
+          <div className="rd-section__head">
+            <div><h2>Travel sub-regions</h2><p>{R.name} is big — we split it into {subList.length} labeled sub-regions, each with its own ranked Top list.</p></div>
+          </div>
+          <div className="rd-subs">
+            {subList.map((name, i) => {
+              const top = SUBREGION_TOP[name] || [];
+              const isOpen = open === i;
+              return (
+                <div key={name} className="rd-sub">
+                  <button className="rd-sub__head" aria-expanded={isOpen} onClick={() => setOpen(isOpen ? -1 : i)}>
+                    <span className="rd-sub__num">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="rd-sub__name">{name}</span>
+                    <span className="rd-sub__chev"><Icon name="chev" small /></span>
+                  </button>
+                  {isOpen && (
+                    <div className="rd-sub__panel">
+                      <div className="rd-sub__toplabel">Top in {name}</div>
+                      <div className="rd-top">
+                        {top.map((t, ti) => (
+                          <Link key={t} className="rd-top__item" to={`/destination/${t.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
+                            <span className="rd-top__rank">{ti + 1}</span><span className="rd-top__name">{t}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
+      <div className="rd-continue">
+        <div className="rd-continue__card">
+          <div style={{ flex: 1, minWidth: 240 }}>
+            <Eyebrow>Step 2 of 5 complete</Eyebrow>
+            <h3 style={{ marginTop: 6 }}>{R.name} it is. What excites you here?</h3>
+            <p>Next, pick the activities you're dreaming of — we'll pre-fill your Wells with matched providers.</p>
+          </div>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <Link className="btn btn-secondary" to="/regions">← Change region</Link>
+            <Link className="btn btn-primary" to="/activities" onClick={() => setRegion(R.code)} style={{ height: 52, padding: "0 26px" }}>Choose activities →</Link>
+          </div>
+        </div>
       </div>
     </>
   );

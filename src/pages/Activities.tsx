@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { siById, wellById } from "@/data/taxonomy";
+import { siById, wellById, WELLS, LUX_WELLS } from "@/data/taxonomy";
 import { ACTIVITIES } from "@/data/places";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
@@ -10,9 +10,15 @@ import { cx } from "@/lib/utils";
 export default function Activities() {
   const navigate = useNavigate();
   const { journeySIs, journeyActs, toggleAct } = useStore();
-  // Show activities for chosen SIs (fall back to safari to demonstrate the surface).
   const sis = journeySIs.filter((s) => ACTIVITIES[s]?.length);
-  const groups = (sis.length ? sis : ["safari"]).map((s) => ({ si: s, items: ACTIVITIES[s] || [] }));
+  const groups = (sis.length ? sis : ["safari"]).map((s) => ({ si: siById(s), items: ACTIVITIES[s] || [] })).filter((g) => g.si);
+
+  // Which Wells light up, by count of chosen activities mapping to them.
+  const allWells = [...WELLS, ...LUX_WELLS];
+  const wellCounts: Record<string, number> = {};
+  groups.forEach((g) => g.items.forEach((a) => { if (journeyActs.includes(a.id)) wellCounts[a.well] = (wellCounts[a.well] || 0) + 1; }));
+  const litWells = Object.keys(wellCounts).length;
+  const litList = allWells.filter((w) => wellCounts[w.id] > 0);
 
   return (
     <>
@@ -21,44 +27,63 @@ export default function Activities() {
       <div className="container jn-intro">
         <Eyebrow>The Dream Journey · Step 3 of 5</Eyebrow>
         <h1>What excites you most?</h1>
-        <p className="lead">Pick the experiences that pull at you. Each one quietly pre-fills the right Well — so the next step is already half-built.</p>
+        <p className="lead">Pick the moments you're dreaming of. Each one quietly pre-fills the right Well with matched providers — so the next step is already half-done.</p>
       </div>
 
-      <div className="container" style={{ paddingBottom: 40 }}>
-        {groups.map(({ si, items }) => (
-          <section className="si-group" key={si}>
-            <div className="si-group__head">
-              <h2 className="si-group__title">{siById(si)?.name || si}</h2>
-              <span className="si-group__blurb">{siById(si)?.sig}</span>
-            </div>
-            <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
-              {items.map((a) => {
-                const picked = journeyActs.includes(a.id);
-                const w = wellById(a.well);
-                return (
-                  <button key={a.id} className={cx("card", picked && "pv--added")} aria-pressed={picked} onClick={() => toggleAct(a.id)}
-                    style={{ padding: 20, display: "flex", gap: 14, alignItems: "flex-start", textAlign: "start", cursor: "pointer", border: picked ? "1px solid var(--primary)" : undefined }}>
-                    <div className="icon-chip"><Icon name={w?.icon || "compass"} /></div>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                        <h3 className="t-h3" style={{ fontSize: 18 }}>{a.name}</h3>
-                        {picked && <Icon name="check" small className="" style={{ color: "var(--primary)" }} />}
-                      </div>
-                      <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 4 }}>{a.line}</p>
-                      <span className="pill pill-preview" style={{ marginTop: 10 }}>Pre-fills {w?.name}</span>
+      <div className="container">
+        <div className="ac-layout">
+          <div className="ac-groups">
+            {groups.map(({ si, items }) => (
+              <section className="ac-group" key={si!.id}>
+                <div className="ac-group__head">
+                  <span className="ac-group__accent" style={{ background: si!.accent }} />
+                  <div><div className="ac-group__title">{si!.name}</div><div className="ac-group__sig">{si!.sig}</div></div>
+                </div>
+                <div className="ac-grid">
+                  {items.map((a) => {
+                    const on = journeyActs.includes(a.id);
+                    const w = wellById(a.well);
+                    return (
+                      <button key={a.id} className={cx("ac-card", on && "is-selected")} aria-pressed={on} onClick={() => toggleAct(a.id)}>
+                        <span className="ac-card__check"><Icon name="check" small /></span>
+                        <span className="ac-card__name">{a.name}</span>
+                        <span className="ac-card__line">{a.line}</span>
+                        <span className="ac-card__well"><Icon name={w?.icon || "compass"} small /> {w?.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+
+          <aside className="ac-side">
+            <div className="ac-side__card">
+              <div className="ac-side__head">
+                <h3>How your picks map</h3>
+                <p>Every activity fills a Well for you.</p>
+              </div>
+              <div className="ac-side__body">
+                {litList.length === 0 ? (
+                  <div className="ac-side__empty"><Icon name="compass" /><div style={{ marginTop: 8 }}>Select activities and watch your Wells light up.</div></div>
+                ) : (
+                  litList.map((w) => (
+                    <div key={w.id} className="ac-well-row lit">
+                      <span className="ac-well-row__ic"><Icon name={w.icon} /></span>
+                      <span className="ac-well-row__name">{w.name}</span>
+                      <span className="ac-well-row__count">{wellCounts[w.id]}</span>
                     </div>
-                  </button>
-                );
-              })}
+                  ))
+                )}
+              </div>
+              <div className="ac-side__foot">
+                <button className="btn btn-primary" onClick={() => navigate("/wells-surface")}>Continue to Wells →</button>
+                <div className="ac-summary">
+                  {journeyActs.length === 0 ? "Pick a few to begin" : `${journeyActs.length} activit${journeyActs.length === 1 ? "y" : "ies"} → ${litWells} Well${litWells === 1 ? "" : "s"} pre-filled`}
+                </div>
+              </div>
             </div>
-          </section>
-        ))}
-      </div>
-
-      <div className="wp-continue">
-        <div className="wp-continue__inner">
-          <span className="wp-continue__text"><b>{journeyActs.length}</b> experiences chosen · they'll pre-fill your Wells</span>
-          <button className="btn btn-primary" style={{ marginInlineStart: "auto" }} onClick={() => navigate("/wells-surface")}>Continue to the Wells <Icon name="arrow" small /></button>
+          </aside>
         </div>
       </div>
     </>

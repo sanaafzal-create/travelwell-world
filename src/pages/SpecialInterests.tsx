@@ -63,28 +63,31 @@ export default function SpecialInterests() {
                     <button
                       key={s.id}
                       className={cx("si-tile", isSoon && "si-tile--soon")}
-                      aria-pressed={picked}
+                      aria-pressed={isSoon ? undefined : picked}
+                      aria-disabled={isSoon || undefined}
                       onClick={() => (isSoon ? navigate(`/si/${s.id}`) : toggleSI(s.id))}
                     >
-                      <div className="si-tile__img">
+                      <span className="si-tile__img">
                         <img src={siImg(s.id, 700)} alt="" loading="lazy" referrerPolicy="no-referrer" />
-                      </div>
-                      <div className="si-tile__scrim" />
-                      <div className="si-tile__accent" style={{ background: s.accent }} />
-                      <div className="si-tile__top">
+                      </span>
+                      <span className="si-tile__scrim" />
+                      <span className="si-tile__accent" style={{ background: s.accent }} />
+                      <span className="si-tile__top">
                         {isSoon ? (
-                          <span className="si-soon-badge">Coming soon</span>
+                          <><span /><span className="si-soon-badge">Coming soon</span></>
                         ) : (
-                          <span className="si-check" data-order={order || undefined}>
-                            {picked ? order : <Icon name="check" small />}
-                          </span>
+                          <>
+                            <span className="si-tile__order">{picked ? order : ""}</span>
+                            <span />
+                            <span className="si-check" aria-hidden="true"><Icon name="check" small /></span>
+                          </>
                         )}
-                      </div>
-                      <div className="si-tile__body">
+                      </span>
+                      <span className="si-tile__body">
                         <span className="si-tile__name">{s.name}</span>
-                        <span className="si-tile__sig">{s.sig}</span>
-                      </div>
-                      <span className="si-tile__view">View <Icon name="arrow" small /></span>
+                        <span className="si-tile__sig">{s.sig.charAt(0).toUpperCase() + s.sig.slice(1)}</span>
+                      </span>
+                      <span className="si-tile__view">{isSoon ? "Preview" : "View"} <Icon name="arrow" small /></span>
                     </button>
                   );
                 })}
