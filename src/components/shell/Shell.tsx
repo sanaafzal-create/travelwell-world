@@ -9,6 +9,27 @@ import { Emergency } from "./Emergency";
 import { Ambient } from "./Ambient";
 import { useStore, applyInitialLocale } from "@/store/useStore";
 
+// Map a route to the page-scope slug used by src/styles/pages.css. Every page
+// block in pages.css is scoped under [data-page="<slug>"] so per-page styles
+// can never leak into another page (see the styles refactor).
+const PAGE_SLUGS: Record<string, string> = {
+  "special-interests": "special-interests", "si": "si-detail",
+  "regions": "regions", "region": "region-detail", "activities": "activities",
+  "wells": "wells", "wells-surface": "wells-surface", "well": "well-detail",
+  "providers": "providers", "destinations": "destinations", "destination": "destination-detail",
+  "guides": "guides", "guide": "guide-detail", "plan": "plan",
+  "first-aid-kit": "first-aid-kit", "go": "go", "about": "about", "profile": "profile",
+  "signin": "sign-in", "verify": "verify-email", "sitemap": "sitemap",
+  "itinerary": "itinerary", "luxury": "luxury", "demo": "demo", "vc-demo": "demo",
+  "signup": "sign-up", "activation": "activation",
+};
+function pageSlug(pathname: string): string {
+  const p = pathname.replace(/\/+$/, "");
+  if (p === "") return "home";
+  const first = p.split("/").filter(Boolean)[0] ?? "home";
+  return PAGE_SLUGS[first] ?? first;
+}
+
 export function Shell() {
   const { panel, closePanel } = useStore();
   const location = useLocation();
@@ -40,7 +61,7 @@ export function Shell() {
       <a className="skip-link" href="#main">Skip to content</a>
       <Header />
       <MegaMenu />
-      <main id="main" className="tw-main">
+      <main id="main" className="tw-main" data-page={pageSlug(location.pathname)}>
         <Outlet />
       </main>
       <Footer />
