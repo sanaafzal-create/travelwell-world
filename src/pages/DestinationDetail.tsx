@@ -1,107 +1,191 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, wellById } from "@/data/taxonomy";
-import { DESTINATIONS, PROVIDERS, type Destination, type Provider } from "@/data/places";
+import { DESTINATIONS, PROVIDERS, GUIDES } from "@/data/places";
+import type { Destination, Provider } from "@/data/places";
+import { REGIONS, WELLS, LUX_WELLS } from "@/data/taxonomy";
+import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { Eyebrow, Pill, SafetyChip, Ftc, IconChip } from "@/components/ui/primitives";
-import { cap } from "@/lib/utils";
+import { cx } from "@/lib/utils";
 
-function findDest(id?: string): { dest?: Destination; code?: string } {
-  for (const code of Object.keys(DESTINATIONS)) {
-    const d = DESTINATIONS[code].find((x) => x.id === id);
-    if (d) return { dest: d, code };
+const allWells: Record<string, Well> = {};
+[...WELLS, ...LUX_WELLS].forEach((w) => { allWells[w.id] = w; });
+
+const TIER: Record<string, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
+
+interface SafetyInfo { lvl: 1 | 2 | 3 | 4; label: string; note: string; }
+const SAFETY: Record<string, SafetyInfo> = {
+  Kenya: { lvl: 2, label: "Exercise increased caution", note: "Some areas near borders advise caution. Maasai Mara & main parks are routinely visited." },
+  Tanzania: { lvl: 1, label: "Exercise normal precautions", note: "Standard travel precautions apply." },
+  default: { lvl: 1, label: "Exercise normal precautions", note: "Standard travel precautions apply for this destination." },
+};
+const SAFE_COLOR: Record<number, string> = { 1: "var(--safety-1)", 2: "var(--safety-2)", 3: "var(--safety-3)", 4: "var(--safety-4)" };
+
+/** Find a destination by id across every region's list; return it with its region and sibling list. */
+function findDestination(id?: string): { dest: Destination; region: Region; list: Destination[] } {
+  const fallbackRegion = REGIONS.find((r) => r.code === "05A")!;
+  for (const r of REGIONS) {
+    const list = DESTINATIONS[r.code] || [];
+    const dest = list.find((d) => d.id === id);
+    if (dest) return { dest, region: r, list };
   }
-  return {};
+  const list = DESTINATIONS[fallbackRegion.code] || [];
+  const stub: Destination = { id: "x", name: id || "This place", country: fallbackRegion.name, line: "A destination in " + fallbackRegion.name, status: "stub", img: "mountainValley" };
+  return { dest: list[0] || stub, region: fallbackRegion, list };
+}
+
+function providersByWell(): { well: Well; items: Provider[] }[] {
+  const groups: { well: Well; items: Provider[] }[] = [];
+  (["stay", "activities", "eat", "move"] as const).forEach((wid) => {
+    const pool = (PROVIDERS[wid] || []).slice(0, 4);
+    if (pool.length) groups.push({ well: allWells[wid], items: pool });
+  });
+  return groups;
 }
 
 export default function DestinationDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
-  const { addToTrip } = useStore();
-  const { dest } = findDest(id);
+  const { openPanel } = useStore();
+  const { dest: DEST, region: R, list } = findDestination(id);
+  const country = DEST.country || R.name;
+  const stub = DEST.status === "stub";
 
-  if (!dest) {
-    return (
-      <div className="container" style={{ padding: "80px 0" }}>
-        <Eyebrow>Not found</Eyebrow>
-        <h1 className="t-display-l">That destination wandered off the map.</h1>
-        <Link className="btn btn-primary" to="/destinations" style={{ marginTop: 24 }}>Back to destinations</Link>
-      </div>
-    );
-  }
+  const s = SAFETY[country] || SAFETY.default;
+  const safeColor = SAFE_COLOR[s.lvl];
 
-  // Provider stacks by Well (using the prototype's representative Mara catalog).
-  const stacks = WELLS.filter((w) => (PROVIDERS[w.id] || []).length).slice(0, 4);
-  function book(p: Provider) {
-    const w = wellById(p.well);
-    if (p.mode === "affiliate") { navigate(`/go?to=${encodeURIComponent(p.name)}&well=${p.well}`); return; }
-    addToTrip({ well: p.well, icon: w?.icon || "compass", name: p.name, meta: `${w?.name} · ${dest!.name}`, status: "pending" });
-  }
+  const groups = providersByWell();
+
+  const relGuides = (() => {
+    const pref = GUIDES.filter((gg) => gg.region === R.code || ["safari", "romance", "culinary"].includes(gg.si));
+    return (pref.length >= 2 ? pref : GUIDES).slice(0, 2);
+  })();
 
   return (
     <>
-      <section style={{ position: "relative", minHeight: 460, display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-        <img src={img(dest.img, 1600)} alt="" referrerPolicy="no-referrer"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,18,14,.82), rgba(20,18,14,.1) 60%, rgba(20,18,14,.3))" }} />
-        <div className="container" style={{ position: "relative", zIndex: 2, padding: "0 var(--gutter) 48px", color: "#fff" }}>
-          <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
-            <Pill kind={dest.status === "live" ? "live" : "preview"}>{dest.status === "live" ? "Live" : "Preview"}</Pill>
+      <div className="jn-subhead">
+        <div className="jn-subhead__inner">
+          <nav className="jn-crumbs" aria-label="Breadcrumb">
+            <Link to="/">Home</Link><span className="sep">/</span>
+            <Link to="/regions">Regions</Link><span className="sep">/</span>
+            <Link to={`/region/${R.code}`}>{R.name}</Link><span className="sep">/</span>
+            <span className="here">{DEST.name}</span>
+          </nav>
+        </div>
+      </div>
+
+      <section className={cx("dd-hero", stub && "dd-hero--stub")}>
+        <div className="dd-hero__img"><img src={img(DEST.img, 1800)} alt="" referrerPolicy="no-referrer" loading="lazy" /></div>
+        <div className="dd-hero__scrim" />
+        <div className="dd-hero__inner">
+          <div className="dd-hero__country">{country} · {R.name}</div>
+          <h1 className="dd-hero__title">{DEST.name}</h1>
+          <p className="dd-hero__line">{DEST.line}</p>
+          <div className="dd-hero__badges">
+            {stub
+              ? <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview destination</span>
+              : <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live destination</span>}
+            <span className="pill pill-engine">In the {R.name} journey</span>
           </div>
-          <h1 className="t-display-l" style={{ color: "#fff" }}>{dest.name}</h1>
-          <p className="t-lead" style={{ color: "rgba(255,255,255,.92)", marginTop: 8 }}><Icon name="pin" small /> {dest.country} · {dest.line}</p>
         </div>
       </section>
 
-      <div className="container" style={{ padding: "40px var(--gutter) 0", display: "grid", gridTemplateColumns: "1fr 320px", gap: 36, alignItems: "start" }}>
-        <div>
-          <Eyebrow>Plan your stay</Eyebrow>
-          <h2 className="t-h2" style={{ marginTop: 8 }}>Everything you need, by Well.</h2>
-          <p className="t-lead" style={{ marginTop: 10 }}>We've stacked vetted options for {dest.name} across the Wells that matter most — Prime partners first, every commission disclosed.</p>
+      <div className="dd-body">
+        <div className="dd-main">
+          <p className="dd-desc">{DEST.line}. {stub ? "" : "Below, everything you need here — grouped by the Wells that matter, with vetted providers and honest pricing."}</p>
 
-          {stacks.map((w) => (
-            <section key={w.id} style={{ marginTop: 36 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
-                <IconChip name={w.icon} />
-                <div><h3 className="t-h3">{w.name}</h3><p className="t-body-s" style={{ color: "var(--muted-foreground)" }}>{w.tag}</p></div>
+          {stub && (
+            <div className="dd-stub-notice">
+              <Icon name="info" small />
+              <span><b>This destination is a preview.</b> We have it in our taxonomy but haven't finished curating providers here yet. You can still add it to your trip as an idea, and we'll fill it in — or write it in via the Wells step.</span>
+            </div>
+          )}
+
+          {!stub && groups.map((gr) => (
+            <div className="dd-stack" key={gr.well.id}>
+              <div className="dd-stack__head">
+                <div className="dd-stack__ic"><Icon name={gr.well.icon} /></div>
+                <div>
+                  <div className="dd-stack__name">{gr.well.name}</div>
+                  <div className="dd-stack__tag">{gr.well.tag}</div>
+                </div>
+                <span className="dd-stack__count">{gr.items.length} options</span>
               </div>
-              <div className="pv-grid">
-                {(PROVIDERS[w.id] || []).slice(0, 2).map((p) => (
-                  <div key={p.name} className="pv">
-                    <div className="pv__body">
-                      <div className="pv__top">
-                        <span className="pv__name">{p.name}</span>
-                        <span className={`pv__tier pv__tier--${p.tier}`}>{p.tier === "prime" ? "★ Prime" : p.tier}</span>
-                      </div>
-                      <p className="pv__desc">{p.desc}</p>
-                      <div className="pv__attrs"><span className="pv__attr">{cap(p.price)}</span></div>
+              <div className="dd-pvlist">
+                {gr.items.map((p) => (
+                  <div className="dd-pv" key={p.name}>
+                    <div className="dd-pv__top">
+                      <div className="dd-pv__name">{p.name}</div>
+                      <span className={`dd-pv__tier dd-pv__tier--${p.tier}`}>{TIER[p.tier]}</span>
                     </div>
-                    <div className="pv__foot">
-                      <div className="pv__cta-row"><button className="btn btn-primary" onClick={() => book(p)}>Book It</button></div>
-                      <Ftc className="pv__ftc">{p.commission}.</Ftc>
+                    <div className="dd-pv__desc">{p.desc}</div>
+                    <div className="dd-pv__row">
+                      <button className="btn btn-primary" onClick={() => openPanel("concierge")} style={{ minHeight: 38, padding: "0 16px", fontSize: 13 }}>Book It</button>
+                      <span className="pv__mode" style={{ fontSize: 11.5, color: "var(--muted-foreground)" }}>{p.mode === "affiliate" ? "Opens partner site" : "Book in TravelWell"}</span>
                     </div>
+                    {p.mode === "affiliate" && (
+                      <p className="dd-pv__ftc"><Icon name="info" small /> <span>{p.commission}. We may earn a commission — at no extra cost to you.</span></p>
+                    )}
                   </div>
                 ))}
               </div>
-            </section>
+            </div>
           ))}
         </div>
 
-        <aside style={{ position: "sticky", top: 88, display: "flex", flexDirection: "column", gap: 18 }}>
-          <div className="card" style={{ padding: 20 }}>
-            <Eyebrow>Safety Card</Eyebrow>
-            <div style={{ marginTop: 12 }}><SafetyChip level={1} /></div>
-            <ul style={{ listStyle: "none", padding: 0, marginTop: 16, display: "flex", flexDirection: "column", gap: 12 }}>
-              <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}><Icon name="hospital" small /> <span className="t-body-s">Nearest hospital — surfaced from your saved location.</span></li>
-              <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}><Icon name="shield" small /> <span className="t-body-s">Your embassy — from your Travel ID nationality.</span></li>
-              <li style={{ display: "flex", gap: 10, alignItems: "flex-start" }}><Icon name="phone" small /> <span className="t-body-s">Local emergency number, shown in your itinerary.</span></li>
-            </ul>
-            <Ftc className="pv__ftc" style={{ marginTop: 12 }}>Safety data is verified — never fabricated. Confirm locally.</Ftc>
+        <aside className="dd-side">
+          <div className="safety-card">
+            <div className="safety-card__top" style={{ background: safeColor }}>
+              <div className="safety-card__lvl">{s.lvl}</div>
+              <div>
+                <div className="safety-card__title">Safety Card · Level {s.lvl} of 4</div>
+                <div className="safety-card__level-label">{s.label}</div>
+              </div>
+            </div>
+            <div className="safety-card__body">
+              <div className="safety-row"><span className="safety-row__ic"><Icon name="info" small /></span><span>{s.note}</span></div>
+              <div className="safety-row"><span className="safety-row__ic"><Icon name="hospital" small /></span><span><span className="safety-row__k">Nearest hospital surfaced via</span> the Emergency Button</span></div>
+              <div className="safety-row"><span className="safety-row__ic"><Icon name="phone" small /></span><span><span className="safety-row__k">Local emergency:</span> 999 / 112</span></div>
+            </div>
+            <div className="safety-card__foot">
+              <span className="safety-card__source"><Icon name="shield" small /> Source: government travel advisories</span>
+              <span style={{ marginInlineStart: "auto" }}>Updated Jun 2026</span>
+            </div>
           </div>
-          <Link className="btn btn-secondary" to="/wells-surface" style={{ width: "100%" }}>Build the full trip <Icon name="arrow" small /></Link>
+
+          <div className="dd-quick">
+            <h4>At a glance</h4>
+            <div className="dd-quick__row"><span className="dd-quick__k">Country</span><span className="dd-quick__v">{country}</span></div>
+            <div className="dd-quick__row"><span className="dd-quick__k">Region</span><span className="dd-quick__v">{R.name}</span></div>
+            <div className="dd-quick__row"><span className="dd-quick__k">Gateways</span><span className="dd-quick__v" style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>{R.gateways}</span></div>
+            <div className="dd-quick__row"><span className="dd-quick__k">Status</span><span className="dd-quick__v">{stub ? "Preview" : "Live"}</span></div>
+          </div>
+
+          <div className="dd-addcta">
+            <p>Love it here? Add {DEST.name} to your trip and keep building.</p>
+            <button className="btn btn-primary" style={{ width: "100%" }} onClick={() => openPanel("concierge")}>Add {DEST.name} to trip</button>
+          </div>
         </aside>
       </div>
+
+      <div className="dd-related">
+        <h2>Keep exploring</h2>
+        <p className="dd-related__sub">Guides to read before you go, and nearby places worth adding to your trip.</p>
+        <div className="dd-rel-grid">
+          {relGuides.map((gg) => (
+            <Link className="dd-rel" to={`/guide/${gg.id}`} key={gg.id}>
+              <div className="dd-rel__media"><img src={img(gg.img, 500)} alt="" loading="lazy" referrerPolicy="no-referrer" /><span className="dd-rel__chip dd-rel__chip--guide">Guide</span></div>
+              <div className="dd-rel__b"><div className="dd-rel__t">{gg.title}</div><div className="dd-rel__m"><Icon name="info" small /> {gg.read} read</div></div>
+            </Link>
+          ))}
+          {list.filter((d) => d.id !== DEST.id).slice(0, 2).map((d) => (
+            <Link className="dd-rel" to={`/destination/${d.id}`} key={d.id}>
+              <div className="dd-rel__media"><img src={img(d.img, 500)} alt="" loading="lazy" referrerPolicy="no-referrer" /><span className="dd-rel__chip dd-rel__chip--nearby">Nearby</span></div>
+              <div className="dd-rel__b"><div className="dd-rel__t">{d.name}</div><div className="dd-rel__m"><Icon name="pin" small /> {d.country}</div></div>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div style={{ height: 80 }} />
     </>
   );
 }

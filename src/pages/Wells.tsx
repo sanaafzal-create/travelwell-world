@@ -1,62 +1,98 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, LUX_WELLS } from "@/data/taxonomy";
+import { WELLS, LUX_WELLS, type Well } from "@/data/taxonomy";
 import { WELL_DETAIL } from "@/data/places";
-import { Eyebrow, StatusPill, IconChip, ButtonLink } from "@/components/ui/primitives";
+import { Eyebrow } from "@/components/ui/primitives";
+import { cx } from "@/lib/utils";
+
+function WellCard({ w }: { w: Well }) {
+  const det = WELL_DETAIL[w.id] || {};
+  const soon = w.status === "soon";
+  const cats = (det.cats || []).slice(0, 4);
+  return (
+    <Link
+      className={cx("wi-card", soon && "wi-card--soon", w.lux && "wi-card--lux")}
+      to={soon ? "#" : `/well/${w.id}`}
+      aria-disabled={soon || undefined}
+      onClick={soon ? (e) => e.preventDefault() : undefined}
+    >
+      <div className="wi-card__ic"><Icon name={w.icon} /></div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="wi-card__name">
+          {w.name}{" "}
+          {soon
+            ? <span className="pill pill-soon">Activated at Launch</span>
+            : <span className="wi-card__body-tag">{w.body}</span>}
+        </div>
+        <div className="wi-card__tag">{w.tag}</div>
+        <div className="wi-card__cats">
+          {cats.map((c) => <span key={c} className="wi-card__cat">{c}</span>)}
+        </div>
+        {soon
+          ? <div className="wi-card__foot" style={{ color: "var(--muted-foreground)" }}><Icon name="info" small /> Coming at launch — partners being vetted now</div>
+          : <div className="wi-card__foot">Meet the partners <Icon name="arrow" small /></div>}
+      </div>
+    </Link>
+  );
+}
 
 export default function Wells() {
+  const [lux, setLux] = useState(false);
+
   return (
-    <>
-      <div className="container jn-intro">
-        <Eyebrow>The architecture</Eyebrow>
-        <h1>Ten Wells, one body.</h1>
-        <p className="lead">Every need on a trip maps to a Well — a part of the body. Together they make a journey that's whole: nothing forgotten, everything disclosed.</p>
-      </div>
+    <main id="main">
+      <section className="wi-hero">
+        <div className="wi-hero__inner">
+          <Eyebrow>The TravelWell Ecosystem</Eyebrow>
+          <h1>Every need a trip has, in its own Well.</h1>
+          <p>We organized travel the way the body works — ten interconnected systems, each covering one part of your journey, all feeding one itinerary. Pick a Well to meet its vetted partners.</p>
+          <p className="wi-hero__sig">A Travel Operating System. <span className="tw">Travel Well.</span></p>
+        </div>
+      </section>
 
-      <div className="container" style={{ paddingBottom: 40 }}>
-        <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
-          {WELLS.map((w) => {
-            const d = WELL_DETAIL[w.id];
-            return (
-              <Link key={w.id} id={w.id} className="card" to={`/well/${w.id}`} style={{ padding: 24, display: "flex", gap: 18, alignItems: "flex-start", color: "inherit" }}>
-                <IconChip name={w.icon} />
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <h3 className="t-h3">{w.name}</h3>
-                    <StatusPill status={w.status} />
-                  </div>
-                  <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 2 }}>{w.tag} · the <b>{w.body}</b></p>
-                  <p className="t-body-s" style={{ marginTop: 10 }}>{d?.purpose}</p>
-                </div>
-              </Link>
-            );
-          })}
+      <div className="wi-body">
+        <div className="wi-sectlabel" style={{ marginTop: 0 }}>
+          The ten Wells
+          <span className="wi-toggle" role="group" aria-label="Context">
+            <button aria-pressed={!lux} onClick={() => setLux(false)}>Standard</button>
+            <button aria-pressed={lux} onClick={() => setLux(true)}>Luxury / Ultra</button>
+          </span>
+        </div>
+        <div className="wi-grid">
+          {WELLS.map((w) => <WellCard key={w.id} w={w} />)}
         </div>
 
-        <div className="si-group__head" style={{ marginTop: 44 }}>
-          <h2 className="si-group__title">Luxury &amp; Ultra only</h2>
-          <span className="si-group__blurb">Appear only in Luxury / Ultra contexts.</span>
-        </div>
-        <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", marginTop: 16 }}>
-          {LUX_WELLS.map((w) => (
-            <div key={w.id} className="card" style={{ padding: 24, display: "flex", gap: 18, alignItems: "flex-start" }}>
-              <IconChip name={w.icon} className="wb-chip--lux" />
-              <div style={{ flex: 1 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                  <h3 className="t-h3">{w.name}</h3>
-                  <span className="pill pill-gold">Luxury</span>
+        <div>
+          {lux ? (
+            <div className="wi-lux-band">
+              <div className="wi-lux-band__head">
+                <span className="wi-card__ic" style={{ width: 44, height: 44, background: "color-mix(in oklch,var(--accent) 22%,white)", color: "var(--gold-deep)" }}><Icon name="sparkles" /></span>
+                <div>
+                  <span className="eyebrow" style={{ color: "var(--gold-deep)" }}>Luxury &amp; Ultra-Luxury only</span>
+                  <h2 className="t-h3" style={{ marginTop: 2 }}>Two more Wells, when the trip calls for them</h2>
                 </div>
-                <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 2 }}>{w.tag} · the <b>{w.body}</b></p>
-                <p className="t-body-s" style={{ marginTop: 10 }}>{WELL_DETAIL[w.id]?.purpose}</p>
+              </div>
+              <p className="wi-lux-band__note">Nanny-Well and Security-Well appear only in Luxury and Ultra-Luxury contexts — they're not shown on standard trips.</p>
+              <div className="wi-grid" style={{ marginTop: 18 }}>
+                {LUX_WELLS.map((w) => <WellCard key={w.id} w={w} />)}
               </div>
             </div>
-          ))}
-        </div>
-
-        <div style={{ marginTop: 40 }}>
-          <ButtonLink to="/providers">Browse all providers <Icon name="arrow" small /></ButtonLink>
+          ) : (
+            <div className="wi-lux-band" style={{ background: "var(--surface-alt)", borderColor: "var(--border)" }}>
+              <div className="wi-lux-band__head">
+                <span className="wi-card__ic" style={{ width: 44, height: 44 }}><Icon name="lock" /></span>
+                <div>
+                  <span className="eyebrow" style={{ color: "var(--muted-foreground)" }}>Context-aware</span>
+                  <h2 className="t-h3" style={{ marginTop: 2 }}>Two Wells appear only in luxury contexts</h2>
+                </div>
+              </div>
+              <p className="wi-lux-band__note">On Luxury and Ultra-Luxury trips, <b>Nanny-Well</b> and <b>Security-Well</b> join the set. Switch the toggle above to preview them.</p>
+            </div>
+          )}
         </div>
       </div>
-    </>
+      <div style={{ height: 80 }} />
+    </main>
   );
 }

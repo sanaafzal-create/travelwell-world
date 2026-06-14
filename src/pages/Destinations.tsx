@@ -1,45 +1,112 @@
-import { Link } from "react-router-dom";
-import { Icon } from "@/lib/icons";
+import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { DESTINATIONS, type Destination } from "@/data/places";
 import { REGIONS } from "@/data/taxonomy";
-import { DESTINATIONS } from "@/data/places";
 import { img } from "@/lib/images";
-import { Eyebrow, Pill } from "@/components/ui/primitives";
+import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 
+interface DestWithRegion extends Destination {
+  region: string;
+}
+
+function allDests(): DestWithRegion[] {
+  const out: DestWithRegion[] = [];
+  Object.entries(DESTINATIONS).forEach(([code, list]) => {
+    list.forEach((d) => out.push({ ...d, region: code }));
+  });
+  return out;
+}
+
+function regionsWithDests() {
+  return REGIONS.filter((r) => DESTINATIONS[r.code]);
+}
+
 export default function Destinations() {
+  const [params] = useSearchParams();
+  const [activeRegion, setActiveRegion] = useState(params.get("r") || "all");
+
+  const list: DestWithRegion[] =
+    activeRegion === "all"
+      ? allDests()
+      : (DESTINATIONS[activeRegion] || []).map((d) => ({ ...d, region: activeRegion }));
+  const R = REGIONS.find((r) => r.code === activeRegion);
+
+  const select = (code: string) => {
+    setActiveRegion(code);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
-      <div className="container jn-intro">
-        <Eyebrow>Where it leads</Eyebrow>
-        <h1>Destinations, by region.</h1>
-        <p className="lead">Live destinations are ready to design around. Preview destinations show the shape of what's coming — honestly desaturated until they're real.</p>
+      <div className="jn-subhead">
+        <div className="jn-subhead__inner">
+          <nav className="jn-crumbs" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span className="sep">/</span>
+            <Link to="/regions">Regions</Link>
+            <span className="sep">/</span>
+            <span className="here" id="crumb">
+              {R ? `${R.name} · Destinations` : "Destinations"}
+            </span>
+          </nav>
+        </div>
       </div>
 
-      <div className="container" style={{ paddingBottom: 80 }}>
-        {REGIONS.filter((r) => DESTINATIONS[r.code]?.length).map((r) => (
-          <section className="si-group" key={r.code}>
-            <div className="si-group__head">
-              <h2 className="si-group__title">{r.name}</h2>
-              <span className="si-group__blurb">{r.line}</span>
-              <Link className="si-group__count" to={`/region/${r.code}`}>{r.code}</Link>
-            </div>
-            <div className="dest-rail">
-              {DESTINATIONS[r.code].map((d) => (
-                <Link key={d.id} className={cx("dest-card", d.status !== "live" && "is-preview")} to={`/destination/${d.id}`}>
-                  <img className={d.status !== "live" ? "media" : ""} src={img(d.img, 700)} alt="" loading="lazy" referrerPolicy="no-referrer"
-                    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div className="dest-card__scrim" />
-                  <div className="dest-card__top"><Pill kind={d.status === "live" ? "live" : "preview"}>{d.status === "live" ? "Live" : "Preview"}</Pill></div>
-                  <div className="dest-card__body">
-                    <h3>{d.name}</h3>
-                    <div className="meta"><Icon name="pin" small /> {d.country} · {d.line}</div>
-                  </div>
-                </Link>
+      <main id="main">
+        <div className="container">
+          <div className="dx-intro">
+            <Eyebrow>Destinations</Eyebrow>
+            <h1 id="dx-title">{R ? `Destinations in ${R.name}` : "Places worth the journey."}</h1>
+            <p className="lead" id="dx-lead">
+              Every destination sits inside its region — so you can browse without losing your place in the trip you're building.
+            </p>
+            <div className="dx-region-strip" id="dx-region-strip">
+              <button
+                className="dx-region-chip"
+                aria-pressed={activeRegion === "all"}
+                onClick={() => select("all")}
+              >
+                All regions
+              </button>
+              {regionsWithDests().map((r) => (
+                <button
+                  key={r.code}
+                  className="dx-region-chip"
+                  aria-pressed={activeRegion === r.code}
+                  onClick={() => select(r.code)}
+                >
+                  {r.name}
+                </button>
               ))}
             </div>
-          </section>
-        ))}
-      </div>
+          </div>
+          <div className="dx-grid" id="dx-grid">
+            {list.map((d) => (
+              <Link
+                key={`${d.region}-${d.id}`}
+                className={cx("dx-card", d.status === "stub" && "dx-card--stub")}
+                to={`/destination/${d.id}`}
+              >
+                <img src={img(d.img, 700)} alt="" loading="lazy" referrerPolicy="no-referrer" />
+                <span className="dx-card__scrim" />
+                <span className="dx-card__badge">
+                  {d.status === "live" ? (
+                    <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
+                  ) : (
+                    <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>
+                  )}
+                </span>
+                <span className="dx-card__body">
+                  <span className="dx-card__country">{d.country}</span>
+                  <span className="dx-card__name">{d.name}</span>
+                  <span className="dx-card__line">{d.line}</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </main>
     </>
   );
 }
