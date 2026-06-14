@@ -1,170 +1,404 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { SIS, WELLS } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
-import { cx } from "@/lib/utils";
 
 const STEPS = [
-  { n: 1, t: "You", s: "Name & email" },
-  { n: 2, t: "Age range", s: "Safe & private" },
-  { n: 3, t: "Interests", s: "1–3 that move you" },
-  { n: 4, t: "The dream", s: "Where & when" },
-  { n: 5, t: "Needs", s: "Dietary & access" },
-  { n: 6, t: "Budgets", s: "Per Well" },
-];
+  { key: "you", label: "You", sub: "Name & email" },
+  { key: "age", label: "Age range", sub: "Safe & exciting" },
+  { key: "party", label: "Your party", sub: "Who's traveling" },
+  { key: "notif", label: "Notifications", sub: "Who hears from us" },
+  { key: "dream", label: "Your dream", sub: "Theme & length" },
+  { key: "budget", label: "Budget blend", sub: "Per-Well tiers" },
+] as const;
 
-const AGE_RANGES = ["18–24", "25–34", "35–44", "45–54", "55–64", "65+"];
-const BUDGET_RANGES = ["Luxury", "High-End", "Mid-Range", "Family Friendly", "Budget Conscious"];
-const FLY_RANGES = ["First", "Business", "Coach"];
+const AGES = [
+  { v: "18-24", t: "18–24" }, { v: "25-34", t: "25–34" }, { v: "35-49", t: "35–49" },
+  { v: "50-64", t: "50–64" }, { v: "65+", t: "65 and over" }, { v: "na", t: "Prefer not to say" },
+];
+const THEMES = [
+  { v: "wild", t: "Wild & remote", s: "Big nature, few crowds" },
+  { v: "sun", t: "Sun & sea", s: "Beaches, islands, slow days" },
+  { v: "culture", t: "Culture & cities", s: "History, food, design" },
+  { v: "restore", t: "Slow & restorative", s: "Wellness, space to breathe" },
+  { v: "celebrate", t: "A big celebration", s: "Honeymoon, milestone, group" },
+  { v: "offbeat", t: "Off the beaten path", s: "Surprise me" },
+];
+const LENGTHS = [
+  { v: "weekend", t: "A weekend" }, { v: "week", t: "About a week" },
+  { v: "twoweek", t: "Two weeks" }, { v: "month", t: "A month or more" }, { v: "unsure", t: "Not sure yet" },
+];
+const BUDGET_WELLS = [
+  { id: "fly", name: "Fly-Well", icon: "plane", tag: "Getting there" },
+  { id: "stay", name: "Stay-Well", icon: "bed", tag: "Where you rest" },
+  { id: "eat", name: "Eat-Well", icon: "utensils", tag: "What you savor" },
+  { id: "move", name: "Move-Well", icon: "car", tag: "Getting around" },
+  { id: "gear", name: "Gear-Well", icon: "bag", tag: "What you carry" },
+  { id: "beauty", name: "Beauty-Well", icon: "sparkle", tag: "Looking & feeling well" },
+  { id: "activities", name: "Activities-Well", icon: "compass", tag: "What excites you" },
+  { id: "shop", name: "Shop-Well", icon: "gift", tag: "Taking it home" },
+  { id: "insure", name: "Insure-Well", icon: "shield", tag: "Peace of mind" },
+  { id: "ship", name: "Ship-Well", icon: "box", tag: "Sending it ahead" },
+];
+const BUDGET_RANGES = [
+  { v: "luxury", t: "Luxury", s: "The very best" },
+  { v: "highend", t: "High-End", s: "Premium, polished" },
+  { v: "midrange", t: "Mid-Range", s: "Comfortable value" },
+  { v: "family", t: "Family Friendly", s: "Easy for all ages" },
+  { v: "budget", t: "Budget Conscious", s: "Smart & lean" },
+];
+const FLY_RANGES = [
+  { v: "first", t: "First Class", s: "The pointy end" },
+  { v: "business", t: "Business Class", s: "Lie-flat comfort" },
+  { v: "coach", t: "Coach", s: "Get me there" },
+];
+const rangesFor = (id: string) => (id === "fly" ? FLY_RANGES : BUDGET_RANGES);
+const rangeLabel = (id: string, v: string) => rangesFor(id).find((r) => r.v === v)?.t || v;
+const initials = (n: string) => (n || "?").trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase() || "?";
+const validEmail = (e: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e);
+const relLabel = (r: string) => (({ partner: "Partner", child: "Child", family: "Family", companion: "Companion" }) as Record<string, string>)[r] || "Companion";
+const ageLabel = (v: string) => (v === "0-12" ? "Child (0–12)" : v === "13-17" ? "Teen (13–17)" : v === "na" ? "Undisclosed" : AGES.find((x) => x.v === v)?.t || v);
+
+type Member = { name: string; age: string; rel: string };
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { journeySIs, toggleSI, openPanel } = useStore();
-  const [step, setStep] = useState(1);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const { openPanel, showToast } = useStore();
+  const [step, setStep] = useState(0);
+  const [name, setName] = useState(""); const [email, setEmail] = useState("");
+  const [nameErr, setNameErr] = useState(false); const [emailErr, setEmailErr] = useState(false);
   const [age, setAge] = useState("");
+  const [party, setParty] = useState<Member[]>([]);
+  const [draft, setDraft] = useState<Member | null>(null);
+  const [notif, setNotif] = useState<Record<string, string>>({});
   const [dream, setDream] = useState("");
-  const [budgets, setBudgets] = useState<Record<string, string>>({});
+  const [themes, setThemes] = useState<string[]>([]);
+  const [length, setLength] = useState("");
+  const [budget, setBudget] = useState<Record<string, string[]>>({});
+  const [openDD, setOpenDD] = useState<string | null>(null);
 
-  const next = () => (step < 6 ? setStep(step + 1) : navigate("/profile"));
-  const back = () => step > 1 && setStep(step - 1);
-  const progress = (step / 6) * 100;
+  const isBuild = step >= STEPS.length;
+  const lastStep = step === STEPS.length - 1;
+  const pct = isBuild ? 100 : ((step + 1) / STEPS.length) * 100;
+
+  function validate(): boolean {
+    const key = STEPS[step].key;
+    if (key === "you") {
+      let ok = true;
+      if (!name.trim()) { setNameErr(true); ok = false; }
+      if (!validEmail(email)) { setEmailErr(true); ok = false; }
+      return ok;
+    }
+    if (key === "age" && !age) { showToast("Pick an age range to continue"); return false; }
+    return true;
+  }
+  function next() {
+    if (step < STEPS.length && !validate()) return;
+    setStep((s) => s + 1);
+  }
+  const toggleTheme = (v: string) => setThemes((t) => (t.includes(v) ? t.filter((x) => x !== v) : t.length >= 3 ? t : [...t, v]));
+  const toggleBudget = (id: string, v: string) => setBudget((b) => { const cur = b[id] || []; return { ...b, [id]: cur.includes(v) ? cur.filter((x) => x !== v) : [...cur, v] }; });
 
   return (
-    <div className="act" style={{ display: "grid", gridTemplateColumns: "380px 1fr", minHeight: "calc(100vh - 68px)" }}>
-      {/* Left rail */}
-      <aside className="band-dark" style={{ padding: "56px 40px", display: "flex", flexDirection: "column" }}>
-        <Eyebrow>Sign up · build your Travel ID</Eyebrow>
-        <h1 className="t-display-l" style={{ color: "#fff", marginTop: 14, fontSize: 36 }}>Let's design the trip of a lifetime.</h1>
-        <p className="t-body" style={{ color: "var(--dark-band-muted)", marginTop: 14 }}>A few easy questions — no jargon, no commitment. By the end you'll have a Travel ID and a dream trip already started.</p>
-
-        <div className="card" style={{ marginTop: 28, padding: 20, background: "rgba(255,255,255,.06)", border: "1px solid rgba(255,255,255,.14)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <Icon name="sparkle" small style={{ color: "var(--accent)" }} />
-            <span className="eyebrow" style={{ color: "var(--accent)" }}>Travel Intelligence</span>
-          </div>
-          <p className="t-body-s" style={{ color: "var(--dark-band-muted)", marginTop: 10 }}>As you answer, our Travel Intelligence System quietly builds your <b style={{ color: "#fff" }}>Travel Personality</b> — so every suggestion fits you.</p>
+    <div className="ob">
+      <aside className="ob__rail">
+        <Eyebrow>Sign up · Build your Travel ID</Eyebrow>
+        <h1>Let's design the trip of a lifetime.</h1>
+        <p className="ob__rail-lead">A few easy questions — no jargon, no commitment. By the end you'll have a Travel ID and a dream trip already started.</p>
+        <div className="ob__tis">
+          <div className="ob__tis-head"><span className="ob__tis-ic" /> Travel Intelligence</div>
+          <p className="ob__tis-lead">As you answer, our Travel Intelligence System quietly builds your <b>Travel Personality</b> — so every suggestion fits you.</p>
+          <ul className="ob__tis-list">
+            <li><span className="ob__tis-dot" /> Your <b>pace</b> — slow or packed</li>
+            <li><span className="ob__tis-dot" /> What <b>excites</b> you</li>
+            <li><span className="ob__tis-dot" /> Your <b>budget ranges</b></li>
+            <li><span className="ob__tis-dot" /> Who's <b>traveling</b> along</li>
+          </ul>
         </div>
-
-        <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 4 }}>
-          {STEPS.map((s) => (
-            <button key={s.n} onClick={() => setStep(s.n)} className="act-dot-row"
-              style={{ display: "flex", gap: 12, alignItems: "center", padding: "8px 0", background: "none", border: 0, cursor: "pointer", textAlign: "start", opacity: s.n <= step ? 1 : 0.5 }}>
-              <span style={{ width: 28, height: 28, borderRadius: "50%", display: "grid", placeItems: "center", flex: "none", fontWeight: 700, fontSize: 13, background: s.n < step ? "var(--accent)" : s.n === step ? "#fff" : "transparent", color: s.n <= step ? "var(--foreground)" : "var(--dark-band-muted)", border: s.n > step ? "1.5px solid rgba(255,255,255,.3)" : 0 }}>
-                {s.n < step ? "✓" : s.n}
-              </span>
-              <span><span style={{ color: "#fff", fontWeight: 600, display: "block", fontSize: 14 }}>{s.t}</span><span className="t-micro" style={{ color: "var(--dark-band-muted)" }}>{s.s}</span></span>
-            </button>
-          ))}
-        </div>
+        <nav className="ob-steps" aria-label="Sign-up progress">
+          {STEPS.map((st, i) => {
+            const state = i < step ? "done" : i === step ? "current" : "todo";
+            return (
+              <div className="ob-step" data-state={state} key={st.key}>
+                <div className="ob-step__dot">{i < step ? <Icon name="check" small /> : i + 1}</div>
+                <div><div className="ob-step__label">{st.label}</div><div className="ob-step__sub">{st.sub}</div></div>
+              </div>
+            );
+          })}
+        </nav>
       </aside>
 
-      {/* Right form */}
-      <section style={{ padding: "32px 56px", maxWidth: 760 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{ flex: 1, height: 6, background: "var(--border)", borderRadius: 999, overflow: "hidden" }}>
-            <div style={{ width: `${progress}%`, height: "100%", background: "var(--primary)", transition: "width .3s ease" }} />
-          </div>
-          <span className="t-body-s" style={{ color: "var(--muted-foreground)", whiteSpace: "nowrap" }}>Step {step} of 6</span>
-          <button className="btn btn-ghost" onClick={() => openPanel("concierge")}><Icon name="sparkle" small /> Walk me through it</button>
+      <section className="ob__panel">
+        <div className="ob__bar">
+          <div className="ob__progress"><i style={{ width: `${pct}%` }} /></div>
+          <span className="ob__count">{isBuild ? "All set" : `Step ${step + 1} of ${STEPS.length}`}</span>
+          <button className="ob__walk-link" onClick={() => openPanel("concierge")}>Walk me through it instead</button>
         </div>
+        <div className="ob__scroll">
+          <div className="ob__stepwrap" key={step} aria-live="polite">
+            {!isBuild && STEPS[step].key === "you" && (
+              <>
+                <Eyebrow className="ob__eyebrow">First, the basics</Eyebrow>
+                <h2 className="ob__title">Who's dreaming?</h2>
+                <Why ic="globe">Your name personalizes everything; your email is just for your magic link and trip updates. <b>No password, ever.</b></Why>
+                <div className="ob__fields">
+                  <div className="fld">
+                    <label htmlFor="f-name">Your name</label>
+                    <input type="text" id="f-name" value={name} placeholder="e.g. Amara Okonkwo" aria-invalid={nameErr} onChange={(e) => { setName(e.target.value); setNameErr(false); }} />
+                    {nameErr && <div className="fld__err" data-show="true"><Icon name="close" small /> Please tell us what to call you.</div>}
+                  </div>
+                  <div className="fld">
+                    <label htmlFor="f-email">Email</label>
+                    <input type="email" id="f-email" value={email} placeholder="you@email.com" aria-invalid={emailErr} onChange={(e) => { setEmail(e.target.value); setEmailErr(false); }} />
+                    {emailErr && <div className="fld__err" data-show="true"><Icon name="close" small /> That doesn't look like an email yet.</div>}
+                    <div className="fld__hint">We'll send a one-tap magic link here — nothing to remember.</div>
+                  </div>
+                </div>
+              </>
+            )}
 
-        <div style={{ marginTop: 40 }}>
-          {step === 1 && (
-            <>
-              <Eyebrow>First, the basics</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>Who's dreaming?</h2>
-              <div className="jn-context" style={{ marginTop: 18 }}><div className="jn-context__ic"><Icon name="globe" small /></div><div>Your name personalizes everything; your email is just for your magic link. <b>No password, ever.</b></div></div>
-              <Field label="Your name"><input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Amara Okonkwo" /></Field>
-              <Field label="Email" hint="We'll send a one-tap magic link here — nothing to remember."><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@email.com" /></Field>
-            </>
-          )}
-          {step === 2 && (
-            <>
-              <Eyebrow>Your party</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>Roughly, what's your age range?</h2>
-              <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 8 }}>We never ask your birthday — only a range, and you can change it anytime.</p>
-              <div className="chip-pick" style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 20 }}>
-                {AGE_RANGES.map((r) => (
-                  <button key={r} className="wp-fchip" aria-pressed={age === r} onClick={() => setAge(r)}>{r}</button>
-                ))}
-              </div>
-            </>
-          )}
-          {step === 3 && (
-            <>
-              <Eyebrow>Travel personality</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>What moves you? Pick 1–3.</h2>
-              <div className="chip-pick" style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 20 }}>
-                {SIS.filter((s) => s.status === "live").map((s) => (
-                  <button key={s.id} className="wp-fchip" aria-pressed={journeySIs.includes(s.id)} onClick={() => toggleSI(s.id)}>{s.name}</button>
-                ))}
-              </div>
-            </>
-          )}
-          {step === 4 && (
-            <>
-              <Eyebrow>The dream</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>Describe your perfect trip.</h2>
-              <Field label="In your own words" hint="Atlas reads this to shape suggestions — there are no wrong answers.">
-                <textarea value={dream} onChange={(e) => setDream(e.target.value)} rows={5} placeholder="An unhurried anniversary safari — golden-hour game drives, candlelit dinners under the stars…" style={{ resize: "vertical" }} />
-              </Field>
-            </>
-          )}
-          {step === 5 && (
-            <>
-              <Eyebrow>Travel well</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>Anything we should plan around?</h2>
-              <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 8 }}>Dietary needs, accessibility, anything at all. Optional, and always editable.</p>
-              <Field label="Dietary & accessibility"><textarea rows={3} placeholder="Vegetarian · step-free access preferred" style={{ resize: "vertical" }} /></Field>
-            </>
-          )}
-          {step === 6 && (
-            <>
-              <Eyebrow>Budget ranges</Eyebrow>
-              <h2 className="t-h2" style={{ marginTop: 8 }}>Set a comfort range per Well.</h2>
-              <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 8 }}>Pick a range for each Well — Fly-Well uses cabin classes. You can change these anytime.</p>
-              <div style={{ marginTop: 18, display: "flex", flexDirection: "column", gap: 10 }}>
-                {WELLS.filter((w) => w.status === "live").map((w) => {
-                  const ranges = w.id === "fly" ? FLY_RANGES : BUDGET_RANGES;
-                  return (
-                    <div key={w.id} className="card" style={{ padding: "12px 16px", display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-                      <div className="icon-chip" style={{ width: 36, height: 36 }}><Icon name={w.icon} small /></div>
-                      <strong style={{ minWidth: 110 }}>{w.name}</strong>
-                      <select value={budgets[w.id] || ""} onChange={(e) => setBudgets({ ...budgets, [w.id]: e.target.value })}
-                        style={{ marginInlineStart: "auto", padding: "8px 12px", borderRadius: "var(--radius-sm)", border: "1.5px solid var(--border)", background: "var(--card)", fontFamily: "var(--font-sans)", fontSize: 14 }}>
-                        <option value="">Choose…</option>
-                        {ranges.map((r) => <option key={r} value={r}>{r}</option>)}
-                      </select>
+            {!isBuild && STEPS[step].key === "age" && (
+              <>
+                <Eyebrow className="ob__eyebrow">A gentle question</Eyebrow>
+                <h2 className="ob__title">Which age range fits you?</h2>
+                <Why ic="shield">We use a <b>range, never your birthday</b> — only to keep suggestions both safe and exciting (think: nightlife vs. nap-friendly pacing). It's yours to change anytime.</Why>
+                <div className="ob__fields">
+                  <div className="choices choices--2" role="group" aria-label="Age range">
+                    {AGES.map((a) => (
+                      <button key={a.v} className="choice" aria-pressed={age === a.v} onClick={() => setAge(a.v)}>
+                        <span className="choice__check"><Icon name="check" small /></span><span className="choice__t">{a.t}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+
+            {!isBuild && STEPS[step].key === "party" && (
+              <>
+                <Eyebrow className="ob__eyebrow">Your party</Eyebrow>
+                <h2 className="ob__title">Who's coming with you?</h2>
+                <Why ic="heart">A couple or family travels on <b>one itinerary and one budget</b>. Travelers who pay separately get their own party — you can link them later. Add anyone you'll book & pay for.</Why>
+                <div className="ob__fields">
+                  <div className="party-list">
+                    <div className="party-member">
+                      <div className="party-member__av">{initials(name || "You")}</div>
+                      <div><div className="party-member__name">{name || "You"}</div><div className="party-member__meta">You · books & pays</div></div>
+                      <span className="party-member__tag">Lead</span>
                     </div>
-                  );
-                })}
-              </div>
-            </>
-          )}
-        </div>
+                    {party.map((m, i) => (
+                      <div className="party-member" key={i}>
+                        <div className="party-member__av">{initials(m.name)}</div>
+                        <div><div className="party-member__name">{m.name}</div><div className="party-member__meta">{relLabel(m.rel)} · {ageLabel(m.age)}</div></div>
+                        <button className="party-member__remove" aria-label={`Remove ${m.name}`} onClick={() => setParty((p) => p.filter((_, x) => x !== i))}><Icon name="close" small /></button>
+                      </div>
+                    ))}
+                  </div>
+                  {draft ? (
+                    <div className="party-form">
+                      <div className="fld"><label htmlFor="pf-name">Their name</label><input type="text" id="pf-name" value={draft.name} placeholder="e.g. Maya" onChange={(e) => setDraft({ ...draft, name: e.target.value })} /></div>
+                      <div className="fld"><label htmlFor="pf-age">Age range</label>
+                        <select id="pf-age" value={draft.age} onChange={(e) => setDraft({ ...draft, age: e.target.value })}>
+                          {[{ v: "0-12", t: "Child (0–12)" }, { v: "13-17", t: "Teen (13–17)" }].concat(AGES.filter((a) => a.v !== "na")).map((a) => <option key={a.v} value={a.v}>{a.t}</option>)}
+                        </select>
+                      </div>
+                      <div className="fld" style={{ gridColumn: "1/-1" }}><label htmlFor="pf-rel">Relationship</label>
+                        <select id="pf-rel" value={draft.rel} onChange={(e) => setDraft({ ...draft, rel: e.target.value })}>
+                          {[["partner", "Partner / spouse"], ["child", "Child"], ["family", "Family member"], ["companion", "Travel companion"]].map(([v, t]) => <option key={v} value={v}>{t}</option>)}
+                        </select>
+                      </div>
+                      <div className="party-form__row">
+                        <button className="btn btn-secondary" onClick={() => setDraft(null)}>Cancel</button>
+                        <button className="btn btn-primary" onClick={() => { if (draft.name.trim()) { setParty((p) => [...p, draft]); setDraft(null); } }}>Add to party</button>
+                      </div>
+                    </div>
+                  ) : (
+                    <button className="party-add" onClick={() => setDraft({ name: "", age: "25-34", rel: "partner" })}><Icon name="check" small /> Add a traveler</button>
+                  )}
+                  <p className="fld__hint">Traveling solo? That's perfect too — just continue.</p>
+                </div>
+              </>
+            )}
 
-        <div style={{ marginTop: 36, display: "flex", gap: 12, alignItems: "center" }}>
-          {step > 1 && <button className="btn btn-secondary" onClick={back}><Icon name="chev" small style={{ transform: "rotate(90deg)" }} /> Back</button>}
-          <button className={cx("btn btn-primary")} onClick={next} style={{ marginInlineStart: "auto" }}>
-            {step === 6 ? "Create my Travel ID" : "Continue"} <Icon name="arrow" small />
-          </button>
+            {!isBuild && STEPS[step].key === "notif" && (
+              <>
+                <Eyebrow className="ob__eyebrow">Notifications</Eyebrow>
+                <h2 className="ob__title">Who hears from us, and how?</h2>
+                <Why ic="message">You're always in the loop. A partner can opt into their own channel; <b>children get none</b>. Quiet by default — only what matters for the trip.</Why>
+                <div className="ob__fields">
+                  {[{ id: "you", name: name || "You", role: "You (always notified)", child: false }].concat(
+                    party.map((m, i) => ({ id: "m" + i, name: m.name, role: relLabel(m.rel), child: m.age === "0-12" || m.age === "13-17" }))
+                  ).map((m) => {
+                    const val = notif[m.id] || (m.id === "you" ? "email" : m.child ? "none" : "email");
+                    return (
+                      <div className="notif-row" key={m.id}>
+                        <div className="party-member__av">{initials(m.name)}</div>
+                        <div><div className="party-member__name">{m.name}</div><div className="party-member__meta">{m.role}</div>{m.child && <span className="party-member__meta">No notifications for children</span>}</div>
+                        <div className="seg" role="group" aria-label={`Notify ${m.name}`}>
+                          {["email", "sms", "both", "none"].map((o) => (
+                            <button key={o} aria-pressed={val === o} disabled={m.child} onClick={() => setNotif((n) => ({ ...n, [m.id]: o }))}>{o === "email" ? "Email" : o === "sms" ? "SMS" : o === "both" ? "Both" : "None"}</button>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+
+            {!isBuild && STEPS[step].key === "dream" && (
+              <>
+                <Eyebrow className="ob__eyebrow">Your dream</Eyebrow>
+                <h2 className="ob__title">Paint the trip in your own words.</h2>
+                <Why ic="sparkles">One sentence is plenty — the Concierge reads this to seed your dream trip. You can be vague ("somewhere warm") or specific.</Why>
+                <div className="ob__fields">
+                  <div className="fld">
+                    <label htmlFor="f-dream">Your dream, in a line or two</label>
+                    <textarea id="f-dream" value={dream} onChange={(e) => setDream(e.target.value)} placeholder="e.g. A safari for our 10th anniversary in July — romantic, a little wild, easy on the feet." />
+                  </div>
+                  <div className="fld">
+                    <label>Pick a theme or two <span className="opt">— not the full catalog, just a feeling</span></label>
+                    <div className="choices choices--3" role="group" aria-label="Theme">
+                      {THEMES.map((t) => (
+                        <button key={t.v} className="choice" aria-pressed={themes.includes(t.v)} onClick={() => toggleTheme(t.v)} style={{ flexDirection: "column", alignItems: "flex-start", gap: 4 }}>
+                          <span className="choice__t">{t.t}</span><span className="choice__s">{t.s}</span>
+                        </button>
+                      ))}
+                    </div>
+                    <div className="fld__hint">1–2 is the sweet spot.</div>
+                  </div>
+                  <div className="fld">
+                    <label>How long, roughly?</label>
+                    <div className="choices choices--3" role="group" aria-label="Trip length">
+                      {LENGTHS.map((l) => (
+                        <button key={l.v} className="choice" aria-pressed={length === l.v} onClick={() => setLength(l.v)} style={{ justifyContent: "center" }}><span className="choice__t">{l.t}</span></button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {!isBuild && STEPS[step].key === "budget" && (
+              <>
+                <Eyebrow className="ob__eyebrow">Budget ranges</Eyebrow>
+                <h2 className="ob__title">Set your comfort, Well by Well.</h2>
+                <Why ic="compass">Pick <b>as many ranges as you like</b> in each Well — most travelers mix (splurge on the stay, keep flights sensible). Fly-Well is by cabin class. This shapes which providers we surface.</Why>
+                <button className="bdg-speak" type="button" onClick={() => openPanel("concierge")}>
+                  <span className="bdg-speak__ic"><Icon name="sparkles" /></span>
+                  <span className="bdg-speak__t">Rather just say it? <b>Speak with Atlas</b> — "luxury stays, business class, mid-range food" — and we'll fill these in.</span>
+                  <span className="bdg-speak__mic"><Icon name="mic" /></span>
+                </button>
+                <div className="ob__fields bdg-list">
+                  {BUDGET_WELLS.map((w) => {
+                    const sel = budget[w.id] || [];
+                    const opts = rangesFor(w.id);
+                    return (
+                      <div className="bdg-row" data-well={w.id} key={w.id}>
+                        <div className="bdg-row__head">
+                          <div className="budget-well__ic"><Icon name={w.icon} /></div>
+                          <div><div className="party-member__name">{w.name}</div><div className="party-member__meta">{w.tag}</div></div>
+                          {sel.length > 0 && <span className="bdg-row__count">{sel.length}</span>}
+                        </div>
+                        <div className="bdg-drop">
+                          <button className="bdg-drop__trigger" type="button" aria-expanded={openDD === w.id} onClick={() => setOpenDD(openDD === w.id ? null : w.id)}>
+                            {sel.length
+                              ? <span className="bdg-drop__chips">{sel.map((v) => <span className="bdg-chip" key={v}>{rangeLabel(w.id, v)}</span>)}</span>
+                              : <span className="bdg-drop__ph">{w.id === "fly" ? "Choose cabin class…" : "Choose ranges…"}</span>}
+                            <span className="bdg-drop__chev"><Icon name="chev" small /></span>
+                          </button>
+                          {openDD === w.id && (
+                            <div className="bdg-drop__menu" role="listbox" aria-multiselectable="true" aria-label={`${w.name} ranges`} style={{ display: "block" }}>
+                              {opts.map((r) => (
+                                <button key={r.v} className="bdg-opt" type="button" role="option" aria-selected={sel.includes(r.v)} onClick={() => toggleBudget(w.id, r.v)}>
+                                  <span className="bdg-opt__box"><Icon name="check" small /></span>
+                                  <span className="bdg-opt__t">{r.t}</span><span className="bdg-opt__s">{r.s}</span>
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+
+            {isBuild && <BuildScreen name={name} age={age} party={party} themes={themes} length={length} budget={budget} dream={dream} navigate={navigate} />}
+
+            {!isBuild && (
+              <>
+                <div className="ob__inline-actions">
+                  {step > 0 ? <button className="btn btn-secondary" onClick={() => setStep((s) => s - 1)}>← Back</button> : <span />}
+                  <button className="btn btn-primary" onClick={next}>{lastStep ? "Build my Travel ID →" : "Continue →"}</button>
+                </div>
+                <p className="ob__footnote"><Icon name="shield" small /> No password needed — we'll send a magic link. We never ask your birthday, only an age range. You can edit or delete everything later.</p>
+              </>
+            )}
+          </div>
         </div>
-        <p className="ftc" style={{ marginTop: 24 }}><Icon name="shield" small /> No password needed — we'll send a magic link. We never ask your birthday, only an age range. You can edit or delete everything later.</p>
       </section>
     </div>
   );
 }
 
-function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
+const Why = ({ ic, children }: { ic: string; children: ReactNode }) => (
+  <div className="ob__why"><Icon name={ic} /><span>{children}</span></div>
+);
+
+function BuildScreen({ name, age, party, themes, length, budget, dream, navigate }: {
+  name: string; age: string; party: Member[]; themes: string[]; length: string; budget: Record<string, string[]>; dream: string; navigate: (to: string) => void;
+}) {
+  const members = [{ name: name || "You", role: "Lead traveler · books & pays", lead: true, age }]
+    .concat(party.map((m) => ({ name: m.name, role: relLabel(m.rel), lead: false, age: m.age })));
+  const themeNames = themes.map((v) => THEMES.find((t) => t.v === v)?.t).filter(Boolean) as string[];
+  const lengthName = LENGTHS.find((l) => l.v === length)?.t || "Flexible";
   return (
-    <label style={{ display: "block", marginTop: 22 }}>
-      <span style={{ display: "block", fontWeight: 600, fontSize: 14, marginBottom: 8 }}>{label}</span>
-      <div className="su-field" style={{ display: "contents" }}>{children}</div>
-      {hint && <span className="t-body-s" style={{ color: "var(--muted-foreground)", display: "block", marginTop: 6 }}>{hint}</span>}
-    </label>
+    <div className="build">
+      <div className="build__burst"><Icon name="check" /></div>
+      <Eyebrow className="ob__eyebrow">Your party is ready</Eyebrow>
+      <h2 className="ob__title">{members.length > 1 ? `${members.length} Travel IDs built` : "Your Travel ID is built"} — and your dream trip has started.</h2>
+      <p className="t-lead" style={{ marginTop: 14 }}>Everything's saved to this device. Next we'll switch a few things on (email, safety location, alerts) — or you can dive straight into designing.</p>
+      <div className="id-cards">
+        {members.map((m, i) => (
+          <div className="id-card" key={i}>
+            <div className="id-card__top">
+              <div className="id-card__av">{initials(m.name)}</div>
+              <div style={{ flex: 1, minWidth: 0 }}><div className="id-card__name">{m.name}</div><div className="id-card__role">{m.role}</div></div>
+            </div>
+            <div className="id-card__body">
+              <div className="id-attr"><div className="id-attr__k">Age range</div><div className="id-attr__v">{ageLabel(m.age) || "—"}</div></div>
+              <div className="id-attr"><div className="id-attr__k">Trip length</div><div className="id-attr__v">{lengthName}</div></div>
+              <div className="id-attr" style={{ gridColumn: "1/-1" }}><div className="id-attr__k">Themes</div>
+                <div className="id-card__chips">{(themeNames.length ? themeNames : ["Open to ideas"]).map((t) => <span className="pill pill-live" style={{ background: "var(--secondary)" }} key={t}>{t}</span>)}</div>
+              </div>
+              {m.lead && (
+                <div className="id-attr" style={{ gridColumn: "1/-1" }}><div className="id-attr__k">Budget blend</div>
+                  <div className="id-card__chips">{BUDGET_WELLS.map((w) => <span className="pill pill-preview" key={w.id}>{w.name.split("-")[0]}: {(budget[w.id] || []).map((v) => rangeLabel(w.id, v)).join(", ") || "elevated"}</span>)}</div>
+                </div>
+              )}
+              {m.lead && dream && (
+                <div className="id-attr" style={{ gridColumn: "1/-1" }}><div className="id-attr__k">The dream</div><div className="id-attr__v" style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 400 }}>"{dream}"</div></div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="card" style={{ marginTop: 24, padding: 20, display: "flex", gap: 14, alignItems: "center", textAlign: "start" }}>
+        <div className="icon-chip" style={{ background: "var(--secondary)" }}><Icon name="sparkles" /></div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontWeight: 600 }}>Your dream trip is started</div>
+          <div className="t-body-s" style={{ color: "var(--muted-foreground)" }}>We seeded an Activities-Well block from your dream. It's waiting in Your Trip.</div>
+        </div>
+        <span className="pill pill-gold">Started</span>
+      </div>
+      <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 28, flexWrap: "wrap" }}>
+        <button className="btn btn-primary" onClick={() => navigate("/activation")} style={{ height: 52, padding: "0 28px", fontSize: 16 }}>Finish setting up →</button>
+        <button className="btn btn-secondary" onClick={() => navigate("/special-interests")} style={{ height: 52 }}>Skip — start designing</button>
+      </div>
+      <p className="ftc" style={{ justifyContent: "center", marginTop: 18 }}><Icon name="globe" small /> You can edit or delete your Travel ID anytime from Profile. We never sold or shared it — it lives on your device.</p>
+    </div>
   );
 }
