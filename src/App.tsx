@@ -18,6 +18,9 @@ import GuideDetail from "@/pages/GuideDetail";
 import FirstAidKit from "@/pages/FirstAidKit";
 import Demo from "@/pages/Demo";
 import SignUp from "@/pages/SignUp";
+import SignIn from "@/pages/SignIn";
+import VerifyEmail from "@/pages/VerifyEmail";
+import Activation from "@/pages/Activation";
 import Profile from "@/pages/Profile";
 import Plan from "@/pages/Plan";
 import About from "@/pages/About";
@@ -51,9 +54,9 @@ export default function App() {
         <Route path="/demo" element={<Demo />} />
         <Route path="/vc-demo" element={<Demo gated />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<Placeholder title="Sign In" eyebrow="Welcome back" lead="Magic-link sign-in — no password, ever. Wire to Supabase Auth (OTP)." />} />
-        <Route path="/verify" element={<Placeholder title="Verify Email" eyebrow="One tap to go" lead="Confirm your magic link to unlock your Travel ID." />} />
-        <Route path="/activation" element={<Placeholder title="Activation" eyebrow="Almost there" lead="Verify · location & Emergency · notifications · Whisper dial." />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/verify" element={<VerifyEmail />} />
+        <Route path="/activation" element={<Activation />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/sitemap" element={<Sitemap />} />
         <Route path="/go" element={<Go />} />

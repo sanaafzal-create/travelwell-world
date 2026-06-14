@@ -30,6 +30,9 @@ function pageSlug(pathname: string): string {
   return PAGE_SLUGS[first] ?? first;
 }
 
+// Full-bleed auth/onboarding pages render without the standard footer.
+const NO_FOOTER = new Set(["sign-in", "verify-email", "sign-up", "activation", "go"]);
+
 export function Shell() {
   const { panel, closePanel } = useStore();
   const location = useLocation();
@@ -56,15 +59,16 @@ export function Shell() {
     return () => { document.body.style.overflow = ""; };
   }, [panel]);
 
+  const slug = pageSlug(location.pathname);
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <Header />
       <MegaMenu />
-      <main id="main" className="tw-main" data-page={pageSlug(location.pathname)}>
+      <main id="main" className="tw-main" data-page={slug}>
         <Outlet />
       </main>
-      <Footer />
+      {!NO_FOOTER.has(slug) && <Footer />}
       <Concierge />
       <TripTray />
       <Emergency />
