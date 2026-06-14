@@ -1,73 +1,313 @@
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { siById, REGIONS, REGION_SI } from "@/data/taxonomy";
-import { ACTIVITIES } from "@/data/places";
+import { SIS, REGIONS, REGION_SI, ALL_WELLS, type Region } from "@/data/taxonomy";
+import { ACTIVITIES, PROVIDERS, type Provider } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { Eyebrow, Pill, ButtonLink, StatusPill } from "@/components/ui/primitives";
+import { cx } from "@/lib/utils";
+
+/** Per-SI editorial copy — mirrors the design prototype's EDITORIAL map. */
+const EDITORIAL: Record<string, { promise: string; intro: string[] }> = {
+  safari: {
+    promise: "The wild, on its own terms — and you, right there in it.",
+    intro: [
+      "There is a moment, just after dawn, when the plains exhale. The light goes gold, a lion calls somewhere you can't see, and the whole continent feels awake at once. A safari isn't a holiday so much as a remembering — of how small and how lucky we are.",
+      "We pair you with camps that sit lightly on the land and guides who read it like a book. Whether it's your first game drive or your fortieth, we build the days around the animals' rhythm, not a schedule.",
+    ],
+  },
+  romance: {
+    promise: "Time that belongs to no one but the two of you.",
+    intro: [
+      "The best romantic trips aren't about grand gestures — they're about uninterrupted time. A long dinner with nowhere to be. A morning you don't set an alarm for. A view you both go quiet in front of.",
+      "We design around the two of you: where you'll stay, what you'll taste, the moments worth dressing up for and the ones worth staying in. You bring the company; we'll handle the rest.",
+    ],
+  },
+  culinary: {
+    promise: "A table worth the flight — and the stories around it.",
+    intro: [
+      "Some trips you remember by what you saw. These you remember by what you ate, and who you ate it with. The market at opening. The grandmother's recipe. The tasting menu that took four hours and felt like one.",
+      "We route you to the tables that matter — the famous and the hidden — and to the people behind them. Eat-Well does the booking; you do the savoring.",
+    ],
+  },
+  ocean: {
+    promise: "The open water, and everything alive beneath it.",
+    intro: [
+      "The ocean resets something in us. We chase the next set, the clearest reef, the quietest cove — and the meals that taste better with salt still on your skin.",
+      "From liveaboards to barefoot beach resorts, we match the water to your mood and the season to the swell.",
+    ],
+  },
+  wellness: {
+    promise: "Come home to yourself.",
+    intro: [
+      "Wellness travel is permission — to slow down, to be looked after, to do less on purpose. The right retreat doesn't add to your to-do list; it quietly subtracts from it.",
+      "We pair you with places built around rest, movement and nourishment, and we keep the logistics invisible so you can keep your shoulders down.",
+    ],
+  },
+  ultra: {
+    promise: "The extraordinary, made effortless.",
+    intro: [
+      "At the very top, luxury stops being about things and starts being about ease — the sense that everything has been handled before you thought to ask.",
+      "Private villas with their own staff. Doors that don't open for others. A curator who knows your name and your preferences. With Ultra-Luxury, the Nanny-Well and Security-Well quietly join your trip when they're needed.",
+    ],
+  },
+};
+
+const GENERIC_INTRO = (si: { name: string; sig: string }) => [
+  `${si.name} is one of the 25 ways travelers love to move through the world — ${si.sig}. This world is being curated now.`,
+];
+
+const FALLBACK_WELLS = ["stay", "activities", "eat", "move"];
+const WELL_HOW: Record<string, string> = {
+  stay: "Where you'll rest, matched to the trip",
+  fly: "Getting there, the easy way",
+  eat: "Tables worth the trip",
+  move: "Getting around once you arrive",
+  gear: "What to pack and carry",
+  beauty: "Looking and feeling your best",
+  activities: "What you'll actually do",
+  shop: "Taking a piece of it home",
+  nanny: "Care for the little ones",
+  security: "Discreet protection",
+};
+
+const allWells = Object.fromEntries(ALL_WELLS.map((w) => [w.id, w]));
+
+function wellsActivated(siId: string): string[] {
+  const acts = ACTIVITIES[siId];
+  if (acts && acts.length) {
+    const set: string[] = [];
+    acts.forEach((a) => {
+      if (!set.includes(a.well)) set.push(a.well);
+    });
+    return set;
+  }
+  return FALLBACK_WELLS;
+}
+
+function featuredRegions(siId: string): Region[] {
+  return REGIONS.filter((r) => (REGION_SI[r.code] || []).includes(siId)).slice(0, 4);
+}
+
+function providerRail(siId: string): Provider[] {
+  const wells = wellsActivated(siId);
+  const out: Provider[] = [];
+  wells.forEach((w) => {
+    (PROVIDERS[w] || []).filter((p) => p.tier !== "prospective").slice(0, 2).forEach((p) => out.push(p));
+  });
+  return out.slice(0, 6);
+}
+
+function RegionsSection({ si }: { si: { id: string; name: string } }) {
+  const regions = featuredRegions(si.id);
+  if (!regions.length) return null;
+  return (
+    <section className="sd-section">
+      <span className="eyebrow sd-section__eyebrow">Where it shines</span>
+      <h2 className="sd-section__title">Best regions for {si.name}</h2>
+      <div className="sd-regions">
+        {regions.map((r) => (
+          <Link className="sd-rg" to={`/region/${r.code}`} key={r.code}>
+            <img src={regionImg(r.code, 500)} alt="" loading="lazy" referrerPolicy="no-referrer" />
+            <span className="sd-rg__scrim" />
+            <span className="sd-rg__code">{r.code}</span>
+            <span className="sd-rg__name">{r.name}</span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 export default function SiDetail() {
   const { id } = useParams();
-  const { toggleSI, journeySIs } = useStore();
-  const si = siById(id || "");
+  const { openPanel, showToast } = useStore();
 
-  if (!si) return <div className="container" style={{ padding: "80px 0" }}><h1 className="t-display-l">Interest not found.</h1><Link className="btn btn-primary" to="/special-interests" style={{ marginTop: 20 }}>All interests</Link></div>;
+  const si = SIS.find((s) => s.id === id) || SIS.find((s) => s.id === "safari")!;
+  const isSchema = si.status !== "live";
+  const ed = EDITORIAL[si.id];
 
-  const picked = journeySIs.includes(si.id);
-  const regions = REGIONS.filter((r) => (REGION_SI[r.code] || []).includes(si.id)).slice(0, 4);
-  const acts = ACTIVITIES[si.id] || [];
+  const subhead = (
+    <div className="jn-subhead">
+      <div className="jn-subhead__inner">
+        <nav className="jn-crumbs" aria-label="Breadcrumb">
+          <Link to="/">Home</Link>
+          <span className="sep">/</span>
+          <Link to="/special-interests">Special Interests</Link>
+          <span className="sep">/</span>
+          <span className="here">{si.name}</span>
+        </nav>
+        <Link className="btn btn-ghost" to="/special-interests">
+          ← All 25 interests
+        </Link>
+      </div>
+    </div>
+  );
+
+  const hero = (
+    <section className={cx("sd-hero", isSchema && "sd-hero--schema")}>
+      <div className="sd-hero__img">
+        <img src={siImg(si.id, 1800)} alt="" referrerPolicy="no-referrer" loading="lazy" />
+      </div>
+      <div className="sd-hero__scrim" />
+      <div className="sd-hero__accent" style={{ background: si.accent }} />
+      <div className="sd-hero__inner">
+        <div className="sd-hero__badges">
+          {isSchema ? (
+            <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>
+              Preview · coming soon
+            </span>
+          ) : (
+            <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>
+              Live now
+            </span>
+          )}
+          {si.lux && (
+            <span className="pill" style={{ background: "var(--accent)", color: "var(--accent-foreground)" }}>
+              Luxury world
+            </span>
+          )}
+        </div>
+        <div className="sd-hero__sig">{si.sig.charAt(0).toUpperCase() + si.sig.slice(1)}</div>
+        <h1 className="sd-hero__title">{si.name}</h1>
+        <p className="sd-hero__promise">{ed ? ed.promise : si.sig}</p>
+      </div>
+    </section>
+  );
+
+  if (isSchema) {
+    return (
+      <>
+        {subhead}
+        {hero}
+        <div className="sd-schema-notice">
+          <div className="sd-schema-card">
+            <div className="sd-schema-card__ic">
+              <Icon name="compass" />
+            </div>
+            <h3>This world is on the way</h3>
+            <p>
+              {si.name} is part of our taxonomy of 25 ways to travel, but it isn't bookable yet — we're curating
+              partners and guides for it now. It can't be added to a trip until it goes live.
+            </p>
+            <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 22, flexWrap: "wrap" }}>
+              <button
+                className="btn btn-primary"
+                onClick={() => showToast(`We'll email you when ${si.name} goes live`)}
+              >
+                Notify me when it's live
+              </button>
+              <Link className="btn btn-secondary" to="/special-interests">
+                Explore live interests
+              </Link>
+            </div>
+          </div>
+        </div>
+        <RegionsSection si={si} />
+        <div style={{ height: 80 }} />
+      </>
+    );
+  }
+
+  const wells = wellsActivated(si.id);
+  const rail = providerRail(si.id);
+  const intro = ed ? ed.intro : GENERIC_INTRO(si);
 
   return (
     <>
-      <section style={{ position: "relative", minHeight: 420, display: "flex", alignItems: "flex-end", overflow: "hidden" }}>
-        <img src={siImg(si.id, 1600)} alt="" referrerPolicy="no-referrer" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: si.status !== "live" ? "saturate(.25) brightness(1.02)" : undefined }} />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,18,14,.84), rgba(20,18,14,.1) 60%)" }} />
-        <div className="container" style={{ position: "relative", zIndex: 2, padding: "0 var(--gutter) 44px", color: "#fff" }}>
-          <div style={{ marginBottom: 14 }}><StatusPill status={si.status} /></div>
-          <h1 className="t-display-l" style={{ color: "#fff" }}>{si.name}</h1>
-          <p className="t-lead" style={{ color: "rgba(255,255,255,.92)", fontStyle: "italic", marginTop: 6 }}>{si.sig}</p>
-          <div style={{ display: "flex", gap: 12, marginTop: 24, flexWrap: "wrap" }}>
-            <button className="btn btn-gold" onClick={() => toggleSI(si.id)}>
-              <Icon name={picked ? "check" : "sparkle"} small /> {picked ? "Added to your journey" : "Add to my journey"}
-            </button>
-            <ButtonLink to="/regions" variant="secondary">See matching regions <Icon name="arrow" small /></ButtonLink>
-          </div>
+      {subhead}
+      {hero}
+
+      <div className="sd-intro">
+        {intro.map((p, i) => (
+          <p className={i === 0 ? "dropcap" : ""} key={i}>
+            {p}
+          </p>
+        ))}
+      </div>
+
+      <section className="sd-section">
+        <span className="eyebrow sd-section__eyebrow">What it switches on</span>
+        <h2 className="sd-section__title">The Wells a {si.name.toLowerCase()} trip activates</h2>
+        <p className="sd-section__sub">
+          Choose this interest and we light up the right Wells, pre-filled with matched providers.
+        </p>
+        <div className="sd-wells">
+          {wells.map((w) => (
+            <div className="sd-well" key={w}>
+              <div className="sd-well__ic">
+                <Icon name={allWells[w].icon} />
+              </div>
+              <div>
+                <div className="sd-well__name">{allWells[w].name}</div>
+                <div className="sd-well__how">{WELL_HOW[w] || allWells[w].tag}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <div className="container" style={{ padding: "48px 0 0" }}>
-        <Eyebrow>Where it shines</Eyebrow>
-        <h2 className="t-h2" style={{ marginTop: 8 }}>Regions made for {si.name.toLowerCase()}.</h2>
-        <div className="rg-grid" style={{ marginTop: 22 }}>
-          {regions.map((r) => (
-            <Link key={r.code} className="rg-card" to={`/region/${r.code}`}>
-              <div className="rg-card__media">
-                <img src={regionImg(r.code, 700)} alt="" loading="lazy" referrerPolicy="no-referrer" />
-                <div className="scrim" /><span className="rg-card__code">{r.code}</span>
-                <span className="rg-card__top-badge"><Pill kind={r.status === "live" ? "live" : "preview"}>{r.status === "live" ? "Live" : "Preview"}</Pill></span>
-                <span className="rg-card__name">{r.name}</span>
-              </div>
-              <div className="rg-card__body"><span className="rg-card__line">{r.line}</span></div>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {acts.length > 0 && (
-        <div className="container" style={{ padding: "48px 0 80px" }}>
-          <Eyebrow>What you'll do</Eyebrow>
-          <h2 className="t-h2" style={{ marginTop: 8 }}>Signature experiences.</h2>
-          <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", marginTop: 22 }}>
-            {acts.map((a) => (
-              <div key={a.id} className="card" style={{ padding: 20, display: "flex", gap: 14, alignItems: "flex-start" }}>
-                <div className="icon-chip"><Icon name="compass" /></div>
-                <div><h3 className="t-h3" style={{ fontSize: 19 }}>{a.name}</h3><p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 4 }}>{a.line}</p></div>
+      {rail.length > 0 && (
+        <section className="sd-section">
+          <span className="eyebrow sd-section__eyebrow">A taste of our partners</span>
+          <h2 className="sd-section__title">Vetted providers you'll meet</h2>
+          <p className="sd-section__sub">
+            Curated and scoped to your region during the journey. Prime Providers shown first.
+          </p>
+          <div className="sd-rail">
+            {rail.map((p, i) => (
+              <div className="sd-pv" key={`${p.well}-${p.name}-${i}`}>
+                <div className="sd-pv__body">
+                  <span className={cx("sd-pv__tier", `sd-pv__tier--${p.tier}`)}>
+                    {p.tier === "prime" ? "★ Prime" : "Vetted"}
+                  </span>
+                  <div className="sd-pv__name">{p.name}</div>
+                  <div className="sd-pv__desc">{p.desc}</div>
+                </div>
+                <div className="sd-pv__foot">{allWells[p.well].name}</div>
               </div>
             ))}
           </div>
-          <ButtonLink to="/regions" style={{ marginTop: 28 }}>Build a journey around this <Icon name="arrow" small /></ButtonLink>
-        </div>
+        </section>
       )}
+
+      <RegionsSection si={si} />
+
+      <div className="sd-cta">
+        <div
+          className="sd-cta__card"
+          style={{
+            background: `linear-gradient(135deg, ${si.accent}, color-mix(in oklch, ${si.accent} 60%, black))`,
+          }}
+        >
+          <span className="eyebrow">Start the journey</span>
+          <h2>Design a {si.name.toLowerCase()} trip that's truly yours.</h2>
+          <p>Pick a region next and watch your Wells fill with providers matched to {si.name}.</p>
+          <div className="sd-cta__actions">
+            <Link
+              className="btn"
+              to="/regions"
+              style={{ background: "#fff", color: "var(--foreground)" }}
+              onClick={() => {
+                try {
+                  localStorage.setItem("tww:journeySIs", JSON.stringify([si.id]));
+                } catch {
+                  /* ignore */
+                }
+              }}
+            >
+              Choose a region →
+            </Link>
+            <button
+              className="btn"
+              style={{ background: "rgba(255,255,255,.18)", color: "#fff", border: "1px solid rgba(255,255,255,.3)" }}
+              onClick={() => openPanel("concierge")}
+            >
+              <Icon name="sparkle" small /> Speak with Atlas
+            </button>
+          </div>
+        </div>
+      </div>
+      <div style={{ height: 80 }} />
     </>
   );
 }
