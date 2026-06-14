@@ -36,6 +36,7 @@ export function Header() {
         </nav>
         <div className="tw-header__spacer" />
         <div className="tw-header__actions">
+          <Link className="tw-signin" to="/signin">Sign in</Link>
           <div className="tw-locale" ref={localeRef}>
             <button
               className="tw-locale__btn"
