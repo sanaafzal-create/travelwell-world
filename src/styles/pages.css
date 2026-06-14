@@ -37,9 +37,9 @@
   .section__link { font-weight: 600; font-size: 14.5px; color: var(--primary); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 
   /* SI cards */
-  .si-rail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .si-rail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .si-card { position: relative; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--card); box-shadow: var(--e1); text-decoration: none; color: inherit; transition: transform .2s ease, box-shadow .2s ease; display: flex; flex-direction: column; }
-  .si-card:hover { transform: translateY(-3px); box-shadow: var(--e2); text-decoration: none; }
+  .si-card { cursor: default; }
   .si-card__media { height: 180px; position: relative; }
   .si-card__pill { position: absolute; inset-block-start: 12px; inset-inline-start: 12px; z-index: 2; }
   .si-card__body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }

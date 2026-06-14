@@ -185,7 +185,7 @@ function TalkDemo() {
 
 /* ============================================================================ */
 export default function Home() {
-  const { journeySIs, toggleSI, openPanel } = useStore();
+  const { openPanel } = useStore();
   const featured = FEAT_ORDER.map((id) => siById(id)).filter(Boolean) as NonNullable<ReturnType<typeof siById>>[];
 
   const TALK_FEATS = [
@@ -264,38 +264,22 @@ export default function Home() {
           <div className="si-rail">
             {featured.map((s) => {
               const live = s.status === "live";
-              const on = journeySIs.includes(s.id);
-              const order = journeySIs.indexOf(s.id) + 1;
               const media = {
                 backgroundImage: `linear-gradient(150deg, color-mix(in oklch, ${s.accent} 30%, transparent), rgba(20,18,14,.55)), url('${siImg(s.id, 800)}')`,
                 backgroundSize: "cover", backgroundPosition: "center",
               };
-              const inner = (
-                <>
+              return (
+                <div key={s.id} className={cx("si-card", !live && "is-preview")}>
                   <div className="si-card__media" style={media}>
                     <span className={cx("si-card__pill pill", live ? "pill-live" : "pill-preview")} style={{ background: "rgba(255,255,255,.92)" }}>{live ? "Live" : "Preview"}</span>
-                    {live && <span className="si-card__check" aria-hidden="true">{on ? order : ""}</span>}
                   </div>
                   <div className="si-card__body">
                     <h3>{s.name}</h3>
                     <p className="sig">If it's {s.sig}… <span className="tw">Travel Well.</span></p>
                     <div className="si-card__foot">
                       <span>{s.lux ? "Luxury & Ultra" : "All travelers"}</span>
-                      <span style={{ color: "var(--primary)", fontWeight: 600 }}>{live ? (on ? "Selected ✓" : "Tap to choose") : "Notify me →"}</span>
                     </div>
                   </div>
-                </>
-              );
-              if (!live) {
-                return <Link key={s.id} className="si-card is-preview" to={`/si/${s.id}`}>{inner}</Link>;
-              }
-              return (
-                <div
-                  key={s.id} className={cx("si-card", on && "is-picked")} role="button" tabIndex={0} aria-pressed={on}
-                  onClick={() => toggleSI(s.id)}
-                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleSI(s.id); } }}
-                >
-                  {inner}
                 </div>
               );
             })}
