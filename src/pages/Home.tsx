@@ -213,8 +213,10 @@ export default function Home() {
             <p className="hero__taps"><span>4–5 taps from here to a booked trip</span><span className="dot" /><span>No account needed to start</span></p>
           </div>
           <div className="hero__media">
-            <img className="m1" src={img("safariGiraffe", 1100)} alt="" referrerPolicy="no-referrer"
-              style={{ position: "absolute", inset: "48px 0", width: "auto", height: "auto", objectFit: "cover", borderRadius: "var(--radius-lg)", boxShadow: "var(--e2)" }} />
+            <div className="m1" style={{ position: "absolute", inset: "48px 0", borderRadius: "var(--radius-lg)", boxShadow: "var(--e2)", overflow: "hidden" }}>
+              <img src={img("safariGiraffe", 1100)} alt="" referrerPolicy="no-referrer"
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+            </div>
             <div className="m-tag">
               <div className="ic-chip"><Icon name="plane" /></div>
               <div className="txt"><div className="t">Safari &amp; Wildlife · East Africa</div><div className="s"><span className="live-dot" /> A live journey, ready to design</div></div>
