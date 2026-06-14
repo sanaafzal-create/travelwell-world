@@ -217,7 +217,7 @@ export default function Home() {
               style={{ position: "absolute", inset: "48px 0", width: "auto", height: "auto", objectFit: "cover", borderRadius: "var(--radius-lg)", boxShadow: "var(--e2)" }} />
             <div className="m-tag">
               <div className="ic-chip"><Icon name="plane" /></div>
-              <div className="txt"><div className="t">Safari &amp; Wildlife · East Africa</div><div className="s">A live journey, ready to design</div></div>
+              <div className="txt"><div className="t">Safari &amp; Wildlife · East Africa</div><div className="s"><span className="live-dot" /> A live journey, ready to design</div></div>
             </div>
           </div>
         </div>
