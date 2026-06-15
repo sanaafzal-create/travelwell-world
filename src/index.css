@@ -9,6 +9,11 @@
  */
 
 /* Small app-level helpers that bridge the prototype CSS and React routing. */
+/* Mobile-first: never allow horizontal scroll. Off-canvas panels (concierge,
+   trip tray, mega-menu) sit translated off-screen to the right; clip them so
+   they don't extend the document scroll width on small screens. */
+html, body { overflow-x: hidden; max-width: 100%; }
+
 #root {
   min-height: 100vh;
   display: flex;

@@ -258,4 +258,11 @@
   .tw-mega__inner { grid-template-columns: 1fr; }
   .tw-footer__top { grid-template-columns: 1fr; }
   .tw-locale__btn span.loc-lbl { display: none; }
+  /* Tighten the header so its content fits a phone without overflow. */
+  .tw-header__bar { padding: 0 14px; gap: 6px; }
+  .tw-header__actions { gap: 4px; }
+  .tw-logo { font-size: 20px; margin-inline-end: 4px; }
+  .tw-iconbtn { width: 40px; height: 40px; }
+  .tw-talk-btn { width: 40px; height: 40px; }
+  .tw-locale__btn { padding-inline: 8px; }
 }

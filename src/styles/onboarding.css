@@ -143,6 +143,10 @@
 /* responsive */
 @media (max-width: 880px) {
   .ob { grid-template-columns: 1fr; height: auto; overflow: visible; }
+  .ob__rail, .ob__panel { min-width: 0; }
+  .ob__stepwrap { max-width: 100%; }
+  .ob__bar { flex-wrap: wrap; gap: 10px 16px; }
+  .ob__walk-link { margin-inline-start: 0; }
   .ob__rail { height: auto; overflow: visible; padding: 28px 24px; }
   .ob__rail h1 { font-size: 24px; }
   .ob-steps { flex-direction: row; overflow-x: auto; gap: 8px; margin-top: 20px; }
