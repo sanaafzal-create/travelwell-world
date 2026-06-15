@@ -42,7 +42,7 @@
 .tw-iconbtn:hover { background: var(--surface-alt); }
 .tw-iconbtn--emergency { color: var(--destructive); border-color: color-mix(in oklch, var(--destructive) 30%, var(--border)); }
 .tw-iconbtn--emergency:hover { background: color-mix(in oklch, var(--destructive) 8%, white); }
-.tw-iconbtn .badge { position: absolute; top: -3px; inset-inline-end: -3px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center; border: 2px solid var(--background); }
+.tw-iconbtn .badge { position: absolute; top: -3px; inset-inline-end: -3px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; text-align: center; border: 2px solid var(--background); box-sizing: border-box; }
 
 /* Talk-to-Me primary entry in header */
 .tw-talk-btn { font-family: var(--font-sans); font-weight: 600; font-size: 14px; height: 42px; padding: 0 16px 0 14px; border-radius: var(--radius-pill); background: var(--primary); color: #fff; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: background-color .15s ease; }
