@@ -923,7 +923,7 @@
 
   @media (max-width: 900px) {
   [data-page="first-aid-kit"] .fa-hero__inner { grid-template-columns: 1fr; }
-  [data-page="first-aid-kit"] .fa-product { max-width: 360px; }
+  [data-page="first-aid-kit"] .fa-product { width: 100%; max-width: 360px; margin-inline: auto; }
   [data-page="first-aid-kit"] .fa-life-grid { grid-template-columns: 1fr; }
   [data-page="first-aid-kit"] .fa-cats { grid-template-columns: 1fr 1fr; }
   [data-page="first-aid-kit"] .fa-qr { grid-template-columns: 1fr; text-align: center; }
