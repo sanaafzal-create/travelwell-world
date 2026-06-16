@@ -202,6 +202,7 @@
 .tw-emergency__head { padding: 22px 24px 16px; display: flex; gap: 14px; align-items: flex-start; }
 .tw-emergency__head .ring { width: 44px; height: 44px; border-radius: 50%; background: color-mix(in oklch, var(--destructive) 12%, white); color: var(--destructive); display: grid; place-items: center; flex: none; }
 .tw-emergency__loc { margin: 0 24px; padding: 12px 14px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 13px; display: flex; gap: 10px; align-items: flex-start; }
+.tw-emergency__body { height: clamp(280px, 50vh, 400px); overflow-y: auto; }
 .tw-emergency__list { padding: 16px 24px 8px; display: flex; flex-direction: column; gap: 10px; }
 .tw-emerg-item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius); }
 .tw-emerg-item__ic { width: 40px; height: 40px; border-radius: 10px; background: color-mix(in oklch, var(--destructive) 9%, white); color: var(--destructive); display: grid; place-items: center; flex: none; }

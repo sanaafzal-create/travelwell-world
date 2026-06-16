@@ -79,6 +79,8 @@ export function Emergency() {
           <TabButton id="choking" active={tab} onClick={setTab}>Choking</TabButton>
         </div>
 
+        {/* Fixed-height scroll region so the card height stays constant across tabs. */}
+        <div className="tw-emergency__body">
         {tab === "call" && (
           <>
             {/* Universal number — ALWAYS rendered, no matter what we detect. */}
@@ -158,6 +160,7 @@ export function Emergency() {
             ]}
           />
         )}
+        </div>
 
         <div style={{ padding: "8px 24px 22px" }}>
           <p className="ftc">
