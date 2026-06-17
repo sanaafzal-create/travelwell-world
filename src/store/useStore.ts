@@ -63,8 +63,11 @@ interface State {
   panel: Panel;
   toast: string | null;
   whisper: Whisper | null;
+  // auth (null until Supabase is configured + signed in)
+  user: { id: string; email: string | null } | null;
 
   // actions
+  setUser: (u: { id: string; email: string | null } | null) => void;
   toggleSI: (id: string) => void;
   setActs: (ids: string[]) => void;
   toggleAct: (id: string) => void;
@@ -95,6 +98,9 @@ export const useStore = create<State>((set, get) => ({
   panel: null,
   toast: null,
   whisper: null,
+  user: null,
+
+  setUser: (u) => set({ user: u }),
 
   toggleSI: (id) => {
     const cur = get().journeySIs;

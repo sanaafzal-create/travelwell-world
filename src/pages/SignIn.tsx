@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { sendMagicLink, isSupabaseConfigured } from "@/lib/auth";
 import { Eyebrow } from "@/components/ui/primitives";
 
 const USER = { name: "Amara", initial: "A", email: "amara@email.com" };
@@ -23,10 +24,15 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [err, setErr] = useState(false);
 
-  function submit(e: React.FormEvent) {
+  async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setErr(true); return; }
-    setErr(false); setState("sent");
+    setErr(false);
+    if (isSupabaseConfigured) {
+      const { ok, error } = await sendMagicLink(email);
+      if (!ok) { showToast(error === "unconfigured" ? "Sign-in isn't connected yet" : "Couldn't send the link — try again"); return; }
+    }
+    setState("sent");
   }
 
   const TalkBtn = ({ sub }: { sub: string }) => (

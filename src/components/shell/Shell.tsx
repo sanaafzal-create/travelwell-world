@@ -8,6 +8,7 @@ import { TripTray } from "./TripTray";
 import { Emergency } from "./Emergency";
 import { Ambient } from "./Ambient";
 import { useStore, applyInitialLocale } from "@/store/useStore";
+import { getCurrentUser, onAuthChange } from "@/lib/auth";
 
 // Map a route to the page-scope slug used by src/styles/pages.css. Every page
 // block in pages.css is scoped under [data-page="<slug>"] so per-page styles
@@ -46,6 +47,13 @@ export function Shell() {
 
   // Apply persisted locale/dir once.
   useEffect(() => { applyInitialLocale(); }, []);
+
+  // Hydrate auth session + subscribe (no-ops until Supabase is configured).
+  const setUser = useStore((s) => s.setUser);
+  useEffect(() => {
+    getCurrentUser().then(setUser);
+    return onAuthChange(setUser);
+  }, [setUser]);
 
   // Close panels + scroll to top on route change.
   useEffect(() => {

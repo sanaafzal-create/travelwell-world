@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { isSupabaseConfigured } from "@/lib/auth";
 import { Eyebrow } from "@/components/ui/primitives";
 
 const EMAIL = "amara@email.com";
@@ -10,12 +11,18 @@ type State = "pending" | "verifying" | "verified" | "expired";
 const TONE: Record<State, string> = { pending: "ve--pending", verifying: "ve--verifying", verified: "ve--ok", expired: "ve--expired" };
 
 export default function VerifyEmail() {
-  const { openPanel, showToast } = useStore();
-  const [state, setState] = useState<State>("pending");
+  const { openPanel, showToast, user } = useStore();
+  // When Supabase is configured, a magic-link redirect lands here and the
+  // session is parsed from the URL → user becomes set; reflect that as verified.
+  const [state, setState] = useState<State>(isSupabaseConfigured ? "verifying" : "pending");
 
-  // verifying resolves to verified after a beat (mirrors the prototype)
   useEffect(() => {
-    if (state !== "verifying") return;
+    if (isSupabaseConfigured && user) setState("verified");
+  }, [user]);
+
+  // Demo mode: "verifying" resolves to "verified" after a beat (no backend).
+  useEffect(() => {
+    if (isSupabaseConfigured || state !== "verifying") return;
     const t = setTimeout(() => setState("verified"), 1900);
     return () => clearTimeout(t);
   }, [state]);
