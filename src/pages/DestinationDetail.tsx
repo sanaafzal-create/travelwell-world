@@ -7,19 +7,13 @@ import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
 import { cx } from "@/lib/utils";
+import { getSafety, isoForCountry, SAFE_COLOR } from "@/data/safety-data";
+import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
 
 const allWells: Record<string, Well> = {};
 [...WELLS, ...LUX_WELLS].forEach((w) => { allWells[w.id] = w; });
 
 const TIER: Record<string, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
-
-interface SafetyInfo { lvl: 1 | 2 | 3 | 4; label: string; note: string; }
-const SAFETY: Record<string, SafetyInfo> = {
-  Kenya: { lvl: 2, label: "Exercise increased caution", note: "Some areas near borders advise caution. Maasai Mara & main parks are routinely visited." },
-  Tanzania: { lvl: 1, label: "Exercise normal precautions", note: "Standard travel precautions apply." },
-  default: { lvl: 1, label: "Exercise normal precautions", note: "Standard travel precautions apply for this destination." },
-};
-const SAFE_COLOR: Record<number, string> = { 1: "var(--safety-1)", 2: "var(--safety-2)", 3: "var(--safety-3)", 4: "var(--safety-4)" };
 
 /** Find a destination by id across every region's list; return it with its region and sibling list. */
 function findDestination(id?: string): { dest: Destination; region: Region; list: Destination[] } {
@@ -50,8 +44,11 @@ export default function DestinationDetail() {
   const country = DEST.country || R.name;
   const stub = DEST.status === "stub";
 
-  const s = SAFETY[country] || SAFETY.default;
+  const iso = isoForCountry(country);
+  const s = getSafety(iso);
   const safeColor = SAFE_COLOR[s.lvl];
+  // Local emergency line joins off the same ISO key (David's emergency-numbers data).
+  const localEmergency = iso ? (getEmergencyNumbers(iso).emergency || UNIVERSAL_EMERGENCY) : UNIVERSAL_EMERGENCY;
 
   const groups = providersByWell();
 
@@ -142,13 +139,19 @@ export default function DestinationDetail() {
               </div>
             </div>
             <div className="safety-card__body">
-              <div className="safety-row"><span className="safety-row__ic"><Icon name="info" small /></span><span>{s.note}</span></div>
+              <div className="safety-row"><span className="safety-row__ic"><Icon name="info" small /></span><span>{s.summary}</span></div>
+              {s.considerations.map((c, i) => (
+                <div className="safety-row" key={i}><span className="safety-row__ic"><Icon name="pin" small /></span><span>{c}</span></div>
+              ))}
+              {s.medical && (
+                <div className="safety-row"><span className="safety-row__ic"><Icon name="cross" small /></span><span><span className="safety-row__k">Medical:</span> {s.medical}</span></div>
+              )}
               <div className="safety-row"><span className="safety-row__ic"><Icon name="hospital" small /></span><span><span className="safety-row__k">Nearest hospital surfaced via</span> the Emergency Button</span></div>
-              <div className="safety-row"><span className="safety-row__ic"><Icon name="phone" small /></span><span><span className="safety-row__k">Local emergency:</span> 999 / 112</span></div>
+              <div className="safety-row"><span className="safety-row__ic"><Icon name="phone" small /></span><span><span className="safety-row__k">Local emergency:</span> {localEmergency}{localEmergency !== UNIVERSAL_EMERGENCY ? ` / ${UNIVERSAL_EMERGENCY}` : ""}</span></div>
             </div>
             <div className="safety-card__foot">
-              <span className="safety-card__source"><Icon name="shield" small /> Source: government travel advisories</span>
-              <span style={{ marginInlineStart: "auto" }}>Updated Jun 2026</span>
+              <span className="safety-card__source"><Icon name="shield" small /> {s.source}</span>
+              {s.verified && <span style={{ marginInlineStart: "auto" }}>Verified {s.verified}</span>}
             </div>
           </div>
 

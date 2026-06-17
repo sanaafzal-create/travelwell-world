@@ -1,0 +1,106 @@
+/**
+ * TravelWell — Safety Card data (the layer behind the Destination Safety Card).
+ *
+ * Self-contained, framework-free, no network — compiled into the bundle, the
+ * same pattern as src/data/emergency-numbers.ts. Keyed by ISO 3166-1 alpha-2
+ * country code so it JOINS the emergency-numbers data off one key (local
+ * emergency phone lines live there, never duplicated here).
+ *
+ * Honesty contract: every entry must carry a real `source` + `verified` date.
+ * Entries we haven't verified yet fall through to DEFAULT_SAFETY ("exercise
+ * normal precautions"), which the card renders as a neutral, honest baseline.
+ *
+ * Hand-off (David): author entries in this shape (TS or matching JSON), keyed
+ * by ISO code, no phone numbers, with source + verified on every entry.
+ */
+
+export type RiskLevel = 1 | 2 | 3 | 4; // 1 = normal precautions … 4 = do not travel
+
+export interface SafetyInfo {
+  /** Display name, e.g. "Kenya". */
+  country: string;
+  /** Risk level — maps to the safety-1…safety-4 card colors. */
+  lvl: RiskLevel;
+  /** Advisory tier text, e.g. "Exercise increased caution". */
+  label: string;
+  /** One sentence shown at the top of the card. */
+  summary: string;
+  /** 2–5 key local considerations (rendered as rows). */
+  considerations: string[];
+  /** Verified medical notes — water, vaccines, altitude, etc. */
+  medical?: string;
+  /** Provenance, e.g. "US State Dept L2 / UK FCDO, Apr 2026". */
+  source: string;
+  /** Date verified, e.g. "2026-05". */
+  verified: string;
+}
+
+/** Card top color per risk level. */
+export const SAFE_COLOR: Record<RiskLevel, string> = {
+  1: "var(--safety-1)",
+  2: "var(--safety-2)",
+  3: "var(--safety-3)",
+  4: "var(--safety-4)",
+};
+
+/** Neutral, honest baseline for any country we don't have verified data for. */
+export const DEFAULT_SAFETY: SafetyInfo = {
+  country: "This destination",
+  lvl: 1,
+  label: "Exercise normal precautions",
+  summary: "Standard travel precautions apply. Check your government's latest advisory before you travel.",
+  considerations: [],
+  source: "Baseline — verify the latest official advisory before travel",
+  verified: "",
+};
+
+/**
+ * Display-name → ISO alpha-2 for the countries our live destinations cover.
+ * (Destinations store `country` as a display name; the Safety Card and the
+ * emergency-numbers data both key by ISO, so we map here.)
+ */
+export const COUNTRY_ISO: Record<string, string> = {
+  Australia: "AU", Bahamas: "BS", Cambodia: "KH", Canada: "CA", "Chile / Argentina": "CL",
+  Colombia: "CO", France: "FR", "French Polynesia": "PF", Germany: "DE", Greece: "GR",
+  Iceland: "IS", Indonesia: "ID", Italy: "IT", Japan: "JP", Jordan: "JO", Kenya: "KE",
+  Namibia: "NA", Netherlands: "NL", "New Zealand": "NZ", Norway: "NO", Peru: "PE",
+  Portugal: "PT", Rwanda: "RW", "Saudi Arabia": "SA", "South Africa": "ZA", "South Korea": "KR",
+  Spain: "ES", "St. Lucia": "LC", Switzerland: "CH", Tanzania: "TZ", Thailand: "TH",
+  "Turks & Caicos": "TC", UAE: "AE",
+};
+
+export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;
+
+/**
+ * Safety data keyed by ISO alpha-2.
+ *
+ * SEED ONLY — these two carry over the existing prototype copy as a starting
+ * point and are explicitly marked as seed in `source` until David's verified
+ * dataset lands. Everything else falls through to DEFAULT_SAFETY.
+ */
+export const SAFETY_DATA: Record<string, SafetyInfo> = {
+  KE: {
+    country: "Kenya",
+    lvl: 2,
+    label: "Exercise increased caution",
+    summary: "Some areas near borders advise caution. The Maasai Mara and main parks are routinely visited.",
+    considerations: [],
+    source: "TravelWell seed — pending verified government advisory data",
+    verified: "",
+  },
+  TZ: {
+    country: "Tanzania",
+    lvl: 1,
+    label: "Exercise normal precautions",
+    summary: "Standard travel precautions apply across the main tourist circuits.",
+    considerations: [],
+    source: "TravelWell seed — pending verified government advisory data",
+    verified: "",
+  },
+};
+
+/** Look up safety info by ISO code. Always returns something (DEFAULT fallback). */
+export function getSafety(iso: string | null | undefined): SafetyInfo {
+  if (!iso) return DEFAULT_SAFETY;
+  return SAFETY_DATA[iso.toUpperCase()] ?? DEFAULT_SAFETY;
+}
