@@ -238,7 +238,7 @@
   [data-page="si-detail"] .sd-hero__inner { position: relative; max-width: var(--content-max); margin-inline: auto; padding: 0 var(--gutter) 52px; width: 100%; color: #fff; }
   [data-page="si-detail"] .sd-hero__badges { display: flex; gap: 10px; margin-bottom: 18px; }
   [data-page="si-detail"] .sd-hero__sig { font-family: var(--font-display); font-style: italic; font-size: clamp(18px,2.4vw,24px); color: rgba(255,255,255,.9); }
-  [data-page="si-detail"] .sd-hero__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(44px,7vw,84px); line-height: 1; letter-spacing: -.02em; margin: 6px 0 14px; text-shadow: 0 2px 30px rgba(0,0,0,.4); }
+  [data-page="si-detail"] .sd-hero__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(44px,7vw,84px); line-height: 1; letter-spacing: -.02em; margin: 6px 0 14px; color: #fff; text-shadow: 0 2px 30px rgba(0,0,0,.4); }
   [data-page="si-detail"] .sd-hero__promise { font-size: clamp(18px,2vw,22px); line-height: 1.4; max-width: 40ch; color: rgba(255,255,255,.95); }
   [data-page="si-detail"] .sd-intro { max-width: var(--reading-max); margin-inline: auto; padding: 56px var(--gutter) 0; }
   [data-page="si-detail"] .sd-intro p { font-size: 19px; line-height: 1.7; color: var(--foreground); }
