@@ -2,30 +2,43 @@ import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { siById } from "@/data/taxonomy";
+import { cx } from "@/lib/utils";
 
-/** Sticky selection bar — carries chosen SIs forward to Regions. */
+/**
+ * Journey selection bar (Step 1 → Step 2). Fixed to the viewport bottom, slides
+ * up when interests are chosen, and carries them forward to Regions. Uses the
+ * shared .jn-selbar styling (journey.css) so it's fixed on every journey page —
+ * not the home-scoped .si-pickbar.
+ */
 export function SiPickBar() {
   const { journeySIs, toggleSI } = useStore();
   const show = journeySIs.length > 0;
   const n = journeySIs.length;
-  const msg = n === 2 ? "Two — the sweet spot ✨" : n === 3 ? "Three — the most we recommend" : "Add one more, or continue";
 
   return (
-    <div className="si-pickbar" data-show={show} aria-hidden={!show} role="region" aria-label="Your chosen interests">
-      <div className="si-pickbar__inner">
-        <div className="si-pickbar__pills">
+    <div className="jn-selbar" data-show={show} aria-live="polite" aria-hidden={!show} role="region" aria-label="Your chosen interests">
+      <div className="jn-selbar__inner">
+        <div className="jn-selbar__pills">
           {journeySIs.map((id) => {
             const si = siById(id);
             return (
-              <span key={id} className="si-pickbar__pill">
+              <span key={id} className="jn-sel-pill">
+                <span className="dot" style={{ width: 8, height: 8, borderRadius: "50%", background: si?.accent }} />
                 {si?.name ?? id}
-                <button aria-label={`Remove ${si?.name ?? id}`} onClick={() => toggleSI(id)}>✕</button>
+                <button aria-label={`Remove ${si?.name ?? id}`} onClick={() => toggleSI(id)}><Icon name="close" small /></button>
               </span>
             );
           })}
         </div>
-        <span className="si-pickbar__msg">{msg}</span>
-        <Link className="btn btn-primary" to="/regions">Continue · choose a region <Icon name="arrow" small /></Link>
+        <div className={cx("jn-selbar__msg", n === 3 && "warn")}>
+          {n >= 3 ? <><b>3 of 3</b> — that's the max. Fewer means a more focused trip.</>
+            : n === 2 ? <><b>2 selected</b> — the sweet spot. ✨</>
+            : <><b>1 selected</b> — add one more, or continue.</>}
+        </div>
+        <div className="jn-selbar__actions">
+          <button className="btn btn-secondary" onClick={() => [...journeySIs].forEach((id) => toggleSI(id))}>Clear</button>
+          <Link className="btn btn-primary" to="/regions">Choose a region →</Link>
+        </div>
       </div>
     </div>
   );
