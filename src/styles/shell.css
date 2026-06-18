@@ -92,7 +92,8 @@
    JOURNEY STEP INDICATOR (§3.6)
    ========================================================================== */
 .tw-steps { display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
-.tw-step { display: flex; align-items: center; gap: 10px; }
+.tw-step { display: flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; border-radius: var(--radius-pill); transition: opacity .15s ease; }
+.tw-step:hover { text-decoration: none; opacity: .8; }
 .tw-step__dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; border: 1.5px solid var(--border); background: var(--card); color: var(--muted-foreground); flex: none; }
 .tw-step__label { font-size: 13.5px; font-weight: 500; color: var(--muted-foreground); white-space: nowrap; }
 .tw-step__line { width: 28px; height: 1.5px; background: var(--border); margin: 0 10px; }
