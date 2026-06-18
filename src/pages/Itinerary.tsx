@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { WELLS, regionByCode } from "@/data/taxonomy";
 import { useStore, type TripBlock } from "@/store/useStore";
 import { Pill } from "@/components/ui/primitives";
+import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx, cap } from "@/lib/utils";
 
 const SLOTS = [
@@ -68,6 +69,7 @@ export default function Itinerary() {
 
   return (
     <>
+      <JourneyBar current={5} crumbs={[{ label: "Home", to: "/" }, { label: "Wells", to: "/wells-surface" }, { label: "Book It" }]} />
       <div className="it-head">
         <div className="it-head__inner">
           <div className="it-head__top">
