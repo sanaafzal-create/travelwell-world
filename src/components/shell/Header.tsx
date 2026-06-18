@@ -6,7 +6,7 @@ import { useStore } from "@/store/useStore";
 import { Logo } from "./Logo";
 
 export function Header() {
-  const { locale, setLocale, openPanel, trip } = useStore();
+  const { locale, setLocale, openPanel, trip, user } = useStore();
   const [localeOpen, setLocaleOpen] = useState(false);
   const localeRef = useRef<HTMLDivElement>(null);
   const L = LOCALES.find((l) => l.code === locale) || LOCALES[0];
@@ -36,7 +36,9 @@ export function Header() {
         </nav>
         <div className="tw-header__spacer" />
         <div className="tw-header__actions">
-          <Link className="tw-signin" to="/signin">Sign in</Link>
+          {user
+            ? <Link className="tw-signin" to="/profile" title="Your Travel ID">{user.email ? user.email.split("@")[0] : "Account"}</Link>
+            : <Link className="tw-signin" to="/signin">Sign in</Link>}
           <div className="tw-locale" ref={localeRef}>
             <button
               className="tw-locale__btn"

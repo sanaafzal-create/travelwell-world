@@ -37,3 +37,30 @@ export async function saveTravelId(
     .upsert({ ...rec, updated_at: new Date().toISOString() }, { onConflict: "user_id" });
   return error ? { ok: false, error: error.message } : { ok: true };
 }
+
+/* ---- Pending Travel ID (passwordless flow) -------------------------------
+ * Sign Up collects the Travel ID before the user has a session. We stash it
+ * locally, send a magic link, and flush it to Postgres once they verify and a
+ * session exists (see Shell). */
+const PENDING_KEY = "tww:pendingTravelId";
+export type PendingTravelId = Omit<TravelIdRecord, "user_id">;
+
+export function savePendingTravelId(rec: PendingTravelId): void {
+  try { localStorage.setItem(PENDING_KEY, JSON.stringify(rec)); } catch { /* ignore */ }
+}
+export function loadPendingTravelId(): PendingTravelId | null {
+  try { const v = localStorage.getItem(PENDING_KEY); return v ? (JSON.parse(v) as PendingTravelId) : null; } catch { return null; }
+}
+export function clearPendingTravelId(): void {
+  try { localStorage.removeItem(PENDING_KEY); } catch { /* ignore */ }
+}
+
+/** Once signed in, write any pending Travel ID to the DB and clear it. */
+export async function flushPendingTravelId(userId: string): Promise<boolean> {
+  const pending = loadPendingTravelId();
+  if (!pending) return false;
+  const { ok } = await saveTravelId({ user_id: userId, ...pending });
+  if (ok) clearPendingTravelId();
+  return ok;
+}
+

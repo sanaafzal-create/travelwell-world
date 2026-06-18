@@ -9,6 +9,7 @@ import { Emergency } from "./Emergency";
 import { Ambient } from "./Ambient";
 import { useStore, applyInitialLocale } from "@/store/useStore";
 import { getCurrentUser, onAuthChange } from "@/lib/auth";
+import { flushPendingTravelId } from "@/lib/travelId";
 
 // Map a route to the page-scope slug used by src/styles/pages.css. Every page
 // block in pages.css is scoped under [data-page="<slug>"] so per-page styles
@@ -49,11 +50,17 @@ export function Shell() {
   useEffect(() => { applyInitialLocale(); }, []);
 
   // Hydrate auth session + subscribe (no-ops until Supabase is configured).
+  // On sign-in, flush any Travel ID captured during Sign Up to the database.
   const setUser = useStore((s) => s.setUser);
+  const showToast = useStore((s) => s.showToast);
   useEffect(() => {
-    getCurrentUser().then(setUser);
-    return onAuthChange(setUser);
-  }, [setUser]);
+    const onUser = (u: { id: string; email: string | null } | null) => {
+      setUser(u);
+      if (u) flushPendingTravelId(u.id).then((saved) => { if (saved) showToast("Travel ID saved to your account ✓"); });
+    };
+    getCurrentUser().then(onUser);
+    return onAuthChange(onUser);
+  }, [setUser, showToast]);
 
   // Close panels + scroll to top on route change.
   useEffect(() => {

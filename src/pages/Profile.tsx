@@ -1,10 +1,12 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { siById } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
+import { fetchTravelId, type TravelIdRecord } from "@/lib/travelId";
+import { signOut } from "@/lib/auth";
 
 const PROFILE = {
   id: "TW-2A9F-K3",
@@ -44,7 +46,7 @@ function InterestChips() {
   );
 }
 
-function IdentityCard() {
+function IdentityCard({ dream = PROFILE.dream, synced = false }: { dream?: string; synced?: boolean }) {
   return (
     <div className="idp">
       <div className="idp__top">
@@ -77,7 +79,7 @@ function IdentityCard() {
         </div>
         <div className="idp__col">
           <h3>The dream</h3>
-          <p className="idp-dream">“{PROFILE.dream}”</p>
+          <p className="idp-dream">“{dream}”</p>
           <h3 style={{ marginTop: 20 }}>Shape</h3>
           <div className="idp-chips">
             <span className="idp-chip" style={{ background: "var(--surface-alt)", border: "1px solid var(--border)" }}><Icon name="calendar" small /> {PROFILE.trip.length}</span>
@@ -87,15 +89,26 @@ function IdentityCard() {
       </div>
       <div className="idp__foot">
         <span className="idp__sig">Signed, ready to travel. <span className="tw">Travel Well.</span></span>
-        <span className="pill pill-live">Saved on this device</span>
+        <span className="pill pill-live">{synced ? "Saved to your account" : "Saved on this device"}</span>
       </div>
     </div>
   );
 }
 
 export default function Profile() {
-  const { openPanel, showToast } = useStore();
+  const { openPanel, showToast, user, setUser } = useStore();
   const [editing, setEditing] = useState<string | null>(null);
+  const [rec, setRec] = useState<TravelIdRecord | null>(null);
+
+  // When signed in, load the Travel ID from the database.
+  useEffect(() => {
+    if (user) fetchTravelId(user.id).then(setRec);
+    else setRec(null);
+  }, [user]);
+
+  const displayName = rec?.display_name || PROFILE.party[0].name;
+  const dream = rec?.trip_intent || PROFILE.dream;
+  const synced = Boolean(rec);
 
   const Sec = ({ k, icon, title, children }: { k: string; icon: string; title: ReactNode; children: ReactNode }) => {
     if (editing === k) {
@@ -126,14 +139,20 @@ export default function Profile() {
   return (
     <div className="pf">
       <div className="pf__head">
-        <div><Eyebrow>Your Travel ID</Eyebrow><h1>{PROFILE.party[0].name}'s travel identity</h1></div>
+        <div>
+          <Eyebrow>Your Travel ID</Eyebrow>
+          <h1>{displayName}'s travel identity</h1>
+          {synced && <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 4 }}><Icon name="check" small /> Synced from your account · {user?.email}</p>}
+        </div>
         <div className="pf__head-actions">
-          <Link className="btn btn-secondary" to="/signup"><Icon name="arrow" small /> Rebuild from scratch</Link>
+          {user
+            ? <button className="btn btn-secondary" onClick={async () => { await signOut(); setUser(null); showToast("Signed out"); }}>Sign out</button>
+            : <Link className="btn btn-secondary" to="/signup"><Icon name="arrow" small /> Rebuild from scratch</Link>}
           <Link className="btn btn-primary" to="/itinerary">Open my trip →</Link>
         </div>
       </div>
 
-      <IdentityCard />
+      <IdentityCard dream={dream} synced={synced} />
 
       <h2 className="t-h3" style={{ marginTop: 36, marginBottom: 4 }}>Edit any detail</h2>
       <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginBottom: 18 }}>Change anything here and your dream trip quietly re-tunes. No account required — this lives on your device.</p>

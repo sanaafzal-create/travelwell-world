@@ -1,8 +1,10 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
+import { savePendingTravelId } from "@/lib/travelId";
+import { sendMagicLink, isSupabaseConfigured } from "@/lib/auth";
 
 const STEPS = [
   { key: "you", label: "You", sub: "Name & email" },
@@ -81,6 +83,25 @@ export default function SignUp() {
   const isBuild = step >= STEPS.length;
   const lastStep = step === STEPS.length - 1;
   const pct = isBuild ? 100 : ((step + 1) / STEPS.length) * 100;
+
+  // On reaching the build screen: stash the Travel ID and (if connected) send a
+  // magic link. It's written to the DB once they verify (Shell flushes it).
+  const persistedRef = useRef(false);
+  useEffect(() => {
+    if (!isBuild || persistedRef.current) return;
+    persistedRef.current = true;
+    savePendingTravelId({
+      display_name: name || null,
+      age_range: age || null,
+      trip_intent: dream || null,
+      interests: [],
+      budget_ranges: budget,
+      dietary: null,
+      accessibility: null,
+      consent: true,
+    });
+    if (isSupabaseConfigured && validEmail(email)) sendMagicLink(email);
+  }, [isBuild, name, age, dream, budget, email]);
 
   function validate(): boolean {
     const key = STEPS[step].key;
@@ -326,7 +347,7 @@ export default function SignUp() {
               </>
             )}
 
-            {isBuild && <BuildScreen name={name} age={age} party={party} themes={themes} length={length} budget={budget} dream={dream} navigate={navigate} />}
+            {isBuild && <BuildScreen name={name} age={age} party={party} themes={themes} length={length} budget={budget} dream={dream} navigate={navigate} emailed={isSupabaseConfigured} email={email} />}
 
             {!isBuild && (
               <>
@@ -348,8 +369,8 @@ const Why = ({ ic, children }: { ic: string; children: ReactNode }) => (
   <div className="ob__why"><Icon name={ic} /><span>{children}</span></div>
 );
 
-function BuildScreen({ name, age, party, themes, length, budget, dream, navigate }: {
-  name: string; age: string; party: Member[]; themes: string[]; length: string; budget: Record<string, string[]>; dream: string; navigate: (to: string) => void;
+function BuildScreen({ name, age, party, themes, length, budget, dream, navigate, emailed, email }: {
+  name: string; age: string; party: Member[]; themes: string[]; length: string; budget: Record<string, string[]>; dream: string; navigate: (to: string) => void; emailed: boolean; email: string;
 }) {
   const members = [{ name: name || "You", role: "Lead traveler · books & pays", lead: true, age }]
     .concat(party.map((m) => ({ name: m.name, role: relLabel(m.rel), lead: false, age: m.age })));
@@ -361,6 +382,12 @@ function BuildScreen({ name, age, party, themes, length, budget, dream, navigate
       <Eyebrow className="ob__eyebrow">Your party is ready</Eyebrow>
       <h2 className="ob__title">{members.length > 1 ? `${members.length} Travel IDs built` : "Your Travel ID is built"} — and your dream trip has started.</h2>
       <p className="t-lead" style={{ marginTop: 14 }}>Everything's saved to this device. Next we'll switch a few things on (email, safety location, alerts) — or you can dive straight into designing.</p>
+      {emailed && (
+        <div className="jn-context" role="status" style={{ justifyContent: "center" }}>
+          <Icon name="message" small />
+          <span>We emailed a magic link to <b>{email}</b> — tap it to save your Travel ID to your account and reach it from any device.</span>
+        </div>
+      )}
       <div className="id-cards">
         {members.map((m, i) => (
           <div className="id-card" key={i}>
