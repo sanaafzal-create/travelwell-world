@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { siById, wellById, WELLS, LUX_WELLS } from "@/data/taxonomy";
 import { ACTIVITIES } from "@/data/places";
@@ -9,7 +9,8 @@ import { cx } from "@/lib/utils";
 
 export default function Activities() {
   const navigate = useNavigate();
-  const { journeySIs, journeyActs, toggleAct } = useStore();
+  const { journeySIs, journeyActs, toggleAct, openPanel } = useStore();
+  const noInterests = journeySIs.filter((s) => ACTIVITIES[s]?.length).length === 0;
   const sis = journeySIs.filter((s) => ACTIVITIES[s]?.length);
   const groups = (sis.length ? sis : ["safari"]).map((s) => ({ si: siById(s), items: ACTIVITIES[s] || [] })).filter((g) => g.si);
 
@@ -28,6 +29,12 @@ export default function Activities() {
         <Eyebrow>The Dream Journey · Step 3 of 5</Eyebrow>
         <h1>What excites you most?</h1>
         <p className="lead">Pick the moments you're dreaming of. Each one quietly pre-fills the right Well with matched providers — so the next step is already half-done.</p>
+        {noInterests && (
+          <div className="jn-context" role="note">
+            <Icon name="info" small />
+            <span>You haven't picked any interests yet, so these are <b>sample Safari activities</b>. <Link to="/special-interests" style={{ fontWeight: 600 }}>Pick what moves you</Link> for activities tailored to you — or <button className="btn-ghost" style={{ padding: 0, fontWeight: 600 }} onClick={() => openPanel("concierge")}>ask Atlas</button>.</span>
+          </div>
+        )}
       </div>
 
       <div className="container">
