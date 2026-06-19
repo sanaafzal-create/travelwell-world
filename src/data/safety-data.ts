@@ -16,6 +16,10 @@
 
 export type RiskLevel = 1 | 2 | 3 | 4; // 1 = normal precautions … 4 = do not travel
 
+// Verified destination safety data (David's safety.json — 33 countries, keyed
+// by ISO alpha-2, sourced to US State Dept / UK FCDO advisories, verified 2026-06).
+import safetyJson from "./safety.json";
+
 export interface SafetyInfo {
   /** Display name, e.g. "Kenya". */
   country: string;
@@ -72,32 +76,12 @@ export const COUNTRY_ISO: Record<string, string> = {
 export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;
 
 /**
- * Safety data keyed by ISO alpha-2.
- *
- * SEED ONLY — these two carry over the existing prototype copy as a starting
- * point and are explicitly marked as seed in `source` until David's verified
- * dataset lands. Everything else falls through to DEFAULT_SAFETY.
+ * Safety data keyed by ISO alpha-2 — sourced from David's verified safety.json
+ * (33 countries, US State Dept / UK FCDO, verified 2026-06). Anything not in
+ * the file falls through to DEFAULT_SAFETY. ⚠️ Advisories shift — re-verify
+ * against the live source before these cards go public-facing.
  */
-export const SAFETY_DATA: Record<string, SafetyInfo> = {
-  KE: {
-    country: "Kenya",
-    lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Some areas near borders advise caution. The Maasai Mara and main parks are routinely visited.",
-    considerations: [],
-    source: "TravelWell seed — pending verified government advisory data",
-    verified: "",
-  },
-  TZ: {
-    country: "Tanzania",
-    lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Standard travel precautions apply across the main tourist circuits.",
-    considerations: [],
-    source: "TravelWell seed — pending verified government advisory data",
-    verified: "",
-  },
-};
+export const SAFETY_DATA = safetyJson as Record<string, SafetyInfo>;
 
 /** Look up safety info by ISO code. Always returns something (DEFAULT fallback). */
 export function getSafety(iso: string | null | undefined): SafetyInfo {
