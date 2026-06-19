@@ -1,11 +1,11 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
+import { fetchTravelId, type TravelIdRecord } from "@/lib/travelId";
 
-const EMAIL = "amara@email.com";
 const STEPS = ["verify", "location", "channel", "whisper"] as const;
 const STEP_LABELS = ["Email", "Safety", "Contact", "Pace", "Done"];
 const NEXT_LABELS = ["Next: Safety", "Next: Contact", "Next: Your pace"];
@@ -36,12 +36,23 @@ function ResultBox({ text, ok }: { text: string; ok: boolean }) {
 
 export default function Activation() {
   const navigate = useNavigate();
-  const { showToast, setWhisperDial } = useStore();
+  const { showToast, setWhisperDial, user } = useStore();
   const [step, setStep] = useState(0);
   const [results, setResults] = useState<Results>({ verify: null, location: null, channel: null, whisper: null });
   const [channel, setChannel] = useState("email");
   const [whisper, setWhisper] = useState("rare");
+  const [rec, setRec] = useState<TravelIdRecord | null>(null);
   const isDone = step >= STEPS.length;
+
+  // When signed in, pull the real Travel ID so the greeting + email aren't placeholders.
+  useEffect(() => {
+    if (user) fetchTravelId(user.id).then(setRec);
+    else setRec(null);
+  }, [user]);
+
+  // Fall back to the design-preview persona only when unauthenticated.
+  const email = user?.email ?? "amara@email.com";
+  const firstName = (rec?.display_name ?? "Amara").split(" ")[0];
 
   const dots = STEPS.concat(["done" as never]).map((_, i) => {
     const st = i < step ? "done" : i === step ? "current" : "todo";
@@ -67,12 +78,12 @@ export default function Activation() {
         why={<>We sent a one-tap magic link to confirm it's you. Verifying secures your trip and lets you pick up where you left off on any device — <b>still no password</b>.</>}
         foot={done
           ? <><button className="act__skip" onClick={back}>← Back</button><button className="btn btn-primary" onClick={next}>Continue · <span className="act__next">{NEXT_LABELS[0]}</span> →</button></>
-          : <><button className="act__skip" onClick={() => showToast(`Magic link re-sent to ${EMAIL}`)}>Resend link</button>
+          : <><button className="act__skip" onClick={() => showToast(`Magic link re-sent to ${email}`)}>Resend link</button>
               <div style={{ display: "flex", gap: 10 }}><button className="btn btn-secondary" onClick={() => showToast("You can change your email in Profile")}>Change email</button><button className="btn btn-primary" onClick={() => { setResults((r) => ({ ...r, verify: "verified" })); showToast("Email verified"); }}>I've verified ✓</button></div></>}>
         <div className="act-mail">
           <div className="act-mail__ic"><Icon name="message" /></div>
           <div><div className="act-mail__from">TravelWell.World</div><div className="act-mail__sub">Confirm your email to secure your trip</div></div>
-          <div className="act-mail__to">to<br />{EMAIL}</div>
+          <div className="act-mail__to">to<br />{email}</div>
         </div>
         {done && <div className="act-result act-result--ok"><Icon name="check" small /> Email verified — you're secured.</div>}
       </Card>
@@ -149,7 +160,7 @@ export default function Activation() {
       <div className="act__inner act-done">
         <div className="build__burst"><Icon name="check" /></div>
         <Eyebrow>All set</Eyebrow>
-        <h2 className="act__title" style={{ fontSize: 30 }}>You're ready, Amara. Let's design your trip.</h2>
+        <h2 className="act__title" style={{ fontSize: 30 }}>You're ready, {firstName}. Let's design your trip.</h2>
         <p className="act__why" style={{ maxWidth: "46ch", marginInline: "auto" }}>Your account is set up and your dream trip is waiting. Everything below is editable anytime in Profile.</p>
         <div className="act-summary">
           {rows.map((r) => (
@@ -172,7 +183,7 @@ export default function Activation() {
     <div className="act">
       <div className="act__head">
         <Eyebrow>Activation · Finish setting up</Eyebrow>
-        <h1>You're almost there, Amara.</h1>
+        <h1>You're almost there, {firstName}.</h1>
         <p>Four quick switches — each one optional. Turn on what helps; skip the rest. You can change any of these later in Profile.</p>
         <div className="act__dots" aria-hidden="true">{dots}</div>
       </div>
