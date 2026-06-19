@@ -53,14 +53,21 @@ export function Shell() {
   // On sign-in, flush any Travel ID captured during Sign Up to the database.
   const setUser = useStore((s) => s.setUser);
   const showToast = useStore((s) => s.showToast);
+  const hydrateJourney = useStore((s) => s.hydrateJourney);
   useEffect(() => {
     const onUser = (u: { id: string; email: string | null } | null) => {
       setUser(u);
-      if (u) flushPendingTravelId(u.id).then((saved) => { if (saved) showToast("Travel ID saved to your account ✓"); });
+      if (u) {
+        // Flush the Sign-Up Travel ID first, then load/migrate this account's
+        // journey so the itinerary resumes across devices.
+        flushPendingTravelId(u.id)
+          .then((saved) => { if (saved) showToast("Travel ID saved to your account ✓"); })
+          .finally(() => hydrateJourney(u.id));
+      }
     };
     getCurrentUser().then(onUser);
     return onAuthChange(onUser);
-  }, [setUser, showToast]);
+  }, [setUser, showToast, hydrateJourney]);
 
   // Close panels + scroll to top on route change.
   useEffect(() => {

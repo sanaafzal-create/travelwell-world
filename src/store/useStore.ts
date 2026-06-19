@@ -8,6 +8,7 @@
 import { create } from "zustand";
 import { LOCALES } from "@/data/taxonomy";
 import type { IconName } from "@/data/taxonomy";
+import { fetchJourney, createJourney, saveJourneyMeta, replaceBlocks } from "@/lib/journey";
 
 export type BlockStatus = "idea" | "pending" | "confirmed";
 export interface TripBlock {
@@ -65,9 +66,12 @@ interface State {
   whisper: Whisper | null;
   // auth (null until Supabase is configured + signed in)
   user: { id: string; email: string | null } | null;
+  // the signed-in traveler's persisted journey (null until hydrated/created)
+  journeyId: string | null;
 
   // actions
   setUser: (u: { id: string; email: string | null } | null) => void;
+  hydrateJourney: (userId: string) => Promise<void>;
   toggleSI: (id: string) => void;
   setActs: (ids: string[]) => void;
   toggleAct: (id: string) => void;
@@ -87,6 +91,18 @@ interface State {
 
 export const MAX_SIS = 3;
 
+// Fire-and-forget write-through to Postgres. localStorage stays the immediate
+// source of truth for snappy UI; these durably sync the signed-in traveler's
+// journey so it resumes on any device. No-op when signed out / unconfigured.
+function persistMeta(g: () => State) {
+  const { user, journeyId, journeySIs, region, journeyActs } = g();
+  if (user && journeyId) void saveJourneyMeta(journeyId, { interests: journeySIs, region, activities: journeyActs });
+}
+function persistBlocks(g: () => State) {
+  const { user, journeyId, trip } = g();
+  if (user && journeyId) void replaceBlocks(journeyId, user.id, trip);
+}
+
 export const useStore = create<State>((set, get) => ({
   journeySIs: load<string[]>("journeySIs", []),
   journeyActs: load<string[]>("journeyActs", []),
@@ -99,8 +115,26 @@ export const useStore = create<State>((set, get) => ({
   toast: null,
   whisper: null,
   user: null,
+  journeyId: null,
 
-  setUser: (u) => set({ user: u }),
+  setUser: (u) => set(u ? { user: u } : { user: null, journeyId: null }),
+
+  // On sign-in: load this account's journey from Postgres (cross-device resume),
+  // or migrate the current on-device state up if this is its first sign-in.
+  hydrateJourney: async (userId) => {
+    const snap = await fetchJourney(userId);
+    if (snap) {
+      save("journeySIs", snap.interests);
+      save("journeyActs", snap.activities);
+      save("region", snap.region);
+      save("trip", snap.trip);
+      set({ journeyId: snap.id, journeySIs: snap.interests, journeyActs: snap.activities, region: snap.region, trip: snap.trip });
+      return;
+    }
+    const { journeySIs, journeyActs, region, trip } = get();
+    const id = await createJourney(userId, { interests: journeySIs, region, activities: journeyActs, trip });
+    if (id) set({ journeyId: id });
+  },
 
   toggleSI: (id) => {
     const cur = get().journeySIs;
@@ -108,6 +142,7 @@ export const useStore = create<State>((set, get) => ({
       const next = cur.filter((x) => x !== id);
       save("journeySIs", next);
       set({ journeySIs: next });
+      persistMeta(get);
       return;
     }
     if (cur.length >= MAX_SIS) {
@@ -117,31 +152,37 @@ export const useStore = create<State>((set, get) => ({
     const next = [...cur, id];
     save("journeySIs", next);
     set({ journeySIs: next });
+    persistMeta(get);
   },
   setActs: (ids) => {
     save("journeyActs", ids);
     set({ journeyActs: ids });
+    persistMeta(get);
   },
   toggleAct: (id) => {
     const cur = get().journeyActs;
     const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
     save("journeyActs", next);
     set({ journeyActs: next });
+    persistMeta(get);
   },
   setRegion: (code) => {
     save("region", code);
     set({ region: code });
+    persistMeta(get);
   },
   addToTrip: (b) => {
     const next = [...get().trip, b];
     save("trip", next);
     set({ trip: next });
+    persistBlocks(get);
     get().showToast(`Added to your trip · ${b.name}`);
   },
   removeFromTrip: (name) => {
     const next = get().trip.filter((b) => b.name !== name);
     save("trip", next);
     set({ trip: next });
+    persistBlocks(get);
   },
   setLocale: (code) => {
     const L = LOCALES.find((l) => l.code === code) || LOCALES[0];
