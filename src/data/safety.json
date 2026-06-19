@@ -1,0 +1,466 @@
+{
+  "AE": {
+    "country": "United Arab Emirates",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to regional conflict and missile/drone risk plus major flight disruption — a sharp, recent change from the UAE's normal baseline.",
+    "considerations": [
+      "Elevated to Level 3 in March 2026 after US-Iran hostilities began (ordered departure of non-emergency US government staff).",
+      "The practical traveler impact is airspace/flight disruption and the volatile regional situation rather than routine local crime.",
+      "Strict local laws apply: zero tolerance for drugs (including residual amounts and CBD), public-conduct and social-media rules, photography restrictions, and Ramadan daytime-fasting norms.",
+      "Status hinges on the US-Iran situation and is fast-moving — re-verify before any booking."
+    ],
+    "medical": "Bottled water commonly preferred; extreme summer heat (45C+) carries serious heat-illness risk at midday.",
+    "source": "US State Dept L3 / UK FCDO, Mar 2026",
+    "verified": "2026-06"
+  },
+  "AU": {
+    "country": "Australia",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Australia is very safe for travelers; the main risks are natural and environmental, not crime.",
+    "considerations": [
+      "Bushfire season (Nov-Mar) and tropical cyclones in the north; flash flooding.",
+      "Strong ocean rips, marine stingers and saltwater crocodiles in northern waters.",
+      "Intense sun and heat; vast outback driving distances."
+    ],
+    "medical": "High-quality care; tap water safe; evacuation insurance wise for remote/outback travel.",
+    "source": "US State Dept L1, May 2025",
+    "verified": "2026-06"
+  },
+  "BS": {
+    "country": "Bahamas",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to crime, concentrated in parts of Nassau and Freeport.",
+    "considerations": [
+      "Armed robbery and burglary occur mostly in New Providence (Nassau) and Grand Bahama (Freeport).",
+      "Unregulated watercraft and jet-ski operators (assaults reported).",
+      "Swim hazards: never swim alone; occasional shark incidents.",
+      "Firearms and even a single stray round of ammunition are illegal — check bags before flying."
+    ],
+    "source": "US State Dept L2, Mar 2025",
+    "verified": "2026-06"
+  },
+  "CA": {
+    "country": "Canada",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Canada is very safe; ordinary precautions apply.",
+    "considerations": [
+      "Petty theft and vehicle break-ins in tourist areas.",
+      "Winter snow and ice (some provinces require snow tires); remote Arctic areas have slow emergency response.",
+      "Strict firearm-declaration rules at the border."
+    ],
+    "source": "US State Dept L1, Jun 2026",
+    "verified": "2026-06"
+  },
+  "CH": {
+    "country": "Switzerland",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Switzerland is very safe; ordinary precautions apply.",
+    "considerations": [
+      "Year-round alpine hazards: avalanche, sudden weather changes, unmarked terrain.",
+      "Pickpocketing at tourist sites and on public transport.",
+      "Medical care is excellent but expensive — carry insurance with evacuation cover."
+    ],
+    "medical": "Tap water is among the cleanest in Europe; healthcare is not free.",
+    "source": "US State Dept L1, May 2025",
+    "verified": "2026-06"
+  },
+  "CL": {
+    "country": "Chile",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to rising crime and periodic large demonstrations.",
+    "considerations": [
+      "Street crime (muggings, pickpocketing) is common and violent crime is increasing in cities.",
+      "Large protests in Santiago and elsewhere arise with little notice and disrupt transport.",
+      "Secure valuables even in locked vehicles."
+    ],
+    "medical": "A low-level Hantavirus (Andes virus) health notice exists, but risk to typical visitors is very low.",
+    "source": "US State Dept L2, May 2026",
+    "verified": "2026-06"
+  },
+  "CO": {
+    "country": "Colombia",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to crime, terrorism, kidnapping and civil unrest, with several regions off-limits entirely.",
+    "considerations": [
+      "Several departments are Level 4 \"Do Not Travel\": Arauca, Norte de Santander, parts of Cauca (except Popayan) and Valle del Cauca (except Cali), and within ~10 km of the Venezuela border.",
+      "Violent crime and express kidnapping occur nationwide.",
+      "Terrorist attacks target transit and government sites; protests can turn violent.",
+      "Active volcanoes and landslides in some regions."
+    ],
+    "medical": "Yellow-fever vaccination is recommended for lower-altitude/jungle regions (verify per region).",
+    "source": "US State Dept L3 / UK FCDO, Mar 2026",
+    "verified": "2026-06"
+  },
+  "DE": {
+    "country": "Germany",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to terrorism risk.",
+    "considerations": [
+      "Authorities assess attacks as likely (markets, transit, places of worship, events); recent incidents are on record.",
+      "Standard urban theft and pickpocketing at airports, stations and crowded venues."
+    ],
+    "source": "US State Dept L2, May 2025",
+    "verified": "2026-06"
+  },
+  "ES": {
+    "country": "Spain",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to terrorism risk and notably high tourist-area street crime.",
+    "considerations": [
+      "Authorities assess terrorist attacks as likely.",
+      "Widespread pickpocketing and car break-ins in tourist areas, airports and stations (distraction-team tactics).",
+      "Demonstrations occasionally turn violent.",
+      "A documented sexual-assault risk for younger travelers, often alcohol- or drug-involved."
+    ],
+    "source": "US State Dept L2, May 2025",
+    "verified": "2026-06"
+  },
+  "FR": {
+    "country": "France",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to terrorism and persistent petty crime in tourist cities.",
+    "considerations": [
+      "Authorities assess terrorist attacks as likely (tourist sites, transit, gatherings).",
+      "Frequent pickpocketing and phone theft on the Paris Metro/RER and at stations.",
+      "Strikes and demonstrations are common and occasionally disruptive."
+    ],
+    "source": "US State Dept L2, May 2025",
+    "verified": "2026-06"
+  },
+  "GR": {
+    "country": "Greece",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Greece is generally safe; ordinary precautions apply.",
+    "considerations": [
+      "Pickpocketing in tourist hotspots (Athens metro, ferry terminals).",
+      "Occasional large demonstrations that disrupt transport.",
+      "Wildfire season Apr-Oct and severe summer heat."
+    ],
+    "medical": "Tap water is generally safe on the mainland; bottled is advised on some smaller islands; mind summer heat.",
+    "source": "US State Dept L1, Oct 2025",
+    "verified": "2026-06"
+  },
+  "ID": {
+    "country": "Indonesia",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to terrorism and natural hazards; parts of Papua are off-limits.",
+    "considerations": [
+      "Central Papua and Highland Papua are Level 4 \"Do Not Travel\" (conflict, armed separatists, kidnapping).",
+      "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
+      "Ongoing terrorism plotting; variable road and ferry safety."
+    ],
+    "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic, malaria in Papua/eastern/rural areas, rabies present (incl. Bali); Hep A/B and typhoid recommended.",
+    "source": "US State Dept L2 / UK FCDO, Apr 2025",
+    "verified": "2026-06"
+  },
+  "IS": {
+    "country": "Iceland",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Iceland is very safe; the real risks are environmental, not crime.",
+    "considerations": [
+      "Rapidly changing, severe weather is the top hazard.",
+      "Ongoing Reykjanes Peninsula volcanic activity can affect the Grindavik area and occasionally airport access.",
+      "Glaciers, river crossings and sneaker waves require care."
+    ],
+    "medical": "Excellent tap water; cold and exposure risk in the highlands.",
+    "source": "US State Dept L1, May 2026",
+    "verified": "2026-06"
+  },
+  "IT": {
+    "country": "Italy",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to terrorism risk and heavy tourist-area petty crime.",
+    "considerations": [
+      "Possible terrorist attacks at tourist, transit and religious sites.",
+      "Prevalent pickpocketing and bag-snatching on transit and at major attractions.",
+      "Demonstrations can turn disruptive.",
+      "Seismic activity and active southern volcanoes (Stromboli, Vesuvius/Campi Flegrei)."
+    ],
+    "source": "US State Dept L2, May 2025",
+    "verified": "2026-06"
+  },
+  "JO": {
+    "country": "Jordan",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to terrorism and regional conflict; several border zones are off-limits.",
+    "considerations": [
+      "Level 4 \"Do Not Travel\" zones include the Syria/Iraq border areas, designated refugee camps, Rusayfah, and the Baqa'a area of Ayn Basha.",
+      "Conflict-driven drone/missile risk region-wide since Feb 2026.",
+      "The core Amman-Petra-Wadi Rum-Dead Sea circuit sits away from the Level 4 zones, but the country-wide Level 3 is volatile.",
+      "Modest dress and customs sensitivity at religious sites."
+    ],
+    "medical": "Drink bottled water; extreme desert heat and sun exposure at Petra/Wadi Rum — hydrate and protect from sun.",
+    "source": "US State Dept L3 / UK FCDO, May 2026",
+    "verified": "2026-06"
+  },
+  "JP": {
+    "country": "Japan",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Japan is very safe; ordinary precautions apply.",
+    "considerations": [
+      "Significant natural-hazard exposure: earthquakes, tsunamis, typhoons, heavy northern winter snow.",
+      "Very strict drug laws — some common US prescription medicines are banned.",
+      "Take care with spiked-drink incidents in major nightlife districts."
+    ],
+    "medical": "Excellent care; tap water safe; some US prescription medicines are illegal — check before travel and carry enough supply.",
+    "source": "US State Dept L1, May 2025",
+    "verified": "2026-06"
+  },
+  "KE": {
+    "country": "Kenya",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution; mainstream safari areas are Level 2, but several border and coastal zones are off-limits.",
+    "considerations": [
+      "Level 4 \"Do Not Travel\" zones: Somalia-border counties (Mandera, Wajir, Garissa), parts of the coast (Lamu County, Tana River, Kilifi north of Malindi) and northern border areas; Level 3 for Nairobi's Eastleigh and Kibera.",
+      "Violent crime and carjacking, including in Nairobi.",
+      "Poor road safety — avoid night driving.",
+      "Maasai Mara, Amboseli and Tsavo sit in the Level 2 zone."
+    ],
+    "medical": "Yellow-fever vaccination recommended (certificate required if arriving from a risk country); malaria prophylaxis strongly advised for safari areas; bottled/treated water; carry medevac insurance.",
+    "source": "US State Dept L2 / UK FCDO, Mar 2025",
+    "verified": "2026-06"
+  },
+  "KH": {
+    "country": "Cambodia",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution; most of the country is fine, but the Thailand border is off-limits and landmines persist in some rural areas.",
+    "considerations": [
+      "Level 4 \"Do Not Travel\" within ~50 km of the Cambodia-Thailand border (2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists).",
+      "Street crime in Phnom Penh (phone and bag snatching), with occasional violent incidents.",
+      "Unexploded ordnance and landmines in remote/forested areas (Battambang, Banteay Meanchey, Pursat, Pailin) — use local guides.",
+      "Poor road safety."
+    ],
+    "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic and malaria occurs in rural/forest/border areas; serious cases evacuate to Bangkok — carry evacuation insurance.",
+    "source": "US State Dept L2 / UK FCDO, Jul 2025",
+    "verified": "2026-06"
+  },
+  "KR": {
+    "country": "South Korea",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "South Korea (Republic of Korea) is very safe; ordinary precautions apply — this is not North Korea, which is Do Not Travel.",
+    "considerations": [
+      "Periodic North Korean missile tests and routine civil-defense drills are background context, not an elevated risk.",
+      "Large demonstrations can arise quickly; foreigners are barred from political activity by law.",
+      "Typhoon season in summer/fall; very low crime."
+    ],
+    "medical": "Excellent care; tap water generally safe; spring fine-dust/air-quality advisories.",
+    "source": "US State Dept L1, May 2025",
+    "verified": "2026-06"
+  },
+  "LC": {
+    "country": "Saint Lucia",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Saint Lucia is island-wide Level 1, but one specific resort has a current US Embassy security alert.",
+    "considerations": [
+      "A Feb 2026 US Embassy alert specifically warns against staying at the Ladera Resort near Soufriere (crime risk and limited emergency response) — the island-wide level remains Level 1.",
+      "Most of the island remains low-risk.",
+      "Usual precautions: stay aware, do not resist robbery, carry a passport copy."
+    ],
+    "source": "US State Dept L1, Aug 2024 + US Embassy Bridgetown alert, Feb 2026",
+    "verified": "2026-06"
+  },
+  "NA": {
+    "country": "Namibia",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to crime; no regional carve-outs.",
+    "considerations": [
+      "Opportunistic and property crime, especially in Windhoek.",
+      "The dominant real risk is self-drive gravel-road safety (rollovers, wildlife, fatigue) across vast distances.",
+      "Very limited medical and emergency services in remote areas."
+    ],
+    "medical": "Yellow fever required only if arriving from a risk country; seasonal malaria in the north (Zambezi/Caprivi, Kavango, Etosha fringe); medevac insurance strongly advised.",
+    "source": "US State Dept L2, May 2026",
+    "verified": "2026-06"
+  },
+  "NL": {
+    "country": "Netherlands",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to terrorism risk.",
+    "considerations": [
+      "Authorities assess continued attack plotting (tourist sites, transit, gatherings).",
+      "Standard urban pickpocketing in crowded Amsterdam tourist areas and on transit."
+    ],
+    "source": "US State Dept L2, Aug 2024",
+    "verified": "2026-06"
+  },
+  "NO": {
+    "country": "Norway",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Norway is among the safest destinations; the risks are environmental.",
+    "considerations": [
+      "Very low crime.",
+      "Arctic and mountain weather, winter avalanche zones, and fjord/hiking exposure are the main hazards.",
+      "Svalbard requires special preparation (polar-bear risk outside settlements)."
+    ],
+    "medical": "Excellent tap water; cold-exposure and winter-driving risk.",
+    "source": "US State Dept L1, Feb 2025",
+    "verified": "2026-06"
+  },
+  "NZ": {
+    "country": "New Zealand",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "New Zealand is very safe; ordinary precautions apply.",
+    "considerations": [
+      "Driving on the left on narrow rural roads is a leading cause of visitor injury.",
+      "Earthquakes, volcanic activity and fast-changing alpine/coastal weather.",
+      "Vehicle and hostel theft in tourist areas; strict biosecurity declarations."
+    ],
+    "medical": "Care is not free — carry insurance with evacuation cover; tap water safe.",
+    "source": "US State Dept L1, Apr 2026",
+    "verified": "2026-06"
+  },
+  "PE": {
+    "country": "Peru",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution; the tourist circuit is Level 2, but two remote regions are off-limits.",
+    "considerations": [
+      "Level 4 \"Do Not Travel\" zones: the VRAEM (Apurimac/Ene/Mantaro valley) and the Colombia-border area of Loreto.",
+      "Petty theft, carjackings and muggings occur even in daylight.",
+      "Demonstrations can block roads and rail without warning.",
+      "Cusco, the Sacred Valley, the Inca Trail and Machu Picchu are NOT in the restricted zones."
+    ],
+    "medical": "Altitude is the key concern — Cusco (~3,400 m) and the Sacred Valley/Inca Trail carry real altitude-sickness risk; acclimatize first. Yellow-fever vaccination recommended for the Amazon/jungle.",
+    "source": "US State Dept L2 / UK FCDO, May 2025",
+    "verified": "2026-06"
+  },
+  "PF": {
+    "country": "French Polynesia",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "French Polynesia (Tahiti, Bora Bora, the Society Islands) is low-risk; ordinary precautions apply. It has its own US advisory, separate from mainland France.",
+    "considerations": [
+      "Generally low crime, with occasional petty theft.",
+      "Cyclone season Nov-Apr.",
+      "Outer-atoll remoteness means limited services and slower emergency response."
+    ],
+    "medical": "Good care on Tahiti, limited on outer atolls; mosquito-borne illness (e.g. dengue) present; evacuation insurance advised.",
+    "source": "US State Dept L1, Dec 2024",
+    "verified": "2026-06"
+  },
+  "PT": {
+    "country": "Portugal",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Portugal is generally safe; ordinary precautions apply.",
+    "considerations": [
+      "Pickpocketing and bag-snatching at popular sites and on transit; car break-ins, especially of rentals.",
+      "Summer wildfire risk on the mainland.",
+      "Note local laws: cannabis/CBD and pepper spray are illegal."
+    ],
+    "medical": "Tap water safe; good healthcare.",
+    "source": "US State Dept L1, Dec 2025",
+    "verified": "2026-06"
+  },
+  "RW": {
+    "country": "Rwanda",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to a regional Ebola health emergency and DRC-border conflict spillover.",
+    "considerations": [
+      "Driven by a regional Ebola public-health emergency (declared May 2026) plus eastern-DRC conflict.",
+      "Level 4 \"Do Not Travel\" within ~10 km of the DRC border (incl. parts of Rusizi, Lake Kivu islands, Kamembe airport).",
+      "Reduced US emergency-consular capacity; Kigali itself is normally very safe.",
+      "Gorilla-trekking areas (Volcanoes NP) are near the northwest border — check status before booking."
+    ],
+    "medical": "Active regional Ebola outbreak with heightened screening; yellow fever required if arriving from a transmission country; malaria prophylaxis; bottled/treated water; medevac insurance essential.",
+    "source": "US State Dept L3 / UK FCDO / WHO Ebola emergency, Jun 2026",
+    "verified": "2026-06"
+  },
+  "SA": {
+    "country": "Saudi Arabia",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
+    "considerations": [
+      "Level 4 \"Do Not Travel\" zones: the Yemen border region (within ~20 mi) and Qatif (Eastern Province).",
+      "Conflict-driven drone/missile risk and falling intercept debris since Feb 2026.",
+      "Exit bans can block departure during legal, commercial or family disputes.",
+      "Strict laws on social-media posts, drugs, alcohol (prohibited), dress/behavior, and photography of government/military sites."
+    ],
+    "medical": "Drink bottled water; extreme summer heat (45-50C); Hajj/Umrah pilgrims must meet Saudi vaccination requirements (e.g. meningococcal ACWY) — verify current rules.",
+    "source": "US State Dept L3 / UK FCDO, Mar 2026",
+    "verified": "2026-06"
+  },
+  "TC": {
+    "country": "Turks and Caicos Islands",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to crime, mostly on Providenciales. It has its own US advisory, not folded under the UK.",
+    "considerations": [
+      "Most crime is on Providenciales; a mix of opportunistic theft and occasional violent crime.",
+      "Police have limited investigative resources.",
+      "Firearms and even a single stray round of ammunition are illegal and strictly enforced (including on departure) — inspect all bags before flying."
+    ],
+    "source": "US State Dept L2, Mar 2025",
+    "verified": "2026-06"
+  },
+  "TH": {
+    "country": "Thailand",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution; most of the country is fine, but the deep south and the Cambodia border are off-limits or sensitive.",
+    "considerations": [
+      "Level 4 \"Do Not Travel\" within ~50 km of the Cambodia border (2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists).",
+      "Deep-south insurgency provinces (Yala, Pattani, Narathiwat) are under increased caution / state of emergency.",
+      "Poor road safety (very high motorcycle fatality rate); monsoon flooding."
+    ],
+    "medical": "Tap water is not safe — bottled/boiled; dengue endemic year-round, malaria in border/forest areas, rabies present; Hep A/B and typhoid recommended; excellent private hospitals in Bangkok.",
+    "source": "US State Dept L2 / UK FCDO, Jul 2025",
+    "verified": "2026-06"
+  },
+  "TZ": {
+    "country": "Tanzania",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to post-election unrest, crime and terrorism; the northern safari circuit is far from the worst areas but the country-wide level is elevated.",
+    "considerations": [
+      "Elevated to Level 3 after the Oct 2025 election (protests, curfews).",
+      "Terrorist-violence risk is highest in the southern Mtwara region near the Mozambique/Cabo Delgado border (avoid within ~20 km of that border).",
+      "Violent crime with limited police response.",
+      "Serengeti, Ngorongoro, Tarangire and Kilimanjaro are far from Mtwara."
+    ],
+    "medical": "Yellow fever required if arriving from a risk country (Zanzibar enforces strictly); high malaria risk across the mainland and Zanzibar — prophylaxis strongly advised; Kilimanjaro's main hazard is altitude sickness; bottled/treated water; medevac insurance.",
+    "source": "US State Dept L3 / UK FCDO, Oct 2025",
+    "verified": "2026-06"
+  },
+  "ZA": {
+    "country": "South Africa",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to high violent-crime rates.",
+    "considerations": [
+      "Armed robbery, carjacking and smash-and-grab at intersections.",
+      "US-government staff need special clearance for many Cape Town informal settlements (a de facto elevated zone).",
+      "Periodic protests and power outages affecting security systems; use caution with e-hailing/taxis.",
+      "Kruger and private reserves are generally well-managed."
+    ],
+    "medical": "Malaria risk in the northeast low-veld (Kruger, Limpopo, Mpumalanga, far-north KwaZulu-Natal) — prophylaxis advised there; Cape Town, the Garden Route and the Winelands are malaria-free; yellow fever required only if arriving from a risk country; tap water generally safe in major cities.",
+    "source": "US State Dept L2, May 2025",
+    "verified": "2026-06"
+  }
+}
