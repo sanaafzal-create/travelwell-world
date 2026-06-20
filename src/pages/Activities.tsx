@@ -1,8 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { wellById, WELLS, LUX_WELLS } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
-import { useSpecialInterests, useActivities } from "@/store/useCatalog";
+import { useSpecialInterests, useActivities, useWells } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx } from "@/lib/utils";
@@ -12,12 +11,13 @@ export default function Activities() {
   const { journeySIs, journeyActs, toggleAct, openPanel } = useStore();
   const catalogSis = useSpecialInterests();
   const activities = useActivities();
+  const wells = useWells();
   const noInterests = journeySIs.filter((s) => activities[s]?.length).length === 0;
   const sis = journeySIs.filter((s) => activities[s]?.length);
   const groups = (sis.length ? sis : ["safari"]).map((s) => ({ si: catalogSis.find((x) => x.id === s), items: activities[s] || [] })).filter((g) => g.si);
 
   // Which Wells light up, by count of chosen activities mapping to them.
-  const allWells = [...WELLS, ...LUX_WELLS];
+  const allWells = wells;
   const wellCounts: Record<string, number> = {};
   groups.forEach((g) => g.items.forEach((a) => { if (journeyActs.includes(a.id)) wellCounts[a.well] = (wellCounts[a.well] || 0) + 1; }));
   const litWells = Object.keys(wellCounts).length;
@@ -51,7 +51,7 @@ export default function Activities() {
                 <div className="ac-grid">
                   {items.map((a) => {
                     const on = journeyActs.includes(a.id);
-                    const w = wellById(a.well);
+                    const w = wells.find((x) => x.id === a.well);
                     return (
                       <button key={a.id} className={cx("ac-card", on && "is-selected")} aria-pressed={on} onClick={() => toggleAct(a.id)}>
                         <span className="ac-card__check"><Icon name="check" small /></span>

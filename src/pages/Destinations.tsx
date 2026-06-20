@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { DESTINATIONS, type Destination } from "@/data/places";
-import { REGIONS } from "@/data/taxonomy";
+import type { Region } from "@/data/taxonomy";
+import { useRegions } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
@@ -18,19 +19,20 @@ function allDests(): DestWithRegion[] {
   return out;
 }
 
-function regionsWithDests() {
-  return REGIONS.filter((r) => DESTINATIONS[r.code]);
+function regionsWithDests(regions: Region[]) {
+  return regions.filter((r) => DESTINATIONS[r.code]);
 }
 
 export default function Destinations() {
   const [params] = useSearchParams();
+  const regions = useRegions();
   const [activeRegion, setActiveRegion] = useState(params.get("r") || "all");
 
   const list: DestWithRegion[] =
     activeRegion === "all"
       ? allDests()
       : (DESTINATIONS[activeRegion] || []).map((d) => ({ ...d, region: activeRegion }));
-  const R = REGIONS.find((r) => r.code === activeRegion);
+  const R = regions.find((r) => r.code === activeRegion);
 
   const select = (code: string) => {
     setActiveRegion(code);
@@ -69,7 +71,7 @@ export default function Destinations() {
               >
                 All regions
               </button>
-              {regionsWithDests().map((r) => (
+              {regionsWithDests(regions).map((r) => (
                 <button
                   key={r.code}
                   className="dx-region-chip"

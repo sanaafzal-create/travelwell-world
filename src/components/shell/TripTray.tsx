@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
+import { useWells } from "@/store/useCatalog";
 import { cap } from "@/lib/utils";
 
 export function TripTray() {
   const { panel, closePanel, trip } = useStore();
+  const wells = useWells().filter((w) => !w.lux);
   const open = panel === "tray";
   const covered = new Set(trip.map((b) => b.well)).size;
 
@@ -35,7 +36,7 @@ export function TripTray() {
         ) : (
           <>
             <div className="tw-trip-coverage" aria-label={`${covered} of 10 Wells covered`}>
-              {WELLS.map((w) => <i key={w.id} className={trip.some((b) => b.well === w.id) ? "on" : ""} />)}
+              {wells.map((w) => <i key={w.id} className={trip.some((b) => b.well === w.id) ? "on" : ""} />)}
             </div>
             {trip.map((b, i) => (
               <div key={`${b.name}-${i}`} className="tw-trip-block">

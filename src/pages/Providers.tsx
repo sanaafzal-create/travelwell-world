@@ -1,15 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { PROVIDERS } from "@/data/places";
 import type { Provider, Price, Tier } from "@/data/places";
-import { WELLS, LUX_WELLS } from "@/data/taxonomy";
 import type { Well } from "@/data/taxonomy";
 import { Eyebrow } from "@/components/ui/primitives";
 import { useStore } from "@/store/useStore";
-
-const allWells: Record<string, Well> = {};
-[...WELLS, ...LUX_WELLS].forEach((w) => (allWells[w.id] = w));
+import { useWells, useProviders } from "@/store/useCatalog";
 
 const TIER: Record<Tier, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
 const PRICE_LABEL: Record<Price, string> = { value: "Value", comfort: "Comfort", premium: "Premium", ultra: "Ultra" };
@@ -40,21 +36,25 @@ function whyFits(p: Provider): React.ReactNode[] {
   return reasons.slice(0, 2);
 }
 
-function poolFor(wid: string): Provider[] {
-  return (PROVIDERS[wid] || []).slice().sort((a, b) =>
+function poolFor(providers: Record<string, Provider[]>, wid: string): Provider[] {
+  return (providers[wid] || []).slice().sort((a, b) =>
     (a.price === TRIP.budget ? -1 : 0) - (b.price === TRIP.budget ? -1 : 0) ||
     tierRank[a.tier] - tierRank[b.tier] || a.name.localeCompare(b.name));
 }
 
 export default function Providers() {
   const { addToTrip, openPanel } = useStore();
+  const providers = useProviders();
+  const wells = useWells();
+  const allWells: Record<string, Well> = {};
+  wells.forEach((wl) => (allWells[wl.id] = wl));
   const [activeWell, setActiveWell] = useState(TRIP.wells[0]);
   const [shown, setShown] = useState(PAGE);
 
   const selectWell = (wid: string) => { setActiveWell(wid); setShown(PAGE); };
 
   const w = allWells[activeWell];
-  const pool = poolFor(activeWell);
+  const pool = poolFor(providers, activeWell);
   const visible = pool.slice(0, shown);
 
   return (
@@ -98,7 +98,7 @@ export default function Providers() {
           <div className="pr-wells" role="tablist" aria-label="Filter by Well">
             {TRIP.wells.map((wid) => {
               const ww = allWells[wid];
-              const n = (PROVIDERS[wid] || []).length;
+              const n = (providers[wid] || []).length;
               return (
                 <button key={wid} className="pr-wellchip" role="tab" aria-pressed={wid === activeWell} onClick={() => selectWell(wid)}>
                   <Icon name={ww.icon} small /> {ww.name.replace("-Well", "")} <span className="pr-wellchip__n">{n}</span>

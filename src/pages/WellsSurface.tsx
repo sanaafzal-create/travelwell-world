@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, LUX_WELLS, wellById, regionByCode } from "@/data/taxonomy";
-import { PROVIDERS, WELL_DETAIL, type Provider, type Price } from "@/data/places";
+import { WELL_DETAIL, type Provider, type Price } from "@/data/places";
 import { useStore } from "@/store/useStore";
+import { useWells, useProviders, useRegionByCode } from "@/store/useCatalog";
 import { Eyebrow, Ftc } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx, cap } from "@/lib/utils";
@@ -54,13 +54,15 @@ export default function WellsSurface() {
   const [budget, setBudget] = useState<Price | "all">("all");
   const [showAll, setShowAll] = useState(false);
 
-  const allWells = [...WELLS, ...LUX_WELLS];
-  const well = wellById(active) || WELLS[0];
+  const allWells = useWells();
+  const providersByWell = useProviders();
+  const standardWells = allWells.filter((w) => !w.lux);
+  const well = allWells.find((w) => w.id === active) || standardWells[0];
   const detail = WELL_DETAIL[active];
-  const regionName = regionByCode(region || "05A")?.name || "East Africa";
+  const regionName = useRegionByCode(region || "05A")?.name || "East Africa";
   const isPreLaunch = well.status === "soon";
 
-  let providers = (PROVIDERS[active] || []).filter((p) => budget === "all" || p.price === budget);
+  let providers = (providersByWell[active] || []).filter((p) => budget === "all" || p.price === budget);
   providers = [...providers].sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
   const prime = providers.filter((p) => p.tier === "prime");
   const rest = providers.filter((p) => p.tier !== "prime");
@@ -170,7 +172,7 @@ export default function WellsSurface() {
         <div className="wp-continue__inner">
           <div className="wp-continue__summary">
             <div className="wp-continue__cov" aria-label={`${covered} of 10 Wells covered`}>
-              {WELLS.map((w) => <i key={w.id} className={trip.some((b) => b.well === w.id) ? "on" : ""} />)}
+              {standardWells.map((w) => <i key={w.id} className={trip.some((b) => b.well === w.id) ? "on" : ""} />)}
             </div>
             <span className="wp-continue__text"><b>{covered}/10 Wells</b> covered · {trip.length} in your trip</span>
           </div>

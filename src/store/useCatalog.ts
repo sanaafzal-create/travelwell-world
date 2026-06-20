@@ -3,50 +3,87 @@
  *
  * Seeded synchronously from the bundled taxonomy, so the first render is
  * instant and works fully offline (the bundle is the fallback). On app boot
- * `hydrate()` pulls the catalog from Postgres and, if present, folds it in:
- * DB rows win on conflict, bundle entries fill any gaps — so we never lose
- * shipped content, and SIs/activities added or edited in the DB show up after
- * a refresh without a redeploy.
+ * `hydrate()` pulls the catalog from Postgres and, per entity, folds in
+ * whatever the DB supplies: DB rows win on conflict, bundle entries fill any
+ * gaps — so we never lose shipped content, and catalog rows added or edited in
+ * the DB show up after a refresh without a redeploy.
  *
- * Components read SIs/activities through this store (useCatalog) instead of
+ * Components read the catalog through this store (the use* hooks) instead of
  * importing the bundle directly, so the swap to DB-served content is invisible
- * to them. Bundle order is preserved (it drives grouped display); DB-only SIs
- * are appended.
+ * to them. Bundle order is preserved (it drives grouped/ordered display);
+ * DB-only entries are appended.
+ *
+ * Non-React callers (e.g. lib/journey.ts) keep using the bundle helpers in
+ * src/data — they only need stable lookups (a well's icon) and run before
+ * hydration; the bundle is the correct source there.
  */
 import { create } from "zustand";
-import { SIS as BUNDLE_SIS, type SpecialInterest } from "@/data/taxonomy";
-import { ACTIVITIES as BUNDLE_ACTIVITIES, type Activity } from "@/data/places";
+import {
+  SIS as BUNDLE_SIS,
+  WELLS as BUNDLE_WELLS,
+  LUX_WELLS as BUNDLE_LUX_WELLS,
+  REGIONS as BUNDLE_REGIONS,
+  SUBREGIONS as BUNDLE_SUBREGIONS,
+  type SpecialInterest,
+  type Well,
+  type Region,
+} from "@/data/taxonomy";
+import { ACTIVITIES as BUNDLE_ACTIVITIES, PROVIDERS as BUNDLE_PROVIDERS, type Activity, type Provider } from "@/data/places";
 import { fetchCatalog } from "@/lib/catalog";
+
+const BUNDLE_ALL_WELLS: Well[] = [...BUNDLE_WELLS, ...BUNDLE_LUX_WELLS];
 
 interface CatalogState {
   sis: SpecialInterest[];
   activities: Record<string, Activity[]>;
+  wells: Well[];
+  regions: Region[];
+  subregions: Record<string, string[]>;
+  providers: Record<string, Provider[]>;
   /** Where the live catalog came from — useful for debugging / a future badge. */
   source: "bundle" | "db";
   hydrate: () => Promise<void>;
 }
 
+/** Merge DB rows over the bundle by key, preserving bundle order and appending DB-only rows. */
+function mergeByKey<T>(bundle: T[], db: T[], key: (t: T) => string): T[] {
+  const byKey = new Map(bundle.map((x) => [key(x), x]));
+  for (const x of db) byKey.set(key(x), x);
+  return [...byKey.values()];
+}
+
 export const useCatalog = create<CatalogState>((set) => ({
   sis: BUNDLE_SIS,
   activities: BUNDLE_ACTIVITIES,
+  wells: BUNDLE_ALL_WELLS,
+  regions: BUNDLE_REGIONS,
+  subregions: BUNDLE_SUBREGIONS,
+  providers: BUNDLE_PROVIDERS,
   source: "bundle",
   hydrate: async () => {
     const db = await fetchCatalog();
     if (!db) return; // offline / unconfigured / empty → keep the bundle
 
-    // DB authoritative, bundle fills gaps. A Map keyed by id preserves bundle
-    // order (re-setting a key keeps its slot) and appends DB-only SIs.
-    const byId = new Map(BUNDLE_SIS.map((s) => [s.id, s]));
-    for (const s of db.sis) byId.set(s.id, s);
-
-    set({
-      sis: [...byId.values()],
-      activities: { ...BUNDLE_ACTIVITIES, ...db.activities },
+    set((s) => ({
+      sis: db.sis ? mergeByKey(BUNDLE_SIS, db.sis, (x) => x.id) : s.sis,
+      activities: db.activities ? { ...BUNDLE_ACTIVITIES, ...db.activities } : s.activities,
+      wells: db.wells ? mergeByKey(BUNDLE_ALL_WELLS, db.wells, (x) => x.id) : s.wells,
+      regions: db.regions ? mergeByKey(BUNDLE_REGIONS, db.regions, (x) => x.code) : s.regions,
+      subregions: db.subregions ? { ...BUNDLE_SUBREGIONS, ...db.subregions } : s.subregions,
+      providers: db.providers ? { ...BUNDLE_PROVIDERS, ...db.providers } : s.providers,
       source: "db",
-    });
+    }));
   },
 }));
 
-/** Reactive helpers mirroring the old taxonomy/places call-sites. */
+/* Reactive helpers mirroring the old taxonomy/places call-sites. */
 export const useSpecialInterests = () => useCatalog((s) => s.sis);
 export const useActivities = () => useCatalog((s) => s.activities);
+export const useWells = () => useCatalog((s) => s.wells);
+export const useRegions = () => useCatalog((s) => s.regions);
+export const useSubregions = () => useCatalog((s) => s.subregions);
+export const useProviders = () => useCatalog((s) => s.providers);
+
+/** Reactive single-item lookups (recompute when the underlying list changes). */
+export const useWellById = (id: string) => useCatalog((s) => s.wells.find((w) => w.id === id));
+export const useRegionByCode = (code: string) => useCatalog((s) => s.regions.find((r) => r.code === code));

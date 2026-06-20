@@ -1,7 +1,8 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, LUX_WELLS, type Well } from "@/data/taxonomy";
+import { type Well } from "@/data/taxonomy";
+import { useWells } from "@/store/useCatalog";
 
 /* ============================================================================
    TravelWell.World — Platform Demo (public) + gated VC Demo.
@@ -16,9 +17,6 @@ const ACCESS_CODE = "TWW2026";
 
 // Placeholder-economics styling: the design wraps the "—" sentinels in .ph.
 const Ph = ({ children }: { children: ReactNode }) => <span className="ph">{children}</span>;
-
-const allWells: Record<string, Well> = {};
-[...WELLS, ...LUX_WELLS].forEach((w) => { allWells[w.id] = w; });
 
 /* ---- public demo data (mirrors demo.html <script>) ---- */
 const STATS: { v: ReactNode; k: string; tag: string }[] = [
@@ -51,9 +49,9 @@ const DIFF: { ic: string; t: string; s: string }[] = [
   { ic: "bag2", t: "One itinerary, every Well", s: "We own the whole trip, not one booking — repeat surface area across ten needs." },
 ];
 
-const OS_LAYERS: { n: string; c: string; chips: string[] }[] = [
+const osLayers = (wellNames: string[]): { n: string; c: string; chips: string[] }[] => [
   { n: "Demand layer", c: "taxonomy", chips: ["25 Special Interests", "13 Regions", "Activities graph"] },
-  { n: "Fulfillment layer", c: "wells", chips: WELLS.map((w) => w.name).concat(["+ Nanny", "+ Security"]) },
+  { n: "Fulfillment layer", c: "wells", chips: wellNames.concat(["+ Nanny", "+ Security"]) },
   { n: "Engine layer", c: "engines", chips: ["Concierge (Claude)", "Provider matching", "Itinerary sync", "Safety Cards", "Seasonal logic"] },
   { n: "Data layer", c: "schemas", chips: ["Travel ID", "Itinerary blocks", "Provider catalog", "Commission ledger"] },
 ];
@@ -95,6 +93,10 @@ function Disclaimer({ children }: { children: ReactNode }) {
    Public platform demo.
    ========================================================================== */
 function PublicDemo() {
+  const wells = useWells();
+  const allWells: Record<string, Well> = {};
+  wells.forEach((w) => { allWells[w.id] = w; });
+  const OS_LAYERS = osLayers(wells.filter((w) => !w.lux).map((w) => w.name));
   return (
     <div className="inv">
       <Disclaimer>
@@ -300,6 +302,9 @@ function Gate({ onUnlock }: { onUnlock: () => void }) {
    VC demo — worked-economics dashboard.
    ========================================================================== */
 function VcDashboard() {
+  const wells = useWells();
+  const allWells: Record<string, Well> = {};
+  wells.forEach((w) => { allWells[w.id] = w; });
   const trip = STD_TRIP;
   let totalGross = 0;
   let totalComm = 0;

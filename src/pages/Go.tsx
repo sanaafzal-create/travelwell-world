@@ -1,7 +1,7 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { wellById } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
+import { useWellById } from "@/store/useCatalog";
 import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 
 /** Affiliate redirect interstitial — honest handoff + "mark as booked" return. */
@@ -11,7 +11,7 @@ export default function Go() {
   const { addToTrip } = useStore();
   const to = params.get("to") || "our partner";
   const wellId = params.get("well") || "stay";
-  const well = wellById(wellId);
+  const well = useWellById(wellId);
 
   return (
     <div className="container" style={{ padding: "96px 0", maxWidth: 540 }}>

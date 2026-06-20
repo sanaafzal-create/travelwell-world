@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { REGIONS, REGION_SI, ALL_WELLS, type Region } from "@/data/taxonomy";
-import { PROVIDERS, type Provider, type Activity } from "@/data/places";
+import { REGION_SI, type Region } from "@/data/taxonomy";
+import { type Provider, type Activity } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { useSpecialInterests, useActivities } from "@/store/useCatalog";
+import { useSpecialInterests, useActivities, useRegions, useProviders, useWells } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 
 /** Per-SI editorial copy — mirrors the design prototype's EDITORIAL map. */
@@ -71,8 +71,6 @@ const WELL_HOW: Record<string, string> = {
   security: "Discreet protection",
 };
 
-const allWells = Object.fromEntries(ALL_WELLS.map((w) => [w.id, w]));
-
 function wellsActivated(siId: string, activities: Record<string, Activity[]>): string[] {
   const acts = activities[siId];
   if (acts && acts.length) {
@@ -85,21 +83,25 @@ function wellsActivated(siId: string, activities: Record<string, Activity[]>): s
   return FALLBACK_WELLS;
 }
 
-function featuredRegions(siId: string): Region[] {
-  return REGIONS.filter((r) => (REGION_SI[r.code] || []).includes(siId)).slice(0, 4);
+function featuredRegions(siId: string, regions: Region[]): Region[] {
+  return regions.filter((r) => (REGION_SI[r.code] || []).includes(siId)).slice(0, 4);
 }
 
-function providerRail(siId: string, activities: Record<string, Activity[]>): Provider[] {
+function providerRail(
+  siId: string,
+  activities: Record<string, Activity[]>,
+  providers: Record<string, Provider[]>
+): Provider[] {
   const wells = wellsActivated(siId, activities);
   const out: Provider[] = [];
   wells.forEach((w) => {
-    (PROVIDERS[w] || []).filter((p) => p.tier !== "prospective").slice(0, 2).forEach((p) => out.push(p));
+    (providers[w] || []).filter((p) => p.tier !== "prospective").slice(0, 2).forEach((p) => out.push(p));
   });
   return out.slice(0, 6);
 }
 
 function RegionsSection({ si }: { si: { id: string; name: string } }) {
-  const regions = featuredRegions(si.id);
+  const regions = featuredRegions(si.id, useRegions());
   if (!regions.length) return null;
   return (
     <section className="sd-section">
@@ -124,6 +126,8 @@ export default function SiDetail() {
   const { openPanel, showToast } = useStore();
   const sis = useSpecialInterests();
   const activities = useActivities();
+  const providers = useProviders();
+  const allWells = Object.fromEntries(useWells().map((w) => [w.id, w]));
 
   const si = sis.find((s) => s.id === id) || sis.find((s) => s.id === "safari")!;
   const isSchema = si.status !== "live";
@@ -212,7 +216,7 @@ export default function SiDetail() {
   }
 
   const wells = wellsActivated(si.id, activities);
-  const rail = providerRail(si.id, activities);
+  const rail = providerRail(si.id, activities, providers);
   const intro = ed ? ed.intro : GENERIC_INTRO(si);
 
   return (

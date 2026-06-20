@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { regionByCode, SUBREGIONS } from "@/data/taxonomy";
 import { REGION_DETAIL, DESTINATIONS, SUBREGION_TOP } from "@/data/places";
+import { useRegions, useSubregions } from "@/store/useCatalog";
 import { regionImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
@@ -22,11 +22,13 @@ const AIRPORTS: Record<string, string> = {
 export default function RegionDetail() {
   const { code = "" } = useParams();
   const { setRegion } = useStore();
-  const R = regionByCode(code) || regionByCode("05A")!;
+  const regions = useRegions();
+  const subregions = useSubregions();
+  const R = regions.find((r) => r.code === code) || regions.find((r) => r.code === "05A")!;
   const DET = REGION_DETAIL[R.code] || ({} as (typeof REGION_DETAIL)[string]);
   const DESTS = DESTINATIONS[R.code] || [];
   const isSub = Boolean(DET.sub);
-  const subList = SUBREGIONS[R.code] || [];
+  const subList = subregions[R.code] || [];
   const [open, setOpen] = useState(0);
 
   return (
