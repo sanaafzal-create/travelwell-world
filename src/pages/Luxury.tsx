@@ -1,7 +1,7 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { LUX_WELLS } from "@/data/taxonomy";
 import { WELL_DETAIL } from "@/data/places";
+import { useWells } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 import { Eyebrow, ButtonLink } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
@@ -15,6 +15,7 @@ export default function Luxury() {
   const setTier = (t: Tier) => setParams({ tier: t });
 
   const isUltra = tier === "ultra";
+  const luxWells = useWells().filter((w) => w.lux);
 
   return (
     <>
@@ -45,7 +46,7 @@ export default function Luxury() {
         <h2 className="t-h2" style={{ marginTop: 8 }}>Two Wells, reserved for these worlds.</h2>
         <p className="t-lead" style={{ marginTop: 10 }}>Nanny-Well and Security-Well appear only in Luxury and Ultra-Luxury — discreet by design.</p>
         <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", marginTop: 22 }}>
-          {LUX_WELLS.map((w) => (
+          {luxWells.map((w) => (
             <div key={w.id} className="card" style={{ padding: 24, display: "flex", gap: 18, alignItems: "flex-start" }}>
               <div className="icon-chip wb-chip--lux" style={{ color: "var(--gold-deep)" }}><Icon name={w.icon} /></div>
               <div>

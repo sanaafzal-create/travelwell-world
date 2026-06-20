@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, SIS } from "@/data/taxonomy";
 import { GUIDES } from "@/data/places";
 import { siImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests, useWells } from "@/store/useCatalog";
 import { Eyebrow, ButtonLink, StatusPill } from "@/components/ui/primitives";
 
 export default function Plan() {
   const { trip } = useStore();
+  const sis = useSpecialInterests();
+  const wells = useWells().filter((w) => !w.lux);
   const covered = new Set(trip.map((b) => b.well)).size;
-  const liveSIs = SIS.filter((s) => s.status === "live");
+  const liveSIs = sis.filter((s) => s.status === "live");
   const month = new Date(2026, 5).toLocaleString("en", { month: "long" });
 
   return (
@@ -28,7 +30,7 @@ export default function Plan() {
 
         <Eyebrow>Your 10-Well coverage</Eyebrow>
         <div className="it-gap-grid" style={{ gridTemplateColumns: "repeat(5, 1fr)", marginTop: 14, display: "grid", gap: 8 }}>
-          {WELLS.map((w) => {
+          {wells.map((w) => {
             const cov = trip.some((b) => b.well === w.id);
             return (
               <Link key={w.id} to="/wells-surface" className={`it-gap-cell ${cov ? "covered" : "gap"}`} title={w.name}>

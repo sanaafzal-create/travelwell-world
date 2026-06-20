@@ -1,24 +1,21 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { DESTINATIONS, PROVIDERS, GUIDES } from "@/data/places";
+import { DESTINATIONS, GUIDES } from "@/data/places";
 import type { Destination, Provider } from "@/data/places";
-import { REGIONS, WELLS, LUX_WELLS } from "@/data/taxonomy";
 import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useRegions, useWells, useProviders } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 import { getSafety, isoForCountry, SAFE_COLOR } from "@/data/safety-data";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
 
-const allWells: Record<string, Well> = {};
-[...WELLS, ...LUX_WELLS].forEach((w) => { allWells[w.id] = w; });
-
 const TIER: Record<string, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
 
 /** Find a destination by id across every region's list; return it with its region and sibling list. */
-function findDestination(id?: string): { dest: Destination; region: Region; list: Destination[] } {
-  const fallbackRegion = REGIONS.find((r) => r.code === "05A")!;
-  for (const r of REGIONS) {
+function findDestination(regions: Region[], id?: string): { dest: Destination; region: Region; list: Destination[] } {
+  const fallbackRegion = regions.find((r) => r.code === "05A")!;
+  for (const r of regions) {
     const list = DESTINATIONS[r.code] || [];
     const dest = list.find((d) => d.id === id);
     if (dest) return { dest, region: r, list };
@@ -28,10 +25,10 @@ function findDestination(id?: string): { dest: Destination; region: Region; list
   return { dest: list[0] || stub, region: fallbackRegion, list };
 }
 
-function providersByWell(): { well: Well; items: Provider[] }[] {
+function providersByWell(allWells: Record<string, Well>, providers: Record<string, Provider[]>): { well: Well; items: Provider[] }[] {
   const groups: { well: Well; items: Provider[] }[] = [];
   (["stay", "activities", "eat", "move"] as const).forEach((wid) => {
-    const pool = (PROVIDERS[wid] || []).slice(0, 4);
+    const pool = (providers[wid] || []).slice(0, 4);
     if (pool.length) groups.push({ well: allWells[wid], items: pool });
   });
   return groups;
@@ -40,7 +37,12 @@ function providersByWell(): { well: Well; items: Provider[] }[] {
 export default function DestinationDetail() {
   const { id } = useParams();
   const { openPanel } = useStore();
-  const { dest: DEST, region: R, list } = findDestination(id);
+  const regions = useRegions();
+  const wells = useWells();
+  const providers = useProviders();
+  const allWells: Record<string, Well> = {};
+  wells.forEach((w) => { allWells[w.id] = w; });
+  const { dest: DEST, region: R, list } = findDestination(regions, id);
   const country = DEST.country || R.name;
   const stub = DEST.status === "stub";
 
@@ -50,7 +52,7 @@ export default function DestinationDetail() {
   // Local emergency line joins off the same ISO key (David's emergency-numbers data).
   const localEmergency = iso ? (getEmergencyNumbers(iso).emergency || UNIVERSAL_EMERGENCY) : UNIVERSAL_EMERGENCY;
 
-  const groups = providersByWell();
+  const groups = providersByWell(allWells, providers);
 
   const relGuides = (() => {
     const pref = GUIDES.filter((gg) => gg.region === R.code || ["safari", "romance", "culinary"].includes(gg.si));

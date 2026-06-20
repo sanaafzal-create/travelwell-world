@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { SIS, WELLS, REGIONS } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests, useWells, useRegions } from "@/store/useCatalog";
 import { ButtonLink } from "@/components/ui/primitives";
 
 export function MegaMenu() {
   const { panel, closePanel } = useStore();
+  const sis = useSpecialInterests();
   const open = panel === "mega";
-  const featuredSI = SIS.filter((s) => s.status === "live").slice(0, 5);
-  const wells = WELLS.slice(0, 8);
-  const regions = REGIONS.slice(0, 8);
+  const featuredSI = sis.filter((s) => s.status === "live").slice(0, 5);
+  const wells = useWells().filter((w) => !w.lux).slice(0, 8);
+  const regions = useRegions().slice(0, 8);
   const close = () => closePanel();
 
   return (

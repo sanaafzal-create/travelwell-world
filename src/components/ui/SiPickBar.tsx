@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
-import { siById } from "@/data/taxonomy";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 
 /**
@@ -12,6 +12,7 @@ import { cx } from "@/lib/utils";
  */
 export function SiPickBar() {
   const { journeySIs, toggleSI } = useStore();
+  const sis = useSpecialInterests();
   const show = journeySIs.length > 0;
   const n = journeySIs.length;
 
@@ -20,7 +21,7 @@ export function SiPickBar() {
       <div className="jn-selbar__inner">
         <div className="jn-selbar__pills">
           {journeySIs.map((id) => {
-            const si = siById(id);
+            const si = sis.find((s) => s.id === id);
             return (
               <span key={id} className="jn-sel-pill">
                 <span className="dot" style={{ width: 8, height: 8, borderRadius: "50%", background: si?.accent }} />

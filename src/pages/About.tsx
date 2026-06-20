@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { WELLS } from "@/data/taxonomy";
 import { Eyebrow } from "@/components/ui/primitives";
+import { useWells } from "@/store/useCatalog";
 
-const LAYERS = [
+const layers = (wellNames: string[]) => [
   { num: "01", name: "Demand layer", chips: ["25 Special Interests", "13 Regions", "Activities graph", "Seasonal logic"] },
-  { num: "02", name: "Fulfillment layer", chips: WELLS.map((w) => w.name).concat(["Nanny-Well", "Security-Well"]) },
+  { num: "02", name: "Fulfillment layer", chips: wellNames.concat(["Nanny-Well", "Security-Well"]) },
   { num: "03", name: "Engine layer", chips: ["Concierge (Claude)", "Provider matching", "Itinerary sync", "Safety Cards", "Book-It tracks"] },
   { num: "04", name: "Data layer", chips: ["Travel ID", "Itinerary blocks", "Provider catalog", "Commission ledger", "Consent & locale"] },
 ];
@@ -19,6 +19,7 @@ const LAWS = [
 ];
 
 export default function About() {
+  const LAYERS = layers(useWells().filter((w) => !w.lux).map((w) => w.name));
   return (
     <div className="ab">
       <div className="ab-hero">

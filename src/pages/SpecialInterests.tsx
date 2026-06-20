@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { SIS, SI_GROUPS } from "@/data/taxonomy";
+import { SI_GROUPS } from "@/data/taxonomy";
 import { siImg } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { SiPickBar } from "@/components/ui/SiPickBar";
@@ -13,6 +14,7 @@ type Filter = "all" | "live" | "soon";
 
 export default function SpecialInterests() {
   const { journeySIs, toggleSI } = useStore();
+  const SIS = useSpecialInterests();
   const navigate = useNavigate();
   const [filter, setFilter] = useState<Filter>("all");
 

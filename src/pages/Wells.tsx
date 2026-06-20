@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, LUX_WELLS, type Well } from "@/data/taxonomy";
+import { type Well } from "@/data/taxonomy";
 import { WELL_DETAIL } from "@/data/places";
+import { useWells } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 
@@ -39,6 +40,9 @@ function WellCard({ w }: { w: Well }) {
 
 export default function Wells() {
   const [lux, setLux] = useState(false);
+  const allWells = useWells();
+  const wells = allWells.filter((w) => !w.lux);
+  const luxWells = allWells.filter((w) => w.lux);
 
   return (
     <main id="main">
@@ -60,7 +64,7 @@ export default function Wells() {
           </span>
         </div>
         <div className="wi-grid">
-          {WELLS.map((w) => <WellCard key={w.id} w={w} />)}
+          {wells.map((w) => <WellCard key={w.id} w={w} />)}
         </div>
 
         <div>
@@ -75,7 +79,7 @@ export default function Wells() {
               </div>
               <p className="wi-lux-band__note">Nanny-Well and Security-Well appear only in Luxury and Ultra-Luxury contexts — they're not shown on standard trips.</p>
               <div className="wi-grid" style={{ marginTop: 18 }}>
-                {LUX_WELLS.map((w) => <WellCard key={w.id} w={w} />)}
+                {luxWells.map((w) => <WellCard key={w.id} w={w} />)}
               </div>
             </div>
           ) : (
