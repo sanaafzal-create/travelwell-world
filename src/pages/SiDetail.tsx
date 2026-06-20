@@ -1,9 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { SIS, REGIONS, REGION_SI, ALL_WELLS, type Region } from "@/data/taxonomy";
-import { ACTIVITIES, PROVIDERS, type Provider } from "@/data/places";
+import { REGIONS, REGION_SI, ALL_WELLS, type Region } from "@/data/taxonomy";
+import { PROVIDERS, type Provider, type Activity } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests, useActivities } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 
 /** Per-SI editorial copy — mirrors the design prototype's EDITORIAL map. */
@@ -72,8 +73,8 @@ const WELL_HOW: Record<string, string> = {
 
 const allWells = Object.fromEntries(ALL_WELLS.map((w) => [w.id, w]));
 
-function wellsActivated(siId: string): string[] {
-  const acts = ACTIVITIES[siId];
+function wellsActivated(siId: string, activities: Record<string, Activity[]>): string[] {
+  const acts = activities[siId];
   if (acts && acts.length) {
     const set: string[] = [];
     acts.forEach((a) => {
@@ -88,8 +89,8 @@ function featuredRegions(siId: string): Region[] {
   return REGIONS.filter((r) => (REGION_SI[r.code] || []).includes(siId)).slice(0, 4);
 }
 
-function providerRail(siId: string): Provider[] {
-  const wells = wellsActivated(siId);
+function providerRail(siId: string, activities: Record<string, Activity[]>): Provider[] {
+  const wells = wellsActivated(siId, activities);
   const out: Provider[] = [];
   wells.forEach((w) => {
     (PROVIDERS[w] || []).filter((p) => p.tier !== "prospective").slice(0, 2).forEach((p) => out.push(p));
@@ -121,8 +122,10 @@ function RegionsSection({ si }: { si: { id: string; name: string } }) {
 export default function SiDetail() {
   const { id } = useParams();
   const { openPanel, showToast } = useStore();
+  const sis = useSpecialInterests();
+  const activities = useActivities();
 
-  const si = SIS.find((s) => s.id === id) || SIS.find((s) => s.id === "safari")!;
+  const si = sis.find((s) => s.id === id) || sis.find((s) => s.id === "safari")!;
   const isSchema = si.status !== "live";
   const ed = EDITORIAL[si.id];
 
@@ -208,8 +211,8 @@ export default function SiDetail() {
     );
   }
 
-  const wells = wellsActivated(si.id);
-  const rail = providerRail(si.id);
+  const wells = wellsActivated(si.id, activities);
+  const rail = providerRail(si.id, activities);
   const intro = ed ? ed.intro : GENERIC_INTRO(si);
 
   return (

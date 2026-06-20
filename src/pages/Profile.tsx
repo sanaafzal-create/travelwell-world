@@ -1,8 +1,8 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { siById } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 import { fetchTravelId, type TravelIdRecord } from "@/lib/travelId";
@@ -39,9 +39,10 @@ const BUDGET_WELLS = [
 ];
 
 function InterestChips() {
+  const sis = useSpecialInterests();
   return (
     <div className="idp-chips">
-      {PROFILE.interests.map((id) => { const si = siById(id); return si ? <span className="idp-chip" key={id}><span className="dot" style={{ background: si.accent }} />{si.name}</span> : null; })}
+      {PROFILE.interests.map((id) => { const si = sis.find((s) => s.id === id); return si ? <span className="idp-chip" key={id}><span className="dot" style={{ background: si.accent }} />{si.name}</span> : null; })}
     </div>
   );
 }

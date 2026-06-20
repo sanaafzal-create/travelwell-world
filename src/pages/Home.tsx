@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { siById } from "@/data/taxonomy";
 import { siImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { ButtonLink, Button, Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 
@@ -186,7 +186,8 @@ function TalkDemo() {
 /* ============================================================================ */
 export default function Home() {
   const { openPanel } = useStore();
-  const featured = FEAT_ORDER.map((id) => siById(id)).filter(Boolean) as NonNullable<ReturnType<typeof siById>>[];
+  const sis = useSpecialInterests();
+  const featured = FEAT_ORDER.map((id) => sis.find((s) => s.id === id)).filter(Boolean) as NonNullable<ReturnType<typeof sis.find>>[];
 
   const TALK_FEATS = [
     { icon: "message", b: "Type or talk", s: "Chat by keyboard or just speak — whatever feels easy." },

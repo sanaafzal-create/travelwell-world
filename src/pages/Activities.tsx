@@ -1,8 +1,8 @@
 import { useNavigate, Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { siById, wellById, WELLS, LUX_WELLS } from "@/data/taxonomy";
-import { ACTIVITIES } from "@/data/places";
+import { wellById, WELLS, LUX_WELLS } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests, useActivities } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx } from "@/lib/utils";
@@ -10,9 +10,11 @@ import { cx } from "@/lib/utils";
 export default function Activities() {
   const navigate = useNavigate();
   const { journeySIs, journeyActs, toggleAct, openPanel } = useStore();
-  const noInterests = journeySIs.filter((s) => ACTIVITIES[s]?.length).length === 0;
-  const sis = journeySIs.filter((s) => ACTIVITIES[s]?.length);
-  const groups = (sis.length ? sis : ["safari"]).map((s) => ({ si: siById(s), items: ACTIVITIES[s] || [] })).filter((g) => g.si);
+  const catalogSis = useSpecialInterests();
+  const activities = useActivities();
+  const noInterests = journeySIs.filter((s) => activities[s]?.length).length === 0;
+  const sis = journeySIs.filter((s) => activities[s]?.length);
+  const groups = (sis.length ? sis : ["safari"]).map((s) => ({ si: catalogSis.find((x) => x.id === s), items: activities[s] || [] })).filter((g) => g.si);
 
   // Which Wells light up, by count of chosen activities mapping to them.
   const allWells = [...WELLS, ...LUX_WELLS];

@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { GUIDES, MOROCCO_TOP8 } from "@/data/places";
-import { REGIONS, SIS } from "@/data/taxonomy";
+import { REGIONS } from "@/data/taxonomy";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 
 const PROSE: Record<string, string> = {
@@ -11,11 +12,12 @@ const PROSE: Record<string, string> = {
 
 export default function GuideDetail() {
   const { id } = useParams();
+  const sis = useSpecialInterests();
   const G = GUIDES.find((x) => x.id === id) || GUIDES.find((x) => x.id === "morocco-top8")!;
 
   const isTop = G.type === "Top List" && G.id === "morocco-top8";
   const region = REGIONS.find((r) => r.code === G.region);
-  const si = SIS.find((s) => s.id === G.si);
+  const si = sis.find((s) => s.id === G.si);
 
   const prose = isTop
     ? ""

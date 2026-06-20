@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { REGIONS, REGION_SI, siById } from "@/data/taxonomy";
+import { REGIONS, REGION_SI } from "@/data/taxonomy";
 import { regionImg } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow, Pill } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx } from "@/lib/utils";
@@ -17,6 +18,8 @@ function scoreFor(code: string, sis: string[]) {
 
 export default function Regions() {
   const { journeySIs, setRegion } = useStore();
+  const sis = useSpecialInterests();
+  const siById = (id: string) => sis.find((s) => s.id === id);
   const [sort, setSort] = useState<Sort>(journeySIs.length ? "match" : "all");
 
   const regions = [...REGIONS];

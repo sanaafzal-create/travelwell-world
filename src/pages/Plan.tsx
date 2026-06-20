@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { WELLS, SIS } from "@/data/taxonomy";
+import { WELLS } from "@/data/taxonomy";
 import { GUIDES } from "@/data/places";
 import { siImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
+import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow, ButtonLink, StatusPill } from "@/components/ui/primitives";
 
 export default function Plan() {
   const { trip } = useStore();
+  const sis = useSpecialInterests();
   const covered = new Set(trip.map((b) => b.well)).size;
-  const liveSIs = SIS.filter((s) => s.status === "live");
+  const liveSIs = sis.filter((s) => s.status === "live");
   const month = new Date(2026, 5).toLocaleString("en", { month: "long" });
 
   return (

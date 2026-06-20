@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import { Shell } from "@/components/shell/Shell";
+import { useCatalog } from "@/store/useCatalog";
 import Home from "@/pages/Home";
 import SpecialInterests from "@/pages/SpecialInterests";
 import SiDetail from "@/pages/SiDetail";
@@ -29,6 +31,13 @@ import Go from "@/pages/Go";
 import { Placeholder } from "@/pages/Placeholder";
 
 export default function App() {
+  // Hydrate the catalog from Postgres once on boot. No-ops gracefully (keeps
+  // the bundle) when Supabase isn't configured or is unreachable.
+  const hydrate = useCatalog((s) => s.hydrate);
+  useEffect(() => {
+    hydrate();
+  }, [hydrate]);
+
   return (
     <Routes>
       <Route element={<Shell />}>
