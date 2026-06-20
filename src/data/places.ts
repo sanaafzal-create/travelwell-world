@@ -4,6 +4,10 @@
  * Design-prototype data — representative, not a real catalog (Law V-2).
  */
 
+// David's additive Special-Interest activities (raw data, same seam as
+// safety.json). Folded into ACTIVITIES at module load — see src/data/taxonomy.ts.
+import siExtra from "./special-interests.json";
+
 export interface SeasonNote { l: string; m: string; note: string; }
 export interface RegionDetail {
   countries: string[];
@@ -178,7 +182,7 @@ export const MOROCCO_TOP8 = [
 
 export interface Activity { id: string; name: string; well: string; line: string; }
 const a = (id: string, name: string, well: string, line: string): Activity => ({ id, name, well, line });
-export const ACTIVITIES: Record<string, Activity[]> = {
+const BASE_ACTIVITIES: Record<string, Activity[]> = {
   safari: [a("game-drive", "Dawn game drives", "activities", "Golden-hour with a private guide"), a("balloon", "Hot-air balloon safari", "activities", "Float over the herds at sunrise"), a("tented-camp", "Luxury tented camp", "stay", "Canvas suites, no walls between you and the wild"), a("bush-dinner", "Bush dinner under the stars", "eat", "A candlelit table on the plains"), a("walking-safari", "Guided walking safari", "activities", "Track on foot with an armed ranger"), a("conservancy", "Conservancy & community visit", "activities", "Travel that gives back")],
   romance: [a("private-dinner", "Private sunset dinner", "eat", "Just the two of you, somewhere unforgettable"), a("couples-spa", "Couples spa ritual", "beauty", "Side-by-side, unhurried"), a("honeymoon-suite", "Boutique honeymoon suite", "stay", "A room you won't want to leave"), a("sunset-cruise", "Sunset cruise", "activities", "Champagne on calm water"), a("photo-session", "Keepsake photo session", "activities", "A pro to capture the trip")],
   culinary: [a("chefs-table", "Chef's table tasting menu", "eat", "The best seat in the house"), a("market-tour", "Local market food tour", "activities", "Eat where the locals eat"), a("cooking-class", "Hands-on cooking class", "activities", "Take the flavors home"), a("wine-pairing", "Wine-paired dinner", "eat", "Every course, perfectly matched"), a("street-food", "Street-food crawl", "eat", "The soul of a city, one stall at a time")],
@@ -190,3 +194,6 @@ export const ACTIVITIES: Record<string, Activity[]> = {
   ultra: [a("private-villa", "Private villa with staff", "stay", "Discreet, effortless, yours"), a("private-jet", "Private jet transfer", "fly", "Skip every line"), a("michelin", "In-villa Michelin chef", "eat", "The restaurant comes to you"), a("security", "Discreet close protection", "security", "Peace of mind, unseen"), a("curator", "Personal experience curator", "activities", "Doors that don't open for others")],
   solo: [a("small-group", "Small-group day tour", "activities", "Company when you want it"), a("safe-stay", "Vetted central stay", "stay", "Safe, social, well-placed"), a("communal-table", "Communal chef's table", "eat", "Make friends over dinner")],
 };
+
+// Canonical activities + David's additive drop (folded in at module load).
+export const ACTIVITIES: Record<string, Activity[]> = { ...BASE_ACTIVITIES, ...(siExtra.activities as Record<string, Activity[]>) };

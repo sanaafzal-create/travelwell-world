@@ -6,6 +6,12 @@
  * Wire real data/APIs (Supabase) in implementation.
  */
 
+// David's additive Special-Interest drop (raw data, same seam as safety.json).
+// We keep the typed wrapper here: the SIs fold into SIS and their laddered
+// activities into ACTIVITIES (see src/data/places.ts), so every existing
+// consumer picks them up with no other change.
+import siExtra from "./special-interests.json";
+
 export type Status = "live" | "preview" | "soon";
 export type IconName =
   | "plane" | "bed" | "utensils" | "car" | "bag" | "sparkle" | "compass"
@@ -21,7 +27,7 @@ export interface SpecialInterest {
   group: string;
 }
 
-export const SIS: SpecialInterest[] = [
+const BASE_SIS: SpecialInterest[] = [
   /* Premium & Signature */
   { id: "ultra", name: "Ultra-Luxury", sig: "the extraordinary", status: "live", accent: "#A8873F", lux: true, group: "premium" },
   { id: "tropical", name: "Tropical Beaches", sig: "barefoot luxury", status: "live", accent: "#2E8C8C", lux: false, group: "premium" },
@@ -53,6 +59,9 @@ export const SIS: SpecialInterest[] = [
   { id: "prosports", name: "Pro Sports Team Travel", sig: "follow the pros", status: "preview", accent: "#B07A3C", lux: false, group: "sports" },
   { id: "compsports", name: "Competitive Sports Team Travel", sig: "travel to compete", status: "preview", accent: "#2E6E8C", lux: false, group: "sports" },
 ];
+
+// Canonical SIs + David's additive drop (folded in at module load).
+export const SIS: SpecialInterest[] = [...BASE_SIS, ...(siExtra.special_interests as SpecialInterest[])];
 
 export interface SiGroup { id: string; name: string; blurb: string; }
 export const SI_GROUPS: SiGroup[] = [
@@ -145,16 +154,16 @@ export const LOCALES: Locale[] = [
 /** SI → Region affinity: which regions shine for each interest (ranking input). */
 export const REGION_SI: Record<string, string[]> = {
   "01F": ["culture", "culinary", "romance", "arts", "heritage", "wine", "rail", "city"],
-  "02F": ["romance", "culinary", "ocean", "wine", "sailing", "culture", "heritage", "surf"],
+  "02F": ["romance", "culinary", "ocean", "wine", "sailing", "yacht", "culture", "heritage", "surf"],
   "03F": ["photo", "adventure", "eco", "wellness", "rail", "sacred", "ski"],
-  "04A": ["ultra", "city", "culture", "heritage", "wellness", "family", "golf"],
+  "04A": ["ultra", "yacht", "city", "culture", "heritage", "wellness", "family", "golf"],
   "05A": ["safari", "photo", "adventure", "eco", "romance", "family", "heritage"],
   "06A": ["safari", "wine", "adventure", "eco", "photo", "ocean"],
   "07A": ["wellness", "culinary", "diving", "surf", "sacred", "culture", "eco", "family"],
   "08A": ["culture", "culinary", "arts", "city", "sacred", "ski", "heritage"],
-  "09P": ["diving", "ocean", "adventure", "eco", "surf", "sailing", "photo", "romance"],
+  "09P": ["diving", "ocean", "adventure", "eco", "surf", "sailing", "yacht", "photo", "romance"],
   "10S": ["adventure", "culture", "festivals", "eco", "photo", "culinary", "surf", "heritage"],
-  "11C": ["ocean", "romance", "diving", "sailing", "surf", "family", "wellness"],
+  "11C": ["ocean", "romance", "diving", "sailing", "yacht", "surf", "family", "wellness"],
   "12A": ["road", "adventure", "family", "city", "golf", "ski", "festivals", "arts"],
   "13A": ["adventure", "ski", "eco", "photo", "rail", "road", "wellness"],
 };
