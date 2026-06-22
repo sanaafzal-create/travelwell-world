@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { GUIDES, MOROCCO_TOP8 } from "@/data/places";
-import { useSpecialInterests, useRegions } from "@/store/useCatalog";
+import { MOROCCO_TOP8 } from "@/data/places";
+import { useSpecialInterests, useRegions, useGuides } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 
 const PROSE: Record<string, string> = {
@@ -13,7 +13,8 @@ export default function GuideDetail() {
   const { id } = useParams();
   const sis = useSpecialInterests();
   const regions = useRegions();
-  const G = GUIDES.find((x) => x.id === id) || GUIDES.find((x) => x.id === "morocco-top8")!;
+  const guides = useGuides();
+  const G = guides.find((x) => x.id === id) || guides.find((x) => x.id === "morocco-top8")!;
 
   const isTop = G.type === "Top List" && G.id === "morocco-top8";
   const region = regions.find((r) => r.code === G.region);
@@ -24,7 +25,7 @@ export default function GuideDetail() {
     : PROSE[G.id] ||
       `<p>${G.lede}</p><p>This guide is part of the TravelWell desk's growing library — practical, honest, and written by people who've made the trip themselves. We update it whenever the on-the-ground reality changes.</p><h2>Why it matters</h2><p>Great trips are built on small, well-timed decisions. The right month, the right base, the right order of days. That's what these guides are for.</p>`;
 
-  const related = GUIDES.filter((x) => x.id !== G.id).slice(0, 3);
+  const related = guides.filter((x) => x.id !== G.id).slice(0, 3);
 
   const inlineLinks = (
     <>

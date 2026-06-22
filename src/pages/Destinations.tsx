@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { DESTINATIONS, type Destination } from "@/data/places";
+import type { Destination } from "@/data/places";
 import type { Region } from "@/data/taxonomy";
-import { useRegions } from "@/store/useCatalog";
+import { useRegions, useDestinations } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
@@ -11,27 +11,28 @@ interface DestWithRegion extends Destination {
   region: string;
 }
 
-function allDests(): DestWithRegion[] {
+function allDests(destinations: Record<string, Destination[]>): DestWithRegion[] {
   const out: DestWithRegion[] = [];
-  Object.entries(DESTINATIONS).forEach(([code, list]) => {
+  Object.entries(destinations).forEach(([code, list]) => {
     list.forEach((d) => out.push({ ...d, region: code }));
   });
   return out;
 }
 
-function regionsWithDests(regions: Region[]) {
-  return regions.filter((r) => DESTINATIONS[r.code]);
+function regionsWithDests(regions: Region[], destinations: Record<string, Destination[]>) {
+  return regions.filter((r) => destinations[r.code]);
 }
 
 export default function Destinations() {
   const [params] = useSearchParams();
   const regions = useRegions();
+  const destinations = useDestinations();
   const [activeRegion, setActiveRegion] = useState(params.get("r") || "all");
 
   const list: DestWithRegion[] =
     activeRegion === "all"
-      ? allDests()
-      : (DESTINATIONS[activeRegion] || []).map((d) => ({ ...d, region: activeRegion }));
+      ? allDests(destinations)
+      : (destinations[activeRegion] || []).map((d) => ({ ...d, region: activeRegion }));
   const R = regions.find((r) => r.code === activeRegion);
 
   const select = (code: string) => {
@@ -71,7 +72,7 @@ export default function Destinations() {
               >
                 All regions
               </button>
-              {regionsWithDests(regions).map((r) => (
+              {regionsWithDests(regions, destinations).map((r) => (
                 <button
                   key={r.code}
                   className="dx-region-chip"

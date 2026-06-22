@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { GUIDES } from "@/data/places";
 import { siImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { useSpecialInterests, useWells } from "@/store/useCatalog";
+import { useSpecialInterests, useWells, useGuides } from "@/store/useCatalog";
 import { Eyebrow, ButtonLink, StatusPill } from "@/components/ui/primitives";
 
 export default function Plan() {
   const { trip } = useStore();
   const sis = useSpecialInterests();
   const wells = useWells().filter((w) => !w.lux);
+  const guides = useGuides();
   const covered = new Set(trip.map((b) => b.well)).size;
   const liveSIs = sis.filter((s) => s.status === "live");
   const month = new Date(2026, 5).toLocaleString("en", { month: "long" });
@@ -58,7 +58,7 @@ export default function Plan() {
         <section style={{ marginTop: 48 }}>
           <div className="section__head"><div><Eyebrow>Read before you go</Eyebrow><h2>Featured guides.</h2></div><Link className="section__link" to="/guides">All guides <Icon name="arrow" small /></Link></div>
           <div className="si-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {GUIDES.slice(0, 3).map((g) => (
+            {guides.slice(0, 3).map((g) => (
               <Link key={g.id} className="card" to={`/guide/${g.id}`} style={{ overflow: "hidden", color: "inherit" }}>
                 <div style={{ height: 150, position: "relative" }}>
                   <img src={img(g.img, 600)} alt="" loading="lazy" referrerPolicy="no-referrer" style={{ width: "100%", height: "100%", objectFit: "cover" }} />

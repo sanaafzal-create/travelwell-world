@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { REGION_DETAIL, DESTINATIONS, SUBREGION_TOP } from "@/data/places";
-import { useRegions, useSubregions } from "@/store/useCatalog";
+import { REGION_DETAIL, SUBREGION_TOP } from "@/data/places";
+import { useRegions, useSubregions, useDestinations } from "@/store/useCatalog";
 import { regionImg, img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
@@ -24,9 +24,10 @@ export default function RegionDetail() {
   const { setRegion } = useStore();
   const regions = useRegions();
   const subregions = useSubregions();
+  const destinations = useDestinations();
   const R = regions.find((r) => r.code === code) || regions.find((r) => r.code === "05A")!;
   const DET = REGION_DETAIL[R.code] || ({} as (typeof REGION_DETAIL)[string]);
-  const DESTS = DESTINATIONS[R.code] || [];
+  const DESTS = destinations[R.code] || [];
   const isSub = Boolean(DET.sub);
   const subList = subregions[R.code] || [];
   const [open, setOpen] = useState(0);

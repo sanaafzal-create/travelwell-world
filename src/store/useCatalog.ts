@@ -28,7 +28,16 @@ import {
   type Well,
   type Region,
 } from "@/data/taxonomy";
-import { ACTIVITIES as BUNDLE_ACTIVITIES, PROVIDERS as BUNDLE_PROVIDERS, type Activity, type Provider } from "@/data/places";
+import {
+  ACTIVITIES as BUNDLE_ACTIVITIES,
+  PROVIDERS as BUNDLE_PROVIDERS,
+  DESTINATIONS as BUNDLE_DESTINATIONS,
+  GUIDES as BUNDLE_GUIDES,
+  type Activity,
+  type Provider,
+  type Destination,
+  type Guide,
+} from "@/data/places";
 import { fetchCatalog } from "@/lib/catalog";
 
 const BUNDLE_ALL_WELLS: Well[] = [...BUNDLE_WELLS, ...BUNDLE_LUX_WELLS];
@@ -40,6 +49,8 @@ interface CatalogState {
   regions: Region[];
   subregions: Record<string, string[]>;
   providers: Record<string, Provider[]>;
+  destinations: Record<string, Destination[]>;
+  guides: Guide[];
   /** Where the live catalog came from — useful for debugging / a future badge. */
   source: "bundle" | "db";
   hydrate: () => Promise<void>;
@@ -59,6 +70,8 @@ export const useCatalog = create<CatalogState>((set) => ({
   regions: BUNDLE_REGIONS,
   subregions: BUNDLE_SUBREGIONS,
   providers: BUNDLE_PROVIDERS,
+  destinations: BUNDLE_DESTINATIONS,
+  guides: BUNDLE_GUIDES,
   source: "bundle",
   hydrate: async () => {
     const db = await fetchCatalog();
@@ -71,6 +84,8 @@ export const useCatalog = create<CatalogState>((set) => ({
       regions: db.regions ? mergeByKey(BUNDLE_REGIONS, db.regions, (x) => x.code) : s.regions,
       subregions: db.subregions ? { ...BUNDLE_SUBREGIONS, ...db.subregions } : s.subregions,
       providers: db.providers ? { ...BUNDLE_PROVIDERS, ...db.providers } : s.providers,
+      destinations: db.destinations ? { ...BUNDLE_DESTINATIONS, ...db.destinations } : s.destinations,
+      guides: db.guides ? mergeByKey(BUNDLE_GUIDES, db.guides, (x) => x.id) : s.guides,
       source: "db",
     }));
   },
@@ -83,6 +98,8 @@ export const useWells = () => useCatalog((s) => s.wells);
 export const useRegions = () => useCatalog((s) => s.regions);
 export const useSubregions = () => useCatalog((s) => s.subregions);
 export const useProviders = () => useCatalog((s) => s.providers);
+export const useDestinations = () => useCatalog((s) => s.destinations);
+export const useGuides = () => useCatalog((s) => s.guides);
 
 /** Reactive single-item lookups (recompute when the underlying list changes). */
 export const useWellById = (id: string) => useCatalog((s) => s.wells.find((w) => w.id === id));

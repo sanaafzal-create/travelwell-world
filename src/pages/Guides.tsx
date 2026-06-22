@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { GUIDES, GUIDE_TYPES } from "@/data/places";
+import { GUIDE_TYPES } from "@/data/places";
+import { useGuides } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 import { Eyebrow } from "@/components/ui/primitives";
 
@@ -14,6 +15,7 @@ const BEFORE = [
 
 export default function Guides() {
   const [filter, setFilter] = useState("all");
+  const GUIDES = useGuides();
   const feat = GUIDES.find((g) => g.id === "morocco-top8") || GUIDES[0];
   const types = filter === "all" ? GUIDE_TYPES : [filter];
 
