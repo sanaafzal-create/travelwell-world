@@ -7,6 +7,7 @@ import { Concierge } from "./Concierge";
 import { TripTray } from "./TripTray";
 import { Emergency } from "./Emergency";
 import { Ambient } from "./Ambient";
+import { AtlasOrchestrator } from "./AtlasOrchestrator";
 import { useStore, applyInitialLocale } from "@/store/useStore";
 import { getCurrentUser, onAuthChange } from "@/lib/auth";
 import { flushPendingTravelId } from "@/lib/travelId";
@@ -119,6 +120,7 @@ export function Shell() {
       <TripTray />
       <Emergency />
       <Ambient />
+      <AtlasOrchestrator />
     </>
   );
 }
