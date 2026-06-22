@@ -20,6 +20,7 @@ export interface JourneySnapshot {
   region: string | null;
   activities: string[];
   trip: TripBlock[];
+  lastPath: string | null;
 }
 
 const iconFor = (well: string): IconName => wellById(well)?.icon ?? "compass";
@@ -30,7 +31,7 @@ export async function fetchJourney(userId: string): Promise<JourneySnapshot | nu
   if (!sb) return null;
   const { data: j, error } = await sb
     .from("journeys")
-    .select("id, interests, region_code, activities")
+    .select("id, interests, region_code, activities, last_path")
     .eq("user_id", userId)
     .order("updated_at", { ascending: false })
     .limit(1)
@@ -58,7 +59,15 @@ export async function fetchJourney(userId: string): Promise<JourneySnapshot | nu
     region: j.region_code ?? null,
     activities: j.activities ?? [],
     trip,
+    lastPath: j.last_path ?? null,
   };
+}
+
+/** Persist the traveler's last position (route) so they resume where they left off. */
+export async function saveJourneyPosition(journeyId: string, lastPath: string): Promise<void> {
+  const sb = getSupabase();
+  if (!sb) return;
+  await sb.from("journeys").update({ last_path: lastPath, updated_at: new Date().toISOString() }).eq("id", journeyId);
 }
 
 /** Create the traveler's first journey from their current (local) state. Returns its id. */

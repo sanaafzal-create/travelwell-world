@@ -1,7 +1,8 @@
-import { Routes, Route } from "react-router-dom";
-import { useEffect, lazy } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useRef, lazy } from "react";
 import { Shell } from "@/components/shell/Shell";
 import { useCatalog } from "@/store/useCatalog";
+import { useStore } from "@/store/useStore";
 
 // Pages are code-split: each becomes its own chunk, fetched on first visit.
 // The Suspense boundary that covers these lives in Shell (around <Outlet/>).
@@ -33,6 +34,39 @@ const Sitemap = lazy(() => import("@/pages/Sitemap"));
 const Go = lazy(() => import("@/pages/Go"));
 const Placeholder = lazy(() => import("@/pages/Placeholder").then((m) => ({ default: m.Placeholder })));
 
+// Don't resume into auth/utility flows — only the trip-building journey.
+const NO_RESUME = new Set(["", "signin", "signup", "verify", "activation", "go", "sitemap"]);
+function isResumable(path: string): boolean {
+  if (!path || path === "/") return false;
+  const first = path.replace(/\/+$/, "").split("/").filter(Boolean)[0] ?? "";
+  return !NO_RESUME.has(first);
+}
+
+/**
+ * Pick up where they left off: on the first landing at "/" in a session, send
+ * the traveler to their last journey position. Only from root (never hijacks a
+ * deep link) and only once per session (clicking the logo home still works).
+ */
+function ResumeRedirect() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  // Capture the resume target at first render — before Shell's route effect
+  // overwrites lastPath with the current ("/") path.
+  const target = useRef(useStore.getState().lastPath);
+  const done = useRef(false);
+  useEffect(() => {
+    if (done.current) return;
+    done.current = true; // one-shot per mount
+    if (location.pathname !== "/") return; // only resume from root, never hijack a deep link
+    try { if (sessionStorage.getItem("tww:resumed")) return; } catch { /* ignore */ }
+    if (target.current && isResumable(target.current)) {
+      try { sessionStorage.setItem("tww:resumed", "1"); } catch { /* ignore */ }
+      navigate(target.current, { replace: true });
+    }
+  }, [location.pathname, navigate]);
+  return null;
+}
+
 export default function App() {
   // Hydrate the catalog from Postgres once on boot. No-ops gracefully (keeps
   // the bundle) when Supabase isn't configured or is unreachable.
@@ -42,6 +76,8 @@ export default function App() {
   }, [hydrate]);
 
   return (
+    <>
+    <ResumeRedirect />
     <Routes>
       <Route element={<Shell />}>
         <Route path="/" element={<Home />} />
@@ -75,5 +111,6 @@ export default function App() {
         <Route path="*" element={<Placeholder title="Not found" eyebrow="404" lead="That page wandered off the map. Let's get you back on the trail." />} />
       </Route>
     </Routes>
+    </>
   );
 }

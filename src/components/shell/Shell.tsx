@@ -10,6 +10,21 @@ import { Ambient } from "./Ambient";
 import { useStore, applyInitialLocale } from "@/store/useStore";
 import { getCurrentUser, onAuthChange } from "@/lib/auth";
 import { flushPendingTravelId } from "@/lib/travelId";
+import { track, type EventEntity } from "@/lib/track";
+
+// Map a route to a typed exploration event, so the log is queryable by entity
+// (/si/sailing → view si sailing) rather than just raw paths.
+function routeView(pathname: string): { entity: EventEntity; entityId: string } {
+  const [a, b] = pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+  switch (a) {
+    case "si": return { entity: "si", entityId: b };
+    case "region": return { entity: "region", entityId: b };
+    case "destination": return { entity: "destination", entityId: b };
+    case "guide": return { entity: "guide", entityId: b };
+    case "well": return { entity: "well", entityId: b };
+    default: return { entity: "page", entityId: pathname || "/" };
+  }
+}
 
 // Map a route to the page-scope slug used by src/styles/pages.css. Every page
 // block in pages.css is scoped under [data-page="<slug>"] so per-page styles
@@ -37,6 +52,7 @@ const NO_FOOTER = new Set(["sign-in", "verify-email", "sign-up", "activation", "
 
 export function Shell() {
   const { panel, closePanel } = useStore();
+  const setLastPath = useStore((s) => s.setLastPath);
   const location = useLocation();
 
   // ESC closes any open panel.
@@ -69,11 +85,14 @@ export function Shell() {
     return onAuthChange(onUser);
   }, [setUser, showToast, hydrateJourney]);
 
-  // Close panels + scroll to top on route change.
+  // Close panels + scroll to top on route change; remember position + log the view.
   useEffect(() => {
     closePanel();
     window.scrollTo(0, 0);
-  }, [location.pathname, closePanel]);
+    setLastPath(location.pathname);
+    const v = routeView(location.pathname);
+    track({ kind: "view", entity: v.entity, entityId: v.entityId, context: { path: location.pathname } });
+  }, [location.pathname, closePanel, setLastPath]);
 
   // Lock body scroll when a full overlay is open.
   useEffect(() => {
