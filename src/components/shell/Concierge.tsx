@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Icon } from "@/lib/icons";
 import { useStore, type IoMode } from "@/store/useStore";
 import { askAtlas } from "@/lib/supabase";
+import { buildAtlasContext } from "@/lib/insights";
 
 interface Msg { role: "user" | "assistant"; content: string; }
 
@@ -23,12 +24,6 @@ export function Concierge() {
     if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
   }, [messages, busy]);
 
-  const ctx = {
-    interests: journeySIs,
-    region,
-    tripBlocks: trip.length,
-  };
-
   async function send(text: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
@@ -36,6 +31,9 @@ export function Concierge() {
     setMessages(next);
     setInput("");
     setBusy(true);
+    // Ground Atlas in the live journey: Travel I.D., current SI/region/trip,
+    // what they've considered, and curated happenings near where they're looking.
+    const ctx = await buildAtlasContext();
     const { reply } = await askAtlas(next, ctx);
     setMessages([...next, { role: "assistant", content: reply }]);
     setBusy(false);
