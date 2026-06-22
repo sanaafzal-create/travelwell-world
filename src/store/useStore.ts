@@ -8,7 +8,8 @@
 import { create } from "zustand";
 import { LOCALES } from "@/data/taxonomy";
 import type { IconName } from "@/data/taxonomy";
-import { fetchJourney, createJourney, saveJourneyMeta, replaceBlocks } from "@/lib/journey";
+import { fetchJourney, createJourney, saveJourneyMeta, replaceBlocks, saveJourneyPosition } from "@/lib/journey";
+import { track, reconcileAnonEvents, registerTrackContext } from "@/lib/track";
 
 export type BlockStatus = "idea" | "pending" | "confirmed";
 export interface TripBlock {
@@ -54,6 +55,8 @@ interface State {
   journeySIs: string[];
   journeyActs: string[];
   region: string | null;
+  // last route visited, for "pick up where you left off"
+  lastPath: string | null;
   // trip
   trip: TripBlock[];
   // prefs
@@ -76,6 +79,7 @@ interface State {
   setActs: (ids: string[]) => void;
   toggleAct: (id: string) => void;
   setRegion: (code: string | null) => void;
+  setLastPath: (path: string) => void;
   addToTrip: (b: TripBlock) => void;
   removeFromTrip: (name: string) => void;
   setLocale: (code: string) => void;
@@ -107,6 +111,7 @@ export const useStore = create<State>((set, get) => ({
   journeySIs: load<string[]>("journeySIs", []),
   journeyActs: load<string[]>("journeyActs", []),
   region: load<string | null>("region", null),
+  lastPath: load<string | null>("lastPath", null),
   trip: load<TripBlock[]>("trip", DEFAULT_TRIP),
   locale: load<string>("locale", "en"),
   io: load<IoMode>("io", "read"),
@@ -122,13 +127,23 @@ export const useStore = create<State>((set, get) => ({
   // On sign-in: load this account's journey from Postgres (cross-device resume),
   // or migrate the current on-device state up if this is its first sign-in.
   hydrateJourney: async (userId) => {
+    // Attach this device's pre-sign-in exploration to the account.
+    void reconcileAnonEvents(userId);
     const snap = await fetchJourney(userId);
     if (snap) {
       save("journeySIs", snap.interests);
       save("journeyActs", snap.activities);
       save("region", snap.region);
       save("trip", snap.trip);
-      set({ journeyId: snap.id, journeySIs: snap.interests, journeyActs: snap.activities, region: snap.region, trip: snap.trip });
+      if (snap.lastPath) save("lastPath", snap.lastPath);
+      set({
+        journeyId: snap.id,
+        journeySIs: snap.interests,
+        journeyActs: snap.activities,
+        region: snap.region,
+        trip: snap.trip,
+        ...(snap.lastPath ? { lastPath: snap.lastPath } : {}),
+      });
       return;
     }
     const { journeySIs, journeyActs, region, trip } = get();
@@ -143,6 +158,7 @@ export const useStore = create<State>((set, get) => ({
       save("journeySIs", next);
       set({ journeySIs: next });
       persistMeta(get);
+      track({ kind: "deselect", entity: "si", entityId: id });
       return;
     }
     if (cur.length >= MAX_SIS) {
@@ -153,6 +169,7 @@ export const useStore = create<State>((set, get) => ({
     save("journeySIs", next);
     set({ journeySIs: next });
     persistMeta(get);
+    track({ kind: "select", entity: "si", entityId: id, context: { region: get().region } });
   },
   setActs: (ids) => {
     save("journeyActs", ids);
@@ -161,21 +178,39 @@ export const useStore = create<State>((set, get) => ({
   },
   toggleAct: (id) => {
     const cur = get().journeyActs;
-    const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
+    const adding = !cur.includes(id);
+    const next = adding ? [...cur, id] : cur.filter((x) => x !== id);
     save("journeyActs", next);
     set({ journeyActs: next });
     persistMeta(get);
+    track({ kind: adding ? "select" : "deselect", entity: "activity", entityId: id, context: { region: get().region } });
   },
   setRegion: (code) => {
     save("region", code);
     set({ region: code });
     persistMeta(get);
+    if (code) track({ kind: "select", entity: "region", entityId: code, context: { sis: get().journeySIs } });
+  },
+  setLastPath: (path) => {
+    if (get().lastPath === path) return;
+    save("lastPath", path);
+    set({ lastPath: path });
+    // Debounced write-through to Postgres (routes change often; don't spam).
+    const { user, journeyId } = get();
+    if (user && journeyId) {
+      window.clearTimeout((useStore as unknown as { _p?: number })._p);
+      (useStore as unknown as { _p?: number })._p = window.setTimeout(() => {
+        const s = get();
+        if (s.journeyId) void saveJourneyPosition(s.journeyId, s.lastPath ?? path);
+      }, 1500);
+    }
   },
   addToTrip: (b) => {
     const next = [...get().trip, b];
     save("trip", next);
     set({ trip: next });
     persistBlocks(get);
+    track({ kind: "add", entity: "trip", entityId: b.name, context: { well: b.well, status: b.status, region: get().region } });
     get().showToast(`Added to your trip · ${b.name}`);
   },
   removeFromTrip: (name) => {
@@ -183,6 +218,7 @@ export const useStore = create<State>((set, get) => ({
     save("trip", next);
     set({ trip: next });
     persistBlocks(get);
+    track({ kind: "remove", entity: "trip", entityId: name });
   },
   setLocale: (code) => {
     const L = LOCALES.find((l) => l.code === code) || LOCALES[0];
@@ -216,6 +252,13 @@ export const useStore = create<State>((set, get) => ({
   },
   hideWhisper: () => set({ whisper: null }),
 }));
+
+// Let the tracker resolve the current user + journey at flush time, without
+// track.ts importing the store (which would be a cycle).
+registerTrackContext(() => {
+  const s = useStore.getState();
+  return { userId: s.user?.id ?? null, journeyId: s.journeyId };
+});
 
 /** Apply persisted locale/dir to <html> on first load. */
 export function applyInitialLocale() {
