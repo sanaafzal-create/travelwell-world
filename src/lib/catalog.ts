@@ -18,7 +18,7 @@
  */
 import { getSupabase } from "./supabase";
 import type { SpecialInterest, Status, Well, Region, IconName } from "@/data/taxonomy";
-import type { Activity, Provider, Tier, Price, Mode } from "@/data/places";
+import type { Activity, Provider, Tier, Price, Mode, Destination, Guide } from "@/data/places";
 
 export interface DbCatalog {
   sis?: SpecialInterest[];
@@ -27,19 +27,23 @@ export interface DbCatalog {
   regions?: Region[];
   subregions?: Record<string, string[]>;
   providers?: Record<string, Provider[]>;
+  destinations?: Record<string, Destination[]>;
+  guides?: Guide[];
 }
 
 export async function fetchCatalog(): Promise<DbCatalog | null> {
   const sb = getSupabase();
   if (!sb) return null;
   try {
-    const [siRes, actRes, wellRes, regionRes, subRes, provRes] = await Promise.all([
+    const [siRes, actRes, wellRes, regionRes, subRes, provRes, destRes, guideRes] = await Promise.all([
       sb.from("special_interests").select("id, name, signature, status, accent, is_lux, grp"),
       sb.from("activities").select("si_id, id, name, well, line, position").order("position", { ascending: true }),
       sb.from("wells").select("id, name, tag, body, status, icon, is_lux"),
       sb.from("regions").select("code, name, line, countries, gateways, status, has_sub"),
       sb.from("sub_regions").select("region_code, name, position").order("position", { ascending: true }),
       sb.from("providers").select("name, well, tier, price, mode, description, commission"),
+      sb.from("destinations").select("id, region_code, name, country, line, status, img, position").order("position", { ascending: true }),
+      sb.from("guides").select("id, type, title, lede, read, updated, img, si, region, position").order("position", { ascending: true }),
     ]);
 
     const out: DbCatalog = {};
@@ -116,6 +120,35 @@ export async function fetchCatalog(): Promise<DbCatalog | null> {
         });
       }
       out.providers = providers;
+    }
+
+    if (!destRes.error && (destRes.data?.length ?? 0)) {
+      const destinations: Record<string, Destination[]> = {};
+      for (const r of destRes.data!) {
+        (destinations[r.region_code as string] ??= []).push({
+          id: r.id as string,
+          name: r.name as string,
+          country: r.country as string,
+          line: r.line as string,
+          status: r.status as "live" | "stub",
+          img: r.img as string,
+        });
+      }
+      out.destinations = destinations;
+    }
+
+    if (!guideRes.error && (guideRes.data?.length ?? 0)) {
+      out.guides = guideRes.data!.map((r) => ({
+        id: r.id as string,
+        type: r.type as string,
+        title: r.title as string,
+        lede: r.lede as string,
+        read: r.read as string,
+        updated: r.updated as string,
+        img: r.img as string,
+        si: r.si as string,
+        region: r.region as string,
+      }));
     }
 
     return Object.keys(out).length ? out : null;

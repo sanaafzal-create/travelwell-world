@@ -1,34 +1,37 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy } from "react";
 import { Shell } from "@/components/shell/Shell";
 import { useCatalog } from "@/store/useCatalog";
-import Home from "@/pages/Home";
-import SpecialInterests from "@/pages/SpecialInterests";
-import SiDetail from "@/pages/SiDetail";
-import Regions from "@/pages/Regions";
-import RegionDetail from "@/pages/RegionDetail";
-import Activities from "@/pages/Activities";
-import WellsSurface from "@/pages/WellsSurface";
-import Wells from "@/pages/Wells";
-import Providers from "@/pages/Providers";
-import Destinations from "@/pages/Destinations";
-import DestinationDetail from "@/pages/DestinationDetail";
-import Itinerary from "@/pages/Itinerary";
-import Luxury from "@/pages/Luxury";
-import Guides from "@/pages/Guides";
-import GuideDetail from "@/pages/GuideDetail";
-import FirstAidKit from "@/pages/FirstAidKit";
-import Demo from "@/pages/Demo";
-import SignUp from "@/pages/SignUp";
-import SignIn from "@/pages/SignIn";
-import VerifyEmail from "@/pages/VerifyEmail";
-import Activation from "@/pages/Activation";
-import Profile from "@/pages/Profile";
-import Plan from "@/pages/Plan";
-import About from "@/pages/About";
-import Sitemap from "@/pages/Sitemap";
-import Go from "@/pages/Go";
-import { Placeholder } from "@/pages/Placeholder";
+
+// Pages are code-split: each becomes its own chunk, fetched on first visit.
+// The Suspense boundary that covers these lives in Shell (around <Outlet/>).
+const Home = lazy(() => import("@/pages/Home"));
+const SpecialInterests = lazy(() => import("@/pages/SpecialInterests"));
+const SiDetail = lazy(() => import("@/pages/SiDetail"));
+const Regions = lazy(() => import("@/pages/Regions"));
+const RegionDetail = lazy(() => import("@/pages/RegionDetail"));
+const Activities = lazy(() => import("@/pages/Activities"));
+const WellsSurface = lazy(() => import("@/pages/WellsSurface"));
+const Wells = lazy(() => import("@/pages/Wells"));
+const Providers = lazy(() => import("@/pages/Providers"));
+const Destinations = lazy(() => import("@/pages/Destinations"));
+const DestinationDetail = lazy(() => import("@/pages/DestinationDetail"));
+const Itinerary = lazy(() => import("@/pages/Itinerary"));
+const Luxury = lazy(() => import("@/pages/Luxury"));
+const Guides = lazy(() => import("@/pages/Guides"));
+const GuideDetail = lazy(() => import("@/pages/GuideDetail"));
+const FirstAidKit = lazy(() => import("@/pages/FirstAidKit"));
+const Demo = lazy(() => import("@/pages/Demo"));
+const SignUp = lazy(() => import("@/pages/SignUp"));
+const SignIn = lazy(() => import("@/pages/SignIn"));
+const VerifyEmail = lazy(() => import("@/pages/VerifyEmail"));
+const Activation = lazy(() => import("@/pages/Activation"));
+const Profile = lazy(() => import("@/pages/Profile"));
+const Plan = lazy(() => import("@/pages/Plan"));
+const About = lazy(() => import("@/pages/About"));
+const Sitemap = lazy(() => import("@/pages/Sitemap"));
+const Go = lazy(() => import("@/pages/Go"));
+const Placeholder = lazy(() => import("@/pages/Placeholder").then((m) => ({ default: m.Placeholder })));
 
 export default function App() {
   // Hydrate the catalog from Postgres once on boot. No-ops gracefully (keeps

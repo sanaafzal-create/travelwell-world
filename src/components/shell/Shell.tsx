@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "./Header";
 import { MegaMenu } from "./MegaMenu";
@@ -88,7 +88,12 @@ export function Shell() {
       <Header />
       <MegaMenu />
       <main id="main" className="tw-main" data-page={slug}>
-        <Outlet />
+        {/* Route pages are code-split (React.lazy in App.tsx). The Suspense
+            boundary lives here so the header, footer and panels stay mounted
+            while the next page's chunk loads. */}
+        <Suspense fallback={<div className="route-loading" aria-busy="true" aria-label="Loading" />}>
+          <Outlet />
+        </Suspense>
       </main>
       {!NO_FOOTER.has(slug) && <Footer />}
       <Concierge />

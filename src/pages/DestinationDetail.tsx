@@ -1,11 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { DESTINATIONS, GUIDES } from "@/data/places";
 import type { Destination, Provider } from "@/data/places";
 import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
-import { useRegions, useWells, useProviders } from "@/store/useCatalog";
+import { useRegions, useWells, useProviders, useDestinations, useGuides } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 import { getSafety, isoForCountry, SAFE_COLOR } from "@/data/safety-data";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
@@ -13,14 +12,18 @@ import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbe
 const TIER: Record<string, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
 
 /** Find a destination by id across every region's list; return it with its region and sibling list. */
-function findDestination(regions: Region[], id?: string): { dest: Destination; region: Region; list: Destination[] } {
+function findDestination(
+  regions: Region[],
+  destinations: Record<string, Destination[]>,
+  id?: string
+): { dest: Destination; region: Region; list: Destination[] } {
   const fallbackRegion = regions.find((r) => r.code === "05A")!;
   for (const r of regions) {
-    const list = DESTINATIONS[r.code] || [];
+    const list = destinations[r.code] || [];
     const dest = list.find((d) => d.id === id);
     if (dest) return { dest, region: r, list };
   }
-  const list = DESTINATIONS[fallbackRegion.code] || [];
+  const list = destinations[fallbackRegion.code] || [];
   const stub: Destination = { id: "x", name: id || "This place", country: fallbackRegion.name, line: "A destination in " + fallbackRegion.name, status: "stub", img: "mountainValley" };
   return { dest: list[0] || stub, region: fallbackRegion, list };
 }
@@ -40,9 +43,11 @@ export default function DestinationDetail() {
   const regions = useRegions();
   const wells = useWells();
   const providers = useProviders();
+  const destinations = useDestinations();
+  const guides = useGuides();
   const allWells: Record<string, Well> = {};
   wells.forEach((w) => { allWells[w.id] = w; });
-  const { dest: DEST, region: R, list } = findDestination(regions, id);
+  const { dest: DEST, region: R, list } = findDestination(regions, destinations, id);
   const country = DEST.country || R.name;
   const stub = DEST.status === "stub";
 
@@ -55,8 +60,8 @@ export default function DestinationDetail() {
   const groups = providersByWell(allWells, providers);
 
   const relGuides = (() => {
-    const pref = GUIDES.filter((gg) => gg.region === R.code || ["safari", "romance", "culinary"].includes(gg.si));
-    return (pref.length >= 2 ? pref : GUIDES).slice(0, 2);
+    const pref = guides.filter((gg) => gg.region === R.code || ["safari", "romance", "culinary"].includes(gg.si));
+    return (pref.length >= 2 ? pref : guides).slice(0, 2);
   })();
 
   return (
