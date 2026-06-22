@@ -15,7 +15,7 @@ import { getSupabase } from "./supabase";
 
 export type EventKind = "view" | "select" | "deselect" | "add" | "remove" | "compare";
 export type EventEntity =
-  | "si" | "region" | "provider" | "activity" | "well" | "guide" | "destination" | "trip" | "page";
+  | "si" | "region" | "provider" | "activity" | "well" | "guide" | "destination" | "trip" | "whisper" | "page";
 
 export interface TrackEvent {
   kind: EventKind;

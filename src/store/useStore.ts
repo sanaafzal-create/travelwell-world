@@ -48,7 +48,9 @@ const DEFAULT_TRIP: TripBlock[] = [
   { well: "fly", icon: "plane", name: "Nairobi → Mara airstrip", meta: "Fly-Well", status: "idea" },
 ];
 
-export interface Whisper { kind: string; text: string; }
+export interface Whisper { id?: string; kind: string; text: string; href?: string; }
+/** Where the traveler was on the flow before a whisper/idea pulled them off it. */
+export interface Anchor { path: string; label: string; scrollY: number; }
 
 interface State {
   // journey
@@ -67,6 +69,8 @@ interface State {
   panel: Panel;
   toast: string | null;
   whisper: Whisper | null;
+  // Anchor: the warm way back to the flow after wandering off it (null = on-flow)
+  anchor: Anchor | null;
   // auth (null until Supabase is configured + signed in)
   user: { id: string; email: string | null } | null;
   // the signed-in traveler's persisted journey (null until hydrated/created)
@@ -91,9 +95,21 @@ interface State {
   clearToast: () => void;
   showWhisper: (w: Whisper) => void;
   hideWhisper: () => void;
+  setAnchor: (a: Anchor) => void;
+  clearAnchor: () => void;
 }
 
 export const MAX_SIS = 3;
+
+// Whisper cadence/quiet-hours gates (the v1 canon: more relevant, not more
+// frequent). Min gap between whispers by dial; suppressed during sleep hours;
+// never the same idea twice in a session.
+const WHISPER_GAP_MS: Record<WhisperDial, number> = {
+  off: Infinity, rare: 15 * 60_000, balanced: 5 * 60_000, active: 90_000,
+};
+let _lastWhisperAt = 0;
+const _shownWhisperIds = new Set<string>();
+const inQuietHours = () => { const h = new Date().getHours(); return h >= 22 || h < 7; };
 
 // Fire-and-forget write-through to Postgres. localStorage stays the immediate
 // source of truth for snappy UI; these durably sync the signed-in traveler's
@@ -119,6 +135,7 @@ export const useStore = create<State>((set, get) => ({
   panel: null,
   toast: null,
   whisper: null,
+  anchor: null,
   user: null,
   journeyId: null,
 
@@ -245,12 +262,23 @@ export const useStore = create<State>((set, get) => ({
   },
   clearToast: () => set({ toast: null }),
   showWhisper: (w) => {
-    if (get().whisperDial === "off") return;
+    // Cadence > frequency: respect the dial, sleep hours, the min gap, one at a
+    // time, and never the same idea twice in a session.
+    const dial = get().whisperDial;
+    if (dial === "off" || inQuietHours() || get().whisper) return;
+    if (w.id && _shownWhisperIds.has(w.id)) return;
+    const now = Date.now();
+    if (now - _lastWhisperAt < WHISPER_GAP_MS[dial]) return;
+    _lastWhisperAt = now;
+    if (w.id) _shownWhisperIds.add(w.id);
     set({ whisper: w });
+    track({ kind: "view", entity: "whisper", entityId: w.id, context: { href: w.href } });
     window.clearTimeout((useStore as unknown as { _w?: number })._w);
-    (useStore as unknown as { _w?: number })._w = window.setTimeout(() => set({ whisper: null }), 9000);
+    (useStore as unknown as { _w?: number })._w = window.setTimeout(() => set({ whisper: null }), 12000);
   },
   hideWhisper: () => set({ whisper: null }),
+  setAnchor: (a) => set({ anchor: a }),
+  clearAnchor: () => set({ anchor: null }),
 }));
 
 // Let the tracker resolve the current user + journey at flush time, without
