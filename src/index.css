@@ -27,6 +27,12 @@ html, body { overflow-x: clip; max-width: 100%; }
   flex: 1;
 }
 
+/* Fallback shown while a code-split route chunk loads. Reserves height so the
+   footer doesn't jump up during the brief fetch. */
+.route-loading {
+  min-height: 60vh;
+}
+
 /* Sign-up wizard form controls (the onboarding "act" surface). */
 .act input,
 .act textarea,
