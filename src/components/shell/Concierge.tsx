@@ -27,6 +27,12 @@ export function Concierge() {
   async function send(text: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
+    // Typing from the intro screen implies "I'll just type" — prime in place so
+    // the message renders (the body only shows messages once primed), never lost.
+    if (!primed) {
+      setPrimed(true);
+      try { localStorage.setItem(PRIMER_DONE_KEY, "1"); } catch { /* ignore */ }
+    }
     const next = [...messages, { role: "user" as const, content: trimmed }];
     setMessages(next);
     setInput("");
