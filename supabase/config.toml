@@ -1,0 +1,12 @@
+# Supabase CLI configuration.
+#
+# The Atlas concierge must be callable by ANONYMOUS visitors (it walks beside
+# signed-out travelers too), and this project uses the new sb_publishable_ key,
+# which is NOT a JWT. So the atlas Edge Function must not enforce JWT
+# verification — otherwise the gateway rejects every call with a 401 before the
+# function runs. (Deploy via CLI honors this; the Dashboard has an equivalent
+# per-function "Verify JWT" toggle.)
+project_id = "xgjidkgctqqdprxtxeui"
+
+[functions.atlas]
+verify_jwt = false
