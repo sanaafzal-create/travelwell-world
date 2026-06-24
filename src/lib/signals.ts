@@ -48,11 +48,13 @@ export async function fetchSignals(q: SignalQuery): Promise<LocalSignal[]> {
   const sb = getSupabase();
   if (!sb) return selectSignals(LOCAL_SIGNALS, q);
   try {
-    // Pull candidates that match the destination, the region, or are global
-    // (no destination/region); refine + sort client-side with selectSignals.
+    // Pull candidates matching the destination, the region, the traveler's SIs
+    // (array overlap), or global (no destination/region); refine + sort with
+    // selectSignals to match the bundle's behavior exactly.
     const ors: string[] = ["and(destination_id.is.null,region_code.is.null)"];
     if (q.destination) ors.push(`destination_id.eq.${q.destination}`);
     if (q.region) ors.push(`region_code.eq.${q.region}`);
+    if (q.si?.length) ors.push(`si.ov.{${q.si.join(",")}}`);
     const { data, error } = await sb
       .from("local_signals")
       .select("id, destination_id, region_code, si, wells, kind, horizon, title, blurb, href, starts_on, ends_on, recurrence, season, source, priority")

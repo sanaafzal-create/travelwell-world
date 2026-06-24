@@ -57,11 +57,12 @@ export function Ambient() {
         <button className="tw-whisper__close" aria-label="Dismiss" onClick={hideWhisper}><Icon name="close" small /></button>
       </div>
 
-      {/* Anchor — the warm way back after wandering off the flow. NOTE: copy is a
-          placeholder pending the Atlas-voice design session with David. */}
+      {/* Anchor — the warm way back after wandering off the flow. Wording follows
+          David's Atlas Voice Guide ("↩ Back to Bonaire?"): names the place,
+          gentle, never a command. Shape further in the voice session. */}
       <div className="tw-anchor" data-show={showAnchor} role="status" aria-live="polite">
         <button className="tw-anchor__btn" onClick={goBack}>
-          <Icon name="compass" small /> Back to {anchor?.label ?? "your planning"}?
+          <span className="tw-anchor__arrow" aria-hidden="true">↩</span> Back to {anchor?.label ?? "your planning"}?
         </button>
         <button className="tw-anchor__close" aria-label="Dismiss" onClick={clearAnchor}><Icon name="close" small /></button>
       </div>

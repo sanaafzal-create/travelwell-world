@@ -227,6 +227,7 @@
 .tw-anchor { position: fixed; inset-inline-start: 24px; bottom: 24px; max-width: calc(100vw - 32px); z-index: 88; background: var(--card); border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--e2); padding: 6px; display: flex; align-items: center; gap: 4px; transform: translateY(20px); opacity: 0; visibility: hidden; transition: opacity .3s ease, transform .3s ease, visibility .3s; }
 .tw-anchor[data-show="true"] { transform: translateY(0); opacity: 1; visibility: visible; }
 .tw-anchor__btn { display: inline-flex; align-items: center; gap: 8px; background: none; border: 0; cursor: pointer; color: var(--foreground); font-weight: 600; font-size: 13.5px; padding: 6px 10px; border-radius: 999px; }
+.tw-anchor__arrow { color: var(--primary); font-size: 15px; line-height: 1; }
 .tw-anchor__btn:hover { background: var(--secondary); }
 .tw-anchor__close { background: none; border: 0; cursor: pointer; color: var(--muted-foreground); padding: 4px; display: grid; place-items: center; }
 
