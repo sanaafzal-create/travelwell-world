@@ -32,8 +32,9 @@ function flowContext(path: string, region: string | null, sis: string[]) {
   };
 }
 
+// Whisper labels in Atlas's voice (David's Voice Guide): a quiet, friendly note.
 const kindLabel = (k: string) =>
-  k === "event" ? "Happening there" : k === "opening" ? "While you're there" : "A note on timing";
+  k === "event" ? "Happening while you're there" : k === "opening" ? "While you're nearby" : "A quiet note on timing";
 
 export function AtlasOrchestrator() {
   const location = useLocation();

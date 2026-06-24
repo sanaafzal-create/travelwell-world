@@ -234,9 +234,11 @@ const sql7 = `-- TravelWell.World — Local & temporal signals (Atlas's "knows w
 -- Apply:  supabase db push   (or paste into the Supabase SQL editor)
 -- Requires 0001 + 0002 (regions) and 0005 (destinations, for the FKs).
 
+-- destination_id is a free-text place key (signals name places we don't model
+-- in the destinations catalog yet), so it is intentionally NOT a foreign key.
 create table if not exists public.local_signals (
   id            text primary key,
-  destination_id text references public.destinations(id) on delete cascade,
+  destination_id text,
   region_code   text references public.regions(code),
   si            text[] not null default '{}',
   wells         text[] not null default '{}',
@@ -255,6 +257,9 @@ create table if not exists public.local_signals (
   valid_to      timestamptz,
   updated_at    timestamptz not null default now()
 );
+
+-- Drop the destination FK for DBs where an earlier 0007 created it (idempotent).
+alter table public.local_signals drop constraint if exists local_signals_destination_id_fkey;
 
 create index if not exists local_signals_dest_idx   on public.local_signals (destination_id);
 create index if not exists local_signals_region_idx on public.local_signals (region_code);
