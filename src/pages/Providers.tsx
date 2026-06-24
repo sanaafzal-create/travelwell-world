@@ -6,6 +6,7 @@ import type { Well } from "@/data/taxonomy";
 import { Eyebrow } from "@/components/ui/primitives";
 import { useStore } from "@/store/useStore";
 import { useWells, useProviders } from "@/store/useCatalog";
+import { track } from "@/lib/track";
 
 const TIER: Record<Tier, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
 const PRICE_LABEL: Record<Price, string> = { value: "Value", comfort: "Comfort", premium: "Premium", ultra: "Ultra" };
@@ -51,7 +52,13 @@ export default function Providers() {
   const [activeWell, setActiveWell] = useState(TRIP.wells[0]);
   const [shown, setShown] = useState(PAGE);
 
-  const selectWell = (wid: string) => { setActiveWell(wid); setShown(PAGE); };
+  const selectWell = (wid: string) => {
+    setActiveWell(wid);
+    setShown(PAGE);
+    // "Considered" signal: which Well's providers they browsed (+ the top names),
+    // so Atlas can later note what they looked at but didn't add.
+    track({ kind: "view", entity: "well", entityId: wid, context: { surface: "providers", providers: (providers[wid] || []).slice(0, 3).map((p) => p.name) } });
+  };
 
   const w = allWells[activeWell];
   const pool = poolFor(providers, activeWell);

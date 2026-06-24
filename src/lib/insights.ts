@@ -20,6 +20,7 @@ interface Considered {
   regions: string[];
   interests: string[];
   guides: string[];
+  providers: string[];
 }
 
 /** Parse the current route into a place anchor, so Atlas knows where they are. */
@@ -34,29 +35,43 @@ function hereFrom(path: string | null): { kind: "destination" | "region" | "si";
 }
 
 /** What the traveler viewed but didn't commit to — the considered-not-chosen trail. */
-async function summarizeConsidered(userId: string, heldSIs: string[], region: string | null): Promise<Considered> {
+async function summarizeConsidered(
+  userId: string,
+  heldSIs: string[],
+  region: string | null,
+  tripNames: Set<string>
+): Promise<Considered> {
   const sb = getSupabase();
-  const out: Considered = { regions: [], interests: [], guides: [] };
+  const out: Considered = { regions: [], interests: [], guides: [], providers: [] };
   if (!sb) return out;
   try {
     const { data } = await sb
       .from("journey_events")
-      .select("kind, entity, entity_id")
-      .eq("kind", "view")
+      .select("kind, entity, entity_id, context")
       .eq("user_id", userId)
       .order("occurred_at", { ascending: false })
-      .limit(120);
-    const seen = { regions: new Set<string>(), interests: new Set<string>(), guides: new Set<string>() };
+      .limit(150);
+    const seen = {
+      regions: new Set<string>(),
+      interests: new Set<string>(),
+      guides: new Set<string>(),
+      providers: new Set<string>(),
+    };
     for (const r of data ?? []) {
       const id = r.entity_id as string | null;
-      if (!id) continue;
-      if (r.entity === "region" && id !== region) seen.regions.add(id);
-      else if (r.entity === "si" && !heldSIs.includes(id)) seen.interests.add(id);
-      else if (r.entity === "guide") seen.guides.add(id);
+      const ctx = (r.context ?? {}) as { providers?: string[] };
+      if (r.kind === "view" && r.entity === "region" && id && id !== region) seen.regions.add(id);
+      else if (r.kind === "view" && r.entity === "si" && id && !heldSIs.includes(id)) seen.interests.add(id);
+      else if (r.kind === "view" && r.entity === "guide" && id) seen.guides.add(id);
+      // Well-browse logs the top provider names it showed → "looked at, didn't add".
+      else if (r.kind === "view" && r.entity === "well" && Array.isArray(ctx.providers)) {
+        for (const name of ctx.providers) if (!tripNames.has(name)) seen.providers.add(name);
+      }
     }
     out.regions = [...seen.regions].slice(0, 6);
     out.interests = [...seen.interests].slice(0, 6);
     out.guides = [...seen.guides].slice(0, 4);
+    out.providers = [...seen.providers].slice(0, 6);
   } catch {
     /* ignore — Atlas just knows less */
   }
@@ -71,11 +86,14 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
 
   const here = hereFrom(s.lastPath);
   const month = new Date().getMonth() + 1;
+  const tripNames = new Set(s.trip.map((b) => b.name));
 
   // Run the independent fetches together.
   const [profileRec, considered, signals] = await Promise.all([
     s.user ? fetchTravelId(s.user.id) : Promise.resolve(null),
-    s.user ? summarizeConsidered(s.user.id, s.journeySIs, s.region) : Promise.resolve<Considered>({ regions: [], interests: [], guides: [] }),
+    s.user
+      ? summarizeConsidered(s.user.id, s.journeySIs, s.region, tripNames)
+      : Promise.resolve<Considered>({ regions: [], interests: [], guides: [], providers: [] }),
     fetchSignals({
       destination: here?.kind === "destination" ? here.id : null,
       region: s.region ?? (here?.kind === "region" ? here.id : null),
@@ -103,11 +121,12 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
     };
   }
 
-  if (considered.regions.length || considered.interests.length || considered.guides.length) {
+  if (considered.regions.length || considered.interests.length || considered.guides.length || considered.providers.length) {
     ctx.considered = {
       regions: considered.regions.map(nameOfRegion),
       interests: considered.interests.map(nameOfSI),
       guides: considered.guides,
+      providers: considered.providers,
     };
   }
 
