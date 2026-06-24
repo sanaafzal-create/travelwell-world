@@ -5,7 +5,7 @@ import { useWells } from "@/store/useCatalog";
 const layers = (wellNames: string[]) => [
   { num: "01", name: "Demand layer", chips: ["25 Special Interests", "13 Regions", "Activities graph", "Seasonal logic"] },
   { num: "02", name: "Fulfillment layer", chips: wellNames.concat(["Nanny-Well", "Security-Well"]) },
-  { num: "03", name: "Engine layer", chips: ["Concierge (Claude)", "Provider matching", "Itinerary sync", "Safety Cards", "Book-It tracks"] },
+  { num: "03", name: "Engine layer", chips: ["Atlas concierge", "Provider matching", "Itinerary sync", "Safety Cards", "Book-It tracks"] },
   { num: "04", name: "Data layer", chips: ["Travel ID", "Itinerary blocks", "Provider catalog", "Commission ledger", "Consent & locale"] },
 ];
 

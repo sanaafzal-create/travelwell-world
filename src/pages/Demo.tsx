@@ -52,7 +52,7 @@ const DIFF: { ic: string; t: string; s: string }[] = [
 const osLayers = (wellNames: string[]): { n: string; c: string; chips: string[] }[] => [
   { n: "Demand layer", c: "taxonomy", chips: ["25 Special Interests", "13 Regions", "Activities graph"] },
   { n: "Fulfillment layer", c: "wells", chips: wellNames.concat(["+ Nanny", "+ Security"]) },
-  { n: "Engine layer", c: "engines", chips: ["Concierge (Claude)", "Provider matching", "Itinerary sync", "Safety Cards", "Seasonal logic"] },
+  { n: "Engine layer", c: "engines", chips: ["Atlas concierge", "Provider matching", "Itinerary sync", "Safety Cards", "Seasonal logic"] },
   { n: "Data layer", c: "schemas", chips: ["Travel ID", "Itinerary blocks", "Provider catalog", "Commission ledger"] },
 ];
 

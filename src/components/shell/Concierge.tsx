@@ -69,7 +69,7 @@ export function Concierge() {
         <div className="tw-concierge__avatar"><Icon name="sparkles" /></div>
         <div style={{ flex: 1 }}>
           <div className="tw-concierge__title">Speak with Atlas</div>
-          <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Claude</div>
+          <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Atlas</div>
         </div>
         <button className="tw-iconbtn" aria-label="Close Concierge" style={{ width: 36, height: 36, border: 0, background: "var(--surface-alt)" }} onClick={closePanel}>
           <Icon name="close" small />

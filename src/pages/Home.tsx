@@ -346,7 +346,7 @@ export default function Home() {
                   <Button onClick={() => openPanel("concierge")} style={{ height: 52, padding: "0 26px", fontSize: 16 }}>
                     <Icon name="sparkles" small /> Try the Concierge
                   </Button>
-                  <span className="note">Free to try · no account needed · powered by Claude</span>
+                  <span className="note">Free to try · no account needed · powered by Atlas</span>
                 </div>
               </div>
               <TalkDemo />
