@@ -5,6 +5,7 @@ import { REGION_SI } from "@/data/taxonomy";
 import { regionImg } from "@/lib/images";
 import { useStore } from "@/store/useStore";
 import { useSpecialInterests, useRegions } from "@/store/useCatalog";
+import { track } from "@/lib/track";
 import { Eyebrow, Pill } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx } from "@/lib/utils";
@@ -26,6 +27,12 @@ export default function Regions() {
   const regions = [...allRegions];
   if (sort === "az") regions.sort((a, b) => a.name.localeCompare(b.name));
   else if (sort === "match" && journeySIs.length) regions.sort((a, b) => scoreFor(b.code, journeySIs) - scoreFor(a.code, journeySIs));
+
+  // "Considered" signal: the traveler actively comparing regions for their interests.
+  const compareSort = (s: Sort) => {
+    setSort(s);
+    track({ kind: "compare", entity: "region", context: { sort: s, sis: journeySIs, top: regions.slice(0, 3).map((r) => r.code) } });
+  };
 
   return (
     <>
@@ -51,9 +58,9 @@ export default function Regions() {
 
         <div className="jn-toolbar">
           <div className="rg-jump jn-filter" role="group" aria-label="Sort regions">
-            <button aria-pressed={sort === "match"} onClick={() => setSort("match")} disabled={!journeySIs.length}>Best for your interests</button>
-            <button aria-pressed={sort === "az"} onClick={() => setSort("az")}>A–Z</button>
-            <button aria-pressed={sort === "all"} onClick={() => setSort("all")}>All regions</button>
+            <button aria-pressed={sort === "match"} onClick={() => compareSort("match")} disabled={!journeySIs.length}>Best for your interests</button>
+            <button aria-pressed={sort === "az"} onClick={() => compareSort("az")}>A–Z</button>
+            <button aria-pressed={sort === "all"} onClick={() => compareSort("all")}>All regions</button>
           </div>
           <span className="jn-sweet"><Icon name="globe" small /> 13 regions · pick one to keep building</span>
         </div>

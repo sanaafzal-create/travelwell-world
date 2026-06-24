@@ -9,6 +9,7 @@ aren't lost. Sequencing per David's vision docs + Sana's tiering.
 - **Well Whispers v2** — planning-stage, signal-driven, real `href`, cadence/quiet-hours gates.
 - **Anchor** — the warm way back (path + scroll), voice per David's Voice Guide.
 - **Curated content** — Batch 1 (Sana's 5 + David's 20: dive / honeymoon / tropical / river + hurricane-awareness).
+- **Provider / compare exploration hooks** — Well-browse (which providers were looked at) and region-compare now log to `journey_events`; the Atlas rollup surfaces "considered but not added" providers.
 
 ## Deferred — Tier B (feed-fed), later
 - **Live events feeds** — festivals/markets/concerts keyed by destination + date, to keep dated-events fresh without hand-authoring.
@@ -22,5 +23,4 @@ aren't lost. Sequencing per David's vision docs + Sana's tiering.
 
 ## Deferred — later
 - **Notification / delivery keystone** — outbound reach-outs at open moments; the 2-and-4-year lookahead planning horizon.
-- **Provider/compare whisper hooks** — non-route exploration signals (provider expand, region compare).
 - **Anon→account event reconciliation polish** and cross-device position resume edge cases.

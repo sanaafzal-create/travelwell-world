@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { WELL_DETAIL, type Provider, type Price } from "@/data/places";
 import { useStore } from "@/store/useStore";
 import { useWells, useProviders, useRegionByCode } from "@/store/useCatalog";
+import { track } from "@/lib/track";
 import { Eyebrow, Ftc } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx, cap } from "@/lib/utils";
@@ -71,6 +72,13 @@ export default function WellsSurface() {
   const wellCount = (id: string) => trip.filter((b) => b.well === id).length;
   const covered = new Set(trip.map((b) => b.well)).size;
 
+  // "Considered" signal: switching Wells = browsing those providers.
+  const browseWell = (wid: string) => {
+    setActive(wid);
+    setShowAll(false);
+    track({ kind: "view", entity: "well", entityId: wid, context: { surface: "wells", providers: (providersByWell[wid] || []).slice(0, 3).map((p) => p.name) } });
+  };
+
   function book(p: Provider) {
     if (p.mode === "affiliate") { navigate(`/go?to=${encodeURIComponent(p.name)}&well=${active}`); return; }
     addToTrip({ well: active, icon: well.icon, name: p.name, meta: `${well.name} · ${cap(p.price)}`, status: "pending" });
@@ -93,7 +101,7 @@ export default function WellsSurface() {
                   key={w.id}
                   className={cx("wb-chip", soon && "wb-chip--soon", w.lux && "wb-chip--lux")}
                   aria-selected={active === w.id}
-                  onClick={() => { setActive(w.id); setShowAll(false); }}
+                  onClick={() => browseWell(w.id)}
                 >
                   <span className="wb-chip__ic"><Icon name={w.icon} small /></span>
                   {w.name.replace("-Well", "")}
