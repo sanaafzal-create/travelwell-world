@@ -3,13 +3,14 @@ import { Icon } from "@/lib/icons";
 import { useStore, type IoMode } from "@/store/useStore";
 import { askAtlas } from "@/lib/supabase";
 import { buildAtlasContext } from "@/lib/insights";
+import { useSpeechInput } from "@/lib/useSpeech";
 
 interface Msg { role: "user" | "assistant"; content: string; }
 
 const PRIMER_DONE_KEY = "tww:atlasPrimed";
 
 export function Concierge() {
-  const { panel, closePanel, io, setIo, journeySIs, region, trip, addToTrip } = useStore();
+  const { panel, closePanel, io, setIo, journeySIs, region, trip, addToTrip, showToast } = useStore();
   const open = panel === "concierge";
   const [primed, setPrimed] = useState<boolean>(() => {
     try { return localStorage.getItem(PRIMER_DONE_KEY) === "1"; } catch { return false; }
@@ -17,8 +18,15 @@ export function Concierge() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
-  const [listening, setListening] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
+
+  // Voice input — streams what they say straight into the text box. Falls back
+  // honestly to typing where the browser doesn't support it.
+  const { supported: voiceSupported, listening, start: startVoice, stop: stopVoice } = useSpeechInput(setInput);
+  const onMic = () => {
+    if (!voiceSupported) { showToast("Voice input isn't supported in this browser yet — please type for now."); return; }
+    startVoice();
+  };
 
   useEffect(() => {
     if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
@@ -122,8 +130,8 @@ export function Concierge() {
               <div className="tw-listening">
                 <div className="tw-mic-ring"><Icon name="mic" /></div>
                 <div className="tw-wave">{Array.from({ length: 9 }).map((_, i) => <i key={i} style={{ animationDelay: `${i * 0.08}s` }} />)}</div>
-                <p className="t-body-s" style={{ color: "var(--muted-foreground)" }}>Listening… speak naturally. Tap to stop.</p>
-                <button className="btn btn-secondary" onClick={() => setListening(false)}><Icon name="stop" small /> Done</button>
+                <p className="t-body-s" style={{ color: "var(--muted-foreground)" }}>Listening… speak naturally — your words appear below. Tap Done when you're finished.</p>
+                <button className="btn btn-secondary" onClick={() => stopVoice()}><Icon name="stop" small /> Done</button>
               </div>
             )}
             {!busy && messages.length > 0 && messages[messages.length - 1].role === "assistant" && (
@@ -150,7 +158,7 @@ export function Concierge() {
             value={input} onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter") send(input); }}
           />
-          <button className="tw-input__mic" aria-label="Talk instead of type" onClick={() => setListening(true)}><Icon name="mic" small /></button>
+          <button className="tw-input__mic" aria-label="Talk instead of type" aria-pressed={listening} onClick={onMic}><Icon name="mic" small /></button>
           <button className="tw-input__send" aria-label="Send" onClick={() => send(input)}><Icon name="send" small /></button>
         </div>
         <div className="tw-stop-row"><Icon name="stop" small /> Say “stop” anytime — I'll step back gracefully.</div>
