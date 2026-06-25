@@ -315,6 +315,58 @@ export const LOCAL_SIGNALS: LocalSignal[] = [
     season: "favor outside Aug–Oct peak",
     priority: 70, source: "curated",
   },
+
+  // ── David — Batch 2: Safari + Expedition (curated; variable windows framed soft) ──
+  {
+    id: "serengeti-calving",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Serengeti calving — the great birth on the southern plains",
+    blurb: "Late January into March, the southern Serengeti and Ndutu fill with newborn wildebeest — thousands a day — and the predators that follow. It's the most concentrated, most predictable stretch of the migration year; the exact start shifts a week or two with the short rains.",
+    destination: "serengeti", region: "05A",
+    si: ["safari"], wells: ["activities", "stay"],
+    season: "late Jan–mid Mar (calving)", recurrence: { months: [1, 2, 3] },
+    priority: 85, source: "curated",
+  },
+  {
+    id: "okavango-flood-paradox",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Okavango Delta — peak flood in the dry months",
+    blurb: "The Delta's paradox: floodwaters from the Angolan highlands arrive in the dry season, peaking roughly June through August when local rain has stopped. That's mokoro and water-channel season — the iconic Okavango. Exact flood timing and reach vary year to year, so flexible dates and an operator's current read help.",
+    destination: "okavango", region: "06A",
+    si: ["safari"], wells: ["activities", "stay"],
+    season: "peak flood ~Jun–Aug (varies yearly)", recurrence: { months: [6, 7, 8, 9] },
+    priority: 80, source: "curated",
+  },
+  {
+    id: "ngorongoro-crater-season",
+    kind: "schedule", horizon: "lookahead",
+    title: "Ngorongoro Crater — Big Five, any month",
+    blurb: "The crater holds resident game year-round, so there's no bad month. June through October is driest, with the clearest views and the most predator action; the green months (Nov–May) bring lush scenery, fewer vehicles, and lower rates.",
+    destination: "ngorongoro", region: "05A",
+    si: ["safari"], wells: ["activities", "stay"],
+    season: "year-round; Jun–Oct driest",
+    priority: 70, source: "curated",
+  },
+  {
+    id: "galapagos-whale-sharks",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Galápagos — whale sharks at Darwin & Wolf",
+    blurb: "From July into November the cool, plankton-rich upwelling draws giant — often pregnant — whale sharks to the far-northern islands of Darwin and Wolf. It's a liveaboard-dive window; the day boats don't reach that far.",
+    destination: "galapagos", region: "10S",
+    si: ["expedition", "ocean"], wells: ["activities"],
+    season: "Jul–Nov (peak Jul–Oct)", recurrence: { months: [7, 8, 9, 10, 11] },
+    priority: 80, source: "curated",
+  },
+  {
+    id: "amazon-water-levels",
+    kind: "schedule", horizon: "lookahead",
+    title: "Amazon — high water vs low water changes the trip",
+    blurb: "The Amazon has two faces. High water (roughly December–May) floods the forest, opening skiff routes into hidden creeks and lakes. Low water (roughly June–November) exposes riverbanks and sandbars for jungle walks. Neither is off-season — the water level just shifts what you do; the transition timing varies year to year.",
+    destination: "amazon", region: "10S",
+    si: ["expedition", "river"], wells: ["activities", "stay"],
+    season: "high water ~Dec–May / low water ~Jun–Nov (varies yearly)",
+    priority: 70, source: "curated",
+  },
 ];
 
 /** True when a signal's recurring window includes the given month (1-12). */
