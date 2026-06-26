@@ -96,12 +96,13 @@ export default function SignUp() {
       trip_intent: dream || null,
       interests: [],
       budget_ranges: budget,
+      party,
       dietary: null,
       accessibility: null,
       consent: true,
     });
     if (isSupabaseConfigured && validEmail(email)) sendMagicLink(email);
-  }, [isBuild, name, age, dream, budget, email]);
+  }, [isBuild, name, age, dream, budget, party, email]);
 
   function validate(): boolean {
     const key = STEPS[step].key;

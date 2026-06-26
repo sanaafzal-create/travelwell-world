@@ -14,10 +14,14 @@ export interface TravelIdRecord {
   trip_intent: string | null; // the free-text "dream"
   interests: string[];        // 1–3 special-interest ids
   budget_ranges: Record<string, string[]>; // { wellId: ranges[] }
+  party: PartyMember[];       // everyone on the trip (the SignUp party builder)
   dietary: string | null;
   accessibility: string | null;
   consent: boolean;
 }
+
+/** A member of the travelling party (mirrors the SignUp wizard's Member). */
+export interface PartyMember { name: string; age: string; rel: string }
 
 export async function fetchTravelId(userId: string): Promise<TravelIdRecord | null> {
   const sb = getSupabase();
@@ -32,9 +36,15 @@ export async function saveTravelId(
 ): Promise<{ ok: boolean; error?: string }> {
   const sb = getSupabase();
   if (!sb) return { ok: false, error: "unconfigured" };
-  const { error } = await sb
-    .from("travel_ids")
-    .upsert({ ...rec, updated_at: new Date().toISOString() }, { onConflict: "user_id" });
+  const payload = { ...rec, updated_at: new Date().toISOString() };
+  let { error } = await sb.from("travel_ids").upsert(payload, { onConflict: "user_id" });
+  // Resilience: if the `party` column hasn't been migrated yet (0008), persist
+  // everything else rather than lose the whole Travel ID. Self-heals once applied.
+  if (error && /party/i.test(error.message)) {
+    const { party: _party, ...rest } = payload;
+    void _party;
+    ({ error } = await sb.from("travel_ids").upsert(rest, { onConflict: "user_id" }));
+  }
   return error ? { ok: false, error: error.message } : { ok: true };
 }
 

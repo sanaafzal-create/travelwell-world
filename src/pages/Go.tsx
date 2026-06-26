@@ -1,7 +1,7 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
-import { useWellById } from "@/store/useCatalog";
+import { useWellById, useProviders } from "@/store/useCatalog";
 import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 
 /** Affiliate redirect interstitial — honest handoff + "mark as booked" return. */
@@ -12,6 +12,10 @@ export default function Go() {
   const to = params.get("to") || "our partner";
   const wellId = params.get("well") || "stay";
   const well = useWellById(wellId);
+  // Real affiliate redirect when the provider has a booking URL (David's intel);
+  // otherwise the handoff stays informational until URLs are added.
+  const providers = useProviders();
+  const bookingUrl = (providers[wellId] || []).find((p) => p.name === to)?.bookingUrl;
 
   return (
     <div className="container" style={{ padding: "96px 0", maxWidth: 540 }}>
@@ -26,7 +30,11 @@ export default function Go() {
           This is an affiliate link. We may earn a commission at no extra cost to you.
         </Ftc>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 24 }}>
-          <a className="btn btn-primary" href="#" onClick={(e) => e.preventDefault()}>Continue to {to} <Icon name="arrow" small /></a>
+          {bookingUrl ? (
+            <a className="btn btn-primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">Continue to {to} <Icon name="arrow" small /></a>
+          ) : (
+            <a className="btn btn-primary" href="#" aria-disabled="true" onClick={(e) => e.preventDefault()} title="Direct booking link coming soon">Continue to {to} <Icon name="arrow" small /></a>
+          )}
           <Button variant="secondary" onClick={() => { addToTrip({ well: wellId, icon: well?.icon || "compass", name: to, meta: `${well?.name || "Booked"} · affiliate`, status: "confirmed" }); navigate("/itinerary"); }}>
             <Icon name="check" small /> I booked it — add to my trip
           </Button>

@@ -79,6 +79,8 @@ export interface Provider {
   si: string[];
   /** Region code where the provider operates (regions.code), or undefined for cross-region (e.g. airlines). */
   region?: string;
+  /** Real affiliate/booking URL the /go handoff redirects to. Filled from David's provider intel. */
+  bookingUrl?: string;
 }
 // si/region default to the current catalog's reality — the Maasai-Mara safari
 // demo (safari · East Africa 05A). NEW providers must pass explicit si + region
