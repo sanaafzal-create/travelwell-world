@@ -158,7 +158,7 @@ export function Concierge() {
             value={input} onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter") send(input); }}
           />
-          <button className="tw-input__mic" aria-label="Talk instead of type" aria-pressed={listening} onClick={onMic}><Icon name="mic" small /></button>
+          <button className="tw-input__mic" aria-label={listening ? "Stop recording" : "Talk instead of type"} aria-pressed={listening} onClick={onMic}><Icon name="mic" /></button>
           <button className="tw-input__send" aria-label="Send" onClick={() => send(input)}><Icon name="send" small /></button>
         </div>
         <div className="tw-stop-row"><Icon name="stop" small /> Say “stop” anytime — I'll step back gracefully.</div>
