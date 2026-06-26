@@ -2,6 +2,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { WELL_DETAIL } from "@/data/places";
 import { useWells } from "@/store/useCatalog";
+import { WELL_AUDIENCE } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { Eyebrow, ButtonLink } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
@@ -15,7 +16,9 @@ export default function Luxury() {
   const setTier = (t: Tier) => setParams({ tier: t });
 
   const isUltra = tier === "ultra";
-  const luxWells = useWells().filter((w) => w.lux);
+  // Security-Well is Ultra-only (David's call); Nanny is universal, so it's no
+  // longer a luxury-reserved Well.
+  const ultraWells = useWells().filter((w) => WELL_AUDIENCE[w.id] === "ultra");
 
   return (
     <>
@@ -43,20 +46,30 @@ export default function Luxury() {
 
       <div className="container" style={{ padding: "56px 0 0" }}>
         <Eyebrow>Beyond the ten Wells</Eyebrow>
-        <h2 className="t-h2" style={{ marginTop: 8 }}>Two Wells, reserved for these worlds.</h2>
-        <p className="t-lead" style={{ marginTop: 10 }}>Nanny-Well and Security-Well appear only in Luxury and Ultra-Luxury — discreet by design.</p>
-        <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", marginTop: 22 }}>
-          {luxWells.map((w) => (
-            <div key={w.id} className="card" style={{ padding: 24, display: "flex", gap: 18, alignItems: "flex-start" }}>
-              <div className="icon-chip wb-chip--lux" style={{ color: "var(--gold-deep)" }}><Icon name={w.icon} /></div>
-              <div>
-                <div style={{ display: "flex", alignItems: "center", gap: 10 }}><h3 className="t-h3">{w.name}</h3><span className="pill pill-gold">Luxury</span></div>
-                <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 2 }}>{w.tag}</p>
-                <p className="t-body-s" style={{ marginTop: 10 }}>{WELL_DETAIL[w.id]?.purpose}</p>
+        <h2 className="t-h2" style={{ marginTop: 8 }}>Security-Well — reserved for Ultra-Luxury.</h2>
+        {/* NOTE: copy first-pass — flagged for David's wordsmith in the review. */}
+        <p className="t-lead" style={{ marginTop: 10 }}>
+          Close protection and secure transport, discreet by design — surfaced only for Ultra-Luxury, where it's genuinely needed.
+          {" "}(Nanny-Well, by contrast, is for every family on any trip — it isn't a luxury concern.)
+        </p>
+        {isUltra ? (
+          <div className="si-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", marginTop: 22 }}>
+            {ultraWells.map((w) => (
+              <div key={w.id} className="card" style={{ padding: 24, display: "flex", gap: 18, alignItems: "flex-start" }}>
+                <div className="icon-chip wb-chip--lux" style={{ color: "var(--gold-deep)" }}><Icon name={w.icon} /></div>
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}><h3 className="t-h3">{w.name}</h3><span className="pill pill-gold">Ultra-Luxury</span></div>
+                  <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 2 }}>{w.tag}</p>
+                  <p className="t-body-s" style={{ marginTop: 10 }}>{WELL_DETAIL[w.id]?.purpose}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p className="t-body-s" style={{ marginTop: 16, color: "var(--muted-foreground)" }}>
+            <Icon name="lock" small /> Switch to <b>Ultra-Luxury</b> to see Security-Well.
+          </p>
+        )}
       </div>
 
       <div className="container" style={{ padding: "48px 0 80px" }}>

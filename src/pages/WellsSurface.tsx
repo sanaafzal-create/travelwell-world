@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { WELL_DETAIL, type Provider, type Price } from "@/data/places";
 import { useStore } from "@/store/useStore";
 import { useWells, useProviders, useRegionByCode } from "@/store/useCatalog";
+import { WELL_AUDIENCE } from "@/data/taxonomy";
 import { track } from "@/lib/track";
 import { Eyebrow, Ftc } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
@@ -58,6 +59,9 @@ export default function WellsSurface() {
   const allWells = useWells();
   const providersByWell = useProviders();
   const standardWells = allWells.filter((w) => !w.lux);
+  // Nanny (universal) shows for everyone; Security (ultra-only) is reserved for
+  // the Ultra context, so it's not surfaced on the general planning rail.
+  const railWells = allWells.filter((w) => WELL_AUDIENCE[w.id] !== "ultra");
   const well = allWells.find((w) => w.id === active) || standardWells[0];
   const detail = WELL_DETAIL[active];
   const regionName = useRegionByCode(region || "05A")?.name || "East Africa";
@@ -93,7 +97,7 @@ export default function WellsSurface() {
         <div className="wb__inner">
           <span className="wb__label">Your Wells</span>
           <div className="wb__rail">
-            {allWells.map((w) => {
+            {railWells.map((w) => {
               const n = wellCount(w.id);
               const soon = w.status === "soon";
               return (
