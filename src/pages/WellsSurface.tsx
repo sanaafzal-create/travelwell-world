@@ -5,6 +5,7 @@ import { WELL_DETAIL, type Provider, type Price } from "@/data/places";
 import { useStore } from "@/store/useStore";
 import { useWells, useProviders, useRegionByCode } from "@/store/useCatalog";
 import { WELL_AUDIENCE } from "@/data/taxonomy";
+import { matchProviders } from "@/lib/matching";
 import { track } from "@/lib/track";
 import { Eyebrow, Ftc } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
@@ -51,7 +52,7 @@ function ProviderCard({ p, added, onBook }: { p: Provider; added: boolean; onBoo
 export default function WellsSurface() {
   const params = useParams();
   const navigate = useNavigate();
-  const { region, trip, addToTrip } = useStore();
+  const { region, trip, addToTrip, journeySIs } = useStore();
   const [active, setActive] = useState<string>(params.id || "stay");
   const [budget, setBudget] = useState<Price | "all">("all");
   const [showAll, setShowAll] = useState(false);
@@ -67,7 +68,10 @@ export default function WellsSurface() {
   const regionName = useRegionByCode(region || "05A")?.name || "East Africa";
   const isPreLaunch = well.status === "soon";
 
-  let providers = (providersByWell[active] || []).filter((p) => budget === "all" || p.price === budget);
+  // Step 2: match the Well's providers to the real journey (SIs + region), with
+  // a graceful fallback so the list never empties while the catalog grows.
+  const { matched, fellBack } = matchProviders(providersByWell[active] || [], { si: journeySIs, region });
+  let providers = matched.filter((p) => budget === "all" || p.price === budget);
   providers = [...providers].sort((a, b) => TIER_RANK[a.tier] - TIER_RANK[b.tier]);
   const prime = providers.filter((p) => p.tier === "prime");
   const rest = providers.filter((p) => p.tier !== "prime");
@@ -154,6 +158,11 @@ export default function WellsSurface() {
               ))}
               <span className="wp__count-note">{providers.length} options · scoped to {regionName}</span>
             </div>
+            {fellBack && (
+              <p style={{ color: "var(--muted-foreground)", fontSize: 13, margin: "0 0 12px", display: "flex", gap: 6, alignItems: "center" }}>
+                <Icon name="info" small /> Showing our current partners — matches for {regionName} are being added as the catalog grows.
+              </p>
+            )}
 
             {prime.length > 0 && (
               <>

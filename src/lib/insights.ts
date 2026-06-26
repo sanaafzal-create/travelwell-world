@@ -118,6 +118,8 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
       dream: profileRec.trip_intent ?? undefined,
       dietary: profileRec.dietary ?? undefined,
       accessibility: profileRec.accessibility ?? undefined,
+      // Budget-by-Well, so Atlas can shape suggestions to what they'll spend.
+      budget: profileRec.budget_ranges && Object.keys(profileRec.budget_ranges).length ? profileRec.budget_ranges : undefined,
     };
   }
 
