@@ -41,7 +41,7 @@ export async function fetchCatalog(): Promise<DbCatalog | null> {
       sb.from("wells").select("id, name, tag, body, status, icon, is_lux"),
       sb.from("regions").select("code, name, line, countries, gateways, status, has_sub"),
       sb.from("sub_regions").select("region_code, name, position").order("position", { ascending: true }),
-      sb.from("providers").select("name, well, tier, price, mode, description, commission"),
+      sb.from("providers").select("name, well, tier, price, mode, description, commission, si, region"),
       sb.from("destinations").select("id, region_code, name, country, line, status, img, position").order("position", { ascending: true }),
       sb.from("guides").select("id, type, title, lede, read, updated, img, si, region, position").order("position", { ascending: true }),
     ]);
@@ -117,6 +117,8 @@ export async function fetchCatalog(): Promise<DbCatalog | null> {
           mode: r.mode as Mode,
           desc: (r.description ?? "") as string,
           commission: r.commission as string,
+          si: (r.si ?? []) as string[],
+          region: (r.region ?? undefined) as string | undefined,
         });
       }
       out.providers = providers;

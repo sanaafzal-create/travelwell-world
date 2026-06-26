@@ -75,8 +75,19 @@ export type Price = "value" | "comfort" | "premium" | "ultra";
 export type Mode = "api" | "widget" | "affiliate" | "first-party";
 export interface Provider {
   name: string; well: string; tier: Tier; price: Price; mode: Mode; desc: string; commission: string;
+  /** Which Special Interests this provider serves (real taxonomy keys). The matching keystone. */
+  si: string[];
+  /** Region code where the provider operates (regions.code), or undefined for cross-region (e.g. airlines). */
+  region?: string;
 }
-const p = (name: string, well: string, tier: Tier, price: Price, mode: Mode, desc: string, commission: string): Provider => ({ name, well, tier, price, mode, desc, commission });
+// si/region default to the current catalog's reality — the Maasai-Mara safari
+// demo (safari · East Africa 05A). NEW providers must pass explicit si + region
+// so the matching layer (Step 2) can filter by them; the defaults only cover the
+// 39 existing demo rows so they don't need editing one-by-one for Step 1.
+const p = (
+  name: string, well: string, tier: Tier, price: Price, mode: Mode, desc: string, commission: string,
+  si: string[] = ["safari"], region: string | undefined = "05A"
+): Provider => ({ name, well, tier, price, mode, desc, commission, si, region });
 
 export const PROVIDERS: Record<string, Provider[]> = {
   stay: [
