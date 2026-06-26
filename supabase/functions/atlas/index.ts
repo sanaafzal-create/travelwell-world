@@ -65,13 +65,21 @@ Deno.serve(async (req: Request) => {
       ? `\n\nWhat you currently know about this traveler (use it, don't restate it): ${JSON.stringify(context)}`
       : "";
 
-    const response = await client.messages.create({
+    const base = {
       model: MODEL,
       max_tokens: 1024,
-      thinking: { type: "adaptive" },
       system: SYSTEM + contextNote,
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
-    });
+    };
+    // Prefer extended thinking, but never let a thinking-param rejection drop us
+    // to the canned fallback — retry once without it so Atlas always truly speaks.
+    let response;
+    try {
+      response = await client.messages.create({ ...base, thinking: { type: "adaptive" } });
+    } catch (thinkingErr) {
+      console.warn("atlas: thinking param rejected, retrying without it", thinkingErr);
+      response = await client.messages.create(base);
+    }
 
     if (response.stop_reason === "refusal") {
       return Response.json(
