@@ -5,7 +5,8 @@ import type { Provider, Price, Tier } from "@/data/places";
 import type { Well } from "@/data/taxonomy";
 import { Eyebrow } from "@/components/ui/primitives";
 import { useStore } from "@/store/useStore";
-import { useWells, useProviders } from "@/store/useCatalog";
+import { useWells, useProviders, useRegions } from "@/store/useCatalog";
+import { matchProviders } from "@/lib/matching";
 import { track } from "@/lib/track";
 
 const TIER: Record<Tier, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
@@ -28,29 +29,35 @@ const TRIP = {
 const tierRank: Record<Tier, number> = { prime: 0, vetted: 1, prospective: 2 };
 
 /* contextual reason a provider fits this trip */
-function whyFits(p: Provider): React.ReactNode[] {
+function whyFits(p: Provider, regionName: string): React.ReactNode[] {
   const reasons: React.ReactNode[] = [];
   if (p.price === TRIP.budget) reasons.push(<>fits your <b>{PRICE_LABEL[p.price]}</b> budget</>);
   else if ((p.price === "premium" || p.price === "ultra") && TRIP.budget === "comfort") reasons.push(<>a worthwhile <b>splurge</b> for an anniversary</>);
   if (p.tier === "prime") reasons.push(<><b>Prime</b> — most deeply vetted</>);
-  reasons.push(<>in <b>{TRIP.region}</b></>);
+  reasons.push(<>in <b>{regionName}</b></>);
   return reasons.slice(0, 2);
 }
 
-function poolFor(providers: Record<string, Provider[]>, wid: string): Provider[] {
-  return (providers[wid] || []).slice().sort((a, b) =>
+function sortProviders(list: Provider[]): Provider[] {
+  return list.slice().sort((a, b) =>
     (a.price === TRIP.budget ? -1 : 0) - (b.price === TRIP.budget ? -1 : 0) ||
     tierRank[a.tier] - tierRank[b.tier] || a.name.localeCompare(b.name));
 }
 
 export default function Providers() {
-  const { addToTrip, openPanel } = useStore();
+  const { addToTrip, openPanel, journeySIs, region } = useStore();
   const providers = useProviders();
   const wells = useWells();
+  const regions = useRegions();
   const allWells: Record<string, Well> = {};
   wells.forEach((wl) => (allWells[wl.id] = wl));
   const [activeWell, setActiveWell] = useState(TRIP.wells[0]);
   const [shown, setShown] = useState(PAGE);
+
+  // Step 2 of the keystone: the provider list now responds to the real journey
+  // (chosen SIs + region) instead of the mock TRIP. Region/title/dates on the
+  // context card stay illustrative until journey metadata is captured.
+  const regionName = region ? regions.find((r) => r.code === region)?.name ?? TRIP.region : TRIP.region;
 
   const selectWell = (wid: string) => {
     setActiveWell(wid);
@@ -61,7 +68,8 @@ export default function Providers() {
   };
 
   const w = allWells[activeWell];
-  const pool = poolFor(providers, activeWell);
+  const { matched, fellBack } = matchProviders(providers[activeWell] || [], { si: journeySIs, region });
+  const pool = sortProviders(matched);
   const visible = pool.slice(0, shown);
 
   return (
@@ -84,7 +92,7 @@ export default function Providers() {
           <div>
             <div className="pr-ctx__t">{TRIP.title}</div>
             <div className="pr-ctx__m">
-              <span><Icon name="pin" small /> {TRIP.region}</span>
+              <span><Icon name="pin" small /> {regionName}</span>
               <span><Icon name="calendar" small /> {TRIP.dates}</span>
               <span><Icon name="heart" small /> {TRIP.party}</span>
               <span><Icon name="gift" small /> {PRICE_LABEL[TRIP.budget]} budget</span>
@@ -120,6 +128,12 @@ export default function Providers() {
             <span className="count">showing {visible.length} of {pool.length}</span>
           </div>
 
+          {fellBack && (
+            <p style={{ color: "var(--muted-foreground)", fontSize: 13.5, margin: "0 0 14px", display: "flex", gap: 6, alignItems: "center" }}>
+              <Icon name="info" small /> Showing our current partners — we're adding matches for {regionName} as the catalog grows.
+            </p>
+          )}
+
           <div className="pr-grid">
             {visible.length ? (
               visible.map((p) => {
@@ -135,7 +149,7 @@ export default function Providers() {
                         <span className="pv__attr"><span className="dot" style={{ background: PRICE_DOT[p.price] }} />{PRICE_LABEL[p.price]}</span>
                         {prospective && <span className="pv__attr" style={{ color: "var(--muted-foreground)" }}><Icon name="info" small /> Prospective — not yet signed</span>}
                       </div>
-                      <div className="pv__why"><Icon name="sparkle" small /> <span>{whyFits(p).map((r, i) => <span key={i}>{i > 0 ? " · " : ""}{r}</span>)}</span></div>
+                      <div className="pv__why"><Icon name="sparkle" small /> <span>{whyFits(p, regionName).map((r, i) => <span key={i}>{i > 0 ? " · " : ""}{r}</span>)}</span></div>
                     </div>
                     <div className="pv__foot">
                       <div className="pv__cta-row">
