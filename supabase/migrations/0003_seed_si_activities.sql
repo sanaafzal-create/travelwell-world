@@ -20,7 +20,7 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('river', 'River Cruises', 'the slow current', 'preview', '#5B86A8', false, 'water'),
   ('diveglobal', 'Dive Globally', 'the world below', 'preview', '#1F6E8C', false, 'water'),
   ('ocean', 'Ocean Adventures', 'the open water', 'live', '#2C6E68', false, 'water'),
-  ('wellness', 'Wellness Spas & Retreats', 'coming home to yourself', 'preview', '#4F8C7A', false, 'water'),
+  ('wellness', 'Wellness Spas & Retreats', 'coming home to yourself', 'live', '#4F8C7A', false, 'water'),
   ('family', 'Family Travel', 'everyone, together', 'preview', '#C98A2E', false, 'active'),
   ('hiking', 'Global Hiking Tours', 'the trail ahead', 'preview', '#3C7E55', false, 'active'),
   ('ski', 'Winter Ski', 'the first track', 'preview', '#5B86A8', false, 'active'),

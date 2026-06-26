@@ -40,7 +40,7 @@ const BASE_SIS: SpecialInterest[] = [
   { id: "river", name: "River Cruises", sig: "the slow current", status: "preview", accent: "#5B86A8", lux: false, group: "water" },
   { id: "diveglobal", name: "Dive Globally", sig: "the world below", status: "preview", accent: "#1F6E8C", lux: false, group: "water" },
   { id: "ocean", name: "Ocean Adventures", sig: "the open water", status: "live", accent: "#2C6E68", lux: false, group: "water" },
-  { id: "wellness", name: "Wellness Spas & Retreats", sig: "coming home to yourself", status: "preview", accent: "#4F8C7A", lux: false, group: "water" },
+  { id: "wellness", name: "Wellness Spas & Retreats", sig: "coming home to yourself", status: "live", accent: "#4F8C7A", lux: false, group: "water" },
   /* Life-stage & Active */
   { id: "family", name: "Family Travel", sig: "everyone, together", status: "preview", accent: "#C98A2E", lux: false, group: "active" },
   { id: "hiking", name: "Global Hiking Tours", sig: "the trail ahead", status: "preview", accent: "#3C7E55", lux: false, group: "active" },
