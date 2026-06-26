@@ -367,6 +367,185 @@ export const LOCAL_SIGNALS: LocalSignal[] = [
     season: "high water ~Dec–May / low water ~Jun–Nov (varies yearly)",
     priority: 70, source: "curated",
   },
+
+  // ── David — Batch 3 (verified 2026-06-25; variable natural events soft-framed; per-entry sources in David-Documentation/BATCH3-SIGNALS-VERIFIED.md) ──
+
+  // Raja Ampat — liveaboard dry/calm season
+  {
+    id: "raja-ampat-dry-season",
+    kind: "schedule", horizon: "lookahead",
+    title: "Raja Ampat — calm seas, peak visibility",
+    blurb: "The dry months bring calm seas and the clearest water over the richest reefs on earth — roughly October through April, with the glassiest conditions around January–February. Most liveaboards pause July–August in the windy season.",
+    destination: "raja-ampat", region: "07A",
+    si: ["liveaboard", "ocean"], wells: ["activities"],
+    season: "Oct–Apr (calmest Jan–Feb; liveaboards pause Jul–Aug)", recurrence: { months: [10, 11, 12, 1, 2, 3, 4] },
+    priority: 88, source: "curated",
+  },
+  // Galápagos — cool-season pelagics & whale sharks
+  {
+    id: "galapagos-cool-pelagic",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Galápagos — the cool-season big animals",
+    blurb: "The cool, plankton-rich Humboldt months — roughly June to November — bring the big pelagic action to Darwin and Wolf. Whale sharks are most reliable July through October; the seas run livelier and the water cooler, so it suits more experienced divers. Aggregations vary year to year.",
+    destination: "galapagos", region: "10S",
+    si: ["liveaboard", "ocean"], wells: ["activities"],
+    season: "Jun–Nov cool season; whale sharks peak Jul–Oct (varies yearly)", recurrence: { months: [6, 7, 8, 9, 10, 11] },
+    priority: 88, source: "curated",
+  },
+  // Red Sea (Egypt) — shoulder-season liveaboard window
+  {
+    id: "red-sea-best-season",
+    kind: "schedule", horizon: "lookahead",
+    title: "Red Sea — the calm shoulder-season window",
+    blurb: "Calm seas and warm water make spring and autumn — roughly March–May and September–November — the sweet spot for Egyptian liveaboards. For sharks: scalloped hammerhead schools peak around May–July, and oceanic whitetips around October–December (varies yearly). Winter is divable but cooler.",
+    destination: "red-sea", region: "04A",
+    si: ["liveaboard", "ocean"], wells: ["activities"],
+    season: "Mar–May & Sep–Nov (hammerheads ~May–Jul, oceanic whitetips ~Oct–Dec)", recurrence: { months: [3, 4, 5, 9, 10, 11] },
+    priority: 78, source: "curated",
+  },
+  // Douro Valley — grape harvest (vindima)
+  {
+    id: "douro-harvest",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Douro Valley — the grape harvest glow",
+    blurb: "The vindima — harvest in the terraced port-wine valleys — runs roughly mid-September into mid-October, the most atmospheric stretch of the Douro cruising season. Exact picking dates shift year to year with the weather and the grapes.",
+    destination: "douro", region: "01F",
+    si: ["river", "wine", "culture"], wells: ["activities", "stay"],
+    season: "harvest ~mid-Sep–mid-Oct (varies yearly); cruise season Apr–Oct", recurrence: { months: [9, 10] },
+    priority: 76, source: "curated",
+  },
+  // Mekong — high-water season (Tonlé Sap access)
+  {
+    id: "mekong-high-water",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Mekong — high water opens the great lake",
+    blurb: "When the river runs high — roughly mid-August into November — ships can reach the Tonlé Sap and dock for the Siem Reap excursion. November is the rare sweet spot where high water and the cool, dry early-season weather overlap. Flood timing shifts year to year.",
+    destination: "mekong", region: "07A",
+    si: ["river", "culture"], wells: ["activities", "stay"],
+    season: "high water ~mid-Aug–Nov (varies yearly); Nov = best weather + access", recurrence: { months: [8, 9, 10, 11] },
+    priority: 76, source: "curated",
+  },
+  // Rhine — classic cruising season
+  {
+    id: "rhine-cruise-season",
+    kind: "schedule", horizon: "lookahead",
+    title: "Rhine — castles, vineyards, the gorge",
+    blurb: "The Rhine cruises roughly April through October, with the warmest, busiest stretch June–August and the best-value light in the late-April–June and September shoulders. Late November into December brings the Christmas-market sailings.",
+    destination: "rhine", region: "01F",
+    si: ["river", "culture", "wine"], wells: ["activities", "stay"],
+    season: "Apr–Oct (peak Jun–Aug); Christmas markets late Nov–Dec", recurrence: { months: [4, 5, 6, 7, 8, 9, 10] },
+    priority: 74, source: "curated",
+  },
+  // Maldives — dry-season (NE monsoon)
+  {
+    id: "maldives-dry-season",
+    kind: "schedule", horizon: "lookahead",
+    title: "Maldives — the calm, clear dry season",
+    blurb: "From November to April the northeast monsoon brings clear skies, gentle winds and glassy lagoon water — calm and warm for swimming straight off your villa. Peak conditions are December–March.",
+    destination: "maldives", region: "07A",
+    si: ["tropical"], wells: ["stay", "activities"],
+    season: "Nov–Apr dry season (NE monsoon; peak Dec–Mar)", recurrence: { months: [11, 12, 1, 2, 3, 4] },
+    priority: 86, source: "curated",
+  },
+  // Seychelles — calm trade-wind transitions
+  {
+    id: "seychelles-calm-transitions",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Seychelles — the calm in between the trades",
+    blurb: "Twice a year the trade winds change over and the sea goes glassy — roughly April–May and October–November. These transition months bring the calmest water and the best underwater visibility of the year.",
+    destination: "seychelles", region: "07A",
+    si: ["tropical"], wells: ["stay", "activities"],
+    season: "Apr–May & Oct–Nov (trade-wind transitions, calmest seas)", recurrence: { months: [4, 5, 10, 11] },
+    priority: 78, source: "curated",
+  },
+  // Fiji — dry season
+  {
+    id: "fiji-dry-season",
+    kind: "schedule", horizon: "lookahead",
+    title: "Fiji — the dry, golden season",
+    blurb: "May through October is Fiji's dry season — cooler, less rain, steady trade winds and clear water for diving. The most settled months are June–August.",
+    destination: "fiji", region: "09P",
+    si: ["tropical"], wells: ["stay", "activities"],
+    season: "May–Oct dry season (driest Jun–Aug)", recurrence: { months: [5, 6, 7, 8, 9, 10] },
+    priority: 78, source: "curated",
+  },
+  // Santorini — golden shoulder-season romance
+  {
+    id: "santorini-shoulder",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Santorini — warm light, fewer crowds",
+    blurb: "Late spring and early autumn — roughly May–June and September into mid-October — bring warm seas, comfortable days and the caldera without the high-summer crush. Late September is many travelers' favorite.",
+    destination: "santorini", region: "02F",
+    si: ["romance"], wells: ["stay"],
+    season: "May–Jun & Sep–mid-Oct (shoulder)", recurrence: { months: [5, 6, 9, 10] },
+    priority: 80, source: "curated",
+  },
+  // Bali — dry season
+  {
+    id: "bali-dry-season-romance",
+    kind: "schedule", horizon: "soon",
+    title: "Bali — the dry, golden season",
+    blurb: "Bali's dry season runs April through October — clear days, calm coastal water, soft evenings. May, June and September are the sweet spot, idyllic and quieter than the July–August peak.",
+    destination: "bali", region: "07A",
+    si: ["romance", "tropical"], wells: ["stay", "activities"],
+    season: "Apr–Oct dry season (sweet spot May/Jun/Sep)", recurrence: { months: [4, 5, 6, 7, 8, 9, 10] },
+    priority: 80, source: "curated",
+  },
+  // Amalfi Coast — shoulder-season romance
+  {
+    id: "amalfi-shoulder",
+    kind: "lookahead", horizon: "lookahead",
+    title: "Amalfi Coast — the warm, uncrowded edges",
+    blurb: "May–June and September are the Amalfi sweet spot — warm, golden, and calmer than the August crush, with ferries and villages in full swing. The coast is open roughly April through October; in winter much of it closes down.",
+    destination: "amalfi-coast", region: "02F",
+    si: ["romance"], wells: ["stay", "activities"],
+    season: "May–Jun & Sep shoulder (open ~Apr–Oct; winter largely closed)", recurrence: { months: [5, 6, 9] },
+    priority: 78, source: "curated",
+  },
+  // South Luangwa — dry season & walking safaris
+  {
+    id: "south-luangwa-dry-walking",
+    kind: "schedule", horizon: "lookahead",
+    title: "South Luangwa — the walking-safari season",
+    blurb: "As the dry season deepens — roughly June to October — game gathers along the Luangwa River and the thinned bush makes this the home of the walking safari, strongest from July on. Many camps close in the green months (~Nov–Apr).",
+    destination: "south-luangwa", region: "06A",
+    si: ["safari"], wells: ["activities", "stay"],
+    season: "Jun–Oct dry (walking prime Jul–Oct; camps close ~Nov–Apr)", recurrence: { months: [6, 7, 8, 9, 10] },
+    priority: 82, source: "curated",
+  },
+  // Etosha — dry-season waterholes
+  {
+    id: "etosha-dry-waterholes",
+    kind: "schedule", horizon: "lookahead",
+    title: "Etosha — the great waterhole gathering",
+    blurb: "As the bush dries out — roughly May to October — animals are drawn to Etosha's waterholes, where you can watch many species drink in one spot. Concentrations build to a peak in September–October, just before the rains.",
+    destination: "etosha", region: "06A",
+    si: ["safari"], wells: ["activities", "stay"],
+    season: "May–Oct dry (peak waterholes Sep–Oct)", recurrence: { months: [5, 6, 7, 8, 9, 10] },
+    priority: 80, source: "curated",
+  },
+  // Svalbard — Arctic summer expedition season
+  {
+    id: "svalbard-arctic-summer",
+    kind: "schedule", horizon: "lookahead",
+    title: "Svalbard — the Arctic summer window",
+    blurb: "The expedition-cruise season runs roughly late May through September, with the core June–August offering the warmest conditions and the best ice access to the remote north. Midnight sun lasts into late August; the season's edges shift year to year with the ice.",
+    destination: "svalbard", region: "03F",
+    si: ["expedition", "ocean"], wells: ["activities", "move"],
+    season: "late May–Sep, core Jun–Aug (ice-dependent edges; midnight sun ~Apr 20–Aug 22)", recurrence: { months: [5, 6, 7, 8, 9] },
+    priority: 80, source: "curated",
+  },
+  // Kimberley — dry-season expedition cruising
+  {
+    id: "kimberley-dry-expedition",
+    kind: "schedule", horizon: "lookahead",
+    title: "Kimberley — the dry-season expedition window",
+    blurb: "The Kimberley coast cruises in the dry season — roughly April through September at the core, with March and October shoulders. Early in the window the waterfalls still run hard; by August–September humpbacks pass through.",
+    destination: "kimberley", region: "09P",
+    si: ["expedition", "ocean"], wells: ["activities", "move"],
+    season: "Apr–Sep core (Mar/Oct shoulder); waterfalls early, whales Aug–Sep", recurrence: { months: [3, 4, 5, 6, 7, 8, 9, 10] },
+    priority: 78, source: "curated",
+  },
 ];
 
 /** True when a signal's recurring window includes the given month (1-12). */
