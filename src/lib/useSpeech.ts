@@ -29,6 +29,9 @@ interface Recognition {
 }
 type RecognitionCtor = new () => Recognition;
 
+// Trailing spoken stop command (optionally "ok"/"atlas" prefixed, "listening"/"recording" suffixed).
+const STOP_CMD = /(?:^|\s)(?:ok(?:ay)?\s+)?(?:atlas\s+)?stop(?:\s+(?:listening|recording))?[.!?]*$/i;
+
 function getCtor(): RecognitionCtor | null {
   if (typeof window === "undefined") return null;
   const w = window as unknown as { SpeechRecognition?: RecognitionCtor; webkitSpeechRecognition?: RecognitionCtor };
@@ -54,9 +57,18 @@ export function useSpeechInput(onText: (text: string) => void, lang = "en-US") {
     rec.interimResults = true;
     rec.lang = lang;
     rec.onresult = (e) => {
-      let text = "";
-      for (let i = 0; i < e.results.length; i++) text += e.results[i][0].transcript;
-      onText(text.replace(/\s+/g, " ").trim());
+      let raw = "";
+      for (let i = 0; i < e.results.length; i++) raw += e.results[i][0].transcript;
+      const text = raw.replace(/\s+/g, " ").trim();
+      // Spoken "stop" ends recording (in addition to the Done button). Matches a
+      // trailing "stop" / "ok stop" / "atlas stop" / "stop listening" and strips
+      // it so the command word never lands in the message.
+      if (STOP_CMD.test(text)) {
+        onText(text.replace(STOP_CMD, "").trim());
+        rec.stop();
+        return;
+      }
+      onText(text);
     };
     rec.onend = () => setListening(false);
     rec.onerror = () => setListening(false);
