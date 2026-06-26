@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { type Well } from "@/data/taxonomy";
+import { type Well, WELL_AUDIENCE } from "@/data/taxonomy";
 import { WELL_DETAIL } from "@/data/places";
 import { useWells } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
@@ -39,10 +38,10 @@ function WellCard({ w }: { w: Well }) {
 }
 
 export default function Wells() {
-  const [lux, setLux] = useState(false);
   const allWells = useWells();
-  const wells = allWells.filter((w) => !w.lux);
-  const luxWells = allWells.filter((w) => w.lux);
+  const wells = allWells.filter((w) => !w.lux); // the core ten
+  const universalExtras = allWells.filter((w) => WELL_AUDIENCE[w.id] === "universal"); // Nanny — every family
+  const ultraExtras = allWells.filter((w) => WELL_AUDIENCE[w.id] === "ultra"); // Security — Ultra only
 
   return (
     <main id="main">
@@ -56,44 +55,36 @@ export default function Wells() {
       </section>
 
       <div className="wi-body">
-        <div className="wi-sectlabel" style={{ marginTop: 0 }}>
-          The ten Wells
-          <span className="wi-toggle" role="group" aria-label="Context">
-            <button aria-pressed={!lux} onClick={() => setLux(false)}>Standard</button>
-            <button aria-pressed={lux} onClick={() => setLux(true)}>Luxury / Ultra</button>
-          </span>
-        </div>
+        <div className="wi-sectlabel" style={{ marginTop: 0 }}>The ten Wells</div>
         <div className="wi-grid">
           {wells.map((w) => <WellCard key={w.id} w={w} />)}
         </div>
 
-        <div>
-          {lux ? (
-            <div className="wi-lux-band">
-              <div className="wi-lux-band__head">
-                <span className="wi-card__ic" style={{ width: 44, height: 44, background: "color-mix(in oklch,var(--accent) 22%,white)", color: "var(--gold-deep)" }}><Icon name="sparkles" /></span>
-                <div>
-                  <span className="eyebrow" style={{ color: "var(--gold-deep)" }}>Luxury &amp; Ultra-Luxury only</span>
-                  <h2 className="t-h3" style={{ marginTop: 2 }}>Two more Wells, when the trip calls for them</h2>
-                </div>
-              </div>
-              <p className="wi-lux-band__note">Nanny-Well and Security-Well appear only in Luxury and Ultra-Luxury contexts — they're not shown on standard trips.</p>
-              <div className="wi-grid" style={{ marginTop: 18 }}>
-                {luxWells.map((w) => <WellCard key={w.id} w={w} />)}
-              </div>
+        {/* The +2 Wells beyond the core ten, each tiered to the need (David's call):
+            Nanny is universal (every family); Security is Ultra-only. NOTE: copy
+            here is first-pass — flagged for David's wordsmith in the review. */}
+        <div className="wi-lux-band" style={{ marginTop: 22 }}>
+          <div className="wi-lux-band__head">
+            <span className="wi-card__ic" style={{ width: 44, height: 44, background: "color-mix(in oklch,var(--accent) 22%,white)", color: "var(--gold-deep)" }}><Icon name="sparkles" /></span>
+            <div>
+              <span className="eyebrow" style={{ color: "var(--gold-deep)" }}>Two more Wells, tiered to the need</span>
+              <h2 className="t-h3" style={{ marginTop: 2 }}>Beyond the core ten</h2>
             </div>
-          ) : (
-            <div className="wi-lux-band" style={{ background: "var(--surface-alt)", borderColor: "var(--border)" }}>
-              <div className="wi-lux-band__head">
-                <span className="wi-card__ic" style={{ width: 44, height: 44 }}><Icon name="lock" /></span>
-                <div>
-                  <span className="eyebrow" style={{ color: "var(--muted-foreground)" }}>Context-aware</span>
-                  <h2 className="t-h3" style={{ marginTop: 2 }}>Two Wells appear only in luxury contexts</h2>
-                </div>
+          </div>
+          <p className="wi-lux-band__note">
+            <b>Nanny-Well</b> is for every family, on any trip (we just never go cheap on who watches the kids).
+            {" "}<b>Security-Well</b> — discreet close protection — is reserved for Ultra-Luxury, where it's genuinely needed.
+          </p>
+          <div className="wi-grid" style={{ marginTop: 18 }}>
+            {[...universalExtras, ...ultraExtras].map((w) => (
+              <div key={w.id} style={{ position: "relative" }}>
+                <span className="pill" style={{ position: "absolute", top: 10, insetInlineEnd: 10, zIndex: 2, background: WELL_AUDIENCE[w.id] === "ultra" ? "var(--accent)" : "var(--secondary)", color: WELL_AUDIENCE[w.id] === "ultra" ? "var(--accent-foreground)" : "var(--primary)" }}>
+                  {WELL_AUDIENCE[w.id] === "ultra" ? "Ultra-Luxury" : "Every family"}
+                </span>
+                <WellCard w={w} />
               </div>
-              <p className="wi-lux-band__note">On Luxury and Ultra-Luxury trips, <b>Nanny-Well</b> and <b>Security-Well</b> join the set. Switch the toggle above to preview them.</p>
-            </div>
-          )}
+            ))}
+          </div>
         </div>
       </div>
       <div style={{ height: 80 }} />

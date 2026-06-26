@@ -170,6 +170,21 @@ export const REGION_SI: Record<string, string[]> = {
 
 export const ALL_WELLS = [...WELLS, ...LUX_WELLS];
 export const wellById = (id: string) => ALL_WELLS.find((w) => w.id === id);
+
+/**
+ * Well audience (David's tiering call) for the two premium Wells beyond the core 10:
+ *  - Nanny-Well is UNIVERSAL — every family, any tier except budget (childcare
+ *    isn't a luxury concern; we just never go cheap on who watches the kids).
+ *  - Security-Well is ULTRA-only — close protection is a genuine ultra need that
+ *    a typical traveler doesn't want surfaced.
+ * Keyed by well id so it holds whether Wells come from the bundle or the DB.
+ */
+export type WellAudience = "universal" | "ultra";
+export const WELL_AUDIENCE: Record<string, WellAudience> = {
+  nanny: "universal",
+  security: "ultra",
+};
+export const wellAudience = (id: string): WellAudience | undefined => WELL_AUDIENCE[id];
 export const siById = (id: string) => SIS.find((s) => s.id === id);
 export const regionByCode = (code: string) => REGIONS.find((r) => r.code === code);
 
