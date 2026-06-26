@@ -82,7 +82,7 @@ console.log(`  ${SIS.length} special interests, ${Object.values(ACTIVITIES).flat
 // ---------------------------------------------------------------------------
 const provRows = Object.values(PROVIDERS)
   .flat()
-  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)})`)
+  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"})`)
   .join(",\n");
 
 const subRows = Object.entries(SUBREGIONS)
@@ -103,11 +103,19 @@ const sql4 = `-- TravelWell.World — seed Providers + Sub-regions.
 -- seed is idempotent and can act as the refresh path.
 create unique index if not exists providers_name_well_key on public.providers (name, well);
 
-insert into public.providers (name, well, tier, price, mode, description, commission) values
+-- Step 1 of the matching keystone: give providers an SI dimension and a region
+-- dimension, so the catalog can express "Caribbean dive providers". Additive —
+-- matching that reads these lands in a later step.
+alter table public.providers add column if not exists si     text[] not null default '{}';
+alter table public.providers add column if not exists region text;
+create index if not exists providers_region_idx on public.providers (region);
+
+insert into public.providers (name, well, tier, price, mode, description, commission, si, region) values
 ${provRows}
 on conflict (name, well) do update set
   tier = excluded.tier, price = excluded.price, mode = excluded.mode,
-  description = excluded.description, commission = excluded.commission;
+  description = excluded.description, commission = excluded.commission,
+  si = excluded.si, region = excluded.region;
 
 -- Sub-regions -----------------------------------------------------------------
 create table if not exists public.sub_regions (

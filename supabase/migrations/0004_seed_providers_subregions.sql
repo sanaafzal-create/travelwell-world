@@ -12,49 +12,57 @@
 -- seed is idempotent and can act as the refresh path.
 create unique index if not exists providers_name_well_key on public.providers (name, well);
 
-insert into public.providers (name, well, tier, price, mode, description, commission) values
-  ('Angama Mara', 'stay', 'prime', 'ultra', 'api', 'Clifftop tented suites with sweeping Mara views', 'Commission partner'),
-  ('Governors'' Camp', 'stay', 'prime', 'premium', 'api', 'Front-row tents on the Mara River', 'Commission partner'),
-  ('Mahali Mzuri', 'stay', 'prime', 'ultra', 'widget', 'Sir Richard Branson''s tented camp', 'Commission partner'),
-  ('Sarova Mara Game Camp', 'stay', 'vetted', 'comfort', 'api', 'Reliable comfort in the heart of the reserve', 'Commission partner'),
-  ('Fairmont Mara Safari Club', 'stay', 'vetted', 'premium', 'widget', 'Luxury tents in a river bend', 'Commission partner'),
-  ('Mara Serena Safari Lodge', 'stay', 'vetted', 'comfort', 'api', 'Hilltop lodge, panoramic plains', 'Commission partner'),
-  ('Basecamp Explorer', 'stay', 'vetted', 'value', 'affiliate', 'Eco-camp with community roots', 'Affiliate partner'),
-  ('Entim Mara Camp', 'stay', 'prospective', 'comfort', 'affiliate', 'Riverside camp near crossing points', 'Prospective partner'),
-  ('Kenya Airways', 'fly', 'prime', 'comfort', 'api', 'Direct into Nairobi (NBO)', 'Commission partner'),
-  ('SafariLink', 'fly', 'prime', 'comfort', 'api', 'Light-aircraft hops to the Mara airstrips', 'Commission partner'),
-  ('Qatar Airways', 'fly', 'vetted', 'premium', 'widget', 'One-stop via Doha, award cabins', 'Commission partner'),
-  ('AirKenya Express', 'fly', 'vetted', 'comfort', 'api', 'Scheduled bush flights', 'Commission partner'),
-  ('Emirates', 'fly', 'vetted', 'premium', 'widget', 'One-stop via Dubai', 'Commission partner'),
-  ('Skyward Private Jets', 'fly', 'prospective', 'ultra', 'affiliate', 'Charter direct to camp', 'Prospective partner'),
-  ('Bush Dinner by Angama', 'eat', 'prime', 'premium', 'api', 'Candlelit dining on the plains', 'Commission partner'),
-  ('Emakoko Restaurant', 'eat', 'vetted', 'comfort', 'api', 'Farm-to-table at the park gate', 'Commission partner'),
-  ('Talisman, Nairobi', 'eat', 'vetted', 'comfort', 'affiliate', 'A Karen institution before you fly out', 'Affiliate partner'),
-  ('Carnivore Nairobi', 'eat', 'vetted', 'value', 'affiliate', 'The famous beast-of-a-feast', 'Affiliate partner'),
-  ('Private Chef — Mara', 'eat', 'prospective', 'premium', 'affiliate', 'In-camp tasting menus', 'Prospective partner'),
-  ('Mara Land Cruiser Safaris', 'move', 'prime', 'comfort', 'api', 'Private 4×4 with expert guide', 'Commission partner'),
-  ('Abercrombie & Kent Transfers', 'move', 'prime', 'premium', 'widget', 'Seamless private transfers', 'Commission partner'),
-  ('Scenic Air Transfers', 'move', 'vetted', 'premium', 'api', 'Fly between camps', 'Commission partner'),
-  ('Nairobi Executive Cars', 'move', 'vetted', 'comfort', 'affiliate', 'Airport & city transfers', 'Affiliate partner'),
-  ('Self-Drive Kenya', 'move', 'prospective', 'value', 'affiliate', 'For the independent traveler', 'Prospective partner'),
-  ('Safari Outfitters Co.', 'gear', 'prime', 'comfort', 'affiliate', 'Boots, layers, dry-bags — delivered', 'Affiliate partner'),
-  ('Optics & Binoculars Rental', 'gear', 'vetted', 'value', 'affiliate', 'Pro glass for game viewing', 'Affiliate partner'),
-  ('TravelWell Gear Edit', 'gear', 'vetted', 'comfort', 'api', 'Our curated safari packing list', 'First-party'),
-  ('Angama Spa', 'beauty', 'prime', 'premium', 'api', 'Treatments with a view', 'Commission partner'),
-  ('Sundowner Wellness', 'beauty', 'vetted', 'comfort', 'affiliate', 'Massage & recovery in-camp', 'Affiliate partner'),
-  ('Mara Hot-Air Balloon', 'activities', 'prime', 'premium', 'api', 'Sunrise flight + champagne breakfast', 'Commission partner'),
-  ('Maasai Village Cultural Visit', 'activities', 'prime', 'value', 'api', 'Meet the community, respectfully', 'Commission partner'),
-  ('Big Cat Tracking Experience', 'activities', 'vetted', 'premium', 'widget', 'With a resident researcher', 'Commission partner'),
-  ('Walking Safari — Olare Motorogi', 'activities', 'vetted', 'comfort', 'api', 'On foot with armed rangers', 'Commission partner'),
-  ('Photography Safari Workshop', 'activities', 'vetted', 'premium', 'affiliate', 'Pro tuition in the field', 'Affiliate partner'),
-  ('Night Game Drive', 'activities', 'prospective', 'comfort', 'affiliate', 'Spot the nocturnal Mara', 'Prospective partner'),
-  ('Maasai Market Curated', 'shop', 'vetted', 'value', 'affiliate', 'Authentic crafts, fair trade', 'Affiliate partner'),
-  ('Utamaduni Craft Centre', 'shop', 'vetted', 'comfort', 'affiliate', 'Quality keepsakes near Nairobi', 'Affiliate partner'),
-  ('Mara Family Nannies', 'nanny', 'vetted', 'premium', 'api', 'Vetted, multilingual childcare in-camp', 'Commission partner'),
-  ('Discreet Protection Kenya', 'security', 'vetted', 'ultra', 'api', 'Close protection, unseen', 'Commission partner')
+-- Step 1 of the matching keystone: give providers an SI dimension and a region
+-- dimension, so the catalog can express "Caribbean dive providers". Additive —
+-- matching that reads these lands in a later step.
+alter table public.providers add column if not exists si     text[] not null default '{}';
+alter table public.providers add column if not exists region text;
+create index if not exists providers_region_idx on public.providers (region);
+
+insert into public.providers (name, well, tier, price, mode, description, commission, si, region) values
+  ('Angama Mara', 'stay', 'prime', 'ultra', 'api', 'Clifftop tented suites with sweeping Mara views', 'Commission partner', '{"safari"}', '05A'),
+  ('Governors'' Camp', 'stay', 'prime', 'premium', 'api', 'Front-row tents on the Mara River', 'Commission partner', '{"safari"}', '05A'),
+  ('Mahali Mzuri', 'stay', 'prime', 'ultra', 'widget', 'Sir Richard Branson''s tented camp', 'Commission partner', '{"safari"}', '05A'),
+  ('Sarova Mara Game Camp', 'stay', 'vetted', 'comfort', 'api', 'Reliable comfort in the heart of the reserve', 'Commission partner', '{"safari"}', '05A'),
+  ('Fairmont Mara Safari Club', 'stay', 'vetted', 'premium', 'widget', 'Luxury tents in a river bend', 'Commission partner', '{"safari"}', '05A'),
+  ('Mara Serena Safari Lodge', 'stay', 'vetted', 'comfort', 'api', 'Hilltop lodge, panoramic plains', 'Commission partner', '{"safari"}', '05A'),
+  ('Basecamp Explorer', 'stay', 'vetted', 'value', 'affiliate', 'Eco-camp with community roots', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Entim Mara Camp', 'stay', 'prospective', 'comfort', 'affiliate', 'Riverside camp near crossing points', 'Prospective partner', '{"safari"}', '05A'),
+  ('Kenya Airways', 'fly', 'prime', 'comfort', 'api', 'Direct into Nairobi (NBO)', 'Commission partner', '{"safari"}', '05A'),
+  ('SafariLink', 'fly', 'prime', 'comfort', 'api', 'Light-aircraft hops to the Mara airstrips', 'Commission partner', '{"safari"}', '05A'),
+  ('Qatar Airways', 'fly', 'vetted', 'premium', 'widget', 'One-stop via Doha, award cabins', 'Commission partner', '{"safari"}', '05A'),
+  ('AirKenya Express', 'fly', 'vetted', 'comfort', 'api', 'Scheduled bush flights', 'Commission partner', '{"safari"}', '05A'),
+  ('Emirates', 'fly', 'vetted', 'premium', 'widget', 'One-stop via Dubai', 'Commission partner', '{"safari"}', '05A'),
+  ('Skyward Private Jets', 'fly', 'prospective', 'ultra', 'affiliate', 'Charter direct to camp', 'Prospective partner', '{"safari"}', '05A'),
+  ('Bush Dinner by Angama', 'eat', 'prime', 'premium', 'api', 'Candlelit dining on the plains', 'Commission partner', '{"safari"}', '05A'),
+  ('Emakoko Restaurant', 'eat', 'vetted', 'comfort', 'api', 'Farm-to-table at the park gate', 'Commission partner', '{"safari"}', '05A'),
+  ('Talisman, Nairobi', 'eat', 'vetted', 'comfort', 'affiliate', 'A Karen institution before you fly out', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Carnivore Nairobi', 'eat', 'vetted', 'value', 'affiliate', 'The famous beast-of-a-feast', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Private Chef — Mara', 'eat', 'prospective', 'premium', 'affiliate', 'In-camp tasting menus', 'Prospective partner', '{"safari"}', '05A'),
+  ('Mara Land Cruiser Safaris', 'move', 'prime', 'comfort', 'api', 'Private 4×4 with expert guide', 'Commission partner', '{"safari"}', '05A'),
+  ('Abercrombie & Kent Transfers', 'move', 'prime', 'premium', 'widget', 'Seamless private transfers', 'Commission partner', '{"safari"}', '05A'),
+  ('Scenic Air Transfers', 'move', 'vetted', 'premium', 'api', 'Fly between camps', 'Commission partner', '{"safari"}', '05A'),
+  ('Nairobi Executive Cars', 'move', 'vetted', 'comfort', 'affiliate', 'Airport & city transfers', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Self-Drive Kenya', 'move', 'prospective', 'value', 'affiliate', 'For the independent traveler', 'Prospective partner', '{"safari"}', '05A'),
+  ('Safari Outfitters Co.', 'gear', 'prime', 'comfort', 'affiliate', 'Boots, layers, dry-bags — delivered', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Optics & Binoculars Rental', 'gear', 'vetted', 'value', 'affiliate', 'Pro glass for game viewing', 'Affiliate partner', '{"safari"}', '05A'),
+  ('TravelWell Gear Edit', 'gear', 'vetted', 'comfort', 'api', 'Our curated safari packing list', 'First-party', '{"safari"}', '05A'),
+  ('Angama Spa', 'beauty', 'prime', 'premium', 'api', 'Treatments with a view', 'Commission partner', '{"safari"}', '05A'),
+  ('Sundowner Wellness', 'beauty', 'vetted', 'comfort', 'affiliate', 'Massage & recovery in-camp', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Mara Hot-Air Balloon', 'activities', 'prime', 'premium', 'api', 'Sunrise flight + champagne breakfast', 'Commission partner', '{"safari"}', '05A'),
+  ('Maasai Village Cultural Visit', 'activities', 'prime', 'value', 'api', 'Meet the community, respectfully', 'Commission partner', '{"safari"}', '05A'),
+  ('Big Cat Tracking Experience', 'activities', 'vetted', 'premium', 'widget', 'With a resident researcher', 'Commission partner', '{"safari"}', '05A'),
+  ('Walking Safari — Olare Motorogi', 'activities', 'vetted', 'comfort', 'api', 'On foot with armed rangers', 'Commission partner', '{"safari"}', '05A'),
+  ('Photography Safari Workshop', 'activities', 'vetted', 'premium', 'affiliate', 'Pro tuition in the field', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Night Game Drive', 'activities', 'prospective', 'comfort', 'affiliate', 'Spot the nocturnal Mara', 'Prospective partner', '{"safari"}', '05A'),
+  ('Maasai Market Curated', 'shop', 'vetted', 'value', 'affiliate', 'Authentic crafts, fair trade', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Utamaduni Craft Centre', 'shop', 'vetted', 'comfort', 'affiliate', 'Quality keepsakes near Nairobi', 'Affiliate partner', '{"safari"}', '05A'),
+  ('Mara Family Nannies', 'nanny', 'vetted', 'premium', 'api', 'Vetted, multilingual childcare in-camp', 'Commission partner', '{"safari"}', '05A'),
+  ('Discreet Protection Kenya', 'security', 'vetted', 'ultra', 'api', 'Close protection, unseen', 'Commission partner', '{"safari"}', '05A')
 on conflict (name, well) do update set
   tier = excluded.tier, price = excluded.price, mode = excluded.mode,
-  description = excluded.description, commission = excluded.commission;
+  description = excluded.description, commission = excluded.commission,
+  si = excluded.si, region = excluded.region;
 
 -- Sub-regions -----------------------------------------------------------------
 create table if not exists public.sub_regions (
