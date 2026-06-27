@@ -10,3 +10,7 @@ project_id = "xgjidkgctqqdprxtxeui"
 
 [functions.atlas]
 verify_jwt = false
+
+# Same reasoning — the image proxy is called from anonymous browsing too.
+[functions.unsplash]
+verify_jwt = false

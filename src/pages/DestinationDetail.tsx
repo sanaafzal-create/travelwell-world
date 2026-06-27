@@ -3,6 +3,7 @@ import { Icon } from "@/lib/icons";
 import type { Destination, Provider } from "@/data/places";
 import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
+import { useUnsplashImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useRegions, useWells, useProviders, useDestinations, useGuides } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
@@ -51,6 +52,9 @@ export default function DestinationDetail() {
   const country = DEST.country || R.name;
   const stub = DEST.status === "stub";
 
+  // Destination-matched Unsplash hero, with the bundled image as instant fallback.
+  const hero = useUnsplashImage(`${DEST.name}, ${country}`, img(DEST.img, 1800), 1800);
+
   const iso = isoForCountry(country);
   const s = getSafety(iso);
   const safeColor = SAFE_COLOR[s.lvl];
@@ -78,8 +82,13 @@ export default function DestinationDetail() {
       </div>
 
       <section className={cx("dd-hero", stub && "dd-hero--stub")}>
-        <div className="dd-hero__img"><img src={img(DEST.img, 1800)} alt="" referrerPolicy="no-referrer" loading="lazy" /></div>
+        <div className="dd-hero__img"><img src={hero.src} alt={DEST.name} referrerPolicy="no-referrer" loading="lazy" /></div>
         <div className="dd-hero__scrim" />
+        {hero.credit && (
+          <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 11, color: "rgba(255,255,255,.8)" }}>
+            Photo · <a href={hero.credit.link} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>{hero.credit.name}</a> / Unsplash
+          </span>
+        )}
         <div className="dd-hero__inner">
           <div className="dd-hero__country">{country} · {R.name}</div>
           <h1 className="dd-hero__title">{DEST.name}</h1>
