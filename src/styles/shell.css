@@ -38,14 +38,14 @@
 @media (max-width: 560px) { .tw-signin { display: none; } }
 
 /* round icon action buttons */
-.tw-iconbtn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; position: relative; transition: background-color .15s ease, border-color .15s ease; }
+.tw-iconbtn { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; position: relative; transition: background-color .15s ease, border-color .15s ease; }
 .tw-iconbtn:hover { background: var(--surface-alt); }
 .tw-iconbtn--emergency { color: var(--destructive); border-color: color-mix(in oklch, var(--destructive) 30%, var(--border)); }
 .tw-iconbtn--emergency:hover { background: color-mix(in oklch, var(--destructive) 8%, white); }
 .tw-iconbtn .badge { position: absolute; top: -3px; inset-inline-end: -3px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; text-align: center; border: 2px solid var(--background); box-sizing: border-box; }
 
 /* Talk-to-Me primary entry in header */
-.tw-talk-btn { font-family: var(--font-sans); font-weight: 600; font-size: 14px; height: 42px; padding: 0 16px 0 14px; border-radius: var(--radius-pill); background: var(--primary); color: #fff; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: background-color .15s ease; }
+.tw-talk-btn { flex: 0 0 auto; font-family: var(--font-sans); font-weight: 600; font-size: 14px; height: 42px; padding: 0 16px 0 14px; border-radius: var(--radius-pill); background: var(--primary); color: #fff; border: 0; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; transition: background-color .15s ease; }
 .tw-talk-btn:hover { background: var(--primary-hover); }
 
 /* locale switcher */
@@ -68,6 +68,8 @@
    ========================================================================== */
 .tw-mega { position: fixed; inset: 68px 0 auto 0; z-index: 70; background: var(--card); border-bottom: 1px solid var(--border); box-shadow: var(--e2); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
 .tw-mega[data-open="true"] { opacity: 1; visibility: visible; transform: translateY(0); }
+.tw-mega__close { position: absolute; top: 14px; inset-inline-end: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; transition: background-color .15s ease; }
+.tw-mega__close:hover { background: var(--surface-alt); }
 .tw-mega__inner { max-width: var(--content-max); margin-inline: auto; padding: 32px var(--gutter) 36px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 36px; }
 .tw-mega__col h4 { font-family: var(--font-sans); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; margin-bottom: 14px; }
 .tw-mega__link { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: var(--radius-sm); color: var(--foreground); text-decoration: none; font-size: 14.5px; transition: background-color .12s ease; }
@@ -270,7 +272,7 @@
   .tw-concierge, .tw-tray { width: 100vw; }
 }
 @media (max-width: 560px) {
-  .tw-mega__inner { grid-template-columns: 1fr; }
+  .tw-mega__inner { grid-template-columns: 1fr; padding-top: 60px; }
   .tw-footer__top { grid-template-columns: 1fr; }
   .tw-locale__btn span.loc-lbl { display: none; }
   /* Tighten the header so its content fits a phone without overflow. */
