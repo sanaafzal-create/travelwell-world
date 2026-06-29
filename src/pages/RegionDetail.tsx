@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { REGION_DETAIL, SUBREGION_TOP } from "@/data/places";
 import { useRegions, useSubregions, useDestinations } from "@/store/useCatalog";
 import { regionImg, img } from "@/lib/images";
+import { useUnsplashImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
@@ -26,6 +27,7 @@ export default function RegionDetail() {
   const subregions = useSubregions();
   const destinations = useDestinations();
   const R = regions.find((r) => r.code === code) || regions.find((r) => r.code === "05A")!;
+  const heroPhoto = useUnsplashImage(R.name, regionImg(R.code, 1800), 1800);
   const DET = REGION_DETAIL[R.code] || ({} as (typeof REGION_DETAIL)[string]);
   const DESTS = destinations[R.code] || [];
   const isSub = Boolean(DET.sub);
@@ -37,8 +39,13 @@ export default function RegionDetail() {
       <JourneyBar current={2} crumbs={[{ label: "Home", to: "/" }, { label: "Regions", to: "/regions" }, { label: R.name }]} />
 
       <section className="rd-hero">
-        <div className="rd-hero__img"><img src={regionImg(R.code, 1800)} alt="" referrerPolicy="no-referrer" /></div>
+        <div className="rd-hero__img"><img src={heroPhoto.src} alt={R.name} referrerPolicy="no-referrer" /></div>
         <div className="rd-hero__scrim" />
+        {heroPhoto.credit && (
+          <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 11, color: "rgba(255,255,255,.8)" }}>
+            Photo · <a href={heroPhoto.credit.link} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>{heroPhoto.credit.name}</a> / Unsplash
+          </span>
+        )}
         <div className="rd-hero__inner">
           <div className="rd-hero__code">REGION {R.code}</div>
           <h1 className="rd-hero__title">{R.name}</h1>

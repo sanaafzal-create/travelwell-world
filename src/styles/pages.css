@@ -575,7 +575,7 @@
   [data-page="destinations"] .dx-card:hover img { transform: scale(1.05); }
   [data-page="destinations"] .dx-card__scrim { position:absolute; inset:0; background: linear-gradient(180deg, rgba(15,22,20,.08), rgba(15,22,20,.82)); }
   [data-page="destinations"] .dx-card__badge { position:absolute; top:12px; inset-inline-end:12px; }
-  [data-page="destinations"] .dx-card__body { position:absolute; inset-inline:0; bottom:0; padding:18px; color:#fff; }
+  [data-page="destinations"] .dx-card__body { position:absolute; inset-inline:0; bottom:0; padding:18px; color:#fff; display:flex; flex-direction:column; }
   [data-page="destinations"] .dx-card__country { font-size:11px; letter-spacing:.08em; text-transform:uppercase; opacity:.85; font-weight:600; }
   [data-page="destinations"] .dx-card__name { font-family:var(--font-display); font-weight:600; font-size:22px; line-height:1.08; margin-top:3px; }
   [data-page="destinations"] .dx-card__line { font-size:13px; color:rgba(255,255,255,.85); margin-top:4px; }
