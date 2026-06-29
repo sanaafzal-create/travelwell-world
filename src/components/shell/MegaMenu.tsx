@@ -16,7 +16,7 @@ export function MegaMenu() {
   return (
     <div className="tw-mega" data-open={open} role="region" aria-label="Worlds of Adventure" aria-hidden={!open}>
       <button className="tw-mega__close" aria-label="Close menu" onClick={close}>
-        <Icon name="cross" />
+        <Icon name="close" />
       </button>
       <div className="tw-mega__inner">
         <div className="tw-mega__col">

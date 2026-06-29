@@ -201,6 +201,8 @@
   [data-page="home"] .hero__copy { padding: 48px 0 8px; }
   [data-page="home"] .hero__cta { flex-direction: column; align-items: stretch; gap: 12px; }
   [data-page="home"] .hero__cta > * { width: 100%; }
+  [data-page="home"] .hero__taps { flex-direction: column; align-items: flex-start; gap: 6px; }
+  [data-page="home"] .hero__taps .dot { display: none; }
   [data-page="home"] .si-rail,
   [data-page="home"] .dest-rail { grid-template-columns: 1fr 1fr; }
   [data-page="home"] .sugg-rail { grid-template-columns: 1fr 1fr; }
