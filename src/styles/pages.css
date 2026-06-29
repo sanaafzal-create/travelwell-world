@@ -374,7 +374,7 @@
   [data-page="region-detail"] .rd-dest:hover img { transform: scale(1.05); }
   [data-page="region-detail"] .rd-dest__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,22,20,.1), rgba(15,22,20,.78)); }
   [data-page="region-detail"] .rd-dest__badge { position: absolute; top: 12px; inset-inline-end: 12px; }
-  [data-page="region-detail"] .rd-dest__body { position: absolute; inset-inline: 0; bottom: 0; padding: 16px; color: #fff; }
+  [data-page="region-detail"] .rd-dest__body { position: absolute; inset-inline: 0; bottom: 0; padding: 16px; color: #fff; display: flex; flex-direction: column; }
   [data-page="region-detail"] .rd-dest__country { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .85; font-weight: 600; }
   [data-page="region-detail"] .rd-dest__name { font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.1; margin-top: 3px; }
   [data-page="region-detail"] .rd-dest__line { font-size: 12.5px; color: rgba(255,255,255,.85); margin-top: 4px; }

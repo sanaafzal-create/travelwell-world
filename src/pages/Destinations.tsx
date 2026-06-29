@@ -4,11 +4,36 @@ import type { Destination } from "@/data/places";
 import type { Region } from "@/data/taxonomy";
 import { useRegions, useDestinations } from "@/store/useCatalog";
 import { img } from "@/lib/images";
+import { useUnsplashImage } from "@/lib/unsplash";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 
 interface DestWithRegion extends Destination {
   region: string;
+}
+
+/** A destination grid card. Uses the SAME Unsplash query as the destination
+ *  detail hero (`name, country`) so the card and the page show the same photo. */
+function DestCard({ d }: { d: DestWithRegion }) {
+  const photo = useUnsplashImage(`${d.name}, ${d.country}`, img(d.img, 700), 700);
+  return (
+    <Link className={cx("dx-card", d.status === "stub" && "dx-card--stub")} to={`/destination/${d.id}`}>
+      <img src={photo.src} alt={d.name} loading="lazy" referrerPolicy="no-referrer" />
+      <span className="dx-card__scrim" />
+      <span className="dx-card__badge">
+        {d.status === "live" ? (
+          <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
+        ) : (
+          <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>
+        )}
+      </span>
+      <span className="dx-card__body">
+        <span className="dx-card__country">{d.country}</span>
+        <span className="dx-card__name">{d.name}</span>
+        <span className="dx-card__line">{d.line}</span>
+      </span>
+    </Link>
+  );
 }
 
 function allDests(destinations: Record<string, Destination[]>): DestWithRegion[] {
@@ -86,26 +111,7 @@ export default function Destinations() {
           </div>
           <div className="dx-grid" id="dx-grid">
             {list.map((d) => (
-              <Link
-                key={`${d.region}-${d.id}`}
-                className={cx("dx-card", d.status === "stub" && "dx-card--stub")}
-                to={`/destination/${d.id}`}
-              >
-                <img src={img(d.img, 700)} alt="" loading="lazy" referrerPolicy="no-referrer" />
-                <span className="dx-card__scrim" />
-                <span className="dx-card__badge">
-                  {d.status === "live" ? (
-                    <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
-                  ) : (
-                    <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>
-                  )}
-                </span>
-                <span className="dx-card__body">
-                  <span className="dx-card__country">{d.country}</span>
-                  <span className="dx-card__name">{d.name}</span>
-                  <span className="dx-card__line">{d.line}</span>
-                </span>
-              </Link>
+              <DestCard key={`${d.region}-${d.id}`} d={d} />
             ))}
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { REGION_DETAIL, SUBREGION_TOP } from "@/data/places";
+import { REGION_DETAIL, SUBREGION_TOP, type Destination } from "@/data/places";
 import { useRegions, useSubregions, useDestinations } from "@/store/useCatalog";
 import { regionImg, img } from "@/lib/images";
 import { useUnsplashImage } from "@/lib/unsplash";
@@ -19,6 +19,28 @@ const AIRPORTS: Record<string, string> = {
   NAS: "Nassau", PUJ: "Punta Cana", SJU: "San Juan", JFK: "New York", LAX: "Los Angeles", ORD: "Chicago",
   YYZ: "Toronto", YVR: "Vancouver", YUL: "Montréal",
 };
+
+/** Region's destination card — same Unsplash query as the destination hero so
+ *  the card and the page it opens show the same photo. */
+function RdDestCard({ d }: { d: Destination }) {
+  const photo = useUnsplashImage(`${d.name}, ${d.country}`, img(d.img, 600), 600);
+  return (
+    <Link className={cx("rd-dest", d.status === "stub" && "rd-dest--stub")} to={`/destination/${d.id}`}>
+      <img src={photo.src} alt={d.name} loading="lazy" referrerPolicy="no-referrer" />
+      <span className="rd-dest__scrim" />
+      <span className="rd-dest__badge">
+        {d.status === "live"
+          ? <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
+          : <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>}
+      </span>
+      <span className="rd-dest__body">
+        <span className="rd-dest__country">{d.country}</span>
+        <span className="rd-dest__name">{d.name}</span>
+        <span className="rd-dest__line">{d.line}</span>
+      </span>
+    </Link>
+  );
+}
 
 export default function RegionDetail() {
   const { code = "" } = useParams();
@@ -100,20 +122,7 @@ export default function RegionDetail() {
           </div>
           <div className="rd-dest-grid">
             {DESTS.map((d) => (
-              <Link key={d.id} className={cx("rd-dest", d.status === "stub" && "rd-dest--stub")} to={`/destination/${d.id}`}>
-                <img src={img(d.img, 600)} alt="" loading="lazy" referrerPolicy="no-referrer" />
-                <span className="rd-dest__scrim" />
-                <span className="rd-dest__badge">
-                  {d.status === "live"
-                    ? <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
-                    : <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>}
-                </span>
-                <span className="rd-dest__body">
-                  <span className="rd-dest__country">{d.country}</span>
-                  <span className="rd-dest__name">{d.name}</span>
-                  <span className="rd-dest__line">{d.line}</span>
-                </span>
-              </Link>
+              <RdDestCard key={d.id} d={d} />
             ))}
           </div>
         </section>
