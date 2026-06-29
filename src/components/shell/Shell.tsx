@@ -95,9 +95,10 @@ export function Shell() {
     track({ kind: "view", entity: v.entity, entityId: v.entityId, context: { path: location.pathname } });
   }, [location.pathname, closePanel, setLastPath]);
 
-  // Lock body scroll when a full overlay is open.
+  // Lock body scroll while any overlay panel is open, so scrolling the menu (or
+  // concierge / tray / emergency) doesn't bleed through to the page behind it.
   useEffect(() => {
-    document.body.style.overflow = panel === "emergency" ? "hidden" : "";
+    document.body.style.overflow = panel ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [panel]);
 

@@ -66,7 +66,7 @@
 /* ============================================================================
    MEGA MENU — "Worlds of Adventure" (§3.1, full IA)
    ========================================================================== */
-.tw-mega { position: fixed; inset: 68px 0 auto 0; z-index: 70; background: var(--card); border-bottom: 1px solid var(--border); box-shadow: var(--e2); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+.tw-mega { position: fixed; inset: 68px 0 auto 0; z-index: 70; background: var(--card); border-bottom: 1px solid var(--border); box-shadow: var(--e2); max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
 .tw-mega[data-open="true"] { opacity: 1; visibility: visible; transform: translateY(0); }
 .tw-mega__close { position: absolute; top: 14px; inset-inline-end: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; transition: background-color .15s ease; }
 .tw-mega__close:hover { background: var(--surface-alt); }
