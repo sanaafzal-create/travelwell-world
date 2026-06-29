@@ -20,10 +20,13 @@ export function Concierge() {
   const [busy, setBusy] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 
-  // Voice input — streams what they say straight into the text box. Falls back
-  // honestly to typing where the browser doesn't support it.
-  const { supported: voiceSupported, listening, start: startVoice, stop: stopVoice } = useSpeechInput(setInput);
+  // Voice input — streams what they say into the text box AND shows it live in
+  // the listening panel, then on finish (Done, spoken "stop", or natural end)
+  // sends it so it lands in the conversation instead of vanishing.
+  const { supported: voiceSupported, listening, start: startVoice, stop: stopVoice } =
+    useSpeechInput(setInput, (finalText) => { if (finalText.trim()) send(finalText); });
   const onMic = () => {
+    if (listening) { stopVoice(); return; }
     if (!voiceSupported) { showToast("Voice input isn't supported in this browser yet — please type for now."); return; }
     startVoice();
   };
@@ -109,7 +112,7 @@ export function Concierge() {
               <button className="btn btn-primary" onClick={() => begin("guided")}>Walk me through it</button>
               <button className="btn btn-secondary" onClick={() => begin("conversation")}>I'll just type</button>
             </div>
-            <div className="tw-stop-row"><Icon name="stop" small /> You're in control — say “stop” anytime.</div>
+            <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
           </div>
         ) : (
           <>
@@ -130,8 +133,11 @@ export function Concierge() {
               <div className="tw-listening">
                 <div className="tw-mic-ring"><Icon name="mic" /></div>
                 <div className="tw-wave">{Array.from({ length: 9 }).map((_, i) => <i key={i} style={{ animationDelay: `${i * 0.08}s` }} />)}</div>
-                <p className="t-body-s" style={{ color: "var(--muted-foreground)" }}>Listening… speak naturally — your words appear below. Tap Done when you're finished.</p>
-                <button className="btn btn-secondary" onClick={() => stopVoice()}><Icon name="stop" small /> Done</button>
+                <div className="tw-listening__transcript" aria-live="polite">
+                  {input ? input : <span className="tw-listening__hint">Listening… start speaking and your words will appear here.</span>}
+                </div>
+                <button className="btn btn-primary" onClick={() => stopVoice()}><Icon name="check" small /> Done — send to Atlas</button>
+                <p className="t-body-s" style={{ color: "var(--muted-foreground)", margin: 0 }}>Tap Done, or just say “stop,” when you're finished — I'll reply.</p>
               </div>
             )}
             {!busy && messages.length > 0 && messages[messages.length - 1].role === "assistant" && (
@@ -161,7 +167,7 @@ export function Concierge() {
           <button className="tw-input__mic" aria-label={listening ? "Stop recording" : "Talk instead of type"} aria-pressed={listening} onClick={onMic}><Icon name="mic" /></button>
           <button className="tw-input__send" aria-label="Send" onClick={() => send(input)}><Icon name="send" small /></button>
         </div>
-        <div className="tw-stop-row"><Icon name="stop" small /> Say “stop” anytime — I'll step back gracefully.</div>
+        <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
       </div>
     </div>
   );

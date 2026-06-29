@@ -150,6 +150,10 @@
 .tw-wave { display: flex; gap: 3px; align-items: center; height: 24px; }
 .tw-wave i { width: 3px; background: var(--primary); border-radius: 2px; animation: tw-wave 1s infinite ease-in-out; }
 @keyframes tw-wave { 0%,100% { height: 6px; } 50% { height: 22px; } }
+/* Live transcript — what you're saying, shown big and wrapping (never crammed
+   into the single-line input), so you can see your words before they send. */
+.tw-listening__transcript { width: 100%; max-width: 100%; min-height: 48px; max-height: 180px; overflow-y: auto; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; font-size: 16px; line-height: 1.5; color: var(--foreground); text-align: center; white-space: pre-wrap; word-break: break-word; }
+.tw-listening__hint { color: var(--muted-foreground); font-size: 14px; }
 
 /* input bar */
 .tw-input { display: flex; align-items: center; gap: 8px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 5px 6px 5px 16px; }
