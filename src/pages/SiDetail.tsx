@@ -3,6 +3,7 @@ import { Icon } from "@/lib/icons";
 import { REGION_SI, type Region } from "@/data/taxonomy";
 import { type Provider, type Activity } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
+import { useUnsplashImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useSpecialInterests, useActivities, useRegions, useProviders, useWells } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
@@ -132,6 +133,7 @@ export default function SiDetail() {
   const si = sis.find((s) => s.id === id) || sis.find((s) => s.id === "safari")!;
   const isSchema = si.status !== "live";
   const ed = EDITORIAL[si.id];
+  const heroPhoto = useUnsplashImage(si.name, siImg(si.id, 1800), 1800);
 
   const subhead = (
     <div className="jn-subhead">
@@ -153,9 +155,14 @@ export default function SiDetail() {
   const hero = (
     <section className={cx("sd-hero", isSchema && "sd-hero--schema")}>
       <div className="sd-hero__img">
-        <img src={siImg(si.id, 1800)} alt="" referrerPolicy="no-referrer" loading="lazy" />
+        <img src={heroPhoto.src} alt={si.name} referrerPolicy="no-referrer" loading="lazy" />
       </div>
       <div className="sd-hero__scrim" />
+      {heroPhoto.credit && (
+        <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 11, color: "rgba(255,255,255,.8)" }}>
+          Photo · <a href={heroPhoto.credit.link} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>{heroPhoto.credit.name}</a> / Unsplash
+        </span>
+      )}
       <div className="sd-hero__accent" style={{ background: si.accent }} />
       <div className="sd-hero__inner">
         <div className="sd-hero__badges">
