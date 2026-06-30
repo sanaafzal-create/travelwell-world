@@ -10,8 +10,8 @@ import { matchProviders } from "@/lib/matching";
 import { track } from "@/lib/track";
 
 const TIER: Record<Tier, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
-const PRICE_LABEL: Record<Price, string> = { value: "Value", comfort: "Comfort", premium: "Premium", ultra: "Ultra" };
-const PRICE_DOT: Record<Price, string> = { value: "#3F7E55", comfort: "#2C6E68", premium: "#C2A35B", ultra: "#A8873F" };
+const PRICE_LABEL: Record<Price, string> = { essential: "Essential", comfort: "Comfort", premier: "Premier", luxury: "Luxury", ultra: "Ultra" };
+const PRICE_DOT: Record<Price, string> = { essential: "#3F7E55", comfort: "#2C6E68", premier: "#C2A35B", luxury: "#BE9233", ultra: "#A8873F" };
 const PAGE = 6;
 
 /* ---- the traveler's trip context (mock, mirrors the itinerary) ---- */
@@ -32,7 +32,7 @@ const tierRank: Record<Tier, number> = { prime: 0, vetted: 1, prospective: 2 };
 function whyFits(p: Provider, regionName: string): React.ReactNode[] {
   const reasons: React.ReactNode[] = [];
   if (p.price === TRIP.budget) reasons.push(<>fits your <b>{PRICE_LABEL[p.price]}</b> budget</>);
-  else if ((p.price === "premium" || p.price === "ultra") && TRIP.budget === "comfort") reasons.push(<>a worthwhile <b>splurge</b> for an anniversary</>);
+  else if ((p.price === "premier" || p.price === "luxury" || p.price === "ultra") && TRIP.budget === "comfort") reasons.push(<>a worthwhile <b>splurge</b> for an anniversary</>);
   if (p.tier === "prime") reasons.push(<><b>Prime</b> — most deeply vetted</>);
   reasons.push(<>in <b>{regionName}</b></>);
   return reasons.slice(0, 2);

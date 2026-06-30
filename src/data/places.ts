@@ -71,7 +71,10 @@ export const SUBREGION_TOP: Record<string, string[]> = {
 };
 
 export type Tier = "prime" | "vetted" | "prospective";
-export type Price = "value" | "comfort" | "premium" | "ultra";
+// Budget tiers — David's canonical five, shared across providers and
+// destinations. (Was a 4-band set; `essential`←value, `premier`←premium, with
+// `luxury` added between premier and ultra.)
+export type Price = "essential" | "comfort" | "premier" | "luxury" | "ultra";
 export type Mode = "api" | "widget" | "affiliate" | "first-party";
 export interface Provider {
   name: string; well: string; tier: Tier; price: Price; mode: Mode; desc: string; commission: string;
@@ -94,60 +97,60 @@ const p = (
 export const PROVIDERS: Record<string, Provider[]> = {
   stay: [
     p("Angama Mara", "stay", "prime", "ultra", "api", "Clifftop tented suites with sweeping Mara views", "Commission partner"),
-    p("Governors' Camp", "stay", "prime", "premium", "api", "Front-row tents on the Mara River", "Commission partner"),
+    p("Governors' Camp", "stay", "prime", "premier", "api", "Front-row tents on the Mara River", "Commission partner"),
     p("Mahali Mzuri", "stay", "prime", "ultra", "widget", "Sir Richard Branson's tented camp", "Commission partner"),
     p("Sarova Mara Game Camp", "stay", "vetted", "comfort", "api", "Reliable comfort in the heart of the reserve", "Commission partner"),
-    p("Fairmont Mara Safari Club", "stay", "vetted", "premium", "widget", "Luxury tents in a river bend", "Commission partner"),
+    p("Fairmont Mara Safari Club", "stay", "vetted", "premier", "widget", "Luxury tents in a river bend", "Commission partner"),
     p("Mara Serena Safari Lodge", "stay", "vetted", "comfort", "api", "Hilltop lodge, panoramic plains", "Commission partner"),
-    p("Basecamp Explorer", "stay", "vetted", "value", "affiliate", "Eco-camp with community roots", "Affiliate partner"),
+    p("Basecamp Explorer", "stay", "vetted", "essential", "affiliate", "Eco-camp with community roots", "Affiliate partner"),
     p("Entim Mara Camp", "stay", "prospective", "comfort", "affiliate", "Riverside camp near crossing points", "Prospective partner"),
   ],
   fly: [
     p("Kenya Airways", "fly", "prime", "comfort", "api", "Direct into Nairobi (NBO)", "Commission partner"),
     p("SafariLink", "fly", "prime", "comfort", "api", "Light-aircraft hops to the Mara airstrips", "Commission partner"),
-    p("Qatar Airways", "fly", "vetted", "premium", "widget", "One-stop via Doha, award cabins", "Commission partner"),
+    p("Qatar Airways", "fly", "vetted", "premier", "widget", "One-stop via Doha, award cabins", "Commission partner"),
     p("AirKenya Express", "fly", "vetted", "comfort", "api", "Scheduled bush flights", "Commission partner"),
-    p("Emirates", "fly", "vetted", "premium", "widget", "One-stop via Dubai", "Commission partner"),
+    p("Emirates", "fly", "vetted", "premier", "widget", "One-stop via Dubai", "Commission partner"),
     p("Skyward Private Jets", "fly", "prospective", "ultra", "affiliate", "Charter direct to camp", "Prospective partner"),
   ],
   eat: [
-    p("Bush Dinner by Angama", "eat", "prime", "premium", "api", "Candlelit dining on the plains", "Commission partner"),
+    p("Bush Dinner by Angama", "eat", "prime", "premier", "api", "Candlelit dining on the plains", "Commission partner"),
     p("Emakoko Restaurant", "eat", "vetted", "comfort", "api", "Farm-to-table at the park gate", "Commission partner"),
     p("Talisman, Nairobi", "eat", "vetted", "comfort", "affiliate", "A Karen institution before you fly out", "Affiliate partner"),
-    p("Carnivore Nairobi", "eat", "vetted", "value", "affiliate", "The famous beast-of-a-feast", "Affiliate partner"),
-    p("Private Chef — Mara", "eat", "prospective", "premium", "affiliate", "In-camp tasting menus", "Prospective partner"),
+    p("Carnivore Nairobi", "eat", "vetted", "essential", "affiliate", "The famous beast-of-a-feast", "Affiliate partner"),
+    p("Private Chef — Mara", "eat", "prospective", "premier", "affiliate", "In-camp tasting menus", "Prospective partner"),
   ],
   move: [
     p("Mara Land Cruiser Safaris", "move", "prime", "comfort", "api", "Private 4×4 with expert guide", "Commission partner"),
-    p("Abercrombie & Kent Transfers", "move", "prime", "premium", "widget", "Seamless private transfers", "Commission partner"),
-    p("Scenic Air Transfers", "move", "vetted", "premium", "api", "Fly between camps", "Commission partner"),
+    p("Abercrombie & Kent Transfers", "move", "prime", "premier", "widget", "Seamless private transfers", "Commission partner"),
+    p("Scenic Air Transfers", "move", "vetted", "premier", "api", "Fly between camps", "Commission partner"),
     p("Nairobi Executive Cars", "move", "vetted", "comfort", "affiliate", "Airport & city transfers", "Affiliate partner"),
-    p("Self-Drive Kenya", "move", "prospective", "value", "affiliate", "For the independent traveler", "Prospective partner"),
+    p("Self-Drive Kenya", "move", "prospective", "essential", "affiliate", "For the independent traveler", "Prospective partner"),
   ],
   gear: [
     p("Safari Outfitters Co.", "gear", "prime", "comfort", "affiliate", "Boots, layers, dry-bags — delivered", "Affiliate partner"),
-    p("Optics & Binoculars Rental", "gear", "vetted", "value", "affiliate", "Pro glass for game viewing", "Affiliate partner"),
+    p("Optics & Binoculars Rental", "gear", "vetted", "essential", "affiliate", "Pro glass for game viewing", "Affiliate partner"),
     p("TravelWell Gear Edit", "gear", "vetted", "comfort", "api", "Our curated safari packing list", "First-party"),
   ],
   beauty: [
-    p("Angama Spa", "beauty", "prime", "premium", "api", "Treatments with a view", "Commission partner"),
+    p("Angama Spa", "beauty", "prime", "premier", "api", "Treatments with a view", "Commission partner"),
     p("Sundowner Wellness", "beauty", "vetted", "comfort", "affiliate", "Massage & recovery in-camp", "Affiliate partner"),
   ],
   activities: [
-    p("Mara Hot-Air Balloon", "activities", "prime", "premium", "api", "Sunrise flight + champagne breakfast", "Commission partner"),
-    p("Maasai Village Cultural Visit", "activities", "prime", "value", "api", "Meet the community, respectfully", "Commission partner"),
-    p("Big Cat Tracking Experience", "activities", "vetted", "premium", "widget", "With a resident researcher", "Commission partner"),
+    p("Mara Hot-Air Balloon", "activities", "prime", "premier", "api", "Sunrise flight + champagne breakfast", "Commission partner"),
+    p("Maasai Village Cultural Visit", "activities", "prime", "essential", "api", "Meet the community, respectfully", "Commission partner"),
+    p("Big Cat Tracking Experience", "activities", "vetted", "premier", "widget", "With a resident researcher", "Commission partner"),
     p("Walking Safari — Olare Motorogi", "activities", "vetted", "comfort", "api", "On foot with armed rangers", "Commission partner"),
-    p("Photography Safari Workshop", "activities", "vetted", "premium", "affiliate", "Pro tuition in the field", "Affiliate partner"),
+    p("Photography Safari Workshop", "activities", "vetted", "premier", "affiliate", "Pro tuition in the field", "Affiliate partner"),
     p("Night Game Drive", "activities", "prospective", "comfort", "affiliate", "Spot the nocturnal Mara", "Prospective partner"),
   ],
   shop: [
-    p("Maasai Market Curated", "shop", "vetted", "value", "affiliate", "Authentic crafts, fair trade", "Affiliate partner"),
+    p("Maasai Market Curated", "shop", "vetted", "essential", "affiliate", "Authentic crafts, fair trade", "Affiliate partner"),
     p("Utamaduni Craft Centre", "shop", "vetted", "comfort", "affiliate", "Quality keepsakes near Nairobi", "Affiliate partner"),
   ],
   insure: [],
   ship: [],
-  nanny: [p("Mara Family Nannies", "nanny", "vetted", "premium", "api", "Vetted, multilingual childcare in-camp", "Commission partner")],
+  nanny: [p("Mara Family Nannies", "nanny", "vetted", "premier", "api", "Vetted, multilingual childcare in-camp", "Commission partner")],
   security: [p("Discreet Protection Kenya", "security", "vetted", "ultra", "api", "Close protection, unseen", "Commission partner")],
 };
 

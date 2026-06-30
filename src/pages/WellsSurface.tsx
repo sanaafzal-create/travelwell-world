@@ -13,9 +13,10 @@ import { cx, cap } from "@/lib/utils";
 
 const BUDGETS: { id: Price | "all"; label: string }[] = [
   { id: "all", label: "All" },
-  { id: "value", label: "Value" },
+  { id: "essential", label: "Essential" },
   { id: "comfort", label: "Comfort" },
-  { id: "premium", label: "Premium" },
+  { id: "premier", label: "Premier" },
+  { id: "luxury", label: "Luxury" },
   { id: "ultra", label: "Ultra" },
 ];
 const TIER_RANK: Record<string, number> = { prime: 0, vetted: 1, prospective: 2 };

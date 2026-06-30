@@ -43,7 +43,7 @@ create table if not exists public.providers (
   name        text not null,
   well        text not null references public.wells(id),
   tier        text not null check (tier in ('prime','vetted','prospective')),
-  price       text not null check (price in ('value','comfort','premium','ultra')),
+  price       text not null check (price in ('essential','comfort','premier','luxury','ultra')),
   mode        text not null check (mode in ('api','widget','affiliate','first-party')),
   description text,
   commission  text not null  -- FTC disclosure text, never hidden
