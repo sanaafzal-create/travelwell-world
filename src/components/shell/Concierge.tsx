@@ -1,30 +1,22 @@
 import { useState, useRef, useEffect } from "react";
 import { Icon } from "@/lib/icons";
 import { useStore, type IoMode } from "@/store/useStore";
-import { askAtlas } from "@/lib/supabase";
-import { buildAtlasContext } from "@/lib/insights";
+import { useAtlas } from "@/lib/useAtlas";
 import { useSpeechInput } from "@/lib/useSpeech";
 
-interface Msg { role: "user" | "assistant"; content: string; }
-
-const PRIMER_DONE_KEY = "tww:atlasPrimed";
-
 export function Concierge() {
-  const { panel, closePanel, io, setIo, journeySIs, region, trip, addToTrip, showToast } = useStore();
-  const open = panel === "concierge";
-  const [primed, setPrimed] = useState<boolean>(() => {
-    try { return localStorage.getItem(PRIMER_DONE_KEY) === "1"; } catch { return false; }
-  });
-  const [messages, setMessages] = useState<Msg[]>([]);
+  const { io, setIo, journeySIs, region, trip, addToTrip, showToast } = useStore();
+  // Conversation lives in the store now (persists across navigation + reload).
+  const { messages, busy, primed, dock, send, setMessages, setPrimed, open, collapse, reset } = useAtlas();
+  const isOpen = dock === "open";
   const [input, setInput] = useState("");
-  const [busy, setBusy] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
 
-  // Voice input — streams what they say into the text box AND shows it live in
-  // the listening panel, then on finish (Done, spoken "stop", or natural end)
-  // sends it so it lands in the conversation instead of vanishing.
+  // Voice input — streams what they say into the box AND shows it live in the
+  // listening panel, then on finish (Done, spoken "stop", or natural end) sends
+  // it so it lands in the conversation instead of vanishing.
   const { supported: voiceSupported, listening, start: startVoice, stop: stopVoice } =
-    useSpeechInput(setInput, (finalText) => { if (finalText.trim()) send(finalText); });
+    useSpeechInput(setInput, (finalText) => { if (finalText.trim()) { send(finalText); setInput(""); } });
   const onMic = () => {
     if (listening) { stopVoice(); return; }
     if (!voiceSupported) { showToast("Voice input isn't supported in this browser yet — please type for now."); return; }
@@ -32,33 +24,18 @@ export function Concierge() {
   };
 
   useEffect(() => {
-    if (bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
-  }, [messages, busy]);
+    if (isOpen && bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+  }, [messages, busy, isOpen]);
 
-  async function send(text: string) {
+  function onSend(text: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
-    // Typing from the intro screen implies "I'll just type" — prime in place so
-    // the message renders (the body only shows messages once primed), never lost.
-    if (!primed) {
-      setPrimed(true);
-      try { localStorage.setItem(PRIMER_DONE_KEY, "1"); } catch { /* ignore */ }
-    }
-    const next = [...messages, { role: "user" as const, content: trimmed }];
-    setMessages(next);
     setInput("");
-    setBusy(true);
-    // Ground Atlas in the live journey: Travel I.D., current SI/region/trip,
-    // what they've considered, and curated happenings near where they're looking.
-    const ctx = await buildAtlasContext();
-    const { reply } = await askAtlas(next, ctx);
-    setMessages([...next, { role: "assistant", content: reply }]);
-    setBusy(false);
+    void send(trimmed);
   }
 
   function begin(mode: "guided" | "conversation") {
     setPrimed(true);
-    try { localStorage.setItem(PRIMER_DONE_KEY, "1"); } catch { /* ignore */ }
     if (mode === "guided") {
       setMessages([
         { role: "assistant", content: "Wonderful. Let's find your dream in a few easy questions — nothing like an interrogation. First: are you dreaming of wildlife, water, culture, or pure rest?" },
@@ -75,100 +52,116 @@ export function Concierge() {
   );
 
   return (
-    <div className="tw-concierge" data-open={open} role="dialog" aria-modal="false" aria-label="Speak with Atlas — your Concierge" aria-hidden={!open}>
-      <div className="tw-concierge__head">
-        <div className="tw-concierge__avatar"><Icon name="sparkles" /></div>
-        <div style={{ flex: 1 }}>
-          <div className="tw-concierge__title">Speak with Atlas</div>
-          <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Atlas</div>
-        </div>
-        <button className="tw-iconbtn" aria-label="Close Concierge" style={{ width: 36, height: 36, border: 0, background: "var(--surface-alt)" }} onClick={closePanel}>
-          <Icon name="close" small />
+    <>
+      {/* Collapsed: Atlas stays beside you as a gentle pill — tap to reopen, full
+          history intact. Shown whenever there's a live conversation to return to. */}
+      {dock === "collapsed" && (
+        <button className="tw-atlas-fab" aria-label="Open Atlas, your Concierge" onClick={open}>
+          <Icon name="sparkles" />
+          {messages.length > 0 && <span className="tw-atlas-fab__dot" aria-hidden="true" />}
         </button>
-      </div>
+      )}
 
-      <div className="tw-concierge__context">
-        <span>Knows:</span>
-        {journeySIs.length === 0 && region == null ? (
-          <span className="ctx-chip">Anonymous · just browsing</span>
-        ) : (
-          <>
-            {journeySIs.slice(0, 2).map((s) => <span key={s} className="ctx-chip">{s}</span>)}
-            {region && <span className="ctx-chip">{region}</span>}
-            <span className="ctx-chip">Trip · {trip.length} blocks</span>
-          </>
-        )}
-      </div>
-
-      <div className="tw-concierge__body" ref={bodyRef}>
-        {!primed ? (
-          <div className="tw-primer">
-            <div className="tw-concierge__avatar"><Icon name="sparkles" /></div>
-            <h3 style={{ fontSize: 20 }}>Hello — I'm Atlas, your Concierge.</h3>
-            <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 8, maxWidth: "34ch", marginInline: "auto" }}>
-              I can plan from a single sentence, or just keep you company while you browse. You can <b>type or talk</b>, and I can <b>read or speak</b> back — your choice, remembered.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 18 }}>
-              <button className="btn btn-primary" onClick={() => begin("guided")}>Walk me through it</button>
-              <button className="btn btn-secondary" onClick={() => begin("conversation")}>I'll just type</button>
-            </div>
-            <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
+      <div className="tw-concierge" data-open={isOpen} role="dialog" aria-modal="false" aria-label="Speak with Atlas — your Concierge" aria-hidden={!isOpen}>
+        <div className="tw-concierge__head">
+          <div className="tw-concierge__avatar"><Icon name="sparkles" /></div>
+          <div style={{ flex: 1 }}>
+            <div className="tw-concierge__title">Speak with Atlas</div>
+            <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Atlas</div>
           </div>
-        ) : (
-          <>
-            {messages.length === 0 && (
-              <div className="tw-msg tw-msg--bot">
-                Tell me your dream in a sentence — “a safari for our anniversary in July” — and I'll start shaping it. I never book for you; you always choose.
-              </div>
-            )}
-            {messages.map((m, i) => (
-              <div key={i} className={`tw-msg tw-msg--${m.role === "user" ? "user" : "bot"}`}>{m.content}</div>
-            ))}
-            {busy && (
-              <div className="tw-msg tw-msg--bot">
-                <span className="tw-typing"><span /><span /><span /></span>
-              </div>
-            )}
-            {listening && (
-              <div className="tw-listening">
-                <div className="tw-mic-ring"><Icon name="mic" /></div>
-                <div className="tw-wave">{Array.from({ length: 9 }).map((_, i) => <i key={i} style={{ animationDelay: `${i * 0.08}s` }} />)}</div>
-                <div className="tw-listening__transcript" aria-live="polite">
-                  {input ? input : <span className="tw-listening__hint">Listening… start speaking and your words will appear here.</span>}
-                </div>
-                <button className="btn btn-primary" onClick={() => stopVoice()}><Icon name="check" small /> Done — send to Atlas</button>
-                <p className="t-body-s" style={{ color: "var(--muted-foreground)", margin: 0 }}>Tap Done, or just say “stop,” when you're finished — I'll reply.</p>
-              </div>
-            )}
-            {!busy && messages.length > 0 && messages[messages.length - 1].role === "assistant" && (
-              <button
-                className="btn btn-ghost" style={{ alignSelf: "flex-start" }}
-                onClick={() => addToTrip({ well: "stay", icon: "bed", name: "Angama Mara", meta: "Stay-Well · suggested by Atlas", status: "idea" })}
-              >
-                + Add a suggested stay to my trip
-              </button>
-            )}
-          </>
-        )}
-      </div>
+          {primed && messages.length > 0 && (
+            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); }}>
+              Start over
+            </button>
+          )}
+          <button className="tw-iconbtn" aria-label="Minimize Concierge" style={{ width: 36, height: 36, border: 0, background: "var(--surface-alt)" }} onClick={collapse}>
+            <Icon name="chev" small />
+          </button>
+        </div>
 
-      <div className="tw-concierge__foot">
-        <div className="tw-io-toggle" role="group" aria-label="How should I respond?">
-          {ioBtn("read", "Read", "read")}
-          {ioBtn("hear", "Hear", "sound")}
-          {ioBtn("both", "Both")}
+        <div className="tw-concierge__context">
+          <span>Knows:</span>
+          {journeySIs.length === 0 && region == null ? (
+            <span className="ctx-chip">Anonymous · just browsing</span>
+          ) : (
+            <>
+              {journeySIs.slice(0, 2).map((s) => <span key={s} className="ctx-chip">{s}</span>)}
+              {region && <span className="ctx-chip">{region}</span>}
+              <span className="ctx-chip">Trip · {trip.length} blocks</span>
+            </>
+          )}
         </div>
-        <div className="tw-input">
-          <input
-            type="text" placeholder="Ask me anything, or tell me your dream…" aria-label="Message Atlas"
-            value={input} onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => { if (e.key === "Enter") send(input); }}
-          />
-          <button className="tw-input__mic" aria-label={listening ? "Stop recording" : "Talk instead of type"} aria-pressed={listening} onClick={onMic}><Icon name="mic" /></button>
-          <button className="tw-input__send" aria-label="Send" onClick={() => send(input)}><Icon name="send" small /></button>
+
+        <div className="tw-concierge__body" ref={bodyRef}>
+          {!primed ? (
+            <div className="tw-primer">
+              <div className="tw-concierge__avatar"><Icon name="sparkles" /></div>
+              <h3 style={{ fontSize: 20 }}>Hello — I'm Atlas, your Concierge.</h3>
+              <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 8, maxWidth: "34ch", marginInline: "auto" }}>
+                I can plan from a single sentence, or just keep you company while you browse. You can <b>type or talk</b>, and I can <b>read or speak</b> back — your choice, remembered.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 18 }}>
+                <button className="btn btn-primary" onClick={() => begin("guided")}>Walk me through it</button>
+                <button className="btn btn-secondary" onClick={() => begin("conversation")}>I'll just type</button>
+              </div>
+              <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
+            </div>
+          ) : (
+            <>
+              {messages.length === 0 && (
+                <div className="tw-msg tw-msg--bot">
+                  Tell me your dream in a sentence — “a safari for our anniversary in July” — and I'll start shaping it. I never book for you; you always choose.
+                </div>
+              )}
+              {messages.map((m, i) => (
+                <div key={i} className={`tw-msg tw-msg--${m.role === "user" ? "user" : "bot"}`}>{m.content}</div>
+              ))}
+              {busy && (
+                <div className="tw-msg tw-msg--bot">
+                  <span className="tw-typing"><span /><span /><span /></span>
+                </div>
+              )}
+              {listening && (
+                <div className="tw-listening">
+                  <div className="tw-mic-ring"><Icon name="mic" /></div>
+                  <div className="tw-wave">{Array.from({ length: 9 }).map((_, i) => <i key={i} style={{ animationDelay: `${i * 0.08}s` }} />)}</div>
+                  <div className="tw-listening__transcript" aria-live="polite">
+                    {input ? input : <span className="tw-listening__hint">Listening… start speaking and your words will appear here.</span>}
+                  </div>
+                  <button className="btn btn-primary" onClick={() => stopVoice()}><Icon name="check" small /> Done — send to Atlas</button>
+                  <p className="t-body-s" style={{ color: "var(--muted-foreground)", margin: 0 }}>Tap Done, or just say “stop,” when you're finished — I'll reply.</p>
+                </div>
+              )}
+              {!busy && messages.length > 0 && messages[messages.length - 1].role === "assistant" && (
+                <button
+                  className="btn btn-ghost" style={{ alignSelf: "flex-start" }}
+                  onClick={() => addToTrip({ well: "stay", icon: "bed", name: "Angama Mara", meta: "Stay-Well · suggested by Atlas", status: "idea" })}
+                >
+                  + Add a suggested stay to my trip
+                </button>
+              )}
+            </>
+          )}
         </div>
-        <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
+
+        <div className="tw-concierge__foot">
+          <div className="tw-io-toggle" role="group" aria-label="How should I respond?">
+            {ioBtn("read", "Read", "read")}
+            {ioBtn("hear", "Hear", "sound")}
+            {ioBtn("both", "Both")}
+          </div>
+          <div className="tw-input">
+            <input
+              type="text" placeholder="Ask me anything, or tell me your dream…" aria-label="Message Atlas"
+              value={input} onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") onSend(input); }}
+            />
+            <button className="tw-input__mic" aria-label={listening ? "Stop recording" : "Talk instead of type"} aria-pressed={listening} onClick={onMic}><Icon name="mic" /></button>
+            <button className="tw-input__send" aria-label="Send" onClick={() => onSend(input)}><Icon name="send" small /></button>
+          </div>
+          <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

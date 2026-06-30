@@ -25,6 +25,14 @@ export type Panel = "mega" | "concierge" | "tray" | "emergency" | null;
 export type IoMode = "read" | "hear" | "both";
 export type WhisperDial = "off" | "rare" | "balanced" | "active";
 
+// Atlas conversation — the persistent "walks beside you" spine. Lives in the
+// store (not a modal's local state) so it survives navigation and reload, and
+// stays revisable rather than fire-and-forget. `dock` is its own visibility,
+// independent of `panel`, so route changes never close Atlas.
+export interface AtlasMsg { role: "user" | "assistant"; content: string; }
+export type AtlasDock = "hidden" | "collapsed" | "open";
+const ATLAS_HISTORY_CAP = 50; // keep localStorage bounded; send-window is separate
+
 const KEY = (k: string) => "tww:" + k;
 function load<T>(k: string, fallback: T): T {
   try {
@@ -69,6 +77,11 @@ interface State {
   panel: Panel;
   toast: string | null;
   whisper: Whisper | null;
+  // Atlas conversation spine (persisted history + its own dock visibility)
+  atlasMessages: AtlasMsg[];
+  atlasPrimed: boolean;
+  atlasDock: AtlasDock;
+  atlasBusy: boolean;
   // Anchor: the warm way back to the flow after wandering off it (null = on-flow)
   anchor: Anchor | null;
   // auth (null until Supabase is configured + signed in)
@@ -91,6 +104,14 @@ interface State {
   setWhisperDial: (d: WhisperDial) => void;
   openPanel: (p: Panel) => void;
   closePanel: () => void;
+  addAtlasMessage: (m: AtlasMsg) => void;
+  setAtlasMessages: (msgs: AtlasMsg[]) => void;
+  setAtlasBusy: (b: boolean) => void;
+  setAtlasPrimed: (p: boolean) => void;
+  openAtlas: () => void;
+  collapseAtlas: () => void;
+  hideAtlas: () => void;
+  resetAtlas: () => void;
   showToast: (msg: string) => void;
   clearToast: () => void;
   showWhisper: (w: Whisper) => void;
@@ -123,6 +144,10 @@ function persistBlocks(g: () => State) {
   if (user && journeyId) void replaceBlocks(journeyId, user.id, trip);
 }
 
+// Restore saved Atlas history once; if there's a prior conversation, Atlas
+// returns as a collapsed pill (present, not popping a sheet open).
+const _atlasMessages = load<AtlasMsg[]>("atlasMessages", []);
+
 export const useStore = create<State>((set, get) => ({
   journeySIs: load<string[]>("journeySIs", []),
   journeyActs: load<string[]>("journeyActs", []),
@@ -136,6 +161,10 @@ export const useStore = create<State>((set, get) => ({
   toast: null,
   whisper: null,
   anchor: null,
+  atlasMessages: _atlasMessages,
+  atlasPrimed: load<boolean>("atlasPrimed", false),
+  atlasDock: _atlasMessages.length ? "collapsed" : "hidden",
+  atlasBusy: false,
   user: null,
   journeyId: null,
 
@@ -253,8 +282,31 @@ export const useStore = create<State>((set, get) => ({
     save("whisperDial", d);
     set({ whisperDial: d });
   },
-  openPanel: (p) => set({ panel: p }),
+  // "concierge" is no longer a modal panel — it's the persistent Atlas dock.
+  // Route every existing openPanel("concierge") entry point to opening Atlas, so
+  // all the scattered "Speak with Atlas" buttons keep working unchanged.
+  openPanel: (p) => { if (p === "concierge") { set({ atlasDock: "open" }); return; } set({ panel: p }); },
   closePanel: () => set({ panel: null }),
+  addAtlasMessage: (m) => {
+    const next = [...get().atlasMessages, m].slice(-ATLAS_HISTORY_CAP);
+    save("atlasMessages", next);
+    set({ atlasMessages: next });
+  },
+  setAtlasMessages: (msgs) => {
+    const next = msgs.slice(-ATLAS_HISTORY_CAP);
+    save("atlasMessages", next);
+    set({ atlasMessages: next });
+  },
+  setAtlasBusy: (b) => set({ atlasBusy: b }),
+  setAtlasPrimed: (p) => { save("atlasPrimed", p); set({ atlasPrimed: p }); },
+  openAtlas: () => set({ atlasDock: "open" }),
+  collapseAtlas: () => set({ atlasDock: "collapsed" }),
+  hideAtlas: () => set({ atlasDock: "hidden" }),
+  resetAtlas: () => {
+    save("atlasMessages", []);
+    save("atlasPrimed", false);
+    set({ atlasMessages: [], atlasPrimed: false });
+  },
   showToast: (msg) => {
     set({ toast: msg });
     window.clearTimeout((useStore as unknown as { _t?: number })._t);

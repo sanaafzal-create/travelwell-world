@@ -53,6 +53,7 @@ const NO_FOOTER = new Set(["sign-in", "verify-email", "sign-up", "activation", "
 
 export function Shell() {
   const { panel, closePanel } = useStore();
+  const atlasDock = useStore((s) => s.atlasDock);
   const setLastPath = useStore((s) => s.setLastPath);
   const location = useLocation();
 
@@ -95,12 +96,16 @@ export function Shell() {
     track({ kind: "view", entity: v.entity, entityId: v.entityId, context: { path: location.pathname } });
   }, [location.pathname, closePanel, setLastPath]);
 
-  // Lock body scroll while any overlay panel is open, so scrolling the menu (or
-  // concierge / tray / emergency) doesn't bleed through to the page behind it.
+  // Lock body scroll while an overlay panel is open (menu / tray / emergency),
+  // or while Atlas is open as a full sheet on mobile — so scrolling the overlay
+  // doesn't bleed through to the page behind it. On desktop Atlas is a docked
+  // card, not a full sheet, so it doesn't lock the page.
   useEffect(() => {
-    document.body.style.overflow = panel ? "hidden" : "";
+    const atlasSheet = atlasDock === "open" && typeof window !== "undefined"
+      && window.matchMedia("(max-width: 700px)").matches;
+    document.body.style.overflow = (panel || atlasSheet) ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [panel]);
+  }, [panel, atlasDock]);
 
   const slug = pageSlug(location.pathname);
   return (
