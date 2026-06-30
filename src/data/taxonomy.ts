@@ -30,14 +30,14 @@ export interface SpecialInterest {
 const BASE_SIS: SpecialInterest[] = [
   /* Premium & Signature */
   { id: "ultra", name: "Ultra-Luxury", sig: "the extraordinary", status: "live", accent: "#A8873F", lux: true, group: "premium" },
-  { id: "tropical", name: "Tropical Beaches", sig: "barefoot luxury", status: "live", accent: "#2E8C8C", lux: false, group: "premium" },
+  { id: "tropical", name: "Tropical Islands", sig: "barefoot luxury", status: "live", accent: "#2E8C8C", lux: false, group: "premium" },
   { id: "romance", name: "Romance & Honeymoons", sig: "the two of you", status: "live", accent: "#A8527A", lux: false, group: "premium" },
   { id: "safari", name: "Safari Adventures", sig: "the wild calling", status: "live", accent: "#B07A3C", lux: false, group: "premium" },
-  { id: "expedition", name: "Global Expedition Adventures", sig: "to the edges of the map", status: "preview", accent: "#5C5C5C", lux: false, group: "premium" },
+  { id: "expedition", name: "Global Expedition Adventures", sig: "to the edges of the map", status: "live", accent: "#5C5C5C", lux: false, group: "premium" },
   { id: "globaladv", name: "Global Adventures", sig: "the world, wide open", status: "preview", accent: "#3C7E55", lux: false, group: "premium" },
   /* Water, Cruise & Wellness */
-  { id: "liveaboard", name: "Dive Liveaboards", sig: "sleep above the reef", status: "preview", accent: "#2E6E8C", lux: false, group: "water" },
-  { id: "river", name: "River Cruises", sig: "the slow current", status: "preview", accent: "#5B86A8", lux: false, group: "water" },
+  { id: "liveaboard", name: "Dive Liveaboards", sig: "sleep above the reef", status: "live", accent: "#2E6E8C", lux: false, group: "water" },
+  { id: "river", name: "River Cruises", sig: "the slow current", status: "live", accent: "#5B86A8", lux: false, group: "water" },
   { id: "diveglobal", name: "Dive Globally", sig: "the world below", status: "preview", accent: "#1F6E8C", lux: false, group: "water" },
   { id: "ocean", name: "Ocean Adventures", sig: "the open water", status: "live", accent: "#2C6E68", lux: false, group: "water" },
   { id: "wellness", name: "Wellness Spas & Retreats", sig: "coming home to yourself", status: "live", accent: "#4F8C7A", lux: false, group: "water" },

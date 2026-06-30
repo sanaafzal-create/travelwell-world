@@ -11,13 +11,13 @@
 -- Special Interests -----------------------------------------------------------
 insert into public.special_interests (id, name, signature, status, accent, is_lux, grp) values
   ('ultra', 'Ultra-Luxury', 'the extraordinary', 'live', '#A8873F', true, 'premium'),
-  ('tropical', 'Tropical Beaches', 'barefoot luxury', 'live', '#2E8C8C', false, 'premium'),
+  ('tropical', 'Tropical Islands', 'barefoot luxury', 'live', '#2E8C8C', false, 'premium'),
   ('romance', 'Romance & Honeymoons', 'the two of you', 'live', '#A8527A', false, 'premium'),
   ('safari', 'Safari Adventures', 'the wild calling', 'live', '#B07A3C', false, 'premium'),
-  ('expedition', 'Global Expedition Adventures', 'to the edges of the map', 'preview', '#5C5C5C', false, 'premium'),
+  ('expedition', 'Global Expedition Adventures', 'to the edges of the map', 'live', '#5C5C5C', false, 'premium'),
   ('globaladv', 'Global Adventures', 'the world, wide open', 'preview', '#3C7E55', false, 'premium'),
-  ('liveaboard', 'Dive Liveaboards', 'sleep above the reef', 'preview', '#2E6E8C', false, 'water'),
-  ('river', 'River Cruises', 'the slow current', 'preview', '#5B86A8', false, 'water'),
+  ('liveaboard', 'Dive Liveaboards', 'sleep above the reef', 'live', '#2E6E8C', false, 'water'),
+  ('river', 'River Cruises', 'the slow current', 'live', '#5B86A8', false, 'water'),
   ('diveglobal', 'Dive Globally', 'the world below', 'preview', '#1F6E8C', false, 'water'),
   ('ocean', 'Ocean Adventures', 'the open water', 'live', '#2C6E68', false, 'water'),
   ('wellness', 'Wellness Spas & Retreats', 'coming home to yourself', 'live', '#4F8C7A', false, 'water'),
