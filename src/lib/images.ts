@@ -30,7 +30,7 @@ const IDS: Record<string, string> = {
 
 const SI_IMG: Record<string, string> = {
   ultra: "luxuryPool", tropical: "tropicalBeach", romance: "venice", safari: "safariGiraffe",
-  expedition: "mountainValley", globaladv: "desertDunes",
+  expedition: "mountainValley", adventure: "desertDunes",
   liveaboard: "oceanAerial", river: "venice", diveglobal: "oceanAerial", ocean: "maldivesResort", wellness: "spaWellness",
   family: "baliRice", hiking: "mountainValley", ski: "northernLights", olympic: "dubai", senior: "santorini",
   culinary: "restaurant", culture: "kyoto", deepdive: "marrakech", entertainment: "dubai", nightlife: "dubai",

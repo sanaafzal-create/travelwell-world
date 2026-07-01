@@ -88,7 +88,7 @@ export const LOCAL_SIGNALS: LocalSignal[] = [
     blurb: "Iceland's aurora window runs roughly September to March, on clear dark nights away from town lights.",
     href: "/region/03F",
     destination: "reykjavik", region: "03F",
-    si: ["globaladv"], wells: ["activities", "move"],
+    si: ["adventure"], wells: ["activities", "move"],
     season: "Sep–Mar", recurrence: { months: [9, 10, 11, 12, 1, 2, 3] },
     priority: 65, source: "curated",
   },
