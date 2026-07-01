@@ -1,0 +1,24 @@
+name,well,tier,price,mode,description,commission,si,region,booking_url
+Bedsonline,stay,prime,comfort,api,"Trade wholesaler for Caribbean hotels, transfers and activities — the commissionable backbone across the region",Commission partner,tropical|romance|ocean,11C,https://www.bedsonline.com
+Grace Bay Club,stay,prime,luxury,affiliate,"Original boutique resort on the world-ranked Grace Bay Beach, Providenciales",Commission partner,tropical|romance,11C,https://www.gracebayresorts.com/grace-bay-club
+Amanyara,stay,prime,ultra,affiliate,"Secluded Aman resort of 40 pavilions on the wild northwest shore of Providenciales",Commission partner,tropical|romance|wellness,11C,https://www.aman.com/resorts/amanyara
+Beaches Turks & Caicos,stay,prime,premier,affiliate,"Polished family all-inclusive on Grace Bay with waterpark and multiple villages",Commission partner,tropical,11C,https://www.beaches.com/resorts/turks-caicos
+Sandals Royal Bahamian,stay,prime,premier,affiliate,"Adults-only all-inclusive on Cable Beach, Nassau, with offshore island",Commission partner,tropical|romance,11C,https://www.sandals.com/royal-bahamian
+The Cove Eleuthera,stay,vetted,luxury,affiliate,"Boutique cliffside resort on a peninsula between two Eleuthera beaches",Commission partner,tropical|romance,11C,https://www.thecoveeleuthera.com
+Jade Mountain,stay,prime,ultra,affiliate,"Open-wall sanctuaries facing the Pitons, St. Lucia — a honeymoon icon",Commission partner,romance|tropical|wellness,11C,https://www.jademountain.com
+Eden Rock St Barths,stay,prime,ultra,affiliate,"Landmark luxury hotel on St. Jean Bay, St. Barthélemy",Commission partner,tropical|romance|ultra,11C,https://www.oetkercollection.com/hotels/eden-rock-st-barths
+Hotel Christopher St Barth,stay,vetted,luxury,affiliate,"Calm clifftop retreat with a large pool, Pointe Milou, St. Barthélemy",Commission partner,tropical|romance,11C,https://www.hotelchristopher.com
+Spice Island Beach Resort,stay,prime,luxury,affiliate,"All-inclusive on Grand Anse Beach, Grenada — family-owned, AAA Five Diamond",Commission partner,tropical|romance,11C,https://www.spiceislandbeachresort.com
+Curtain Bluff,stay,prime,luxury,affiliate,"Classic all-inclusive on two beaches, Antigua — sailing and watersports included",Commission partner,tropical|romance|ocean,11C,https://www.curtainbluff.com
+Cap Juluca,stay,prime,ultra,affiliate,"Belmond beachfront resort on Maundays Bay, Anguilla — Moorish-style luxury",Commission partner,tropical|romance,11C,https://www.belmond.com/hotels/caribbean/anguilla/belmond-cap-juluca
+Bucuti & Tara Beach Resort,stay,prime,premier,affiliate,"Adults-only eco-resort on Eagle Beach, Aruba — outside the hurricane belt",Commission partner,tropical|romance|wellness,11C,https://www.bucuti.com
+Hotel Riu Palace Aruba,stay,vetted,comfort,affiliate,"Large all-inclusive on Palm Beach, Aruba — reliable value with calm swimming water",Commission partner,tropical,11C,https://www.riu.com
+The Crane Resort,stay,vetted,premier,affiliate,"Historic clifftop resort above pink-sand Crane Beach, Barbados",Commission partner,tropical|romance,11C,https://www.thecrane.com
+De Palm Tours,activities,vetted,comfort,affiliate,"Aruba's largest destination-management company — island tours, snorkel cruises, transfers",Commission partner,tropical|ocean,11C,https://www.depalmtours.com
+Big Blue Collective,activities,prime,premier,affiliate,"Eco-tour operator in Providenciales — snorkel, kayak, paddleboard, island ecotours",Commission partner,ocean|tropical,11C,https://www.bigbluecollective.com
+Island Routes Caribbean Adventures,activities,vetted,comfort,affiliate,"Regional tour operator across the Caribbean — vetted excursions and transfers",Commission partner,tropical|ocean,11C,https://www.islandroutes.com
+Viator,activities,prospective,comfort,affiliate,"Global activity marketplace — fallback booking for Caribbean tours and excursions",Affiliate partner,tropical|ocean,11C,https://www.viator.com
+GetYourGuide,activities,prospective,comfort,affiliate,"Global activity marketplace — Caribbean tours, day trips and tickets",Affiliate partner,tropical|ocean,11C,https://www.getyourguide.com
+American Airlines,fly,vetted,comfort,affiliate,"Major US carrier with broad nonstop service to Caribbean gateways",Affiliate partner,tropical|romance|ocean,,https://www.aa.com
+JetBlue,fly,vetted,comfort,affiliate,"US carrier with extensive Caribbean nonstop routes from East Coast hubs",Affiliate partner,tropical|romance|ocean,,https://www.jetblue.com
+Delta Air Lines,fly,vetted,comfort,affiliate,"Major US carrier serving principal Caribbean airports",Affiliate partner,tropical|romance|ocean,,https://www.delta.com
