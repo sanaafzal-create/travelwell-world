@@ -10,7 +10,7 @@
 
 -- Special Interests -----------------------------------------------------------
 insert into public.special_interests (id, name, signature, status, accent, is_lux, grp) values
-  ('ultra', 'Ultra-Luxury', 'the extraordinary', 'live', '#A8873F', true, 'premium'),
+  ('ultra', 'Ultra-Luxury', 'the extraordinary', 'preview', '#A8873F', true, 'premium'),
   ('tropical', 'Tropical Islands', 'barefoot luxury', 'live', '#2E8C8C', false, 'premium'),
   ('romance', 'Romance & Honeymoons', 'the two of you', 'live', '#A8527A', false, 'premium'),
   ('safari', 'Safari Adventures', 'the wild calling', 'live', '#B07A3C', false, 'premium'),
@@ -19,14 +19,14 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('liveaboard', 'Dive Liveaboards', 'sleep above the reef', 'live', '#2E6E8C', false, 'water'),
   ('river', 'River Cruises', 'the slow current', 'live', '#5B86A8', false, 'water'),
   ('diveglobal', 'Dive Globally', 'the world below', 'preview', '#1F6E8C', false, 'water'),
-  ('ocean', 'Ocean Adventures', 'the open water', 'live', '#2C6E68', false, 'water'),
-  ('wellness', 'Wellness Spas & Retreats', 'coming home to yourself', 'live', '#4F8C7A', false, 'water'),
+  ('ocean', 'Ocean Adventures', 'the open water', 'preview', '#2C6E68', false, 'water'),
+  ('wellness', 'Wellness Spas & Retreats', 'coming home to yourself', 'preview', '#4F8C7A', false, 'water'),
   ('family', 'Family Travel', 'everyone, together', 'preview', '#C98A2E', false, 'active'),
   ('hiking', 'Global Hiking Tours', 'the trail ahead', 'preview', '#3C7E55', false, 'active'),
   ('ski', 'Winter Ski', 'the first track', 'preview', '#5B86A8', false, 'active'),
   ('olympic', 'Olympic Travel', 'the world''s stage', 'preview', '#C2562E', false, 'active'),
   ('senior', 'Senior Travel', 'unhurried, well-earned', 'preview', '#7A5B3B', false, 'active'),
-  ('culinary', 'Culinary Experiences', 'a table worth the flight', 'live', '#9C5B3B', false, 'culture'),
+  ('culinary', 'Culinary Experiences', 'a table worth the flight', 'preview', '#9C5B3B', false, 'culture'),
   ('culture', 'Culture & History', 'the soul of a place', 'preview', '#7A5BA8', false, 'culture'),
   ('deepdive', 'Cultural Deep Dives', 'beneath the surface', 'preview', '#6B4F9E', false, 'culture'),
   ('entertainment', 'Live Entertainment', 'the lights come up', 'preview', '#C2562E', false, 'culture'),
@@ -35,9 +35,9 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('spectator', 'Spectator Sports Travel', 'from the stands', 'preview', '#2C6E68', false, 'sports'),
   ('prosports', 'Pro Sports Team Travel', 'follow the pros', 'preview', '#B07A3C', false, 'sports'),
   ('compsports', 'Competitive Sports Team Travel', 'travel to compete', 'preview', '#2E6E8C', false, 'sports'),
-  ('sailing', 'Sailing', 'wind in your favor', 'live', '#2E6E8C', false, 'water'),
-  ('yacht', 'Yacht Charter', 'the open sea, served well', 'live', '#1F5C73', true, 'water'),
-  ('wine', 'Wine & Whiskey/Spirits', 'the world, one glass at a time', 'live', '#7B3F52', false, 'culture')
+  ('sailing', 'Sailing', 'wind in your favor', 'preview', '#2E6E8C', false, 'water'),
+  ('yacht', 'Yacht Charter', 'the open sea, served well', 'preview', '#1F5C73', true, 'water'),
+  ('wine', 'Wine & Whiskey/Spirits', 'the world, one glass at a time', 'preview', '#7B3F52', false, 'culture')
 on conflict (id) do update set
   name = excluded.name, signature = excluded.signature, status = excluded.status,
   accent = excluded.accent, is_lux = excluded.is_lux, grp = excluded.grp;

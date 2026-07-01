@@ -29,7 +29,7 @@ export interface SpecialInterest {
 
 const BASE_SIS: SpecialInterest[] = [
   /* Premium & Signature */
-  { id: "ultra", name: "Ultra-Luxury", sig: "the extraordinary", status: "live", accent: "#A8873F", lux: true, group: "premium" },
+  { id: "ultra", name: "Ultra-Luxury", sig: "the extraordinary", status: "preview", accent: "#A8873F", lux: true, group: "premium" },
   { id: "tropical", name: "Tropical Islands", sig: "barefoot luxury", status: "live", accent: "#2E8C8C", lux: false, group: "premium" },
   { id: "romance", name: "Romance & Honeymoons", sig: "the two of you", status: "live", accent: "#A8527A", lux: false, group: "premium" },
   { id: "safari", name: "Safari Adventures", sig: "the wild calling", status: "live", accent: "#B07A3C", lux: false, group: "premium" },
@@ -39,8 +39,8 @@ const BASE_SIS: SpecialInterest[] = [
   { id: "liveaboard", name: "Dive Liveaboards", sig: "sleep above the reef", status: "live", accent: "#2E6E8C", lux: false, group: "water" },
   { id: "river", name: "River Cruises", sig: "the slow current", status: "live", accent: "#5B86A8", lux: false, group: "water" },
   { id: "diveglobal", name: "Dive Globally", sig: "the world below", status: "preview", accent: "#1F6E8C", lux: false, group: "water" },
-  { id: "ocean", name: "Ocean Adventures", sig: "the open water", status: "live", accent: "#2C6E68", lux: false, group: "water" },
-  { id: "wellness", name: "Wellness Spas & Retreats", sig: "coming home to yourself", status: "live", accent: "#4F8C7A", lux: false, group: "water" },
+  { id: "ocean", name: "Ocean Adventures", sig: "the open water", status: "preview", accent: "#2C6E68", lux: false, group: "water" },
+  { id: "wellness", name: "Wellness Spas & Retreats", sig: "coming home to yourself", status: "preview", accent: "#4F8C7A", lux: false, group: "water" },
   /* Life-stage & Active */
   { id: "family", name: "Family Travel", sig: "everyone, together", status: "preview", accent: "#C98A2E", lux: false, group: "active" },
   { id: "hiking", name: "Global Hiking Tours", sig: "the trail ahead", status: "preview", accent: "#3C7E55", lux: false, group: "active" },
@@ -48,7 +48,7 @@ const BASE_SIS: SpecialInterest[] = [
   { id: "olympic", name: "Olympic Travel", sig: "the world's stage", status: "preview", accent: "#C2562E", lux: false, group: "active" },
   { id: "senior", name: "Senior Travel", sig: "unhurried, well-earned", status: "preview", accent: "#7A5B3B", lux: false, group: "active" },
   /* Culture & Entertainment */
-  { id: "culinary", name: "Culinary Experiences", sig: "a table worth the flight", status: "live", accent: "#9C5B3B", lux: false, group: "culture" },
+  { id: "culinary", name: "Culinary Experiences", sig: "a table worth the flight", status: "preview", accent: "#9C5B3B", lux: false, group: "culture" },
   { id: "culture", name: "Culture & History", sig: "the soul of a place", status: "preview", accent: "#7A5BA8", lux: false, group: "culture" },
   { id: "deepdive", name: "Cultural Deep Dives", sig: "beneath the surface", status: "preview", accent: "#6B4F9E", lux: false, group: "culture" },
   { id: "entertainment", name: "Live Entertainment", sig: "the lights come up", status: "preview", accent: "#C2562E", lux: false, group: "culture" },
