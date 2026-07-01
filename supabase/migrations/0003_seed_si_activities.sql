@@ -10,7 +10,7 @@
 
 -- Special Interests -----------------------------------------------------------
 insert into public.special_interests (id, name, signature, status, accent, is_lux, grp) values
-  ('ultra', 'Ultra-Luxury', 'the extraordinary', 'preview', '#A8873F', true, 'premium'),
+  ('ultra', 'Ultra-Luxury', 'the extraordinary', 'live', '#A8873F', true, 'premium'),
   ('tropical', 'Tropical Islands', 'barefoot luxury', 'live', '#2E8C8C', false, 'premium'),
   ('romance', 'Romance & Honeymoons', 'the two of you', 'live', '#A8527A', false, 'premium'),
   ('safari', 'Safari Adventures', 'the wild calling', 'live', '#B07A3C', false, 'premium'),
@@ -35,9 +35,9 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('spectator', 'Spectator Sports Travel', 'from the stands', 'preview', '#2C6E68', false, 'sports'),
   ('prosports', 'Pro Sports Team Travel', 'follow the pros', 'preview', '#B07A3C', false, 'sports'),
   ('compsports', 'Competitive Sports Team Travel', 'travel to compete', 'preview', '#2E6E8C', false, 'sports'),
-  ('sailing', 'Sailing', 'wind in your favor', 'preview', '#2E6E8C', false, 'water'),
-  ('yacht', 'Yacht Charter', 'the open sea, served well', 'preview', '#1F5C73', true, 'water'),
-  ('wine', 'Wine & Whiskey/Spirits', 'the world, one glass at a time', 'preview', '#7B3F52', false, 'culture')
+  ('sailing', 'Sailing Charters', 'wind in your favor', 'preview', '#2E6E8C', false, 'water'),
+  ('yacht', 'Yacht Charters', 'the open sea, served well', 'preview', '#1F5C73', true, 'water'),
+  ('wine', 'Wine & Whiskey/Spirits Tours', 'the world, one glass at a time', 'preview', '#7B3F52', false, 'culture')
 on conflict (id) do update set
   name = excluded.name, signature = excluded.signature, status = excluded.status,
   accent = excluded.accent, is_lux = excluded.is_lux, grp = excluded.grp;

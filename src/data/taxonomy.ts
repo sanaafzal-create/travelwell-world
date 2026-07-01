@@ -29,7 +29,7 @@ export interface SpecialInterest {
 
 const BASE_SIS: SpecialInterest[] = [
   /* Premium & Signature */
-  { id: "ultra", name: "Ultra-Luxury", sig: "the extraordinary", status: "preview", accent: "#A8873F", lux: true, group: "premium" },
+  { id: "ultra", name: "Ultra-Luxury", sig: "the extraordinary", status: "live", accent: "#A8873F", lux: true, group: "premium" },
   { id: "tropical", name: "Tropical Islands", sig: "barefoot luxury", status: "live", accent: "#2E8C8C", lux: false, group: "premium" },
   { id: "romance", name: "Romance & Honeymoons", sig: "the two of you", status: "live", accent: "#A8527A", lux: false, group: "premium" },
   { id: "safari", name: "Safari Adventures", sig: "the wild calling", status: "live", accent: "#B07A3C", lux: false, group: "premium" },
