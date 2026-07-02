@@ -11,10 +11,57 @@
  *   0004_seed_providers_subregions.sql — providers + sub_regions
  * Re-run whenever the catalog changes to refresh the seeds.
  */
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync, readdirSync } from "node:fs";
 import { SIS, SUBREGIONS } from "../src/data/taxonomy";
 import { ACTIVITIES, PROVIDERS, DESTINATIONS, GUIDES } from "../src/data/places";
 import { LOCAL_SIGNALS } from "../src/data/local-signals";
+
+// Provider research arrives as CSVs in src/data/providers/ (David's sets,
+// conformed to the 10-column schema). The seed generator ingests them directly
+// — no transcription — so a new set drops in by adding a file. si is
+// pipe-separated slugs; region blank = cross-region (e.g. airlines).
+interface CsvProvider {
+  name: string; well: string; tier: string; price: string; mode: string;
+  desc: string; commission: string; si: string[]; region?: string; bookingUrl?: string;
+}
+function parseCsvLine(line: string): string[] {
+  const out: string[] = [];
+  let cur = "", inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQ) {
+      if (c === '"') { if (line[i + 1] === '"') { cur += '"'; i++; } else inQ = false; }
+      else cur += c;
+    } else if (c === '"') inQ = true;
+    else if (c === ",") { out.push(cur); cur = ""; }
+    else cur += c;
+  }
+  out.push(cur);
+  return out;
+}
+function readProviderCsvs(): CsvProvider[] {
+  const dir = "src/data/providers";
+  let files: string[] = [];
+  try { files = readdirSync(dir).filter((f) => f.endsWith(".csv")); } catch { return []; }
+  const rows: CsvProvider[] = [];
+  for (const f of files.sort()) {
+    const lines = readFileSync(`${dir}/${f}`, "utf8").trim().split(/\r?\n/).filter(Boolean);
+    const header = parseCsvLine(lines[0]).map((h) => h.trim());
+    for (const line of lines.slice(1)) {
+      const cells = parseCsvLine(line);
+      const rec: Record<string, string> = {};
+      header.forEach((h, i) => { rec[h] = (cells[i] ?? "").trim(); });
+      rows.push({
+        name: rec.name, well: rec.well, tier: rec.tier, price: rec.price, mode: rec.mode,
+        desc: rec.description, commission: rec.commission,
+        si: rec.si ? rec.si.split("|").map((s) => s.trim()).filter(Boolean) : [],
+        region: rec.region || undefined,
+        bookingUrl: rec.booking_url || undefined,
+      });
+    }
+  }
+  return rows;
+}
 
 const q = (s: string | null | undefined) => (s == null ? "null" : `'${s.replace(/'/g, "''")}'`);
 const pgArr = (xs?: string[]) => `'{${(xs ?? []).map((x) => `"${x.replace(/"/g, '\\"')}"`).join(",")}}'`;
@@ -80,9 +127,13 @@ console.log(`  ${SIS.length} special interests, ${Object.values(ACTIVITIES).flat
 // ---------------------------------------------------------------------------
 // 0004 — Providers + Sub-regions
 // ---------------------------------------------------------------------------
-const provRows = Object.values(PROVIDERS)
-  .flat()
-  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"})`)
+// Bundle providers (places.ts) + CSV providers, deduped on the (name, well)
+// natural key so the generated INSERT never hits the same conflict row twice.
+const allProviders: CsvProvider[] = [...Object.values(PROVIDERS).flat(), ...readProviderCsvs()];
+const seenPk = new Set<string>();
+const provRows = allProviders
+  .filter((p) => { const k = `${p.name}|${p.well}`; if (seenPk.has(k)) return false; seenPk.add(k); return true; })
+  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"}, ${p.bookingUrl ? q(p.bookingUrl) : "null"})`)
   .join(",\n");
 
 const subRows = Object.entries(SUBREGIONS)
@@ -106,16 +157,17 @@ create unique index if not exists providers_name_well_key on public.providers (n
 -- Step 1 of the matching keystone: give providers an SI dimension and a region
 -- dimension, so the catalog can express "Caribbean dive providers". Additive —
 -- matching that reads these lands in a later step.
-alter table public.providers add column if not exists si     text[] not null default '{}';
-alter table public.providers add column if not exists region text;
+alter table public.providers add column if not exists si          text[] not null default '{}';
+alter table public.providers add column if not exists region      text;
+alter table public.providers add column if not exists booking_url text;
 create index if not exists providers_region_idx on public.providers (region);
 
-insert into public.providers (name, well, tier, price, mode, description, commission, si, region) values
+insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url) values
 ${provRows}
 on conflict (name, well) do update set
   tier = excluded.tier, price = excluded.price, mode = excluded.mode,
   description = excluded.description, commission = excluded.commission,
-  si = excluded.si, region = excluded.region;
+  si = excluded.si, region = excluded.region, booking_url = excluded.booking_url;
 
 -- Sub-regions -----------------------------------------------------------------
 create table if not exists public.sub_regions (
@@ -139,7 +191,7 @@ on conflict (region_code, name) do update set position = excluded.position;
 
 writeFileSync("supabase/migrations/0004_seed_providers_subregions.sql", sql4);
 console.log("Wrote supabase/migrations/0004_seed_providers_subregions.sql");
-console.log(`  ${Object.values(PROVIDERS).flat().length} providers, ${Object.values(SUBREGIONS).flat().length} sub-regions`);
+console.log(`  ${seenPk.size} providers (${Object.values(PROVIDERS).flat().length} bundle + ${readProviderCsvs().length} csv), ${Object.values(SUBREGIONS).flat().length} sub-regions`);
 
 // ---------------------------------------------------------------------------
 // 0005 — Destinations + Guides
