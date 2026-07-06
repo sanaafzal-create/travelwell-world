@@ -65,6 +65,18 @@
 - **Atlas** → the vessel. Spine done; Guided Mode + narrative continuity + live-research (cache-back) make him carry the relationship.
 - **Marketing socket** → attribution (ad lane in) + permission/timing (reach back out), both on the profile. Leave the fields; don't build the sends yet.
 
+### Concrete foundation choices to keep it pluggable
+Derived from the Olympic/team-travel synthesis. These shape *how* we pour the
+profile and the World-Engine fields — not new build, just the right shape.
+- **Subject, not user.** Model the profile as a *subject* (person is the default) and allow a person to belong to 0..N entities with a **role** (athlete, coach, medic, ops director). Avoids a rewrite when a "traveler" becomes a team or institution. *Touches the profile schema — decide before it hardens.*
+- **Multi-year dated event-series.** Build the booking-window fields as **absolute dated windows with an arbitrary look-ahead horizon** (years out) + lead-time — not season/months only. The Olympic quad needs 2–4 year look-ahead; cheap to design in, a migration to retrofit.
+- **Trips can have participants with roles.** Extend the existing `TripBlock.whom` hint toward role-scoped participants, so "show each person only their next task" has a home later without reshaping the trip model.
+- **Universe dimension on the catalog.** Keep the tank universe-taggable so a universe (TWW-main / Ultra / Sports / TLEU) filters the shared data — "one tank, many front doors."
+
+**Deliberately NOT pre-fit** (they attach to the core, they don't reshape it): the Equipment Intelligence Engine (carnets, chain-of-custody) and the 12 team-travel engines (Academic Constraint, Compliance, …). Keep the Wells/matching/booking core generic; don't contort the foundation guessing at them.
+
+**Open questions flagged to David:** person↔team identity shape (one profile with memberships); institutional compliance surface (minors, medical, FERPA) is heavier than consumer; and whether the "next task" operational OS is the same app or a separate product on the shared tank.
+
 ---
 
 ## Recommended starting points
