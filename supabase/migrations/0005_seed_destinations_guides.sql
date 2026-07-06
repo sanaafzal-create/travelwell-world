@@ -77,9 +77,9 @@ insert into public.destinations (id, region_code, name, country, line, status, d
   ('machu', '10S', 'Machu Picchu', 'Peru', 'The lost city in the clouds', 'live', 'verified', 'mountainValley', null, 0),
   ('patagonia', '10S', 'Patagonia', 'Chile / Argentina', 'Granite spires and turquoise lakes', 'live', 'verified', 'mountainValley', null, 1),
   ('cartagena', '10S', 'Cartagena', 'Colombia', 'Walled city of color and rhythm', 'live', 'stub', 'marrakech', null, 2),
-  ('turks', '11C', 'Turks & Caicos', 'Turks & Caicos', 'Grace Bay''s impossible blues', 'live', 'verified', 'oceanAerial', 'Bahamas & Turks & Caicos', 0),
+  ('turks', '11C', 'Turks & Caicos', 'Turks & Caicos', 'Grace Bay''s impossible blues', 'live', 'verified', 'oceanAerial', 'Turks & Caicos', 0),
   ('st-lucia', '11C', 'St. Lucia', 'St. Lucia', 'The Pitons above the sea', 'live', 'verified', 'tropicalBeach', 'Eastern Caribbean — Windwards & South', 1),
-  ('exuma', '11C', 'The Exumas', 'Bahamas', 'Sandbars and swimming pigs', 'live', 'stub', 'maldivesResort', 'Bahamas & Turks & Caicos', 2),
+  ('exuma', '11C', 'The Exumas', 'Bahamas', 'Sandbars and swimming pigs', 'live', 'stub', 'maldivesResort', 'Bahamas', 2),
   ('banff', '13A', 'Banff & Lake Louise', 'Canada', 'Turquoise lakes under the Rockies', 'live', 'verified', 'mountainValley', null, 0),
   ('vancouver', '13A', 'Vancouver', 'Canada', 'Sea, city and mountains at once', 'live', 'stub', 'oceanAerial', null, 1)
 on conflict (id) do update set

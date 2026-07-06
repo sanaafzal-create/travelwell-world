@@ -25,14 +25,19 @@ Wired in the engine today: the 06A + 11C locked strings are attached to their de
 
 *(Indian Ocean Islands — Mauritius/Seychelles/Madagascar — proposed/future within 06A.)*
 
-### 11C — Caribbean & Atlantic
+### 11C — Caribbean & Atlantic  *(v2 — 12, complete)*
 | sub_region | member areas |
 |---|---|
 | DR — Punta Cana & the East | Punta Cana, Bávaro, Cap Cana, Bayahibe, La Romana, Saona, Catalina, Miches… |
 | DR — North Coast & Interior | Puerto Plata, Cabarete, Sosúa, Samaná, Las Terrenas, Santo Domingo, Jarabacoa… |
-| Jamaica | Montego Bay, Negril, Ocho Rios, Kingston, Port Antonio… |
-| Bahamas & Turks & Caicos | Nassau, Exuma, Out Islands, Providenciales, Grand Turk… |
-| Puerto Rico & US/Spanish Virgin Islands | San Juan, Vieques, Culebra, St. Thomas, St. John, St. Croix… |
+| Jamaica — North Coast & Resorts | Montego Bay, Negril, Ocho Rios, Runaway Bay… |
+| Jamaica — Kingston & South-East | Kingston, Port Antonio, the Blue Mountains… |
+| Jamaica — South Coast | Treasure Beach, Black River, YS Falls… |
+| Bahamas | Nassau, Exuma, the Out Islands, Eleuthera, the Abacos… |
+| Turks & Caicos | Providenciales, Grace Bay, Grand Turk… *(strongest liveaboard node)* |
+| Puerto Rico | San Juan, Vieques, Culebra, the interior… |
+| US Virgin Islands | St. Thomas, St. John, St. Croix… |
+| Spanish Virgin Islands | Culebra, Vieques *(as the Spanish VI cluster)*… |
 | Eastern Caribbean — Leewards | Antigua, St. Kitts & Nevis, St. Maarten, Anguilla, BVI… |
 | Eastern Caribbean — Windwards & South | Barbados, St. Lucia, Grenada, the Grenadines, Dominica, Martinique, Trinidad, ABC (Aruba/Bonaire/Curaçao)… |
 
@@ -76,4 +81,4 @@ British Columbia · The Rockies · The Prairies · Ontario · Québec · The Mar
 ---
 
 ## Count
-≈ **82 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 1 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S 17 · 11C 7 · 12A 10 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(The old "168" figure was an error and is retired.)*
+≈ **87 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 1 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S 17 · 11C 12 · 12A 10 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(11C refined 7 → 12 at build time; the old "168" figure was an error and is retired.)*
