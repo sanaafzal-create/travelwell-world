@@ -30,6 +30,10 @@ const Activation = lazy(() => import("@/pages/Activation"));
 const Profile = lazy(() => import("@/pages/Profile"));
 const Plan = lazy(() => import("@/pages/Plan"));
 const About = lazy(() => import("@/pages/About"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
+const Terms = lazy(() => import("@/pages/Terms"));
+const Disclosure = lazy(() => import("@/pages/Disclosure"));
+const Contact = lazy(() => import("@/pages/Contact"));
 const Sitemap = lazy(() => import("@/pages/Sitemap"));
 const Go = lazy(() => import("@/pages/Go"));
 const Placeholder = lazy(() => import("@/pages/Placeholder").then((m) => ({ default: m.Placeholder })));
@@ -85,6 +89,10 @@ export default function App() {
         <Route path="/guides" element={<Guides />} />
         <Route path="/guide/:id" element={<GuideDetail />} />
         <Route path="/about" element={<About />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/disclosure" element={<Disclosure />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/special-interests" element={<SpecialInterests />} />
         <Route path="/si/:id" element={<SiDetail />} />
         <Route path="/regions" element={<Regions />} />

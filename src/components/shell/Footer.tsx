@@ -31,12 +31,24 @@ export function Footer() {
             <Link to="/vc-demo">VC Demo</Link>
             <Link to="/first-aid-kit">First Aid Kit</Link>
             <Link to="/sitemap">Sitemap</Link>
-            <a href="#" onClick={(e) => e.preventDefault()}>FTC Disclosures</a>
+            <Link to="/disclosure">Affiliate Disclosure</Link>
+          </div>
+          <div className="tw-footer__col">
+            <h5>Company</h5>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
         <div className="tw-footer__bottom">
           <span>© 2026 TravelWell.World — every link disclosed, every fact real.</span>
-          <span className="tw-footer__version">TWW-OS · v2.4.0 · 25 SI · 10 Wells · 13 Regions</span>
+          <span className="tw-footer__legal">
+            <Link to="/privacy">Privacy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/disclosure">Disclosure</Link>
+            <Link to="/contact">Contact</Link>
+          </span>
         </div>
       </div>
     </footer>

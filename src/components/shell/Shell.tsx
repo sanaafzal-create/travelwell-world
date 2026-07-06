@@ -8,6 +8,7 @@ import { TripTray } from "./TripTray";
 import { Emergency } from "./Emergency";
 import { Ambient } from "./Ambient";
 import { AtlasOrchestrator } from "./AtlasOrchestrator";
+import { CookieConsent } from "./CookieConsent";
 import { useStore, applyInitialLocale } from "@/store/useStore";
 import { getCurrentUser, onAuthChange } from "@/lib/auth";
 import { flushPendingTravelId } from "@/lib/travelId";
@@ -37,6 +38,7 @@ const PAGE_SLUGS: Record<string, string> = {
   "providers": "providers", "destinations": "destinations", "destination": "destination-detail",
   "guides": "guides", "guide": "guide-detail", "plan": "plan",
   "first-aid-kit": "first-aid-kit", "go": "go", "about": "about", "profile": "profile",
+  "privacy": "legal", "terms": "legal", "disclosure": "legal", "contact": "legal",
   "signin": "sign-in", "verify": "verify-email", "sitemap": "sitemap",
   "itinerary": "itinerary", "luxury": "luxury", "demo": "demo", "vc-demo": "demo",
   "signup": "sign-up", "activation": "activation",
@@ -127,6 +129,7 @@ export function Shell() {
       <Emergency />
       <Ambient />
       <AtlasOrchestrator />
+      <CookieConsent />
     </>
   );
 }
