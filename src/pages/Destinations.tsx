@@ -17,11 +17,11 @@ interface DestWithRegion extends Destination {
 function DestCard({ d }: { d: DestWithRegion }) {
   const photo = useUnsplashImage(`${d.name}, ${d.country}`, img(d.img, 700), 700);
   return (
-    <Link className={cx("dx-card", d.status === "stub" && "dx-card--stub")} to={`/destination/${d.id}`}>
+    <Link className={cx("dx-card", d.depth !== "verified" && "dx-card--stub")} to={`/destination/${d.id}`}>
       <img src={photo.src} alt={d.name} loading="lazy" referrerPolicy="no-referrer" />
       <span className="dx-card__scrim" />
       <span className="dx-card__badge">
-        {d.status === "live" ? (
+        {d.depth === "verified" ? (
           <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
         ) : (
           <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>

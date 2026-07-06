@@ -25,11 +25,11 @@ const AIRPORTS: Record<string, string> = {
 function RdDestCard({ d }: { d: Destination }) {
   const photo = useUnsplashImage(`${d.name}, ${d.country}`, img(d.img, 600), 600);
   return (
-    <Link className={cx("rd-dest", d.status === "stub" && "rd-dest--stub")} to={`/destination/${d.id}`}>
+    <Link className={cx("rd-dest", d.depth !== "verified" && "rd-dest--stub")} to={`/destination/${d.id}`}>
       <img src={photo.src} alt={d.name} loading="lazy" referrerPolicy="no-referrer" />
       <span className="rd-dest__scrim" />
       <span className="rd-dest__badge">
-        {d.status === "live"
+        {d.depth === "verified"
           ? <span className="pill pill-live" style={{ background: "rgba(255,255,255,.92)" }}>Live</span>
           : <span className="pill pill-preview" style={{ background: "rgba(255,255,255,.86)" }}>Preview</span>}
       </span>

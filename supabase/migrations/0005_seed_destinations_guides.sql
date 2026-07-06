@@ -14,8 +14,10 @@ create table if not exists public.destinations (
   name        text not null,
   country     text not null,
   line        text not null,
-  status      text not null check (status in ('live','stub')),
+  status      text not null check (status in ('live','future')),
+  depth       text not null default 'verified' check (depth in ('verified','stub','cached')),
   img         text not null,
+  sub_region  text,
   position    int not null default 0
 );
 
@@ -26,48 +28,64 @@ begin
 exception when duplicate_object then null;
 end $$;
 
-insert into public.destinations (id, region_code, name, country, line, status, img, position) values
-  ('paris', '01F', 'Paris', 'France', 'The first and last word in romance', 'live', 'paris', 0),
-  ('amalfi-x', '01F', 'Lake District', 'Germany', 'Storybook lakes and trails', 'stub', 'mountainValley', 1),
-  ('amsterdam', '01F', 'Amsterdam', 'Netherlands', 'Canals, galleries, easy charm', 'live', 'venice', 2),
-  ('alps', '01F', 'The Alps', 'Switzerland', 'Peaks, spas and slow trains', 'live', 'mountainValley', 3),
-  ('santorini', '02F', 'Santorini', 'Greece', 'Whitewashed cliffs over a caldera', 'live', 'santorini', 0),
-  ('amalfi', '02F', 'Amalfi Coast', 'Italy', 'Lemon groves and vertical villages', 'live', 'venice', 1),
-  ('barcelona', '02F', 'Barcelona', 'Spain', 'Gaudí, tapas and Mediterranean light', 'live', 'marrakech', 2),
-  ('algarve', '02F', 'The Algarve', 'Portugal', 'Golden cliffs and quiet coves', 'stub', 'tropicalBeach', 3),
-  ('reykjavik', '03F', 'Reykjavík & Ring Road', 'Iceland', 'Waterfalls, lava and aurora', 'live', 'northernLights', 0),
-  ('lofoten', '03F', 'Lofoten Islands', 'Norway', 'Sea-cliff drama above the Arctic Circle', 'stub', 'mountainValley', 1),
-  ('dubai', '04A', 'Dubai', 'UAE', 'Audacious, golden, around the clock', 'live', 'dubai', 0),
-  ('petra', '04A', 'Petra & Wadi Rum', 'Jordan', 'Rose-red city and red-sand desert', 'live', 'desertDunes', 1),
-  ('alula', '04A', 'AlUla', 'Saudi Arabia', 'Ancient tombs in a living desert', 'stub', 'desertDunes', 2),
-  ('masai-mara', '05A', 'Maasai Mara', 'Kenya', 'Front-row seat to the Great Migration', 'live', 'safariGiraffe', 0),
-  ('serengeti', '05A', 'Serengeti', 'Tanzania', 'Endless plains, endless herds', 'live', 'lion', 1),
-  ('ngorongoro', '05A', 'Ngorongoro Crater', 'Tanzania', 'A natural amphitheatre of wildlife', 'live', 'elephant', 2),
-  ('volcanoes', '05A', 'Volcanoes NP', 'Rwanda', 'Mountain gorillas in the mist', 'stub', 'mountainValley', 3),
-  ('cape-town', '06A', 'Cape Town', 'South Africa', 'Where the mountain meets two oceans', 'live', 'oceanAerial', 0),
-  ('kruger', '06A', 'Greater Kruger', 'South Africa', 'Big Five in the lowveld', 'live', 'elephant', 1),
-  ('sossusvlei', '06A', 'Sossusvlei', 'Namibia', 'The world''s tallest dunes', 'stub', 'desertDunes', 2),
-  ('bali', '07A', 'Bali', 'Indonesia', 'Rice terraces, temples and surf', 'live', 'baliRice', 0),
-  ('bangkok', '07A', 'Bangkok', 'Thailand', 'Street food capital of the world', 'live', 'restaurant', 1),
-  ('kyoto-x', '07A', 'Phuket & Phi Phi', 'Thailand', 'Limestone islands and warm seas', 'live', 'tropicalBeach', 2),
-  ('siem-reap', '07A', 'Siem Reap', 'Cambodia', 'Sunrise over Angkor Wat', 'stub', 'kyoto', 3),
-  ('kyoto', '08A', 'Kyoto', 'Japan', 'Geisha districts and golden temples', 'live', 'kyoto', 0),
-  ('tokyo', '08A', 'Tokyo', 'Japan', 'Neon, Michelin stars and calm shrines', 'live', 'dubai', 1),
-  ('seoul', '08A', 'Seoul', 'South Korea', 'Palaces, markets and midnight food', 'stub', 'marrakech', 2),
-  ('queenstown', '09P', 'Queenstown', 'New Zealand', 'Adventure capital of the south', 'live', 'mountainValley', 0),
-  ('bora-bora', '09P', 'Bora Bora', 'French Polynesia', 'Overwater bungalows on a lagoon', 'live', 'maldivesResort', 1),
-  ('gbr', '09P', 'Great Barrier Reef', 'Australia', 'The largest living thing on Earth', 'stub', 'oceanAerial', 2),
-  ('machu', '10S', 'Machu Picchu', 'Peru', 'The lost city in the clouds', 'live', 'mountainValley', 0),
-  ('patagonia', '10S', 'Patagonia', 'Chile / Argentina', 'Granite spires and turquoise lakes', 'live', 'mountainValley', 1),
-  ('cartagena', '10S', 'Cartagena', 'Colombia', 'Walled city of color and rhythm', 'stub', 'marrakech', 2),
-  ('turks', '11C', 'Turks & Caicos', 'Turks & Caicos', 'Grace Bay''s impossible blues', 'live', 'oceanAerial', 0),
-  ('st-lucia', '11C', 'St. Lucia', 'St. Lucia', 'The Pitons above the sea', 'live', 'tropicalBeach', 1),
-  ('exuma', '11C', 'The Exumas', 'Bahamas', 'Sandbars and swimming pigs', 'stub', 'maldivesResort', 2),
-  ('banff', '13A', 'Banff & Lake Louise', 'Canada', 'Turquoise lakes under the Rockies', 'live', 'mountainValley', 0),
-  ('vancouver', '13A', 'Vancouver', 'Canada', 'Sea, city and mountains at once', 'stub', 'oceanAerial', 1)
+-- Two-axis model (David-locked): status = shown | coming-soon; depth = how deep.
+-- Evolve a pre-existing table (was status live|stub, no depth/sub_region)
+-- idempotently BEFORE the upsert. Set depth from the old status, then flip the
+-- shown-but-thin 'stub' rows to status 'live' (they stay shown; depth carries
+-- the thinness), then swap the status constraint to live|future.
+alter table public.destinations add column if not exists depth      text;
+alter table public.destinations add column if not exists sub_region text;
+update public.destinations set depth = case when status = 'stub' then 'stub' else 'verified' end where depth is null;
+update public.destinations set status = 'live' where status = 'stub';
+alter table public.destinations drop constraint if exists destinations_status_check;
+alter table public.destinations add  constraint destinations_status_check check (status in ('live','future'));
+alter table public.destinations drop constraint if exists destinations_depth_check;
+alter table public.destinations add  constraint destinations_depth_check check (depth in ('verified','stub','cached'));
+alter table public.destinations alter column depth set default 'verified';
+
+insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, position) values
+  ('paris', '01F', 'Paris', 'France', 'The first and last word in romance', 'live', 'verified', 'paris', null, 0),
+  ('amalfi-x', '01F', 'Lake District', 'Germany', 'Storybook lakes and trails', 'live', 'stub', 'mountainValley', null, 1),
+  ('amsterdam', '01F', 'Amsterdam', 'Netherlands', 'Canals, galleries, easy charm', 'live', 'verified', 'venice', null, 2),
+  ('alps', '01F', 'The Alps', 'Switzerland', 'Peaks, spas and slow trains', 'live', 'verified', 'mountainValley', null, 3),
+  ('santorini', '02F', 'Santorini', 'Greece', 'Whitewashed cliffs over a caldera', 'live', 'verified', 'santorini', null, 0),
+  ('amalfi', '02F', 'Amalfi Coast', 'Italy', 'Lemon groves and vertical villages', 'live', 'verified', 'venice', null, 1),
+  ('barcelona', '02F', 'Barcelona', 'Spain', 'Gaudí, tapas and Mediterranean light', 'live', 'verified', 'marrakech', null, 2),
+  ('algarve', '02F', 'The Algarve', 'Portugal', 'Golden cliffs and quiet coves', 'live', 'stub', 'tropicalBeach', null, 3),
+  ('reykjavik', '03F', 'Reykjavík & Ring Road', 'Iceland', 'Waterfalls, lava and aurora', 'live', 'verified', 'northernLights', null, 0),
+  ('lofoten', '03F', 'Lofoten Islands', 'Norway', 'Sea-cliff drama above the Arctic Circle', 'live', 'stub', 'mountainValley', null, 1),
+  ('dubai', '04A', 'Dubai', 'UAE', 'Audacious, golden, around the clock', 'live', 'verified', 'dubai', null, 0),
+  ('petra', '04A', 'Petra & Wadi Rum', 'Jordan', 'Rose-red city and red-sand desert', 'live', 'verified', 'desertDunes', null, 1),
+  ('alula', '04A', 'AlUla', 'Saudi Arabia', 'Ancient tombs in a living desert', 'live', 'stub', 'desertDunes', null, 2),
+  ('masai-mara', '05A', 'Maasai Mara', 'Kenya', 'Front-row seat to the Great Migration', 'live', 'verified', 'safariGiraffe', null, 0),
+  ('serengeti', '05A', 'Serengeti', 'Tanzania', 'Endless plains, endless herds', 'live', 'verified', 'lion', null, 1),
+  ('ngorongoro', '05A', 'Ngorongoro Crater', 'Tanzania', 'A natural amphitheatre of wildlife', 'live', 'verified', 'elephant', null, 2),
+  ('volcanoes', '05A', 'Volcanoes NP', 'Rwanda', 'Mountain gorillas in the mist', 'live', 'stub', 'mountainValley', null, 3),
+  ('cape-town', '06A', 'Cape Town', 'South Africa', 'Where the mountain meets two oceans', 'live', 'verified', 'oceanAerial', 'South Africa', 0),
+  ('kruger', '06A', 'Greater Kruger', 'South Africa', 'Big Five in the lowveld', 'live', 'verified', 'elephant', 'South Africa', 1),
+  ('sossusvlei', '06A', 'Sossusvlei', 'Namibia', 'The world''s tallest dunes', 'live', 'stub', 'desertDunes', 'Namibia Desert & Coast', 2),
+  ('bali', '07A', 'Bali', 'Indonesia', 'Rice terraces, temples and surf', 'live', 'verified', 'baliRice', null, 0),
+  ('bangkok', '07A', 'Bangkok', 'Thailand', 'Street food capital of the world', 'live', 'verified', 'restaurant', null, 1),
+  ('kyoto-x', '07A', 'Phuket & Phi Phi', 'Thailand', 'Limestone islands and warm seas', 'live', 'verified', 'tropicalBeach', null, 2),
+  ('siem-reap', '07A', 'Siem Reap', 'Cambodia', 'Sunrise over Angkor Wat', 'live', 'stub', 'kyoto', null, 3),
+  ('kyoto', '08A', 'Kyoto', 'Japan', 'Geisha districts and golden temples', 'live', 'verified', 'kyoto', null, 0),
+  ('tokyo', '08A', 'Tokyo', 'Japan', 'Neon, Michelin stars and calm shrines', 'live', 'verified', 'dubai', null, 1),
+  ('seoul', '08A', 'Seoul', 'South Korea', 'Palaces, markets and midnight food', 'live', 'stub', 'marrakech', null, 2),
+  ('queenstown', '09P', 'Queenstown', 'New Zealand', 'Adventure capital of the south', 'live', 'verified', 'mountainValley', null, 0),
+  ('bora-bora', '09P', 'Bora Bora', 'French Polynesia', 'Overwater bungalows on a lagoon', 'live', 'verified', 'maldivesResort', null, 1),
+  ('gbr', '09P', 'Great Barrier Reef', 'Australia', 'The largest living thing on Earth', 'live', 'stub', 'oceanAerial', null, 2),
+  ('machu', '10S', 'Machu Picchu', 'Peru', 'The lost city in the clouds', 'live', 'verified', 'mountainValley', null, 0),
+  ('patagonia', '10S', 'Patagonia', 'Chile / Argentina', 'Granite spires and turquoise lakes', 'live', 'verified', 'mountainValley', null, 1),
+  ('cartagena', '10S', 'Cartagena', 'Colombia', 'Walled city of color and rhythm', 'live', 'stub', 'marrakech', null, 2),
+  ('turks', '11C', 'Turks & Caicos', 'Turks & Caicos', 'Grace Bay''s impossible blues', 'live', 'verified', 'oceanAerial', 'Bahamas & Turks & Caicos', 0),
+  ('st-lucia', '11C', 'St. Lucia', 'St. Lucia', 'The Pitons above the sea', 'live', 'verified', 'tropicalBeach', 'Eastern Caribbean — Windwards & South', 1),
+  ('exuma', '11C', 'The Exumas', 'Bahamas', 'Sandbars and swimming pigs', 'live', 'stub', 'maldivesResort', 'Bahamas & Turks & Caicos', 2),
+  ('banff', '13A', 'Banff & Lake Louise', 'Canada', 'Turquoise lakes under the Rockies', 'live', 'verified', 'mountainValley', null, 0),
+  ('vancouver', '13A', 'Vancouver', 'Canada', 'Sea, city and mountains at once', 'live', 'stub', 'oceanAerial', null, 1)
 on conflict (id) do update set
   region_code = excluded.region_code, name = excluded.name, country = excluded.country,
-  line = excluded.line, status = excluded.status, img = excluded.img, position = excluded.position;
+  line = excluded.line, status = excluded.status, depth = excluded.depth,
+  img = excluded.img, sub_region = excluded.sub_region, position = excluded.position;
 
 -- Guides ----------------------------------------------------------------------
 create table if not exists public.guides (

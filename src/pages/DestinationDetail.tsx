@@ -25,7 +25,7 @@ function findDestination(
     if (dest) return { dest, region: r, list };
   }
   const list = destinations[fallbackRegion.code] || [];
-  const stub: Destination = { id: "x", name: id || "This place", country: fallbackRegion.name, line: "A destination in " + fallbackRegion.name, status: "stub", img: "mountainValley" };
+  const stub: Destination = { id: "x", name: id || "This place", country: fallbackRegion.name, line: "A destination in " + fallbackRegion.name, status: "live", depth: "stub", img: "mountainValley" };
   return { dest: list[0] || stub, region: fallbackRegion, list };
 }
 
@@ -50,7 +50,7 @@ export default function DestinationDetail() {
   wells.forEach((w) => { allWells[w.id] = w; });
   const { dest: DEST, region: R, list } = findDestination(regions, destinations, id);
   const country = DEST.country || R.name;
-  const stub = DEST.status === "stub";
+  const stub = DEST.depth !== "verified";
 
   // Destination-matched Unsplash hero, with the bundled image as instant fallback.
   const hero = useUnsplashImage(`${DEST.name}, ${country}`, img(DEST.img, 1800), 1800);

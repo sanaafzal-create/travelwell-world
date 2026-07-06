@@ -198,7 +198,7 @@ console.log(`  ${seenPk.size} providers (${Object.values(PROVIDERS).flat().lengt
 // ---------------------------------------------------------------------------
 const destRows = Object.entries(DESTINATIONS)
   .flatMap(([code, list]) =>
-    list.map((d, i) => `  (${q(d.id)}, ${q(code)}, ${q(d.name)}, ${q(d.country)}, ${q(d.line)}, ${q(d.status)}, ${q(d.img)}, ${i})`)
+    list.map((d, i) => `  (${q(d.id)}, ${q(code)}, ${q(d.name)}, ${q(d.country)}, ${q(d.line)}, ${q(d.status)}, ${q(d.depth)}, ${q(d.img)}, ${d.sub_region ? q(d.sub_region) : "null"}, ${i})`)
   )
   .join(",\n");
 
@@ -223,8 +223,10 @@ create table if not exists public.destinations (
   name        text not null,
   country     text not null,
   line        text not null,
-  status      text not null check (status in ('live','stub')),
+  status      text not null check (status in ('live','future')),
+  depth       text not null default 'verified' check (depth in ('verified','stub','cached')),
   img         text not null,
+  sub_region  text,
   position    int not null default 0
 );
 
@@ -235,11 +237,27 @@ begin
 exception when duplicate_object then null;
 end $$;
 
-insert into public.destinations (id, region_code, name, country, line, status, img, position) values
+-- Two-axis model (David-locked): status = shown | coming-soon; depth = how deep.
+-- Evolve a pre-existing table (was status live|stub, no depth/sub_region)
+-- idempotently BEFORE the upsert. Set depth from the old status, then flip the
+-- shown-but-thin 'stub' rows to status 'live' (they stay shown; depth carries
+-- the thinness), then swap the status constraint to live|future.
+alter table public.destinations add column if not exists depth      text;
+alter table public.destinations add column if not exists sub_region text;
+update public.destinations set depth = case when status = 'stub' then 'stub' else 'verified' end where depth is null;
+update public.destinations set status = 'live' where status = 'stub';
+alter table public.destinations drop constraint if exists destinations_status_check;
+alter table public.destinations add  constraint destinations_status_check check (status in ('live','future'));
+alter table public.destinations drop constraint if exists destinations_depth_check;
+alter table public.destinations add  constraint destinations_depth_check check (depth in ('verified','stub','cached'));
+alter table public.destinations alter column depth set default 'verified';
+
+insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, position) values
 ${destRows}
 on conflict (id) do update set
   region_code = excluded.region_code, name = excluded.name, country = excluded.country,
-  line = excluded.line, status = excluded.status, img = excluded.img, position = excluded.position;
+  line = excluded.line, status = excluded.status, depth = excluded.depth,
+  img = excluded.img, sub_region = excluded.sub_region, position = excluded.position;
 
 -- Guides ----------------------------------------------------------------------
 create table if not exists public.guides (
