@@ -35,7 +35,7 @@
 ## PART 2 — The full-launch plan (shape)
 
 **Phase A — Foundation hardening & sockets (pre-soft-launch)**
-1. Destination **data model + ingest** (jsonb: sub_region, depth, booking-window designed in now, empty until research lands). 🏋️
+1. Destination **data model + ingest** (jsonb: sub_region, depth, booking-window designed in now) — **and experiences carry structured fit-rules** so Atlas can architect, not just recommend. 🏋️ *(see the trip-architect data requirements below)*
 2. First **real dossiers** for the live-6 SIs in 2–3 launch regions.
 3. **Guided Mode Phase 2** — Atlas leads the journey. 🏋️
 4. **SEO rendering** (prerender/SSR + per-route meta + sitemap + JSON-LD). 🏋️ *Highest risk — start early.*
@@ -77,6 +77,14 @@ profile and the World-Engine fields — not new build, just the right shape.
 **Deliberately NOT pre-fit** (they attach to the core, they don't reshape it): the Equipment Intelligence Engine (carnets, chain-of-custody) and the 12 team-travel engines (Academic Constraint, Compliance, …). Keep the Wells/matching/booking core generic; don't contort the foundation guessing at them.
 
 **Open questions flagged to David:** person↔team identity shape (one profile with memberships); institutional compliance surface (minors, medical, FERPA) is heavier than consumer; and whether the "next task" operational OS is the same app or a separate product on the shared tank.
+
+### Trip-architect & living-itinerary data (fold into the data-model phase)
+From the Atlas Trip-Architect / Living-Itinerary doc. These are what make Atlas a *companion*, not a catalog — and they must be in the schema from day one, or Atlas can only recommend, never architect or accompany.
+- **Fit-rules on every experience** — `duration` (door-to-door), `before` (arrival buffer / acclimatization / prerequisite), `after` (e.g. no-fly-after-diving, recovery), `pairs_with`, `pace/intensity`, `time-of-day`, `season`. Author as a **small canonical vocabulary** (tags Atlas can reason over), not prose. **Inherit by experience type** — e.g. "no-fly-after-diving" authored once for diving, overridable per instance; cleaner for Atlas and less to research.
+- **Itinerary = first-class dated object** — an ordered set of placed experiences across dated days; **every day carries day-number + weekday + date** (people anchor to the weekday). Viewable (≈ quarter-screen, read alongside Atlas), Atlas-held (read / update / surface any day), with proactive "tomorrow" surfacing on an afternoon/evening trigger.
+- **Separate placed from booked** — a placement lives in the trip before booking; booking is a state (idea → placed → handed-off → confirmed), the confirmation returning from the provider. Arrival buffers / recovery mornings are **derived** from fit-rules, so re-sequencing recomputes them rather than stranding them.
+- **Trips are plural** — one traveler owns many trips across the lifetime loop; design the itinerary per-trip, and ready for later role-scoped participants (the team socket).
+- **The layered page needs almost no new data** — the dossier already carries the calm surface (hook, ~5 facts, safety card, the "know more" gate) and the depth (jewels = curated Layer 1, trails = booking lanes; "our best first" = order by curation tier). It's a reveal-on-demand UI over data we've already shaped.
 
 ---
 
