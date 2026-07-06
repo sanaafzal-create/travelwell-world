@@ -17,7 +17,7 @@
 - **Deploy** — Vercel from `main`.
 
 ### 🟡 Half-built / stubbed (works, not finished)
-- **Booking** — affiliate **handoff** (`/go` → `booking_url`) with a checkout UI shell (3 tracks). No real payment processing. Fine for soft launch if we commit to handoff.
+- **Booking** — affiliate **handoff** (`/go` → `booking_url`) with a checkout UI shell (3 tracks). **Locked as the permanent model** (David): the provider is merchant of record, the traveler books and pays them directly, Atlas never touches payment. Keeps us at PCI SAQ A, off the liability hook — a feature, not a gap. No payment processing to build, ever.
 - **Atlas guided journey** — the *spine* is built; **Guided Mode** (Atlas driving page-to-page, pre-setting choices, the glow/spotlight) is Phase 2–4, not built.
 - **Content depth** — destinations are shallow (a line + image). The **deep dossier model** (jsonb: jewels, safety, SEO, booking-window) is validated (Cape Town ingest test passed) but not built/ingested. Providers cover ~2 regions partially.
 - **Voice** — Web Speech input works; degrades honestly where unsupported.
@@ -40,7 +40,7 @@
 3. **Guided Mode Phase 2** — Atlas leads the journey. 🏋️
 4. **SEO rendering** (prerender/SSR + per-route meta + sitemap + JSON-LD). 🏋️ *Highest risk — start early.*
 5. **Test + CI** baseline; analytics **attribution socket** + **marketing-permission fields** on the profile (room, not sends).
-6. Confirm **booking = affiliate handoff** for launch (defer payments).
+6. **Booking = affiliate handoff, locked** — provider is merchant of record; Atlas surfaces → hands off → confirmation returns. No payments to build. Bake the honest-language rule into Atlas ("you'll book right with them," never "I'll hold it for you").
 
 **Phase B — Soft launch** — live-6 SIs, launch regions, English, handoff booking, guided flow, real content depth, SEO pages ranking. Prove the engines.
 
@@ -52,8 +52,9 @@
 9. **i18n / 9 languages** — today a locale/RTL *switcher* only, no translated content. Full launch = translate all UI + content, Atlas in-language, RTL QA. 🏋️🏋️ *Biggest single lift.*
 10. **Marketing outbound** — email/SMS reactivation, permission + timing on the profile.
 11. **Content at scale** — top-12 deep per sub-region across regions; provider coverage across all wells.
-12. **Real booking / payments** — only if we go beyond handoff.
-13. Hardening, observability, trust/safety verification at scale, trademark filings.
+12. Hardening, observability, trust/safety verification at scale, trademark filings.
+
+> **Payments are permanently out of scope.** Atlas guides and organizes; the traveler always books and pays the provider directly (redirect-with-return, provider = merchant of record). There is no future tier where TravelWell touches payment — locked by David. This is why we stay at PCI SAQ A.
 
 **Heavy lifts / where people concentrate:** i18n, SEO rendering, the monthly-sweep automation, content production at scale.
 
