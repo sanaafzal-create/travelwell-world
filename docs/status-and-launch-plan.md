@@ -76,6 +76,13 @@ profile and the World-Engine fields — not new build, just the right shape.
 
 **Deliberately NOT pre-fit** (they attach to the core, they don't reshape it): the Equipment Intelligence Engine (carnets, chain-of-custody) and the 12 team-travel engines (Academic Constraint, Compliance, …). Keep the Wells/matching/booking core generic; don't contort the foundation guessing at them.
 
+### Provider capability ledger + confirmation return (confirmed)
+From the trip-architect thread — how a booking confirmation lands back in the itinerary without Atlas ever touching payment.
+- **Confirmation return is an upgradeable field, not a fixed mechanism** — `api` where the provider supports it (clean + instant into the living itinerary), `email-parse` as the universal fallback (TripIt-style), `none` otherwise. Provider is always merchant of record; the method upgrades over time (email → API), tracked like the affiliate → embedded-commission upgrade.
+- **Capability fields carry provenance, not just a flag.** On the provider record, each capability (commission lane, confirmation-return method) carries `source` + `last_verified` (date) + `confidence` — so we always know *when* we last confirmed it and *where* it came from.
+- **Machine-writable from day one.** These fields are writable by an automated process, not only a human — so a watcher plugs in clean (human-edit-only would force a migration later).
+- **Launch-phase consumer, not "someday":** a narrow autonomous **changelog sweep** on the 8–12 top providers with public API docs (Expedia, Booking, Viator, GetYourGuide tier) fetches their public changelog on a schedule, diffs it with AI, and writes capability upgrades (e.g., "shipped an API") into the ledger on its own. The full network watcher (newsletters, whole provider base) comes with the raise. So the machine-writable socket has a real consumer at launch — and it's a VC proof point (the platform watching its own supply and self-updating).
+
 **Confirmed with David (locked):**
 - **One profile with memberships** — capture the human once; every team they're on hangs off that one profile, by role.
 - **Institutional data stays architecturally separable from consumer data — from day one.** We don't build the compliance machinery yet (minors, medical, accreditation, FERPA), but the profile is poured so the two never have to be pulled apart later.
