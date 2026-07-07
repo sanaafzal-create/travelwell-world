@@ -89,6 +89,6 @@ From the Atlas Trip-Architect / Living-Itinerary doc. These are what make Atlas 
 ---
 
 ## Recommended starting points
-- **SEO rendering** — highest-risk blocker for the whole traffic thesis; universally underestimated.
+- **SEO rendering** — highest-risk blocker for the whole traffic thesis; universally underestimated. **De-risked by a spike (Jul 2026):** a server-render of a real content page (`/region/06A`) produced ~6.8 KB of crawlable HTML with the region, destinations, and blurb in the markup, and per-page `<head>` (title/meta/canonical/hreflang/`TouristDestination` JSON-LD) generates cleanly from the dossier `seo` fields. The app is **SSR-safe** (guarded `localStorage`, `useUnsplashImage` fallback, synchronous bundle catalog — no crashes in Node). SSG is the confirmed approach; likely tool `vite-react-ssg` (fits our react-router app with least churn), Vike as fallback. Remaining work is toolchain wiring: routes-as-data + `getStaticPaths` from the catalog + head integration + a **content-change → rebuild** trigger (the monthly sweep calls it) + deploy target. Ship the render fix on the current host first; treat a Cloudflare move as a separate cost step.
 - **Destination data model** — every other piece (dossiers, cache-back, sweep, World-Engine) hangs off it.
 - **i18n** — consciously scheduled *last* before full launch, resourced as its own workstream; prove the engine in English first.
