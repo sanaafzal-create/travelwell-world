@@ -61,7 +61,7 @@ insert into public.destinations (id, region_code, name, country, line, status, d
   ('serengeti', '05A', 'Serengeti', 'Tanzania', 'Endless plains, endless herds', 'live', 'verified', 'lion', null, 1),
   ('ngorongoro', '05A', 'Ngorongoro Crater', 'Tanzania', 'A natural amphitheatre of wildlife', 'live', 'verified', 'elephant', null, 2),
   ('volcanoes', '05A', 'Volcanoes NP', 'Rwanda', 'Mountain gorillas in the mist', 'live', 'stub', 'mountainValley', null, 3),
-  ('cape-town', '06A', 'Cape Town', 'South Africa', 'Where the mountain meets two oceans', 'live', 'verified', 'oceanAerial', 'South Africa', 0),
+  ('cape-town-south-africa', '06A', 'Cape Town', 'South Africa', 'Where the mountain meets two oceans', 'live', 'verified', 'oceanAerial', 'South Africa', 0),
   ('kruger', '06A', 'Greater Kruger', 'South Africa', 'Big Five in the lowveld', 'live', 'verified', 'elephant', 'South Africa', 1),
   ('sossusvlei', '06A', 'Sossusvlei', 'Namibia', 'The world''s tallest dunes', 'live', 'stub', 'desertDunes', 'Namibia Desert & Coast', 2),
   ('bali', '07A', 'Bali', 'Indonesia', 'Rice terraces, temples and surf', 'live', 'verified', 'baliRice', null, 0),

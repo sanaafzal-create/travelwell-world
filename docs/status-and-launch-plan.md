@@ -95,6 +95,7 @@ From the Atlas Trip-Architect / Living-Itinerary doc. These are what make Atlas 
 - **Separate placed from booked** — a placement lives in the trip before booking; booking is a state (idea → placed → handed-off → confirmed), the confirmation returning from the provider. Arrival buffers / recovery mornings are **derived** from fit-rules, so re-sequencing recomputes them rather than stranding them.
 - **Trips are plural** — one traveler owns many trips across the lifetime loop; design the itinerary per-trip, and ready for later role-scoped participants (the team socket).
 - **The layered page needs almost no new data** — the dossier already carries the calm surface (hook, ~5 facts, safety card, the "know more" gate) and the depth (jewels = curated Layer 1, trails = booking lanes; "our best first" = order by curation tier). It's a reveal-on-demand UI over data we've already shaped.
+- **Destination key convention (locked):** `<city>-<country>`, **full country name spelled out, lowercase, hyphenated** — e.g. `cape-town-south-africa` (never `cape-town`, `-za`, or `-SA`; `mexico`, never `mx`). Collision-proof at global scale (many Valladolids, San Josés, Córdobas). The key comes verbatim from each conformed dossier as the library lands — don't derive from memory (edge cases like "St. Lucia / St. Lucia" or "Patagonia / Chile-Argentina" need the dossier's canonical, not a naive slug). Cape Town is renamed to `cape-town-south-africa` as the locked template anchor; the rest adopt the key as their dossiers conform.
 
 ---
 
