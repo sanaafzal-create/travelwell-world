@@ -69,8 +69,12 @@ Japan · Greater China · Korea · Mongolia & the Steppe
 ### 09P — Oceania & the Pacific
 Australia — East Coast · Australia — the Outback & West · New Zealand · Melanesia · Polynesia & Micronesia
 
-### 10S — Latin America
-Mexico — Yucatán & the Caribbean Coast · Mexico — Pacific Coast · Mexico — Central Highlands & Colonial · Mexico — Baja & the North · Central America · Peru · Ecuador & Galápagos · Colombia · Bolivia & the High Andes · Brazil — Rio & the Southeast · Brazil — the Amazon & North · Brazil — the Northeast Coast · Brazil — the Pantanal & Center-West · Brazil — the South & the Falls · Argentina · Chile · Uruguay & the River Plate
+### 10S — Latin America  *(strings come verbatim from David's locked 10S master, wired per block as dossiers land — do NOT sketch from memory)*
+Confirmed locked so far:
+- **`Yucatán (Mérida & Chichén Itzá)`** — the exact string (already on 47 built Mexico dossiers). NOT "Mexico — Yucatán & the Caribbean Coast."
+- **Central America is by country** (Guatemala, Belize, Costa Rica, …), country-internal style — *not* a single "Central America" node.
+
+The Mexico anchor tier is built under the locked strings; Central America (by country) is the next block. Remaining 10S strings arrive from the master per block — nothing here is wired to a live destination yet (the three 10S demo destinations carry no sub_region).
 
 ### 12A — United States *(use taxonomy.ts strings as-is)*
 Pacific Coast · Mountain West · The Southwest · Texas & the Gulf · The Midwest · The South · New England · Mid-Atlantic · Alaska · Hawai'i
@@ -81,4 +85,4 @@ British Columbia · The Rockies · The Prairies · Ontario · Québec · The Mar
 ---
 
 ## Count
-≈ **87 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 1 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S 17 · 11C 12 · 12A 10 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(11C refined 7 → 12 at build time; the old "168" figure was an error and is retired.)*
+≈ **87 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 1 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S *from master, per block* · 11C 12 · 12A 10 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(11C refined 7 → 12 at build time; 10S strings come verbatim from David's locked master — Central America is by-country, so its count firms as blocks land; the old "168" figure was an error and is retired.)*
