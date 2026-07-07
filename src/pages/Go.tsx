@@ -8,12 +8,13 @@ import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 export default function Go() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
-  const { addToTrip } = useStore();
+  const { addToTrip, openPanel } = useStore();
   const to = params.get("to") || "our partner";
   const wellId = params.get("well") || "stay";
   const well = useWellById(wellId);
   // Real affiliate redirect when the provider has a booking URL (David's intel);
-  // otherwise the handoff stays informational until URLs are added.
+  // otherwise Atlas offers to connect the traveler directly — a working handoff,
+  // never a dead end.
   const providers = useProviders();
   const bookingUrl = (providers[wellId] || []).find((p) => p.name === to)?.bookingUrl;
 
@@ -33,7 +34,7 @@ export default function Go() {
           {bookingUrl ? (
             <a className="btn btn-primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">Continue to {to} <Icon name="arrow" small /></a>
           ) : (
-            <a className="btn btn-primary" href="#" aria-disabled="true" onClick={(e) => e.preventDefault()} title="Direct booking link coming soon">Continue to {to} <Icon name="arrow" small /></a>
+            <Button onClick={() => openPanel("concierge")}><Icon name="sparkles" small /> Ask Atlas to connect you with {to}</Button>
           )}
           <Button variant="secondary" onClick={() => { addToTrip({ well: wellId, icon: well?.icon || "compass", name: to, meta: `${well?.name || "Booked"} · affiliate`, status: "confirmed" }); navigate("/itinerary"); }}>
             <Icon name="check" small /> I booked it — add to my trip

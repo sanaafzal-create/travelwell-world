@@ -16,7 +16,9 @@ export default function SpecialInterests() {
   const { journeySIs, toggleSI } = useStore();
   const SIS = useSpecialInterests();
   const navigate = useNavigate();
-  const [filter, setFilter] = useState<Filter>("all");
+  // Default to the live set so the page opens showing what's ready now (no
+  // "coming soon" clutter on first view); the roadmap is one tap away.
+  const [filter, setFilter] = useState<Filter>("live");
 
   const match = (status: string) =>
     filter === "all" || (filter === "live" && status === "live") || (filter === "soon" && status !== "live");
@@ -36,8 +38,8 @@ export default function SpecialInterests() {
         <div className="jn-toolbar">
           <span className="jn-sweet"><Icon name="sparkle" small /> Choose up to 3 — <b style={{ color: "var(--foreground)" }}>1–2 is the sweet spot</b> for a focused trip.</span>
           <div className="jn-filter" role="group" aria-label="Filter interests">
-            <button aria-pressed={filter === "all"} onClick={() => setFilter("all")}>All 25</button>
             <button aria-pressed={filter === "live"} onClick={() => setFilter("live")}>Ready now</button>
+            <button aria-pressed={filter === "all"} onClick={() => setFilter("all")}>All</button>
             <button aria-pressed={filter === "soon"} onClick={() => setFilter("soon")}>Coming soon</button>
           </div>
         </div>
