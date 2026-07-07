@@ -76,7 +76,10 @@ profile and the World-Engine fields — not new build, just the right shape.
 
 **Deliberately NOT pre-fit** (they attach to the core, they don't reshape it): the Equipment Intelligence Engine (carnets, chain-of-custody) and the 12 team-travel engines (Academic Constraint, Compliance, …). Keep the Wells/matching/booking core generic; don't contort the foundation guessing at them.
 
-**Open questions flagged to David:** person↔team identity shape (one profile with memberships); institutional compliance surface (minors, medical, FERPA) is heavier than consumer; and whether the "next task" operational OS is the same app or a separate product on the shared tank.
+**Confirmed with David (locked):**
+- **One profile with memberships** — capture the human once; every team they're on hangs off that one profile, by role.
+- **Institutional data stays architecturally separable from consumer data — from day one.** We don't build the compliance machinery yet (minors, medical, accreditation, FERPA), but the profile is poured so the two never have to be pulled apart later.
+- **The "next-task" operational layer is a separate product on the shared tank** — not welded into the consumer app. Kept apart at the seam even when they share the data.
 
 ### Trip-architect & living-itinerary data (fold into the data-model phase)
 From the Atlas Trip-Architect / Living-Itinerary doc. These are what make Atlas a *companion*, not a catalog — and they must be in the schema from day one, or Atlas can only recommend, never architect or accompany.
