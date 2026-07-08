@@ -83,6 +83,13 @@ From the trip-architect thread — how a booking confirmation lands back in the 
 - **Machine-writable from day one.** These fields are writable by an automated process, not only a human — so a watcher plugs in clean (human-edit-only would force a migration later).
 - **Launch-phase consumer, not "someday":** a narrow autonomous **changelog sweep** on the 8–12 top providers with public API docs (Expedia, Booking, Viator, GetYourGuide tier) fetches their public changelog on a schedule, diffs it with AI, and writes capability upgrades (e.g., "shipped an API") into the ledger on its own. The full network watcher (newsletters, whole provider base) comes with the raise. So the machine-writable socket has a real consumer at launch — and it's a VC proof point (the platform watching its own supply and self-updating).
 
+### Atlas conversational layer — locked doctrine (build at the conversational/itinerary-engine phase)
+Two locked docs: the **Atlas Opening** (dream-first intake → a structured *vision object*: SI primary/secondary, feel/archetype, region-pull, style→tier) and the **Content-Only Redirect Protocol** (L1/L2 book freely; L3 books only if it passes all three safety gates; L4 & L3-blocked are content-only — talk about it, no Book button).
+- **Rides on what's built:** the persistent Atlas spine (holds the vision), the subject-based profile (the vision object seeds identity), and the dossier's `advisory_level` + `posture` (`booking_hold` = the content-only switch).
+- **New data field:** a `feel` / `archetype` tag on destinations — the redirect matches on **SI + feel + region proximity** (never one axis alone; SI-only offers a bad cousin). We carry SI + region but not feel yet — add it to the destination record.
+- **New build:** the conversational intake + vision-object schema; the layered-match ranking (rank by layers shared); the **two-tone** explanation branch (L4 brief/firm; L3-blocked reasoned + sourced).
+- **Locked life-safety language** goes verbatim into Atlas's system prompt — speak "safety" plainly, keep travelers **informed**, and **never promise the outcome "safe."** Spec together with David when the engine is ready.
+
 **Confirmed with David (locked):**
 - **One profile with memberships** — capture the human once; every team they're on hangs off that one profile, by role.
 - **Institutional data stays architecturally separable from consumer data — from day one.** We don't build the compliance machinery yet (minors, medical, accreditation, FERPA), but the profile is poured so the two never have to be pulled apart later.
