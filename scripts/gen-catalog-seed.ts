@@ -196,11 +196,13 @@ console.log(`  ${seenPk.size} providers (${Object.values(PROVIDERS).flat().lengt
 // ---------------------------------------------------------------------------
 // 0005 — Destinations + Guides
 // ---------------------------------------------------------------------------
+const allDests = Object.values(DESTINATIONS).flat();
 const destRows = Object.entries(DESTINATIONS)
   .flatMap(([code, list]) =>
     list.map((d, i) => `  (${q(d.id)}, ${q(code)}, ${q(d.name)}, ${q(d.country)}, ${q(d.line)}, ${q(d.status)}, ${q(d.depth)}, ${q(d.img)}, ${d.sub_region ? q(d.sub_region) : "null"}, ${i})`)
   )
   .join(",\n");
+const destIdList = allDests.map((d) => q(d.id)).join(", ");
 
 const guideRows = GUIDES.map(
   (g, i) =>
@@ -258,6 +260,12 @@ on conflict (id) do update set
   region_code = excluded.region_code, name = excluded.name, country = excluded.country,
   line = excluded.line, status = excluded.status, depth = excluded.depth,
   img = excluded.img, sub_region = excluded.sub_region, position = excluded.position;
+
+-- Seed is authoritative: drop any destination no longer in the catalog — e.g.
+-- a row left behind by a key rename (cape-town -> cape-town-south-africa). Safe
+-- while every destination comes from this seed; once cache-back writes
+-- atlas-sourced rows, scope this by a source column instead.
+delete from public.destinations where id not in (${destIdList});
 
 -- Guides ----------------------------------------------------------------------
 create table if not exists public.guides (

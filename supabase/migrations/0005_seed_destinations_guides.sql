@@ -87,6 +87,12 @@ on conflict (id) do update set
   line = excluded.line, status = excluded.status, depth = excluded.depth,
   img = excluded.img, sub_region = excluded.sub_region, position = excluded.position;
 
+-- Seed is authoritative: drop any destination no longer in the catalog — e.g.
+-- a row left behind by a key rename (cape-town -> cape-town-south-africa). Safe
+-- while every destination comes from this seed; once cache-back writes
+-- atlas-sourced rows, scope this by a source column instead.
+delete from public.destinations where id not in ('paris', 'amalfi-x', 'amsterdam', 'alps', 'santorini', 'amalfi', 'barcelona', 'algarve', 'reykjavik', 'lofoten', 'dubai', 'petra', 'alula', 'masai-mara', 'serengeti', 'ngorongoro', 'volcanoes', 'cape-town-south-africa', 'kruger', 'sossusvlei', 'bali', 'bangkok', 'kyoto-x', 'siem-reap', 'kyoto', 'tokyo', 'seoul', 'queenstown', 'bora-bora', 'gbr', 'machu', 'patagonia', 'cartagena', 'turks', 'st-lucia', 'exuma', 'banff', 'vancouver');
+
 -- Guides ----------------------------------------------------------------------
 create table if not exists public.guides (
   id        text primary key,
