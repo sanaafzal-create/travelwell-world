@@ -83,6 +83,17 @@ From the trip-architect thread — how a booking confirmation lands back in the 
 - **Machine-writable from day one.** These fields are writable by an automated process, not only a human — so a watcher plugs in clean (human-edit-only would force a migration later).
 - **Launch-phase consumer, not "someday":** a narrow autonomous **changelog sweep** on the 8–12 top providers with public API docs (Expedia, Booking, Viator, GetYourGuide tier) fetches their public changelog on a schedule, diffs it with AI, and writes capability upgrades (e.g., "shipped an API") into the ledger on its own. The full network watcher (newsletters, whole provider base) comes with the raise. So the machine-writable socket has a real consumer at launch — and it's a VC proof point (the platform watching its own supply and self-updating).
 
+### Booking hand-off — retention design ("don't lose them to the net jungle")
+The moment a traveler leaves to book with a provider is where we can lose them. Design principle: **keep the commission and keep the traveler are separable problems** — solve each with the right tool, don't compromise one for the other.
+- **Hard constraint (name it so we don't chase a dead end):** a *web app* cannot put a "Back to TravelWell" bar over a provider's page. Booking sites block iframing (`X-Frame-Options` / CSP `frame-ancestors`), and framing would also break their payment flow **and** our affiliate attribution (the network needs a direct click). So the framed-window idea is not a web option.
+- **Keep the commission:** the clean **direct new-tab redirect** to the provider's affiliate URL (what `/go` does today) is exactly what the network wants — don't touch it.
+- **Keep the traveler — via our data + our tab, not their screen:**
+  1. **Deep-link the hand-off** — carry region + dates + activity so they land on the exact property/charter, not a homepage (per-provider URL templating; biggest always-works win).
+  2. **New-tab open keeps our tab alive** (already the case) — home is one tab-switch away; the `/go` return surface waits there.
+  3. **Capture the placement *before* they leave** — placed ≠ booked, so the item is in the itinerary marked "handed-off" the instant they tap book. Even if they vanish, **we don't lose the trip.**
+  4. **Atlas backstop + self-filing confirmation** — Atlas re-engages ("did you lock in the dive?"), and the confirmation-return field (email-parse → API) files the booking back into the itinerary on its own — the trip completes even if they never click back.
+- **Roadmap — the true framed bar:** the "provider opens in an in-app browser with our bar + a Done→Atlas button and a dismiss callback" is a **native-app / installable-PWA** capability (`SFSafariViewController` iOS / `Chrome Custom Tabs` Android). That's David's exact vision — build it when we ship the app/PWA shell, not as a web hack.
+
 ### Atlas conversational layer — locked doctrine (build at the conversational/itinerary-engine phase)
 Two locked docs: the **Atlas Opening** (dream-first intake → a structured *vision object*: SI primary/secondary, feel/archetype, region-pull, style→tier) and the **Content-Only Redirect Protocol** (L1/L2 book freely; L3 books only if it passes all three safety gates; L4 & L3-blocked are content-only — talk about it, no Book button).
 - **Rides on what's built:** the persistent Atlas spine (holds the vision), the subject-based profile (the vision object seeds identity), and the dossier's `advisory_level` + `posture` (`booking_hold` = the content-only switch).
