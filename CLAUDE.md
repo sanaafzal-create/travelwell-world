@@ -26,6 +26,13 @@ library (`Travelman73/tww-research-library`) — that repo has its own rules.
 - **Safer-Informed:** we keep travelers **informed** so they can be as safe as possible — we **never promise "safe"** (an outcome we don't control). L1/L2 book freely; L3 books only if it passes all three safety gates; L4 and L3-blocked are content-only (no Book button).
 - **Never commit secrets.** The repo is public. `ANTHROPIC_API_KEY` and `UNSPLASH_ACCESS_KEY` live as **Supabase secrets** — never `VITE_`, never in the repo. Never put a model identifier in commits, PRs, or code.
 
+## Foundation sockets (locked canon — pour the seams now, build the machinery later)
+Not built yet, but the foundation is shaped to receive them clean (a future team/Olympic universe plugs in with no rework). Detail in `docs/status-and-launch-plan.md`.
+- **A traveler is a *subject*, not just a person.** One profile, captured once; a person belongs to teams/institutions by **role** (athlete, coach, medic, ops director); an entity (team, federation) can itself be a "traveler." Don't scatter person-only assumptions.
+- **Consumer and institutional data stay on separate seams from day one.** Don't build the compliance machinery (minors, medical, accreditation, FERPA) until needed — just never entangle the two, because untangling later is the expensive mistake and keeping the seam clean now is nearly free.
+- **One tank, many products.** The "next-task" operational OS is its **own product on the shared data tank** — same data, separate spigot — never welded into the consumer app.
+- **Booking windows are absolute, multi-year dated event-series** (not season/months) — serves the marketing engine and the Olympic quad from one timing model.
+
 ## The catalog → DB pipeline (important)
 - The catalog is **authored in `src/data/`** (`places.ts`, `taxonomy.ts`, `*.json`) and in provider CSVs under `src/data/providers/`.
 - `scripts/gen-catalog-seed.ts` (run via esbuild) **generates** the seed SQL migrations (`0003`–`0007`). **Do not hand-edit those generated files** — change the source in `src/data/` and regenerate.
