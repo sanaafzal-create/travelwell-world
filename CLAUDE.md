@@ -33,6 +33,13 @@ Not built yet, but the foundation is shaped to receive them clean (a future team
 - **One tank, many products.** The "next-task" operational OS is its **own product on the shared data tank** — same data, separate spigot — never welded into the consumer app.
 - **Booking windows are absolute, multi-year dated event-series** (not season/months) — serves the marketing engine and the Olympic quad from one timing model.
 
+## Placement & booking canon (locked — build-toward)
+Shapes the experience / itinerary / provider records from the first pour so Atlas is a companion, not a catalog. Detail in `docs/status-and-launch-plan.md`.
+- **Experiences carry structured fit-rules** — `duration / before / after / pairs_with / pace / time-of-day / season` as a fixed tag vocabulary, **inherited by experience type** (author "no-fly-after-diving" once for diving). Atlas *derives* the connective buffers (arrival rest, no-fly window, recovery morning) from these and **recomputes them on any reshuffle** — the safety spine is enforced, never stranded.
+- **Itinerary is a first-class dated object** — ordered placed-experiences across dated days (day-number + weekday + date, always paired). **Placed ≠ booked** (idea → placed → handed-off → confirmed). One traveler owns many trips.
+- **Provider capability ledger** — capability fields (commission lane, confirmation-return method) carry `source` + `last_verified` + `confidence` and are **machine-writable from day one**. Confirmation-return is an **upgradeable field** (`email-parse` everywhere to start → `api` as each provider ships it). Provider is always merchant of record; Atlas never touches payment.
+- **Self-updating changelog watcher ships at launch** (narrow: the 8–12 public-API providers) as the machine-writable socket's first consumer; the full network watcher waits for the raise.
+
 ## The catalog → DB pipeline (important)
 - The catalog is **authored in `src/data/`** (`places.ts`, `taxonomy.ts`, `*.json`) and in provider CSVs under `src/data/providers/`.
 - `scripts/gen-catalog-seed.ts` (run via esbuild) **generates** the seed SQL migrations (`0003`–`0007`). **Do not hand-edit those generated files** — change the source in `src/data/` and regenerate.
