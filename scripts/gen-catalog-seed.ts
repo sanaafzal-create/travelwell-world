@@ -199,7 +199,7 @@ console.log(`  ${seenPk.size} providers (${Object.values(PROVIDERS).flat().lengt
 const allDests = Object.values(DESTINATIONS).flat();
 const destRows = Object.entries(DESTINATIONS)
   .flatMap(([code, list]) =>
-    list.map((d, i) => `  (${q(d.id)}, ${q(code)}, ${q(d.name)}, ${q(d.country)}, ${q(d.line)}, ${q(d.status)}, ${q(d.depth)}, ${q(d.img)}, ${d.sub_region ? q(d.sub_region) : "null"}, ${i})`)
+    list.map((d, i) => `  (${q(d.id)}, ${q(code)}, ${q(d.name)}, ${q(d.country)}, ${q(d.line)}, ${q(d.status)}, ${q(d.depth)}, ${q(d.img)}, ${d.sub_region ? q(d.sub_region) : "null"}, ${pgArr(d.si)}, ${pgArr(d.feel)}, ${pgArr(d.tier_range)}, ${d.price_band ? q(d.price_band) : "null"}, ${d.draw_rank ? q(d.draw_rank) : "null"}, ${jsonb(d.data)}, ${i})`)
   )
   .join(",\n");
 const destIdList = allDests.map((d) => q(d.id)).join(", ");
@@ -229,6 +229,12 @@ create table if not exists public.destinations (
   depth       text not null default 'verified' check (depth in ('verified','stub','cached')),
   img         text not null,
   sub_region  text,
+  si          text[] not null default '{}',   -- Signature Interests this place serves
+  feel        text[] not null default '{}',   -- feel/archetype tags (SI + feel = honest match)
+  tier_range  text[] not null default '{}',   -- budget bands present (essential…ultra)
+  price_band  text,                            -- coarse overall price label
+  draw_rank   text check (draw_rank in ('anchor','core','emerging')),  -- surface order
+  data        jsonb,                           -- full dossier (safety, booking, jewels, seo, timing…)
   position    int not null default 0
 );
 
@@ -253,13 +259,26 @@ alter table public.destinations add  constraint destinations_status_check check 
 alter table public.destinations drop constraint if exists destinations_depth_check;
 alter table public.destinations add  constraint destinations_depth_check check (depth in ('verified','stub','cached'));
 alter table public.destinations alter column depth set default 'verified';
+-- Serving signals (the traveler-fit axes) + the dossier document. Self-heal an
+-- existing table so a single re-run adds them.
+alter table public.destinations add column if not exists si         text[] not null default '{}';
+alter table public.destinations add column if not exists feel       text[] not null default '{}';
+alter table public.destinations add column if not exists tier_range text[] not null default '{}';
+alter table public.destinations add column if not exists price_band text;
+alter table public.destinations add column if not exists draw_rank  text;
+alter table public.destinations drop constraint if exists destinations_draw_rank_check;
+alter table public.destinations add  constraint destinations_draw_rank_check check (draw_rank is null or draw_rank in ('anchor','core','emerging'));
+alter table public.destinations add column if not exists data       jsonb;
+create index if not exists destinations_si_idx        on public.destinations using gin (si);
+create index if not exists destinations_draw_rank_idx on public.destinations (draw_rank);
 
-insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, position) values
+insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, si, feel, tier_range, price_band, draw_rank, data, position) values
 ${destRows}
 on conflict (id) do update set
   region_code = excluded.region_code, name = excluded.name, country = excluded.country,
-  line = excluded.line, status = excluded.status, depth = excluded.depth,
-  img = excluded.img, sub_region = excluded.sub_region, position = excluded.position;
+  line = excluded.line, status = excluded.status, depth = excluded.depth, img = excluded.img,
+  sub_region = excluded.sub_region, si = excluded.si, feel = excluded.feel, tier_range = excluded.tier_range,
+  price_band = excluded.price_band, draw_rank = excluded.draw_rank, data = excluded.data, position = excluded.position;
 
 -- Seed is authoritative: drop any destination no longer in the catalog — e.g.
 -- a row left behind by a key rename (cape-town -> cape-town-south-africa). Safe

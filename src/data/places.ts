@@ -34,7 +34,16 @@ export const REGION_DETAIL: Record<string, RegionDetail> = {
 
 export type DestStatus = "live" | "future";        // shown, or content/coming-soon
 export type DestDepth = "verified" | "stub" | "cached"; // how deep (quality flag)
-export interface Destination { id: string; name: string; country: string; line: string; status: DestStatus; depth: DestDepth; img: string; sub_region?: string; }
+export interface Destination {
+  id: string; name: string; country: string; line: string; status: DestStatus; depth: DestDepth; img: string; sub_region?: string;
+  // Serving signals (fit axes) — arrive from the conformed dossier at ingest.
+  si?: string[];                                   // Signature Interests served
+  feel?: string[];                                 // feel/archetype tags
+  tier_range?: string[];                           // budget bands present (essential…ultra)
+  price_band?: string;                             // coarse overall price label
+  draw_rank?: "anchor" | "core" | "emerging";      // surface order
+  data?: Record<string, unknown>;                  // full dossier (safety, booking, jewels, seo, timing…)
+}
 // The 5th arg carries the legacy quality ("live" = shown & verified, "stub" =
 // shown but thin) and maps onto the two-axis model David locked: status (shown
 // or not) + depth (how deep). Existing rows are all shown, so status is "live";
