@@ -230,7 +230,7 @@ create table if not exists public.destinations (
   img         text not null,
   sub_region  text,
   si          text[] not null default '{}',   -- Signature Interests this place serves
-  feel        text[] not null default '{}',   -- feel/archetype tags (SI + feel = honest match)
+  feel        text[] not null default '{}',   -- feel/archetype tags (SI + feel used together, never one alone)
   tier_range  text[] not null default '{}',   -- budget bands present (essential…ultra)
   price_band  text,                            -- coarse overall price label
   draw_rank   text check (draw_rank in ('anchor','core','emerging')),  -- surface order
