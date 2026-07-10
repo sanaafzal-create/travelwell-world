@@ -5,7 +5,7 @@
  * by the Atlas concierge and (later) onboarding so a traveler can speak answers
  * instead of typing — David's "speak AND type, interchangeably" requirement.
  *
- * Degrades honestly: `supported` is false where the API isn't available
+ * Degrades cleanly: `supported` is false where the API isn't available
  * (Firefox, some iOS) so the UI can fall back to typing rather than pretend to
  * listen. Transcripts stream into the caller's text field as the person speaks.
  *

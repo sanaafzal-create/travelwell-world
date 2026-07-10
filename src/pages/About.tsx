@@ -10,7 +10,7 @@ const layers = (wellNames: string[]) => [
 ];
 
 const LAWS = [
-  { t: "Honest content", s: "Real vs. placeholder is always visually distinct." },
+  { t: "Accurate content", s: "Real vs. placeholder is always visually distinct." },
   { t: "Disclosed economics", s: "FTC disclosure sits beside every monetized action." },
   { t: "One itinerary", s: "Everything a traveler adds lands in a single saved trip." },
   { t: "Safety first", s: "The Emergency Button and Safety Card travel everywhere." },
@@ -25,7 +25,7 @@ export default function About() {
       <div className="ab-hero">
         <Eyebrow>About · Architecture</Eyebrow>
         <h1>A travel platform, specified like an operating system.</h1>
-        <p>TravelWell is built spec-first: every layer — the taxonomy, the Wells, the engines, the schemas — is defined and agreed before a line of UI is written. This is what makes it legible, defensible, and honest.</p>
+        <p>TravelWell is built spec-first: every layer — the taxonomy, the Wells, the engines, the schemas — is defined and agreed before a line of UI is written. This is what makes it legible, defensible, and accurate.</p>
       </div>
 
       <section className="ab" style={{ padding: 0, marginTop: 28 }}>

@@ -1,6 +1,6 @@
 import { Eyebrow, ButtonLink } from "@/components/ui/primitives";
 
-/** Honest, on-brand placeholder for screens not yet ported to full fidelity. */
+/** Straight, on-brand placeholder for screens not yet ported to full fidelity. */
 export function Placeholder({ title, eyebrow, lead }: { title: string; eyebrow: string; lead: string }) {
   return (
     <div className="container" style={{ padding: "80px 0 40px", maxWidth: "var(--reading-max)" }}>

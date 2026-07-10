@@ -22,7 +22,7 @@ library (`Travelman73/tww-research-library`) — that repo has its own rules.
 - **Destination axes:** `status` = `live` | `future` (shown or not); `depth` = `verified` | `stub` | `cached` (how deep). Separate axes.
 
 ## Locked principles
-- **Payments: never.** Booking is an affiliate **handoff** — the provider is merchant of record, the traveler pays them directly, TravelWell never touches card data (keeps us at PCI SAQ A). There is no future tier where Atlas takes payment. Honest-language at the handoff: *"you'll book right with them,"* never *"I'll hold it for you."*
+- **Payments: never.** Booking is an affiliate **handoff** — the provider is merchant of record, the traveler pays them directly, TravelWell never touches card data (keeps us at PCI SAQ A). There is no future tier where Atlas takes payment. Plain-language at the handoff: *"you'll book right with them,"* never *"I'll hold it for you."*
 - **Safer-Informed:** we keep travelers **informed** so they can be as safe as possible — we **never promise "safe"** (an outcome we don't control). L1/L2 book freely; L3 books only if it passes all three safety gates; L4 and L3-blocked are content-only (no Book button).
 - **Never commit secrets.** The repo is public. `ANTHROPIC_API_KEY` and `UNSPLASH_ACCESS_KEY` live as **Supabase secrets** — never `VITE_`, never in the repo. Never put a model identifier in commits, PRs, or code.
 

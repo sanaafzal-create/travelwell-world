@@ -8,7 +8,7 @@
  * scripts/gen-catalog-seed.ts) — served from Postgres, editable without a
  * redeploy, authored in the repo with review.
  *
- * Honesty contract (mirrors safety-data + Atlas's own rules): never fabricate a
+ * Accuracy contract (mirrors safety-data + Atlas's own rules): never fabricate a
  * dated "happening now." Curate things genuinely true and stable — recurring
  * seasons/schedules and well-known annual moments. Volatile "tonight" data is
  * Tier C (provider-fed), not authored here. Every entry keeps a `source`.
@@ -197,7 +197,7 @@ export const LOCAL_SIGNALS: LocalSignal[] = [
     id: "turks-caicos-best",
     kind: "lookahead", horizon: "lookahead",
     title: "Turks & Caicos — Grace Bay at its finest",
-    blurb: "Grace Bay at its finest — calm, clear, gentle water over white sand, easy for everyone from toddlers to snorkelers. Best in the dry months; see the honest note on hurricane season for timing. (Our backyard.)",
+    blurb: "Grace Bay at its finest — calm, clear, gentle water over white sand, easy for everyone from toddlers to snorkelers. Best in the dry months; see the straight note on hurricane season for timing. (Our backyard.)",
     destination: "turks-caicos", region: "11C",
     si: ["tropical", "liveaboard"], wells: ["stay", "activities"],
     season: "Dec–Apr (dry, calm); Atlantic hurricane window Jun–Nov noted", recurrence: { months: [12, 1, 2, 3, 4] },
@@ -268,11 +268,11 @@ export const LOCAL_SIGNALS: LocalSignal[] = [
   },
 
   // ── David — Batch 1: Hurricane-awareness (Safer-Informed; pairs WITH the
-  //    best-season signals, honest + reassuring, never fear-mongering) ──────────
+  //    best-season signals, straight + reassuring, never fear-mongering) ──────────
   {
     id: "atlantic-hurricane-season-frame",
     kind: "lookahead", horizon: "lookahead",
-    title: "Atlantic hurricane season — the honest, reassuring frame",
+    title: "Atlantic hurricane season — the plain, reassuring frame",
     blurb: "Season runs Jun 1–Nov 30, but most major-hurricane activity is Aug–Oct (peak around mid-September). Most of the season, most places are doing exactly what you came for. And it's never an ambush — systems are tracked days out, with warnings well ahead. Read the season, travel it wisely.",
     destination: "caribbean", region: "11C",
     si: ["tropical", "liveaboard", "romance"], wells: ["stay", "activities"],

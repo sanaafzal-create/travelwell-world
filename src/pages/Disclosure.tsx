@@ -17,7 +17,7 @@ export default function Disclosure() {
       </ul>
 
       <h2>Our promise</h2>
-      <p>Commission never buys placement. Options are ranked by how well they fit <em>you</em> — your interests, your trip, your budget — not by which pays us most. We show the honest field, including strong options we don't earn on, and we never take your payment or hold your card details.</p>
+      <p>Commission never buys placement. Options are ranked by how well they fit <em>you</em> — your interests, your trip, your budget — not by which pays us most. We show the field straight, including strong options we don't earn on, and we never take your payment or hold your card details.</p>
 
       <h2>Who we work with</h2>
       <p>We partner with travel providers directly and through affiliate networks (such as CJ, AWIN, and Travelpayouts) to make booking seamless. Where a link is monetized, this disclosure applies.</p>

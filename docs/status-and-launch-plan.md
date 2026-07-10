@@ -20,7 +20,7 @@
 - **Booking** — affiliate **handoff** (`/go` → `booking_url`) with a checkout UI shell (3 tracks). **Locked as the permanent model** (David): the provider is merchant of record, the traveler books and pays them directly, Atlas never touches payment. Keeps us at PCI SAQ A, off the liability hook — a feature, not a gap. No payment processing to build, ever.
 - **Atlas guided journey** — the *spine* is built; **Guided Mode** (Atlas driving page-to-page, pre-setting choices, the glow/spotlight) is Phase 2–4, not built.
 - **Content depth** — destinations are shallow (a line + image). The **deep dossier model** (jsonb: jewels, safety, SEO, booking-window) is validated (Cape Town ingest test passed) but not built/ingested. Providers cover ~2 regions partially.
-- **Voice** — Web Speech input works; degrades honestly where unsupported.
+- **Voice** — Web Speech input works; degrades cleanly where unsupported.
 - **Analytics** — event logging to DB exists; no attribution or outbound.
 
 ### 🔴 Still ahead before soft launch
@@ -40,7 +40,7 @@
 3. **Guided Mode Phase 2** — Atlas leads the journey. 🏋️
 4. **SEO rendering** (prerender/SSR + per-route meta + sitemap + JSON-LD). 🏋️ **Socket 1 status: ✅ spike-passed · tool locked (`vite-react-ssg`, no fallback needed) · ready to build · gated on rung-2 funding.** No unknowns to re-litigate — when funded, we build straight through.
 5. **Test + CI** baseline; analytics **attribution socket** + **marketing-permission fields** on the profile (room, not sends).
-6. **Booking = affiliate handoff, locked** — provider is merchant of record; Atlas surfaces → hands off → confirmation returns. No payments to build. Bake the honest-language rule into Atlas ("you'll book right with them," never "I'll hold it for you").
+6. **Booking = affiliate handoff, locked** — provider is merchant of record; Atlas surfaces → hands off → confirmation returns. No payments to build. Bake the plain-language rule into Atlas ("you'll book right with them," never "I'll hold it for you").
 
 **Phase B — Soft launch** — live-6 SIs, launch regions, English, handoff booking, guided flow, real content depth, SEO pages ranking. Prove the engines.
 

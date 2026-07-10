@@ -44,7 +44,7 @@ export function Pill({ kind, children, className }: { kind: PillKind; children?:
   return <span className={cx("pill", `pill-${kind}`, className)}>{children}</span>;
 }
 
-/** Status → pill kind + label, honest about live/preview/soon. */
+/** Status → pill kind + label, straight about live/preview/soon. */
 export function StatusPill({ status }: { status: "live" | "preview" | "soon" }) {
   if (status === "live") return <Pill kind="live">Live</Pill>;
   if (status === "soon") return <Pill kind="soon">Activated at Launch</Pill>;

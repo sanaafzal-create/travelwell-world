@@ -10,7 +10,7 @@ import { cx } from "@/lib/utils";
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
   { n: 1, icon: "sparkle", title: "Tell us what moves you", body: "Pick the ways you love to travel — safari, romance, culinary, and more. Or just speak with Atlas." },
-  { n: 2, icon: "globe", title: "Choose where in the world", body: "Thirteen regions, each with researched destinations and an honest Safety Card you can trust." },
+  { n: 2, icon: "globe", title: "Choose where in the world", body: "Thirteen regions, each with researched destinations and an accurate Safety Card you can trust." },
   { n: 3, icon: "menu", title: "Move through the Wells", body: "Flights, stays, dining, transport, activities — each Well surfaces the best 6 providers, matched to you." },
   { n: 4, icon: "shield", title: "Book it — all in one trip", body: "Everything lands in a single itinerary, always saved. You always choose, and you always book." },
 ];
@@ -44,7 +44,7 @@ const OS_BANDS = [
   {
     side: "right", num: "6", numSub: "to choose from", eyebrow: "Curated, never overwhelming", title: "The best matches, not endless lists",
     body: "Six best recommendations for each part of your trip — matched to you and your budget. Want more? Tap “See more.” And if a booking earns us a commission, we say so right there.",
-    chips: ["Top picks first", "Honest about commissions", "You decide & book"], to: "/wells-surface", cta: "See how it works",
+    chips: ["Top picks first", "Straight about commissions", "You decide & book"], to: "/wells-surface", cta: "See how it works",
     bg: "radial-gradient(120% 90% at 75% 20%, #cf9468 0%, transparent 55%), linear-gradient(240deg, #9c5b3b 0%, #5e3520 55%, #2e1a10 100%)",
     image: "luxuryPool",
   },

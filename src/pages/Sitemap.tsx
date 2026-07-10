@@ -134,7 +134,7 @@ export default function Sitemap() {
         </div>
 
         <div className="sm-foot" style={{ marginTop: 28 }}>
-          <div className="sm-note"><b>For David:</b> Start at the <b>Home page</b>, then follow the teal spine left→right to experience the full journey. Pages with a "Preview" state (most Special Interests, some regions/destinations) are intentionally shown as "coming soon" to demonstrate the honest live-vs-placeholder system. The bottom <b>state-switcher pills</b> on some screens are demo aids to preview different states — they'd be removed in production.</div>
+          <div className="sm-note"><b>For David:</b> Start at the <b>Home page</b>, then follow the teal spine left→right to experience the full journey. Pages with a "Preview" state (most Special Interests, some regions/destinations) are intentionally shown as "coming soon" to demonstrate the straight live-vs-placeholder system. The bottom <b>state-switcher pills</b> on some screens are demo aids to preview different states — they'd be removed in production.</div>
         </div>
       </div>
     </>

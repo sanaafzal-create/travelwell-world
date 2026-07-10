@@ -191,7 +191,7 @@ export interface Guide { id: string; type: string; title: string; lede: string; 
 const g = (id: string, type: string, title: string, lede: string, read: string, updated: string, img: string, si: string, region: string): Guide => ({ id, type, title, lede, read, updated, img, si, region });
 export const GUIDES: Guide[] = [
   g("migration-timing", "Seasonal", "When to See the Great Migration", "Month by month, where the herds are and where to be standing when they cross.", "6 min", "Jun 2026", "safariGiraffe", "safari", "05A"),
-  g("safari-packing", "How-To", "What to Pack for a Safari", "The honest list — layers, optics, and the three things first-timers always forget.", "4 min", "May 2026", "desertDunes", "safari", "05A"),
+  g("safari-packing", "How-To", "What to Pack for a Safari", "The straight list — layers, optics, and the three things first-timers always forget.", "4 min", "May 2026", "desertDunes", "safari", "05A"),
   g("morocco-top8", "Top List", "Morocco in 8 Unforgettable Stops", "A ranked route through imperial cities, desert camps and the Atlas mountains.", "9 min", "Apr 2026", "marrakech", "heritage", "04A"),
   g("first-safari", "Field Guide", "Your First Safari, Demystified", "Camps vs lodges, private vs shared, malaria, tipping — everything no one tells you.", "8 min", "Jun 2026", "lion", "safari", "05A"),
   g("honeymoon-where", "Field Guide", "Where to Honeymoon, by Vibe", "Barefoot beach, alpine hush, or city romance — matched to who you are as a couple.", "7 min", "May 2026", "santorini", "romance", "11C"),

@@ -5,7 +5,7 @@ import { useSpecialInterests, useRegions, useGuides } from "@/store/useCatalog";
 import { img } from "@/lib/images";
 
 const PROSE: Record<string, string> = {
-  "migration-timing": `<p>The Great Migration isn't an event so much as a year-long circuit — nearly two million wildebeest, zebra and gazelle following the rains in a vast clockwise loop through the Serengeti and the Maasai Mara.</p><h2>Month by month</h2><p>From <b>July to October</b>, the herds mass in the northern Serengeti and the Mara, and the famous river crossings happen — heart-stopping, crocodile-lined, and impossible to schedule precisely. <b>January to March</b> brings calving season in the southern Serengeti: gentler, greener, and extraordinary for predators.</p><p>The honest truth: nature doesn't read calendars. Give yourself a window of several days in the right region, and let your guide chase the movement.</p>`,
+  "migration-timing": `<p>The Great Migration isn't an event so much as a year-long circuit — nearly two million wildebeest, zebra and gazelle following the rains in a vast clockwise loop through the Serengeti and the Maasai Mara.</p><h2>Month by month</h2><p>From <b>July to October</b>, the herds mass in the northern Serengeti and the Mara, and the famous river crossings happen — heart-stopping, crocodile-lined, and impossible to schedule precisely. <b>January to March</b> brings calving season in the southern Serengeti: gentler, greener, and extraordinary for predators.</p><p>The plain truth: nature doesn't read calendars. Give yourself a window of several days in the right region, and let your guide chase the movement.</p>`,
   "safari-packing": `<p>The single biggest packing mistake on safari is bringing too much. Soft duffel, neutral layers, and a good pair of binoculars will carry you further than a suitcase of options.</p><h2>The non-negotiables</h2><p>Layers for cold dawns and hot middays. A wide-brim hat. Real sunscreen. And the three things first-timers always forget: a headtorch, a dust-proof bag for your camera, and twice as many memory cards as you think you need.</p>`,
 };
 
@@ -23,7 +23,7 @@ export default function GuideDetail() {
   const prose = isTop
     ? ""
     : PROSE[G.id] ||
-      `<p>${G.lede}</p><p>This guide is part of the TravelWell desk's growing library — practical, honest, and written by people who've made the trip themselves. We update it whenever the on-the-ground reality changes.</p><h2>Why it matters</h2><p>Great trips are built on small, well-timed decisions. The right month, the right base, the right order of days. That's what these guides are for.</p>`;
+      `<p>${G.lede}</p><p>This guide is part of the TravelWell desk's growing library — practical, straight, and written by people who've made the trip themselves. We update it whenever the on-the-ground reality changes.</p><h2>Why it matters</h2><p>Great trips are built on small, well-timed decisions. The right month, the right base, the right order of days. That's what these guides are for.</p>`;
 
   const related = guides.filter((x) => x.id !== G.id).slice(0, 3);
 

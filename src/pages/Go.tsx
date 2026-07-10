@@ -4,7 +4,7 @@ import { useStore } from "@/store/useStore";
 import { useWellById, useProviders } from "@/store/useCatalog";
 import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 
-/** Affiliate redirect interstitial — honest handoff + "mark as booked" return. */
+/** Affiliate redirect interstitial — straight handoff + "mark as booked" return. */
 export default function Go() {
   const [params] = useSearchParams();
   const navigate = useNavigate();

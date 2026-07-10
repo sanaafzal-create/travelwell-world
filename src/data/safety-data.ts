@@ -6,9 +6,9 @@
  * country code so it JOINS the emergency-numbers data off one key (local
  * emergency phone lines live there, never duplicated here).
  *
- * Honesty contract: every entry must carry a real `source` + `verified` date.
+ * Accuracy contract: every entry must carry a real `source` + `verified` date.
  * Entries we haven't verified yet fall through to DEFAULT_SAFETY ("exercise
- * normal precautions"), which the card renders as a neutral, honest baseline.
+ * normal precautions"), which the card renders as a neutral, accurate baseline.
  *
  * Hand-off (David): author entries in this shape (TS or matching JSON), keyed
  * by ISO code, no phone numbers, with source + verified on every entry.
@@ -47,7 +47,7 @@ export const SAFE_COLOR: Record<RiskLevel, string> = {
   4: "var(--safety-4)",
 };
 
-/** Neutral, honest baseline for any country we don't have verified data for. */
+/** Neutral, accurate baseline for any country we don't have verified data for. */
 export const DEFAULT_SAFETY: SafetyInfo = {
   country: "This destination",
   lvl: 1,

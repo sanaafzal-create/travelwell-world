@@ -4,7 +4,7 @@
 .inv { background: var(--dark-band); color: var(--dark-band-foreground); min-height: 100vh; }
 .inv-wrap { max-width: var(--content-max); margin-inline: auto; padding-inline: var(--gutter); }
 
-/* placeholder-economics banner (honesty: never fabricated) */
+/* placeholder-economics banner (accuracy: never fabricated) */
 .inv-disclaimer { background: color-mix(in oklch, var(--accent) 16%, var(--dark-band)); border-bottom: 1px solid color-mix(in oklch, var(--accent) 30%, transparent); }
 .inv-disclaimer__inner { max-width: var(--content-max); margin-inline: auto; padding: 12px var(--gutter); display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--accent); }
 .inv-disclaimer .ic { flex: none; }

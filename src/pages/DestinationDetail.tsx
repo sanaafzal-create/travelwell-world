@@ -104,7 +104,7 @@ export default function DestinationDetail() {
 
       <div className="dd-body">
         <div className="dd-main">
-          <p className="dd-desc">{DEST.line}. {stub ? "" : "Below, everything you need here — grouped by the Wells that matter, with vetted providers and honest pricing."}</p>
+          <p className="dd-desc">{DEST.line}. {stub ? "" : "Below, everything you need here — grouped by the Wells that matter, with vetted providers and straight pricing."}</p>
 
           {stub && (
             <div className="dd-stub-notice">

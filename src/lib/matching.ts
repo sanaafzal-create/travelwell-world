@@ -8,7 +8,7 @@
  *
  * Graceful fallback: while the real multi-region catalog (Step 3, David's
  * provider intel) is still being seeded, a query that matches nothing returns
- * the full pool with `fellBack: true` so the UI can show an honest note instead
+ * the full pool with `fellBack: true` so the UI can show a straight note instead
  * of an empty list.
  */
 import type { Provider } from "@/data/places";

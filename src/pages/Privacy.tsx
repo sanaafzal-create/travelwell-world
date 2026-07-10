@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { LegalLayout } from "@/components/ui/LegalLayout";
 
 // NOTE: A plain-language privacy policy tailored to what TravelWell actually
-// collects. It is honest to our real data practices, but it is not legal advice
+// collects. It is accurate to our real data practices, but it is not legal advice
 // — have counsel review before relying on it.
 export default function Privacy() {
   return (

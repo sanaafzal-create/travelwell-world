@@ -45,7 +45,7 @@ const ENGINES: { ic: string; t: string; s: string }[] = [
 
 const DIFF: { ic: string; t: string; s: string }[] = [
   { ic: "globe", t: "Fixed taxonomy", s: "A structured demand graph, not an unbounded catalog — defensible, rankable, and machine-legible." },
-  { ic: "shield", t: "Honest by design", s: "Live-vs-placeholder, FTC disclosure everywhere, real economics. Trust is the moat." },
+  { ic: "shield", t: "Straight by design", s: "Live-vs-placeholder, FTC disclosure everywhere, real economics. Trust is the moat." },
   { ic: "bag2", t: "One itinerary, every Well", s: "We own the whole trip, not one booking — repeat surface area across ten needs." },
 ];
 
