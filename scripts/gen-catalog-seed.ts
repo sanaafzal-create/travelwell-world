@@ -308,7 +308,7 @@ const signalRows = LOCAL_SIGNALS.map(
     `  (${q(s.id)}, ${s.destination ? q(s.destination) : "null"}, ${s.region ? q(s.region) : "null"}, ` +
     `${pgArr(s.si)}, ${pgArr(s.wells)}, ${q(s.kind)}, ${q(s.horizon)}, ${q(s.title)}, ${q(s.blurb)}, ${q(s.href)}, ` +
     `${s.startsOn ? q(s.startsOn) : "null"}, ${s.endsOn ? q(s.endsOn) : "null"}, ${jsonb(s.recurrence)}, ` +
-    `${q(s.season)}, ${q(s.source)}, ${s.priority ?? 0}, ${s.validFrom ? q(s.validFrom) : "null"}, ${s.validTo ? q(s.validTo) : "null"})`
+    `${q(s.season)}, ${q(s.source)}, ${s.priority ?? 0}, ${s.validFrom ? q(s.validFrom) : "null"}, ${s.validTo ? q(s.validTo) : "null"}, ${jsonb(s.meta)})`
 ).join(",\n");
 
 const sql7 = `-- TravelWell.World — Local & temporal signals (Atlas's "knows what's happening").
@@ -341,11 +341,15 @@ create table if not exists public.local_signals (
   priority      int  not null default 0,
   valid_from    timestamptz,
   valid_to      timestamptz,
+  meta          jsonb,
   updated_at    timestamptz not null default now()
 );
 
 -- Drop the destination FK for DBs where an earlier 0007 created it (idempotent).
 alter table public.local_signals drop constraint if exists local_signals_destination_id_fkey;
+-- Structured extras (TLEU look-ahead: ticket_drop / book_by / sells_out /
+-- high_intent / upsell_ladder, etc.). Self-heal an existing table.
+alter table public.local_signals add column if not exists meta jsonb;
 
 create index if not exists local_signals_dest_idx   on public.local_signals (destination_id);
 create index if not exists local_signals_region_idx on public.local_signals (region_code);
@@ -358,14 +362,14 @@ exception when duplicate_object then null;
 end $$;
 
 insert into public.local_signals
-  (id, destination_id, region_code, si, wells, kind, horizon, title, blurb, href, starts_on, ends_on, recurrence, season, source, priority, valid_from, valid_to) values
+  (id, destination_id, region_code, si, wells, kind, horizon, title, blurb, href, starts_on, ends_on, recurrence, season, source, priority, valid_from, valid_to, meta) values
 ${signalRows}
 on conflict (id) do update set
   destination_id = excluded.destination_id, region_code = excluded.region_code, si = excluded.si, wells = excluded.wells,
   kind = excluded.kind, horizon = excluded.horizon, title = excluded.title, blurb = excluded.blurb, href = excluded.href,
   starts_on = excluded.starts_on, ends_on = excluded.ends_on, recurrence = excluded.recurrence, season = excluded.season,
   source = excluded.source, priority = excluded.priority, valid_from = excluded.valid_from, valid_to = excluded.valid_to,
-  updated_at = now();
+  meta = excluded.meta, updated_at = now();
 `;
 
 writeFileSync("supabase/migrations/0007_seed_local_signals.sql", sql7);

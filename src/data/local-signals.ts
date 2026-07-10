@@ -44,6 +44,10 @@ export interface LocalSignal {
   validTo?: string;          // ISO
   priority?: number;
   source: "curated" | "feed" | "provider";
+  // Structured extras for TLEU look-ahead events (ticket_drop / book_by /
+  // sells_out / high_intent / upsell_ladder, …). Free-form so the event map
+  // ingests without new columns per field.
+  meta?: Record<string, unknown>;
 }
 
 export const LOCAL_SIGNALS: LocalSignal[] = [
