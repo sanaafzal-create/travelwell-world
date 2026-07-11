@@ -1,0 +1,3143 @@
+[
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "nightlife",
+      "culture",
+      "entertainment",
+      "culinary"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Oktoberfest (Munich)",
+    "blurb": "The world's biggest folk festival — beer tents, tradition and Bavarian nights in Munich.",
+    "starts_on": "2026-09-19",
+    "ends_on": "2026-10-04",
+    "recurrence": {
+      "months": [
+        9,
+        10
+      ]
+    },
+    "season": "late Sep–early Oct",
+    "source": "curated",
+    "priority": 95,
+    "meta": {
+      "ticket_drop": "tents rolling",
+      "book_by": "~1yr",
+      "sells_out": "tents+hotels ~1yr out",
+      "high_intent": "~11mo prior (Oct–Dec)",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "tent-box + suite + Ultra",
+      "region_note": "source map had 03F (Nordics) — corrected to 01F Western Europe (Germany)"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "10S",
+    "si": [
+      "nightlife",
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Rio Carnival",
+    "blurb": "The greatest carnival on earth — Sambadrome parades and street blocos in Rio.",
+    "starts_on": "2026-02-13",
+    "ends_on": "2026-02-21",
+    "recurrence": {
+      "months": [
+        2
+      ]
+    },
+    "season": "Feb",
+    "source": "curated",
+    "priority": 95,
+    "meta": {
+      "ticket_drop": "Sambadrome + blocos",
+      "book_by": "8-12mo",
+      "sells_out": "Sambadrome boxes early; Copacabana rates triple",
+      "high_intent": "~10-12mo prior",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Sambadrome-box + VIP + Ultra",
+      "region_note": "source map had 13A (Canada) — corrected to 10S Latin America (Brazil)"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "11C",
+    "si": [
+      "nightlife",
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Trinidad Carnival",
+    "blurb": "The Caribbean's soul-of-carnival — mas bands, soca and J'ouvert in Port of Spain.",
+    "starts_on": "2026-02-16",
+    "ends_on": "2026-02-17",
+    "recurrence": {
+      "months": [
+        2
+      ]
+    },
+    "season": "Feb",
+    "source": "curated",
+    "priority": 85,
+    "meta": {
+      "ticket_drop": "band launches Jul prior",
+      "book_by": "6-12mo",
+      "sells_out": "TBD — verify at live-data pass",
+      "high_intent": "May–Jul yr prior",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "mas-band + VIP + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "entertainment",
+      "nightlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Glastonbury Festival",
+    "blurb": "The UK's legendary festival — register early; general tickets vanish in minutes.",
+    "starts_on": "2027-06-23",
+    "ends_on": "2027-06-27",
+    "recurrence": {
+      "months": [
+        6
+      ]
+    },
+    "season": "late Jun (2027; fallow 2026)",
+    "source": "curated",
+    "priority": 92,
+    "meta": {
+      "ticket_drop": "registration autumn 2026, sale ~Oct/Nov 2026",
+      "book_by": "register + drop-day",
+      "sells_out": "GA sold out in 35 MIN (2025)",
+      "high_intent": "Sep–Nov 2026 + Apr resale",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "VIP + backstage + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "prosports-spectator",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Wimbledon",
+    "blurb": "Tennis on the lawns of SW19 — the ballot closes almost a year ahead.",
+    "starts_on": "2026-06-29",
+    "ends_on": "2026-07-12",
+    "recurrence": {
+      "months": [
+        6,
+        7
+      ]
+    },
+    "season": "late Jun–mid Jul",
+    "source": "curated",
+    "priority": 88,
+    "meta": {
+      "ticket_drop": "public ballot closed Sep 21 2025",
+      "book_by": "ballot yr prior",
+      "sells_out": "ballot + Queue",
+      "high_intent": "Aug–mid-Sep yr prior",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Centre Court hospitality + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "entertainment",
+      "nightlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Tomorrowland (Belgium)",
+    "blurb": "The world's premier electronic-music festival — tickets gone in minutes.",
+    "starts_on": "2026-07-17",
+    "ends_on": "2026-07-26",
+    "recurrence": {
+      "months": [
+        7
+      ]
+    },
+    "season": "two July weekends",
+    "source": "curated",
+    "priority": 90,
+    "meta": {
+      "ticket_drop": "pre-reg Dec 8 2025; Global Journey Jan 17; Worldwide Jan 31 2026",
+      "book_by": "drop-day",
+      "sells_out": "sells out in MINUTES",
+      "high_intent": "Nov–Jan",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Global Journey package + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "culture",
+      "entertainment",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "San Fermin / Running of the Bulls (Pamplona)",
+    "blurb": "Pamplona's fiesta — the bull-runs, the reds and whites, a tiny city that fills fast.",
+    "starts_on": "2026-07-06",
+    "ends_on": "2026-07-14",
+    "recurrence": {
+      "months": [
+        7
+      ]
+    },
+    "season": "Jul 6-14",
+    "source": "curated",
+    "priority": 82,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "ASAP (tiny-city inventory)",
+      "sells_out": "tiny-city inventory early",
+      "high_intent": "Jan–Apr",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "balcony + suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "entertainment",
+      "nightlife",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Cannes Film Festival",
+    "blurb": "The Riviera's cinema fortnight — red carpets, yachts and rates that triple.",
+    "starts_on": "2026-05-12",
+    "ends_on": "2026-05-23",
+    "recurrence": {
+      "months": [
+        5
+      ]
+    },
+    "season": "mid-late May",
+    "source": "curated",
+    "priority": 88,
+    "meta": {
+      "ticket_drop": "n/a (accreditation/industry)",
+      "book_by": "6-12mo",
+      "sells_out": "May rates +200-400%",
+      "high_intent": "May–Nov yr prior, sharpen Jan-Feb",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Croisette suite + yacht + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "12A",
+    "si": [
+      "prosports-spectator",
+      "nightlife",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Las Vegas F1",
+    "blurb": "Grand Prix down the Strip — night racing, and the ultimate Vegas hospitality ladder.",
+    "starts_on": "2026-11-19",
+    "ends_on": "2026-11-21",
+    "recurrence": {
+      "months": [
+        11
+      ]
+    },
+    "season": "Nov",
+    "source": "curated",
+    "priority": 90,
+    "meta": {
+      "ticket_drop": "deposits to Apr 30; public sale May 7 2026",
+      "book_by": "drop-day",
+      "sells_out": "Strip hotels first",
+      "high_intent": "Mar–May",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Paddock Club + suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "12A",
+    "si": [
+      "prosports-spectator",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "US Open Tennis (NYC)",
+    "blurb": "The last Slam of the year in New York — a two-pulse booking window.",
+    "starts_on": "2026-08-30",
+    "ends_on": "2026-09-13",
+    "recurrence": {
+      "months": [
+        8,
+        9
+      ]
+    },
+    "season": "late Aug–mid Sep",
+    "source": "curated",
+    "priority": 86,
+    "meta": {
+      "ticket_drop": "on-sale May 28 2026",
+      "book_by": "drop-day + Jul-Aug hotels",
+      "sells_out": "two-pulse (tickets May, hotels Jul-Aug)",
+      "high_intent": "Apr–May + Jul–Aug",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Arthur Ashe suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "culture",
+      "romance",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Venice Carnevale",
+    "blurb": "Masked balls and gondolas — Venice at its most theatrical.",
+    "starts_on": "2026-01-31",
+    "ends_on": "2026-02-17",
+    "recurrence": {
+      "months": [
+        1,
+        2
+      ]
+    },
+    "season": "late Jan–mid Feb",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "hotels 3-6mo; palace balls 3-5mo",
+      "sells_out": "palace balls early",
+      "high_intent": "Aug–Oct, peak Oct-Dec",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "palace ball + suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "culture",
+      "pilgrimage"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Semana Santa (Seville)",
+    "blurb": "Seville's Holy Week processions — the most solemn spectacle in Spain.",
+    "starts_on": "2026-03-29",
+    "ends_on": "2026-04-05",
+    "recurrence": {
+      "months": [
+        3,
+        4
+      ]
+    },
+    "season": "Holy Week",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "prime rooms up to 1yr; rates +100-300%",
+      "sells_out": "prime rooms ~1yr",
+      "high_intent": "Sep–Nov, peak Dec-Feb",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "balcony-view + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Las Fallas (Valencia)",
+    "blurb": "Valencia's fire festival — giant effigies, fireworks and the midnight burn.",
+    "starts_on": "2026-03-01",
+    "ends_on": "2026-03-19",
+    "recurrence": {
+      "months": [
+        3
+      ]
+    },
+    "season": "Mar 1-19",
+    "source": "curated",
+    "priority": 74,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "months out; 3-5 night minimums",
+      "sells_out": "months out",
+      "high_intent": "Sep–Nov",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "prime-view + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "entertainment",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "La Tomatina (Buñol)",
+    "blurb": "The world's biggest tomato fight — a hard 20,000-person cap makes it an urgency anchor.",
+    "starts_on": "2026-08-26",
+    "ends_on": "2026-08-26",
+    "recurrence": {
+      "months": [
+        8
+      ]
+    },
+    "season": "late Aug",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "~Jan release",
+      "book_by": "hard cap 20,000",
+      "sells_out": "60-70% sell in 3mo (20k cap)",
+      "high_intent": "Dec–Jan",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "ticket + Valencia stay + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "entertainment",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Edinburgh Festival Fringe",
+    "blurb": "The largest arts festival on earth — the whole city becomes a stage.",
+    "starts_on": "2026-08-07",
+    "ends_on": "2026-08-31",
+    "recurrence": {
+      "months": [
+        8
+      ]
+    },
+    "season": "Aug",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "programme launched Jun 4",
+      "book_by": "9-12mo",
+      "sells_out": "city fills 9-12mo",
+      "high_intent": "Sep–Dec yr prior",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "premium-run + townhouse + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Salzburg Festival",
+    "blurb": "Mozart's city in high summer — opera, orchestras and the Jedermann on the square.",
+    "starts_on": "2026-07-17",
+    "ends_on": "2026-08-30",
+    "recurrence": {
+      "months": [
+        7,
+        8
+      ]
+    },
+    "season": "mid Jul–end Aug",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "ticket orders from Jan 19 2026",
+      "book_by": "drop-day",
+      "sells_out": "premium seats early",
+      "high_intent": "Nov–Dec, peak Jan-Mar",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "premiere-night + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "culture",
+      "culinary",
+      "family"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Alsace / German Christmas Markets",
+    "blurb": "Mulled wine and timbered lanes — Europe's most storied Christmas markets.",
+    "starts_on": "2026-11-21",
+    "ends_on": "2026-12-24",
+    "recurrence": {
+      "months": [
+        11,
+        12
+      ]
+    },
+    "season": "late Nov–Dec",
+    "source": "curated",
+    "priority": 76,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "up to ~1yr; full at 5mo",
+      "sells_out": "full ~5mo out",
+      "high_intent": "Mar–Jun, peak Aug-Oct",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "old-town suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "01F",
+    "si": [
+      "ski"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Alps Ski High Season",
+    "blurb": "Christmas, New Year and half-term in the Alps — the prime chalets go a year out.",
+    "starts_on": null,
+    "ends_on": null,
+    "recurrence": {
+      "months": [
+        12,
+        1,
+        2
+      ]
+    },
+    "season": "Xmas/NY + Feb half-term",
+    "source": "curated",
+    "priority": 82,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "prime chalets 9-12mo",
+      "sells_out": "prime chalets 9-12mo",
+      "high_intent": "Feb–May (prior yr) for Xmas/NY",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "slopeside chalet + heli-ski + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "03F",
+    "si": [
+      "adventure",
+      "wildlife",
+      "romance"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Iceland + Nordic Aurora",
+    "blurb": "The northern lights at solar maximum — glass igloos and aurora chases across the North.",
+    "starts_on": null,
+    "ends_on": null,
+    "recurrence": {
+      "months": [
+        9,
+        10,
+        11,
+        12,
+        1,
+        2,
+        3
+      ]
+    },
+    "season": "late Sep–Mar (solar max 2026-27)",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "igloos/cabins months ahead",
+      "sells_out": "glass igloos early (solar max)",
+      "high_intent": "May–Aug, peak Aug-Nov",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "glass-igloo + private-guide + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "03F",
+    "si": [
+      "family",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Lapland Santa (Rovaniemi)",
+    "blurb": "The real Arctic Christmas — Santa, huskies and snow-glass cabins in Finnish Lapland.",
+    "starts_on": "2026-12-20",
+    "ends_on": "2027-01-02",
+    "recurrence": {
+      "months": [
+        12,
+        1
+      ]
+    },
+    "season": "~Dec 20–Jan 2",
+    "source": "curated",
+    "priority": 74,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "Christmas week ~1yr",
+      "sells_out": "Christmas week ~1yr",
+      "high_intent": "Jan–Apr for that December",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "glass-cabin + husky + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "12A",
+    "si": [
+      "nightlife",
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Mardi Gras (New Orleans)",
+    "blurb": "New Orleans in full cry — parades, krewes and the Quarter at Carnival.",
+    "starts_on": "2026-02-17",
+    "ends_on": "2026-02-17",
+    "recurrence": {
+      "months": [
+        2
+      ]
+    },
+    "season": "Feb (Fat Tuesday)",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6-12mo",
+      "sells_out": "hotels 6-12mo",
+      "high_intent": "Aug–Oct, hard-push Oct-Dec",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "French-Quarter suite + krewe-ball + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "13A",
+    "si": [
+      "culture",
+      "family",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Calgary Stampede",
+    "blurb": "The greatest outdoor show on earth — rodeo, chuckwagons and Western Canada at play.",
+    "starts_on": "2026-07-03",
+    "ends_on": "2026-07-12",
+    "recurrence": {
+      "months": [
+        7
+      ]
+    },
+    "season": "early Jul",
+    "source": "curated",
+    "priority": 72,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6-12mo",
+      "sells_out": "hotels sold out by prior Jul",
+      "high_intent": "Aug–Oct, hard-push Nov-Feb",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "rodeo-suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "10S",
+    "si": [
+      "nightlife",
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Carnaval / Las Llamadas (Montevideo)",
+    "blurb": "The world's longest carnival — Uruguay's Candombe drums and Llamadas call.",
+    "starts_on": "2026-02-06",
+    "ends_on": "2026-02-07",
+    "recurrence": {
+      "months": [
+        2
+      ]
+    },
+    "season": "early Feb",
+    "source": "curated",
+    "priority": 68,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-4mo",
+      "sells_out": "TBD — verify at live-data pass",
+      "high_intent": "Oct–Nov",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "balcony + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "10S",
+    "si": [
+      "culture",
+      "adventure",
+      "pilgrimage"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Inti Raymi (Cusco) + Machu Picchu",
+    "blurb": "The Sun Festival above Cusco and the citadel of Machu Picchu — 5,600/day, prime slots gone in hours.",
+    "starts_on": "2026-06-24",
+    "ends_on": "2026-06-24",
+    "recurrence": {
+      "months": [
+        6
+      ]
+    },
+    "season": "Jun 24",
+    "source": "curated",
+    "priority": 86,
+    "meta": {
+      "ticket_drop": "grandstand ~2mo; MP 3-4mo",
+      "book_by": "2-4mo",
+      "sells_out": "MP daily cap 5,600; prime circuits gone within HOURS",
+      "high_intent": "Feb–Mar",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Sacsayhuamán grandstand + MP + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "12A",
+    "si": [
+      "entertainment",
+      "nightlife",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "SXSW (Austin)",
+    "blurb": "Music, film and tech converge on Austin — beds gone by January.",
+    "starts_on": "2026-03-12",
+    "ends_on": "2026-03-18",
+    "recurrence": {
+      "months": [
+        3
+      ]
+    },
+    "season": "mid Mar",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "presale to Apr 17 (prior yr)",
+      "book_by": "by January",
+      "sells_out": "Airbnbs sell out by JANUARY",
+      "high_intent": "prior spring-summer, hard-push Oct-Dec",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "platinum-badge + downtown + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "12A",
+    "si": [
+      "entertainment",
+      "nightlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Austin City Limits (ACL)",
+    "blurb": "Two weekends in Zilker Park — Austin's flagship music festival.",
+    "starts_on": "2026-10-02",
+    "ends_on": "2026-10-11",
+    "recurrence": {
+      "months": [
+        10
+      ]
+    },
+    "season": "two Oct weekends",
+    "source": "curated",
+    "priority": 74,
+    "meta": {
+      "ticket_drop": "on sale May 5 2026",
+      "book_by": "drop-day",
+      "sells_out": "Weekend-1 GA gone fast",
+      "high_intent": "Apr–May",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "VIP + downtown + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "12A",
+    "si": [
+      "prosports-spectator",
+      "nightlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Austin F1 (COTA)",
+    "blurb": "US Grand Prix at Circuit of the Americas — sold out in record time.",
+    "starts_on": "2026-10-23",
+    "ends_on": "2026-10-25",
+    "recurrence": {
+      "months": [
+        10
+      ]
+    },
+    "season": "late Oct",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "right after prior GP (Nov)",
+      "book_by": "drop-day",
+      "sells_out": "2025 sold out in record time",
+      "high_intent": "Nov (right after prior GP)",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Paddock Club + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "10S",
+    "si": [
+      "culture",
+      "pilgrimage",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Día de Muertos (Oaxaca/CDMX)",
+    "blurb": "Mexico's Day of the Dead — marigolds and ofrendas; rooms 95% gone by September.",
+    "starts_on": "2026-10-31",
+    "ends_on": "2026-11-02",
+    "recurrence": {
+      "months": [
+        10,
+        11
+      ]
+    },
+    "season": "Oct 31–Nov 2",
+    "source": "curated",
+    "priority": 82,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "early Sep (95% booked)",
+      "sells_out": "Zócalo rooms 95% booked by early Sep; rates triple",
+      "high_intent": "Apr–Jun, hard-push Jul-Aug",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Zócalo-view + private-ofrenda + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "10S",
+    "si": [
+      "nightlife",
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Barranquilla Carnival",
+    "blurb": "Colombia's carnival — the Caribbean coast's four-day riot of colour.",
+    "starts_on": "2026-02-14",
+    "ends_on": "2026-02-17",
+    "recurrence": {
+      "months": [
+        2
+      ]
+    },
+    "season": "Feb",
+    "source": "curated",
+    "priority": 66,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-4mo",
+      "sells_out": "TBD — verify at live-data pass",
+      "high_intent": "Oct–Nov",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "palco + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "10S",
+    "si": [
+      "wine",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Vendimia (Mendoza)",
+    "blurb": "Argentina's grape-harvest festival — Malbec country in full celebration.",
+    "starts_on": "2026-03-07",
+    "ends_on": "2026-03-07",
+    "recurrence": {
+      "months": [
+        3
+      ]
+    },
+    "season": "early Mar (Central Act)",
+    "source": "curated",
+    "priority": 68,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-4mo",
+      "sells_out": "Teatro Griego night is the crunch",
+      "high_intent": "Nov–Dec",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "winery-estate + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "11C",
+    "si": [
+      "wildlife",
+      "ocean",
+      "romance"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Whale-Watching Samaná (DR)",
+    "blurb": "Humpbacks in Samaná Bay — the Caribbean's great winter whale season.",
+    "starts_on": "2026-01-15",
+    "ends_on": "2026-03-31",
+    "recurrence": {
+      "months": [
+        1,
+        2,
+        3
+      ]
+    },
+    "season": "Jan 15–Mar 31 (peak Feb)",
+    "source": "curated",
+    "priority": 70,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-6mo",
+      "sells_out": "Caribbean high season Dec-Apr",
+      "high_intent": "Sep–Oct",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "private-charter + villa + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "04A",
+    "si": [
+      "pilgrimage"
+    ],
+    "wells": [
+      "lodging",
+      "activities"
+    ],
+    "kind": "lookahead",
+    "horizon": "lookahead",
+    "title": "Hajj (Saudi Arabia)",
+    "blurb": "The pilgrimage to Mecca — national quotas via the Nusuk portal; book the moment allocation opens.",
+    "starts_on": "2026-05-25",
+    "ends_on": "2026-05-30",
+    "recurrence": {
+      "months": [
+        5
+      ]
+    },
+    "season": "~late May (moves ~11 days/yr)",
+    "source": "curated",
+    "priority": 90,
+    "meta": {
+      "ticket_drop": "Nusuk portal; 2027 reg ~opens Oct 2026",
+      "book_by": "6-9+mo",
+      "sells_out": "national quota — unbuyable once allocation gone",
+      "high_intent": "Sep–Oct 2026; hard-sell to pre-Ramadan Feb 2027",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Haram-proximate (Nusuk-gated)"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "04A",
+    "si": [
+      "pilgrimage"
+    ],
+    "wells": [
+      "lodging",
+      "activities"
+    ],
+    "kind": "lookahead",
+    "horizon": "lookahead",
+    "title": "Umrah — Ramadan Surge",
+    "blurb": "Umrah in Ramadan — the last ten nights are the peak; no visa without a Nusuk-verified hotel.",
+    "starts_on": "2027-02-10",
+    "ends_on": "2027-03-08",
+    "recurrence": {
+      "months": [
+        2,
+        3
+      ]
+    },
+    "season": "Ramadan (last 10 nights peak)",
+    "source": "curated",
+    "priority": 84,
+    "meta": {
+      "ticket_drop": "Nusuk hotel-gated",
+      "book_by": "3-6mo",
+      "sells_out": "Haram-proximate last-10-nights first, +2-3x",
+      "high_intent": "Nov–Dec 2026",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "last-10-nights Haram-view suite"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "04A",
+    "si": [
+      "prosports-spectator",
+      "nightlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Abu Dhabi Grand Prix",
+    "blurb": "The only Gulf F1 race of 2026 — the season finale under the lights at Yas Marina.",
+    "starts_on": "2026-12-03",
+    "ends_on": "2026-12-06",
+    "recurrence": {
+      "months": [
+        12
+      ]
+    },
+    "season": "early Dec",
+    "source": "curated",
+    "priority": 86,
+    "meta": {
+      "ticket_drop": "on sale now",
+      "book_by": "3-6mo",
+      "sells_out": "Yas Island on-circuit hotels first",
+      "high_intent": "Jul–Aug 2026; hard-sell Sep-Nov",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Paddock Club + Yas suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "04A",
+    "si": [
+      "nightlife",
+      "family",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Dubai Shopping Festival + NYE",
+    "blurb": "Dubai's festival season — shopping, fireworks and a Burj-Khalifa New Year.",
+    "starts_on": "2026-12-15",
+    "ends_on": "2027-01-31",
+    "recurrence": {
+      "months": [
+        12,
+        1
+      ]
+    },
+    "season": "mid-Dec–late Jan",
+    "source": "curated",
+    "priority": 74,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "months",
+      "sells_out": "Burj-view NYE hotels first",
+      "high_intent": "Sep–Oct 2026; hard-sell Oct-Dec",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Burj-view NYE + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "04A",
+    "si": [
+      "culture",
+      "entertainment",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Riyadh Season + AlUla Winter",
+    "blurb": "Saudi's cultural season — Riyadh's spectacle and AlUla's desert heritage at Tantora.",
+    "starts_on": "2026-10-15",
+    "ends_on": "2027-03-31",
+    "recurrence": {
+      "months": [
+        10,
+        11,
+        12,
+        1,
+        2,
+        3
+      ]
+    },
+    "season": "mid-Oct–Mar",
+    "source": "curated",
+    "priority": 72,
+    "meta": {
+      "ticket_drop": "AlUla at Tantora Dec 17 2026–Jan 9 2027",
+      "book_by": "months",
+      "sells_out": "AlUla luxury lodging bed-capped, early",
+      "high_intent": "Riyadh prime Sep; AlUla prime Oct, hard-sell Nov-Dec",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "AlUla resort + Maraya + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "05A",
+    "si": [
+      "safari",
+      "wildlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Great Migration — Mara/Serengeti Crossings",
+    "blurb": "The greatest wildlife show on earth — the river crossings of the Mara and Serengeti. Book river-front camps 12-18 months out.",
+    "starts_on": "2026-08-01",
+    "ends_on": "2026-09-30",
+    "recurrence": {
+      "months": [
+        8,
+        9
+      ]
+    },
+    "season": "peak crossings Aug-Sep (calving Jan-Mar)",
+    "source": "curated",
+    "priority": 99,
+    "meta": {
+      "ticket_drop": "camps rolling",
+      "book_by": "12-18mo river-front camps",
+      "sells_out": "river-front camps 12-18mo out",
+      "high_intent": "~15mo out; calving sell Jul-Oct 2026",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "private-camp + heli + Ultra",
+      "flagship": true
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "05A",
+    "si": [
+      "safari",
+      "wildlife",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "lookahead",
+    "horizon": "lookahead",
+    "title": "Gorilla Trek — Rwanda",
+    "blurb": "Mountain gorillas in the Volcanoes — ~96 permits a day at $1,500; book six-plus months out.",
+    "starts_on": null,
+    "ends_on": null,
+    "recurrence": {
+      "months": [
+        6,
+        7,
+        8,
+        9,
+        12,
+        1,
+        2
+      ]
+    },
+    "season": "year-round (drier Jun-Sep & Dec-Feb)",
+    "source": "curated",
+    "priority": 92,
+    "meta": {
+      "ticket_drop": "permit rolling $1,500",
+      "book_by": "6-9mo",
+      "sells_out": "~96 permits/day",
+      "high_intent": "6-9mo before trek",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "permit-priority + lodge + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "05A",
+    "si": [
+      "safari",
+      "wildlife",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "lookahead",
+    "horizon": "lookahead",
+    "title": "Gorilla Trek — Uganda",
+    "blurb": "Bwindi's gorillas at $800 — the value alternative to Rwanda. (Note: Uganda advisory — verify booking status.)",
+    "starts_on": null,
+    "ends_on": null,
+    "recurrence": {
+      "months": [
+        6,
+        7,
+        8,
+        9,
+        12,
+        1,
+        2
+      ]
+    },
+    "season": "year-round",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "permit rolling $800",
+      "book_by": "3-6mo",
+      "sells_out": "capped by habituated groups",
+      "high_intent": "3-6mo before trek",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "permit + lodge + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "05A",
+    "si": [
+      "safari",
+      "wildlife",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Kwita Izina (Gorilla Naming, Rwanda)",
+    "blurb": "Rwanda's gorilla-naming ceremony — pair the celebration with a trek permit.",
+    "starts_on": "2026-09-04",
+    "ends_on": "2026-09-04",
+    "recurrence": {
+      "months": [
+        9
+      ]
+    },
+    "season": "Sep (21st edition)",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "RDB invite + permits",
+      "book_by": "4-6mo",
+      "sells_out": "permits squeeze around ceremony",
+      "high_intent": "Mar–May 2026; hard-sell May-Aug",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "ceremony + trek + lodge + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "05A",
+    "si": [
+      "culture",
+      "pilgrimage"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Ethiopia — Timkat (Epiphany)",
+    "blurb": "Ethiopia's Epiphany — the great processions of Gondar, book early against thin stock.",
+    "starts_on": "2027-01-19",
+    "ends_on": "2027-01-19",
+    "recurrence": {
+      "months": [
+        1
+      ]
+    },
+    "season": "Jan 19 (Gondar premier)",
+    "source": "curated",
+    "priority": 70,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "4-8mo",
+      "sells_out": "Gondar limited stock",
+      "high_intent": "Aug–Sep 2026; hard-sell Sep-Dec",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Gondar heritage + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "06A",
+    "si": [
+      "wildlife",
+      "romance",
+      "culinary",
+      "ocean"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Cape Town Whale Season + Festive",
+    "blurb": "Cape Town's double draw — Hermanus whales in season and the tightest festive villa market in Africa.",
+    "starts_on": "2026-12-15",
+    "ends_on": "2027-02-28",
+    "recurrence": {
+      "months": [
+        12,
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "season": "whales Jun-Nov; festive Dec-Feb",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6-9mo",
+      "sells_out": "festive villas gone 6+mo (Cape's tightest)",
+      "high_intent": "whales May-Jul; festive Apr-Jun, hard-sell Jun-Oct",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Atlantic-Seaboard villa + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "06A",
+    "si": [
+      "adventure",
+      "wildlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Victoria Falls (Devil's Pool)",
+    "blurb": "The edge of Victoria Falls — Devil's Pool at low water, with capped daily Livingstone Island slots.",
+    "starts_on": "2026-08-15",
+    "ends_on": "2027-01-15",
+    "recurrence": {
+      "months": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        1
+      ]
+    },
+    "season": "Devil's Pool mid-Aug–Jan (best Sep-Nov)",
+    "source": "curated",
+    "priority": 76,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "2-4mo",
+      "sells_out": "capped daily Livingstone Island slots",
+      "high_intent": "May–Jun, hard-sell Jun-Sep",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Livingstone-Island slot + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "06A",
+    "si": [
+      "safari",
+      "wildlife"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "African Safari Dry Season",
+    "blurb": "Botswana, Namibia, Zambia and Zimbabwe in the dry — the classic Big-Five safari window.",
+    "starts_on": "2026-05-01",
+    "ends_on": "2026-10-31",
+    "recurrence": {
+      "months": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "season": "dry May-Oct (Delta floods Jun-Aug)",
+    "source": "curated",
+    "priority": 82,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6-12mo",
+      "sells_out": "dry-season camps 6-12mo out",
+      "high_intent": "Nov–Feb",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "private-conservancy + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "culture",
+      "nightlife",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Songkran (Thailand)",
+    "blurb": "Thailand's water-festival new year — the world's biggest water fight.",
+    "starts_on": "2027-04-13",
+    "ends_on": "2027-04-15",
+    "recurrence": {
+      "months": [
+        4
+      ]
+    },
+    "season": "Apr 13-15 (play Apr 10-20)",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "S2O ~2-4mo",
+      "book_by": "3mo",
+      "sells_out": "Chiang Mai/Silom by ~Jan; flights by mid-Nov",
+      "high_intent": "Oct–Nov 2026",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "riverside-suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "culture",
+      "pilgrimage"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "SEA Water-Week (Luang Prabang · Myanmar · Cambodia)",
+    "blurb": "Pi Mai, Thingyan and Khmer New Year — the region's water-blessing week, tight heritage beds.",
+    "starts_on": "2027-04-13",
+    "ends_on": "2027-04-16",
+    "recurrence": {
+      "months": [
+        4
+      ]
+    },
+    "season": "~Apr 13-16",
+    "source": "curated",
+    "priority": 70,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-4mo",
+      "sells_out": "Luang Prabang tight heritage inventory",
+      "high_intent": "Oct–Nov 2026",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "heritage-house + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "culture",
+      "pilgrimage",
+      "family"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Diwali (India)",
+    "blurb": "India's festival of lights — the railway 120-day window (~Aug 6) is the booking trigger.",
+    "starts_on": "2026-11-08",
+    "ends_on": "2026-11-08",
+    "recurrence": {
+      "months": [
+        11
+      ]
+    },
+    "season": "Nov 8",
+    "source": "curated",
+    "priority": 82,
+    "meta": {
+      "ticket_drop": "rail opens ~Aug 6 (120-day)",
+      "book_by": "≥3mo",
+      "sells_out": "rail 120-day window",
+      "high_intent": "Jul–Aug 2026 (rail window)",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "palace-hotel + private + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Holi (India)",
+    "blurb": "The festival of colour — book the Braj region early against thin quality inventory.",
+    "starts_on": "2027-03-22",
+    "ends_on": "2027-03-22",
+    "recurrence": {
+      "months": [
+        3
+      ]
+    },
+    "season": "Mar 22 (Rangwali)",
+    "source": "curated",
+    "priority": 72,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "≥2-3mo",
+      "sells_out": "Braj-region limited quality inventory",
+      "high_intent": "Dec 2026–Jan 2027",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Braj-heritage + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "pilgrimage",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Kumbh Mela (India)",
+    "blurb": "The largest human gathering on earth — the sacred bathing days book a year ahead.",
+    "starts_on": "2027-07-17",
+    "ends_on": "2027-08-17",
+    "recurrence": {
+      "months": [
+        7,
+        8
+      ]
+    },
+    "season": "Nashik main Jul-Aug 2027 (Haridwar Jan-Apr)",
+    "source": "curated",
+    "priority": 76,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6-12mo",
+      "sells_out": "Snan-date rooms 6-12mo out",
+      "high_intent": "H2 2026 (Haridwar); Q1 2027 (Nashik)",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "riverside-camp + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "culture",
+      "pilgrimage"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Esala Perahera (Kandy, Sri Lanka)",
+    "blurb": "Kandy's festival of the tooth relic — torch-lit elephants; the balcony seats are the crunch.",
+    "starts_on": "2026-08-18",
+    "ends_on": "2026-08-28",
+    "recurrence": {
+      "months": [
+        8
+      ]
+    },
+    "season": "Aug 18-28 (Randoli finale Aug 27)",
+    "source": "curated",
+    "priority": 72,
+    "meta": {
+      "ticket_drop": "grandstand months out",
+      "book_by": "3-6mo",
+      "sells_out": "grandstand/balcony seats the constraint",
+      "high_intent": "Mar–May 2026; hard-convert May-Jun",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "balcony + hill-country + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "wellness",
+      "romance",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Bali High Season + Nyepi",
+    "blurb": "Bali at its peak — and Nyepi, the island's day of silence, as a confinement-luxury upsell.",
+    "starts_on": "2026-07-01",
+    "ends_on": "2026-08-31",
+    "recurrence": {
+      "months": [
+        7,
+        8,
+        12,
+        1
+      ]
+    },
+    "season": "Jul-Aug + mid-Dec–early Jan (Nyepi Mar 9 2027)",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6-9mo",
+      "sells_out": "Jul/Aug + late-Dec villas 6-9mo",
+      "high_intent": "Jan–Mar 2026 for Jul/Aug",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "cliff-villa + Nyepi-confinement + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "hiking",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Nepal Trekking",
+    "blurb": "Himalayan trekking seasons — solo trekking is now banned, so a licensed guide is the built-in hook.",
+    "starts_on": "2026-10-01",
+    "ends_on": "2026-11-30",
+    "recurrence": {
+      "months": [
+        10,
+        11,
+        3,
+        4,
+        5
+      ]
+    },
+    "season": "autumn Oct-Nov + spring Mar-May",
+    "source": "curated",
+    "priority": 76,
+    "meta": {
+      "ticket_drop": "restricted-area permits need lead time",
+      "book_by": "1-3mo",
+      "sells_out": "licensed guide MANDATORY (solo banned)",
+      "high_intent": "Jul–Aug 2026 (autumn); Dec-Jan (spring)",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "private-guide (mandated) + lodge + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "culture",
+      "pilgrimage",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "lookahead",
+    "horizon": "lookahead",
+    "title": "Bhutan — Tshechus + SDF Price-Cliff",
+    "blurb": "Bhutan's festivals and the $100 SDF price-cliff — the one binary, dateable deadline: book before Aug 31, 2027.",
+    "starts_on": "2027-03-18",
+    "ends_on": "2027-03-22",
+    "recurrence": {
+      "months": [
+        3,
+        9
+      ]
+    },
+    "season": "Paro Mar 2027; Thimphu Sep 2026",
+    "source": "curated",
+    "priority": 88,
+    "meta": {
+      "ticket_drop": "SDF $100→$200 after Aug 31 2027",
+      "book_by": "6-9mo",
+      "sells_out": "the one hard dateable deadline (Aug 31 2027)",
+      "high_intent": "hard-sell H2 2026–H1 2027",
+      "tier": "3",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Tshechu + Amankora-circuit + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "07A",
+    "si": [
+      "romance",
+      "ocean",
+      "liveaboard"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Maldives — Peak + NYE",
+    "blurb": "The Maldives at New Year — the best overwater villas are gone a year out.",
+    "starts_on": "2026-12-24",
+    "ends_on": "2027-01-10",
+    "recurrence": {
+      "months": [
+        12,
+        1
+      ]
+    },
+    "season": "peak mid-Dec–Apr (premium Dec 24–Jan 10)",
+    "source": "curated",
+    "priority": 84,
+    "meta": {
+      "ticket_drop": "early-bird",
+      "book_by": "9-12mo",
+      "sells_out": "best overwater villas ~1yr; NYE hardest ($5k-25k/night)",
+      "high_intent": "H2 2026 for Dec '26/NYE",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "overwater-villa (ultra-native)"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "08A",
+    "si": [
+      "culture",
+      "romance",
+      "family"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Japan Cherry Blossom (Sakura)",
+    "blurb": "Japan's sakura — the #1 scarcity spike; Kyoto's best rooms vanish within hours of the booking window opening.",
+    "starts_on": "2027-03-29",
+    "ends_on": "2027-04-05",
+    "recurrence": {
+      "months": [
+        3,
+        4
+      ]
+    },
+    "season": "late Mar–early Apr (window ~1 wk)",
+    "source": "curated",
+    "priority": 95,
+    "meta": {
+      "ticket_drop": "hotels 6mo out on 1st of month",
+      "book_by": "6-12mo",
+      "sells_out": "Kyoto/Gion top properties gone within HOURS",
+      "high_intent": "Jun–Oct prior; re-hit Jan-Feb (bloom forecasts)",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "ryokan-suite + guide + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "08A",
+    "si": [
+      "culture",
+      "romance"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Japan Autumn Koyo (Kyoto)",
+    "blurb": "Kyoto's autumn colours — the second-highest scarcity spike of the Japanese year.",
+    "starts_on": "2026-11-20",
+    "ends_on": "2026-12-05",
+    "recurrence": {
+      "months": [
+        11,
+        12
+      ]
+    },
+    "season": "Nov 20–Dec 5",
+    "source": "curated",
+    "priority": 84,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "6+mo",
+      "sells_out": "2nd-highest Kyoto scarcity",
+      "high_intent": "May–Aug; 2nd push late Sep-Oct",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "ryokan-suite + guide + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "08A",
+    "si": [
+      "culture",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Gion Matsuri (Kyoto)",
+    "blurb": "Kyoto's greatest festival — the float parades; paid grandstand seats go on sale June 1.",
+    "starts_on": "2026-07-17",
+    "ends_on": "2026-07-24",
+    "recurrence": {
+      "months": [
+        7
+      ]
+    },
+    "season": "Jul 17 & 24 parades",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "grandstand seats Jun 1 2026",
+      "book_by": "3-6mo",
+      "sells_out": "paid grandstand seats the constraint",
+      "high_intent": "Apr–May; convert Jun 1",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "grandstand + machiya + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "08A",
+    "si": [
+      "culture",
+      "family"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "South Korea Sakura — Jinhae Gunhangje",
+    "blurb": "Korea's biggest cherry-blossom festival — the naval city of Jinhae under the blossoms.",
+    "starts_on": "2026-03-27",
+    "ends_on": "2026-04-05",
+    "recurrence": {
+      "months": [
+        3,
+        4
+      ]
+    },
+    "season": "late Mar–early Apr",
+    "source": "curated",
+    "priority": 66,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-6mo",
+      "sells_out": "day-tour shuttle seats the constraint",
+      "high_intent": "Jan–Feb; convert Feb-Mar",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "boutique + shuttle + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "08A",
+    "si": [
+      "culture",
+      "family",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Taiwan Lantern Festival",
+    "blurb": "Taiwan's spectacular lantern festival — the host city rotates yearly; confirm dates and location.",
+    "starts_on": "2026-03-03",
+    "ends_on": "2026-03-15",
+    "recurrence": {
+      "months": [
+        2,
+        3
+      ]
+    },
+    "season": "early–mid Mar (rotates city)",
+    "source": "curated",
+    "priority": 64,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "3-6mo",
+      "sells_out": "TBD — verify at live-data pass (rotating host-city)",
+      "high_intent": "late Dec–Feb; confirm host-city annually",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "premium-view + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "08A",
+    "si": [
+      "culture",
+      "adventure",
+      "prosports-spectator"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Mongolia Naadam",
+    "blurb": "Mongolia's festival of the three manly games — wrestling, archery and horse-racing on the steppe.",
+    "starts_on": "2026-07-11",
+    "ends_on": "2026-07-13",
+    "recurrence": {
+      "months": [
+        7
+      ]
+    },
+    "season": "Jul 11-13",
+    "source": "curated",
+    "priority": 76,
+    "meta": {
+      "ticket_drop": "stadium ~mid-Jun",
+      "book_by": "by May",
+      "sells_out": "UB hotels sell out 4-6mo ahead",
+      "high_intent": "Dec–Mar; lock lodging by May",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "opening-ceremony + ger-camp + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "prosports-spectator",
+      "entertainment"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Australian Open (Melbourne)",
+    "blurb": "The first Slam of the year in Melbourne — early-bird packages close July 31.",
+    "starts_on": "2027-01-17",
+    "ends_on": "2027-01-31",
+    "recurrence": {
+      "months": [
+        1
+      ]
+    },
+    "season": "mid-late Jan (verify 11 vs 17)",
+    "source": "curated",
+    "priority": 86,
+    "meta": {
+      "ticket_drop": "public ~Oct 2026; early-bird packages to Jul 31 2026",
+      "book_by": "early-bird Jul 31",
+      "sells_out": "Rod Laver premium first",
+      "high_intent": "Jun–Jul (packages); Oct-Dec",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Rod Laver premium + hospitality + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "prosports-spectator",
+      "nightlife",
+      "culture"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Melbourne Cup Carnival",
+    "blurb": "The race that stops a nation — Flemington's carnival and the Birdcage marquees.",
+    "starts_on": "2026-11-03",
+    "ends_on": "2026-11-03",
+    "recurrence": {
+      "months": [
+        11
+      ]
+    },
+    "season": "early Nov (Cup Tue Nov 3)",
+    "source": "curated",
+    "priority": 74,
+    "meta": {
+      "ticket_drop": "packages on sale now",
+      "book_by": "months",
+      "sells_out": "Birdcage marquees early",
+      "high_intent": "Jun–Jul (hospitality)",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "Birdcage marquee + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "nightlife",
+      "entertainment",
+      "romance"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Sydney NYE Fireworks",
+    "blurb": "The world's first great New Year fireworks — Sydney Harbour, with a capped Forecourt.",
+    "starts_on": "2026-12-31",
+    "ends_on": "2026-12-31",
+    "recurrence": {
+      "months": [
+        12
+      ]
+    },
+    "season": "Dec 31",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "Forecourt free tickets open Dec 26",
+      "book_by": "months",
+      "sells_out": "Opera House Forecourt capped 6,000",
+      "high_intent": "Sep–Oct (hotels/cruises)",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "harbour-cruise + suite + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "entertainment",
+      "culture",
+      "family"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Vivid Sydney",
+    "blurb": "Sydney's festival of light, music and ideas — the harbour lit up for three weeks.",
+    "starts_on": "2027-05-28",
+    "ends_on": "2027-06-19",
+    "recurrence": {
+      "months": [
+        5,
+        6
+      ]
+    },
+    "season": "late May–mid Jun",
+    "source": "curated",
+    "priority": 70,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "months",
+      "sells_out": "long-weekend hotels + paid experiences peak",
+      "high_intent": "Mar–May 2027; prime Jan-Feb",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "harbour-view + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "ski",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "NZ Ski — Queenstown/Wanaka",
+    "blurb": "Southern-hemisphere skiing — Queenstown and Wanaka in the New Zealand winter (our summer).",
+    "starts_on": "2026-06-01",
+    "ends_on": "2026-10-31",
+    "recurrence": {
+      "months": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "season": "Jun-Oct (peak Jul school holidays)",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "months",
+      "sells_out": "July-holiday lodging early",
+      "high_intent": "Apr–Jun 2026; prime Jan-Mar",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "slopeside-chalet + heli-ski + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "liveaboard",
+      "diveglobal",
+      "ocean"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "GBR Dive — Dwarf Minke (Liveaboard)",
+    "blurb": "Swim with dwarf minke whales on the Great Barrier Reef — a two-operator, June-July-only window.",
+    "starts_on": "2026-06-01",
+    "ends_on": "2026-07-31",
+    "recurrence": {
+      "months": [
+        6,
+        7
+      ]
+    },
+    "season": "Jun-Jul only",
+    "source": "curated",
+    "priority": 74,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "months",
+      "sells_out": "only 2 operators; cabins fill months ahead",
+      "high_intent": "Sep–Dec (year prior)",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "liveaboard-cabin (2-op cap) + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "ocean",
+      "wildlife",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Tonga Humpback Whale-Swim (Vava'u)",
+    "blurb": "Swim with humpback whales in Tonga — in-water caps of four make this a hard scarcity anchor.",
+    "starts_on": "2026-07-15",
+    "ends_on": "2026-10-15",
+    "recurrence": {
+      "months": [
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "season": "mid-Jul–mid-Oct (best Aug-Sep)",
+    "source": "curated",
+    "priority": 78,
+    "meta": {
+      "ticket_drop": "operator direct",
+      "book_by": "~1yr",
+      "sells_out": "in-water capped 4 swimmers + 1 guide",
+      "high_intent": "Jan–Jun 2026; prime 6-12mo ahead",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "private-charter + villa + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "ocean",
+      "wildlife",
+      "romance"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "French Polynesia Whale-Swim (Moorea/Rurutu)",
+    "blurb": "Whale-swim season in French Polynesia — legislated in-water limits and few operators.",
+    "starts_on": "2026-07-20",
+    "ends_on": "2026-11-20",
+    "recurrence": {
+      "months": [
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    "season": "Jul 20–Nov 20 (best Aug-Sep)",
+    "source": "curated",
+    "priority": 76,
+    "meta": {
+      "ticket_drop": "operator direct",
+      "book_by": "~1yr",
+      "sells_out": "max 6 guests/tour (gov't rule), limited operators",
+      "high_intent": "Feb–Jul 2026; prime 6+mo ahead",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "overwater-villa + private-charter + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "culture",
+      "adventure"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "event",
+    "horizon": "lookahead",
+    "title": "Vanuatu Pentecost Land Diving (Naghol)",
+    "blurb": "The original bungee — Pentecost Island's vine land-diving, Saturdays in the yam-harvest season only.",
+    "starts_on": "2026-04-04",
+    "ends_on": "2026-06-27",
+    "recurrence": {
+      "months": [
+        4,
+        5,
+        6
+      ]
+    },
+    "season": "Saturdays Apr-Jun only",
+    "source": "curated",
+    "priority": 72,
+    "meta": {
+      "ticket_drop": "n/a",
+      "book_by": "ASAP",
+      "sells_out": "bush guesthouses + charter-flight seats (hardest cap)",
+      "high_intent": "Dec 2025–Mar 2026",
+      "tier": "2",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "charter + village-stay + Ultra"
+    }
+  },
+  {
+    "id": null,
+    "destination_id": null,
+    "region_code": "09P",
+    "si": [
+      "romance",
+      "ocean",
+      "liveaboard"
+    ],
+    "wells": [
+      "activities",
+      "lodging"
+    ],
+    "kind": "schedule",
+    "horizon": "lookahead",
+    "title": "Fiji/FP Dry Peak + Bora Bora Overwater",
+    "blurb": "The South Pacific in the dry — Fiji and Bora Bora, where the overwater villas go nine months out.",
+    "starts_on": "2026-05-01",
+    "ends_on": "2026-10-31",
+    "recurrence": {
+      "months": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        12
+      ]
+    },
+    "season": "dry May-Oct (peak Jun-Sep) + Xmas/NY",
+    "source": "curated",
+    "priority": 80,
+    "meta": {
+      "ticket_drop": "early-bird",
+      "book_by": "9-12mo",
+      "sells_out": "Bora Bora overwater peak gone ~9mo out",
+      "high_intent": "Sep–Dec (prior yr) for dry; 9-12mo overwater",
+      "tier": "1",
+      "upsell_ladder": [
+        "GA/base",
+        "premium",
+        "VIP",
+        "backstage",
+        "signature",
+        "ultra bundle"
+      ],
+      "upsell_top": "overwater-villa + private-charter + Ultra"
+    }
+  }
+]

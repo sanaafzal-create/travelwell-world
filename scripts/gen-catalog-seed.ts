@@ -12,7 +12,7 @@
  * Re-run whenever the catalog changes to refresh the seeds.
  */
 import { writeFileSync, readFileSync, readdirSync } from "node:fs";
-import { SIS, SUBREGIONS } from "../src/data/taxonomy";
+import { SIS, SUBREGIONS, REGIONS } from "../src/data/taxonomy";
 import { ACTIVITIES, PROVIDERS, DESTINATIONS, GUIDES } from "../src/data/places";
 import { LOCAL_SIGNALS } from "../src/data/local-signals";
 
@@ -61,6 +61,59 @@ function readProviderCsvs(): CsvProvider[] {
     }
   }
   return rows;
+}
+
+// TLEU look-ahead events (David's Travel-Linked Event Universe) arrive as one
+// JSON array in src/data/tleu-events.json, pre-shaped to the local_signals row
+// (snake_case + a meta object per event). The generator ingests them straight
+// into the 0007 seed alongside the authored LOCAL_SIGNALS — no transcription.
+// Two normalizations happen here so the file stays David's verbatim map:
+//   • id is authored null → we mint a stable `tleu-<slug(title)>` primary key.
+//   • wells "lodging" → "stay" (our canonical well id; there is no "lodging").
+// region_code is validated against REGIONS below (the table FK would error on a
+// bad code); SI slugs are soft (text[], no FK) so future-SI tags like
+// prosports-spectator ride along quietly until those interests ship.
+interface TleuEvent {
+  id: string | null; destination_id: string | null; region_code: string | null;
+  si?: string[]; wells?: string[]; kind: string; horizon: string;
+  title: string; blurb?: string; starts_on?: string | null; ends_on?: string | null;
+  recurrence?: { months?: number[]; days?: number[] }; season?: string;
+  source?: string; priority?: number; meta?: Record<string, unknown>;
+}
+const slug = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const WELL_REMAP: Record<string, string> = { lodging: "stay" };
+function readTleuEvents(validRegions: Set<string>): LocalSignal[] {
+  let raw: TleuEvent[] = [];
+  try { raw = JSON.parse(readFileSync("src/data/tleu-events.json", "utf8")); }
+  catch { return []; }
+  const seen = new Set<string>();
+  return raw.map((e) => {
+    let id = e.id ?? `tleu-${slug(e.title)}`;
+    while (seen.has(id)) id = `${id}-2`;
+    seen.add(id);
+    if (e.region_code && !validRegions.has(e.region_code)) {
+      throw new Error(`TLEU event "${e.title}" has unknown region_code ${e.region_code}`);
+    }
+    return {
+      id,
+      kind: e.kind as LocalSignal["kind"],
+      horizon: e.horizon as LocalSignal["horizon"],
+      title: e.title,
+      blurb: e.blurb,
+      destination: e.destination_id ?? undefined,
+      region: e.region_code ?? undefined,
+      si: e.si,
+      wells: (e.wells ?? []).map((w) => WELL_REMAP[w] ?? w),
+      season: e.season,
+      recurrence: e.recurrence,
+      startsOn: e.starts_on ?? undefined,
+      endsOn: e.ends_on ?? undefined,
+      priority: e.priority,
+      source: (e.source ?? "curated") as LocalSignal["source"],
+      meta: e.meta,
+    };
+  });
 }
 
 const q = (s: string | null | undefined) => (s == null ? "null" : `'${s.replace(/'/g, "''")}'`);
@@ -322,7 +375,9 @@ console.log(`  ${Object.values(DESTINATIONS).flat().length} destinations, ${GUID
 // ---------------------------------------------------------------------------
 // 0007 — Local & temporal signals (the "knows what's happening" layer)
 // ---------------------------------------------------------------------------
-const signalRows = LOCAL_SIGNALS.map(
+const TLEU_SIGNALS = readTleuEvents(new Set(REGIONS.map((r) => r.code)));
+const ALL_SIGNALS = [...LOCAL_SIGNALS, ...TLEU_SIGNALS];
+const signalRows = ALL_SIGNALS.map(
   (s) =>
     `  (${q(s.id)}, ${s.destination ? q(s.destination) : "null"}, ${s.region ? q(s.region) : "null"}, ` +
     `${pgArr(s.si)}, ${pgArr(s.wells)}, ${q(s.kind)}, ${q(s.horizon)}, ${q(s.title)}, ${q(s.blurb)}, ${q(s.href)}, ` +
@@ -393,4 +448,4 @@ on conflict (id) do update set
 
 writeFileSync("supabase/migrations/0007_seed_local_signals.sql", sql7);
 console.log("Wrote supabase/migrations/0007_seed_local_signals.sql");
-console.log(`  ${LOCAL_SIGNALS.length} local signals`);
+console.log(`  ${ALL_SIGNALS.length} local signals (${LOCAL_SIGNALS.length} authored + ${TLEU_SIGNALS.length} TLEU)`);
