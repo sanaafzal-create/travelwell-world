@@ -26,6 +26,14 @@ library (`Travelman73/tww-research-library`) — that repo has its own rules.
 - **Safer-Informed:** we keep travelers **informed** so they can be as safe as possible — we **never promise "safe"** (an outcome we don't control). L1/L2 book freely; L3 books only if it passes all three safety gates; L4 and L3-blocked are content-only (no Book button).
 - **Never commit secrets.** The repo is public. `ANTHROPIC_API_KEY` and `UNSPLASH_ACCESS_KEY` live as **Supabase secrets** — never `VITE_`, never in the repo. Never put a model identifier in commits, PRs, or code.
 
+## Accessibility — build to WCAG AA (locked design standard)
+Stylish **and** usable by everyone. The elderly and low-vision traveler are among our best-spending markets, and "Atlas walks beside everyone" has to be true in the pixels — so accessibility is baked in from the first screen, never bolted on later (retrofitting a hardened UI is expensive). Hold a real, checkable AA bar:
+- **Contrast** meets AA (≥ 4.5:1 body, ≥ 3:1 large text) — audit muted grays on tinted grounds; no classy-but-unreadable light-gray-on-white.
+- **Text resizes** without breaking (rem units; nothing that clips on zoom); a sensible default size.
+- **Tap targets** big enough for a real thumb (~44px).
+- **Every control labeled** for screen readers; **visible keyboard focus**; **never color alone** for meaning; respect `prefers-reduced-motion`.
+- **Checkable, not a vibe** — automated a11y checks in the build so a regression fails the build, same discipline as the dossier QC gate.
+
 ## Foundation sockets (locked canon — pour the seams now, build the machinery later)
 Not built yet, but the foundation is shaped to receive them clean (a future team/Olympic universe plugs in with no rework). Detail in `docs/status-and-launch-plan.md`.
 - **A traveler is a *subject*, not just a person.** One profile, captured once; a person belongs to teams/institutions by **role** (athlete, coach, medic, ops director); an entity (team, federation) can itself be a "traveler." Don't scatter person-only assumptions.
