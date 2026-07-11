@@ -29,3 +29,6 @@ supabase/.temp
 
 # TypeScript incremental build cache
 tsconfig.tsbuildinfo
+
+# Throwaway generator/build scratch (regenerate on demand)
+scratchpad/
