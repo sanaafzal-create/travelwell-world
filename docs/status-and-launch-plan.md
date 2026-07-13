@@ -83,6 +83,14 @@ The VC research named five moats OpenAI/Booking can't easily copy. Mapped to wha
 
 **Refined 14-day priority for maximum *demonstrable* moat:** (1) Atlas-in-language + core-flow localization (make the top moat real); (2) flip content-ready preview regions 7→12 + fill the empty US; (3) make the safety spine visible (floating button on existing data); (4) surface the TLEU forward calendar; (5) tighten onboarding→vision-writeback (the identity moat vs Layla). Full i18n retrofit, supplier-breadth, SEO ranking, and ski stay honestly framed as post-window / funded-socket / fast-follow.
 
+### Universe-inventory readiness (Jul 2026 — demonstrable vs architected)
+David frames the offering as a family of "universes." Mapped to what's actually in the repo, so the VC deck shows built product and *labels* the roadmap as roadmap:
+- **General Travel (mothership) — REAL, demonstrable today.** The live MVP: 6 SIs (→ more on flip), 7 live regions (→ 12), 38 dossiers, Atlas (speak/type), the Wells, PWA, safety data. This is the proof.
+- **TravelWell-Ultra — REAL, demonstrable today as the luxury overlay.** `ultra` is a *live* SI/overlay + a budget tier; `LUX_WELLS` (Nanny-Well, Security-Well — ultra-only via `WellAudience`) are live. Not a separate app, but a genuine, shippable ultra layer across the product — a crisp "ultra mode" walkthrough is real.
+- **TLEU (Live Events Universe) — REAL as data, invisible until surfaced.** 70 events ingested into `local_signals`; nothing renders them yet. Demonstrable within days once the calendar module ships (14-day item #4). Highest built-ratio quick win of the universes.
+- **Sports Travel Universe (Team / Spectator / Olympics+Winter / Pro Cycling / colleges-CCSTT / Pro sports) — ARCHITECTED, not built.** The 6 sports-family SIs (`group`, `olympic`, `sports`, `spectator`, `prosports`, `compsports`) exist only as `preview` **names with 0 activities / 0 content**. **There is no college/CCSTT data, no "12-engine OS", no Olympics/cycling/team dataset anywhere in the repo** — the sole artifact is a handful of TLEU events tagged `prosports-spectator` (which don't surface). Per our own foundation-socket canon this is deliberate: the team/Olympic universe is a **schema seam, not a build** ("Schema seam now, not a build"; multi-year dated event-series designed-in). **VC framing:** present this as *architectural readiness* — the pluggable SI board, subject-not-person schema, and multi-year event-series model mean these universes plug in with no rewrite — **not** as live inventory. Do not show "1,600 colleges / CCSTT / Pro Cycling" as shipped.
+  - **Caution on the "1,600" number:** in the repo, 1,600 is the **destination** corpus (≈87 sub-regions × ~12–20 places = "big world, built once"), *not* 1,600 colleges. Don't let the two merge in the deck.
+
 ---
 
 ## PART 3 — Sockets to hold open now (cheap now, expensive later)
