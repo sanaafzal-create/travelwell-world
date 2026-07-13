@@ -73,6 +73,16 @@ Prioritized by impact ÷ effort:
 - **"Ranking" is not yet live.** The dossiers are built, but SEO/SSG rendering is unshipped (gated on the raise; proven by spike). Frame as: rich live product now, the ranking engine is the near-term build the raise funds — don't say "ranking today."
 - **Languages are not a live asset.** i18n is a locale/RTL *switcher* only — no translated content (Part 2, item 9). "Live in 4 languages" isn't true yet.
 
+### Moat readiness scorecard + the language-leverage play (Jul 2026, VC-research pass)
+The VC research named five moats OpenAI/Booking can't easily copy. Mapped to what's actually shipped, so the raise leans on real ground:
+- **Hand-built destination intelligence — STRONG, real.** 38 live dossiers (26 verified) + ~370 stockpile. Our best-demonstrable moat. Gaps: only 38 of ~370 ingested; ranking (SEO) not live.
+- **Deeper identity engine — REAL CORE, demoable.** The speak/type → Atlas captures → writes the vision back → confirm loop is genuinely built (`useSpeech` + Atlas). The "deepens every trip" layer is still socket. This is the head-to-head vs Layla's "identity-first planning" — keep the onboarding→writeback flow crisp for the demo.
+- **Multi-language — GAP today, but the highest-leverage 14-day win.** No i18n framework, no translated content, all UI copy hardcoded English. BUT we're AI-native: **Atlas already speaks es/ar/zh/fr** — the concierge (the heart of the product) is made multilingual by passing `locale` through the invoke into the system prompt (`supabase.ts` → `atlas/index.ts`), a small, contained change; the model does the rest. The full i18n retrofit (externalize every string) remains the 🏋️🏋️ biggest single lift and is NOT a 14-day job — so scope to **demonstrable multilingual**: Atlas-in-language + localize the core flow screens (home, onboarding, one region, one destination, the Wells rail) + Arabic RTL QA. That converts the moat VCs care most about from "declared" to "shown" cheaply — the single highest-ROI item in the window.
+- **Safety / duty-of-care spine — REAL DATA, currently invisible.** `safety.json` + `emergency-numbers.ts` + the L1–L4 gate model are real, but the floating safety button isn't built (flagged in the Fora audit). Wiring the always-present safety button that surfaces existing data is a modest, high-signal demo win — turns a real-but-hidden moat visible.
+- **Supplier depth — THIN / concentrated (weakest real moat).** 62 providers but ~all in 05A (39, safari) + 11C (~23, Caribbean); most regions have ~0 named suppliers. Deepening this is the Fora/host-agency play (separate thread), not a 14-day build sprint — don't overclaim breadth.
+
+**Refined 14-day priority for maximum *demonstrable* moat:** (1) Atlas-in-language + core-flow localization (make the top moat real); (2) flip content-ready preview regions 7→12 + fill the empty US; (3) make the safety spine visible (floating button on existing data); (4) surface the TLEU forward calendar; (5) tighten onboarding→vision-writeback (the identity moat vs Layla). Full i18n retrofit, supplier-breadth, SEO ranking, and ski stay honestly framed as post-window / funded-socket / fast-follow.
+
 ---
 
 ## PART 3 — Sockets to hold open now (cheap now, expensive later)
