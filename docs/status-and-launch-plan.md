@@ -58,6 +58,21 @@
 
 **Heavy lifts / where people concentrate:** i18n, SEO rendering, the monthly-sweep automation, content production at scale.
 
+### 14-day launch-surface assessment (Jul 2026 — "what's genuinely flippable")
+David's question: past the 6-SI soft launch, how much more can go *genuinely* live in ~14 days for a VC demo — real, not planned. Audited the catalog. **The core finding: `live` vs `preview` is almost entirely a status decision, not a content gap.** Every preview region carries the same depth as the live ones (each ~2–4 destinations, mostly 2–3 `verified` + 1 `stub`); the only region with a real provider roster is 05A (39, safari) + 11C (~23 CSV, Caribbean) — and the *live* regions launched without per-region provider rosters too. So the fastest real wins are flipping content we already built and filling the empty rooms in what's already live — not new build.
+
+Prioritized by impact ÷ effort:
+1. **Fill hollow spots in what's already live (do first — a live-but-empty room is the worst VC look).** **12A United States is live with 0 destination dossiers** (10 sub-regions, no places) — ingest 3–4 US city dossiers from the stockpile. Upgrade `stub` destinations toward `verified` where the stockpile allows (12 stubs across the catalog).
+2. **Flip the content-ready preview regions (near one-line flips + a QC pass).** 06A Southern Africa (2 verified + heavy TLEU coverage: Cape Town whale/festive, Vic Falls, safari dry season), 03F Nordics (aurora/Lapland), 08A East Asia, 09P Oceania, 13A Canada. Each is at content-parity with the 7 live regions. **Hold 10S until the Mexico anchor lands (David's call).** This takes the live world from **7 → up to 12 regions.** Gate each flip on: QC the existing dossiers + a working affiliate handoff, so it's not a hollow flip.
+3. **Flip 3–4 high-appeal, content-backed SIs.** `wine` (6 acts), `culinary` (5), `culture` (4), `wellness` (4) all have activities + map onto already-live regions — widens the funnel cheaply. (Live SIs don't depend on the ACTIVITIES map, so this is a QC-and-flip, not a build.)
+4. **Surface the TLEU forward calendar.** 70 events are ingested but nothing renders them yet — a modest region/SI-page module ("marquee moments + book-by windows") turns banked data into a *visible*, unique differentiator. Medium effort, high demo value.
+
+**Ski — the honest read (David wants it as a launch target):** ski is the *least* ready of the obvious candidates. **0 ski activities, 0 ski destination dossiers, 0 ski providers** — the only ski data is 2 TLEU lookahead events (Alps, Lapland) that don't surface. Flipping ski genuinely live needs real content (Alps/Japan/Rockies dossiers) + supply (chalet/lift/instructor providers) + activities. It's a **fast-follow ingest, not a status flip** — achievable in the window *only if* the 370-dossier stockpile already holds ski dossiers ready to drop in. Don't promise it day-1 live without confirming that stock.
+
+**Two accuracy guardrails for the VC framing (so we show real, not planned):**
+- **"Ranking" is not yet live.** The dossiers are built, but SEO/SSG rendering is unshipped (gated on the raise; proven by spike). Frame as: rich live product now, the ranking engine is the near-term build the raise funds — don't say "ranking today."
+- **Languages are not a live asset.** i18n is a locale/RTL *switcher* only — no translated content (Part 2, item 9). "Live in 4 languages" isn't true yet.
+
 ---
 
 ## PART 3 — Sockets to hold open now (cheap now, expensive later)
