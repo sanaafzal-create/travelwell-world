@@ -27,7 +27,7 @@ library (`Travelman73/tww-research-library`) — that repo has its own rules.
 - **Never commit secrets.** The repo is public. `ANTHROPIC_API_KEY` and `UNSPLASH_ACCESS_KEY` live as **Supabase secrets** — never `VITE_`, never in the repo. Never put a model identifier in commits, PRs, or code.
 
 ## Accessibility — build to WCAG AA (locked design standard)
-Stylish **and** usable by everyone. The elderly and low-vision traveler are among our best-spending markets, and "Atlas walks beside everyone" has to be true in the pixels — so accessibility is baked in from the first screen, never bolted on later (retrofitting a hardened UI is expensive). Hold a real, checkable AA bar:
+Stylish **and** usable by everyone. The elderly and low-vision traveler are among our best-spending markets — building genuinely *for* them is a **moat** (David), not a compliance chore — and "Atlas walks beside everyone" has to be true in the pixels, so accessibility is baked in from the first screen, never bolted on later (retrofitting a hardened UI is expensive). This is standing canon, right alongside the payments-never rule and the voice rule. Hold a real, checkable AA bar:
 - **Contrast** meets AA (≥ 4.5:1 body, ≥ 3:1 large text) — audit muted grays on tinted grounds; no classy-but-unreadable light-gray-on-white.
 - **Text resizes** without breaking (rem units; nothing that clips on zoom); a sensible default size.
 - **Tap targets** big enough for a real thumb (~44px).
