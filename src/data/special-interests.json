@@ -2,7 +2,7 @@
   "special_interests": [
     { "id": "sailing", "name": "Sailing Charters", "sig": "wind in your favor", "status": "preview", "accent": "#2E6E8C", "lux": false, "group": "water" },
     { "id": "yacht", "name": "Yacht Charters", "sig": "the open sea, served well", "status": "preview", "accent": "#1F5C73", "lux": true, "group": "water" },
-    { "id": "wine", "name": "Wine & Whiskey/Spirits Tours", "sig": "the world, one glass at a time", "status": "preview", "accent": "#7B3F52", "lux": false, "group": "culture" }
+    { "id": "wine", "name": "Wine & Whiskey/Spirits Tours", "sig": "the world, one glass at a time", "status": "live", "accent": "#7B3F52", "lux": false, "group": "culture" }
   ],
   "activities": {
     "sailing": [

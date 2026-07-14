@@ -41,7 +41,7 @@ const BASE_SIS: SpecialInterest[] = [
   { id: "diveglobal", name: "Dive Globally", sig: "the world below", status: "preview", accent: "#1F6E8C", lux: false, group: "water" },
   { id: "ocean", name: "Ocean & Watersports", sig: "the open water", status: "preview", accent: "#2C6E68", lux: false, group: "water" },
   /* Nature & Wellbeing */
-  { id: "wellness", name: "Wellness, Spa & Retreats", sig: "coming home to yourself", status: "preview", accent: "#4F8C7A", lux: false, group: "nature" },
+  { id: "wellness", name: "Wellness, Spa & Retreats", sig: "coming home to yourself", status: "live", accent: "#4F8C7A", lux: false, group: "nature" },
   { id: "wildlife", name: "Wildlife & Nature", sig: "wild places, up close", status: "preview", accent: "#4A7A3C", lux: false, group: "nature" },
   { id: "glamping", name: "Global Glamping", sig: "wild, but well-appointed", status: "preview", accent: "#7A6B4F", lux: false, group: "nature" },
   /* Life-stage & Active */
@@ -52,8 +52,8 @@ const BASE_SIS: SpecialInterest[] = [
   { id: "olympic", name: "Olympic Travel", sig: "the world's stage", status: "preview", accent: "#C2562E", lux: false, group: "active" },
   { id: "senior", name: "Senior Travel", sig: "unhurried, well-earned", status: "preview", accent: "#7A5B3B", lux: false, group: "active" },
   /* Culture & Entertainment */
-  { id: "culinary", name: "Culinary Experiences", sig: "a table worth the flight", status: "preview", accent: "#9C5B3B", lux: false, group: "culture" },
-  { id: "culture", name: "Culture & Heritage", sig: "the soul of a place", status: "preview", accent: "#7A5BA8", lux: false, group: "culture" },
+  { id: "culinary", name: "Culinary Experiences", sig: "a table worth the flight", status: "live", accent: "#9C5B3B", lux: false, group: "culture" },
+  { id: "culture", name: "Culture & Heritage", sig: "the soul of a place", status: "live", accent: "#7A5BA8", lux: false, group: "culture" },
   { id: "deepdive", name: "Cultural Deep Dives", sig: "beneath the surface", status: "preview", accent: "#6B4F9E", lux: false, group: "culture" },
   { id: "pilgrimage", name: "Religious & Pilgrimage", sig: "the road as devotion", status: "preview", accent: "#8C6B4F", lux: false, group: "culture" },
   { id: "entertainment", name: "Live Entertainment", sig: "the lights come up", status: "preview", accent: "#C2562E", lux: false, group: "culture" },
@@ -119,17 +119,17 @@ export interface Region {
 export const REGIONS: Region[] = [
   { code: "01F", name: "Western Europe", line: "Old-world capitals, modern ease", countries: 8, gateways: "CDG · LHR · AMS", status: "live" },
   { code: "02F", name: "The Mediterranean", line: "Sun, sea, and centuries", countries: 9, gateways: "BCN · FCO · ATH", status: "live" },
-  { code: "03F", name: "Northern Europe & Nordics", line: "Fjords, design, long light", countries: 7, gateways: "CPH · OSL · HEL", status: "preview" },
+  { code: "03F", name: "Northern Europe & Nordics", line: "Fjords, design, long light", countries: 7, gateways: "CPH · OSL · HEL", status: "live" },
   { code: "04A", name: "Middle East & Gulf", line: "Where ancient meets audacious", countries: 6, gateways: "DXB · DOH · AUH", status: "live" },
   { code: "05A", name: "East Africa", line: "The cradle of the safari", countries: 5, gateways: "NBO · JRO · KGL", status: "live" },
-  { code: "06A", name: "Southern Africa", line: "Big skies, bigger game", countries: 5, gateways: "CPT · JNB · WDH", status: "preview" },
+  { code: "06A", name: "Southern Africa", line: "Big skies, bigger game", countries: 5, gateways: "CPT · JNB · WDH", status: "live" },
   { code: "07A", name: "South & Southeast Asia", line: "Temples, islands, spice", countries: 9, gateways: "BKK · SIN · DPS", status: "live" },
-  { code: "08A", name: "East Asia", line: "Tradition at the speed of now", countries: 5, gateways: "NRT · ICN · HKG", status: "preview" },
-  { code: "09P", name: "Oceania & The Pacific", line: "The end of the map, the start of awe", countries: 6, gateways: "SYD · AKL · NAN", status: "preview" },
+  { code: "08A", name: "East Asia", line: "Tradition at the speed of now", countries: 5, gateways: "NRT · ICN · HKG", status: "live" },
+  { code: "09P", name: "Oceania & The Pacific", line: "The end of the map, the start of awe", countries: 6, gateways: "SYD · AKL · NAN", status: "live" },
   { code: "10S", name: "Latin America", line: "Color, rhythm, wild horizons", countries: 11, gateways: "MEX · LIM · GIG", status: "preview" },
   { code: "11C", name: "Caribbean & Atlantic", line: "A thousand shades of blue", countries: 13, gateways: "NAS · PUJ · SJU", status: "live" },
   { code: "12A", name: "United States", line: "Fifty ways to wander", countries: 1, gateways: "JFK · LAX · ORD", status: "live", sub: true },
-  { code: "13A", name: "Canada", line: "Vast, wild, and gracious", countries: 1, gateways: "YYZ · YVR · YUL", status: "preview", sub: true },
+  { code: "13A", name: "Canada", line: "Vast, wild, and gracious", countries: 1, gateways: "YYZ · YVR · YUL", status: "live", sub: true },
 ];
 
 export const SUBREGIONS: Record<string, string[]> = {

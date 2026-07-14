@@ -32,17 +32,17 @@ on conflict (id) do update set
 insert into public.regions (code, name, line, countries, gateways, status, has_sub) values
   ('01F', 'Western Europe',             'Old-world capitals, modern ease',          8,  'CDG · LHR · AMS', 'live',    false),
   ('02F', 'The Mediterranean',          'Sun, sea, and centuries',                  9,  'BCN · FCO · ATH', 'live',    false),
-  ('03F', 'Northern Europe & Nordics',  'Fjords, design, long light',               7,  'CPH · OSL · HEL', 'preview', false),
+  ('03F', 'Northern Europe & Nordics',  'Fjords, design, long light',               7,  'CPH · OSL · HEL', 'live',    false),
   ('04A', 'Middle East & Gulf',         'Where ancient meets audacious',            6,  'DXB · DOH · AUH', 'live',    false),
   ('05A', 'East Africa',                'The cradle of the safari',                 5,  'NBO · JRO · KGL', 'live',    false),
-  ('06A', 'Southern Africa',            'Big skies, bigger game',                   5,  'CPT · JNB · WDH', 'preview', false),
+  ('06A', 'Southern Africa',            'Big skies, bigger game',                   5,  'CPT · JNB · WDH', 'live',    false),
   ('07A', 'South & Southeast Asia',     'Temples, islands, spice',                  9,  'BKK · SIN · DPS', 'live',    false),
-  ('08A', 'East Asia',                  'Tradition at the speed of now',            5,  'NRT · ICN · HKG', 'preview', false),
-  ('09P', 'Oceania & The Pacific',      'The end of the map, the start of awe',     6,  'SYD · AKL · NAN', 'preview', false),
+  ('08A', 'East Asia',                  'Tradition at the speed of now',            5,  'NRT · ICN · HKG', 'live',    false),
+  ('09P', 'Oceania & The Pacific',      'The end of the map, the start of awe',     6,  'SYD · AKL · NAN', 'live',    false),
   ('10S', 'Latin America',              'Color, rhythm, wild horizons',             11, 'MEX · LIM · GIG', 'preview', false),
   ('11C', 'Caribbean & Atlantic',       'A thousand shades of blue',                13, 'NAS · PUJ · SJU', 'live',    false),
   ('12A', 'United States',              'Fifty ways to wander',                     1,  'JFK · LAX · ORD', 'live',    true),
-  ('13A', 'Canada',                     'Vast, wild, and gracious',                 1,  'YYZ · YVR · YUL', 'preview', true)
+  ('13A', 'Canada',                     'Vast, wild, and gracious',                 1,  'YYZ · YVR · YUL', 'live',    true)
 on conflict (code) do update set
   name = excluded.name, line = excluded.line, countries = excluded.countries,
   gateways = excluded.gateways, status = excluded.status, has_sub = excluded.has_sub;

@@ -20,7 +20,7 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('river', 'River Cruises', 'the slow current', 'live', '#5B86A8', false, 'water'),
   ('diveglobal', 'Dive Globally', 'the world below', 'preview', '#1F6E8C', false, 'water'),
   ('ocean', 'Ocean & Watersports', 'the open water', 'preview', '#2C6E68', false, 'water'),
-  ('wellness', 'Wellness, Spa & Retreats', 'coming home to yourself', 'preview', '#4F8C7A', false, 'nature'),
+  ('wellness', 'Wellness, Spa & Retreats', 'coming home to yourself', 'live', '#4F8C7A', false, 'nature'),
   ('wildlife', 'Wildlife & Nature', 'wild places, up close', 'preview', '#4A7A3C', false, 'nature'),
   ('glamping', 'Global Glamping', 'wild, but well-appointed', 'preview', '#7A6B4F', false, 'nature'),
   ('family', 'Family Travel', 'everyone, together', 'preview', '#C98A2E', false, 'active'),
@@ -29,8 +29,8 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('ski', 'Ski & Snow', 'the first track', 'preview', '#5B86A8', false, 'active'),
   ('olympic', 'Olympic Travel', 'the world''s stage', 'preview', '#C2562E', false, 'active'),
   ('senior', 'Senior Travel', 'unhurried, well-earned', 'preview', '#7A5B3B', false, 'active'),
-  ('culinary', 'Culinary Experiences', 'a table worth the flight', 'preview', '#9C5B3B', false, 'culture'),
-  ('culture', 'Culture & Heritage', 'the soul of a place', 'preview', '#7A5BA8', false, 'culture'),
+  ('culinary', 'Culinary Experiences', 'a table worth the flight', 'live', '#9C5B3B', false, 'culture'),
+  ('culture', 'Culture & Heritage', 'the soul of a place', 'live', '#7A5BA8', false, 'culture'),
   ('deepdive', 'Cultural Deep Dives', 'beneath the surface', 'preview', '#6B4F9E', false, 'culture'),
   ('pilgrimage', 'Religious & Pilgrimage', 'the road as devotion', 'preview', '#8C6B4F', false, 'culture'),
   ('entertainment', 'Live Entertainment', 'the lights come up', 'preview', '#C2562E', false, 'culture'),
@@ -41,7 +41,7 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('compsports', 'Competitive Sports Team Travel', 'travel to compete', 'preview', '#2E6E8C', false, 'sports'),
   ('sailing', 'Sailing Charters', 'wind in your favor', 'preview', '#2E6E8C', false, 'water'),
   ('yacht', 'Yacht Charters', 'the open sea, served well', 'preview', '#1F5C73', true, 'water'),
-  ('wine', 'Wine & Whiskey/Spirits Tours', 'the world, one glass at a time', 'preview', '#7B3F52', false, 'culture')
+  ('wine', 'Wine & Whiskey/Spirits Tours', 'the world, one glass at a time', 'live', '#7B3F52', false, 'culture')
 on conflict (id) do update set
   name = excluded.name, signature = excluded.signature, status = excluded.status,
   accent = excluded.accent, is_lux = excluded.is_lux, grp = excluded.grp;
