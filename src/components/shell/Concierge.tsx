@@ -100,6 +100,33 @@ export function Concierge() {
               <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 8, maxWidth: "34ch", marginInline: "auto" }}>
                 I can plan from a single sentence, or just keep you company while you browse. You can <b>type or talk</b>, and I can <b>read or speak</b> back — your choice, remembered.
               </p>
+              {/* Self-demonstrating language beat: a cold visitor witnesses the
+                  multilingual moat on landing, no action needed. Arabic carries
+                  its own dir/lang so it shapes + renders right-to-left in place.
+                  aria-label states it plainly for anyone who can't see it. */}
+              <div
+                className="tw-langbeat"
+                aria-label="Atlas speaks your language — English, Spanish, Arabic, Chinese, and French"
+                style={{ display: "flex", flexWrap: "wrap", gap: 6, justifyContent: "center", alignItems: "center", marginTop: 14 }}
+              >
+                <span className="t-body-s" style={{ width: "100%", color: "var(--muted-foreground)", marginBottom: 2 }}>I speak your language, too —</span>
+                {[
+                  { t: "Hello", lang: "en", dir: "ltr" },
+                  { t: "Hola", lang: "es", dir: "ltr" },
+                  { t: "مرحباً", lang: "ar", dir: "rtl" },
+                  { t: "你好", lang: "zh", dir: "ltr" },
+                  { t: "Bonjour", lang: "fr", dir: "ltr" },
+                ].map((g) => (
+                  <span
+                    key={g.lang}
+                    lang={g.lang}
+                    dir={g.dir as "ltr" | "rtl"}
+                    style={{ padding: "2px 10px", border: "1px solid var(--border)", borderRadius: 999, fontSize: 13, lineHeight: 1.6 }}
+                  >
+                    {g.t}
+                  </span>
+                ))}
+              </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 18 }}>
                 <button className="btn btn-primary" onClick={() => begin("guided")}>Walk me through it</button>
                 <button className="btn btn-secondary" onClick={() => begin("conversation")}>I'll just type</button>
@@ -152,7 +179,7 @@ export function Concierge() {
           </div>
           <div className="tw-input">
             <input
-              type="text" placeholder="Ask me anything, or tell me your dream…" aria-label="Message Atlas"
+              type="text" placeholder="Ask me anything — in English · Español · العربية · 中文 · Français" aria-label="Message Atlas — ask in English, Spanish, Arabic, Chinese, or French"
               value={input} onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") onSend(input); }}
             />

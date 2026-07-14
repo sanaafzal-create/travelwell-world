@@ -35,7 +35,7 @@ export function useAtlas() {
       // happenings) and send a recent window of the conversation.
       const ctx = await buildAtlasContext();
       const history = useStore.getState().atlasMessages.slice(-SEND_WINDOW);
-      const { reply } = await askAtlas(history, ctx);
+      const { reply } = await askAtlas(history, ctx, useStore.getState().locale);
       useStore.getState().addAtlasMessage({ role: "assistant", content: reply });
     } finally {
       useStore.getState().setAtlasBusy(false);

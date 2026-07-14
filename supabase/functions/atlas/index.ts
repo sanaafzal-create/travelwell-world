@@ -44,9 +44,10 @@ Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
 
   try {
-    const { messages, context } = (await req.json()) as {
+    const { messages, context, locale } = (await req.json()) as {
       messages: ChatMessage[];
       context?: Record<string, unknown>;
+      locale?: string;
     };
 
     const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
@@ -65,10 +66,22 @@ Deno.serve(async (req: Request) => {
       ? `\n\nWhat you currently know about this traveler (use it, don't restate it): ${JSON.stringify(context)}`
       : "";
 
+    // The traveler picks their language in the UI; Atlas answers in it. Claude
+    // speaks every launch language natively — we just name which, and ask it to
+    // hold TravelWell's voice in that language. (Arabic renders right-to-left.)
+    const LANGS: Record<string, string> = {
+      en: "English", es: "Spanish", ar: "Arabic", zh: "Chinese", fr: "French",
+      de: "German", pt: "Portuguese", ja: "Japanese", ko: "Korean",
+    };
+    const langNote =
+      locale && locale !== "en" && LANGS[locale]
+        ? `\n\nRespond in ${LANGS[locale]} — the traveler has chosen it. Keep TravelWell's warm, plain, editorial voice in that language; write as a native speaker would rather than translating literally. Numerals and place names stay conventional for that language.`
+        : "";
+
     const base = {
       model: MODEL,
       max_tokens: 1024,
-      system: SYSTEM + contextNote,
+      system: SYSTEM + contextNote + langNote,
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
     };
     // Prefer extended thinking, but never let a thinking-param rejection drop us
