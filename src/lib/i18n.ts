@@ -217,6 +217,17 @@ export const MESSAGES: Record<string, Dict> = {
   "reg.ranked": { en: "Ranked for your interests.", es: "Ordenadas según tus intereses.", ar: "مرتّبة حسب اهتماماتك.", zh: "已按你的兴趣排序。", fr: "Classées selon vos intérêts." },
   "reg.rankedMid": { en: "Regions that fit", es: "Las regiones que encajan con", ar: "المناطق التي تناسب", zh: "契合", fr: "Les régions correspondant à" },
   "reg.rankedTail": { en: "rise to the top.", es: "suben a lo más alto.", ar: "تتصدّر القائمة.", zh: "会升至前列。", fr: "remontent en tête." },
+
+  // ── Marquee Moments (TLEU forward calendar) ─────────────────────────────
+  "mrq.eyebrow": { en: "Marquee Moments", es: "Momentos Estelares", ar: "لحظات بارزة", zh: "标志性时刻", fr: "Moments Phares" },
+  "mrq.title": { en: "The moments worth planning around", es: "Los momentos que vale la pena planear", ar: "اللحظات التي تستحقّ التخطيط حولها", zh: "值得为之规划的时刻", fr: "Les moments qui méritent qu'on s'organise autour" },
+  "mrq.lead": { en: "The world's peak events — tracked years out, with the booking window to catch them while access is still open.", es: "Los grandes eventos del mundo — seguidos con años de antelación, con la ventana de reserva para alcanzarlos mientras aún hay acceso.", ar: "أبرز أحداث العالم — نتتبّعها قبل سنوات، مع نافذة الحجز لاغتنامها قبل نفاد الأماكن.", zh: "全球顶级盛事——提前数年追踪，并标注预订窗口，让你在名额尚在时抢先把握。", fr: "Les grands événements du monde — suivis des années à l'avance, avec la fenêtre de réservation pour les saisir tant que l'accès est ouvert." },
+  "mrq.flagship": { en: "Flagship", es: "Insignia", ar: "الحدث الرئيسي", zh: "旗舰", fr: "Phare" },
+  "mrq.bookBy": { en: "Book by", es: "Reserva antes de", ar: "احجز قبل", zh: "预订窗口", fr: "Réserver avant" },
+  "mrq.when": { en: "When", es: "Cuándo", ar: "متى", zh: "时间", fr: "Quand" },
+  "mrq.seeAll": { en: "See all 70 events", es: "Ver los 70 eventos", ar: "عرض كل الأحداث الـ70", zh: "查看全部 70 项盛事", fr: "Voir les 70 événements" },
+  "mrq.pageTitle": { en: "The Forward Calendar", es: "El Calendario Anticipado", ar: "التقويم الاستباقي", zh: "前瞻日历", fr: "Le Calendrier Anticipé" },
+  "mrq.pageLead": { en: "70 marquee events, tracked two to four years out — so we can position you while access and inventory are still open.", es: "70 eventos estelares, seguidos con dos a cuatro años de antelación — para posicionarte mientras aún hay acceso e inventario.", ar: "70 حدثًا بارزًا، نتتبّعها قبل عامين إلى أربعة أعوام — لنهيّئ لك مكانك بينما لا يزال الوصول والأماكن متاحة.", zh: "70 项标志性盛事，提前两到四年追踪——以便在名额与资源尚在时为你抢占先机。", fr: "70 événements phares, suivis de deux à quatre ans à l'avance — pour vous positionner tant que l'accès et les places sont ouverts." },
 };
 
 export function translate(key: string, locale: string): string {
