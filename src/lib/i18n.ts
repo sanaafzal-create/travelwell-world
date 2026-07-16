@@ -26,7 +26,7 @@ export const MESSAGES: Record<string, Dict> = {
   "nav.guides":  { en: "Guides", es: "Guías", ar: "أدلّة", zh: "指南", fr: "Guides" },
   "nav.about":   { en: "About", es: "Acerca de", ar: "من نحن", zh: "关于", fr: "À propos" },
   "nav.signin":  { en: "Sign in", es: "Iniciar sesión", ar: "تسجيل الدخول", zh: "登录", fr: "Se connecter" },
-  "nav.atlas":   { en: "Speak with Atlas", es: "Habla con Atlas", ar: "تحدّث مع أطلس", zh: "与 Atlas 对话", fr: "Parler avec Atlas" },
+  "nav.atlas":   { en: "Speak with Atlas", es: "Habla con Atlas", ar: "تحدّث مع Atlas", zh: "与 Atlas 对话", fr: "Parler avec Atlas" },
 
   // ── Home hero (first screen a cold visitor sees) ────────────────────────
   "hero.eyebrow": { en: "A Travel Operating System", es: "Un Sistema Operativo de Viajes", ar: "نظام تشغيل للسفر", zh: "旅行操作系统", fr: "Un Système d'Exploitation du Voyage" },
@@ -40,7 +40,7 @@ export const MESSAGES: Record<string, Dict> = {
     fr: "Dites-nous ce qui vous inspire. Nous vous menons d'une simple étincelle — un intérêt, un lieu, une émotion — jusqu'à un voyage réservé et magnifiquement organisé. Une étape claire à la fois.",
   },
   "hero.cta1": { en: "Design Your Dream Journey", es: "Diseña el viaje de tus sueños", ar: "صمِّم رحلة أحلامك", zh: "设计你的梦想旅程", fr: "Concevez le voyage de vos rêves" },
-  "hero.cta2": { en: "Not sure? Speak with Atlas", es: "¿No estás seguro? Habla con Atlas", ar: "لست متأكّدًا؟ تحدّث مع أطلس", zh: "还不确定？与 Atlas 对话", fr: "Pas sûr ? Parlez avec Atlas" },
+  "hero.cta2": { en: "Not sure? Speak with Atlas", es: "¿No estás seguro? Habla con Atlas", ar: "لست متأكّدًا؟ تحدّث مع Atlas", zh: "还不确定？与 Atlas 对话", fr: "Pas sûr ? Parlez avec Atlas" },
   "hero.taps1": { en: "4–5 taps from here to a booked trip", es: "De aquí a un viaje reservado en 4–5 toques", ar: "من هنا إلى رحلة محجوزة في 4–5 نقرات", zh: "从这里到预订成行，只需 4–5 步", fr: "4–5 étapes d'ici à un voyage réservé" },
   "hero.taps2": { en: "No account needed to start", es: "No necesitas cuenta para empezar", ar: "لا حاجة إلى حساب للبدء", zh: "无需账户即可开始", fr: "Aucun compte requis pour commencer" },
 
@@ -60,7 +60,7 @@ export const MESSAGES: Record<string, Dict> = {
 
   // ── Home · How-it-works steps ───────────────────────────────────────────
   "step1.title": { en: "Tell us what moves you", es: "Cuéntanos qué te mueve", ar: "أخبِرنا بما يحرّكك", zh: "告诉我们什么打动你", fr: "Dites-nous ce qui vous inspire" },
-  "step1.body":  { en: "Pick the ways you love to travel — safari, romance, culinary, and more. Or just speak with Atlas.", es: "Elige las formas en que te gusta viajar —safari, romance, gastronomía y más. O habla con Atlas.", ar: "اختر الطرق التي تحب السفر بها — سفاري، رومانسية، تجارب طهي والمزيد. أو تحدّث مع أطلس.", zh: "选择你喜欢的旅行方式——野生动物、浪漫、美食等等。或者直接与 Atlas 对话。", fr: "Choisissez vos façons de voyager préférées — safari, romance, gastronomie et plus. Ou parlez avec Atlas." },
+  "step1.body":  { en: "Pick the ways you love to travel — safari, romance, culinary, and more. Or just speak with Atlas.", es: "Elige las formas en que te gusta viajar —safari, romance, gastronomía y más. O habla con Atlas.", ar: "اختر الطرق التي تحب السفر بها — سفاري، رومانسية، تجارب طهي والمزيد. أو تحدّث مع Atlas.", zh: "选择你喜欢的旅行方式——野生动物、浪漫、美食等等。或者直接与 Atlas 对话。", fr: "Choisissez vos façons de voyager préférées — safari, romance, gastronomie et plus. Ou parlez avec Atlas." },
   "step2.title": { en: "Choose where in the world", es: "Elige dónde en el mundo", ar: "اختر وجهتك في العالم", zh: "选择世界的何处", fr: "Choisissez où dans le monde" },
   "step2.body":  { en: "Thirteen regions, each with researched destinations and an accurate Safety Card you can trust.", es: "Trece regiones, cada una con destinos investigados y una Tarjeta de Seguridad precisa en la que puedes confiar.", ar: "ثلاث عشرة منطقة، كلٌّ بوجهات مدروسة وبطاقة أمان دقيقة يمكنك الوثوق بها.", zh: "十三个地区，每个都有经过研究的目的地和一张你可以信赖的准确安全卡。", fr: "Treize régions, chacune avec des destinations étudiées et une Carte de Sécurité fiable." },
   "step3.title": { en: "Move through the Wells", es: "Recorre los Wells", ar: "تنقّل عبر الـ Wells", zh: "穿行于各个 Well", fr: "Parcourez les Wells" },

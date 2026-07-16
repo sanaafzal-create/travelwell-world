@@ -17,7 +17,7 @@ import { useStore } from "@/store/useStore";
 
 type L = { es?: string; ar?: string; zh?: string; fr?: string };
 
-const CATALOG: Record<string, L> = {
+export const CATALOG: Record<string, L> = {
   // ── Special Interest names ──────────────────────────────────────────────
   "si.ultra.name": { es: "Ultra-Lujo", ar: "الفخامة القصوى", zh: "超奢华", fr: "Ultra-Luxe" },
   "si.tropical.name": { es: "Islas Tropicales", ar: "جزر استوائية", zh: "热带海岛", fr: "Îles Tropicales" },
@@ -100,7 +100,7 @@ const CATALOG: Record<string, L> = {
 // Chip labels — keyed by their English text so callers pass the raw string.
 // Brand/code chips (Fly-Well, "01F · …" region codes) that aren't here fall
 // back to English. Detail chips; demo-ready, worth a native polish.
-const CHIPS: Record<string, L> = {
+export const CHIPS: Record<string, L> = {
   // Well category chips
   "Scheduled flights": { es: "Vuelos regulares", ar: "رحلات مجدولة", zh: "定期航班", fr: "Vols réguliers" },
   "Bush & light aircraft": { es: "Avionetas y vuelos ligeros", ar: "طائرات صغيرة وأدغال", zh: "丛林轻型飞机", fr: "Avions légers & brousse" },
