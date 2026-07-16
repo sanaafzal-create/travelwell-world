@@ -1,7 +1,7 @@
 # Arabic review — TravelWell.World
 
 Every user-facing string, English → current Arabic. Mark up the AR column; brand names (TravelWell, Atlas) and Well names stay English by design.
-**295 strings.** Rendering + RTL are verified; this pass is for wording quality.
+**297 strings.** Rendering + RTL are verified; this pass is for wording quality.
 
 
 | key | English | Arabic (review) |
@@ -15,7 +15,7 @@ Every user-facing string, English → current Arabic. Mark up the AR column; bra
 | hero.eyebrow | A Travel Operating System | نظام تشغيل للسفر |
 | hero.title1 | Your next journey,  | رحلتك القادمة،  |
 | hero.title2 | designed around you. | مصمَّمة حولك. |
-| hero.lead | Tell us what moves you. We route you from a single spark — an interest, a place, a feeling — all the way to a booked, beautifully organized trip. One clear step at a time. | أخبِرنا بما يحرّكك. نأخذك من شرارة واحدة — اهتمام، أو مكان، أو شعور — إلى رحلة محجوزة ومنظَّمة بعناية. خطوة واضحة في كل مرة. |
+| hero.lead | Tell us what moves you. We route you from a single spark — an interest, a place, a feeling — all the way to a booked, beautifully organized trip. One clear step at a time. | أخبِرنا بما يحرّكك، وننطلق بك من شرارة واحدة — اهتمامٌ أو مكانٌ أو شعور — إلى رحلة محجوزة ومنظَّمة بعناية، خطوةً واضحةً في كل مرّة. |
 | hero.cta1 | Design Your Dream Journey | صمِّم رحلة أحلامك |
 | hero.cta2 | Not sure? Speak with Atlas | لست متأكّدًا؟ تحدّث مع Atlas |
 | hero.taps1 | 4–5 taps from here to a booked trip | من هنا إلى رحلة محجوزة في 4–5 نقرات |
@@ -23,7 +23,7 @@ Every user-facing string, English → current Arabic. Mark up the AR column; bra
 | what.eyebrow | What is TravelWell | ما هو TravelWell |
 | what.title1 | A travel operating system that designs the whole trip —  | نظام تشغيل للسفر يصمِّم الرحلة بأكملها —  |
 | what.title2 | around you. | حولك. |
-| what.lead | Most sites sell you one booking and leave the rest to you. TravelWell starts with what moves you, then assembles every piece — flights, stays, dining, transport, activities and more — into one beautifully organized journey you actually control. | معظم المواقع تبيعك حجزًا واحدًا وتترك لك الباقي. يبدأ TravelWell بما يحرّكك، ثم يجمع كل التفاصيل — الطيران، الإقامة، الطعام، التنقّل، الأنشطة والمزيد — في رحلة واحدة منظَّمة بعناية، تتحكّم أنت بها فعلًا. |
+| what.lead | Most sites sell you one booking and leave the rest to you. TravelWell starts with what moves you, then assembles every piece — flights, stays, dining, transport, activities and more — into one beautifully organized journey you actually control. | معظم المواقع تبيعك حجزًا واحدًا وتترك لك الباقي. يبدأ TravelWell بما يحرّكك، ثم يجمع كل التفاصيل — الطيران، الإقامة، الطعام، التنقّل، الأنشطة والمزيد — في رحلة واحدة منظَّمة بأناقة، وأنت مَن يمسك بزمامها. |
 | what.cta | Start designing — it's free | ابدأ التصميم — مجّانًا |
 | what.ctaNote | 4–5 taps to a booked trip · no account needed to start | 4–5 نقرات إلى رحلة محجوزة · لا حاجة إلى حساب للبدء |
 | step1.title | Tell us what moves you | أخبِرنا بما يحرّكك |
@@ -44,7 +44,7 @@ Every user-facing string, English → current Arabic. Mark up the AR column; bra
 | card.all | All travelers | لكل المسافرين |
 | os.eyebrow | How it all fits together | كيف يتكامل كل شيء |
 | os.title | A Travel Operating System. | نظام تشغيل للسفر. |
-| os.lead | Behind the calm surface, an organized engine routes every traveler from a spark of interest, to a place, to what excites them, to every need met — ending in a vetted, booked plan. Four moving parts, one effortless journey. | خلف السطح الهادئ، محرّك منظَّم يقود كل مسافر من شرارة اهتمام، إلى مكان، إلى ما يثيره، إلى تلبية كل حاجة — لينتهي بخطة موثوقة ومحجوزة. أربعة أجزاء متحرّكة، ورحلة واحدة دون عناء. |
+| os.lead | Behind the calm surface, an organized engine routes every traveler from a spark of interest, to a place, to what excites them, to every need met — ending in a vetted, booked plan. Four moving parts, one effortless journey. | خلف السطح الهادئ، محرّك منظَّم يقود كل مسافر من شرارة اهتمام، إلى مكان، إلى ما يثيره، إلى تلبية كل حاجة — لينتهي بخطة موثوقة ومحجوزة. أربعة عناصر متناغمة، ورحلة واحدة بلا عناء. |
 | os.band1.eyebrow | Ways to travel | طرق السفر |
 | os.band1.title | Special Interests | الاهتمامات الخاصّة |
 | os.band1.body | Twenty-five reasons to go — from Safari & Wildlife to Culinary Journeys to Wellness. Pick one or two, and the system shapes everything else around them. | خمسة وعشرون سببًا للسفر — من السفاري والحياة البرّية إلى رحلات الطهي والعافية. اختر واحدًا أو اثنين، ويشكّل النظام كل شيء آخر حولها. |
@@ -171,6 +171,8 @@ Every user-facing string, English → current Arabic. Mark up the AR column; bra
 | mrq.seeAll | See all 70 events | عرض كل الأحداث الـ70 |
 | mrq.pageTitle | The Forward Calendar | التقويم الاستباقي |
 | mrq.pageLead | 70 marquee events, tracked two to four years out — so we can position you while access and inventory are still open. | 70 حدثًا بارزًا، نتتبّعها قبل عامين إلى أربعة أعوام — لنهيّئ لك مكانك بينما لا يزال الوصول والأماكن متاحة. |
+| safety.label | Safety | الأمان |
+| safety.aria | Safety & emergency help — local numbers and first aid | الأمان والمساعدة الطارئة — أرقام محلية وإسعافات أوّلية |
 | si.ultra.name | (catalog) | الفخامة القصوى |
 | si.tropical.name | (catalog) | جزر استوائية |
 | si.romance.name | (catalog) | رومانسية وشهر العسل |
