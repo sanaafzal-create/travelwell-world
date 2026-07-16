@@ -9,6 +9,8 @@ import { track } from "@/lib/track";
 import { Eyebrow, Pill } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { cx } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
+import { useCatalogName } from "@/lib/i18n-catalog";
 
 type Sort = "match" | "az" | "all";
 
@@ -19,6 +21,8 @@ function scoreFor(code: string, sis: string[]) {
 
 export default function Regions() {
   const { journeySIs, setRegion } = useStore();
+  const t = useT();
+  const ct = useCatalogName();
   const sis = useSpecialInterests();
   const allRegions = useRegions();
   const siById = (id: string) => sis.find((s) => s.id === id);
@@ -39,9 +43,9 @@ export default function Regions() {
       <JourneyBar current={2} crumbs={[{ label: "Home", to: "/" }, { label: "Special Interests", to: "/special-interests" }, { label: "Regions" }]} />
 
       <div className="container jn-intro">
-        <Eyebrow>The Dream Journey · Step 2 of 5</Eyebrow>
-        <h1>Now — where in the world?</h1>
-        <p className="lead">Thirteen regions, each a different promise. We've ordered them by how well they fit the way you love to travel.</p>
+        <Eyebrow>{t("reg.eyebrow")}</Eyebrow>
+        <h1>{t("reg.h1")}</h1>
+        <p className="lead">{t("reg.lead")}</p>
 
         {journeySIs.length > 0 ? (
           <div className="jn-context">
@@ -58,11 +62,11 @@ export default function Regions() {
 
         <div className="jn-toolbar">
           <div className="rg-jump jn-filter" role="group" aria-label="Sort regions">
-            <button aria-pressed={sort === "match"} onClick={() => compareSort("match")} disabled={!journeySIs.length}>Best for your interests</button>
+            <button aria-pressed={sort === "match"} onClick={() => compareSort("match")} disabled={!journeySIs.length}>{t("reg.sortMatch")}</button>
             <button aria-pressed={sort === "az"} onClick={() => compareSort("az")}>A–Z</button>
-            <button aria-pressed={sort === "all"} onClick={() => compareSort("all")}>All regions</button>
+            <button aria-pressed={sort === "all"} onClick={() => compareSort("all")}>{t("reg.sortAll")}</button>
           </div>
-          <span className="jn-sweet"><Icon name="globe" small /> 13 regions · pick one to keep building</span>
+          <span className="jn-sweet"><Icon name="globe" small /> {t("reg.pick")}</span>
         </div>
       </div>
 
@@ -82,22 +86,22 @@ export default function Regions() {
                   <img src={regionImg(r.code, 800)} alt="" loading="lazy" referrerPolicy="no-referrer" />
                   <div className="scrim" />
                   <span className="rg-card__code">{r.code}</span>
-                  <span className="rg-card__top-badge"><Pill kind={r.status === "live" ? "live" : "preview"}>{r.status === "live" ? "Live" : "Preview"}</Pill></span>
-                  <span className="rg-card__name">{r.name}</span>
+                  <span className="rg-card__top-badge"><Pill kind={r.status === "live" ? "live" : "preview"}>{r.status === "live" ? t("pill.live") : t("pill.preview")}</Pill></span>
+                  <span className="rg-card__name">{ct(`region.${r.code}.name`, r.name)}</span>
                 </div>
                 <div className="rg-card__body">
-                  <span className="rg-card__line">{r.line}</span>
+                  <span className="rg-card__line">{ct(`region.${r.code}.line`, r.line)}</span>
                   <div className="rg-card__meta">
-                    <span className="rg-card__stat"><span className="k">Countries</span><span className="v">{r.countries}{r.sub ? " · sub-regions" : ""}</span></span>
-                    <span className="rg-card__stat"><span className="k">Gateways</span><span className="v rg-card__gw">{r.gateways}</span></span>
+                    <span className="rg-card__stat"><span className="k">{t("reg.countries")}</span><span className="v">{r.countries}{r.sub ? ` · ${t("reg.subChip")}` : ""}</span></span>
+                    <span className="rg-card__stat"><span className="k">{t("reg.gateways")}</span><span className="v rg-card__gw">{r.gateways}</span></span>
                   </div>
                   <div className="rg-card__foot">
                     {journeySIs.length ? (
-                      <span className="rg-card__match">{strong ? "Strong match" : score > 0 ? "Good match" : "Explore"}</span>
+                      <span className="rg-card__match">{strong ? t("reg.strong") : score > 0 ? t("reg.good") : t("reg.explore")}</span>
                     ) : (
-                      <span className="rg-card__match" style={{ color: "var(--muted-foreground)" }}>{r.sub ? <span className="rg-sub-chip">Sub-regions</span> : "Discover"}</span>
+                      <span className="rg-card__match" style={{ color: "var(--muted-foreground)" }}>{r.sub ? <span className="rg-sub-chip">{t("reg.subChip")}</span> : t("reg.explore")}</span>
                     )}
-                    <span className="rg-card__cta">Explore <Icon name="arrow" small /></span>
+                    <span className="rg-card__cta">{t("reg.explore")} <Icon name="arrow" small /></span>
                   </div>
                 </div>
               </Link>

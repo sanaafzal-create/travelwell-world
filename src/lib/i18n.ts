@@ -141,6 +141,40 @@ export const MESSAGES: Record<string, Dict> = {
   "foot.privacy":   { en: "Privacy Policy", es: "Política de privacidad", ar: "سياسة الخصوصية", zh: "隐私政策", fr: "Politique de confidentialité" },
   "foot.terms":     { en: "Terms of Service", es: "Términos del servicio", ar: "شروط الخدمة", zh: "服务条款", fr: "Conditions d'utilisation" },
   "foot.copy":      { en: "© 2026 TravelWell.World — every link disclosed, every fact real.", es: "© 2026 TravelWell.World — cada enlace declarado, cada dato real.", ar: "© 2026 TravelWell.World — كل رابط مُفصَح عنه، وكل معلومة حقيقية.", zh: "© 2026 TravelWell.World — 每个链接都已披露，每个事实都真实。", fr: "© 2026 TravelWell.World — chaque lien divulgué, chaque fait réel." },
+
+  // ── Regions page ────────────────────────────────────────────────────────
+  "reg.eyebrow": { en: "The Dream Journey · Step 2 of 5", es: "El Viaje Soñado · Paso 2 de 5", ar: "رحلة الأحلام · الخطوة 2 من 5", zh: "梦想旅程 · 第 2 步 / 共 5 步", fr: "Le Voyage de Rêve · Étape 2 sur 5" },
+  "reg.h1": { en: "Now — where in the world?", es: "Ahora — ¿dónde en el mundo?", ar: "الآن — إلى أين في العالم؟", zh: "现在——去世界的哪里？", fr: "Maintenant — où dans le monde ?" },
+  "reg.lead": { en: "Thirteen regions, each a different promise. We've ordered them by how well they fit the way you love to travel.", es: "Trece regiones, cada una una promesa distinta. Las hemos ordenado según lo bien que encajan con tu forma de viajar.", ar: "ثلاث عشرة منطقة، كلٌّ وعدٌ مختلف. رتّبناها بحسب مدى ملاءمتها لطريقتك في السفر.", zh: "十三个地区，各有不同的允诺。我们按它们与你旅行方式的契合度排序。", fr: "Treize régions, chacune une promesse différente. Nous les avons classées selon leur adéquation à votre façon de voyager." },
+  "reg.sortMatch": { en: "Best for your interests", es: "Mejor para tus intereses", ar: "الأنسب لاهتماماتك", zh: "最契合你的兴趣", fr: "Idéal pour vos intérêts" },
+  "reg.sortAll": { en: "All regions", es: "Todas las regiones", ar: "كل المناطق", zh: "所有地区", fr: "Toutes les régions" },
+  "reg.pick": { en: "13 regions · pick one to keep building", es: "13 regiones · elige una para seguir construyendo", ar: "13 منطقة · اختر واحدة لمواصلة البناء", zh: "13 个地区 · 选一个继续搭建", fr: "13 régions · choisissez-en une pour continuer" },
+  "reg.countries": { en: "Countries", es: "Países", ar: "الدول", zh: "国家", fr: "Pays" },
+  "reg.gateways": { en: "Gateways", es: "Puertas de entrada", ar: "بوّابات الوصول", zh: "门户机场", fr: "Portes d'entrée" },
+  "reg.explore": { en: "Explore", es: "Explorar", ar: "استكشف", zh: "探索", fr: "Explorer" },
+  "reg.strong": { en: "Strong match", es: "Coincidencia fuerte", ar: "تطابق قوي", zh: "高度契合", fr: "Forte correspondance" },
+  "reg.good": { en: "Good match", es: "Buena coincidencia", ar: "تطابق جيّد", zh: "良好契合", fr: "Bonne correspondance" },
+  "reg.subChip": { en: "Sub-regions", es: "Subregiones", ar: "مناطق فرعية", zh: "子地区", fr: "Sous-régions" },
+
+  // ── Special Interests page ──────────────────────────────────────────────
+  "sip.eyebrow": { en: "The Dream Journey · Step 1 of 5", es: "El Viaje Soñado · Paso 1 de 5", ar: "رحلة الأحلام · الخطوة 1 من 5", zh: "梦想旅程 · 第 1 步 / 共 5 步", fr: "Le Voyage de Rêve · Étape 1 sur 5" },
+  "sip.h1": { en: "How do you love to travel?", es: "¿Cómo te gusta viajar?", ar: "كيف تحب أن تسافر؟", zh: "你喜欢怎样旅行？", fr: "Comment aimez-vous voyager ?" },
+  "sip.now": { en: "Ready now", es: "Disponible ahora", ar: "متاح الآن", zh: "现已就绪", fr: "Prêt maintenant" },
+  "sip.all": { en: "All", es: "Todos", ar: "الكل", zh: "全部", fr: "Tous" },
+  "sip.soon": { en: "Coming soon", es: "Próximamente", ar: "قريبًا", zh: "即将推出", fr: "Bientôt" },
+  "sip.lead": { en: "Start with the feeling, not the place. Pick the ways of traveling that pull at you — we'll shape everything else around them.", es: "Empieza por la sensación, no por el lugar. Elige las formas de viajar que te atraen — daremos forma a todo lo demás en torno a ellas.", ar: "ابدأ بالإحساس، لا بالمكان. اختر طرق السفر التي تجذبك — وسنشكّل كل شيء آخر حولها.", zh: "从感觉开始，而非地点。选出吸引你的旅行方式——我们会围绕它们安排其余一切。", fr: "Commencez par le ressenti, pas par le lieu. Choisissez les façons de voyager qui vous attirent — nous façonnerons tout le reste autour." },
+  "sip.sweet": { en: "Choose up to 3", es: "Elige hasta 3", ar: "اختر حتى 3", zh: "最多选 3 个", fr: "Choisissez-en jusqu'à 3" },
+  "sip.sweetTail": { en: "1–2 is the sweet spot", es: "1–2 es el punto ideal", ar: "1–2 هو الأمثل", zh: "1–2 个最理想", fr: "1–2, c'est l'idéal" },
+  "sip.view": { en: "View", es: "Ver", ar: "عرض", zh: "查看", fr: "Voir" },
+
+  // ── Wells page ──────────────────────────────────────────────────────────
+  "wl.eyebrow": { en: "The TravelWell Ecosystem", es: "El Ecosistema TravelWell", ar: "منظومة TravelWell", zh: "TravelWell 生态", fr: "L'Écosystème TravelWell" },
+  "wl.h1": { en: "Every need a trip has, in its own Well.", es: "Cada necesidad de un viaje, en su propio Well.", ar: "كل حاجة للرحلة، في Well خاصّ بها.", zh: "旅程的每一项需求，各归其 Well。", fr: "Chaque besoin d'un voyage, dans son propre Well." },
+  "wl.lead": { en: "We organized travel the way the body works — ten interconnected systems, each covering one part of your journey, all feeding one itinerary. Pick a Well to meet its vetted partners.", es: "Organizamos el viaje como funciona el cuerpo — diez sistemas interconectados, cada uno cubre una parte de tu viaje, todos alimentan un único itinerario. Elige un Well para conocer a sus socios verificados.", ar: "نظّمنا السفر كما يعمل الجسد — عشرة أنظمة مترابطة، كلٌّ يغطّي جزءًا من رحلتك، وجميعها تصبّ في مسار واحد. اختر Well لتتعرّف على شركائه الموثوقين.", zh: "我们像人体运作那样组织旅行——十个相互关联的系统，各自涵盖旅程的一部分，全部汇入一份行程。选择一个 Well，认识它甄选的合作伙伴。", fr: "Nous avons organisé le voyage comme fonctionne le corps — dix systèmes interconnectés, chacun couvrant une partie de votre voyage, tous alimentant un seul itinéraire. Choisissez un Well pour rencontrer ses partenaires vérifiés." },
+  "wl.tenLabel": { en: "The ten Wells", es: "Los diez Wells", ar: "الـ Wells العشرة", zh: "十个 Well", fr: "Les dix Wells" },
+  "wl.meet": { en: "Meet the partners", es: "Conoce a los socios", ar: "تعرّف على الشركاء", zh: "认识合作伙伴", fr: "Rencontrer les partenaires" },
+  "wl.activated": { en: "Activated at Launch", es: "Activado en el lanzamiento", ar: "يُفعَّل عند الإطلاق", zh: "上线时启用", fr: "Activé au lancement" },
+  "wl.comingFoot": { en: "Coming at launch — partners being vetted now", es: "Llega en el lanzamiento — socios en verificación", ar: "قادم عند الإطلاق — يجري تدقيق الشركاء الآن", zh: "上线时推出——正在甄选合作伙伴", fr: "À venir au lancement — partenaires en cours de vérification" },
 };
 
 export function translate(key: string, locale: string): string {

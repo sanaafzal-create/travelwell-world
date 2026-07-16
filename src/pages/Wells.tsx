@@ -5,8 +5,12 @@ import { WELL_DETAIL } from "@/data/places";
 import { useWells } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
+import { useCatalogName } from "@/lib/i18n-catalog";
 
 function WellCard({ w }: { w: Well }) {
+  const t = useT();
+  const ct = useCatalogName();
   const det = WELL_DETAIL[w.id] || {};
   const soon = w.status === "soon";
   const cats = (det.cats || []).slice(0, 4);
@@ -22,22 +26,23 @@ function WellCard({ w }: { w: Well }) {
         <div className="wi-card__name">
           {w.name}{" "}
           {soon
-            ? <span className="pill pill-soon">Activated at Launch</span>
+            ? <span className="pill pill-soon">{t("wl.activated")}</span>
             : <span className="wi-card__body-tag">{w.body}</span>}
         </div>
-        <div className="wi-card__tag">{w.tag}</div>
+        <div className="wi-card__tag">{ct(`well.${w.id}.tag`, w.tag)}</div>
         <div className="wi-card__cats">
           {cats.map((c) => <span key={c} className="wi-card__cat">{c}</span>)}
         </div>
         {soon
-          ? <div className="wi-card__foot" style={{ color: "var(--muted-foreground)" }}><Icon name="info" small /> Coming at launch — partners being vetted now</div>
-          : <div className="wi-card__foot">Meet the partners <Icon name="arrow" small /></div>}
+          ? <div className="wi-card__foot" style={{ color: "var(--muted-foreground)" }}><Icon name="info" small /> {t("wl.comingFoot")}</div>
+          : <div className="wi-card__foot">{t("wl.meet")} <Icon name="arrow" small /></div>}
       </div>
     </Link>
   );
 }
 
 export default function Wells() {
+  const t = useT();
   const allWells = useWells();
   const wells = allWells.filter((w) => !w.lux); // the core ten
   const universalExtras = allWells.filter((w) => WELL_AUDIENCE[w.id] === "universal"); // Nanny — every family
@@ -47,15 +52,15 @@ export default function Wells() {
     <main id="main">
       <section className="wi-hero">
         <div className="wi-hero__inner">
-          <Eyebrow>The TravelWell Ecosystem</Eyebrow>
-          <h1>Every need a trip has, in its own Well.</h1>
-          <p>We organized travel the way the body works — ten interconnected systems, each covering one part of your journey, all feeding one itinerary. Pick a Well to meet its vetted partners.</p>
+          <Eyebrow>{t("wl.eyebrow")}</Eyebrow>
+          <h1>{t("wl.h1")}</h1>
+          <p>{t("wl.lead")}</p>
           <p className="wi-hero__sig">A Travel Operating System. <span className="tw">Travel Well.</span></p>
         </div>
       </section>
 
       <div className="wi-body">
-        <div className="wi-sectlabel" style={{ marginTop: 0 }}>The ten Wells</div>
+        <div className="wi-sectlabel" style={{ marginTop: 0 }}>{t("wl.tenLabel")}</div>
         <div className="wi-grid">
           {wells.map((w) => <WellCard key={w.id} w={w} />)}
         </div>

@@ -7,6 +7,7 @@ import { useSpecialInterests } from "@/store/useCatalog";
 import { ButtonLink, Button, Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
+import { useCatalogName } from "@/lib/i18n-catalog";
 
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
@@ -188,6 +189,7 @@ function TalkDemo() {
 export default function Home() {
   const { openPanel } = useStore();
   const t = useT();
+  const ct = useCatalogName();
   const sis = useSpecialInterests();
   const featured = FEAT_ORDER.map((id) => sis.find((s) => s.id === id)).filter(Boolean) as NonNullable<ReturnType<typeof sis.find>>[];
 
@@ -279,7 +281,7 @@ export default function Home() {
                     <span className={cx("si-card__pill pill", live ? "pill-live" : "pill-preview")} style={{ background: "rgba(255,255,255,.92)" }}>{live ? t("pill.live") : t("pill.preview")}</span>
                   </div>
                   <div className="si-card__body">
-                    <h3>{s.name}</h3>
+                    <h3>{ct(`si.${s.id}.name`, s.name)}</h3>
                     <p className="sig">If it's {s.sig}… <span className="tw">Travel Well.</span></p>
                     <div className="si-card__foot">
                       <span>{s.lux ? t("card.lux") : t("card.all")}</span>

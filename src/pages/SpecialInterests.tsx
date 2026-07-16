@@ -9,11 +9,15 @@ import { Eyebrow } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
 import { SiPickBar } from "@/components/ui/SiPickBar";
 import { cx } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
+import { useCatalogName } from "@/lib/i18n-catalog";
 
 type Filter = "all" | "live" | "soon";
 
 export default function SpecialInterests() {
   const { journeySIs, toggleSI } = useStore();
+  const t = useT();
+  const ct = useCatalogName();
   const SIS = useSpecialInterests();
   const navigate = useNavigate();
   // Default to the live set so the page opens showing what's ready now (no
@@ -28,19 +32,18 @@ export default function SpecialInterests() {
       <JourneyBar current={1} crumbs={[{ label: "Home", to: "/" }, { label: "Special Interests" }]} />
 
       <div className="container jn-intro">
-        <Eyebrow>The Dream Journey · Step 1 of 5</Eyebrow>
-        <h1>How do you love to travel?</h1>
+        <Eyebrow>{t("sip.eyebrow")}</Eyebrow>
+        <h1>{t("sip.h1")}</h1>
         <p className="lead">
-          Start with the feeling, not the place. Pick the ways of traveling that pull at you —
-          we'll shape everything else around them.
+          {t("sip.lead")}
         </p>
 
         <div className="jn-toolbar">
-          <span className="jn-sweet"><Icon name="sparkle" small /> Choose up to 3 — <b style={{ color: "var(--foreground)" }}>1–2 is the sweet spot</b> for a focused trip.</span>
+          <span className="jn-sweet"><Icon name="sparkle" small /> {t("sip.sweet")} — <b style={{ color: "var(--foreground)" }}>{t("sip.sweetTail")}</b></span>
           <div className="jn-filter" role="group" aria-label="Filter interests">
-            <button aria-pressed={filter === "live"} onClick={() => setFilter("live")}>Ready now</button>
-            <button aria-pressed={filter === "all"} onClick={() => setFilter("all")}>All</button>
-            <button aria-pressed={filter === "soon"} onClick={() => setFilter("soon")}>Coming soon</button>
+            <button aria-pressed={filter === "live"} onClick={() => setFilter("live")}>{t("sip.now")}</button>
+            <button aria-pressed={filter === "all"} onClick={() => setFilter("all")}>{t("sip.all")}</button>
+            <button aria-pressed={filter === "soon"} onClick={() => setFilter("soon")}>{t("sip.soon")}</button>
           </div>
         </div>
       </div>
@@ -78,7 +81,7 @@ export default function SpecialInterests() {
                       <span className="si-tile__accent" style={{ background: s.accent }} />
                       <span className="si-tile__top">
                         {isSoon ? (
-                          <><span /><span className="si-soon-badge">Coming soon</span></>
+                          <><span /><span className="si-soon-badge">{t("sip.soon")}</span></>
                         ) : (
                           <>
                             <span className="si-tile__order">{picked ? order : ""}</span>
@@ -88,10 +91,10 @@ export default function SpecialInterests() {
                         )}
                       </span>
                       <span className="si-tile__body">
-                        <span className="si-tile__name">{s.name}</span>
+                        <span className="si-tile__name">{ct(`si.${s.id}.name`, s.name)}</span>
                         <span className="si-tile__sig">{s.sig.charAt(0).toUpperCase() + s.sig.slice(1)}</span>
                       </span>
-                      <span className="si-tile__view">{isSoon ? "Preview" : "View"} <Icon name="arrow" small /></span>
+                      <span className="si-tile__view">{isSoon ? t("pill.preview") : t("sip.view")} <Icon name="arrow" small /></span>
                     </button>
                   );
                 })}
