@@ -228,6 +228,10 @@ export const MESSAGES: Record<string, Dict> = {
   "mrq.seeAll": { en: "See all 70 events", es: "Ver los 70 eventos", ar: "عرض كل الأحداث الـ70", zh: "查看全部 70 项盛事", fr: "Voir les 70 événements" },
   "mrq.pageTitle": { en: "The Forward Calendar", es: "El Calendario Anticipado", ar: "التقويم الاستباقي", zh: "前瞻日历", fr: "Le Calendrier Anticipé" },
   "mrq.pageLead": { en: "70 marquee events, tracked two to four years out — so we can position you while access and inventory are still open.", es: "70 eventos estelares, seguidos con dos a cuatro años de antelación — para posicionarte mientras aún hay acceso e inventario.", ar: "70 حدثًا بارزًا، نتتبّعها قبل عامين إلى أربعة أعوام — لنهيّئ لك مكانك بينما لا يزال الوصول والأماكن متاحة.", zh: "70 项标志性盛事，提前两到四年追踪——以便在名额与资源尚在时为你抢占先机。", fr: "70 événements phares, suivis de deux à quatre ans à l'avance — pour vous positionner tant que l'accès et les places sont ouverts." },
+
+  // ── Safety button (surfaces the emergency-numbers + first-aid data) ─────
+  "safety.label": { en: "Safety", es: "Seguridad", ar: "الأمان", zh: "安全", fr: "Sécurité" },
+  "safety.aria": { en: "Safety & emergency help — local numbers and first aid", es: "Seguridad y ayuda de emergencia — números locales y primeros auxilios", ar: "الأمان والمساعدة الطارئة — أرقام محلية وإسعافات أوّلية", zh: "安全与紧急求助——当地号码与急救", fr: "Sécurité & aide d'urgence — numéros locaux et premiers secours" },
 };
 
 export function translate(key: string, locale: string): string {

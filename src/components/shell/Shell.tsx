@@ -6,6 +6,7 @@ import { Footer } from "./Footer";
 import { Concierge } from "./Concierge";
 import { TripTray } from "./TripTray";
 import { Emergency } from "./Emergency";
+import { SafetyFab } from "./SafetyFab";
 import { Ambient } from "./Ambient";
 import { AtlasOrchestrator } from "./AtlasOrchestrator";
 import { CookieConsent } from "./CookieConsent";
@@ -127,6 +128,7 @@ export function Shell() {
       <Concierge />
       <TripTray />
       <Emergency />
+      <SafetyFab />
       <Ambient />
       <AtlasOrchestrator />
       <CookieConsent />

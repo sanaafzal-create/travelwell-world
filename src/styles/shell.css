@@ -354,3 +354,22 @@
   margin-top: 10px; padding: 10px 12px;
   border: 1px solid var(--border); border-radius: 12px; background: var(--surface-alt);
 }
+
+/* ── Safety button — floats on every screen (Safer-Informed: calm, not an
+   alarm; help one tap away). Bottom-inline-start so it never collides with the
+   Atlas pill on the end side. ≥44px, labelled, visible focus (WCAG AA). */
+.tw-safety-fab {
+  position: fixed; inset-block-end: 22px; inset-inline-start: 22px; z-index: 94;
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 48px; padding: 0 16px; border-radius: 999px;
+  background: var(--card); color: var(--destructive); font-weight: 600; font-size: 14px;
+  border: 1px solid color-mix(in oklch, var(--destructive) 35%, var(--border));
+  box-shadow: var(--e3); cursor: pointer;
+  transition: transform .15s ease, background-color .15s ease;
+}
+.tw-safety-fab:hover { background: color-mix(in oklch, var(--destructive) 8%, white); transform: translateY(-2px); }
+.tw-safety-fab:focus-visible { outline: 2px solid var(--destructive); outline-offset: 3px; }
+.tw-safety-fab .ic { width: 20px; height: 20px; }
+@media (max-width: 700px) {
+  .tw-safety-fab { inset-block-end: 16px; inset-inline-start: 16px; min-height: 44px; padding: 0 14px; }
+}
