@@ -9,14 +9,25 @@ import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { cx } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
 
 const STEPS = [
-  { label: "Interest", to: "/special-interests" },
-  { label: "Region", to: "/regions" },
-  { label: "Activities", to: "/activities" },
-  { label: "Wells", to: "/wells-surface" },
-  { label: "Book It", to: "/itinerary" },
+  { label: "Interest", key: "step.interest", to: "/special-interests" },
+  { label: "Region", key: "step.region", to: "/regions" },
+  { label: "Activities", key: "step.activities", to: "/activities" },
+  { label: "Wells", key: "step.wells", to: "/wells-surface" },
+  { label: "Book It", key: "step.bookit", to: "/itinerary" },
 ];
+
+// Common breadcrumb labels → i18n keys (crumbs are authored per page in English).
+const CRUMB_KEY: Record<string, string> = {
+  "Home": "crumb.home",
+  "Special Interests": "crumb.si",
+  "Regions": "crumb.regions",
+  "Wells": "crumb.wells",
+  "Activities": "crumb.activities",
+  "Your Itinerary": "crumb.itinerary",
+};
 
 /** Which steps have enough data to count as "done" (drives the checkmarks). */
 function useStepDone(): boolean[] {
@@ -32,6 +43,7 @@ function useStepDone(): boolean[] {
 
 export function StepIndicator({ current }: { current: number }) {
   const done = useStepDone();
+  const t = useT();
   return (
     <div className="tw-steps" role="list" aria-label="Dream Journey progress">
       {STEPS.map((step, i) => {
@@ -47,10 +59,10 @@ export function StepIndicator({ current }: { current: number }) {
               data-state={state}
               role="listitem"
               aria-current={isCurrent ? "step" : undefined}
-              title={`Step ${n} · ${step.label}`}
+              title={`${n} · ${t(step.key)}`}
             >
               <span className="tw-step__dot">{isDone ? <Icon name="check" small /> : n}</span>
-              <span className="tw-step__label">{step.label}</span>
+              <span className="tw-step__label">{t(step.key)}</span>
             </Link>
             {i < STEPS.length - 1 && <span className="tw-step__line" />}
           </div>
@@ -64,6 +76,8 @@ export interface Crumb { label: string; to?: string; }
 
 /** Journey sub-header: breadcrumb on the left, steps on the right. */
 export function JourneyBar({ current, crumbs }: { current: number; crumbs: Crumb[] }) {
+  const t = useT();
+  const label = (l: string) => (CRUMB_KEY[l] ? t(CRUMB_KEY[l]) : l);
   return (
     <div className="jn-subhead">
       <div className="jn-subhead__inner">
@@ -72,9 +86,9 @@ export function JourneyBar({ current, crumbs }: { current: number; crumbs: Crumb
             <span key={c.label} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
               {i > 0 && <span className="sep">/</span>}
               {c.to && i < crumbs.length - 1 ? (
-                <Link to={c.to}>{c.label}</Link>
+                <Link to={c.to}>{label(c.label)}</Link>
               ) : (
-                <span className={cx(i === crumbs.length - 1 && "here")}>{c.label}</span>
+                <span className={cx(i === crumbs.length - 1 && "here")}>{label(c.label)}</span>
               )}
             </span>
           ))}

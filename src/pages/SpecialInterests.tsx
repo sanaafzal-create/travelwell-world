@@ -57,9 +57,9 @@ export default function SpecialInterests() {
           return (
             <section className="si-group" key={group.id}>
               <div className="si-group__head">
-                <h2 className="si-group__title">{group.name}</h2>
-                <span className="si-group__blurb">{group.blurb}</span>
-                <span className="si-group__count">{live} live · {total} total</span>
+                <h2 className="si-group__title">{t(`grp.${group.id}.name`)}</h2>
+                <span className="si-group__blurb">{t(`grp.${group.id}.blurb`)}</span>
+                <span className="si-group__count">{live} {t("grp.live")} · {total} {t("grp.total")}</span>
               </div>
               <div className="si-grid">
                 {items.map((s) => {

@@ -6,11 +6,12 @@ import { useWells } from "@/store/useCatalog";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
-import { useCatalogName } from "@/lib/i18n-catalog";
+import { useCatalogName, useChip } from "@/lib/i18n-catalog";
 
 function WellCard({ w }: { w: Well }) {
   const t = useT();
   const ct = useCatalogName();
+  const chip = useChip();
   const det = WELL_DETAIL[w.id] || {};
   const soon = w.status === "soon";
   const cats = (det.cats || []).slice(0, 4);
@@ -31,7 +32,7 @@ function WellCard({ w }: { w: Well }) {
         </div>
         <div className="wi-card__tag">{ct(`well.${w.id}.tag`, w.tag)}</div>
         <div className="wi-card__cats">
-          {cats.map((c) => <span key={c} className="wi-card__cat">{c}</span>)}
+          {cats.map((c) => <span key={c} className="wi-card__cat">{chip(c)}</span>)}
         </div>
         {soon
           ? <div className="wi-card__foot" style={{ color: "var(--muted-foreground)" }}><Icon name="info" small /> {t("wl.comingFoot")}</div>

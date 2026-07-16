@@ -97,6 +97,74 @@ const CATALOG: Record<string, L> = {
   "well.security.tag": { es: "Protección discreta", ar: "حماية متحفّظة", zh: "低调守护", fr: "Protection discrète" },
 };
 
+// Chip labels — keyed by their English text so callers pass the raw string.
+// Brand/code chips (Fly-Well, "01F · …" region codes) that aren't here fall
+// back to English. Detail chips; demo-ready, worth a native polish.
+const CHIPS: Record<string, L> = {
+  // Well category chips
+  "Scheduled flights": { es: "Vuelos regulares", ar: "رحلات مجدولة", zh: "定期航班", fr: "Vols réguliers" },
+  "Bush & light aircraft": { es: "Avionetas y vuelos ligeros", ar: "طائرات صغيرة وأدغال", zh: "丛林轻型飞机", fr: "Avions légers & brousse" },
+  "Private charter": { es: "Chárter privado", ar: "رحلات خاصّة", zh: "私人包机", fr: "Charter privé" },
+  "Upgrades & lounges": { es: "Mejoras y salas VIP", ar: "ترقيات وصالات", zh: "升舱与贵宾厅", fr: "Surclassements & salons" },
+  "Lodges & camps": { es: "Lodges y campamentos", ar: "نُزُل ومخيّمات", zh: "旅舍与营地", fr: "Lodges & camps" },
+  "Boutique hotels": { es: "Hoteles boutique", ar: "فنادق بوتيك", zh: "精品酒店", fr: "Hôtels de charme" },
+  "Resorts & villas": { es: "Resorts y villas", ar: "منتجعات وفلل", zh: "度假村与别墅", fr: "Resorts & villas" },
+  "Heritage stays": { es: "Estancias históricas", ar: "إقامات تراثية", zh: "遗产住宿", fr: "Séjours patrimoine" },
+  "Fine dining": { es: "Alta cocina", ar: "مطاعم راقية", zh: "精致餐饮", fr: "Gastronomie" },
+  "Local & street food": { es: "Comida local y callejera", ar: "أطعمة محلية وشارع", zh: "当地与街头美食", fr: "Cuisine locale & de rue" },
+  "Cooking experiences": { es: "Experiencias de cocina", ar: "تجارب طهي", zh: "烹饪体验", fr: "Ateliers de cuisine" },
+  "In-villa chefs": { es: "Chefs a domicilio", ar: "طهاة في الفيلا", zh: "别墅私厨", fr: "Chefs en villa" },
+  "Private transfers": { es: "Traslados privados", ar: "تنقّلات خاصّة", zh: "私人接送", fr: "Transferts privés" },
+  "Car & driver": { es: "Coche con conductor", ar: "سيارة بسائق", zh: "专车与司机", fr: "Voiture avec chauffeur" },
+  "Rail & coach": { es: "Tren y autocar", ar: "قطار وحافلة", zh: "火车与巴士", fr: "Train & autocar" },
+  "Inter-camp flights": { es: "Vuelos entre campamentos", ar: "رحلات بين المخيّمات", zh: "营地间航班", fr: "Vols inter-camps" },
+  "Apparel & layers": { es: "Ropa y capas", ar: "ملابس وطبقات", zh: "服装与层叠衣物", fr: "Vêtements & couches" },
+  "Luggage & bags": { es: "Equipaje y bolsos", ar: "حقائب وأمتعة", zh: "行李与包袋", fr: "Bagages & sacs" },
+  "Optics & tech": { es: "Óptica y tecnología", ar: "بصريات وتقنية", zh: "光学与科技", fr: "Optique & tech" },
+  "Rentals": { es: "Alquileres", ar: "تأجير", zh: "租赁", fr: "Locations" },
+  "Spa & massage": { es: "Spa y masaje", ar: "سبا وتدليك", zh: "水疗与按摩", fr: "Spa & massage" },
+  "Salon & grooming": { es: "Salón y estética", ar: "صالون وعناية", zh: "美容与造型", fr: "Salon & soins" },
+  "Recovery & IV": { es: "Recuperación e IV", ar: "تعافٍ ووريد", zh: "恢复与静脉输液", fr: "Récupération & IV" },
+  "Pre-trip prep": { es: "Preparación pre-viaje", ar: "تحضير ما قبل الرحلة", zh: "行前准备", fr: "Préparation avant voyage" },
+  "Guided experiences": { es: "Experiencias guiadas", ar: "تجارب مُرشَدة", zh: "向导体验", fr: "Expériences guidées" },
+  "Wildlife & nature": { es: "Fauna y naturaleza", ar: "حياة برّية وطبيعة", zh: "野生动物与自然", fr: "Faune & nature" },
+  "Culture & history": { es: "Cultura e historia", ar: "ثقافة وتاريخ", zh: "文化与历史", fr: "Culture & histoire" },
+  "Adventure & water": { es: "Aventura y agua", ar: "مغامرة وماء", zh: "探险与水上", fr: "Aventure & eau" },
+  "Artisan & crafts": { es: "Artesanía", ar: "حِرَف يدوية", zh: "手工艺", fr: "Artisanat" },
+  "Markets": { es: "Mercados", ar: "أسواق", zh: "市集", fr: "Marchés" },
+  "Design & home": { es: "Diseño y hogar", ar: "تصميم ومنزل", zh: "设计与家居", fr: "Design & maison" },
+  "Edible souvenirs": { es: "Recuerdos comestibles", ar: "هدايا مأكولة", zh: "可食纪念品", fr: "Souvenirs gourmands" },
+  "Trip protection": { es: "Protección del viaje", ar: "حماية الرحلة", zh: "行程保障", fr: "Protection voyage" },
+  "Medical & evacuation": { es: "Médico y evacuación", ar: "طبي وإخلاء", zh: "医疗与撤离", fr: "Médical & évacuation" },
+  "Cancellation": { es: "Cancelación", ar: "إلغاء", zh: "取消保障", fr: "Annulation" },
+  "Gear & baggage": { es: "Equipo y equipaje", ar: "معدّات وأمتعة", zh: "装备与行李", fr: "Équipement & bagages" },
+  "Luggage forwarding": { es: "Envío de equipaje", ar: "شحن الأمتعة", zh: "行李前送", fr: "Envoi de bagages" },
+  "Purchase shipping": { es: "Envío de compras", ar: "شحن المشتريات", zh: "购物寄送", fr: "Envoi d'achats" },
+  "Customs handling": { es: "Gestión aduanera", ar: "معالجة جمركية", zh: "清关处理", fr: "Gestion douanière" },
+  "Returns": { es: "Devoluciones", ar: "إرجاع", zh: "退货", fr: "Retours" },
+  "In-resort childcare": { es: "Cuidado infantil en el resort", ar: "رعاية أطفال بالمنتجع", zh: "度假村托儿", fr: "Garde d'enfants au resort" },
+  "Private nannies": { es: "Niñeras privadas", ar: "مربّيات خاصّات", zh: "私人保姆", fr: "Nounous privées" },
+  "Kids' experiences": { es: "Experiencias para niños", ar: "تجارب للأطفال", zh: "儿童体验", fr: "Expériences enfants" },
+  "Evening sitting": { es: "Cuidado nocturno", ar: "جليس مسائي", zh: "晚间看护", fr: "Garde en soirée" },
+  "Close protection": { es: "Protección personal", ar: "حماية شخصية", zh: "贴身保护", fr: "Protection rapprochée" },
+  "Risk advisory": { es: "Asesoría de riesgos", ar: "استشارات المخاطر", zh: "风险咨询", fr: "Conseil en risques" },
+  "Secure transfers": { es: "Traslados seguros", ar: "تنقّلات آمنة", zh: "安全接送", fr: "Transferts sécurisés" },
+  "Event security": { es: "Seguridad de eventos", ar: "أمن الفعاليات", zh: "活动安保", fr: "Sécurité événementielle" },
+  // Home Operating-System band chips (brand/code chips fall back to English)
+  "Safari & Wildlife": { es: "Safari y fauna", ar: "سفاري وحياة برّية", zh: "野生动物", fr: "Safari & faune" },
+  "Culinary Journeys": { es: "Viajes gastronómicos", ar: "رحلات طهي", zh: "美食之旅", fr: "Voyages gastronomiques" },
+  "Wellness & Spa": { es: "Bienestar y spa", ar: "عافية وسبا", zh: "养生与水疗", fr: "Bien-être & spa" },
+  "+22 more": { es: "+22 más", ar: "+22 أخرى", zh: "还有 22 项", fr: "+22 autres" },
+  "+10 more": { es: "+10 más", ar: "+10 أخرى", zh: "还有 10 项", fr: "+10 autres" },
+  "01F · Western Europe": { es: "01F · Europa Occidental", ar: "01F · أوروبا الغربية", zh: "01F · 西欧", fr: "01F · Europe de l'Ouest" },
+  "05A · East Africa": { es: "05A · África Oriental", ar: "05A · شرق أفريقيا", zh: "05A · 东非", fr: "05A · Afrique de l'Est" },
+  "11C · Caribbean": { es: "11C · Caribe", ar: "11C · الكاريبي", zh: "11C · 加勒比", fr: "11C · Caraïbes" },
+  "Top picks first": { es: "Mejores primero", ar: "الأفضل أولًا", zh: "优选优先", fr: "Meilleurs d'abord" },
+  "Straight about commissions": { es: "Claros con las comisiones", ar: "صراحة بشأن العمولات", zh: "佣金坦诚", fr: "Transparents sur les commissions" },
+  "You decide & book": { es: "Tú decides y reservas", ar: "أنت تقرّر وتحجز", zh: "你决定并预订", fr: "Vous décidez & réservez" },
+  "Insure-Well · soon": { es: "Insure-Well · pronto", ar: "Insure-Well · قريبًا", zh: "Insure-Well · 即将", fr: "Insure-Well · bientôt" },
+};
+
 export function catalogT(key: string, locale: string, fallback: string): string {
   if (locale === "en") return fallback;
   const e = CATALOG[key] as Record<string, string> | undefined;
@@ -107,4 +175,14 @@ export function catalogT(key: string, locale: string, fallback: string): string 
 export function useCatalogName() {
   const locale = useStore((s) => s.locale);
   return (key: string, fallback: string) => catalogT(key, locale, fallback);
+}
+
+/** Hook: `chip("Resorts & villas")` → localized chip label, English fallback. */
+export function useChip() {
+  const locale = useStore((s) => s.locale);
+  return (text: string) => {
+    if (locale === "en") return text;
+    const e = CHIPS[text] as Record<string, string> | undefined;
+    return (e && e[locale]) || text;
+  };
 }

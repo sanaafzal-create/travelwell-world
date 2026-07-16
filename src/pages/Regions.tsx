@@ -50,13 +50,13 @@ export default function Regions() {
         {journeySIs.length > 0 ? (
           <div className="jn-context">
             <div className="jn-context__ic"><Icon name="compass" small /></div>
-            <div><b>Ranked for your interests.</b> Regions that fit {journeySIs.map((s) => siById(s)?.name).filter(Boolean).join(" + ")} rise to the top.</div>
-            <span className="lit">{journeySIs.map((s) => <span key={s}>{siById(s)?.name}</span>)}</span>
+            <div><b>{t("reg.ranked")}</b> {t("reg.rankedMid")} {journeySIs.map((s) => ct(`si.${s}.name`, siById(s)?.name ?? s)).filter(Boolean).join(" + ")} {t("reg.rankedTail")}</div>
+            <span className="lit">{journeySIs.map((s) => <span key={s}>{ct(`si.${s}.name`, siById(s)?.name ?? s)}</span>)}</span>
           </div>
         ) : (
           <div className="jn-context" role="note">
             <div className="jn-context__ic"><Icon name="info" small /></div>
-            <div>Browsing all 13 regions. <Link to="/special-interests" style={{ fontWeight: 600 }}>Pick a couple of interests first</Link> and we'll rank these for you — or just choose a region below.</div>
+            <div>{t("reg.browsePre")} <Link to="/special-interests" style={{ fontWeight: 600 }}>{t("reg.browseLink")}</Link> {t("reg.browsePost")}</div>
           </div>
         )}
 

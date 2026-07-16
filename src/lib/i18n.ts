@@ -175,6 +175,48 @@ export const MESSAGES: Record<string, Dict> = {
   "wl.meet": { en: "Meet the partners", es: "Conoce a los socios", ar: "تعرّف على الشركاء", zh: "认识合作伙伴", fr: "Rencontrer les partenaires" },
   "wl.activated": { en: "Activated at Launch", es: "Activado en el lanzamiento", ar: "يُفعَّل عند الإطلاق", zh: "上线时启用", fr: "Activé au lancement" },
   "wl.comingFoot": { en: "Coming at launch — partners being vetted now", es: "Llega en el lanzamiento — socios en verificación", ar: "قادم عند الإطلاق — يجري تدقيق الشركاء الآن", zh: "上线时推出——正在甄选合作伙伴", fr: "À venir au lancement — partenaires en cours de vérification" },
+
+  // ── Journey rail (steps) + breadcrumbs ──────────────────────────────────
+  "step.interest": { en: "Interest", es: "Interés", ar: "اهتمام", zh: "兴趣", fr: "Intérêt" },
+  "step.region": { en: "Region", es: "Región", ar: "المنطقة", zh: "地区", fr: "Région" },
+  "step.activities": { en: "Activities", es: "Actividades", ar: "الأنشطة", zh: "活动", fr: "Activités" },
+  "step.wells": { en: "Wells", es: "Wells", ar: "الـ Wells", zh: "Well", fr: "Wells" },
+  "step.bookit": { en: "Book It", es: "Reservar", ar: "احجز", zh: "预订", fr: "Réserver" },
+  "crumb.home": { en: "Home", es: "Inicio", ar: "الرئيسية", zh: "首页", fr: "Accueil" },
+  "crumb.si": { en: "Special Interests", es: "Intereses Especiales", ar: "الاهتمامات الخاصّة", zh: "特别兴趣", fr: "Centres d'Intérêt" },
+  "crumb.regions": { en: "Regions", es: "Regiones", ar: "المناطق", zh: "地区", fr: "Régions" },
+  "crumb.wells": { en: "Wells", es: "Wells", ar: "الـ Wells", zh: "Well", fr: "Wells" },
+  "crumb.activities": { en: "Activities", es: "Actividades", ar: "الأنشطة", zh: "活动", fr: "Activités" },
+  "crumb.itinerary": { en: "Your Itinerary", es: "Tu itinerario", ar: "مسارك", zh: "你的行程", fr: "Votre itinéraire" },
+
+  // ── Cookie consent ──────────────────────────────────────────────────────
+  "consent.text": { en: "We use essential cookies and local storage to remember your trip and preferences.", es: "Usamos cookies esenciales y almacenamiento local para recordar tu viaje y preferencias.", ar: "نستخدم ملفات تعريف ارتباط أساسية وتخزينًا محليًا لتذكّر رحلتك وتفضيلاتك.", zh: "我们使用必要的 Cookie 和本地存储来记住你的行程与偏好。", fr: "Nous utilisons des cookies essentiels et le stockage local pour mémoriser votre voyage et vos préférences." },
+  "consent.see": { en: "See our", es: "Consulta nuestra", ar: "اطّلع على", zh: "查看我们的", fr: "Consultez notre" },
+  "consent.ok": { en: "Got it", es: "Entendido", ar: "حسنًا", zh: "知道了", fr: "Compris" },
+
+  // ── SI groups ───────────────────────────────────────────────────────────
+  "grp.premium.name": { en: "Premium & Signature", es: "Premium y Distintivos", ar: "المميّزة والأساسية", zh: "尊享与招牌", fr: "Premium & Signature" },
+  "grp.premium.blurb": { en: "Our flagship ways to travel — live now.", es: "Nuestras formas insignia de viajar — ya disponibles.", ar: "طرقنا الرائدة للسفر — متاحة الآن.", zh: "我们的旗舰旅行方式——现已上线。", fr: "Nos façons de voyager phares — disponibles." },
+  "grp.water.name": { en: "Water & Cruise", es: "Agua y Cruceros", ar: "الماء والرحلات البحرية", zh: "水上与游轮", fr: "Eau & Croisière" },
+  "grp.water.blurb": { en: "On, under and beside the water.", es: "Sobre, bajo y junto al agua.", ar: "على الماء وتحته وبجانبه.", zh: "水上、水下与水畔。", fr: "Sur, sous et au bord de l'eau." },
+  "grp.nature.name": { en: "Nature & Wellbeing", es: "Naturaleza y Bienestar", ar: "الطبيعة والعافية", zh: "自然与身心", fr: "Nature & Bien-être" },
+  "grp.nature.blurb": { en: "Wild places, and coming home to yourself.", es: "Lugares salvajes, y reencontrarte contigo.", ar: "أماكن برّية، والعودة إلى ذاتك.", zh: "荒野之地，回归自我。", fr: "Lieux sauvages, et se retrouver soi-même." },
+  "grp.active.name": { en: "Life-stage & Active", es: "Etapas de Vida y Actividad", ar: "مراحل الحياة والنشاط", zh: "人生阶段与活力", fr: "Âges de la Vie & Actif" },
+  "grp.active.blurb": { en: "For every age, pace and energy.", es: "Para cada edad, ritmo y energía.", ar: "لكل عمر وإيقاع وطاقة.", zh: "适合每个年龄、节奏与活力。", fr: "Pour chaque âge, rythme et énergie." },
+  "grp.culture.name": { en: "Culture & Entertainment", es: "Cultura y Entretenimiento", ar: "الثقافة والترفيه", zh: "文化与娱乐", fr: "Culture & Divertissement" },
+  "grp.culture.blurb": { en: "The soul of a place, and its nightlife.", es: "El alma de un lugar, y su vida nocturna.", ar: "روح المكان، وحياته الليلية.", zh: "一个地方的灵魂与夜生活。", fr: "L'âme d'un lieu, et sa vie nocturne." },
+  "grp.sports.name": { en: "Sports", es: "Deportes", ar: "الرياضة", zh: "体育", fr: "Sport" },
+  "grp.sports.blurb": { en: "Play it, watch it, travel for it.", es: "Jugarlo, verlo, viajar por él.", ar: "مارسها، شاهدها، سافر لأجلها.", zh: "参与、观赛、为之远行。", fr: "Le pratiquer, le regarder, voyager pour lui." },
+  "grp.live": { en: "live", es: "en vivo", ar: "متاح", zh: "已上线", fr: "en ligne" },
+  "grp.total": { en: "total", es: "en total", ar: "الإجمالي", zh: "共计", fr: "au total" },
+
+  // ── Regions helper note ─────────────────────────────────────────────────
+  "reg.browsePre": { en: "Browsing all 13 regions.", es: "Explorando las 13 regiones.", ar: "تصفّح المناطق الـ13 كلّها.", zh: "正在浏览全部 13 个地区。", fr: "Exploration des 13 régions." },
+  "reg.browseLink": { en: "Pick a couple of interests first", es: "Elige primero un par de intereses", ar: "اختر بعض الاهتمامات أولًا", zh: "先选几个兴趣", fr: "Choisissez d'abord quelques intérêts" },
+  "reg.browsePost": { en: "and we'll rank these for you — or just choose a region below.", es: "y las ordenaremos para ti — o elige una región abajo.", ar: "وسنرتّبها لك — أو اختر منطقة أدناه.", zh: "我们会为你排序——或直接在下方选择一个地区。", fr: "et nous les classerons pour vous — ou choisissez une région ci-dessous." },
+  "reg.ranked": { en: "Ranked for your interests.", es: "Ordenadas según tus intereses.", ar: "مرتّبة حسب اهتماماتك.", zh: "已按你的兴趣排序。", fr: "Classées selon vos intérêts." },
+  "reg.rankedMid": { en: "Regions that fit", es: "Las regiones que encajan con", ar: "المناطق التي تناسب", zh: "契合", fr: "Les régions correspondant à" },
+  "reg.rankedTail": { en: "rise to the top.", es: "suben a lo más alto.", ar: "تتصدّر القائمة.", zh: "会升至前列。", fr: "remontent en tête." },
 };
 
 export function translate(key: string, locale: string): string {

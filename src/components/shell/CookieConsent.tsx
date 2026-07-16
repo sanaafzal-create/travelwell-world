@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useT } from "@/lib/i18n";
 
 const KEY = "tww:consent";
 
@@ -8,6 +9,7 @@ export function CookieConsent() {
   const [dismissed, setDismissed] = useState<boolean>(() => {
     try { return localStorage.getItem(KEY) === "1"; } catch { return true; }
   });
+  const t = useT();
   if (dismissed) return null;
 
   const accept = () => {
@@ -18,10 +20,10 @@ export function CookieConsent() {
   return (
     <div className="tw-consent" role="dialog" aria-label="Cookie notice">
       <p className="tw-consent__text">
-        We use essential cookies and local storage to remember your trip and preferences.
-        See our <Link to="/privacy">Privacy Policy</Link>.
+        {t("consent.text")}{" "}
+        {t("consent.see")} <Link to="/privacy">{t("foot.privacy")}</Link>.
       </p>
-      <button className="btn btn-primary tw-consent__ok" onClick={accept}>Got it</button>
+      <button className="btn btn-primary tw-consent__ok" onClick={accept}>{t("consent.ok")}</button>
     </div>
   );
 }

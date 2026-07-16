@@ -7,7 +7,7 @@ import { useSpecialInterests } from "@/store/useCatalog";
 import { ButtonLink, Button, Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
-import { useCatalogName } from "@/lib/i18n-catalog";
+import { useCatalogName, useChip } from "@/lib/i18n-catalog";
 
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
@@ -190,6 +190,7 @@ export default function Home() {
   const { openPanel } = useStore();
   const t = useT();
   const ct = useCatalogName();
+  const chip = useChip();
   const sis = useSpecialInterests();
   const featured = FEAT_ORDER.map((id) => sis.find((s) => s.id === id)).filter(Boolean) as NonNullable<ReturnType<typeof sis.find>>[];
 
@@ -315,8 +316,8 @@ export default function Home() {
                 <h3>{t(b.title)}</h3>
                 <p>{t(b.body)}</p>
                 <div className="os-feature__chips">
-                  {b.chips.map((c) => <span key={c} className="os-feature__chip">{c}</span>)}
-                  {"soonChip" in b && b.soonChip && <span className="os-feature__chip soon">{b.soonChip}</span>}
+                  {b.chips.map((c) => <span key={c} className="os-feature__chip">{chip(c)}</span>)}
+                  {"soonChip" in b && b.soonChip && <span className="os-feature__chip soon">{chip(b.soonChip)}</span>}
                 </div>
                 <Link className="os-feature__cta" to={b.to}>{t(b.cta)} <Icon name="arrow" small /></Link>
               </div>
