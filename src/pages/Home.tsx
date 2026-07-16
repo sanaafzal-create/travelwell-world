@@ -6,6 +6,7 @@ import { useStore } from "@/store/useStore";
 import { useSpecialInterests } from "@/store/useCatalog";
 import { ButtonLink, Button, Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
+import { useT } from "@/lib/i18n";
 
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
@@ -186,6 +187,7 @@ function TalkDemo() {
 /* ============================================================================ */
 export default function Home() {
   const { openPanel } = useStore();
+  const t = useT();
   const sis = useSpecialInterests();
   const featured = FEAT_ORDER.map((id) => sis.find((s) => s.id === id)).filter(Boolean) as NonNullable<ReturnType<typeof sis.find>>[];
 
@@ -202,16 +204,16 @@ export default function Home() {
       <section className="hero band-ivory">
         <div className="hero__inner">
           <div className="hero__copy">
-            <Eyebrow>A Travel Operating System</Eyebrow>
-            <h1 style={{ marginTop: 14 }}>Your next journey, <span className="accent">designed around you.</span></h1>
+            <Eyebrow>{t("hero.eyebrow")}</Eyebrow>
+            <h1 style={{ marginTop: 14 }}>{t("hero.title1")}<span className="accent">{t("hero.title2")}</span></h1>
             <p className="hero__lead t-lead" style={{ color: "var(--foreground)" }}>
-              Tell us what moves you. We route you from a single spark — an interest, a place, a feeling — all the way to a booked, beautifully organized trip. One clear step at a time.
+              {t("hero.lead")}
             </p>
             <div className="hero__cta">
-              <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>Design Your Dream Journey</ButtonLink>
-              <Button variant="secondary" style={{ height: 52 }} onClick={() => openPanel("concierge")}>Not sure? Speak with Atlas</Button>
+              <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>{t("hero.cta1")}</ButtonLink>
+              <Button variant="secondary" style={{ height: 52 }} onClick={() => openPanel("concierge")}>{t("hero.cta2")}</Button>
             </div>
-            <p className="hero__taps"><span>4–5 taps from here to a booked trip</span><span className="dot" /><span>No account needed to start</span></p>
+            <p className="hero__taps"><span>{t("hero.taps1")}</span><span className="dot" /><span>{t("hero.taps2")}</span></p>
           </div>
           <div className="hero__media">
             <div className="m1" style={{ position: "absolute", inset: "48px 0", borderRadius: "var(--radius-lg)", boxShadow: "var(--e2)", overflow: "hidden" }}>

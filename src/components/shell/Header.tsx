@@ -3,10 +3,12 @@ import { useState, useRef, useEffect } from "react";
 import { Icon } from "@/lib/icons";
 import { LOCALES } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
+import { useT } from "@/lib/i18n";
 import { Logo } from "./Logo";
 
 export function Header() {
   const { locale, setLocale, openPanel, trip, user } = useStore();
+  const t = useT();
   const [localeOpen, setLocaleOpen] = useState(false);
   const localeRef = useRef<HTMLDivElement>(null);
   const L = LOCALES.find((l) => l.code === locale) || LOCALES[0];
@@ -28,17 +30,17 @@ export function Header() {
         <Logo />
         <nav className="tw-nav" aria-label="Primary">
           <button className="tw-nav__trigger" aria-controls="tw-mega" onClick={() => openPanel("mega")}>
-            Worlds of Adventure <Icon name="chev" small className="chev" />
+            {t("nav.worlds")} <Icon name="chev" small className="chev" />
           </button>
-          <Link className="tw-nav__link" to="/plan">Plan</Link>
-          <Link className="tw-nav__link" to="/guides">Guides</Link>
-          <Link className="tw-nav__link" to="/about">About</Link>
+          <Link className="tw-nav__link" to="/plan">{t("nav.plan")}</Link>
+          <Link className="tw-nav__link" to="/guides">{t("nav.guides")}</Link>
+          <Link className="tw-nav__link" to="/about">{t("nav.about")}</Link>
         </nav>
         <div className="tw-header__spacer" />
         <div className="tw-header__actions">
           {user
             ? <Link className="tw-signin" to="/profile" title="Your Travel ID">{user.email ? user.email.split("@")[0] : "Account"}</Link>
-            : <Link className="tw-signin" to="/signin">Sign in</Link>}
+            : <Link className="tw-signin" to="/signin">{t("nav.signin")}</Link>}
           <div className="tw-locale" ref={localeRef}>
             <button
               className="tw-locale__btn"
@@ -81,7 +83,7 @@ export function Header() {
             {trip.length > 0 && <span className="badge">{trip.length}</span>}
           </button>
           <button className="tw-talk-btn" onClick={() => openPanel("concierge")}>
-            <Icon name="sparkles" small /> <span className="lbl">Speak with Atlas</span>
+            <Icon name="sparkles" small /> <span className="lbl">{t("nav.atlas")}</span>
           </button>
         </div>
       </div>
