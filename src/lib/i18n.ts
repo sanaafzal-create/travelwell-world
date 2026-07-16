@@ -232,6 +232,15 @@ export const MESSAGES: Record<string, Dict> = {
   // ── Safety button (surfaces the emergency-numbers + first-aid data) ─────
   "safety.label": { en: "Safety", es: "Seguridad", ar: "الأمان", zh: "安全", fr: "Sécurité" },
   "safety.aria": { en: "Safety & emergency help — local numbers and first aid", es: "Seguridad y ayuda de emergencia — números locales y primeros auxilios", ar: "الأمان والمساعدة الطارئة — أرقام محلية وإسعافات أوّلية", zh: "安全与紧急求助——当地号码与急救", fr: "Sécurité & aide d'urgence — numéros locaux et premiers secours" },
+
+  // ── Vision loop (onboarding: Atlas writes the dream back, you confirm) ───
+  "vis.ask": { en: "Before we plan a single thing — tell me the dream in one sentence. The trip you're picturing, and the moment you're building it around.", es: "Antes de planear nada — cuéntame el sueño en una frase. El viaje que imaginas, y el momento en torno al cual lo construyes.", ar: "قبل أن نخطّط لأي شيء — أخبِرني بالحلم في جملة واحدة: الرحلة التي تتخيّلها، واللحظة التي تبنيها حولها.", zh: "在规划任何事之前——用一句话告诉我你的梦想：你所构想的旅程，以及你想围绕的那一刻。", fr: "Avant de rien planifier — dis-moi le rêve en une phrase. Le voyage que tu imagines, et le moment autour duquel tu le construis." },
+  "vis.heard": { en: "Here's what I heard — tell me if I've got it right, then pick the ways you love to travel and I'll build everything around them.", es: "Esto es lo que escuché — dime si lo he entendido bien, luego elige las formas en que te gusta viajar y construiré todo en torno a ellas.", ar: "هذا ما سمعته — أخبِرني إن كنت قد فهمته جيّدًا، ثم اختر طرق السفر التي تحبّها وسأبني كل شيء حولها.", zh: "这是我听到的——告诉我是否准确，然后选择你喜欢的旅行方式，我会围绕它们搭建一切。", fr: "Voici ce que j'ai entendu — dis-moi si j'ai bien compris, puis choisis tes façons de voyager préférées et je construirai tout autour." },
+  "vis.dreamLabel": { en: "The dream you gave me", es: "El sueño que me diste", ar: "الحلم الذي شاركتني به", zh: "你给我的梦想", fr: "Le rêve que tu m'as confié" },
+  "vis.pickPrompt": { en: "The ways you love to travel", es: "Las formas en que te gusta viajar", ar: "طرق السفر التي تحبّها", zh: "你喜欢的旅行方式", fr: "Tes façons de voyager préférées" },
+  "vis.confirm": { en: "Yes — that's my trip", es: "Sí — ese es mi viaje", ar: "نعم — هذه رحلتي", zh: "对，这就是我的旅程", fr: "Oui — c'est mon voyage" },
+  "vis.done": { en: "Beautiful — I've got your vision. Let's bring it to life.", es: "Precioso — tengo tu visión. Vamos a darle vida.", ar: "رائع — التقطتُ رؤيتك. لنمنحها الحياة.", zh: "太好了——我已掌握你的愿景。让我们把它变为现实。", fr: "Magnifique — j'ai ta vision. Donnons-lui vie." },
+  "vis.cta": { en: "Show me where it comes alive", es: "Muéstrame dónde cobra vida", ar: "أرِني أين تنبض بالحياة", zh: "带我看看它在哪里成真", fr: "Montre-moi où il prend vie" },
 };
 
 export function translate(key: string, locale: string): string {

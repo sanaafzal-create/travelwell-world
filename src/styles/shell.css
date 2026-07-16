@@ -373,3 +373,10 @@
 @media (max-width: 700px) {
   .tw-safety-fab { inset-block-end: 16px; inset-inline-start: 16px; min-height: 44px; padding: 0 14px; }
 }
+
+/* ── Vision loop — Atlas writes the dream back, the traveler confirms ────── */
+.tw-vision { display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-alt); }
+.tw-vision__label { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted-foreground); }
+.tw-vision__dream p { margin: 4px 0 0; font-family: var(--font-display, serif); font-size: 17px; line-height: 1.4; color: var(--foreground); }
+.tw-well-chip.is-picked { border-color: var(--primary); background: color-mix(in oklch, var(--primary) 12%, var(--surface-alt)); color: var(--primary); font-weight: 600; }
+.tw-well-chip[aria-pressed="true"]::after { content: " ✓"; }

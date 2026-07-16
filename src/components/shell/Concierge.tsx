@@ -1,8 +1,12 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore, type IoMode } from "@/store/useStore";
 import { useAtlas } from "@/lib/useAtlas";
 import { useSpeechInput } from "@/lib/useSpeech";
+import { useSpecialInterests } from "@/store/useCatalog";
+import { useT } from "@/lib/i18n";
+import { useCatalogName } from "@/lib/i18n-catalog";
 
 // Atlas Guided-Flow WOW — the hero demo strip. Atlas points to one Well at a
 // time; the traveler always taps for themselves. (Demo-hero: a single scripted
@@ -17,6 +21,12 @@ const HERO_WELLS = [
 
 export function Concierge() {
   const { io, setIo, journeySIs, region, trip, addToTrip, showToast } = useStore();
+  const navigate = useNavigate();
+  const t = useT();
+  const ct = useCatalogName();
+  const allSis = useSpecialInterests();
+  // Live trip-interests offered as vision chips (skip the ultra overlay).
+  const visionChoices = allSis.filter((s) => s.status === "live" && s.id !== "ultra").slice(0, 8);
   // Conversation lives in the store now (persists across navigation + reload).
   const { messages, busy, primed, dock, send, setMessages, setPrimed, open, collapse, reset } = useAtlas();
   const isOpen = dock === "open";
@@ -32,6 +42,13 @@ export function Concierge() {
   const heroTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const clearHeroTimers = () => { heroTimers.current.forEach(clearTimeout); heroTimers.current = []; };
   useEffect(() => () => clearHeroTimers(), []);
+
+  // Vision loop (moat #5): Atlas captures the dream, writes it back verbatim so
+  // the traveler sees they were heard, then confirms before a single option.
+  const [visionStage, setVisionStage] = useState<"off" | "ask" | "card" | "done">("off");
+  const [visionDream, setVisionDream] = useState("");
+  const [visionPicks, setVisionPicks] = useState<string[]>([]);
+  const resetVision = () => { setVisionStage("off"); setVisionDream(""); setVisionPicks([]); };
 
   // Voice input — streams what they say into the box AND shows it live in the
   // listening panel, then on finish (Done, spoken "stop", or natural end) sends
@@ -52,18 +69,38 @@ export function Concierge() {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
     setInput("");
+    // In the vision loop's "ask" stage, capture the dream and write it back
+    // verbatim (Atlas heard every word) instead of routing to the model.
+    if (visionStage === "ask") {
+      const st = useStore.getState();
+      st.addAtlasMessage({ role: "user", content: trimmed });
+      setVisionDream(trimmed);
+      setVisionStage("card");
+      st.addAtlasMessage({ role: "assistant", content: t("vis.heard") });
+      return;
+    }
     void send(trimmed);
   }
 
   function begin(mode: "guided" | "conversation") {
     setPrimed(true);
     if (mode === "guided") {
-      setMessages([
-        { role: "assistant", content: "Wonderful. Let's find your dream in a few easy questions — nothing like an interrogation. First: are you dreaming of wildlife, water, culture, or pure rest?" },
-      ]);
+      // The vision loop: ask for the dream, write it back, confirm, then plan.
+      setVisionDream(""); setVisionPicks([]); setVisionStage("ask");
+      setMessages([{ role: "assistant", content: t("vis.ask") }]);
     } else {
+      resetVision();
       setMessages([]);
     }
+  }
+
+  // Confirm the written-back vision: seed the chosen interests, close the loop,
+  // and offer the door into the plan (Atlas points; the traveler still chooses).
+  function confirmVision() {
+    const st = useStore.getState();
+    visionPicks.forEach((id) => { if (!st.journeySIs.includes(id)) st.toggleSI(id); });
+    setVisionStage("done");
+    st.addAtlasMessage({ role: "assistant", content: t("vis.done") });
   }
 
   // Play the scripted hero choreography: Atlas speaks, then on his cue the
@@ -125,7 +162,7 @@ export function Concierge() {
             <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Atlas</div>
           </div>
           {primed && messages.length > 0 && (
-            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); clearHeroTimers(); setHeroActive(false); setHeroFocus(null); setHeroReveal(false); setHeroCue(""); }}>
+            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); clearHeroTimers(); setHeroActive(false); setHeroFocus(null); setHeroReveal(false); setHeroCue(""); resetVision(); }}>
               Start over
             </button>
           )}
@@ -229,6 +266,42 @@ export function Concierge() {
                   <Icon name="bed" small />
                   <div style={{ flex: 1 }}><b>Angama Mara</b><div className="t-body-s" style={{ color: "var(--muted-foreground)" }}>Stay-Well · suggested by Atlas</div></div>
                   <button className="btn btn-primary" style={{ height: 40 }} onClick={() => { addToTrip({ well: "stay", icon: "bed", name: "Angama Mara", meta: "Stay-Well · suggested by Atlas", status: "idea" }); showToast("Held in your trip — you always choose, and you always book."); }}>Hold it</button>
+                </div>
+              )}
+              {(visionStage === "card" || visionStage === "done") && (
+                <div className="tw-vision">
+                  <div className="tw-vision__dream">
+                    <span className="tw-vision__label">{t("vis.dreamLabel")}</span>
+                    <p>“{visionDream}”</p>
+                  </div>
+                  <div className="tw-vision__label">{t("vis.pickPrompt")}</div>
+                  <div className="tw-wells-strip" role="group" aria-label={t("vis.pickPrompt")}>
+                    {visionChoices.map((s) => {
+                      const on = visionPicks.includes(s.id);
+                      return (
+                        <button
+                          key={s.id}
+                          type="button"
+                          className={"tw-well-chip" + (on ? " is-picked" : "")}
+                          aria-pressed={on}
+                          disabled={visionStage === "done"}
+                          onClick={() => setVisionPicks((p) => (p.includes(s.id) ? p.filter((x) => x !== s.id) : [...p, s.id]))}
+                        >
+                          {ct(`si.${s.id}.name`, s.name)}
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {visionStage === "card" && (
+                    <button className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={confirmVision}>
+                      <Icon name="check" small /> {t("vis.confirm")}
+                    </button>
+                  )}
+                  {visionStage === "done" && (
+                    <button className="btn btn-primary" style={{ alignSelf: "flex-start" }} onClick={() => { collapse(); navigate("/regions"); }}>
+                      {t("vis.cta")} <Icon name="arrow" small />
+                    </button>
+                  )}
                 </div>
               )}
               {listening && (
