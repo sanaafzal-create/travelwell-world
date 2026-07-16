@@ -4,6 +4,17 @@ import { useStore, type IoMode } from "@/store/useStore";
 import { useAtlas } from "@/lib/useAtlas";
 import { useSpeechInput } from "@/lib/useSpeech";
 
+// Atlas Guided-Flow WOW — the hero demo strip. Atlas points to one Well at a
+// time; the traveler always taps for themselves. (Demo-hero: a single scripted
+// choreography, built on the real focus→UI seam so it generalizes later.)
+const HERO_WELLS = [
+  { id: "fly", name: "Fly-Well", icon: "plane" },
+  { id: "stay", name: "Stay-Well", icon: "bed" },
+  { id: "eat", name: "Eat-Well", icon: "utensils" },
+  { id: "move", name: "Move-Well", icon: "car" },
+  { id: "activities", name: "Activities-Well", icon: "compass" },
+];
+
 export function Concierge() {
   const { io, setIo, journeySIs, region, trip, addToTrip, showToast } = useStore();
   // Conversation lives in the store now (persists across navigation + reload).
@@ -11,6 +22,16 @@ export function Concierge() {
   const isOpen = dock === "open";
   const [input, setInput] = useState("");
   const bodyRef = useRef<HTMLDivElement>(null);
+
+  // Atlas Guided-Flow WOW state: which Well Atlas is pointing to (pulses), the
+  // spoken cue for screen readers, and the reveal after the traveler engages.
+  const [heroActive, setHeroActive] = useState(false);
+  const [heroFocus, setHeroFocus] = useState<string | null>(null);
+  const [heroCue, setHeroCue] = useState("");
+  const [heroReveal, setHeroReveal] = useState(false);
+  const heroTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const clearHeroTimers = () => { heroTimers.current.forEach(clearTimeout); heroTimers.current = []; };
+  useEffect(() => () => clearHeroTimers(), []);
 
   // Voice input — streams what they say into the box AND shows it live in the
   // listening panel, then on finish (Done, spoken "stop", or natural end) sends
@@ -45,6 +66,40 @@ export function Concierge() {
     }
   }
 
+  // Play the scripted hero choreography: Atlas speaks, then on his cue the
+  // Stay-Well chip pulses. He points; the traveler chooses (never auto-clicks).
+  function runHero() {
+    clearHeroTimers();
+    setPrimed(true);
+    setMessages([]);
+    setHeroReveal(false);
+    setHeroFocus(null);
+    setHeroCue("");
+    setHeroActive(true);
+    useStore.getState().setAtlasBusy(true);
+    heroTimers.current.push(setTimeout(() => {
+      useStore.getState().setAtlasBusy(false);
+      useStore.getState().addAtlasMessage({ role: "assistant", content: "Alright — you've told me the dream. Now let's find where you'll rest your head. Look down here…" });
+      setHeroFocus("stay");
+      setHeroCue("Atlas is pointing to Stay-Well — select it to open.");
+    }, 1400));
+  }
+
+  // The traveler taps the pulsing Well: the pulse stops the instant they engage,
+  // and Atlas continues from inside it.
+  function onWellTap(id: string) {
+    if (!heroActive || heroFocus !== id) return; // only the pointed-to Well advances
+    clearHeroTimers();
+    setHeroFocus(null);
+    setHeroCue("");
+    useStore.getState().setAtlasBusy(true);
+    heroTimers.current.push(setTimeout(() => {
+      useStore.getState().setAtlasBusy(false);
+      useStore.getState().addAtlasMessage({ role: "assistant", content: "Here's where I'd start for you — Angama Mara, perched right above the Mara Triangle. Want me to hold it in your trip?" });
+      setHeroReveal(true);
+    }, 1000));
+  }
+
   const ioBtn = (mode: IoMode, label: string, icon?: string) => (
     <button data-io={mode} aria-pressed={io === mode} onClick={() => setIo(mode)}>
       {icon && <Icon name={icon} small />} {label}
@@ -70,7 +125,7 @@ export function Concierge() {
             <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Atlas</div>
           </div>
           {primed && messages.length > 0 && (
-            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); }}>
+            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); clearHeroTimers(); setHeroActive(false); setHeroFocus(null); setHeroReveal(false); setHeroCue(""); }}>
               Start over
             </button>
           )}
@@ -130,6 +185,9 @@ export function Concierge() {
               <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 18 }}>
                 <button className="btn btn-primary" onClick={() => begin("guided")}>Walk me through it</button>
                 <button className="btn btn-secondary" onClick={() => begin("conversation")}>I'll just type</button>
+                <button className="btn btn-secondary" style={{ borderColor: "var(--gold-deep)", color: "var(--gold-deep)" }} onClick={runHero}>
+                  <Icon name="sparkles" small /> See how Atlas guides you
+                </button>
               </div>
               <div className="tw-stop-row"><Icon name="check" small /> You're in control — Atlas suggests, and never books for you.</div>
             </div>
@@ -148,6 +206,31 @@ export function Concierge() {
                   <span className="tw-typing"><span /><span /><span /></span>
                 </div>
               )}
+              {heroActive && (
+                <div className="tw-wells-strip" role="group" aria-label="Atlas is guiding you through the Wells">
+                  {HERO_WELLS.map((w) => (
+                    <button
+                      key={w.id}
+                      type="button"
+                      className={"tw-well-chip" + (heroFocus === w.id ? " is-pulsing" : "")}
+                      aria-label={w.name + (heroFocus === w.id ? " — Atlas is pointing here, select to open" : "")}
+                      onClick={() => onWellTap(w.id)}
+                    >
+                      <Icon name={w.icon} small /> {w.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {/* Accessible spine: Atlas's spoken direction, announced for anyone
+                  who can't perceive the pulse (WCAG AA standing canon). */}
+              <div role="status" aria-live="assertive" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)", whiteSpace: "nowrap" }}>{heroCue}</div>
+              {heroReveal && (
+                <div className="tw-hero-reveal">
+                  <Icon name="bed" small />
+                  <div style={{ flex: 1 }}><b>Angama Mara</b><div className="t-body-s" style={{ color: "var(--muted-foreground)" }}>Stay-Well · suggested by Atlas</div></div>
+                  <button className="btn btn-primary" style={{ height: 40 }} onClick={() => { addToTrip({ well: "stay", icon: "bed", name: "Angama Mara", meta: "Stay-Well · suggested by Atlas", status: "idea" }); showToast("Held in your trip — you always choose, and you always book."); }}>Hold it</button>
+                </div>
+              )}
               {listening && (
                 <div className="tw-listening">
                   <div className="tw-mic-ring"><Icon name="mic" /></div>
@@ -159,7 +242,7 @@ export function Concierge() {
                   <p className="t-body-s" style={{ color: "var(--muted-foreground)", margin: 0 }}>Tap Done, or just say “stop,” when you're finished — I'll reply.</p>
                 </div>
               )}
-              {!busy && messages.length > 0 && messages[messages.length - 1].role === "assistant" && (
+              {!heroActive && !busy && messages.length > 0 && messages[messages.length - 1].role === "assistant" && (
                 <button
                   className="btn btn-ghost" style={{ alignSelf: "flex-start" }}
                   onClick={() => addToTrip({ well: "stay", icon: "bed", name: "Angama Mara", meta: "Stay-Well · suggested by Atlas", status: "idea" })}

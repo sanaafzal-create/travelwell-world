@@ -323,3 +323,34 @@
   .tw-talk-btn { width: 40px; height: 40px; }
   .tw-locale__btn { padding-inline: 8px; }
 }
+
+/* ── Atlas Guided-Flow WOW — the pulse Atlas points with ──────────────────
+   Warm breathing glow (a hand on the shoulder, never a flashing nag).
+   Respects prefers-reduced-motion with a static ring so the cue still lands,
+   and Atlas's spoken line (aria-live) carries the same direction for anyone
+   who can't perceive motion. Tap targets stay ≥44px (WCAG AA). */
+.tw-wells-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+.tw-well-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 12px; min-height: 44px;
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--surface-alt); color: var(--foreground);
+  font-size: 14px; cursor: pointer;
+}
+.tw-well-chip:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 2px; }
+@keyframes tw-atlas-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(203,162,78,0); }
+  50%      { box-shadow: 0 0 0 6px rgba(203,162,78,.26), 0 0 22px 3px rgba(203,162,78,.5); }
+}
+.tw-well-chip.is-pulsing {
+  border-color: var(--gold-deep);
+  animation: tw-atlas-pulse 1.7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tw-well-chip.is-pulsing { animation: none; outline: 3px solid var(--gold-deep); outline-offset: 2px; }
+}
+.tw-hero-reveal {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 10px; padding: 10px 12px;
+  border: 1px solid var(--border); border-radius: 12px; background: var(--surface-alt);
+}
