@@ -10,10 +10,10 @@ import { useT } from "@/lib/i18n";
 
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
-  { n: 1, icon: "sparkle", title: "Tell us what moves you", body: "Pick the ways you love to travel — safari, romance, culinary, and more. Or just speak with Atlas." },
-  { n: 2, icon: "globe", title: "Choose where in the world", body: "Thirteen regions, each with researched destinations and an accurate Safety Card you can trust." },
-  { n: 3, icon: "menu", title: "Move through the Wells", body: "Flights, stays, dining, transport, activities — each Well surfaces the best 6 providers, matched to you." },
-  { n: 4, icon: "shield", title: "Book it — all in one trip", body: "Everything lands in a single itinerary, always saved. You always choose, and you always book." },
+  { n: 1, icon: "sparkle", titleKey: "step1.title", bodyKey: "step1.body" },
+  { n: 2, icon: "globe", titleKey: "step2.title", bodyKey: "step2.body" },
+  { n: 3, icon: "menu", titleKey: "step3.title", bodyKey: "step3.body" },
+  { n: 4, icon: "shield", titleKey: "step4.title", bodyKey: "step4.body" },
 ];
 
 /* ---- Featured SIs: David's 6, paired by row ---- */
@@ -22,30 +22,30 @@ const FEAT_ORDER = ["romance", "tropical", "safari", "expedition", "ultra", "riv
 /* ---- The four cinematic "Operating System" feature bands ---- */
 const OS_BANDS = [
   {
-    side: "left", num: "25", numSub: "", eyebrow: "Ways to travel", title: "Special Interests",
-    body: "Twenty-five reasons to go — from Safari & Wildlife to Culinary Journeys to Wellness. Pick one or two, and the system shapes everything else around them.",
-    chips: ["Safari & Wildlife", "Culinary Journeys", "Wellness & Spa", "+22 more"], to: "/special-interests", cta: "Explore all 25",
+    side: "left", num: "25", numSub: "", eyebrow: "os.band1.eyebrow", title: "os.band1.title",
+    body: "os.band1.body",
+    chips: ["Safari & Wildlife", "Culinary Journeys", "Wellness & Spa", "+22 more"], to: "/special-interests", cta: "os.band1.cta",
     bg: "radial-gradient(120% 90% at 25% 15%, #d8b35e 0%, transparent 55%), linear-gradient(120deg, #8a5a2a 0%, #4a3019 55%, #28190d 100%)",
     image: "desertDunes",
   },
   {
-    side: "right", num: "10", numSub: "", eyebrow: "Every travel need, met", title: "The Wells",
-    body: "Each Well maps to a need the way an organ maps to the body — Fly, Stay, Eat, Move, and more. Fill them as you go; the journey is whole when they are.",
-    chips: ["Fly-Well", "Stay-Well", "Eat-Well"], soonChip: "Insure-Well · soon", to: "/wells", cta: "Discover the Wells",
+    side: "right", num: "10", numSub: "", eyebrow: "os.band2.eyebrow", title: "os.band2.title",
+    body: "os.band2.body",
+    chips: ["Fly-Well", "Stay-Well", "Eat-Well"], soonChip: "Insure-Well · soon", to: "/wells", cta: "os.band2.cta",
     bg: "radial-gradient(120% 90% at 75% 20%, #56a89c 0%, transparent 55%), linear-gradient(240deg, #2c6e68 0%, #1c4541 55%, #102825 100%)",
     image: "oceanAerial",
   },
   {
-    side: "left", num: "13", numSub: "", eyebrow: "From 01F to 13A", title: "World Regions",
-    body: "The whole map, organized — Western Europe to the Caribbean, each region scored for safety and stitched into your route, never a detour off it.",
-    chips: ["01F · Western Europe", "05A · East Africa", "11C · Caribbean", "+10 more"], to: "/regions", cta: "Browse all 13 regions",
+    side: "left", num: "13", numSub: "", eyebrow: "os.band3.eyebrow", title: "os.band3.title",
+    body: "os.band3.body",
+    chips: ["01F · Western Europe", "05A · East Africa", "11C · Caribbean", "+10 more"], to: "/regions", cta: "os.band3.cta",
     bg: "radial-gradient(120% 90% at 25% 15%, #7b91c4 0%, transparent 55%), linear-gradient(120deg, #3a4f7a 0%, #25304f 55%, #141a2e 100%)",
     image: "mountainValley",
   },
   {
-    side: "right", num: "6", numSub: "to choose from", eyebrow: "Curated, never overwhelming", title: "The best matches, not endless lists",
-    body: "Six best recommendations for each part of your trip — matched to you and your budget. Want more? Tap “See more.” And if a booking earns us a commission, we say so right there.",
-    chips: ["Top picks first", "Straight about commissions", "You decide & book"], to: "/wells-surface", cta: "See how it works",
+    side: "right", num: "6", numSub: "to choose from", eyebrow: "os.band4.eyebrow", title: "os.band4.title",
+    body: "os.band4.body",
+    chips: ["Top picks first", "Straight about commissions", "You decide & book"], to: "/wells-surface", cta: "os.band4.cta",
     bg: "radial-gradient(120% 90% at 75% 20%, #cf9468 0%, transparent 55%), linear-gradient(240deg, #9c5b3b 0%, #5e3520 55%, #2e1a10 100%)",
     image: "luxuryPool",
   },
@@ -192,10 +192,10 @@ export default function Home() {
   const featured = FEAT_ORDER.map((id) => sis.find((s) => s.id === id)).filter(Boolean) as NonNullable<ReturnType<typeof sis.find>>[];
 
   const TALK_FEATS = [
-    { icon: "message", b: "Type or talk", s: "Chat by keyboard or just speak — whatever feels easy." },
-    { icon: "sound", b: "Read or hear it", s: "It answers in text, or reads replies aloud to you." },
-    { icon: "sparkle", b: "It knows your trip", s: "Sees your interests, region & plan — so advice fits you." },
-    { icon: "check", b: "You're in control", s: "It suggests; you always choose and book. Say “stop” anytime." },
+    { icon: "message", bKey: "talk.feat1.b", sKey: "talk.feat1.s" },
+    { icon: "sound", bKey: "talk.feat2.b", sKey: "talk.feat2.s" },
+    { icon: "sparkle", bKey: "talk.feat3.b", sKey: "talk.feat3.s" },
+    { icon: "check", bKey: "talk.feat4.b", sKey: "talk.feat4.s" },
   ];
 
   return (
@@ -232,10 +232,10 @@ export default function Home() {
       <section className="section band-linen what">
         <div className="container">
           <div className="what__head">
-            <Eyebrow>What is TravelWell</Eyebrow>
-            <h2 className="what__title">A travel operating system that designs the whole trip — <span className="accent">around you.</span></h2>
+            <Eyebrow>{t("what.eyebrow")}</Eyebrow>
+            <h2 className="what__title">{t("what.title1")}<span className="accent">{t("what.title2")}</span></h2>
             <p className="what__lead">
-              Most sites sell you one booking and leave the rest to you. TravelWell starts with what moves you, then assembles every piece — flights, stays, dining, transport, activities and more — into one beautifully organized journey you actually control.
+              {t("what.lead")}
             </p>
           </div>
           <div className="what__steps">
@@ -243,14 +243,14 @@ export default function Home() {
               <div className="what__step" key={s.n}>
                 <span className="what__step-n">{s.n}</span>
                 <div className="what__step-ic"><Icon name={s.icon} /></div>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
+                <h3>{t(s.titleKey)}</h3>
+                <p>{t(s.bodyKey)}</p>
               </div>
             ))}
           </div>
           <div className="what__cta">
-            <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>Start designing — it's free</ButtonLink>
-            <span className="what__cta-note">4–5 taps to a booked trip · no account needed to start</span>
+            <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>{t("what.cta")}</ButtonLink>
+            <span className="what__cta-note">{t("what.ctaNote")}</span>
           </div>
         </div>
       </section>
@@ -260,11 +260,11 @@ export default function Home() {
         <div className="container">
           <div className="section__head">
             <div>
-              <Eyebrow>Start with what moves you</Eyebrow>
-              <h2>Pick up to 3. Two is the sweet spot.</h2>
-              <p>Tap the ways you love to travel — they light up as you go. Most journeys shine with 1–2, but some need 3 (Family + Tropical + Romance, say). You can fine-tune anytime.</p>
+              <Eyebrow>{t("feat.eyebrow")}</Eyebrow>
+              <h2>{t("feat.title")}</h2>
+              <p>{t("feat.lead")}</p>
             </div>
-            <Link className="section__link" to="/special-interests">All 25 interests <Icon name="arrow" small /></Link>
+            <Link className="section__link" to="/special-interests">{t("feat.link")} <Icon name="arrow" small /></Link>
           </div>
           <div className="si-rail">
             {featured.map((s) => {
@@ -276,13 +276,13 @@ export default function Home() {
               return (
                 <div key={s.id} className={cx("si-card", !live && "is-preview")}>
                   <div className="si-card__media" style={media}>
-                    <span className={cx("si-card__pill pill", live ? "pill-live" : "pill-preview")} style={{ background: "rgba(255,255,255,.92)" }}>{live ? "Live" : "Preview"}</span>
+                    <span className={cx("si-card__pill pill", live ? "pill-live" : "pill-preview")} style={{ background: "rgba(255,255,255,.92)" }}>{live ? t("pill.live") : t("pill.preview")}</span>
                   </div>
                   <div className="si-card__body">
                     <h3>{s.name}</h3>
                     <p className="sig">If it's {s.sig}… <span className="tw">Travel Well.</span></p>
                     <div className="si-card__foot">
-                      <span>{s.lux ? "Luxury & Ultra" : "All travelers"}</span>
+                      <span>{s.lux ? t("card.lux") : t("card.all")}</span>
                     </div>
                   </div>
                 </div>
@@ -296,9 +296,9 @@ export default function Home() {
       <section className="section band-ivory" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="os-intro">
-            <Eyebrow>How it all fits together</Eyebrow>
-            <h2>A Travel Operating <em>System</em>.</h2>
-            <p>Behind the calm surface, an organized engine routes every traveler from a spark of interest, to a place, to what excites them, to every need met — ending in a vetted, booked plan. Four moving parts, one effortless journey.</p>
+            <Eyebrow>{t("os.eyebrow")}</Eyebrow>
+            <h2>{t("os.title")}</h2>
+            <p>{t("os.lead")}</p>
           </div>
 
           {OS_BANDS.map((b) => (
@@ -309,20 +309,20 @@ export default function Home() {
               <div className="os-feature__scrim" />
               <div className="os-feature__content">
                 <div className="os-feature__num">{b.num}{b.numSub && <span style={{ fontSize: ".42em", fontWeight: 600, verticalAlign: "middle", opacity: 0.85 }}> {b.numSub}</span>}</div>
-                <Eyebrow>{b.eyebrow}</Eyebrow>
-                <h3>{b.title}</h3>
-                <p>{b.body}</p>
+                <Eyebrow>{t(b.eyebrow)}</Eyebrow>
+                <h3>{t(b.title)}</h3>
+                <p>{t(b.body)}</p>
                 <div className="os-feature__chips">
                   {b.chips.map((c) => <span key={c} className="os-feature__chip">{c}</span>)}
                   {"soonChip" in b && b.soonChip && <span className="os-feature__chip soon">{b.soonChip}</span>}
                 </div>
-                <Link className="os-feature__cta" to={b.to}>{b.cta} <Icon name="arrow" small /></Link>
+                <Link className="os-feature__cta" to={b.to}>{t(b.cta)} <Icon name="arrow" small /></Link>
               </div>
             </article>
           ))}
 
           <div style={{ textAlign: "center", marginTop: 40 }}>
-            <ButtonLink to="/about" variant="gold" style={{ height: 50, padding: "0 28px", fontSize: 15 }}>See the full architecture</ButtonLink>
+            <ButtonLink to="/about" variant="gold" style={{ height: 50, padding: "0 28px", fontSize: 15 }}>{t("os.arch")}</ButtonLink>
           </div>
         </div>
       </section>
@@ -333,22 +333,22 @@ export default function Home() {
           <div className="talk">
             <div className="talk__inner">
               <div className="talk__copy">
-                <span className="eyebrow talk__eyebrow"><span className="dot" /> Meet your Concierge</span>
-                <h2>Don't know where to start? <em>Just talk to me.</em></h2>
-                <p className="talk__lead">Your Concierge is a travel expert that lives on every page. Tell it your dream in plain words — by typing or speaking — and watch a real, bookable trip take shape in seconds. No forms, no jargon.</p>
+                <span className="eyebrow talk__eyebrow"><span className="dot" /> {t("talk.eyebrow")}</span>
+                <h2>{t("talk.title1")}<em>{t("talk.title2")}</em></h2>
+                <p className="talk__lead">{t("talk.lead")}</p>
                 <div className="talk__feats">
                   {TALK_FEATS.map((f) => (
-                    <div className="talk__feat" key={f.b}>
+                    <div className="talk__feat" key={f.bKey}>
                       <div className="fic"><Icon name={f.icon} /></div>
-                      <div><b>{f.b}</b><span>{f.s}</span></div>
+                      <div><b>{t(f.bKey)}</b><span>{t(f.sKey)}</span></div>
                     </div>
                   ))}
                 </div>
                 <div className="talk__cta-row">
                   <Button onClick={() => openPanel("concierge")} style={{ height: 52, padding: "0 26px", fontSize: 16 }}>
-                    <Icon name="sparkles" small /> Try the Concierge
+                    <Icon name="sparkles" small /> {t("talk.cta")}
                   </Button>
-                  <span className="note">Free to try · no account needed · powered by Atlas</span>
+                  <span className="note">{t("talk.note")}</span>
                 </div>
               </div>
               <TalkDemo />
