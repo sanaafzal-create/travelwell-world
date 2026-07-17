@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { destinationJsonLd, useJsonLd } from "@/lib/jsonld";
 import { Icon } from "@/lib/icons";
 import type { Destination, Provider } from "@/data/places";
 import type { Region, Well } from "@/data/taxonomy";
@@ -50,6 +51,10 @@ export default function DestinationDetail() {
   wells.forEach((w) => { allWells[w.id] = w; });
   const { dest: DEST, region: R, list } = findDestination(regions, destinations, id);
   const country = DEST.country || R.name;
+  // AEO: emit TouristDestination + FAQ (buffet Q&A) structured data so answer
+  // engines can parse the page into quotable chunks. (Authoritative once the
+  // SSG socket bakes it into the served <head>; client-injected here for now.)
+  useJsonLd(destinationJsonLd(DEST, R.name, typeof window !== "undefined" ? window.location.href : ""));
   const stub = DEST.depth !== "verified";
 
   // Destination-matched Unsplash hero, with the bundled image as instant fallback.

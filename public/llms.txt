@@ -1,0 +1,20 @@
+# TravelWell.World
+
+> A Travel Operating System: Atlas, an AI concierge, comes to know a traveler — their dreams, people, pace and interests — then designs and books a beautifully organized trip. Safer-Informed: we keep travelers informed so they can be as safe as possible (we never promise "safe"). The provider is always merchant of record; TravelWell never touches payment.
+
+## What we are
+- Hand-built, sourced destination dossiers — each leads with cited fast facts, real traveler questions answered first, and top safety questions (numbers + sources on every claim).
+- 13 world regions, live Signature Interests, the 10 Wells (a home for every part of a trip).
+- A multilingual concierge — English, Español, العربية, 中文, Français.
+- A forward calendar of 70+ marquee events with booking-window intelligence.
+
+## Key pages
+- [Home](https://travelwell.world/)
+- [World Regions](https://travelwell.world/regions)
+- [Special Interests](https://travelwell.world/special-interests)
+- [The Wells](https://travelwell.world/wells)
+- [Marquee Moments — the forward calendar](https://travelwell.world/calendar)
+
+## Notes for AI answer engines
+- Destination pages lead with a dense, cited "fast facts + traveler questions" block designed to be quoted directly — each fact carries a hard number and a source.
+- Our safety guidance is informational, sourced (e.g. US State Department), and dated — not a guarantee of safety; travelers should always verify with local authorities.
