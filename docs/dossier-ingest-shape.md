@@ -50,8 +50,9 @@ legacy bundle rows).
 - **`depth`** = `verified` (full sourced dossier) · `stub` (a line + image) · `cached` (Atlas-written, unverified). Separate axis from status.
 - **`sub_region`** = the country-internal string **verbatim** from `docs/sub-region-master.md` / the dossier — never sketched.
 - **`si`** = real Signature-Interest slugs only (e.g. `safari`, `tropical`, `culinary`, `ski`). Unknown slugs won't error but won't surface.
-- **`tier_range` / `price_band`** = the canonical five only: `essential` · `comfort` · `premier` · `luxury` · `ultra`.
-- **`draw_rank`** = `anchor` | `core` | `emerging` (or omit).
+- **`feel` = a CONTROLLED vocabulary, never free-invented.** Map each dossier's prose to 2–4 tags from this fixed set (so the ~570 cluster and the SI + feel + region match engine can use them). Free-form per-dossier tags are the failure mode — they don't cluster and are useless downstream. The set: `dramatic · serene · rugged · refined · wild · polished · cosmopolitan · buzzy · festive · romantic · secluded · family-friendly · coastal · alpine · historic · tropical · urban · remote · pastoral · adventurous`. If a recurring concept is genuinely missing, add it to THIS list deliberately — not ad hoc inside a dossier.
+- **`tier_range` = the full budget spread present** (subset of the canonical five: `essential` · `comfort` · `premier` · `luxury` · `ultra`) — keep the whole range; it's what budget filtering reads. **`price_band` = the median tier of that range** (mechanical, reproducible; a single coarse *positioning* label). Both come from the five only.
+- **`draw_rank`** = `anchor` | `core` | `emerging` (or omit). Dossiers that carry a **numeric** rank map as **`1 → anchor`, `2 → core`, `3 → emerging`**, and clamp anything ≥ 3 to `emerging`.
 - **`img`** = an image key already in the set if one fits, else a short Unsplash query term (the app has an Unsplash fallback).
 - **region code** = correct 13-code value; it's a FK to `regions(code)`, so a bad code **errors** the ingest.
 
@@ -64,7 +65,7 @@ dossier sockets ship. Keep it structured and consistent. Recommended top-level k
   "seo":      { "title": "...", "meta": "...", "canonical": "...", "hreflang": {...}, "jsonld": {...} },
   "safety":   { "advisory_level": "L1|L2|L3|L4", "posture": "...", "booking_hold": false, "notes": "..." },
   "jewels":   [ { "name": "...", "tier": "premier", "price_band": "...", "when": "...", "blurb": "..." } ],
-  "booking":  { "windows": [...], "commission_lane": "...", "confirmation_return": "email-parse|api|none" },
+  "booking":  { "windows": [...], "commission_lane": "..." },  // NOTE: confirmation_return is NOT here — it's provider-level (see below)
   "timing":   { "season": "...", "best_months": [8,9], "notes": "..." },
   "trails":   [ ... ],   // booking lanes / provider hooks, if present
   "source":   { "last_verified": "2026-07-13", "confidence": "high" }
@@ -73,6 +74,14 @@ dossier sockets ship. Keep it structured and consistent. Recommended top-level k
 Only `seo`, `safety`, and `jewels` are near-term consumers (rendering + the
 safety spine + the layered page); everything else can ride along. If a dossier
 lacks a section, omit the key — don't fabricate.
+
+**`confirmation_return` is provider-level, not a place property.** It's how a
+*given supplier* returns a booking confirmation into the itinerary
+(`email-parse` everywhere to start → `api` as each provider ships it → `none`
+otherwise) — it lives on the **provider / booking-lane record**, set when the
+supplier ledger is built, and drives the booking-return flow. Do **not**
+populate it from dossier prose; leave it out of the destination's `data` (or
+`"none"` if a slot is expected).
 
 ## Worked example
 ```ts
