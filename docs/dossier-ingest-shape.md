@@ -65,15 +65,26 @@ dossier sockets ship. Keep it structured and consistent. Recommended top-level k
   "seo":      { "title": "...", "meta": "...", "canonical": "...", "hreflang": {...}, "jsonld": {...} },
   "safety":   { "advisory_level": "L1|L2|L3|L4", "posture": "...", "booking_hold": false, "notes": "..." },
   "jewels":   [ { "name": "...", "tier": "premier", "price_band": "...", "when": "...", "blurb": "..." } ],
+  // ── Buffet block (AEO top-load) — the ripe material AI cites first ──
+  "facts":    [ { "headline": "...", "text": "...", "number": "...", "source": "..." } ],  // fast facts (hard number + source each)
+  "faq":      [ { "q": "...", "a": "...", "source": "..." } ],  // traveler questions, answer-first → EMITS FAQPage schema
+  "quotes":   [ { "text": "...", "attribution": "TravelWell advisor desk" } ],  // attributed pull-quotes
   "booking":  { "windows": [...], "commission_lane": "..." },  // NOTE: confirmation_return is NOT here — it's provider-level (see below)
   "timing":   { "season": "...", "best_months": [8,9], "notes": "..." },
   "trails":   [ ... ],   // booking lanes / provider hooks, if present
   "source":   { "last_verified": "2026-07-13", "confidence": "high" }
 }
 ```
-Only `seo`, `safety`, and `jewels` are near-term consumers (rendering + the
-safety spine + the layered page); everything else can ride along. If a dossier
-lacks a section, omit the key — don't fabricate.
+Near-term consumers: `seo`, `safety`, `jewels` (rendering + safety spine +
+layered page) and the **buffet block** (`facts` / `faq` / `quotes` — the
+AEO top-load). Everything else rides along. If a dossier lacks a section, omit
+the key — don't fabricate.
+
+**The buffet block drives AI citation (AEO), so it maps 1:1 to the source:**
+- `facts` = the fast facts, each with a **hard number** and a **`source`** — one claim per entry so the AI can lift it as a standalone chunk.
+- `faq` = the traveler questions, **answer-first**, one per Signature Interest **plus the top 2–3 safety questions** (safety is the open lane), each with a `source`. **`faq` auto-emits `FAQPage` JSON-LD** via `src/lib/jsonld.ts` — no separate schema step; put the buffet Q&A here and the structured data writes itself.
+- `quotes` = 3–4 attributed pull-quotes (advisor desk / named DMC / TCI relationships).
+These are the *same* material as the deep dossier, lifted to the top — additive, no rewrite. (Rendered + citable once the SSG socket serves the page HTML.)
 
 **`confirmation_return` is provider-level, not a place property.** It's how a
 *given supplier* returns a booking confirmation into the itinerary
