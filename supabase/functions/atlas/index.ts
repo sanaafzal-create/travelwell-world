@@ -44,10 +44,11 @@ Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
 
   try {
-    const { messages, context, locale } = (await req.json()) as {
+    const { messages, context, locale, voice } = (await req.json()) as {
       messages: ChatMessage[];
       context?: Record<string, unknown>;
       locale?: string;
+      voice?: boolean;
     };
 
     const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
@@ -78,10 +79,18 @@ Deno.serve(async (req: Request) => {
         ? `\n\nRespond in ${LANGS[locale]} — the traveler has chosen it. Keep TravelWell's warm, plain, editorial voice in that language; write as a native speaker would rather than translating literally. Numerals and place names stay conventional for that language.`
         : "";
 
+    // Voice mode (the traveler is LISTENING, not reading) — the governing fix:
+    // answers for the ear must be far shorter than written ones. One warm word
+    // then the facts, then hand the turn back; lists go on the screen, never
+    // spoken. Scoped to voice so the read experience keeps its fuller detail.
+    const voiceNote = voice
+      ? `\n\nVOICE MODE — the traveler is LISTENING, not reading. Answer for the ear: at most two short sentences (~25 words total). One warm word, then the facts, then hand the turn back with a short question or a clear next step. Never speak lists aloud — the options are on their screen; give a one-line summary instead. No scene-painting paragraphs.`
+      : "";
+
     const base = {
       model: MODEL,
-      max_tokens: 1024,
-      system: SYSTEM + contextNote + langNote,
+      max_tokens: voice ? 220 : 1024,
+      system: SYSTEM + contextNote + langNote + voiceNote,
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
     };
     // Prefer extended thinking, but never let a thinking-param rejection drop us

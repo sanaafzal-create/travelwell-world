@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { useStore, type IoMode } from "@/store/useStore";
 import { useAtlas } from "@/lib/useAtlas";
 import { useSpeechInput } from "@/lib/useSpeech";
+import { speak, stopSpeaking } from "@/lib/voice";
 import { useSpecialInterests } from "@/store/useCatalog";
 import { useT } from "@/lib/i18n";
 import { useCatalogName } from "@/lib/i18n-catalog";
@@ -58,6 +59,7 @@ export function Concierge() {
   const onMic = () => {
     if (listening) { stopVoice(); return; }
     if (!voiceSupported) { showToast("Voice input isn't supported in this browser yet — please type for now."); return; }
+    stopSpeaking(); // don't let Atlas talk over the traveler
     startVoice();
   };
 
@@ -65,9 +67,27 @@ export function Concierge() {
     if (isOpen && bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
   }, [messages, busy, isOpen]);
 
+  // The mirror: when the traveler chose to HEAR Atlas, speak each new reply
+  // aloud (in their language) while the same text stays on screen. Browser TTS
+  // today, swappable behind src/lib/voice.ts.
+  const lastSpokenRef = useRef(-1);
+  useEffect(() => {
+    if (io === "read" || !isOpen) return;
+    const i = messages.length - 1;
+    if (i < 0) return;
+    const m = messages[i];
+    if (m.role === "assistant" && i !== lastSpokenRef.current) {
+      lastSpokenRef.current = i;
+      speak(m.content, useStore.getState().locale);
+    }
+  }, [messages, io, isOpen]);
+  // Stop the voice when the panel closes.
+  useEffect(() => { if (!isOpen) stopSpeaking(); }, [isOpen]);
+
   function onSend(text: string) {
     const trimmed = text.trim();
     if (!trimmed || busy) return;
+    stopSpeaking();
     setInput("");
     // In the vision loop's "ask" stage, capture the dream and write it back
     // verbatim (Atlas heard every word) instead of routing to the model.
@@ -329,10 +349,13 @@ export function Concierge() {
 
         <div className="tw-concierge__foot">
           <div className="tw-io-toggle" role="group" aria-label="How should I respond?">
-            {ioBtn("read", "Read", "read")}
-            {ioBtn("hear", "Hear", "sound")}
-            {ioBtn("both", "Both")}
+            {ioBtn("read", t("io.read"), "read")}
+            {ioBtn("hear", t("io.hear"), "sound")}
+            {ioBtn("both", t("io.both"))}
           </div>
+          {primed && !listening && (
+            <div className="t-body-s" style={{ color: "var(--muted-foreground)", fontSize: 12.5, margin: "2px 2px 6px" }}>{t("atlas.cue")}</div>
+          )}
           <div className="tw-input">
             <input
               type="text" placeholder="Ask me anything — in English · Español · العربية · 中文 · Français" aria-label="Message Atlas — ask in English, Spanish, Arabic, Chinese, or French"

@@ -28,7 +28,8 @@ export function getSupabase(): SupabaseClient | null {
 export async function askAtlas(
   messages: { role: "user" | "assistant"; content: string }[],
   context?: Record<string, unknown>,
-  locale?: string
+  locale?: string,
+  voice?: boolean
 ): Promise<{ reply: string; degraded?: boolean }> {
   const sb = getSupabase();
   if (!sb) {
@@ -40,7 +41,7 @@ export async function askAtlas(
   }
   try {
     const { data, error } = await sb.functions.invoke("atlas", {
-      body: { messages, context, locale },
+      body: { messages, context, locale, voice },
     });
     if (error) throw error;
     return { reply: (data as { reply: string }).reply };

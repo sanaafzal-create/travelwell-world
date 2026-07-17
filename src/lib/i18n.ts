@@ -241,6 +241,12 @@ export const MESSAGES: Record<string, Dict> = {
   "vis.confirm": { en: "Yes — that's my trip", es: "Sí — ese es mi viaje", ar: "نعم — هذه رحلتي", zh: "对，这就是我的旅程", fr: "Oui — c'est mon voyage" },
   "vis.done": { en: "Beautiful — I've got your vision. Let's bring it to life.", es: "Precioso — tengo tu visión. Vamos a darle vida.", ar: "رائع — التقطتُ رؤيتك. لنمنحها الحياة.", zh: "太好了——我已掌握你的愿景。让我们把它变为现实。", fr: "Magnifique — j'ai ta vision. Donnons-lui vie." },
   "vis.cta": { en: "Show me where it comes alive", es: "Muéstrame dónde cobra vida", ar: "أرِني أين تنبض بالحياة", zh: "带我看看它在哪里成真", fr: "Montre-moi où il prend vie" },
+
+  // ── Atlas voice controls ────────────────────────────────────────────────
+  "io.read": { en: "Read", es: "Leer", ar: "قراءة", zh: "阅读", fr: "Lire" },
+  "io.hear": { en: "Hear", es: "Escuchar", ar: "استماع", zh: "听", fr: "Écouter" },
+  "io.both": { en: "Both", es: "Ambos", ar: "كلاهما", zh: "两者", fr: "Les deux" },
+  "atlas.cue": { en: "Type and press Enter, or tap the mic to talk. Choose Hear to have Atlas speak back.", es: "Escribe y pulsa Enter, o toca el micrófono para hablar. Elige Escuchar para que Atlas responda en voz alta.", ar: "اكتب واضغط Enter، أو انقر الميكروفون للتحدّث. اختر «استماع» ليجيبك Atlas بصوته.", zh: "输入后按 Enter，或点麦克风说话。选择“听”让 Atlas 出声回答。", fr: "Écrivez et appuyez sur Entrée, ou touchez le micro pour parler. Choisissez Écouter pour qu'Atlas réponde à voix haute." },
 };
 
 export function translate(key: string, locale: string): string {
