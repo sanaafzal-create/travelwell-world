@@ -54,7 +54,7 @@
 11. **Content at scale** — top-12 deep per sub-region across regions; provider coverage across all wells.
 12. Hardening, observability, trust/safety verification at scale, trademark filings.
 
-> **Payments are permanently out of scope.** Atlas guides and organizes; the traveler always books and pays the provider directly (redirect-with-return, provider = merchant of record). There is no future tier where TravelWell touches payment — locked by David. This is why we stay at PCI SAQ A.
+> **We never touch the card; the provider is always merchant of record** (locked — see CLAUDE.md). Today that's the affiliate handoff (`/go`). The agent-era evolution (David, 2026-07) is that **Atlas may *close* the booking on our own surface** — orchestrate discover→decide→book with no leaky handoff — *but the provider/aggregator stays merchant of record and holds the card* (Duffel Payments, aggregator billing, Stripe hosted checkout). We still never touch card data (PCI SAQ A) and never become seller of record. **Becoming merchant of record ourselves is a separate, deliberate, funded decision** (PCI-DSS + bonding + liability), not a drift.
 
 **Heavy lifts / where people concentrate:** i18n, SEO rendering, the monthly-sweep automation, content production at scale.
 
