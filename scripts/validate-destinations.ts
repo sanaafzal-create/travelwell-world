@@ -23,6 +23,7 @@ const DRAW = new Set(["anchor", "core", "emerging"]);
 // The locked feel vocabulary (docs/dossier-ingest-shape.md) — feel tags must
 // come from this set so the library clusters for the SI+feel+region match.
 const FEEL = new Set(["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous"]);
+const ADVISORY = new Set(["L1", "L2", "L3", "L4"]); // safety-spine level
 const bump = (m: Record<string, number>, k: string) => { m[k] = (m[k] || 0) + 1; };
 const perRegion: Record<string, number> = {};
 const byDepth: Record<string, number> = {};
@@ -55,6 +56,12 @@ for (const [code, list] of Object.entries(DESTINATIONS as Record<string, any[]>)
     if (!(d.si ?? []).length) warns.push(`${at}: no si tags`);
     if (!(d.feel ?? []).length) warns.push(`${at}: no feel tags`);
     for (const f of d.feel ?? []) if (!FEEL.has(f)) errs.push(`${at}: feel "${f}" is outside the controlled vocabulary (breaks matching)`);
+    // Safety spine: verified dossiers should carry data.safety; a present
+    // advisory_level must be L1–L4, and L4/L3-blocked must be content-only.
+    const safety = (d.data as any)?.safety;
+    if (d.depth === "verified" && !safety) warns.push(`${at}: verified but no data.safety (safety spine)`);
+    if (safety?.advisory_level && !ADVISORY.has(safety.advisory_level)) errs.push(`${at}: advisory_level "${safety.advisory_level}" not L1–L4`);
+    if (safety && (safety.advisory_level === "L4") && safety.booking_hold !== true) warns.push(`${at}: L4 should be content-only (booking_hold: true)`);
     bump(perRegion, code); bump(byDepth, d.depth ?? "?"); bump(byStatus, d.status ?? "?");
     if (d.draw_rank) bump(byDraw, d.draw_rank); if (d.price_band) bump(byBand, d.price_band);
   }
