@@ -20,6 +20,15 @@ const TIERS = new Set(["essential", "comfort", "premier", "luxury", "ultra"]);
 const STATUS = new Set(["live", "future"]);
 const DEPTH = new Set(["verified", "stub", "cached"]);
 const DRAW = new Set(["anchor", "core", "emerging"]);
+// The locked feel vocabulary (docs/dossier-ingest-shape.md) — feel tags must
+// come from this set so the library clusters for the SI+feel+region match.
+const FEEL = new Set(["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous"]);
+const bump = (m: Record<string, number>, k: string) => { m[k] = (m[k] || 0) + 1; };
+const perRegion: Record<string, number> = {};
+const byDepth: Record<string, number> = {};
+const byStatus: Record<string, number> = {};
+const byDraw: Record<string, number> = {};
+const byBand: Record<string, number> = {};
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)+$/; // lowercase, hyphenated, ≥2 segments
 
 const errs: string[] = [];
@@ -45,8 +54,21 @@ for (const [code, list] of Object.entries(DESTINATIONS as Record<string, any[]>)
     if (d.data != null && typeof d.data !== "object") errs.push(`${at}: data must be an object (jsonb)`);
     if (!(d.si ?? []).length) warns.push(`${at}: no si tags`);
     if (!(d.feel ?? []).length) warns.push(`${at}: no feel tags`);
+    for (const f of d.feel ?? []) if (!FEEL.has(f)) errs.push(`${at}: feel "${f}" is outside the controlled vocabulary (breaks matching)`);
+    bump(perRegion, code); bump(byDepth, d.depth ?? "?"); bump(byStatus, d.status ?? "?");
+    if (d.draw_rank) bump(byDraw, d.draw_rank); if (d.price_band) bump(byBand, d.price_band);
   }
 }
+
+// ── Count-check report (the numbers David asked for) ──────────────────────
+const fmt = (m: Record<string, number>) => Object.entries(m).sort().map(([k, v]) => `${k}:${v}`).join("  ");
+console.log("\n── COUNT-CHECK ─────────────────────────────");
+console.log(`destinations: ${count}   regions: ${Object.keys(perRegion).length}`);
+console.log(`per region:  ${fmt(perRegion)}`);
+console.log(`status:      ${fmt(byStatus)}`);
+console.log(`depth:       ${fmt(byDepth)}`);
+console.log(`draw_rank:   ${fmt(byDraw)}`);
+console.log(`price_band:  ${fmt(byBand)}`);
 
 console.log(`\nValidated ${count} destinations across ${Object.keys(DESTINATIONS).length} regions.`);
 if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't error, but check):`); warns.forEach((w) => console.log("  · " + w)); }
