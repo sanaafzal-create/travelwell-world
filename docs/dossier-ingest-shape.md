@@ -94,6 +94,23 @@ supplier ledger is built, and drives the booking-return flow. Do **not**
 populate it from dossier prose; leave it out of the destination's `data` (or
 `"none"` if a slot is expected).
 
+## Conforming the library JSON → this shape (the key + the drift fixes)
+
+**The key we ingest on:** our MVP primary key is **`id` = `<city>-<country>`** (e.g., `machu-picchu-peru`). That's what the app + DB key on — *not* your `destination_id`. So:
+- Set each row's `id` to the canonical `<city>-<country>`. Use the dossier's `reconciles_live_mvp` slug (e.g., `"machu"`) to map onto the **right existing MVP row** (renormalize `machu` → `machu-picchu-peru`) so nothing lands in the wrong slot or duplicates.
+- **Carry your `destination_id`** (e.g., `TWW-10S-PE-078`) as a cross-ref in `data.dossier_id`, and keep `reconciles_live_mvp` in `data.reconciles_live_mvp`. Traceability both ways; the MVP still keys on `<city>-<country>`.
+
+**Block mapping (dossier JSON → this shape):** `name`/`country`/`region_code`/`sub_region` → same top-level fields · `sis_present` → `si[]` (as slugs, below) · `key_facts` → `data.facts` · `safety` → `data.safety` · booking-window/`tdt` → `data.timing` + `data.booking` · `supply` → `data.trails` / provider ledger · `ultra` → `data.ultra` · `seo` → `data.seo` · `jewels` → `data.jewels` (+ the buffet `data.faq` / `data.quotes`).
+
+**Resolve the five drifts to ONE shape (normalize on the pass):**
+1. **`coordinates`** → always an object of numbers `{ "lat": -13.16, "lng": -72.54 }`, in **`data.geo`** (never a string).
+2. **`sis_present`** → our canonical **SI slugs** in `si[]` — map codes/full-names to: `ultra, tropical, romance, safari, expedition, adventure, liveaboard, river, diveglobal, ocean, wellness, wildlife, glamping, family, group, hiking, ski, olympic, senior, culinary, culture, deepdive, pilgrimage, entertainment, nightlife, sports, spectator, prosports, compsports, sailing, yacht, wine`. (You hold the code legend — e.g. `RHN`/`GEA`; we hold the target slugs. Drop any status suffix — status lives on the destination, not the SI tag.)
+3. **`si_subtypes`** → always an **object keyed by SI slug** (`{ "safari": [...], "wine": [...] }`) in `data.si_subtypes` (never a flat list).
+4. **`seo`** → one canonical object in `data.seo`: `{ title, meta, canonical, keywords[], hreflang, jsonld_type, author_byline, content_freshness }`. Keep whatever's present; **omit missing keys** (don't fabricate `meta_description`/`slug`/keywords where absent).
+5. **Nested-array field names** → one name each: jewels use **`name`** (not `positioning`) + **`si`** slug (not `si_tag`); ultra uses **`positioning`** (fold `why_ultra` into it); supply uses **`si`** (not `si_tag`). One vocabulary across every file.
+
+If a field is genuinely absent, omit it — never invent. A strict parser then sees one shape across all ~570.
+
 ## Worked example
 ```ts
 "06A": [
