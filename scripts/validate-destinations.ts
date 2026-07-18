@@ -30,6 +30,10 @@ const byDepth: Record<string, number> = {};
 const byStatus: Record<string, number> = {};
 const byDraw: Record<string, number> = {};
 const byBand: Record<string, number> = {};
+const seenIds = new Set<string>();          // global id uniqueness (<city>-<country>)
+const seenReconcile = new Set<string>();     // one dossier per live-MVP row
+const SLUG_RE = /^[a-z0-9-]+$/;
+let linked = 0;                              // rows carrying a reconciles_live_mvp
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)+$/; // lowercase, hyphenated, ≥2 segments
 
 const errs: string[] = [];
@@ -46,6 +50,14 @@ for (const [code, list] of Object.entries(DESTINATIONS as Record<string, any[]>)
     }
     if (d.id && !ID_RE.test(d.id)) errs.push(`${at}: id "${d.id}" isn't <city>-<country> (lowercase, hyphenated)`);
     if (d.id && /[A-Z_ ]/.test(d.id)) errs.push(`${at}: id "${d.id}" has uppercase/space/underscore`);
+    if (d.id) { if (seenIds.has(d.id)) errs.push(`${at}: duplicate id "${d.id}" (two dossiers → same slot)`); else seenIds.add(d.id); }
+    // reconciles_live_mvp — the linkage that maps a dossier onto the right
+    // existing MVP row. Required for rows that reconcile to a live slug; net-new
+    // destinations legitimately have none (warned so CC can confirm each case).
+    const rec = (d.data as { reconciles_live_mvp?: unknown })?.reconciles_live_mvp;
+    if (rec == null) warns.push(`${at}: no data.reconciles_live_mvp (confirm this is a net-new place, not an existing MVP row)`);
+    else if (typeof rec !== "string" || !SLUG_RE.test(rec)) errs.push(`${at}: reconciles_live_mvp "${String(rec)}" isn't a clean lowercase slug`);
+    else { linked++; if (seenReconcile.has(rec)) errs.push(`${at}: reconciles_live_mvp "${rec}" already claimed by another dossier (collision)`); else seenReconcile.add(rec); }
     if (d.status && !STATUS.has(d.status)) errs.push(`${at}: status "${d.status}" not live|future`);
     if (d.depth && !DEPTH.has(d.depth)) errs.push(`${at}: depth "${d.depth}" not verified|stub|cached`);
     if (d.draw_rank != null && !DRAW.has(d.draw_rank)) errs.push(`${at}: draw_rank "${d.draw_rank}" not anchor|core|emerging`);
@@ -76,6 +88,7 @@ console.log(`status:      ${fmt(byStatus)}`);
 console.log(`depth:       ${fmt(byDepth)}`);
 console.log(`draw_rank:   ${fmt(byDraw)}`);
 console.log(`price_band:  ${fmt(byBand)}`);
+console.log(`linkage:     ${linked}/${count} carry reconciles_live_mvp   unique ids: ${seenIds.size}`);
 
 console.log(`\nValidated ${count} destinations across ${Object.keys(DESTINATIONS).length} regions.`);
 if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't error, but check):`); warns.forEach((w) => console.log("  · " + w)); }
