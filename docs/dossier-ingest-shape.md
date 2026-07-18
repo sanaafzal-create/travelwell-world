@@ -96,18 +96,18 @@ populate it from dossier prose; leave it out of the destination's `data` (or
 
 ## Conforming the library JSON → this shape (the key + the drift fixes)
 
-**The key we ingest on:** our MVP primary key is **`id` = `<city>-<country>`** (e.g., `machu-picchu-peru`). That's what the app + DB key on — *not* your `destination_id`. So:
-- Set each row's `id` to the canonical `<city>-<country>`. Use the dossier's `reconciles_live_mvp` slug (e.g., `"machu"`) to map onto the **right existing MVP row** (renormalize `machu` → `machu-picchu-peru`) so nothing lands in the wrong slot or duplicates.
-- **Carry your `destination_id`** (e.g., `TWW-10S-PE-078`) as a cross-ref in `data.dossier_id`, and keep `reconciles_live_mvp` in `data.reconciles_live_mvp`. Traceability both ways; the MVP still keys on `<city>-<country>`.
+**The key we ingest on:** our MVP primary key is **`id` = `<city>-<country>`**, **derived from each dossier's `name` + `country`** (slugified, full country, per the id rules above) — e.g., `machu-picchu-peru`. That's the key for ALL 458; it does not depend on your `destination_id` (whose two conventions, or absence on 40 files, don't matter — carry it into `data.dossier_id` for traceability regardless).
+- **`reconciles_live_mvp` is only needed for the ≤38 dossiers that match an already-live MVP row** (not ~454). A dossier reconciles only if it's the *same place* as one of the 38 rows currently in the app. For those, set `data.reconciles_live_mvp` to the row's **current slug** (e.g. `masai-mara`, `machu`, `cape-town-south-africa`) so the dossier maps onto that row despite any spelling drift, instead of creating a duplicate. **The current 38 live slugs are listed in `src/data/places.ts` `DESTINATIONS`** (Sana can hand them over).
+- **The other ~420 dossiers are net-new** — no `reconciles_live_mvp` needed; they just get their derived `<city>-<country>` id. (The derived id is itself the reconciliation: same place → same id → same slot.)
 
 **Block mapping (dossier JSON → this shape):** `name`/`country`/`region_code`/`sub_region` → same top-level fields · `sis_present` → `si[]` (as slugs, below) · `key_facts` → `data.facts` · `safety` → `data.safety` · booking-window/`tdt` → `data.timing` + `data.booking` · `supply` → `data.trails` / provider ledger · `ultra` → `data.ultra` · `seo` → `data.seo` · `jewels` → `data.jewels` (+ the buffet `data.faq` / `data.quotes`).
 
 **Resolve the five drifts to ONE shape (normalize on the pass):**
-1. **`coordinates`** → always an object of numbers `{ "lat": -13.16, "lng": -72.54 }`, in **`data.geo`** (never a string).
+1. **`coordinates`** → the three forms (object `{lat,lng}`, array `[lat,lng]`, string) all normalize to one: an **object of numbers** `{ "lat": -13.16, "lng": -72.54 }` in **`data.geo`**.
 2. **`sis_present`** → our canonical **SI slugs** in `si[]` — map codes/full-names to: `ultra, tropical, romance, safari, expedition, adventure, liveaboard, river, diveglobal, ocean, wellness, wildlife, glamping, family, group, hiking, ski, olympic, senior, culinary, culture, deepdive, pilgrimage, entertainment, nightlife, sports, spectator, prosports, compsports, sailing, yacht, wine`. (You hold the code legend — e.g. `RHN`/`GEA`; we hold the target slugs. Drop any status suffix — status lives on the destination, not the SI tag.)
 3. **`si_subtypes`** → always an **object keyed by SI slug** (`{ "safari": [...], "wine": [...] }`) in `data.si_subtypes` (never a flat list).
 4. **`seo`** → one canonical object in `data.seo`: `{ title, meta, canonical, keywords[], hreflang, jsonld_type, author_byline, content_freshness }`. Keep whatever's present; **omit missing keys** (don't fabricate `meta_description`/`slug`/keywords where absent).
-5. **Nested-array field names** → one name each: jewels use **`name`** (not `positioning`) + **`si`** slug (not `si_tag`); ultra uses **`positioning`** (fold `why_ultra` into it); supply uses **`si`** (not `si_tag`). One vocabulary across every file.
+5. **Nested-array field names** → one name each, across every file: jewels use **`name`** + **`si`** slug (not `si_tag`); ultra uses **`positioning`** (fold in `why_ultra`) + **`earning_path`** (fold in `earning`); supply uses **`si`** (not `si_tag`). One vocabulary everywhere.
 
 If a field is genuinely absent, omit it — never invent. A strict parser then sees one shape across all ~570.
 
