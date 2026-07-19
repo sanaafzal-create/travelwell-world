@@ -1,7 +1,10 @@
 # Read-only MCP server — build scope
 
-**Status: SCOPED, not greenlit.** Sizing + shape for the joint call (per David's
-"both reads before either decides"). This is a plan, not a locked decision.
+**Status: GREENLIT + BUILT (v1).** David gave the go (Jul 2026). v0 skeleton and
+v1 full surface are in `supabase/functions/mcp/index.ts`; 22/22 protocol +
+dispatch assertions pass under Node (stubbed corpus). Remaining: deploy + connect
+a real agent client, the provider curation-field review, and rate-limit/caps
+hardening. This doc is the reference for what was built and what's left.
 
 ## Goal
 Expose our clean catalog corpus over **MCP** so any AI agent can *read* TravelWell
