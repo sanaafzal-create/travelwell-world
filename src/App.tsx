@@ -18,6 +18,7 @@ const Providers = lazy(() => import("@/pages/Providers"));
 const Destinations = lazy(() => import("@/pages/Destinations"));
 const DestinationDetail = lazy(() => import("@/pages/DestinationDetail"));
 const Itinerary = lazy(() => import("@/pages/Itinerary"));
+const FlightSearch = lazy(() => import("@/pages/FlightSearch"));
 const Luxury = lazy(() => import("@/pages/Luxury"));
 const Guides = lazy(() => import("@/pages/Guides"));
 const Calendar = lazy(() => import("@/pages/Calendar"));
@@ -107,6 +108,7 @@ export default function App() {
         <Route path="/destinations" element={<Destinations />} />
         <Route path="/destination/:id" element={<DestinationDetail />} />
         <Route path="/itinerary" element={<Itinerary />} />
+        <Route path="/flights" element={<FlightSearch />} />
         <Route path="/luxury" element={<Luxury />} />
         <Route path="/first-aid-kit" element={<FirstAidKit />} />
         <Route path="/demo" element={<Demo />} />

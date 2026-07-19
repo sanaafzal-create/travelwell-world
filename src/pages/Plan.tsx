@@ -42,6 +42,15 @@ export default function Plan() {
         </div>
         <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 12 }}><b>{covered}/10 Wells</b> covered in your current trip. <Link to="/wells-surface">Fill the gaps →</Link></p>
 
+        <Link to="/flights" className="card" style={{ marginTop: 20, padding: 20, display: "flex", gap: 16, alignItems: "center", color: "inherit", textDecoration: "none" }}>
+          <div className="jn-context__ic" style={{ flexShrink: 0 }}><Icon name="plane" /></div>
+          <div style={{ flex: 1 }}>
+            <h3 className="t-h3" style={{ fontSize: 18 }}>Search flights</h3>
+            <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 4 }}>Fly-Well · 300+ airlines in one place. You book directly with the airline.</p>
+          </div>
+          <Icon name="arrow" small />
+        </Link>
+
         <section style={{ marginTop: 48 }}>
           <div className="section__head"><div><Eyebrow>Start with a feeling</Eyebrow><h2>Live interests, ready now.</h2></div><Link className="section__link" to="/special-interests">All 25 <Icon name="arrow" small /></Link></div>
           <div className="si-grid">
