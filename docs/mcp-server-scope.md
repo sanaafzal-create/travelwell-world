@@ -1,10 +1,14 @@
 # Read-only MCP server — build scope
 
-**Status: GREENLIT + BUILT (v1).** David gave the go (Jul 2026). v0 skeleton and
-v1 full surface are in `supabase/functions/mcp/index.ts`; 22/22 protocol +
-dispatch assertions pass under Node (stubbed corpus). Remaining: deploy + connect
-a real agent client, the provider curation-field review, and rate-limit/caps
-hardening. This doc is the reference for what was built and what's left.
+**Status: GREENLIT + BUILT (v1 + safety fallback).** David gave the go (Jul 2026).
+v0 skeleton and v1 full surface are in `supabase/functions/mcp/index.ts`; the
+country-level safety fallback is in `supabase/functions/mcp/safety-fallback.ts`
+(generated from `src/data/safety.json`, so `get_safety` and the safety block on
+every place are lit even before the dossier ingest populates `data.safety` —
+marked `derived:true` so it's never mistaken for dossier-grade). 28/28 protocol +
+dispatch + fallback assertions pass under Node (stubbed corpus). Remaining: deploy
++ connect a real agent client (Sana), the provider curation-field review, and
+rate-limit/caps hardening. This doc is the reference for what was built and what's left.
 
 ## Goal
 Expose our clean catalog corpus over **MCP** so any AI agent can *read* TravelWell

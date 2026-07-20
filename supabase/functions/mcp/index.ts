@@ -290,6 +290,8 @@ export async function handleMcpRequest(req: Request, deps: McpDeps): Promise<Res
 }
 
 // ── Default data source: PostgREST over the world-readable catalog ─────────────
+import { withSafety } from "./safety-fallback.ts";
+
 const D = (globalThis as any).Deno;
 
 /** One place for the PostgREST call. Returns null when unconfigured (skeleton
@@ -313,7 +315,7 @@ const realDeps: McpDeps = {
   getDestination: async (id) => {
     const sel = "id,name,country,line,status,depth,sub_region,si,feel,tier_range,price_band,draw_rank,data";
     const rows = await pg(`destinations?${eq("id", id)}&status=eq.live&select=${sel}&limit=1`);
-    return rows?.[0] ?? null;
+    return rows?.[0] ? withSafety(rows[0]) : null;
   },
   searchDestinations: async (f) => {
     const parts = ["status=eq.live"];
@@ -324,15 +326,15 @@ const realDeps: McpDeps = {
     if (f.q) { const q = safe(String(f.q)); if (q) parts.push(`or=(name.ilike.*${encodeURIComponent(q)}*,country.ilike.*${encodeURIComponent(q)}*,line.ilike.*${encodeURIComponent(q)}*)`); }
     const sel = "id,name,country,line,si,feel,tier_range,price_band,draw_rank,depth,safety:data->safety";
     const rows = await pg(`destinations?${parts.join("&")}&select=${sel}&order=position.asc&limit=${f.limit}`);
-    return rows ?? [];
+    return (rows ?? []).map(withSafety);
   },
   getSafety: async ({ id, country }) => {
     if (id) {
       const rows = await pg(`destinations?${eq("id", id)}&status=eq.live&select=id,name,country,safety:data->safety&limit=1`);
-      return rows?.[0] ?? null;
+      return rows?.[0] ? withSafety(rows[0]) : null;
     }
     const rows = await pg(`destinations?country=ilike.${encodeURIComponent(safe(country || ""))}&status=eq.live&select=id,name,country,safety:data->safety&limit=50`);
-    return rows ?? [];
+    return (rows ?? []).map(withSafety);
   },
   searchProviders: async (f) => {
     const parts: string[] = [];
