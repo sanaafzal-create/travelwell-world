@@ -111,6 +111,31 @@ populate it from dossier prose; leave it out of the destination's `data` (or
 
 If a field is genuinely absent, omit it — never invent. A strict parser then sees one shape across all ~570.
 
+## The 98 "no-block" (prose-only) dossiers — ingest them, don't hold them
+
+98 of the library dossiers carry **no structured blocks** — narrative prose, no
+`key_facts` / `safety` / `jewels` to map into `data`. The call: **bring them in
+now as `depth: stub`, don't quarantine them.** Reasoning:
+- **They're not a safety risk to surface, because the MCP + app safety spine has a
+  country-level fallback** (`src/data/safety.json` → `supabase/functions/mcp/safety-fallback.ts`).
+  A block-less destination with no `data.safety` still gets a real
+  advisory_level/booking_hold **derived from its country** (marked `derived:true`),
+  so the L4-held / L3-gated / L1-L2-free gate still fires. The usual reason to hold
+  a thin dossier — "we can't gate it safely" — doesn't apply.
+- **Map each to the minimum object:** `id` (`<city>-<country>` from name+country),
+  `name`, `country`, `line` (first strong prose sentence), `region_code`, `status`
+  (`future`/preview unless it's a live row), `depth: "stub"`, `img` (Unsplash query),
+  and `si`/`feel` **only if cleanly inferable** from the prose. **Omit every `data.*`
+  block — never fabricate one to look verified** (the omit-don't-invent rule). The
+  validator treats stubs as warnings, not errors, so they pass clean.
+- **Upgrade path (phase 2, optional):** run the prose through an extraction pass to
+  *draft* structured blocks → ingest those as **`depth: "cached"`** (Atlas-written,
+  unverified, clearly flagged), promoted to `verified` only when a human confirms.
+  Not required for the first ingest — the stub form is shippable as-is.
+
+Net: the 98 add real breadth (more places an agent/traveler can find) at zero safety
+cost, and the depth axis (`stub` → `cached` → `verified`) carries their honesty.
+
 ## Worked example
 ```ts
 "06A": [
