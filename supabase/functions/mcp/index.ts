@@ -37,6 +37,25 @@ const cors: Record<string, string> = {
   "Access-Control-Expose-Headers": "mcp-session-id",
 };
 
+// ── Abuse guards (public endpoint, read-only, no auth) ─────────────────────────
+const RATE_MAX = 60;              // requests per window, per client IP
+const RATE_WINDOW_MS = 60_000;
+const MAX_BODY_BYTES = 64 * 1024; // reject oversized payloads
+const MAX_BATCH = 20;             // cap JSON-RPC batch size
+export const MAX_Q_LEN = 120;     // cap free-text search length
+
+// In-memory sliding window. NOTE: per-isolate, not global — it throttles a single
+// hammering caller hitting one instance; a cross-instance cap would need a shared
+// store (Supabase table / KV). Good enough as a first guard on a read-only endpoint.
+const hits = new Map<string, { n: number; resetAt: number }>();
+function rateRetryAfter(ip: string, now: number): number | null {
+  const e = hits.get(ip);
+  if (!e || now >= e.resetAt) { hits.set(ip, { n: 1, resetAt: now + RATE_WINDOW_MS }); return null; }
+  if (++e.n > RATE_MAX) return Math.ceil((e.resetAt - now) / 1000);
+  return null;
+}
+function sweep(now: number) { if (hits.size > 5000) for (const [k, v] of hits) if (now >= v.resetAt) hits.delete(k); }
+
 // ── Tool registry ─────────────────────────────────────────────────────────────
 const TOOLS = [
   {
@@ -206,7 +225,7 @@ async function buildResource(uri: string, deps: McpDeps): Promise<any | null> {
       name: SERVER_INFO.name, version: SERVER_INFO.version, access: "read-only",
       corpus: "TravelWell.World destination catalog (world-readable)",
       tools: TOOLS.map((t) => t.name),
-      guardrails: ["only live destinations", "safety block rides every place", "provider disclosure is a field", "no PII, no transactions, no writes"],
+      guardrails: ["only live destinations", "safety block rides every place", "prime/vetted providers only (no unvetted prospects)", "provider disclosure is a field", "no PII, no transactions, no writes"],
       site: "https://travelwell.world",
     };
   }
@@ -270,14 +289,26 @@ export async function handleMcpRequest(req: Request, deps: McpDeps): Promise<Res
   if (req.method === "GET") return new Response("Method Not Allowed", { status: 405, headers: cors });
   if (req.method !== "POST") return new Response("Method Not Allowed", { status: 405, headers: cors });
 
+  // Rate limit per client IP.
+  const now = Date.now();
+  const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
+  sweep(now);
+  const retry = rateRetryAfter(ip, now);
+  if (retry) return new Response(JSON.stringify(rpcError(null, -32000, "Rate limit exceeded")), { status: 429, headers: { ...cors, "Content-Type": "application/json", "Retry-After": String(retry) } });
+
+  // Body-size cap (read as text so we can measure before parsing).
+  const raw = await req.text();
+  if (raw.length > MAX_BODY_BYTES) return new Response(JSON.stringify(rpcError(null, -32600, "Request too large")), { status: 413, headers: { ...cors, "Content-Type": "application/json" } });
+
   let body: any;
   try {
-    body = await req.json();
+    body = JSON.parse(raw);
   } catch {
     return Response.json(rpcError(null, -32700, "Parse error"), { headers: cors, status: 200 });
   }
 
   const batch = Array.isArray(body);
+  if (batch && body.length > MAX_BATCH) return new Response(JSON.stringify(rpcError(null, -32600, "Batch too large")), { status: 413, headers: { ...cors, "Content-Type": "application/json" } });
   const messages = batch ? body : [body];
   const responses: any[] = [];
   for (const m of messages) {
@@ -323,7 +354,7 @@ const realDeps: McpDeps = {
     if (f.feel) parts.push(arrHas("feel", String(f.feel)));
     if (f.region) parts.push(eq("region_code", String(f.region)));
     if (f.price_band) parts.push(eq("price_band", String(f.price_band)));
-    if (f.q) { const q = safe(String(f.q)); if (q) parts.push(`or=(name.ilike.*${encodeURIComponent(q)}*,country.ilike.*${encodeURIComponent(q)}*,line.ilike.*${encodeURIComponent(q)}*)`); }
+    if (f.q) { const q = safe(String(f.q)).slice(0, MAX_Q_LEN); if (q) parts.push(`or=(name.ilike.*${encodeURIComponent(q)}*,country.ilike.*${encodeURIComponent(q)}*,line.ilike.*${encodeURIComponent(q)}*)`); }
     const sel = "id,name,country,line,si,feel,tier_range,price_band,draw_rank,depth,safety:data->safety";
     const rows = await pg(`destinations?${parts.join("&")}&select=${sel}&order=position.asc&limit=${f.limit}`);
     return (rows ?? []).map(withSafety);
@@ -340,12 +371,16 @@ const realDeps: McpDeps = {
     const parts: string[] = [];
     if (f.well) parts.push(eq("well", String(f.well)));
     if (f.region) parts.push(eq("region", String(f.region)));
-    if (f.tier) parts.push(eq("tier", String(f.tier)));
     if (f.price) parts.push(eq("price", String(f.price)));
     if (f.si) parts.push(arrHas("si", String(f.si)));
-    // `commission` is the public FTC disclosure text (never internal economics) — surface it as `disclosure`.
-    const sel = "name,well,tier,price,mode,region,si,description,disclosure:commission,booking_url";
-    const rows = await pg(`providers?${parts.length ? parts.join("&") + "&" : ""}select=${sel}&limit=${f.limit}`);
+    // Curation guardrail: only surface prime + vetted. `prospective` is our
+    // internal pipeline (unvetted) — never exposed, even if asked for by name.
+    const t = String(f.tier ?? "");
+    parts.push(t === "prime" || t === "vetted" ? eq("tier", t) : "tier=in.(prime,vetted)");
+    // `commission` is the public FTC disclosure text (never internal economics) → `disclosure`.
+    // booking_url is intentionally omitted — affiliate/tracking URLs aren't part of the read surface.
+    const sel = "name,well,tier,price,mode,region,si,description,disclosure:commission";
+    const rows = await pg(`providers?${parts.join("&")}&select=${sel}&limit=${f.limit}`);
     return rows ?? [];
   },
   listRegions: async () => (await pg("regions?select=code,name,line,countries,gateways,status&order=code.asc")) ?? [],
