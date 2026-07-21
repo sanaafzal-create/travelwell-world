@@ -321,7 +321,7 @@ export async function handleMcpRequest(req: Request, deps: McpDeps): Promise<Res
 }
 
 // ── Default data source: PostgREST over the world-readable catalog ─────────────
-import { withSafety } from "./safety-fallback.ts";
+import { withSafety, deriveSafety } from "./safety-fallback.ts";
 
 const D = (globalThis as any).Deno;
 
@@ -364,8 +364,13 @@ const realDeps: McpDeps = {
       const rows = await pg(`destinations?${eq("id", id)}&status=eq.live&select=id,name,country,safety:data->safety&limit=1`);
       return rows?.[0] ? withSafety(rows[0]) : null;
     }
-    const rows = await pg(`destinations?country=ilike.${encodeURIComponent(safe(country || ""))}&status=eq.live&select=id,name,country,safety:data->safety&limit=50`);
-    return (rows ?? []).map(withSafety);
+    // By country: answer from the verified country advisory DIRECTLY (works
+    // whether or not we have a destination there, and regardless of how the
+    // country name is spelled in the destinations table), plus any live
+    // destinations we do carry in that country.
+    const c = (country || "").trim();
+    const rows = await pg(`destinations?country=ilike.${encodeURIComponent(safe(c))}&status=eq.live&select=id,name,country&limit=50`);
+    return { country: c, safety: deriveSafety(c), destinations: rows ?? [] };
   },
   searchProviders: async (f) => {
     const parts: string[] = [];

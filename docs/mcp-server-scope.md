@@ -121,6 +121,29 @@ data*:
   deploy, test with a real agent client (Claude): **~8–12h**
 - **Total: ~25–40h (~1 focused week to demoable + hardened).**
 
+## Verified live (2026-07-21)
+
+Deployed to Supabase (`https://<ref>.supabase.co/functions/v1/mcp`, `--no-verify-jwt`)
+and connected via MCP Inspector. Handshake, `tools/list` (all 8), `resources/*`,
+`get_destination`, and `search_destinations` all return real data from production.
+
+**The moat, demonstrated:** `search_destinations { region: "05A" }` returned the
+four East-Africa safari places, each **safety-graded per country from the fallback**
+(pre-ingest, `derived:true`):
+- Maasai Mara, Kenya → **L2 book-freely**
+- Serengeti, Tanzania → **L3 reconsider** ("post-election unrest, crime and terrorism")
+- Ngorongoro, Tanzania → **L3 reconsider** (same country elevation)
+- Volcanoes NP, Rwanda → **L3 reconsider** ("regional Ebola emergency + DRC-border spillover")
+
+So an agent asking "safari in East Africa" gets a **safety-graded** list with dated,
+sourced reasons — it cannot book an elevated-risk zone without surfacing why. That
+refusal is enforced in the data, with no human in the loop.
+
+**Pre-ingest gaps (upgrade automatically when the 10S batch lands):** live rows
+still show `si: []`, `data: null`, and `granularity:"country"` — so the literal
+`si:"safari"` filter is empty until SI tags are authored in (use `region` for now),
+and safety sharpens from country-level to place-level on ingest.
+
 ## Done / how we demo
 - MCP Inspector lists all tools/resources; each returns real data.
 - **Claude (or any MCP client) connects and answers a cold question** — "find me a
