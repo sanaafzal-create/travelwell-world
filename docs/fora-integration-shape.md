@@ -1,8 +1,18 @@
 # TravelWell ↔ Fora — Integration Shape (engineer-to-engineer)
 
-The concrete technical ask to hand Fora's engineering/partnerships team, instead
-of the vague "can we?" — *"here's the integration shape; which of these can your
-stack support?"*
+> **Status (2026-07-17): Fora is not proceeding — mutual, clean read on both sides.**
+> Merritt confirmed TravelWell isn't a fit for Fora; they're a strong company but
+> not set up to partner at the AI-platform level. **This doc is retained as a
+> reusable host / advisory-platform integration template** — the integration
+> mechanics below (booking handoff, the three integration models, preferred-rate
+> routing, the accreditation umbrella, payments-never) are host-agnostic. For the
+> next host conversation, swap "Fora" for the new partner and reuse the shape.
+> *(When a live prospect appears, generalize the Fora-specific naming — happy to
+> do that pass then rather than speculatively now.)*
+
+The concrete technical ask to hand a host platform's engineering/partnerships team,
+instead of the vague "can we?" — *"here's the integration shape; which of these can
+your stack support?"*
 
 ## The ask, in one line
 Let TravelWell's AI concierge route **confirmed bookings, at scale**, into Fora's
