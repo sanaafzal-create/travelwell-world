@@ -15,6 +15,32 @@ Newest entry on top. Keep entries short — this is a chart, not an essay.
 
 ---
 
+## Standing sources (subscribe once, feed the weekly scan)
+Providers tell us when they ship, so we stop learning three weeks late:
+- **Duffel** — API changelog + status page + our account-manager updates (MCP server: agent-readiness live).
+- **Stripe** — API changelog / release notes; UCP developments (Stripe backs UCP).
+- **Sabre** — Dev Studio account, its API release notes, and the **account-manager email distribution list** (their onboarding checklist names this as the way to stay informed).
+- **Voice stack** — LiveKit, Deepgram, Cartesia changelogs (the swappable slots).
+- The **launch changelog-watcher** (status-and-launch-plan) is the automated successor to this manual list — narrow to the 8–12 public-API providers first.
+
+## Week of 2026-07-23 — the agentic wave (David's deep scan)
+
+**Raw scan (David):**
+1. **Sabre** launched agentic APIs built for AI agents, via an industry-first **MCP server** ("universal translator" for any AI agent). Reach: 420+ airlines, 2M+ hotels. Open developer access framed as *core strategy, modular, no all-or-nothing lock-in* — our exact adapter-seam principle, mirrored back by the biggest agent-native GDS.
+2. **Amadeus** bought AI-native booking-orchestration startup **SkyLink** (Feb 2026); positioning as the "translation layer for the AI era."
+3. **Sabre + PayPal + MindTrip** launching an end-to-end agentic booking pipeline this quarter (conversational planning + live inventory + integrated payment in one flow).
+4. **Duffel** (we're signed) has an **MCP server** too — so Atlas → Duffel agent-readiness is real now, and Duffel handles PCI (fits Version-1 payments exactly). We're already on the leading rail.
+
+**What Sana sees (builder's read):**
+- **We're more in-the-stream than it feels — and ahead on the part that's hardest to fake.** Our own **read-only MCP server is LIVE** (agents can read TravelWell today). Most of the 89% can't say that. Sabre's "modular, no lock-in" is validation, not a threat — it's the architecture we already committed to.
+- **Two MCP directions, don't conflate them:** (a) *inbound* — agents read us (our MCP server, done); (b) *outbound* — Atlas reads/books via Duffel's/Sabre's MCP (a client we build). Both matter; (a) is our moat, (b) is the booking build.
+- **Atlas booking through Duffel** = search is nearly there (the `flights` seam is built; needs the sandbox token) → **but the Duffel sandbox is still OFF** (account activation incomplete — the real current blocker). Order/booking is a bounded build on top, demoable in sandbox (fake money, real test tickets); full go-live stays gated on Services Agreement + KYC + US-seller terms.
+- **Grab now (free/early):** Sabre Dev Studio sandbox + its distribution list; finish Duffel activation to unlock its MCP; get on every provider changelog. Being agent-readable early is the free land-grab — and we already started it.
+
+**Decisions/actions:** register Sabre Dev Studio this week (evaluation → "Duffel+Stripe signed, Sabre in evaluation" for VCs); finish Duffel account activation (unblocks the whole flight flow); subscribe the standing sources above.
+
+---
+
 ## Week of 2026-07-19
 
 **Raw scan (David):**
