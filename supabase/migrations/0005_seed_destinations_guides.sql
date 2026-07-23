@@ -84,7 +84,7 @@ insert into public.destinations (id, region_code, name, country, line, status, d
   ('sossusvlei', '06A', 'Sossusvlei', 'Namibia', 'The world''s tallest dunes', 'live', 'stub', 'desertDunes', 'Namibia Desert & Coast', '{}', '{}', '{}', null, null, null, 2),
   ('bali', '07A', 'Bali', 'Indonesia', 'Rice terraces, temples and surf', 'live', 'verified', 'baliRice', null, '{}', '{}', '{}', null, null, null, 0),
   ('bangkok', '07A', 'Bangkok', 'Thailand', 'Street food capital of the world', 'live', 'verified', 'restaurant', null, '{}', '{}', '{}', null, null, null, 1),
-  ('kyoto-x', '07A', 'Phuket & Phi Phi', 'Thailand', 'Limestone islands and warm seas', 'live', 'verified', 'tropicalBeach', null, '{}', '{}', '{}', null, null, null, 2),
+  ('phuket-thailand', '07A', 'Phuket & Phi Phi', 'Thailand', 'Limestone islands and warm seas', 'live', 'verified', 'tropicalBeach', null, '{}', '{}', '{}', null, null, null, 2),
   ('siem-reap', '07A', 'Siem Reap', 'Cambodia', 'Sunrise over Angkor Wat', 'live', 'stub', 'kyoto', null, '{}', '{}', '{}', null, null, null, 3),
   ('kyoto', '08A', 'Kyoto', 'Japan', 'Geisha districts and golden temples', 'live', 'verified', 'kyoto', null, '{}', '{}', '{}', null, null, null, 0),
   ('tokyo', '08A', 'Tokyo', 'Japan', 'Neon, Michelin stars and calm shrines', 'live', 'verified', 'dubai', null, '{}', '{}', '{}', null, null, null, 1),
@@ -110,7 +110,7 @@ on conflict (id) do update set
 -- a row left behind by a key rename (cape-town -> cape-town-south-africa). Safe
 -- while every destination comes from this seed; once cache-back writes
 -- atlas-sourced rows, scope this by a source column instead.
-delete from public.destinations where id not in ('paris', 'amalfi-x', 'amsterdam', 'alps', 'santorini', 'amalfi', 'barcelona', 'algarve', 'reykjavik', 'lofoten', 'dubai', 'petra', 'alula', 'masai-mara', 'serengeti', 'ngorongoro', 'volcanoes', 'cape-town-south-africa', 'kruger', 'sossusvlei', 'bali', 'bangkok', 'kyoto-x', 'siem-reap', 'kyoto', 'tokyo', 'seoul', 'queenstown', 'bora-bora', 'gbr', 'machu', 'patagonia', 'cartagena', 'turks', 'st-lucia', 'exuma', 'banff', 'vancouver');
+delete from public.destinations where id not in ('paris', 'amalfi-x', 'amsterdam', 'alps', 'santorini', 'amalfi', 'barcelona', 'algarve', 'reykjavik', 'lofoten', 'dubai', 'petra', 'alula', 'masai-mara', 'serengeti', 'ngorongoro', 'volcanoes', 'cape-town-south-africa', 'kruger', 'sossusvlei', 'bali', 'bangkok', 'phuket-thailand', 'siem-reap', 'kyoto', 'tokyo', 'seoul', 'queenstown', 'bora-bora', 'gbr', 'machu', 'patagonia', 'cartagena', 'turks', 'st-lucia', 'exuma', 'banff', 'vancouver');
 
 -- Guides ----------------------------------------------------------------------
 create table if not exists public.guides (
