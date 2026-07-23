@@ -78,8 +78,36 @@ Slots 3–5 are known, well-trodden vendor integrations; the agent worker is the
 start now and protect the schedule around. Everything else is assembly on the seam that's
 already poured.
 
-## Honest sizing headline
-The seam (the thing that could have been architecturally risky) is **done and de-risked**.
-The remaining build is **one new service (the agent worker) + two vendor slot integrations +
-the mirror** — all known quantities, none research-y. The date hinges on the agent worker;
-give me a LiveKit account and I can spike *that* against real infra and return a firm number.
+## Cost & tiers — corrected (David, Jul 2026)
+Voice was **never a cost/"funded" wall** — that framing was wrong, owned and corrected.
+The real-time stack runs at **pennies per minute of speech**, and the pitch phase is
+effectively free: Deepgram ships a **$200 credit**, Cartesia/LiveKit have generous free
+usage. Crucially, **"free tier" here is NOT a stripped-down quality tier** — the free
+credits run the **same top models** (Deepgram Nova, Cartesia Sonic) on the **same LiveKit
+WebRTC infra**. It's a *usage cap*, not a quality cap. So we show a VC the **best** stack
+*and* pay ~nothing during the pitch — no compromise, no "keyboard demo." Paid plans matter
+only when post-launch volume exceeds the credits — a billing threshold, not a quality gate.
+
+**So the only real constraint is engineering TIME.** Decision (David): the date serves the
+product — we take the time to make full live voice flawless, then present.
+
+## Honest time estimate (voice workstream)
+Estimate, not fake precision. Firms up after a ~2–3 day agent-worker spike on the real account.
+
+**Build to "running live end-to-end" (~1.5–2 weeks):**
+- `livekit-token` live (enable SDK minting): ~0.5 day
+- **The agent worker** (LiveKit Agents: Deepgram STT + Cartesia TTS + a custom LLM node that
+  runs OUR Atlas brain/prompt/safety, turn-detection built in) + deploy: **~4–6 days ← the meat**
+- Concierge wired to the seam (token→join→mic→live transcript→playback) + the mirror: ~2–3 days
+
+**Test/harden to "trust it in a live room, no stumbles" (~1.5–2 weeks):**
+- Cross-browser incl. **real iPhone Safari** (mic permission, audio-autoplay unlock, barge-in,
+  reconnection) — **the top risk**: ~3–5 days
+- Latency + endpointing tuning (never cut people off, never lag): ~2–3 days
+- Failure modes (bad network, loud airport, thick accent → the mirror as safety net): ~2–3 days
+- Dry-run rehearsals on the actual demo device + network: ~1–2 days
+
+**Total: ~3–4 focused weeks** to full live voice that's trustworthy in a room. Safari live-audio
+is the single risk that could stretch the testing half. The agent worker is the long pole and the
+biggest unknown — give me the LiveKit account and ~2–3 days on it and I convert this range into a
+committed date.
