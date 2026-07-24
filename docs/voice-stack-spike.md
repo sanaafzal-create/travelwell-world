@@ -62,6 +62,35 @@ turn signals. That keeps the no-welded-box rule.
   6. **Wire the Concierge UI to `createVoiceSession`** instead of calling `speak()` directly.
      *Small.*
 
+## The three pieces — provider picks (David's ask: best-in-class, never cheapest)
+
+- **Listening / STT — Deepgram Nova (latest).** Best-in-class streaming; the reason it
+  fits *our* problem: **keyterm prompting** — we bias the recognizer toward proper nouns
+  (place names, provider names, SI words like "liveaboard," "Sossusvlei") so real accents +
+  place words don't get mangled. That directly answers "handles accents, names, place
+  words." Swap-in: AssemblyAI.
+- **Speaking / TTS — my call, and it's "audition, don't guess."** Two real contenders:
+  **Cartesia Sonic** (fastest first-audio — and in live conversation *latency is felt*, dead
+  air reads as "not real AI") vs **ElevenLabs** (the warmest, most human — David's reference
+  point). Recommendation: **wire Cartesia first for the real-time feel, then audition
+  ElevenLabs on the actual Atlas lines and pick by ear.** The seam makes it a one-line swap,
+  so we choose on how it *sounds saying our script*, not on spec sheets. Warm > synthetic is
+  the bar; both clear it, so we let the ear decide.
+- **Real-time flow / the hard piece — LiveKit belt.** WebRTC, **semantic endpointing**
+  (knows a breath isn't a full stop) and **barge-in/interrupt** handled by the framework —
+  this is where "talk and listen naturally, both directions, interrupt and respond" actually
+  lives. Carries Safari. We do NOT roll our own turn-taking.
+- **The mirror** — Atlas speaks his whole answer AND shows it on screen at once (real
+  conversation + accessibility + the dialect safety net when STT mishears an accent).
+
+**What I need to make it excellent (David asked this directly):**
+1. **The LiveKit account** — the one blocker to spike the agent worker and turn the ~3–4wk
+   *range* into a committed date. (Free tier = the real quality; no upgrade needed for the pitch.)
+2. **API keys** for Deepgram + Cartesia + ElevenLabs (all free credits/trials — best tier, ~$0 through the pitch).
+3. **A real iPhone + Safari** as a named test device — the single hardest surface to trust live.
+4. **The actual Atlas demo lines/scenarios** to tune against — so we tune latency + pronunciation
+   on real content (place names, the safari script), not filler.
+
 ## Browser test targets (David's two engines)
 - **Chromium** (Chrome + Edge — same engine; the "Chrome won't open, Edge does" report is a
   config glitch, not incompatibility).
