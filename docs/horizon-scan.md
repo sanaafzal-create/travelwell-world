@@ -39,6 +39,12 @@ Providers tell us when they ship, so we stop learning three weeks late:
 
 **Decisions/actions:** register Sabre Dev Studio this week (evaluation → "Duffel+Stripe signed, Sabre in evaluation" for VCs); finish Duffel account activation (unblocks the whole flight flow); subscribe the standing sources above.
 
+**Sabre MCP Server — hands-on eval (2026-07-24, from the beta doc):**
+- **It's a real, managed remote MCP server** — not REST-with-a-label. OAuth2 auth, an **MCP URL** you add to any MCP-compatible client (Cursor/VS Code — so Atlas too), exposing Sabre workflows as AI-native tools: **flight shop & book, hotel shop & book, post-booking servicing, fare-rule decode.** Architecture: User↔AI Agent↔(tools)↔MCP↔Sabre. **Validates our architecture** — the biggest GDS is building the exact MCP-tools shape we committed to.
+- **But heavily gated — NOT self-service (the key nuance):** private beta ("work in progress"); requires a **valid CERT PCC/EPR** (a Sabre *agency* credential — you must be an existing Sabre partner/customer); a **Trusted-Client allowlist**; **~7-day activation**; runs in Sabre's isolated CERT env. We hold none of that today.
+- **Verdict:** Sabre MCP is a **post-credentialing move** — it rides the same agency-credentialing track as CLIA/IATAN (David's own note said production booking does). **Duffel stays the near-term rail** (self-service, already signed, PCI/MoR fits Version 1). Sabre is broader (flights+hotels+servicing in one) → revisit when we hold a PCC. The free REST "Try it out" APIs (Flight Search/Shop) are pokeable in the PLAY/CERT sandbox now without the MCP gate, for data-quality feel.
+- **Next:** click "Request Access to the MCP Server" to enter the queue; keep it in evaluation for the VC line. Pricing = the one unknown (FAQ not expanded in the capture).
+
 ---
 
 ## Week of 2026-07-19
