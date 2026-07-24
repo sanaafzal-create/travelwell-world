@@ -12,10 +12,10 @@
 // Deploy:  supabase functions deploy livekit-token
 // Secrets: supabase secrets set LIVEKIT_API_KEY=... LIVEKIT_API_SECRET=... LIVEKIT_URL=wss://...
 //
-// Spike status: skeleton. Uncomment the SDK import + minting once the LiveKit
-// account exists; until then it degrades (200 + degraded:true), like `atlas`.
+// Mints a real join token when LIVEKIT_* secrets are set; degrades (200 +
+// degraded:true) like `atlas` when they're not, so nothing breaks pre-config.
 
-// import { AccessToken } from "npm:livekit-server-sdk@^2";
+import { AccessToken } from "npm:livekit-server-sdk@^2";
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
@@ -40,14 +40,11 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // REAL BUILD (once the account + SDK import are in):
-    //   const at = new AccessToken(apiKey, apiSecret, { identity: identity ?? crypto.randomUUID(), ttl: "10m" });
-    //   at.addGrant({ roomJoin: true, room: room ?? "atlas", canPublish: true, canSubscribe: true });
-    //   return Response.json({ url, token: await at.toJwt() }, { headers: cors });
-    return Response.json(
-      { degraded: true, note: "livekit-token skeleton — enable the SDK import + minting to go live.", room: room ?? "atlas", identity: identity ?? "traveler" },
-      { headers: cors, status: 200 }
-    );
+    const roomName = room ?? "atlas";
+    const who = identity ?? `traveler-${crypto.randomUUID().slice(0, 8)}`;
+    const at = new AccessToken(apiKey, apiSecret, { identity: who, ttl: "15m" });
+    at.addGrant({ roomJoin: true, room: roomName, canPublish: true, canSubscribe: true });
+    return Response.json({ url, token: await at.toJwt(), room: roomName, identity: who }, { headers: cors, status: 200 });
   } catch (err) {
     console.error("livekit-token error", err);
     return Response.json({ degraded: true, note: "token error" }, { headers: cors, status: 200 });
