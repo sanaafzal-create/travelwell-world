@@ -1,10 +1,14 @@
 # Horizon Scan — the standing weekly read
 
 A rolling log of what's moving out on the water: AI, agent travel, the tools and
-protocols, payments/global. **Process (David + Sana, Jul 2026):** David runs the
-research in the background and drops the **raw scan** (no conclusions); each of us
-writes **what we see** independently — builder's eyes and operator's eyes — *before*
-either read anchors the other. Then we run the friction pass together.
+protocols, payments/global. **The deal (David + Sana, locked Jul 2026): both of us
+scan every week, from our own directions** — David the **market side** (partnerships,
+hosts/consortia, money, momentum), Sana the **build side** (code, dev docs, dev
+forums, and the Duffel/Stripe/Sabre/voice changelogs). Each writes **what they see**
+independently — builder's eyes and operator's eyes — *before* either read anchors the
+other. Then we compare, run the friction pass, and answer one question: **what did we
+do this week to get more fully on the train?** No "we're not that far behind" — we
+scan the source, not the news three weeks late.
 
 **Working method (locked as a habit, not a doc rule):** when either of us brings a
 problem, bring a proposed solution too; find **three ways it could work first**
