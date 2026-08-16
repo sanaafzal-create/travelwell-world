@@ -6,7 +6,7 @@
   "description": "TravelWell.World \u2014 a Travel Operating System. React + TypeScript + Tailwind + Supabase + Claude.",
   "scripts": {
     "dev": "vite",
-    "build": "npm run gen:sitemap && tsc -b && vite build",
+    "build": "npm run gen:sitemap && tsc -b && vite build && npm run gen:heads",
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -19,6 +19,7 @@
     "gen:advisory-links": "esbuild scripts/gen-advisory-link-list.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genlinks.mjs && node scratchpad/genlinks.mjs",
     "gen:advisory-payload": "esbuild scripts/gen-advisory-payload.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genpayload.mjs && node scratchpad/genpayload.mjs",
     "gen:ground-truth": "esbuild scripts/gen-ground-truth.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/gengt.mjs && node scratchpad/gengt.mjs",
+    "gen:heads": "esbuild scripts/gen-static-heads.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/heads.mjs && node scratchpad/heads.mjs",
     "gen:catalog": "esbuild scripts/gen-catalog-seed.ts --bundle --platform=node --format=esm --outfile=scratchpad/gen.mjs && node scratchpad/gen.mjs",
     "check:generated": "node scripts/check-generated.mjs",
     "check:brand": "node scripts/check-brand.mjs",

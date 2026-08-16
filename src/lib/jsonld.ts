@@ -109,6 +109,11 @@ export function useJsonLd(objs: object[]) {
   const key = JSON.stringify(objs);
   useEffect(() => {
     if (typeof document === "undefined") return;
+    // Drop the build-time copy first. `gen-static-heads` bakes this same
+    // structured data into the served HTML so a crawler that doesn't run
+    // JavaScript can read it — but a reader that DOES run JavaScript would then
+    // hold two copies of every block. Same data twice is not twice as credible.
+    document.head.querySelectorAll("script[data-static-ld]").forEach((n) => n.remove());
     const nodes = (JSON.parse(key) as object[]).map((obj) => {
       const s = document.createElement("script");
       s.type = "application/ld+json";

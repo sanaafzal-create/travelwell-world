@@ -31,6 +31,8 @@ import { createHash } from "node:crypto";
 const GENERATORS = [
   ["gen:catalog", "the seed migrations (0003, 0004, 0005, 0007)"],
   ["gen:sitemap", "public/sitemap.xml"],
+  // gen:heads writes into dist/, which is a build artifact and untracked — it runs
+  // as part of `npm run build` and there is nothing in the repo for it to stale.
   ["gen:ground-truth", "docs/ground-truth.md + docs/reset-facts.txt"],
   ["gen:taglines", "docs/tagline-family.md"],
   ["gen:advisory-links", "docs/advisory-links.md"],
