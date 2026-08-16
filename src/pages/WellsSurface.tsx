@@ -42,7 +42,7 @@ function ProviderCard({ p, added, onBook }: { p: Provider; added: boolean; onBoo
           ) : (
             <button className="btn btn-primary" onClick={onBook}>Book It</button>
           )}
-          <span className="pv__mode"><Icon name="info" small /> {p.mode === "affiliate" ? "Off-site" : "In-platform"}</span>
+          <span className="pv__mode"><Icon name="info" small /> {p.bookingUrl ? (p.mode === "affiliate" ? "Off-site" : "In-platform") : "Atlas connects you"}</span>
         </div>
         <Ftc className="pv__ftc">{p.commission} — disclosed every time, at no extra cost to you.</Ftc>
       </div>

@@ -60,6 +60,28 @@ const NOT_FOUND_DEST: Destination = {
 };
 const NOT_FOUND_REGION = { code: "", name: "", blurb: "", img: "" } as unknown as Region;
 
+/**
+ * SAY WHAT ACTUALLY HAPPENS. The label under a provider used to read from `mode`
+ * alone — "Opens partner site" for affiliates, "Book in TravelWell" for the rest.
+ * Measured 2026-08-14: NOT ONE of our 58 providers carries a booking URL, so
+ * every one of those 58 labels was a promise the product cannot keep. Twenty-four
+ * of them said the booking happens here, which it does not.
+ *
+ * That matters beyond tidiness. David's pre-send checklist has "no phantom data
+ * remains" as a blocking item, and the pitch invites an investor to test the
+ * product himself. Clicking a row marked "Book in TravelWell" and landing in a
+ * chat panel is exactly the moment a careful reader stops believing the rest.
+ *
+ * So the label is derived from what exists rather than from what a field
+ * declares, and it self-corrects: the day a provider gets a real URL, its row
+ * starts saying so without anyone remembering to change a string.
+ */
+function bookingLabel(p: Provider): string {
+  if (p.bookingUrl && p.mode === "affiliate") return "Opens partner site";
+  if (p.bookingUrl) return "Books with the provider";
+  return "Atlas will connect you";
+}
+
 function providersByWell(allWells: Record<string, Well>, providers: Record<string, Provider[]>, regionCode?: string): { well: Well; items: Provider[] }[] {
   const groups: { well: Well; items: Provider[] }[] = [];
   (["stay", "activities", "eat", "move"] as const).forEach((wid) => {
@@ -247,7 +269,7 @@ export default function DestinationDetail() {
                       ) : (
                         <>
                           <button className="btn btn-primary" onClick={() => openPanel("concierge")} style={{ minHeight: 38, padding: "0 16px", fontSize: 13 }}>Book It</button>
-                          <span className="pv__mode" style={{ fontSize: 11.5, color: "var(--muted-foreground)" }}>{p.mode === "affiliate" ? "Opens partner site" : "Book in TravelWell"}</span>
+                          <span className="pv__mode" style={{ fontSize: 11.5, color: "var(--muted-foreground)" }}>{bookingLabel(p)}</span>
                         </>
                       )}
                     </div>
