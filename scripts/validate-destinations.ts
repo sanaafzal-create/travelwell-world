@@ -136,7 +136,31 @@ for (const { code, d } of rows) {
   if (data && typeof data === "object") {
     if (d.depth === "verified" && !data.safety) warns.push(`${at}: verified but no data.safety (safety spine)`);
     if (data.safety?.advisory_level && !ADVISORY.has(data.safety.advisory_level)) errs.push(`${at}: advisory_level "${data.safety.advisory_level}" not L1–L4`);
-    if (data.safety?.advisory_level === "L4" && data.safety.booking_hold !== true) warns.push(`${at}: L4 should be content-only (booking_hold: true)`);
+    // ── LEVEL 4 MUST CARRY THE STRUCTURED HOLD — a hard error, not a warning ──
+    // David's R2, 2026-08-08, from a real defect in his library:
+    // `pemba-mozambique` carried its suppression as PROSE inside the level string
+    // ("L4 NOT bookable - content-only, no waiver") and had no structured flag at
+    // all. Intent written where nothing reads it.
+    //
+    // This was a warning. It is now an error, because a warning is advice and
+    // this is the one rule with "no override" attached to it. A row that asserts
+    // Do Not Travel and omits the flag is internally contradictory, and the
+    // contradiction should not be able to cross the border.
+    //
+    // Worth stating plainly for whoever reads this next: OUR renderer does not
+    // depend on the flag. `resolveSafety` computes the hold as
+    // `booking_hold === true || lvl === 4`, so an L4 row suppresses booking here
+    // even with the field missing. That is defence in depth, not a reason to
+    // relax the check — the flag is what every OTHER consumer reads, and a row
+    // whose prose and whose fields disagree is a bug wherever it lands next.
+    if (data.safety?.advisory_level === "L4" && data.safety.booking_hold !== true) {
+      errs.push(`${at}: advisory_level L4 with no "booking_hold": true — Level 4 never books, and the suppression has to be in the FIELD, not in prose. (Our renderer derives the hold from L4 anyway; this is about the row being self-consistent for every other reader.)`);
+    }
+    // The same contradiction wearing different clothes: a posture that invites
+    // booking on a row that cannot be booked.
+    if (data.safety?.advisory_level === "L4" && data.safety.posture === "book-freely") {
+      errs.push(`${at}: advisory_level L4 with posture "book-freely" — those cannot both be true.`);
+    }
     for (const [i, j] of (data.jewels ?? []).entries()) {
       if (!j?.name) errs.push(`${at}: jewel #${i + 1} missing "name"`);
       if (j?.tier && !TIERS.has(j.tier)) errs.push(`${at}: jewel "${j.name}" tier "${j.tier}" not a valid tier`);
