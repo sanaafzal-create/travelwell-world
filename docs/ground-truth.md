@@ -165,6 +165,36 @@ it is.
 - **13 of 44 destinations carry a `sub_region`.**
 - **0 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
+## Exact-match strings — the characters that bounce a batch
+
+Every string below is compared **character for character** by a gate. Each one
+contains a character an editor, a word processor or an email client can silently
+replace: a curly quote for a straight one, an em dash for a hyphen, an accent
+stripped. A mismatch is a hard error, and it doesn't fail one row — it bounces
+the batch.
+
+**Match the codepoint, not the glyph.** `'` (U+0027) and `’` (U+2019) are
+indistinguishable at reading size and are different bytes. So is `‘` (U+2018).
+Copy these from this file, which is generated from the source, rather than from
+an email — mail clients smart-quote, which is how a correct string arrives wrong.
+
+| Where | String | The character to watch |
+|---|---|---|
+| sub_region 12A | `Hawai‘i` | U+2018 `‘` |
+| sub_region 13A | `Québec` | U+00E9 `é` |
+| live `sub_region` | `Engadin / Graubünden` | U+00FC `ü` |
+| live `sub_region` | `Trois Vallées / Savoie` | U+00E9 `é` |
+| live `sub_region` | `Kitzbühel Alps / Tyrol` | U+00FC `ü` |
+| live `sub_region` | `Eastern Caribbean — Windwards & South` | U+2014 `—` |
+| destination `name` | `Cortina d'Ampezzo` | U+0027 `'` |
+| destination `name` | `Kitzbühel` | U+00FC `ü` |
+| destination `name` | `Reykjavík & Ring Road` | U+00ED `í` |
+
+*`Hawai‘i` uses U+2018, a left single quotation mark. The Hawaiian ʻokina is
+properly U+02BB — so if the canonical master spells it with the ʻokina, our
+validated string and the master disagree and one of them has to move. Flagged
+rather than changed: these strings come verbatim from the master.*
+
 ## Gates
 
 | Command | Refuses |

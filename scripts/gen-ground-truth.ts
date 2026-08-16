@@ -24,7 +24,7 @@
  * which is the question a spec is really asking when it assumes a shape.
  */
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
-import { SIS, boardSis, REGIONS, WELLS, LUX_WELLS, SI_GROUPS, taglineSubject } from "../src/data/taxonomy";
+import { SIS, boardSis, REGIONS, WELLS, LUX_WELLS, SI_GROUPS, SUBREGIONS, taglineSubject } from "../src/data/taxonomy";
 import { DESTINATIONS, ACTIVITIES, PROVIDERS, GUIDES, SUBREGION_TOP } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 
@@ -337,6 +337,42 @@ it is.
 - **${dests.filter((d) => d.feel?.length).length} of ${dests.length} destinations carry \`feel\` tags.**
 - **${dests.filter((d) => d.sub_region).length} of ${dests.length} destinations carry a \`sub_region\`.**
 - **${shipping(dossierFiles.destinations).length} shipping destination dossier file(s)** and **${shipping(dossierFiles.interests).length} shipping interest dossier file(s)** in the drop-in folders.
+
+## Exact-match strings — the characters that bounce a batch
+
+Every string below is compared **character for character** by a gate. Each one
+contains a character an editor, a word processor or an email client can silently
+replace: a curly quote for a straight one, an em dash for a hyphen, an accent
+stripped. A mismatch is a hard error, and it doesn't fail one row — it bounces
+the batch.
+
+**Match the codepoint, not the glyph.** \`'\` (U+0027) and \`’\` (U+2019) are
+indistinguishable at reading size and are different bytes. So is \`‘\` (U+2018).
+Copy these from this file, which is generated from the source, rather than from
+an email — mail clients smart-quote, which is how a correct string arrives wrong.
+
+| Where | String | The character to watch |
+|---|---|---|
+${(() => {
+  const rows: string[][] = [];
+  const nonAscii = (s: string) => [...s].filter((c) => c.charCodeAt(0) > 127 || c === "'");
+  const cp = (c: string) => `U+${c.charCodeAt(0).toString(16).toUpperCase().padStart(4, "0")} \`${c}\``;
+  for (const [code, list] of Object.entries(SUBREGIONS as Record<string, string[]>)) {
+    for (const s of list) if (nonAscii(s).length) rows.push([`sub_region ${code}`, `\`${s}\``, nonAscii(s).map(cp).join(" · ")]);
+  }
+  for (const s of [...new Set(dests.map((d) => d.sub_region).filter(Boolean))] as string[]) {
+    if (nonAscii(s).length) rows.push(["live `sub_region`", `\`${s}\``, nonAscii(s).map(cp).join(" · ")]);
+  }
+  for (const d of dests) {
+    if (nonAscii(d.name).length) rows.push(["destination `name`", `\`${d.name}\``, nonAscii(d.name).map(cp).join(" · ")]);
+  }
+  return rows.map((r) => `| ${r.join(" | ")} |`).join("\n");
+})()}
+
+*\`Hawai‘i\` uses U+2018, a left single quotation mark. The Hawaiian ʻokina is
+properly U+02BB — so if the canonical master spells it with the ʻokina, our
+validated string and the master disagree and one of them has to move. Flagged
+rather than changed: these strings come verbatim from the master.*
 
 ## Gates
 
