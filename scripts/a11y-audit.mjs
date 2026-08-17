@@ -23,7 +23,7 @@ const TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
 // The demo-critical routes plus a spread of page shapes. Add routes here as pages ship.
 const ROUTES = [
   "/", "/special-interests", "/regions", "/region/05A",
-  "/destination/masai-mara", "/destination/zermatt-switzerland",
+  "/destination/maasai-mara-kenya", "/destination/zermatt-switzerland",
   "/itinerary", "/flights", "/wells-surface", "/luxury",
   "/guides", "/providers", "/about", "/first-aid-kit",
 ];
