@@ -99,9 +99,29 @@ function providerRail(
   const wells = wellsActivated(siId, activities);
   const out: Provider[] = [];
   wells.forEach((w) => {
-    (providers[w] || []).filter((p) => p.tier !== "prospective").slice(0, 2).forEach((p) => out.push(p));
+    (providers[w] || [])
+      .filter((p) => p.tier !== "prospective")
+      // FILTER BY THE INTEREST BEING VIEWED (David, 2026-08-12). This rail pulled
+      // by Well alone and never asked which interest the reader was looking at,
+      // so it showed the global first two per Well — which meant the Dive
+      // Liveaboards page listed safari lodges and ski hotels. Aggressor's boats
+      // could sit in the table and never appear on their own page.
+      //
+      // AND IT MUST NOT FALL BACK. Measured before changing it: all 58 providers
+      // carry an si[] tag, but only TWO interests have any — safari 39, ski 19.
+      // Six of the eight live interests have none. So this filter empties the rail
+      // on most pages, and that is the correct outcome: an empty shelf says "we
+      // haven't wired supply for this yet," while the old behaviour said "here are
+      // your dive boats" and pointed at a lodge in the Maasai Mara. Wrong is worse
+      // than absent, and a fallback would reintroduce exactly the wrong.
+      .filter((p) => (p.si ?? []).includes(siId))
+      // Three per Well rather than two. With eleven liveaboard rows arriving, a
+      // cap of two showed four boats out of eleven on the page whose entire
+      // subject is the boats.
+      .slice(0, 3)
+      .forEach((p) => out.push(p));
   });
-  return out.slice(0, 6);
+  return out.slice(0, 9);
 }
 
 const MONTH = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
