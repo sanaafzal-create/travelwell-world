@@ -3,12 +3,13 @@ import { Icon } from "@/lib/icons";
 import { REGION_SI, taglineSubject, type Region, type SiData } from "@/data/taxonomy";
 import { Tagline } from "@/components/ui/primitives";
 import { siJsonLd, useJsonLd } from "@/lib/jsonld";
+import { jewelsForSi, destinationsBehind, type PlacedJewel } from "@/lib/jewels";
 import { type Provider, type Activity } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useSiImage } from "@/lib/unsplash";
 import { useStore, MAX_SIS } from "@/store/useStore";
 import { SiPickBar } from "@/components/ui/SiPickBar";
-import { useSpecialInterests, useActivities, useRegions, useProviders, useWells, useSiCount } from "@/store/useCatalog";
+import { useSpecialInterests, useActivities, useRegions, useProviders, useWells, useSiCount, useDestinations } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 
 /** Per-SI editorial copy — mirrors the design prototype's EDITORIAL map. */
@@ -232,6 +233,64 @@ function DossierSections({ data }: { data?: SiData }) {
   );
 }
 
+/**
+ * THE EXPERIENCES. Authored inside destination dossiers, gathered here by the
+ * jewel's own `si` tag — so a Zermatt spa jewel tagged `wellness` surfaces under
+ * Wellness, not Ski. Each card links to the destination that holds it and carries
+ * its own source, since a jewel on this page has left its dossier's prose behind.
+ *
+ * No fallback: an interest with none renders nothing. The provider rail's old
+ * fallback is exactly how safari lodges ended up on the dive page.
+ *
+ * Rendered on BOTH the live and the preview layout, for the reason the preview
+ * layout already shows its dossier: a preview interest is content-only, not empty.
+ * It also has to be both, because the structured data is built from the same list
+ * — baked into the served HTML by `gen-static-heads` — so a section that rendered
+ * on only one layout would tell a crawler about experiences a reader can't see.
+ */
+function JewelsSection({ si, jewels }: { si: { name: string }; jewels: PlacedJewel[] }) {
+  if (!jewels.length) return null;
+  const dests = destinationsBehind(jewels);
+  return (
+    <section className="sd-section">
+      <span className="eyebrow sd-section__eyebrow">The experiences themselves</span>
+      <h2 className="sd-section__title">Don&rsquo;t-miss {si.name.toLowerCase()} experiences</h2>
+      <p className="sd-section__sub">
+        Researched, tiered and placed &mdash; {jewels.length} {jewels.length === 1 ? "experience" : "experiences"} across {dests} {dests === 1 ? "destination" : "destinations"}. Open a destination to see it in context.
+      </p>
+      <div className="sd-jewels">
+        {jewels.map(({ jewel, dest }, i) => (
+          <Link className="sd-jw" to={`/destination/${dest.id}`} key={`${dest.id}-${jewel.name}-${i}`}>
+            <span className="sd-jw__place">
+              <Icon name="pin" small /> {dest.name}, {dest.country}
+            </span>
+            <span className="sd-jw__name">{jewel.name}</span>
+            {jewel.blurb && <span className="sd-jw__blurb">{jewel.blurb}</span>}
+            <span className="sd-jw__meta">
+              {jewel.tier && <span className={cx("sd-jw__tier", `sd-jw__tier--${jewel.tier}`)}>{jewel.tier}</span>}
+              {jewel.when && <span className="sd-jw__when">{jewel.when}</span>}
+            </span>
+            {/* Provenance where we hold it. A card with no line here is covered
+                by the section's footnote rather than repeating the same admission
+                on every card — a disclaimer printed six times stops being read,
+                and the point is that a reader can tell the two apart at a glance. */}
+            {jewel.source && (
+              <span className="sd-jw__src">Source: {jewel.source}{jewel.accessed ? ` \u00b7 read ${jewel.accessed}` : ""}</span>
+            )}
+          </Link>
+        ))}
+      </div>
+      {jewels.some((j) => !j.jewel.source) && (
+        <p className="sd-jewels__note">
+          Cards without a source line are our own editorial picks. Where a card
+          states a figure &mdash; a price, a distance, a time &mdash; it names where
+          the figure came from.
+        </p>
+      )}
+    </section>
+  );
+}
+
 function RegionsSection({ si }: { si: { id: string; name: string } }) {
   const regions = featuredRegions(si.id, useRegions());
   if (!regions.length) return null;
@@ -270,7 +329,8 @@ export default function SiDetail() {
   // name-matched photo — the interest's own pick wins, same rule as destinations.
   const heroPhoto = useSiImage(si, 1800, siImg(si.id, 1800));
   // TouristTrip + FAQPage + Event, straight off the dossier (layers 7 and 4b).
-  useJsonLd(siJsonLd(si, typeof window !== "undefined" ? window.location.href : ""));
+  const placedJewels = jewelsForSi(useDestinations(), si.id);
+  useJsonLd(siJsonLd(si, typeof window !== "undefined" ? window.location.href : "", placedJewels));
 
   const subhead = (
     <div className="jn-subhead">
@@ -378,6 +438,7 @@ export default function SiDetail() {
         </div>
         {/* A preview interest with a dossier still shows its depth — the page is
             content-only (no Book button), not empty. Same rule as an L4 destination. */}
+        <JewelsSection si={si} jewels={placedJewels} />
         <DossierSections data={si.data} />
         <RegionsSection si={si} />
         <div style={{ height: 80 }} />
@@ -422,6 +483,9 @@ export default function SiDetail() {
           ))}
         </div>
       </section>
+
+      <JewelsSection si={si} jewels={placedJewels} />
+
 
       {rail.length > 0 && (
         <section className="sd-section">

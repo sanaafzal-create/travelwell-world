@@ -29,6 +29,11 @@ const SI_SLUGS = new Set(SIS.map((s) => s.id));
 const TIERS = new Set(["essential", "comfort", "premier", "luxury", "ultra"]);
 const STATUS = new Set(["live", "future"]);
 const DEPTH = new Set(["verified", "stub", "cached"]);
+// A figure about the world: money, a duration, a distance, a clock time, a
+// count of nights or people. Deliberately does NOT match a bare year or a month
+// name — "Feb–Mar for the most reliable snow" is a season, not a claim that ages.
+const CHECKABLE_CLAIM =
+  /[$€£¥]\s?\d|\d+\s?(usd|eur|gbp|chf|km|kilometres|kilometers|miles|mi\b|hours?|hrs?|mins?|minutes?|nights?|days?|people|guests|pax|metres|meters|ft\b|feet)\b|\b\d{1,2}[:.]\d{2}\s?(am|pm)?\b|\b\d+\s?%/i;
 const DRAW = new Set(["anchor", "core", "emerging"]);
 const FEEL = new Set(["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous"]);
 const ADVISORY = new Set(["L1", "L2", "L3", "L4"]);
@@ -195,6 +200,28 @@ for (const { code, d } of rows) {
       if (j?.tier && !TIERS.has(j.tier)) errs.push(`${at}: jewel "${j.name}" tier "${j.tier}" not a valid tier`);
       if (j?.si && !SI_SLUGS.has(j.si)) warns.push(`${at}: jewel "${j.name}" si "${j.si}" isn't a known SI slug`);
       if (!j?.commission) warns.push(`${at}: jewel "${j?.name}" has no commission lane (the money — set it if bookable)`);
+      // ── A CHECKABLE CLAIM NEEDS A SOURCE ──────────────────────────────────
+      // Not every jewel does. "The Matterhorn head-on, before the crowds" is an
+      // editorial pick, and demanding a citation for taste produces fake ones.
+      // But a price, a duration, a distance or an opening time is a fact about
+      // the world that changes without telling us — and once a jewel renders on
+      // an interest page it has left its dossier's prose behind, so the citation
+      // that covered it there is no longer on the page at all.
+      //
+      // Warning rather than error, deliberately: the line between editorial and
+      // factual is a judgement, and a gate that hard-fails on a judgement gets
+      // routed around with --no-verify. The `verified`-without-`source` case
+      // below is not a judgement, so that one is an error.
+      const claim = `${j?.blurb ?? ""} ${j?.when ?? ""}`;
+      if (CHECKABLE_CLAIM.test(claim) && !j?.source) {
+        warns.push(`${at}: jewel "${j?.name}" states a checkable figure but carries no "source" — on an interest page this jewel renders away from the dossier's prose, so nothing on the page cites it`);
+      }
+      if (j?.accessed && !j?.source) {
+        errs.push(`${at}: jewel "${j.name}" has "accessed" but no "source" — a date we read nothing on is not provenance`);
+      }
+      if (j?.accessed && !/^\d{4}-\d{2}(-\d{2})?$/.test(String(j.accessed))) {
+        errs.push(`${at}: jewel "${j.name}" accessed "${j.accessed}" — use YYYY-MM or YYYY-MM-DD so it sorts and ages visibly`);
+      }
     }
     for (const [i, q] of (data.faq ?? []).entries()) {
       if (!q?.q || !q?.a) errs.push(`${at}: faq #${i + 1} needs both q and a (it emits FAQPage schema)`);

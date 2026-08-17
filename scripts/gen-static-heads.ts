@@ -38,6 +38,7 @@ import { join, dirname } from "node:path";
 import { REGIONS, SIS, boardSis } from "../src/data/taxonomy";
 import { DESTINATIONS, GUIDES } from "../src/data/places";
 import { destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
+import { jewelsForSi } from "../src/lib/jewels";
 
 const ORIGIN = "https://travelwell.world";
 const DIST = "dist";
@@ -77,7 +78,12 @@ for (const si of boardSis(SIS)) {
     path: `/si/${si.id}`,
     title: `${si.name} — TravelWell.World`,
     description: si.sig ? `${si.name} — ${si.sig}.` : si.name,
-    jsonLd: siJsonLd(si, `${ORIGIN}/si/${si.id}`),
+    // The same jewels the page renders. This is the route David asked about in
+    // decision 2 — the one the Organization record already uses: baked into the
+    // served <head>, so an answer engine that runs no JavaScript still reads
+    // every experience. Client-side injection alone reached Google and nothing
+    // else.
+    jsonLd: siJsonLd(si, `${ORIGIN}/si/${si.id}`, jewelsForSi(DESTINATIONS, si.id)),
   });
 }
 

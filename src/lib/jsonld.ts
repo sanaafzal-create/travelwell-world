@@ -13,6 +13,15 @@
 import { useEffect } from "react";
 import type { Destination } from "@/data/places";
 import type { SiData } from "@/data/taxonomy";
+import type { PlacedJewel } from "@/lib/jewels";
+
+/**
+ * The canonical origin. Hard-coded rather than read from `window.location`
+ * because this module also runs at BUILD time inside `gen-static-heads`, where
+ * there is no window — and a structured-data URL that differs between the served
+ * HTML and the client-injected copy is worse than one that is simply absolute.
+ */
+const ORIGIN = "https://travelwell.world";
 
 /**
  * The organization record lives STATICALLY in index.html so a crawler that
@@ -24,6 +33,50 @@ import type { SiData } from "@/data/taxonomy";
 const PUBLISHER = { "@id": "https://travelwell.world/#organization" };
 
 interface Faq { q: string; a: string; source?: string }
+
+/**
+ * One `TouristAttraction` per jewel (David's decision 3, 2026-08-12).
+ *
+ * `TouristAttraction` rather than `Event`: a jewel is a place or a standing
+ * experience — a cog railway at sunrise, a glacier spa — available whenever its
+ * season is. `Event` requires a `startDate`, and a jewel has a *when* ("clear
+ * mornings", "Dec–Apr") that is a condition, not a date. Faking a date to satisfy
+ * the schema would put a wrong fact in the machine-readable layer to make the
+ * machine-readable layer look complete. Dated things already emit `Event` from
+ * the SI dossier's look-ahead, which carries real dates.
+ *
+ * `isAccessibleForFree` is deliberately absent — we don't hold it, and schema.org
+ * has no "unknown". An omitted property reads as unknown; `false` would be a
+ * claim.
+ */
+function jewelAttraction(
+  j: { name: string; blurb?: string; when?: string; source?: string; accessed?: string },
+  place: { name: string; country: string },
+  url: string
+): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name: j.name,
+    ...(j.blurb ? { description: j.blurb } : {}),
+    // The containing place, so an answer engine that lifts the attraction out
+    // still knows where on earth it is.
+    containedInPlace: {
+      "@type": "Place",
+      name: place.name,
+      address: { "@type": "PostalAddress", addressCountry: place.country },
+    },
+    ...(j.when ? { temporalCoverage: j.when } : {}),
+    publisher: PUBLISHER,
+    ...(url ? { subjectOf: { "@type": "WebPage", url } } : {}),
+    // THE CITATION. A jewel served on an interest page has left its dossier
+    // behind; whatever cited it there is no longer anywhere on the page. If we
+    // hold a source it goes in the structured data, because that is the copy a
+    // machine reads.
+    ...(j.source ? { isBasedOn: /^https?:\/\//i.test(j.source) ? { "@type": "WebPage", url: j.source } : j.source } : {}),
+    ...(j.accessed ? { dateModified: j.accessed } : {}),
+  };
+}
 
 /** Build the JSON-LD objects for a destination page. */
 export function destinationJsonLd(d: Destination, regionName: string, url: string): object[] {
@@ -38,6 +91,9 @@ export function destinationJsonLd(d: Destination, regionName: string, url: strin
       ...(url ? { url } : {}),
     },
   ];
+  for (const j of d.data?.jewels ?? []) {
+    out.push(jewelAttraction(j, { name: d.name, country: d.country }, url));
+  }
   const faq = (d.data as { faq?: Faq[] } | undefined)?.faq;
   if (faq?.length) {
     out.push({
@@ -61,7 +117,11 @@ export function destinationJsonLd(d: Destination, regionName: string, url: strin
  */
 export function siJsonLd(
   si: { id: string; name: string; sig: string; data?: SiData },
-  url: string
+  url: string,
+  /** Jewels rendered on this page — passed in so the structured data describes
+   *  what is actually on the page, rather than a second, differently-scoped set.
+   *  A crawler comparing the two would be right to trust neither. */
+  jewels: PlacedJewel[] = []
 ): object[] {
   const d = si.data ?? {};
   const out: object[] = [
@@ -75,6 +135,12 @@ export function siJsonLd(
       ...(d.seo?.keywords?.length ? { keywords: d.seo.keywords.join(", ") } : {}),
     },
   ];
+  for (const { jewel, dest } of jewels) {
+    // The canonical URL is the DESTINATION page, not this interest page. The
+    // jewel lives there; pointing a crawler at the interest page would make every
+    // interest that surfaces it claim to be its home.
+    out.push(jewelAttraction(jewel, { name: dest.name, country: dest.country }, `${ORIGIN}/destination/${dest.id}`));
+  }
   if (d.faq?.length) {
     out.push({
       "@context": "https://schema.org",

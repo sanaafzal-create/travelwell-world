@@ -98,6 +98,15 @@ const provenanceLies = safetyRows.filter(([, r]) =>
   r.source && SELF_FLAGGED.test(r.source) && !r.reported && !r.unverified);
 const claimsBoth = safetyRows.filter(([, r]) => r.reported && r.verified);
 
+// Jewels. David's decisions 1-3 all turn on how many there are and whether they
+// carry provenance, and the figure he reasons from (5,422) is his library's, not
+// this repo's. Counted here so nobody plans against a number from the wrong side
+// of the border.
+const allJewels = dests.flatMap((d) => d.data?.jewels ?? []);
+const jewelCount = allJewels.length;
+const jewelSourced = allJewels.filter((j) => j.source).length;
+const jewelAccessed = allJewels.filter((j) => j.accessed).length;
+
 // Every country we know by name should have an advisory row. `COUNTRY_ISO` is
 // the set we recognise — it drives the advisory checker's daily payload — so an
 // ISO in there with no row in safety.json is a country we ask about every
@@ -366,6 +375,7 @@ identical in a schema, and a plan that assumes inheritance needs to know which
 it is.
 
 - **${SIS.filter((s) => s.data && Object.keys(s.data).length).length} of ${SIS.length} interests carry a dossier.** The only \`booking_window\` value in the repo is inside \`src/data/interests/_REFERENCE.golf.json\`, which is \`_\`-prefixed and never ships. **There is nothing to inherit booking windows from.**
+- **${jewelCount} jewels across ${dests.filter((d) => (d.data?.jewels ?? []).length).length} of ${dests.length} destinations** \u2014 all hand-authored here. Any larger figure quoted for the experience catalogue (5,422, say) is counting a research library this repo cannot read; **nothing in it has been ingested.** ${jewelSourced} of the ${jewelCount} carry a \`source\`, ${jewelAccessed} an \`accessed\` date.
 - **${dests.filter((d) => d.price_band).length} of ${dests.length} destinations carry a \`price_band\`.**
 - **${dests.filter((d) => d.feel?.length).length} of ${dests.length} destinations carry \`feel\` tags.**
 - **${dests.filter((d) => d.sub_region).length} of ${dests.length} destinations carry a \`sub_region\`.**

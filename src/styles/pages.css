@@ -263,6 +263,27 @@
   [data-page="si-detail"] .sd-well__name { font-family: var(--font-display); font-weight: 600; font-size: 18px; }
   [data-page="si-detail"] .sd-well__how { font-size: 13.5px; color: var(--muted-foreground); margin-top: 3px; line-height: 1.45; }
   /* provider rail */
+  /* ---- Jewels on an interest page -----------------------------------------
+     A GRID, not the horizontal rail the providers use. These are the reason
+     someone came to the page, and a rail hides everything past the third card
+     behind a gesture a lot of people never make — worst of all on a phone, and
+     worst again for anyone who can't drag. The whole card is the link, so the
+     tap target is the card rather than a word inside it (~44px, comfortably). */
+  [data-page="si-detail"] .sd-jewels { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 16px; padding-top: 26px; }
+  [data-page="si-detail"] .sd-jw { display: flex; flex-direction: column; gap: 6px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); box-shadow: var(--e1); color: inherit; text-decoration: none; transition: box-shadow .18s ease, border-color .18s ease; }
+  [data-page="si-detail"] .sd-jw:hover { box-shadow: var(--e2); border-color: color-mix(in oklch, var(--primary) 40%, var(--border)); }
+  [data-page="si-detail"] .sd-jw__place { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--primary); }
+  [data-page="si-detail"] .sd-jw__name { font-family: var(--font-display); font-size: 17px; font-weight: 600; line-height: 1.3; }
+  [data-page="si-detail"] .sd-jw__blurb { font-size: 13.5px; line-height: 1.55; color: var(--muted-foreground); }
+  [data-page="si-detail"] .sd-jw__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 2px; }
+  /* The tier chip is a WORD, never a colour on its own — same rule as the safety
+     level badge, and the same reason: colour alone carries nothing in greyscale. */
+  [data-page="si-detail"] .sd-jw__tier { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; background: var(--secondary); color: var(--foreground); }
+  [data-page="si-detail"] .sd-jw__when { font-size: 12.5px; color: var(--muted-foreground); }
+  [data-page="si-detail"] .sd-jewels__note { font-size: 12.5px; color: var(--muted-foreground); line-height: 1.55; margin-top: 14px; max-width: 62ch; }
+  [data-page="si-detail"] .sd-jw__src { font-size: 11.5px; color: var(--muted-foreground); margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border); overflow-wrap: anywhere; }
+  @media (prefers-reduced-motion: reduce) { [data-page="si-detail"] .sd-jw { transition: none; } }
+
   [data-page="si-detail"] .sd-rail { display: flex; gap: 16px; overflow-x: auto; padding: 26px 0 8px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
   [data-page="si-detail"] .sd-pv { flex: 0 0 300px; scroll-snap-align: start; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); box-shadow: var(--e1); overflow: hidden; display: flex; flex-direction: column; }
   [data-page="si-detail"] .sd-pv__body { padding: 18px; flex: 1; }

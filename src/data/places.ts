@@ -34,13 +34,32 @@ export const REGION_DETAIL: Record<string, RegionDetail> = {
 
 export type DestStatus = "live" | "future";        // shown, or content/coming-soon
 export type DestDepth = "verified" | "stub" | "cached"; // how deep (quality flag)
-/** A don't-miss experience in a destination dossier. */
+/**
+ * A don't-miss experience in a destination dossier.
+ *
+ * ── Why the citation travels WITH the jewel (David's decision 1, 2026-08-12) ──
+ * He asked whether `source` belongs on the jewel or lives elsewhere and gets
+ * joined. It has to travel with it, and the reason is the interest page: a jewel
+ * shown on `/interest/liveaboard` has been lifted out of its destination dossier,
+ * away from the file's prose and away from that dossier's FAQ. Whatever cited it
+ * there is no longer on the page. An answer engine can only cite what carries its
+ * own provenance, and a joined citation is one refactor away from being dropped
+ * on exactly the surface where it matters most.
+ *
+ * `accessed` is separate from `source` on purpose. A URL says where the claim
+ * came from; a date says when we last looked. A price or an opening time with no
+ * date attached is a claim we are making today about a page we may have read a
+ * year ago — which is the same failure as a "Verified" badge over an unverified
+ * safety row, wearing different clothes.
+ */
 export interface Jewel {
   name: string; blurb?: string;
   tier?: string;                                   // its budget tier (essential…ultra)
   when?: string;                                   // best time/conditions
   si?: string;                                     // the Signature Interest it serves (slug)
   commission?: string;                             // the earning path/lane for this jewel (the money)
+  source?: string;                                 // where the claim came from — a URL or a named publisher
+  accessed?: string;                               // when we last read it (YYYY-MM or YYYY-MM-DD)
 }
 /** A traveler Q&A — answer-first; the array auto-emits FAQPage JSON-LD (AI-citation). */
 export interface Faq { q: string; a: string; source?: string }
@@ -130,7 +149,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Serious terrain; the Vallée Blanche is spring-dependent — check conditions." },
         jewels: [
           { name: "Aiguille du Midi cable car", tier: "comfort", when: "clear days", blurb: "3,842m and the roof of Europe in twenty minutes.", si: "adventure", commission: "Lift + experience partner" },
-          { name: "The Vallée Blanche with a guide", tier: "premier", when: "spring conditions", blurb: "20km off-piste from 3,842m to the valley — glacier, séracs, a mountain guide reading every step.", si: "adventure", commission: "Guide bureau — commission lane" },
+          { name: "The Vallée Blanche with a guide", tier: "premier", when: "spring conditions", blurb: "20km off-piste from 3,842m to the valley — glacier, séracs, a mountain guide reading every step.", si: "adventure", commission: "Guide bureau — commission lane", source: "Compagnie du Mont-Blanc (Aiguille du Midi altitude and descent)" },
         ],
         faq: [
           { q: "Do I need to be an expert to ski Chamonix?", a: "The linked areas (Brévent, Flégère, Grands Montets) have plenty for intermediates; the legendary off-piste and the Vallée Blanche need a qualified guide.", source: "Verified 2026-06" },
@@ -187,7 +206,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Co-hosts the Milano-Cortina 2026 Winter Olympics — book well ahead for the Games window." },
         jewels: [
           { name: "Sunset on the Tofane from a Dolomiti rifugio", tier: "premier", when: "clear afternoons", blurb: "Pink light on the Dolomites, a plate of casunziei, the pistes gone quiet.", si: "ski", commission: "Mountain-hut partner" },
-          { name: "The Sellaronda circuit in a day", tier: "premier", when: "clear midweek days", blurb: "Ski a full loop around the Sella massif on one lift pass — 40km of pistes, four valleys, lunch in a different dialect.", si: "ski", commission: "Dolomiti Superski lane" },
+          { name: "The Sellaronda circuit in a day", tier: "premier", when: "clear midweek days", blurb: "Ski a full loop around the Sella massif on one lift pass — 40km of pistes, four valleys, lunch in a different dialect.", si: "ski", commission: "Dolomiti Superski lane", source: "Dolomiti Superski (Sellaronda circuit)" },
         ],
         faq: [
           { q: "Is Cortina part of a bigger ski area?", a: "Yes — it's on the Dolomiti Superski pass: 12 areas and ~1,200km of pistes on one ticket, with the famous Sellaronda circuit nearby.", source: "Dolomiti Superski" },

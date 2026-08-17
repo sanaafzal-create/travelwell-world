@@ -224,6 +224,53 @@ morning and hold nothing to compare against. It renders fail-safe today (no leve
 "not yet verified"), and it is the one deliberately-failing conformance check in
 `docs/ground-truth.md`. **An Ethiopia country row is the outstanding ask.**
 
+### 3c. Jewels — the citation travels with the jewel
+
+`source` and `accessed` are now fields on a jewel, and the reason is where a
+jewel ends up rather than where it is authored.
+
+Jewels are authored inside a **destination** dossier. They now also render on the
+**interest** page — gathered by the jewel's own `si` tag, across every live
+destination (`/si/ski` shows seven, from five destinations). That is the query
+most people actually arrive with: they want the experiences, not a list of
+countries.
+
+On that page the jewel has left its dossier behind. The file's prose isn't there,
+the dossier's FAQ isn't there, and whatever cited the claim isn't there either.
+So the citation has to be on the jewel:
+
+```jsonc
+{ "name": "The Sellaronda circuit in a day", "tier": "premier",
+  "when": "clear midweek days", "si": "ski",
+  "blurb": "…one lift pass — 40km of pistes, four valleys…",
+  "commission": "Dolomiti Superski lane",
+  "source": "https://www.dolomitisuperski.com/…",   // or a named publisher
+  "accessed": "2026-08" }                            // YYYY-MM or YYYY-MM-DD
+```
+
+- **`source` is where the claim came from. `accessed` is when we last read it.**
+  Separate on purpose: a figure with no date is a claim we're making today about
+  a page we may have read a year ago. `accessed` without `source` is an error —
+  a date we read nothing on is not provenance.
+- **Not every jewel needs one.** "The Matterhorn head-on, before the crowds" is
+  editorial, and demanding a citation for taste produces fake ones. The gate
+  warns only when a jewel states a **checkable figure** — money, a distance, a
+  duration, a clock time, a percentage. It ignores seasons and month ranges.
+- **The card shows what we hold.** A jewel with a source prints it; a jewel
+  without gets no line, and the section carries one footnote saying unsourced
+  cards are our own editorial picks. A disclaimer repeated on every card stops
+  being read; the point is that a reader can tell the two apart at a glance.
+- **Each jewel emits `TouristAttraction` structured data**, on both the
+  destination and the interest page, with its containing place, its `when` as
+  `temporalCoverage`, and its source as `isBasedOn`. It's `TouristAttraction`
+  rather than `Event` because a jewel's *when* is a condition, not a date, and
+  faking a `startDate` to satisfy the schema would put a wrong fact in the
+  machine-readable layer to make that layer look complete.
+- **It's in the served HTML, not just injected by JavaScript** — the same route
+  as the Organization record, via `gen-static-heads`. The canonical URL on a
+  jewel is always its **destination** page, so an interest that surfaces it
+  doesn't claim to be its home.
+
 ### The traveler's own check — deep links, not a gesture
 
 Every destination page now names the sources, publishes our verification date,
