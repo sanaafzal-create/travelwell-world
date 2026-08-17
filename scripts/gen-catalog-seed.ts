@@ -12,6 +12,9 @@
  * Re-run whenever the catalog changes to refresh the seeds.
  */
 import { writeFileSync, readFileSync, readdirSync } from "node:fs";
+// ONE reader for dropped-in dossiers, shared with gen-static-heads — see the
+// header of that file for what a second, forgotten consumer cost us.
+import { mergedDestinations } from "./lib/destination-batches";
 import { SIS, SUBREGIONS, REGIONS } from "../src/data/taxonomy";
 import { ACTIVITIES, PROVIDERS, DESTINATIONS, GUIDES } from "../src/data/places";
 import { LOCAL_SIGNALS } from "../src/data/local-signals";
@@ -305,56 +308,6 @@ console.log("Wrote supabase/migrations/0004_seed_providers_subregions.sql");
 console.log(`  ${seenPk.size} providers (${Object.values(PROVIDERS).flat().length} bundle + ${readProviderCsvs().length} csv), ${Object.values(SUBREGIONS).flat().length} sub-regions`);
 
 // ---------------------------------------------------------------------------
-/**
- * Conformed dossier batches, dropped in as JSON — the same "add a file, it just
- * works" path providers already have. The research library delivers
- * `src/data/destinations/<batch>.json` and this picks it up automatically:
- * nothing to hand-merge into places.ts, nothing to reshape.
- *
- * Each file is either an array of destinations, or an object keyed by region
- * code. Every row must carry `region_code` (or sit under its region key).
- * A batch row with the same `id` as a bundled row WINS — that's how a shallow
- * hand-authored anchor gets upgraded by its full dossier.
- */
-function readDestinationBatches(): Record<string, DestRow[]> {
-  const dir = "src/data/destinations";
-  let files: string[] = [];
-  try { files = readdirSync(dir).filter((f) => f.endsWith(".json") && !f.startsWith("_")); } catch { return {}; }
-  const out: Record<string, DestRow[]> = {};
-  for (const f of files.sort()) {
-    const raw = JSON.parse(readFileSync(`${dir}/${f}`, "utf8"));
-    const rows: DestRow[] = Array.isArray(raw)
-      ? raw
-      : Object.entries(raw).flatMap(([code, list]) =>
-          (list as DestRow[]).map((d) => ({ ...d, region_code: d.region_code ?? code })));
-    for (const d of rows) {
-      const code = d.region_code;
-      if (!code) throw new Error(`${f}: destination "${d.id ?? d.name}" has no region_code`);
-      (out[code] ??= []).push(d);
-    }
-  }
-  return out;
-}
-type DestRow = { id?: string; name: string; country: string; region_code?: string } & Record<string, unknown>;
-
-/** Bundled catalog + dropped-in batches, batches winning on id collision. */
-function mergedDestinations(): Record<string, DestRow[]> {
-  const merged: Record<string, DestRow[]> = {};
-  for (const [code, list] of Object.entries(DESTINATIONS)) merged[code] = [...(list as unknown as DestRow[])];
-  for (const [code, list] of Object.entries(readDestinationBatches())) {
-    const target = (merged[code] ??= []);
-    for (const d of list) {
-      // `img` is a placeholder token only (the real photo comes from Unsplash by
-      // name+country), so a batch may omit it — default rather than reject a good
-      // dossier over a cosmetic field the DB happens to mark not-null.
-      if (!d.img) d.img = "mountainValley";
-      const i = target.findIndex((x) => x.id === d.id);
-      if (i >= 0) target[i] = d; else target.push(d);   // batch wins
-    }
-  }
-  return merged;
-}
-
 // 0005 — Destinations + Guides
 // ---------------------------------------------------------------------------
 const DESTS = mergedDestinations();
@@ -363,7 +316,49 @@ const destRows = Object.entries(DESTS)
   .flatMap(([code, list]) =>
     list.map((d, i) => `  (${q(d.id)}, ${q(code)}, ${q(d.name)}, ${q(d.country)}, ${q(d.line)}, ${q(d.status)}, ${q(d.depth)}, ${q(d.img)}, ${d.sub_region ? q(d.sub_region) : "null"}, ${pgArr(d.si)}, ${pgArr(d.feel)}, ${pgArr(d.tier_range)}, ${d.price_band ? q(d.price_band) : "null"}, ${d.draw_rank ? q(d.draw_rank) : "null"}, ${jsonb(d.data)}, ${i})`)
   )
-  .join(",\n");
+  ;
+
+/**
+ * The destination insert, CHUNKED — one statement per 40 rows rather than one
+ * statement for the lot.
+ *
+ * Measured 2026-08-17 with 530 synthetic dossiers ingested: the seed grew to
+ * 1.4MB in **one 1.37MB INSERT statement**. Every gate stayed green — validate
+ * ran in 253ms, the generator in 377ms — because none of them is the constraint.
+ * The constraint is a human pasting that statement into the Supabase SQL editor,
+ * which is a browser text editor, and 1.37MB in one statement is where the
+ * pipeline actually breaks.
+ *
+ * Chunking costs nothing and buys three things. The paste is survivable. A
+ * failure names the chunk it happened in instead of failing the whole catalog
+ * anonymously. And because every chunk carries the same `on conflict do update`,
+ * re-running the file after a partial application is safe — which is the
+ * difference between a recoverable step and a scary one.
+ *
+ * The delete-what-is-missing statement stays whole and runs last, so a partial
+ * apply can never delete rows the earlier chunks had not inserted yet.
+ */
+const DEST_CHUNK = 40;
+const destInsert = (() => {
+  const cols = "(id, region_code, name, country, line, status, depth, img, sub_region, si, feel, tier_range, price_band, draw_rank, data, position)";
+  const tail = `on conflict (id) do update set
+  region_code = excluded.region_code, name = excluded.name, country = excluded.country,
+  line = excluded.line, status = excluded.status, depth = excluded.depth, img = excluded.img,
+  sub_region = excluded.sub_region, si = excluded.si, feel = excluded.feel, tier_range = excluded.tier_range,
+  price_band = excluded.price_band, draw_rank = excluded.draw_rank, data = excluded.data, position = excluded.position;`;
+  const chunks: string[] = [];
+  for (let i = 0; i < destRows.length; i += DEST_CHUNK) {
+    const slice = destRows.slice(i, i + DEST_CHUNK);
+    const n = Math.floor(i / DEST_CHUNK) + 1;
+    const of = Math.ceil(destRows.length / DEST_CHUNK);
+    chunks.push(`-- destinations ${i + 1}-${i + slice.length} of ${destRows.length} (chunk ${n}/${of})
+insert into public.destinations ${cols} values
+${slice.join(",\n")}
+${tail}`);
+  }
+  return chunks.join("\n\n");
+})();
+
 const destIdList = allDests.map((d) => q(d.id)).join(", ");
 
 const guideRows = GUIDES.map(
@@ -434,13 +429,7 @@ alter table public.destinations add column if not exists data       jsonb;
 create index if not exists destinations_si_idx        on public.destinations using gin (si);
 create index if not exists destinations_draw_rank_idx on public.destinations (draw_rank);
 
-insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, si, feel, tier_range, price_band, draw_rank, data, position) values
-${destRows}
-on conflict (id) do update set
-  region_code = excluded.region_code, name = excluded.name, country = excluded.country,
-  line = excluded.line, status = excluded.status, depth = excluded.depth, img = excluded.img,
-  sub_region = excluded.sub_region, si = excluded.si, feel = excluded.feel, tier_range = excluded.tier_range,
-  price_band = excluded.price_band, draw_rank = excluded.draw_rank, data = excluded.data, position = excluded.position;
+${destInsert}
 
 -- Seed is authoritative: drop any destination no longer in the catalog — e.g.
 -- a row left behind by a key rename (cape-town -> cape-town-south-africa). Safe

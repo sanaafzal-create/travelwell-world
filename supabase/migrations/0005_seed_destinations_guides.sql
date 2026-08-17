@@ -61,6 +61,7 @@ alter table public.destinations add column if not exists data       jsonb;
 create index if not exists destinations_si_idx        on public.destinations using gin (si);
 create index if not exists destinations_draw_rank_idx on public.destinations (draw_rank);
 
+-- destinations 1-40 of 44 (chunk 1/2)
 insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, si, feel, tier_range, price_band, draw_rank, data, position) values
   ('paris-france', '01F', 'Paris', 'France', 'The first and last word in romance', 'live', 'verified', 'paris', null, '{}', '{}', '{}', null, null, null, 0),
   ('amsterdam-netherlands', '01F', 'Amsterdam', 'Netherlands', 'Canals, galleries, easy charm', 'live', 'verified', 'venice', null, '{}', '{}', '{}', null, null, null, 1),
@@ -101,7 +102,15 @@ insert into public.destinations (id, region_code, name, country, line, status, d
   ('machu-picchu-peru', '10S', 'Machu Picchu', 'Peru', 'The lost city in the clouds', 'live', 'verified', 'mountainValley', null, '{}', '{}', '{}', null, null, null, 0),
   ('patagonia-chile-argentina', '10S', 'Patagonia', 'Chile / Argentina', 'Granite spires and turquoise lakes', 'live', 'verified', 'mountainValley', null, '{}', '{}', '{}', null, null, null, 1),
   ('cartagena-colombia', '10S', 'Cartagena', 'Colombia', 'Walled city of color and rhythm', 'live', 'stub', 'marrakech', null, '{}', '{}', '{}', null, null, null, 2),
-  ('turks-and-caicos', '11C', 'Turks & Caicos', 'Turks & Caicos', 'Grace Bay''s impossible blues', 'live', 'verified', 'oceanAerial', 'Turks & Caicos', '{}', '{}', '{}', null, null, null, 0),
+  ('turks-and-caicos', '11C', 'Turks & Caicos', 'Turks & Caicos', 'Grace Bay''s impossible blues', 'live', 'verified', 'oceanAerial', 'Turks & Caicos', '{}', '{}', '{}', null, null, null, 0)
+on conflict (id) do update set
+  region_code = excluded.region_code, name = excluded.name, country = excluded.country,
+  line = excluded.line, status = excluded.status, depth = excluded.depth, img = excluded.img,
+  sub_region = excluded.sub_region, si = excluded.si, feel = excluded.feel, tier_range = excluded.tier_range,
+  price_band = excluded.price_band, draw_rank = excluded.draw_rank, data = excluded.data, position = excluded.position;
+
+-- destinations 41-44 of 44 (chunk 2/2)
+insert into public.destinations (id, region_code, name, country, line, status, depth, img, sub_region, si, feel, tier_range, price_band, draw_rank, data, position) values
   ('st-lucia', '11C', 'St. Lucia', 'St. Lucia', 'The Pitons above the sea', 'live', 'verified', 'tropicalBeach', 'Eastern Caribbean — Windwards & South', '{}', '{}', '{}', null, null, null, 1),
   ('exuma-bahamas', '11C', 'The Exumas', 'Bahamas', 'Sandbars and swimming pigs', 'live', 'stub', 'maldivesResort', 'Bahamas', '{}', '{}', '{}', null, null, null, 2),
   ('banff-canada', '13A', 'Banff & Lake Louise', 'Canada', 'Turquoise lakes under the Rockies', 'live', 'verified', 'mountainValley', null, '{}', '{}', '{}', null, null, null, 0),

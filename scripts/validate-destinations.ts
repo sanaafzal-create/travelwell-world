@@ -293,6 +293,23 @@ console.log(`source:      ${source}`);
 console.log(`destinations: ${rows.length}   regions: ${Object.keys(perRegion).length}`);
 console.log(`per region:  ${fmt(perRegion)}`);
 console.log(`linkage:     ${linked}/${rows.length} reconcile to a live row   unique ids: ${seenIds.size}   cross-refs: ${refChecks.length} (${brokenRefs} broken)`);
+
+// ── WILL THIS BATCH ACTUALLY SURFACE? ──────────────────────────────────────
+// "Clean against live canon, safe to ingest" is true and not the same as "these
+// will appear." A destination surfaces on an interest page through its `si`
+// array, and a row with none ingests perfectly and is reachable only by someone
+// who already knows its URL.
+//
+// That is not hypothetical: 37 of our own 44 bundled rows carry no si tag, which
+// is why the safari page lists 39 providers and no places. The gate has always
+// warned per row, and a per-row warning in a list of forty scrolls past. So the
+// coverage is stated as a number, next to the tick, where it can't be missed.
+const tagged = rows.filter((d) => (d.si ?? []).length).length;
+const bySi: Record<string, number> = {};
+for (const d of rows) for (const s of d.si ?? []) bySi[s] = (bySi[s] ?? 0) + 1;
+const covered = Object.entries(bySi).sort((a, b) => b[1] - a[1]);
+console.log(`si coverage:  ${tagged}/${rows.length} rows carry an si tag${tagged < rows.length ? `  — the other ${rows.length - tagged} will not appear on ANY interest page` : ""}`);
+console.log(`             ${covered.length ? covered.map(([k, v]) => `${k}:${v}`).join("  ") : "none — this batch lights up no interest page"}`);
 if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block, but check):`); warns.forEach((w) => console.log("  · " + w)); }
 if (errs.length) { console.log(`\n✗ ${errs.length} ERRORS (must fix before ingest):`); errs.forEach((e) => console.log("  ✗ " + e)); process.exit(1); }
 console.log(`\n✓ Clean against live canon — safe to ingest.`);

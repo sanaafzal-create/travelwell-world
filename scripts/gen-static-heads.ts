@@ -36,7 +36,12 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { REGIONS, SIS, boardSis } from "../src/data/taxonomy";
-import { DESTINATIONS, GUIDES } from "../src/data/places";
+import { DESTINATIONS, GUIDES, type Destination } from "../src/data/places";
+// The MERGED set — bundled rows plus dropped-in dossiers. Reading `DESTINATIONS`
+// alone meant an ingested batch reached Postgres and the live site with no static
+// <head>, no JSON-LD and no per-route description: the whole answer-engine
+// surface silently skipped every destination the research library delivered.
+import { mergedDestinations } from "./lib/destination-batches";
 import { destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
 import { jewelsForSi } from "../src/lib/jewels";
 
@@ -56,9 +61,10 @@ interface Page {
 }
 
 const pages: Page[] = [];
+const ALL_DESTINATIONS = mergedDestinations() as unknown as Record<string, Destination[]>;
 
 // ── Destinations ───────────────────────────────────────────────────────────
-for (const [code, list] of Object.entries(DESTINATIONS)) {
+for (const [code, list] of Object.entries(ALL_DESTINATIONS)) {
   const region = REGIONS.find((r) => r.code === code);
   for (const d of list) {
     pages.push({
@@ -83,7 +89,7 @@ for (const si of boardSis(SIS)) {
     // served <head>, so an answer engine that runs no JavaScript still reads
     // every experience. Client-side injection alone reached Google and nothing
     // else.
-    jsonLd: siJsonLd(si, `${ORIGIN}/si/${si.id}`, jewelsForSi(DESTINATIONS, si.id)),
+    jsonLd: siJsonLd(si, `${ORIGIN}/si/${si.id}`, jewelsForSi(ALL_DESTINATIONS, si.id)),
   });
 }
 
