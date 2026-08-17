@@ -422,7 +422,8 @@ source-level:
 1. **Ask State for access** — legitimate, free, slow. They publish this data to be
    consumed; a request for programmatic access is a reasonable one.
 2. **Try `cadatacatalog.state.gov`** — a different host, possibly not behind the
-   same filter. Cheapest thing to try, and untested.
+   same filter. Cheapest thing to try, and untested. See the section below for
+   what it actually holds.
 3. **Route the State fetch through a non-datacenter egress** — costs money, adds a
    vendor, and arguably works against the filter's intent. Least favourite.
 4. **Treat the FCDO as the primary source** — it works at 36/36 today. But it
@@ -434,7 +435,48 @@ well-formed feed — `<rss><channel><title>travel.state.gov: Travel
 Advisories</title>` — with **343 bytes and zero `<item>` elements**, to the
 laptop as well as to us. It isn't blocked; there is nothing in it.
 
-## What isn't done yet## What isn't done yet
+### What the CA data catalog holds — and the code trap in it
+
+`cadatacatalog.state.gov/Datasets` (screenshot 2026-08-12, David). Ten datasets in
+three groups. **Two of them matter to us, one is optional, seven are irrelevant.**
+
+| dataset | formats | verdict |
+|---|---|---|
+| `TravelAdvisory` | XML + JSON | **Essential.** The levels. This is the whole reason we're here. |
+| `GeoPoliticalArea` | JSON | **Essential — see below.** Two-letter country codes. |
+| `CountryTravelInfo` | JSON | Optional. Consular Information Sheets — entry rules, local law, health. Enrichment for destination pages, not levels. |
+| `GeoPoliticalRegion` | JSON | No. Our regions are the 13-code MVP scheme; theirs would only invite a mapping nobody asked for. |
+| six Passport datasets | JSON | No. Application and issuance volumes, 1986–2015. |
+
+**THE TRAP, and it is the silent kind.** The catalog says of `GeoPoliticalArea`:
+
+> *"Geo-Political TAGS consist of two-letter codes for countries. The country codes
+> are taken from the Federal Information Processing Standards Publication No. 10
+> (FIPS)."*
+
+**FIPS 10-4 is not ISO 3166-1 alpha-2.** Both are two uppercase letters, both key a
+country, and they disagree for a substantial number of countries. Our entire safety
+spine is keyed on ISO alpha-2 — `COUNTRY_ISO`, `safety.json`, `emergency-numbers.ts`
+all join on it.
+
+So a join that takes State's two-letter code as if it were ISO does not fail. It
+**succeeds against the wrong country**, and produces exactly the failure mode this
+repo keeps finding: a confidently-rendered page carrying another country's advisory
+level, with nothing on it to suggest anything is wrong. It is the East-Africa
+fallback bug again, arriving through a different door.
+
+**Do not hand-write the FIPS→ISO map from memory.** The disagreements are the whole
+point and a remembered pair is indistinguishable from a looked-up one — which is
+the failure `docs/ground-truth.md` exists to prevent. `GeoPoliticalArea` is the
+authority; build the map from the file, commit it as generated, and make an
+unmapped code a hard error rather than a pass-through. A pass-through here means an
+unrecognised code silently becomes a country.
+
+**Still open, and only the Edge Function can answer it:** whether these files are
+fetchable from a datacenter IP. A laptop download proves the residential cell we
+already have. The direct file URL behind each download icon is the thing to test.
+
+## What isn't done yet
 
 - **The CDC leg.** State and the FCDO are wired; CDC health notices are the
   fastest-moving layer and are the next thing to add.
