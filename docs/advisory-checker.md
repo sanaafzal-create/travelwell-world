@@ -340,6 +340,30 @@ automation from **both** origins (bot protection on the website — a browser is
 fine, which is what it is defending), and the RSS feed returns 343 bytes with
 zero items to both.
 
+**A third origin, added 2026-08-17 — and it measures nothing about State.**
+
+| origin | `cadataapi.state.gov` | `cadatacatalog.state.gov` | `travel.state.gov` |
+|---|---|---|---|
+| **Build sandbox** (agent proxy) | `curl (56)` CONNECT tunnel failed, 403 | same | same |
+
+Command: `curl -A '<full Chrome 128 UA>' -m 25 <url>`, 2026-08-17, all three hosts
+in one run.
+
+**That 403 is OUR proxy refusing to open the tunnel, not State refusing us.** The
+request never left the network — no TCP connection to State was made, so there is
+no State response to interpret. This cell belongs in the grid so nobody
+re-measures it and reports "State blocks us everywhere," which is exactly the
+shape of wrong reading #2: a result that looks like a data point about the origin
+when it is a data point about the client.
+
+It has one real consequence, which is why it is recorded: **`cadatacatalog.state.gov`
+cannot be tested from here at all.** Whether the catalog's dataset files are
+fetchable from a *datacenter* IP is still an open cell — it is a different host
+from the API and may well be static-file infrastructure with no bot protection,
+which would make it the daily route we need. Nobody has measured it. Filling that
+cell needs a fetch from the Edge Function, not from a laptop: a laptop success
+proves only the cell we already have.
+
 **The three wrong readings, on the record, because the method matters more than
 the answer:**
 
