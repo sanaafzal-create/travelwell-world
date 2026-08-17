@@ -508,6 +508,31 @@ fetchable from a datacenter IP. A laptop download proves the residential cell we
 already have. The URLs are `cadatacatalog.state.gov/download/traveladvisory` and
 `/download/geopoliticalarea` (David, 2026-08-17).
 
+*The `#void` on `cadatacatalog.state.gov/Datasets` is a JavaScript placeholder —
+the download links render in-page, which is why the endpoints had to come from
+the page rather than the address bar.*
+
+#### Filling that cell — the probe
+
+```
+curl -s "https://<project>.supabase.co/functions/v1/advisory-check?probe=state-catalog" \
+  -H "Authorization: Bearer $ANON_KEY" | jq
+```
+
+Both datasets × all three header profiles, from the datacenter IP. It **writes
+nothing** — no `advisory_runs` row, no `advisory_state` — because a probe that
+leaves a run record makes a diagnostic look like a check, and `checked: 0` is
+indistinguishable from a real run that found nothing.
+
+It reports `status`, `bytes`, `shape` and a content head per attempt rather than
+a boolean. Two bytes, an HTML block page and a megabyte of JSON are three
+different answers; a pass/fail collapses them into one, and this is the exact
+question that has been mis-diagnosed three times from single readings.
+
+**Whatever it returns, add it to the matrix above.** Six new cells, dated, with
+the command recorded. Do not overwrite the existing rows — the residential cell
+stays true regardless of what this one says.
+
 ### What the feed actually gave us, once read
 
 Snapshot 2026-08-17 (`feed.updated` 09:28Z the same morning — it is live and

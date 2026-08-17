@@ -59,6 +59,23 @@ const HEADER_PROFILES: Array<{ name: string; headers: Record<string, string> }> 
   { name: "browser-like", headers: HEADERS },
 ];
 
+/**
+ * The Consular Affairs data catalog — the download endpoints, confirmed by David
+ * 2026-08-17. These are the two files behind the download icons on
+ * `cadatacatalog.state.gov/Datasets`; the `#void` on that page is a JavaScript
+ * placeholder and resolves to nothing, which is why the URL had to come from the
+ * page rather than the address bar.
+ *
+ * This is a DIFFERENT HOST from `cadataapi.state.gov`, which is the whole reason
+ * to try it: the API returns an empty array to datacenter IPs regardless of
+ * headers, and that finding says nothing about a host that may be plain file
+ * infrastructure with no bot protection at all.
+ */
+const STATE_CATALOG = {
+  traveladvisory: "https://cadatacatalog.state.gov/download/traveladvisory",
+  geopoliticalarea: "https://cadatacatalog.state.gov/download/geopoliticalarea",
+};
+
 const STATE_API = "https://cadataapi.state.gov/api/TravelAdvisories";
 const STATE_RSS = "https://travel.state.gov/_res/rss/TAs.xml";
 const GOVUK_CONTENT = "https://www.gov.uk/api/content/foreign-travel-advice";
@@ -302,7 +319,81 @@ function needsSameDay(severity: Severity, source: SourceId): boolean {
   return true;
 }
 
+/**
+ * ── THE PROBE ───────────────────────────────────────────────────────────────
+ *   GET /advisory-check?probe=state-catalog
+ *
+ * One question, from the only origin that can answer it: does the CA data
+ * catalog return real JSON to a Supabase datacenter IP, or two bytes?
+ *
+ * David got thirty feet of JSON from a home connection, so the data is there and
+ * the host answers. That is the residential cell, and we already had one of
+ * those. The cell that decides whether State becomes an automated daily source
+ * is this one, and neither a laptop nor the build sandbox can fill it — the
+ * sandbox's own proxy refuses the tunnel before a packet leaves.
+ *
+ * Deliberately separate from the checker's normal path:
+ *   · It WRITES NOTHING. No `advisory_runs` row, no `advisory_state`. A probe
+ *     that leaves a run record makes a diagnostic look like a check, and a
+ *     `checked: 0` run is indistinguishable from a real run that found nothing.
+ *   · It runs all three header profiles and reports each. The State API was
+ *     mis-diagnosed three times from single measurements; a probe that returns
+ *     one number invites a fourth.
+ *   · It reports bytes and a content head, not a verdict. "Two bytes" and "an
+ *     HTML error page" and "1MB of JSON" are three different answers, and a
+ *     boolean collapses them into one.
+ */
+async function probeStateCatalog(): Promise<Response> {
+  const results: unknown[] = [];
+  for (const [name, url] of Object.entries(STATE_CATALOG)) {
+    for (const p of HEADER_PROFILES) {
+      const started = Date.now();
+      try {
+        const res = await fetch(url, { headers: p.headers, redirect: "follow" });
+        const text = await res.text();
+        // What it IS matters as much as how big: a 200 carrying an HTML block
+        // page is the failure that most looks like success in a log.
+        let shape = "unknown";
+        try {
+          const j = JSON.parse(text);
+          shape = Array.isArray(j) ? `array[${j.length}]` : `object{${Object.keys(j).slice(0, 4).join(",")}}`;
+        } catch {
+          shape = /^\s*</.test(text) ? "html-or-xml" : "not-json";
+        }
+        results.push({
+          dataset: name, profile: p.name, status: res.status, bytes: text.length, shape,
+          content_type: res.headers.get("content-type")?.slice(0, 60) ?? null,
+          final_url: res.url !== url ? res.url : null,
+          ms: Date.now() - started,
+          head: text.slice(0, 160),
+        });
+      } catch (err) {
+        // A thrown fetch is a distinct outcome from a 200-with-nothing, and
+        // conflating them is how "State blocks us" got asserted from a proxy
+        // refusing to open a tunnel.
+        results.push({ dataset: name, profile: p.name, error: (err as Error).message.slice(0, 200), ms: Date.now() - started });
+      }
+    }
+  }
+  const best = results.find((r) => typeof (r as { bytes?: number }).bytes === "number" && (r as { bytes: number }).bytes > 10_000);
+  return Response.json({
+    probe: "state-catalog",
+    origin: "supabase edge function (datacenter IP)",
+    verdict: best
+      ? "READABLE from the function — this is the daily route. Wire it."
+      : "NOT readable from the function. Every profile came back empty, blocked or erroring.",
+    note: "Writes nothing. Compare against docs/advisory-checker.md — the matrix, not a single reading.",
+    results,
+  });
+}
+
 Deno.serve(async (req: Request) => {
+  // Answered before the client is built: the probe needs no database at all, and
+  // a missing service-role key should not stop us measuring a network fact.
+  if (new URL(req.url).searchParams.get("probe") === "state-catalog") {
+    return await probeStateCatalog();
+  }
+
   const sb = createClient(
     Deno.env.get("SUPABASE_URL")!,
     Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
