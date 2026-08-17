@@ -1,0 +1,1569 @@
+{
+  "_source": "US State Department, Travel Advisories Atom feed (cadatacatalog.state.gov/download/traveladvisory)",
+  "_feed_updated": "2026-08-17T09:28:11Z",
+  "_snapshot_taken": "2026-08-17",
+  "_note": "Reduced to the fields we use. The COUNTRY NAME is the join key — see the header comment in advisory-sources.ts for why `tag` must never be one.",
+  "entries": [
+    {
+      "country": "Afghanistan",
+      "lvl": 4,
+      "tag": "AF",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.afg.html",
+      "published": "2026-02-20"
+    },
+    {
+      "country": "Albania",
+      "lvl": 2,
+      "tag": "AL",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/albania-travel-advisory.html",
+      "published": "2024-12-31"
+    },
+    {
+      "country": "Algeria",
+      "lvl": 2,
+      "tag": "AG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/algeria-travel-advisory.html",
+      "published": "2024-09-26"
+    },
+    {
+      "country": "Andorra",
+      "lvl": 1,
+      "tag": "AN",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/andorra-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "Angola",
+      "lvl": 2,
+      "tag": "AO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/angola-travel-advisory.html",
+      "published": "2024-09-23"
+    },
+    {
+      "country": "Anguilla",
+      "lvl": 1,
+      "tag": "AV",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/anguilla-travel-advisory.html",
+      "published": "2026-05-22"
+    },
+    {
+      "country": "Antarctica",
+      "lvl": 2,
+      "tag": "AY",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ata.html",
+      "published": "2025-09-23"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "lvl": 1,
+      "tag": "AC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/antigua-and-barbuda-travel-advisory.html",
+      "published": "2026-05-20"
+    },
+    {
+      "country": "Argentina",
+      "lvl": 1,
+      "tag": "AR",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.arg.html",
+      "published": "2026-07-10"
+    },
+    {
+      "country": "Armenia",
+      "lvl": 2,
+      "tag": "AM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/armenia-travel-advisory.html",
+      "published": "2025-09-05"
+    },
+    {
+      "country": "Aruba",
+      "lvl": 1,
+      "tag": "AB",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.abw.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Aruba",
+      "lvl": 1,
+      "tag": "AA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/aruba-travel-advisory.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Australia",
+      "lvl": 1,
+      "tag": "AU",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.aus.html",
+      "published": "2026-05-30"
+    },
+    {
+      "country": "Australia",
+      "lvl": 1,
+      "tag": "AS",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/australia-travel-advisory.html",
+      "published": "2025-05-30"
+    },
+    {
+      "country": "Azerbaijan",
+      "lvl": 3,
+      "tag": "AJ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/azerbajian-travel-advisory.html",
+      "published": "2026-04-28"
+    },
+    {
+      "country": "Bahrain",
+      "lvl": 3,
+      "tag": "BA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bahrain-travel-advisory.html",
+      "published": "2026-03-02"
+    },
+    {
+      "country": "Bangladesh",
+      "lvl": 3,
+      "tag": "BG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bangladesh-travel-advisory.html",
+      "published": "2026-01-20"
+    },
+    {
+      "country": "Barbados",
+      "lvl": 1,
+      "tag": "BB",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.brb.html",
+      "published": "2026-04-10"
+    },
+    {
+      "country": "Belarus",
+      "lvl": 4,
+      "tag": "BO",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.blr.html",
+      "published": "2025-12-29"
+    },
+    {
+      "country": "Belgium",
+      "lvl": 2,
+      "tag": "BE",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.bel.html",
+      "published": "2026-07-23"
+    },
+    {
+      "country": "Belize",
+      "lvl": 2,
+      "tag": "BH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/belizetravel-advisory.html",
+      "published": "2026-03-12"
+    },
+    {
+      "country": "Benin",
+      "lvl": 2,
+      "tag": "BN",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/benin-travel-advisory.html",
+      "published": "2026-01-07"
+    },
+    {
+      "country": "Bermuda",
+      "lvl": 1,
+      "tag": "BD",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bermuda-travel-advisory.html",
+      "published": "2026-04-10"
+    },
+    {
+      "country": "Bhutan",
+      "lvl": 1,
+      "tag": "BT",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bhutan-travel-advisory.html",
+      "published": "2025-10-20"
+    },
+    {
+      "country": "Bolivia",
+      "lvl": 2,
+      "tag": "BL",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bolivia-travel-advisory.html",
+      "published": "2026-04-28"
+    },
+    {
+      "country": "Bonaire",
+      "lvl": 1,
+      "tag": "A1",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bonaire-travel-advisory.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "lvl": 2,
+      "tag": "BK",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/bosinia-and-herzegovina-travel-advisory.html",
+      "published": "2024-12-12"
+    },
+    {
+      "country": "Botswana",
+      "lvl": 2,
+      "tag": "BC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/botswana-travel-advisory.html",
+      "published": "2026-06-17"
+    },
+    {
+      "country": "Brazil",
+      "lvl": 2,
+      "tag": "BR",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/brazil-travel-advisory.html",
+      "published": "2025-05-29"
+    },
+    {
+      "country": "British Virgin Islands",
+      "lvl": 1,
+      "tag": "VG",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.vgb.html",
+      "published": "2026-05-22"
+    },
+    {
+      "country": "British Virgin Islands",
+      "lvl": 1,
+      "tag": "VI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/british-virgin-islands-travel-advisory.html",
+      "published": "2026-05-22"
+    },
+    {
+      "country": "Brunei",
+      "lvl": 1,
+      "tag": "BX",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/brunei-travel-advisory.html",
+      "published": "2026-05-14"
+    },
+    {
+      "country": "Bulgaria",
+      "lvl": 1,
+      "tag": "BU",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.bgr.html",
+      "published": "2025-10-09"
+    },
+    {
+      "country": "Burkina Faso",
+      "lvl": 4,
+      "tag": "UV",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/burkina-faso-travel-advisory.html",
+      "published": "2026-05-04"
+    },
+    {
+      "country": "Burma",
+      "lvl": 4,
+      "tag": "BM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/burma-travel-advisory.html",
+      "published": "2026-05-08"
+    },
+    {
+      "country": "Burundi",
+      "lvl": 3,
+      "tag": "BY",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/burundi-travel-advisory.html",
+      "published": "2025-04-29"
+    },
+    {
+      "country": "Cabo Verde",
+      "lvl": 1,
+      "tag": "CV",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.cpv.html",
+      "published": "2025-12-18"
+    },
+    {
+      "country": "Cambodia",
+      "lvl": 2,
+      "tag": "CB",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cambodia-travel-advisory.html",
+      "published": "2025-07-25"
+    },
+    {
+      "country": "Cameroon",
+      "lvl": 2,
+      "tag": "CM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cameroon-travel-advisory.html",
+      "published": "2026-05-15"
+    },
+    {
+      "country": "Canada",
+      "lvl": 1,
+      "tag": "CA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.can.html",
+      "published": "2026-06-05"
+    },
+    {
+      "country": "Cayman Islands",
+      "lvl": 1,
+      "tag": "CJ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cayman-islands-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "Central African Republic",
+      "lvl": 4,
+      "tag": "CT",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.caf.html",
+      "published": "2026-01-15"
+    },
+    {
+      "country": "Chad",
+      "lvl": 4,
+      "tag": "CD",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/chad-travel-advisory.html",
+      "published": "2026-04-28"
+    },
+    {
+      "country": "Chile",
+      "lvl": 2,
+      "tag": "CI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/chile-travel-advisory.html",
+      "published": "2026-05-20"
+    },
+    {
+      "country": "Colombia",
+      "lvl": 3,
+      "tag": "CO",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.col.html",
+      "published": "2026-03-31"
+    },
+    {
+      "country": "Comoros",
+      "lvl": 2,
+      "tag": "CN",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.com.html",
+      "published": "2026-01-12"
+    },
+    {
+      "country": "Costa Rica",
+      "lvl": 2,
+      "tag": "CS",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.cri.html",
+      "published": "2026-04-02"
+    },
+    {
+      "country": "Cote d Ivoire",
+      "lvl": 2,
+      "tag": "IV",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cote-d-ivoire-travel-advisory.html",
+      "published": "2026-02-18"
+    },
+    {
+      "country": "Croatia",
+      "lvl": 1,
+      "tag": "HR",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.hrv.html",
+      "published": "2026-05-18"
+    },
+    {
+      "country": "Cuba",
+      "lvl": 2,
+      "tag": "CU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cuba-travel-advisory.html",
+      "published": "2025-05-07"
+    },
+    {
+      "country": "Curaçao",
+      "lvl": 1,
+      "tag": "UC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/curacao-travel-advisory.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Cyprus",
+      "lvl": 1,
+      "tag": "CY",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.cyp.html",
+      "published": "2026-06-01"
+    },
+    {
+      "country": "Czechia",
+      "lvl": 1,
+      "tag": "EZ",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.cze.html",
+      "published": "2026-01-08"
+    },
+    {
+      "country": "Democratic Republic of the Congo",
+      "lvl": 4,
+      "tag": "CG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/democratic-republic-of-the-congo-travel-advisory.html",
+      "published": "2026-07-15"
+    },
+    {
+      "country": "Djibouti",
+      "lvl": 2,
+      "tag": "DJ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/djibouti-travel-advisory.html",
+      "published": "2025-03-06"
+    },
+    {
+      "country": "Dominica",
+      "lvl": 1,
+      "tag": "DO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/dominica-travel-advisory.html",
+      "published": "2026-05-20"
+    },
+    {
+      "country": "Dominican Republic",
+      "lvl": 2,
+      "tag": "DR",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.dom.html",
+      "published": "2025-06-12"
+    },
+    {
+      "country": "Ecuador",
+      "lvl": 2,
+      "tag": "EC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/ecuador-travel-advisory.html",
+      "published": "2025-10-14"
+    },
+    {
+      "country": "Egypt",
+      "lvl": 2,
+      "tag": "EG",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.egy.html",
+      "published": "2025-07-15"
+    },
+    {
+      "country": "El Salvador",
+      "lvl": 1,
+      "tag": "ES",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/el-salvador-travel-advisory.html",
+      "published": "2026-06-25"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "lvl": 2,
+      "tag": "EK",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.gnq.html",
+      "published": "2025-10-07"
+    },
+    {
+      "country": "Eritrea",
+      "lvl": 2,
+      "tag": "ER",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/eritrea-travel-advisory.html",
+      "published": "2023-07-31"
+    },
+    {
+      "country": "Estonia",
+      "lvl": 1,
+      "tag": "EN",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/estonia-travel-advisory.html",
+      "published": "2026-03-31"
+    },
+    {
+      "country": "Eswatini",
+      "lvl": 2,
+      "tag": "WZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/eswatini-travel-advisory.html",
+      "published": "2026-07-10"
+    },
+    {
+      "country": "Ethiopia",
+      "lvl": 3,
+      "tag": "ET",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/ethiopia-travel-advisory.html",
+      "published": "2026-04-01"
+    },
+    {
+      "country": "Federated States of Micronesia",
+      "lvl": 1,
+      "tag": "FM",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.fsm.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Fiji",
+      "lvl": 1,
+      "tag": "FJ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/fiji-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "Finland",
+      "lvl": 1,
+      "tag": "FI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/finland-travel-advisory.html",
+      "published": "2026-03-13"
+    },
+    {
+      "country": "France",
+      "lvl": 2,
+      "tag": "FR",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.fra.html",
+      "published": "2025-05-28"
+    },
+    {
+      "country": "French Guiana",
+      "lvl": 1,
+      "tag": "A2",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/french-guiana-travel-advisory.html",
+      "published": "2026-07-08"
+    },
+    {
+      "country": "French Polynesia",
+      "lvl": 1,
+      "tag": "FP",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/french-polynesia-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "French Saint Martin",
+      "lvl": 1,
+      "tag": "MA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.maf.html",
+      "published": "2026-06-30"
+    },
+    {
+      "country": "French West Indies",
+      "lvl": 1,
+      "tag": "A3",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/french-west-indies-travel-advisory.html",
+      "published": "2024-08-22"
+    },
+    {
+      "country": "Gabon",
+      "lvl": 2,
+      "tag": "GB",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.gab.html",
+      "published": "2026-03-30"
+    },
+    {
+      "country": "Georgia",
+      "lvl": 1,
+      "tag": "GG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/georgia-travel-advisory.html",
+      "published": "2025-03-13"
+    },
+    {
+      "country": "Germany",
+      "lvl": 2,
+      "tag": "GM",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.deu.html",
+      "published": "2025-05-13"
+    },
+    {
+      "country": "Ghana",
+      "lvl": 2,
+      "tag": "GH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/ghana-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Greece",
+      "lvl": 1,
+      "tag": "GR",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/greece-travel-advisory.html",
+      "published": "2025-10-23"
+    },
+    {
+      "country": "Greenland",
+      "lvl": 2,
+      "tag": "GL",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/greenland-travel-advisory.html",
+      "published": "2024-10-29"
+    },
+    {
+      "country": "Grenada",
+      "lvl": 2,
+      "tag": "GJ",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.grd.html",
+      "published": "2026-01-05"
+    },
+    {
+      "country": "Guatemala",
+      "lvl": 3,
+      "tag": "GT",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/guatemala-travel-advisory.html",
+      "published": "2026-03-12"
+    },
+    {
+      "country": "Guinea",
+      "lvl": 2,
+      "tag": "GV",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/guinea-travel-advisory.html",
+      "published": "2026-02-25"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "lvl": 3,
+      "tag": "GW",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.gnb.html",
+      "published": "2025-12-11"
+    },
+    {
+      "country": "Guyana",
+      "lvl": 3,
+      "tag": "GY",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.guy.html",
+      "published": "2025-05-12"
+    },
+    {
+      "country": "Haiti",
+      "lvl": 4,
+      "tag": "HA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/haiti-travel-advisory.html",
+      "published": "2026-07-10"
+    },
+    {
+      "country": "Honduras",
+      "lvl": 3,
+      "tag": "HN",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.hnd.html",
+      "published": "2024-12-10"
+    },
+    {
+      "country": "Honduras",
+      "lvl": 3,
+      "tag": "HO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/honduras-travel-advisory.html",
+      "published": "2024-12-10"
+    },
+    {
+      "country": "Hong Kong",
+      "lvl": 2,
+      "tag": null,
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/hong-kong-travel-advisory.html",
+      "published": "2024-11-27"
+    },
+    {
+      "country": "Hungary",
+      "lvl": 1,
+      "tag": "HU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/hungary-travel-advisory.html",
+      "published": "2026-04-15"
+    },
+    {
+      "country": "Iceland",
+      "lvl": 1,
+      "tag": "IC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/iceland-travel-advisory.html",
+      "published": "2026-05-05"
+    },
+    {
+      "country": "India",
+      "lvl": 2,
+      "tag": "IN",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ind.html",
+      "published": "2025-06-16"
+    },
+    {
+      "country": "Indonesia",
+      "lvl": 2,
+      "tag": "ID",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/indonesia-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Iran",
+      "lvl": 4,
+      "tag": "IR",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.irn.html",
+      "published": "2025-12-05"
+    },
+    {
+      "country": "Iraq",
+      "lvl": 4,
+      "tag": "IZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/iraq-travel-advisory.html",
+      "published": "2026-03-02"
+    },
+    {
+      "country": "Ireland",
+      "lvl": 1,
+      "tag": "EI",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.irl.html",
+      "published": "2026-03-20"
+    },
+    {
+      "country": "Italy",
+      "lvl": 2,
+      "tag": "IT",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ita.html",
+      "published": "2025-05-23"
+    },
+    {
+      "country": "Jamaica",
+      "lvl": 2,
+      "tag": "JM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/jamaica-travel-advisory.html",
+      "published": "2026-06-23"
+    },
+    {
+      "country": "Japan",
+      "lvl": 1,
+      "tag": "JA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.jpn.html",
+      "published": "2025-05-15"
+    },
+    {
+      "country": "Jordan",
+      "lvl": 3,
+      "tag": "JO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/jordan-travel-advisory.html",
+      "published": "2026-05-04"
+    },
+    {
+      "country": "Kazakhstan",
+      "lvl": 1,
+      "tag": "KA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.kaz.html",
+      "published": "2024-08-05"
+    },
+    {
+      "country": "Kazakhstan",
+      "lvl": 1,
+      "tag": "KZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/kazakhstan-travel-advisory.html",
+      "published": "2024-08-05"
+    },
+    {
+      "country": "Kenya",
+      "lvl": 2,
+      "tag": "KE",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ken.html",
+      "published": "2026-07-28"
+    },
+    {
+      "country": "Kingdom of Denmark",
+      "lvl": 2,
+      "tag": "DA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/denmark-travel-advisory.html",
+      "published": "2024-09-17"
+    },
+    {
+      "country": "Kiribati",
+      "lvl": 1,
+      "tag": "KR",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/kiribati-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "Kosovo",
+      "lvl": 2,
+      "tag": "KV",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/kosovo-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "Kuwait",
+      "lvl": 3,
+      "tag": "KU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/kuwait-travel-advisory.html",
+      "published": "2026-06-28"
+    },
+    {
+      "country": "Laos",
+      "lvl": 2,
+      "tag": "LA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/laos-travel-advisory.html",
+      "published": "2026-07-28"
+    },
+    {
+      "country": "Latvia",
+      "lvl": 1,
+      "tag": "LG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/latvia-travel-advisory.html",
+      "published": "2026-04-01"
+    },
+    {
+      "country": "Lebanon",
+      "lvl": 4,
+      "tag": "LE",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/lebanon-travel-advisory.html",
+      "published": "2026-05-06"
+    },
+    {
+      "country": "Lesotho",
+      "lvl": 2,
+      "tag": "LT",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/lesotho-travel-advisory.html",
+      "published": "2026-06-17"
+    },
+    {
+      "country": "Liberia",
+      "lvl": 2,
+      "tag": "LI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/liberia-travel-advisory.html",
+      "published": "2025-12-11"
+    },
+    {
+      "country": "Libya",
+      "lvl": 4,
+      "tag": "LB",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.lby.html",
+      "published": "2025-07-16"
+    },
+    {
+      "country": "Libya",
+      "lvl": 4,
+      "tag": "LY",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/libya-travel-advisory.html",
+      "published": "2025-07-16"
+    },
+    {
+      "country": "Liechtenstein",
+      "lvl": 1,
+      "tag": "LS",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.lie.html",
+      "published": "2025-05-22"
+    },
+    {
+      "country": "Lithuania",
+      "lvl": 1,
+      "tag": "LH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/lithuania-travel-advisory.html",
+      "published": "2026-04-28"
+    },
+    {
+      "country": "Luxembourg",
+      "lvl": 1,
+      "tag": "LU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/luxembourg-travel-advisory.html",
+      "published": "2026-04-08"
+    },
+    {
+      "country": "Macau",
+      "lvl": 3,
+      "tag": null,
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/macau-travel-advisory.html",
+      "published": "2024-11-27"
+    },
+    {
+      "country": "Madagascar",
+      "lvl": 2,
+      "tag": "MA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mdg.html",
+      "published": "2025-12-05"
+    },
+    {
+      "country": "Mainland China, Hong Kong & Macau - See Summaries",
+      "lvl": 2,
+      "tag": "CH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/china-travel-advisory.html",
+      "published": "2024-11-27"
+    },
+    {
+      "country": "Mainland China, Hong Kong & Macau - See Summaries",
+      "lvl": 2,
+      "tag": "MC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/macau-travel-advisory1.html",
+      "published": "2024-11-27"
+    },
+    {
+      "country": "Mainland China, Hong Kong & Macau - See Summaries",
+      "lvl": 2,
+      "tag": "HK",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/hong-kong-travel-advisory1.html",
+      "published": "2024-11-27"
+    },
+    {
+      "country": "Malawi",
+      "lvl": 2,
+      "tag": "MI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/malawi-travel-advisory.html",
+      "published": "2026-02-25"
+    },
+    {
+      "country": "Malaysia",
+      "lvl": 1,
+      "tag": "MY",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mys.html",
+      "published": "2026-02-22"
+    },
+    {
+      "country": "Maldives",
+      "lvl": 2,
+      "tag": "MV",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mdv.html",
+      "published": "2025-10-07"
+    },
+    {
+      "country": "Malta",
+      "lvl": 1,
+      "tag": "ML",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mlt.html",
+      "published": "2026-07-09"
+    },
+    {
+      "country": "Malta",
+      "lvl": 1,
+      "tag": "MT",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/malta-travel-advisory.html",
+      "published": "2026-07-09"
+    },
+    {
+      "country": "Marshall Islands",
+      "lvl": 1,
+      "tag": "RM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/marshall-islands-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "Mauritania",
+      "lvl": 3,
+      "tag": "MR",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/mauritania-travel-advisory.html",
+      "published": "2025-07-15"
+    },
+    {
+      "country": "Mauritius",
+      "lvl": 2,
+      "tag": "MP",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mus.html",
+      "published": "2025-12-08"
+    },
+    {
+      "country": "Mexico Travel Advisory",
+      "lvl": 2,
+      "tag": "MX",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mex.html",
+      "published": "2026-05-29"
+    },
+    {
+      "country": "Moldova",
+      "lvl": 2,
+      "tag": "MD",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/moldova-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Mongolia",
+      "lvl": 1,
+      "tag": "MG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/mongolia-travel-advisory.html",
+      "published": "2026-07-29"
+    },
+    {
+      "country": "Montenegro",
+      "lvl": 1,
+      "tag": "MJ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/montenegro-travel-advisory.html",
+      "published": "2024-11-26"
+    },
+    {
+      "country": "Montserrat",
+      "lvl": 1,
+      "tag": "MH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/montserrat-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Morocco",
+      "lvl": 2,
+      "tag": "MA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.mar.html",
+      "published": "2025-04-21"
+    },
+    {
+      "country": "Morocco",
+      "lvl": 2,
+      "tag": "MO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/morocco-travel-advisory.html",
+      "published": "2025-04-21"
+    },
+    {
+      "country": "Mozambique",
+      "lvl": 2,
+      "tag": "MZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/mozambique-travel-advisory.html",
+      "published": "2025-06-16"
+    },
+    {
+      "country": "Namibia",
+      "lvl": 2,
+      "tag": "WA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/namibia-travel-advisory.html",
+      "published": "2026-05-15"
+    },
+    {
+      "country": "Nauru",
+      "lvl": 1,
+      "tag": "NR",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/nauru-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "Nepal",
+      "lvl": 2,
+      "tag": "NP",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/nepal-travel-advisory.html",
+      "published": "2026-03-31"
+    },
+    {
+      "country": "Netherlands",
+      "lvl": 2,
+      "tag": "NL",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.nld.html",
+      "published": "2024-08-09"
+    },
+    {
+      "country": "New Caledonia",
+      "lvl": 2,
+      "tag": "NC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/new-caledonia-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "New Zealand",
+      "lvl": 1,
+      "tag": "NZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/new-zealand-travel-advisory.html",
+      "published": "2026-04-29"
+    },
+    {
+      "country": "Nicaragua",
+      "lvl": 3,
+      "tag": "NU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/nicaragua-travel-advisory.html",
+      "published": "2026-05-14"
+    },
+    {
+      "country": "Niger",
+      "lvl": 4,
+      "tag": "NG",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ner.html",
+      "published": "2026-07-09"
+    },
+    {
+      "country": "Nigeria",
+      "lvl": 3,
+      "tag": "NI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/nigeria-travel-advisory.html",
+      "published": "2026-06-12"
+    },
+    {
+      "country": "North Korea",
+      "lvl": 4,
+      "tag": "KN",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.prk.html",
+      "published": "2025-04-29"
+    },
+    {
+      "country": "North Macedonia",
+      "lvl": 1,
+      "tag": "MK",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/north-macedonia-travel-advisory.html",
+      "published": "2025-01-14"
+    },
+    {
+      "country": "Norway",
+      "lvl": 1,
+      "tag": "NO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/norway-travel-advisory.html",
+      "published": "2026-07-06"
+    },
+    {
+      "country": "Oman",
+      "lvl": 3,
+      "tag": "MU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/oman-travel-advisory.html",
+      "published": "2026-04-09"
+    },
+    {
+      "country": "Pakistan",
+      "lvl": 3,
+      "tag": "PK",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/pakistan-travel-advisory.html",
+      "published": "2026-03-03"
+    },
+    {
+      "country": "Palau",
+      "lvl": 1,
+      "tag": "PS",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.plw.html",
+      "published": "2026-01-07"
+    },
+    {
+      "country": "Panama",
+      "lvl": 2,
+      "tag": "PM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/panama-travel-advisory.html",
+      "published": "2024-09-23"
+    },
+    {
+      "country": "Papua New Guinea",
+      "lvl": 3,
+      "tag": "PP",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/papua-new-guinea-travel-advisory.html",
+      "published": "2025-04-29"
+    },
+    {
+      "country": "Paraguay",
+      "lvl": 1,
+      "tag": "PA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/paraguay-travel-advisory.html",
+      "published": "2025-04-30"
+    },
+    {
+      "country": "Peru",
+      "lvl": 2,
+      "tag": "PE",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/peru-travel-advisory.html",
+      "published": "2025-05-16"
+    },
+    {
+      "country": "Philippines",
+      "lvl": 2,
+      "tag": "PH",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.phl.html",
+      "published": "2025-05-08"
+    },
+    {
+      "country": "Philippines",
+      "lvl": 2,
+      "tag": "RP",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/philippines-travel-advisory.html",
+      "published": "2025-05-08"
+    },
+    {
+      "country": "Poland",
+      "lvl": 1,
+      "tag": "PL",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/poland-travel-advisory.html",
+      "published": "2025-06-05"
+    },
+    {
+      "country": "Portugal",
+      "lvl": 1,
+      "tag": "PO",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.prt.html",
+      "published": "2025-12-23"
+    },
+    {
+      "country": "Qatar",
+      "lvl": 3,
+      "tag": "QA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/qatar-travel-advisory.html",
+      "published": "2026-03-02"
+    },
+    {
+      "country": "Republic of the Congo",
+      "lvl": 2,
+      "tag": "CF",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/republic-of-the-congo-travel-advisory.html",
+      "published": "2024-10-02"
+    },
+    {
+      "country": "Romania",
+      "lvl": 1,
+      "tag": "RO",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.rou.html",
+      "published": "2025-10-14"
+    },
+    {
+      "country": "Russia",
+      "lvl": 4,
+      "tag": "RS",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.rus.html",
+      "published": "2025-12-29"
+    },
+    {
+      "country": "Rwanda",
+      "lvl": 3,
+      "tag": "RW",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/rwanda-travel-advisory.html",
+      "published": "2026-05-11"
+    },
+    {
+      "country": "Saba",
+      "lvl": 1,
+      "tag": "A1",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saba-travel-advisory.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Saint Kitts and Nevis",
+      "lvl": 1,
+      "tag": "SC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saint-kitts-and-nevis-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Saint Lucia",
+      "lvl": 2,
+      "tag": "LC",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.lca.html",
+      "published": "2026-07-10"
+    },
+    {
+      "country": "Saint Lucia",
+      "lvl": 2,
+      "tag": "ST",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saint-lucia-travel-advisory.html",
+      "published": "2026-07-10"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "lvl": 1,
+      "tag": "VC",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saint-vincent-and-the-grenadines.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Samoa",
+      "lvl": 1,
+      "tag": "WS",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/samoa-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "São Tomé and Príncipe",
+      "lvl": 3,
+      "tag": "TP",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.stp.html",
+      "published": "2026-04-08"
+    },
+    {
+      "country": "Saudi Arabia",
+      "lvl": 3,
+      "tag": "SA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saudi-arabia-travel-advisory.html",
+      "published": "2026-03-13"
+    },
+    {
+      "country": "Senegal",
+      "lvl": 1,
+      "tag": "SG",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.sen.html",
+      "published": "2025-12-01"
+    },
+    {
+      "country": "Serbia",
+      "lvl": 2,
+      "tag": "RI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/serbia-travel-advisory.html",
+      "published": "2025-04-11"
+    },
+    {
+      "country": "Seychelles",
+      "lvl": 1,
+      "tag": "SE",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.syc.html",
+      "published": "2025-12-09"
+    },
+    {
+      "country": "Sierra Leone",
+      "lvl": 2,
+      "tag": "SL",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.sle.html",
+      "published": "2025-09-15"
+    },
+    {
+      "country": "Singapore",
+      "lvl": 1,
+      "tag": "SN",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/singapore-travel-advisory.html",
+      "published": "2026-03-09"
+    },
+    {
+      "country": "Sint Eustatius",
+      "lvl": 1,
+      "tag": "A1",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/sint-eustatius-travel-advisory.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Sint Maarten",
+      "lvl": 1,
+      "tag": "NN",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/sint-maarten-travel-advisory.html",
+      "published": "2024-08-19"
+    },
+    {
+      "country": "Slovakia",
+      "lvl": 1,
+      "tag": "LO",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.svk.html",
+      "published": "2026-02-12"
+    },
+    {
+      "country": "Slovenia",
+      "lvl": 1,
+      "tag": "SI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/slovenia-travel-advisory.html",
+      "published": "2026-05-15"
+    },
+    {
+      "country": "Solomon Islands",
+      "lvl": 2,
+      "tag": "BP",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/solomon-island-travel-advisory.html",
+      "published": "2025-04-29"
+    },
+    {
+      "country": "Somalia",
+      "lvl": 4,
+      "tag": "SO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/somalia-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "South Africa",
+      "lvl": 2,
+      "tag": "SF",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.zaf.html",
+      "published": "2025-05-27"
+    },
+    {
+      "country": "South Korea",
+      "lvl": 1,
+      "tag": "KS",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.kor.html",
+      "published": "2025-05-28"
+    },
+    {
+      "country": "South Sudan",
+      "lvl": 4,
+      "tag": "OD",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ssd.html",
+      "published": "2026-05-17"
+    },
+    {
+      "country": "Spain",
+      "lvl": 2,
+      "tag": "SP",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.esp.html",
+      "published": "2026-08-01"
+    },
+    {
+      "country": "Sri Lanka",
+      "lvl": 2,
+      "tag": "CE",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/sri-lanka-travel-advisory.html",
+      "published": "2025-10-09"
+    },
+    {
+      "country": "Sudan",
+      "lvl": 4,
+      "tag": "SU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/sudan-travel-advisory.html",
+      "published": "2026-05-15"
+    },
+    {
+      "country": "Suriname",
+      "lvl": 1,
+      "tag": "NS",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.sur.html",
+      "published": "2024-12-13"
+    },
+    {
+      "country": "Sweden",
+      "lvl": 2,
+      "tag": "SW",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/sweden-travel-advisory.html",
+      "published": "2026-05-18"
+    },
+    {
+      "country": "Switzerland",
+      "lvl": 1,
+      "tag": "SR",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/switzerland-travel-advisory.html",
+      "published": "2025-05-20"
+    },
+    {
+      "country": "Syria",
+      "lvl": 4,
+      "tag": "SY",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/syria-travel-advisory.html",
+      "published": "2025-12-11"
+    },
+    {
+      "country": "Taiwan",
+      "lvl": 1,
+      "tag": "TW",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/taiwan-travel-advisory.html",
+      "published": "2025-11-25"
+    },
+    {
+      "country": "Tajikistan",
+      "lvl": 2,
+      "tag": "TI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/tajikistan-travel-advisory.html",
+      "published": "2025-05-16"
+    },
+    {
+      "country": "Tanzania",
+      "lvl": 3,
+      "tag": "TZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/tanzania-travel-advisory.html",
+      "published": "2025-10-31"
+    },
+    {
+      "country": "Thailand",
+      "lvl": 1,
+      "tag": "TH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/thailand-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "The Bahamas",
+      "lvl": 2,
+      "tag": "BF",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/the-bahamas-travel-advisory.html",
+      "published": "2026-07-28"
+    },
+    {
+      "country": "The Gambia",
+      "lvl": 2,
+      "tag": "GA",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.gmb.html",
+      "published": "2026-01-16"
+    },
+    {
+      "country": "The Kyrgyz Republic",
+      "lvl": 1,
+      "tag": "KG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/the-kyrgyz-republic-travel-advisory.html",
+      "published": "2026-02-10"
+    },
+    {
+      "country": "Timor-Leste",
+      "lvl": 2,
+      "tag": "TT",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/timor-leste-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "Togo",
+      "lvl": 2,
+      "tag": "TO",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/togo-travel-advisory.html",
+      "published": "2026-03-09"
+    },
+    {
+      "country": "Tonga",
+      "lvl": 1,
+      "tag": "TN",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/tonga-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "lvl": 3,
+      "tag": "TD",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/trinidad-and-tobago-travel-advisory.html",
+      "published": "2026-04-13"
+    },
+    {
+      "country": "Tunisia",
+      "lvl": 2,
+      "tag": "TS",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/tunisia-travel-advisory.html",
+      "published": "2026-05-21"
+    },
+    {
+      "country": "Turkey",
+      "lvl": 2,
+      "tag": "TU",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turkey-travel-advisory.html",
+      "published": "2026-06-09"
+    },
+    {
+      "country": "Turkmenistan",
+      "lvl": 1,
+      "tag": "TX",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turkmenistan-travel-advisory.html",
+      "published": "2025-02-28"
+    },
+    {
+      "country": "Turks and Caicos Islands",
+      "lvl": 2,
+      "tag": "TK",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turks-and-caicos-travel-advisory.html",
+      "published": "2026-07-07"
+    },
+    {
+      "country": "Tuvalu",
+      "lvl": 1,
+      "tag": "TV",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/tuvalu-travel-advisory.html",
+      "published": "2024-12-02"
+    },
+    {
+      "country": "Uganda",
+      "lvl": 4,
+      "tag": "UG",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/uganda-travel-advisory.html",
+      "published": "2025-12-08"
+    },
+    {
+      "country": "Ukraine",
+      "lvl": 4,
+      "tag": "UP",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/ukraine-travel-advisory.html",
+      "published": "2024-11-14"
+    },
+    {
+      "country": "United Arab Emirates",
+      "lvl": 3,
+      "tag": "AE",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/united-arab-emirates-travel-advisory.html",
+      "published": "2026-03-03"
+    },
+    {
+      "country": "United Kingdom",
+      "lvl": 2,
+      "tag": "UK",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/united-kingdom-travel-advisory.html",
+      "published": "2025-05-08"
+    },
+    {
+      "country": "Uruguay",
+      "lvl": 2,
+      "tag": "UR",
+      "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ury.html",
+      "published": "2026-07-28"
+    },
+    {
+      "country": "Uruguay",
+      "lvl": 2,
+      "tag": "UY",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/uruguay-travel-advisory.html",
+      "published": "2026-07-28"
+    },
+    {
+      "country": "Uzbekistan",
+      "lvl": 1,
+      "tag": "UZ",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/uzbekistan-travel-advisory.html",
+      "published": "2026-01-22"
+    },
+    {
+      "country": "Vanuatu",
+      "lvl": 1,
+      "tag": "NH",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/vanuatu-travel-advisory.html",
+      "published": "2025-05-22"
+    },
+    {
+      "country": "Venezuela",
+      "lvl": 3,
+      "tag": "VE",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/venezuela-travel-advisory.html",
+      "published": "2026-03-19"
+    },
+    {
+      "country": "Vietnam",
+      "lvl": 1,
+      "tag": "VM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/vietnam-travel-advisory.html",
+      "published": "2026-06-24"
+    },
+    {
+      "country": "Yemen",
+      "lvl": 4,
+      "tag": "YM",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/yemen-travel-advisory.html",
+      "published": "2025-12-19"
+    },
+    {
+      "country": "Zambia",
+      "lvl": 1,
+      "tag": "ZA",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/zambia-travel-advisory.html",
+      "published": "2023-07-31"
+    },
+    {
+      "country": "Zimbabwe",
+      "lvl": 2,
+      "tag": "ZI",
+      "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/zimbabwe-travel-advisory.html",
+      "published": "2023-06-27"
+    }
+  ]
+}

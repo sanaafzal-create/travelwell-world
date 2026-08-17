@@ -37,26 +37,26 @@ Sources: US State Department · UK FCDO · CDC Travel Health Notices
 | Cambodia | KH | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cambodia-travel-advisory.html> | |
 | Cambodia | KH | UK FCDO | <https://www.gov.uk/foreign-travel-advice/cambodia> | |
 | Cambodia | KH | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/cambodia> | |
-| Canada | CA | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/canada-travel-advisory.html> | |
+| Canada | CA | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.can.html> | |
 | Canada | CA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/canada> | |
 | Canada | CA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/canada> | |
 | Chile / Argentina | CL | — | *spans two countries — no single advisory page* | |
-| Colombia | CO | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/colombia-travel-advisory.html> | |
+| Colombia | CO | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.col.html> | |
 | Colombia | CO | UK FCDO | <https://www.gov.uk/foreign-travel-advice/colombia> | |
 | Colombia | CO | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/colombia> | |
-| Egypt | EG | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/egypt-travel-advisory.html> | |
+| Egypt | EG | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.egy.html> | |
 | Egypt | EG | UK FCDO | <https://www.gov.uk/foreign-travel-advice/egypt> | |
 | Egypt | EG | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/egypt> | |
 | Ethiopia | ET | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/ethiopia-travel-advisory.html> | |
 | Ethiopia | ET | UK FCDO | <https://www.gov.uk/foreign-travel-advice/ethiopia> | |
 | Ethiopia | ET | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/ethiopia> | |
-| France | FR | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/france-travel-advisory.html> | |
+| France | FR | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.fra.html> | |
 | France | FR | UK FCDO | <https://www.gov.uk/foreign-travel-advice/france> | |
 | France | FR | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/france> | |
 | French Polynesia | PF | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/french-polynesia-travel-advisory.html> | |
 | French Polynesia | PF | UK FCDO | <https://www.gov.uk/foreign-travel-advice/french-polynesia> | |
 | French Polynesia | PF | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/french-polynesia> | |
-| Germany | DE | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/germany-travel-advisory.html> | |
+| Germany | DE | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.deu.html> | |
 | Germany | DE | UK FCDO | <https://www.gov.uk/foreign-travel-advice/germany> | |
 | Germany | DE | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/germany> | |
 | Greece | GR | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/greece-travel-advisory.html> | |
@@ -68,22 +68,22 @@ Sources: US State Department · UK FCDO · CDC Travel Health Notices
 | Indonesia | ID | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/indonesia-travel-advisory.html> | |
 | Indonesia | ID | UK FCDO | <https://www.gov.uk/foreign-travel-advice/indonesia> | |
 | Indonesia | ID | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/indonesia> | |
-| Italy | IT | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/italy-travel-advisory.html> | |
+| Italy | IT | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ita.html> | |
 | Italy | IT | UK FCDO | <https://www.gov.uk/foreign-travel-advice/italy> | |
 | Italy | IT | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/italy> | |
-| Japan | JP | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/japan-travel-advisory.html> | |
+| Japan | JP | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.jpn.html> | |
 | Japan | JP | UK FCDO | <https://www.gov.uk/foreign-travel-advice/japan> | |
 | Japan | JP | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/japan> | |
 | Jordan | JO | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/jordan-travel-advisory.html> | |
 | Jordan | JO | UK FCDO | <https://www.gov.uk/foreign-travel-advice/jordan> | |
 | Jordan | JO | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/jordan> | |
-| Kenya | KE | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/kenya-travel-advisory.html> | |
+| Kenya | KE | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ken.html> | |
 | Kenya | KE | UK FCDO | <https://www.gov.uk/foreign-travel-advice/kenya> | |
 | Kenya | KE | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/kenya> | |
 | Namibia | NA | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/namibia-travel-advisory.html> | |
 | Namibia | NA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/namibia> | |
 | Namibia | NA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/namibia> | |
-| Netherlands | NL | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/netherlands-travel-advisory.html> | |
+| Netherlands | NL | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.nld.html> | |
 | Netherlands | NL | UK FCDO | <https://www.gov.uk/foreign-travel-advice/netherlands> | |
 | Netherlands | NL | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/netherlands> | |
 | New Zealand | NZ | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/new-zealand-travel-advisory.html> | |
@@ -98,7 +98,7 @@ Sources: US State Department · UK FCDO · CDC Travel Health Notices
 | Philippines | PH | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/philippines-travel-advisory.html> | |
 | Philippines | PH | UK FCDO | <https://www.gov.uk/foreign-travel-advice/philippines> | |
 | Philippines | PH | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/philippines> | |
-| Portugal | PT | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/portugal-travel-advisory.html> | |
+| Portugal | PT | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.prt.html> | |
 | Portugal | PT | UK FCDO | <https://www.gov.uk/foreign-travel-advice/portugal> | |
 | Portugal | PT | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/portugal> | |
 | Rwanda | RW | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/rwanda-travel-advisory.html> | |
@@ -107,13 +107,13 @@ Sources: US State Department · UK FCDO · CDC Travel Health Notices
 | Saudi Arabia | SA | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saudi-arabia-travel-advisory.html> | |
 | Saudi Arabia | SA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/saudi-arabia> | |
 | Saudi Arabia | SA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/saudi-arabia> | |
-| South Africa | ZA | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/south-africa-travel-advisory.html> | |
+| South Africa | ZA | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.zaf.html> | |
 | South Africa | ZA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/south-africa> | |
 | South Africa | ZA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/south-africa> | |
-| South Korea | KR | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/south-korea-travel-advisory.html> | |
+| South Korea | KR | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.kor.html> | |
 | South Korea | KR | UK FCDO | <https://www.gov.uk/foreign-travel-advice/south-korea> | |
 | South Korea | KR | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/south-korea> | |
-| Spain | ES | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/spain-travel-advisory.html> | |
+| Spain | ES | US State Department | <https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.esp.html> | |
 | Spain | ES | UK FCDO | <https://www.gov.uk/foreign-travel-advice/spain> | |
 | Spain | ES | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/spain> | |
 | St. Lucia | LC | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saint-lucia-travel-advisory.html> | |
@@ -128,7 +128,7 @@ Sources: US State Department · UK FCDO · CDC Travel Health Notices
 | Thailand | TH | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/thailand-travel-advisory.html> | |
 | Thailand | TH | UK FCDO | <https://www.gov.uk/foreign-travel-advice/thailand> | |
 | Thailand | TH | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/thailand> | |
-| Turks & Caicos | TC | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turks-and-caicos-islands-travel-advisory.html> | |
+| Turks & Caicos | TC | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turks-and-caicos-travel-advisory.html> | |
 | Turks & Caicos | TC | UK FCDO | <https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands> | |
 | Turks & Caicos | TC | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/turks-and-caicos-islands> | |
 | UAE | AE | US State Department | <https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/united-arab-emirates-travel-advisory.html> | |

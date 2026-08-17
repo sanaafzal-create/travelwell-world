@@ -43,7 +43,7 @@ good as regenerating it.
 | Sub-region lists | 18 | src/data/places.ts:313 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:456 · `export const GUIDES: Guide[] = [` |
 | Country name→ISO entries (`COUNTRY_ISO`) | 38 | src/data/safety-data.ts:182 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 37 | src/data/safety-data.ts:201 · `export const SAFETY_DATA = safetyJson as Recor` |
+| …of those, countries WITH an advisory row (`safety.json`) | 38 | src/data/safety-data.ts:201 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 
@@ -132,16 +132,20 @@ the provider.
    → all 33 covered
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/places.ts (DESTINATIONS)`
 
-⚠️ **Every country in `COUNTRY_ISO` has an advisory row — it is the set the daily checker asks about, so a missing row is a country we query and hold no baseline for**
-   → 1 with no row: ET — checked daily, nothing to compare against
+✅ **Every country in `COUNTRY_ISO` has an advisory row — it is the set the daily checker asks about, so a missing row is a country we query and hold no baseline for**
+   → all 38 covered
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json`
 
+✅ **Our curated level matches the level State published for that country**
+   → all 36 countries State covers agree (feed snapshot 2026-08-17)
+   → `src/data/safety.json vs src/data/state-advisory-feed.json`
+
 ✅ **A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate**
-   → 31 zones across 11 country rows, all structured
+   → 48 zones across 13 country rows, all structured
    → `src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts`
 
 ✅ **No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)**
-   → all 37 rows consistent
+   → all 38 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
 ✅ **A `reported` safety row carries no `verified` date — we act on it, we don't claim it**

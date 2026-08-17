@@ -194,8 +194,95 @@
       "Demonstrations occasionally turn violent.",
       "A documented sexual-assault risk for younger travelers, often alcohol- or drug-involved."
     ],
-    "source": "US State Dept L2, May 2025",
-    "verified": "2026-06"
+    "source": "US State Dept, Travel Advisories feed — L2, reissued 1 Aug 2026",
+    "verified": "2026-08",
+    "zones": [
+      {
+        "name": "Ceuta",
+        "lvl": 3,
+        "note": "Unrest."
+      }
+    ]
+  },
+  "ET": {
+    "country": "Ethiopia",
+    "lvl": 3,
+    "label": "Reconsider travel",
+    "summary": "Reconsider travel due to unrest, crime, kidnapping, terrorism, landmines, communications disruptions and exit bans. Large parts of the country are Do Not Travel.",
+    "considerations": [
+      "State describes the security situation in Addis Ababa as stable, with sporadic armed conflict and civil unrest elsewhere.",
+      "Exit bans and communications disruptions are named risk indicators — a traveler can be prevented from leaving, and networks can go down regionally.",
+      "The Do Not Travel regions below cover a large share of the country; the historic northern circuit runs through several of them."
+    ],
+    "zones": [
+      {
+        "name": "The Tigray Region, including the border with Eritrea",
+        "lvl": 4,
+        "note": "Armed conflict, unrest and crime."
+      },
+      {
+        "name": "The Afar Region",
+        "lvl": 4,
+        "note": "Armed conflict, unrest and crime."
+      },
+      {
+        "name": "The Amhara Region",
+        "lvl": 4,
+        "note": "Armed conflict, unrest and crime."
+      },
+      {
+        "name": "The Gambella Region",
+        "lvl": 4,
+        "note": "Crime, kidnapping, armed conflict and unrest."
+      },
+      {
+        "name": "The Benishangul Gumuz Region",
+        "lvl": 4,
+        "note": "Crime, kidnapping, armed conflict and unrest."
+      },
+      {
+        "name": "Specific areas within the Oromia Region",
+        "lvl": 4,
+        "note": "Armed conflict, ethnically motivated violence and unrest. State names Horro-Guduru Wollega, East Wollega, West Wollega, Kelem Wollega and Illubabor."
+      },
+      {
+        "name": "The Sidama Region",
+        "lvl": 4,
+        "note": "Armed conflict and unrest."
+      },
+      {
+        "name": "The Central Ethiopia Region",
+        "lvl": 4,
+        "note": "Armed conflict and unrest."
+      },
+      {
+        "name": "The South Ethiopia Region",
+        "lvl": 4,
+        "note": "Armed conflict and unrest."
+      },
+      {
+        "name": "The Southwest Ethiopia Region",
+        "lvl": 4,
+        "note": "Armed conflict and unrest."
+      },
+      {
+        "name": "The border with Somalia",
+        "lvl": 4,
+        "note": "Terrorism, kidnapping and landmines."
+      },
+      {
+        "name": "The borders with Sudan and South Sudan",
+        "lvl": 4,
+        "note": "Crime, kidnapping, unrest and armed conflict."
+      },
+      {
+        "name": "The border with Kenya",
+        "lvl": 4,
+        "note": "Terrorism, armed conflict and unrest."
+      }
+    ],
+    "source": "US State Dept, Travel Advisories feed — L3, reissued 1 Apr 2026",
+    "verified": "2026-08"
   },
   "FR": {
     "country": "France",
@@ -306,6 +393,16 @@
       {
         "name": "The Baqa'a area of Ayn Basha",
         "lvl": 4
+      },
+      {
+        "name": "Mansheyat al Ghayyath and Ruwayshid",
+        "lvl": 4,
+        "note": "Cross-border violence, terrorism and crime."
+      },
+      {
+        "name": "Zarqa City",
+        "lvl": 3,
+        "note": "Terrorism and crime."
       }
     ]
   },
@@ -405,16 +502,16 @@
   },
   "LC": {
     "country": "Saint Lucia",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Saint Lucia is island-wide Level 1, but one specific resort has a current US Embassy security alert.",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution due to the risk of crime. Violent crime can occur anywhere on the island, and guests at tourist resorts have been victims.",
     "considerations": [
-      "A Feb 2026 US Embassy alert specifically warns against staying at the Ladera Resort near Soufriere (crime risk and limited emergency response) — the island-wide level remains Level 1.",
-      "Most of the island remains low-risk.",
-      "Usual precautions: stay aware, do not resist robbery, carry a passport copy."
+      "Petty crime — purse snatching, pickpocketing — is common in popular tourist areas; most crime against visitors is opportunistic.",
+      "Police response times are slower than travelers from the US or UK may expect. Tourist police are present at most sites.",
+      "Saint Lucia regularly experiences hurricanes; the season runs June to November."
     ],
-    "source": "US State Dept L1, Aug 2024 + US Embassy Bridgetown alert, Feb 2026",
-    "verified": "2026-06"
+    "source": "US State Dept, Travel Advisories feed — L2, reissued 10 Jul 2026",
+    "verified": "2026-08"
   },
   "NA": {
     "country": "Namibia",
@@ -616,21 +713,26 @@
   },
   "TH": {
     "country": "Thailand",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution; most of the country is fine, but the deep south and the Cambodia border are off-limits or sensitive.",
+    "lvl": 1,
+    "label": "Exercise normal precautions",
+    "summary": "Exercise normal precautions — State decreased Thailand to Level 1 on 7 July 2026. Some areas carry increased risk.",
     "considerations": [
-      "Deep-south insurgency provinces (Yala, Pattani, Narathiwat) are under increased caution / state of emergency.",
-      "Poor road safety (very high motorcycle fatality rate); monsoon flooding."
+      "Petty theft and scams occur in tourist areas — Bangkok, Phuket, Chiang Mai. Watch for jet-ski and gem scams.",
+      "Road traffic accidents are the leading cause of injury; motorbike hire without a helmet or licence is a common cause."
     ],
     "medical": "Tap water is not safe — bottled/boiled; dengue endemic year-round, malaria in border/forest areas, rabies present; Hep A/B and typhoid recommended; excellent private hospitals in Bangkok.",
-    "source": "US State Dept L2 / UK FCDO, Jul 2025",
-    "verified": "2026-06",
+    "source": "US State Dept, Travel Advisories feed — L1, reissued 7 Jul 2026",
+    "verified": "2026-08",
     "zones": [
       {
-        "name": "Within ~50 km of the Thailand–Cambodia border",
-        "lvl": 4,
-        "note": "2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists."
+        "name": "The Thailand–Cambodia border region",
+        "lvl": 2,
+        "note": "Risk of armed conflict. Thai authorities may set security exclusion zones with little notice; unexploded ordnance is a stated risk. US emergency services near the border are limited."
+      },
+      {
+        "name": "Yala, Pattani and Narathiwat provinces",
+        "lvl": 2,
+        "note": "Risk of unrest."
       }
     ]
   },

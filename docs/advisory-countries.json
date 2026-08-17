@@ -38,7 +38,8 @@
       "iso": "CA",
       "name": "Canada",
       "match": [
-        "canada"
+        "canada",
+        "destination.can.html"
       ],
       "fcdo_slug": "canada"
     },
@@ -54,7 +55,8 @@
       "iso": "CO",
       "name": "Colombia",
       "match": [
-        "colombia"
+        "colombia",
+        "destination.col.html"
       ],
       "fcdo_slug": "colombia"
     },
@@ -62,7 +64,8 @@
       "iso": "DE",
       "name": "Germany",
       "match": [
-        "germany"
+        "germany",
+        "destination.deu.html"
       ],
       "fcdo_slug": "germany"
     },
@@ -70,7 +73,8 @@
       "iso": "EG",
       "name": "Egypt",
       "match": [
-        "egypt"
+        "egypt",
+        "destination.egy.html"
       ],
       "fcdo_slug": "egypt"
     },
@@ -78,7 +82,8 @@
       "iso": "ES",
       "name": "Spain",
       "match": [
-        "spain"
+        "spain",
+        "destination.esp.html"
       ],
       "fcdo_slug": "spain"
     },
@@ -94,7 +99,8 @@
       "iso": "FR",
       "name": "France",
       "match": [
-        "france"
+        "france",
+        "destination.fra.html"
       ],
       "fcdo_slug": "france"
     },
@@ -126,7 +132,8 @@
       "iso": "IT",
       "name": "Italy",
       "match": [
-        "italy"
+        "italy",
+        "destination.ita.html"
       ],
       "fcdo_slug": "italy"
     },
@@ -142,7 +149,8 @@
       "iso": "JP",
       "name": "Japan",
       "match": [
-        "japan"
+        "japan",
+        "destination.jpn.html"
       ],
       "fcdo_slug": "japan"
     },
@@ -150,7 +158,8 @@
       "iso": "KE",
       "name": "Kenya",
       "match": [
-        "kenya"
+        "kenya",
+        "destination.ken.html"
       ],
       "fcdo_slug": "kenya"
     },
@@ -166,7 +175,8 @@
       "iso": "KR",
       "name": "South Korea",
       "match": [
-        "south korea"
+        "south korea",
+        "destination.kor.html"
       ],
       "fcdo_slug": "south-korea"
     },
@@ -192,7 +202,8 @@
       "iso": "NL",
       "name": "Netherlands",
       "match": [
-        "netherlands"
+        "netherlands",
+        "destination.nld.html"
       ],
       "fcdo_slug": "netherlands"
     },
@@ -240,7 +251,8 @@
       "iso": "PT",
       "name": "Portugal",
       "match": [
-        "portugal"
+        "portugal",
+        "destination.prt.html"
       ],
       "fcdo_slug": "portugal"
     },
@@ -265,7 +277,8 @@
       "name": "Turks & Caicos",
       "match": [
         "turks & caicos",
-        "turks and caicos islands"
+        "turks and caicos islands",
+        "turks and caicos"
       ],
       "fcdo_slug": "turks-and-caicos-islands"
     },
@@ -297,7 +310,8 @@
       "iso": "ZA",
       "name": "South Africa",
       "match": [
-        "south africa"
+        "south africa",
+        "destination.zaf.html"
       ],
       "fcdo_slug": "south-africa"
     }

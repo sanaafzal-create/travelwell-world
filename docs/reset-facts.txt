@@ -22,9 +22,8 @@ NOT POPULATED YET  (an empty structure and a filled one look identical in a sche
   Destinations with feel tags .... 7 of 44
   Destinations with sub_region ... 13 of 44
 
-CONFORMANCE  14 checks, 1 failing
-  FAILING — Every country in `COUNTRY_ISO` has an advisory row
-           1 with no row: ET — checked daily, nothing to compare against
+CONFORMANCE  15 checks, 0 failing
+  All passing.
 
 THE RESEARCH LIBRARY IS A DIFFERENT INVENTORY. Its dossier counts answer a
 different question from these. Never compare the two without saying which is which.

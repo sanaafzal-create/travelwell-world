@@ -448,6 +448,37 @@ three groups. **Two of them matter to us, one is optional, seven are irrelevant.
 | `GeoPoliticalRegion` | JSON | No. Our regions are the 13-code MVP scheme; theirs would only invite a mapping nobody asked for. |
 | six Passport datasets | JSON | No. Application and issuance volumes, 1986–2015. |
 
+> ### ⚠ CORRECTION, 2026-08-17 — read this before the section below it
+>
+> The section that follows was written from the catalog's *description* of
+> `GeoPoliticalArea`, before either file had been read. Its diagnosis of the trap
+> is right and its prescription is **wrong**, and both are left standing because
+> the difference between them is the lesson.
+>
+> It says: build a FIPS→ISO map from `GeoPoliticalArea` and join on the code.
+> **Do not.** Both files have now been read, and the feed's `Country-Tag` is not
+> reliably FIPS. Measured across the 197 entries whose title matches a
+> `GeoPoliticalArea` name: **182 tags equal the FIPS code, 15 do not.** Some of
+> the 15 are ISO 3166-1 (Philippines `PH`, Australia `AU`, Morocco `MA`), some
+> are neither (Switzerland `SR`, Malta `ML`, Libya `LB`, Uruguay `UR`, French
+> Guiana `A2`, Aruba `AB`).
+>
+> A mixed key is worse than either pure one, because the odd values collide with
+> a **different** country: `SR` is Suriname in ISO, `ML` is Mali, `LB` is Lebanon.
+> No map built from `GeoPoliticalArea` fixes that, because the disagreement is
+> between the feed and State's own code table.
+>
+> **The join is the country NAME**, which is what the daily checker already
+> does — `match: ["uae", "united arab emirates"]` in the generated payload. That
+> was right, and reading the catalog's description nearly argued us into
+> replacing a correct name-match with a broken code-match on the strength of one
+> sentence of documentation.
+>
+> `GeoPoliticalArea` is still worth having. It is a **cross-check**, not a key.
+>
+> The lesson is the same one as the State matrix, one level up: *a description of
+> data is not data.* Read the file.
+
 **THE TRAP, and it is the silent kind.** The catalog says of `GeoPoliticalArea`:
 
 > *"Geo-Political TAGS consist of two-letter codes for countries. The country codes
@@ -474,7 +505,46 @@ unrecognised code silently becomes a country.
 
 **Still open, and only the Edge Function can answer it:** whether these files are
 fetchable from a datacenter IP. A laptop download proves the residential cell we
-already have. The direct file URL behind each download icon is the thing to test.
+already have. The URLs are `cadatacatalog.state.gov/download/traveladvisory` and
+`/download/geopoliticalarea` (David, 2026-08-17).
+
+### What the feed actually gave us, once read
+
+Snapshot 2026-08-17 (`feed.updated` 09:28Z the same morning — it is live and
+current). 223 entries, every one carrying a `Threat-Level`: 86 at L1, 86 at L2,
+28 at L3, 23 at L4. Reduced to the fields we use and committed as
+`src/data/state-advisory-feed.json`.
+
+**It is richer than "the levels".** Four things came out of one read:
+
+1. **Two of our curated levels were wrong, in both directions.** Saint Lucia sat
+   at L1 in our data; State moved it to **L2 on 2026-07-10** — six weeks of
+   showing travelers a *less strict* level than the source. Thailand sat at L2;
+   State **decreased it to L1 on 2026-07-07**, which by David's own rule
+   (2026-08-11) is not housekeeping — it is the difference between a gated
+   country and a bookable one. Both fixed. `gen:ground-truth` now compares our
+   level against the snapshot on every run, so the next drift is a failing check
+   rather than a discovery.
+2. **State publishes its own URL per country, and 14 of our 36 derived links were
+   wrong.** Thirteen because State is migrating to `destination.<iso3>.html` and
+   our rule produced the old shape; one — Turks & Caicos — because our slug was
+   simply wrong. `advisoryLinks()` now prefers the published URL and derives only
+   where the feed has no entry. **This retires the State half of the unverified
+   link problem without needing a network run at all** — the source handed us the
+   answers. FCDO and CDC links still need `npm run check:advisory-links`.
+3. **The summary HTML carries sub-country carve-outs** — exactly the `zones[]`
+   shape. Spain is L2 with **Ceuta at L3**, which we carried nowhere. Jordan has
+   Zarqa City (L3) and Mansheyat al Ghayyath / Ruwayshid (L4) that our row
+   omitted. Our Thailand–Cambodia border zone was held at L4 on **both** sides;
+   State has the Cambodian side at L4 and the Thai side at L2. Mirroring a
+   neighbour's zone onto our own row is a guess that looks like symmetry.
+4. **Ethiopia is in the feed** at L3 with thirteen L4 regions. That row had been
+   the one deliberately-failing conformance check since `COUNTRY_ISO` gained the
+   entry. It is now authored from the primary source and the check is green.
+
+**Austria is absent from the feed** — no entry at all, so its State link is still
+derived and still unverified. Worth knowing rather than assuming coverage is
+total: 36 of our 38 countries appear.
 
 ## What isn't done yet
 

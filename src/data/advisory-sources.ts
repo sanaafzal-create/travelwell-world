@@ -23,6 +23,84 @@
  * emergency-numbers.ts. Building a URL never fetches anything.
  */
 
+/**
+ * State's own published advisory URLs, from its Travel Advisories feed
+ * (snapshot 2026-08-17). See `state-advisory-feed.json`.
+ *
+ * ── Why we stopped deriving State's URLs ────────────────────────────────────
+ * We built them from the display name: `<slug>-travel-advisory.html`. Checked
+ * against the URL State itself publishes for each country, **14 of our 36
+ * differed.** Thirteen because State has been migrating to a new path shape
+ * (`destination.esp.html`, ISO-3 based) and our derivation still produced the
+ * old one; one — Turks & Caicos — because our slug was simply wrong
+ * (`turks-and-caicos-islands` where State uses `turks-and-caicos`).
+ *
+ * None of that was findable by rule. The source publishes the answer, so we use
+ * the source's answer and derive only where the feed has no entry.
+ *
+ * ── THE JOIN IS THE COUNTRY NAME. NEVER THE `tag`. ─────────────────────────
+ * Each feed entry carries a two-letter `Country-Tag`, and it is tempting because
+ * it looks like a key. It is not one. Measured across 197 entries whose title
+ * matches State's own GeoPoliticalArea table: **182 tags are the FIPS 10-4 code,
+ * 15 are not** — some are ISO 3166-1 (Philippines `PH`, Australia `AU`), some
+ * are neither (Switzerland `SR`, Malta `ML`, Libya `LB`, French Guiana `A2`).
+ *
+ * That mixture is worse than either system alone, because the odd ones collide
+ * with a DIFFERENT country in ISO: `SR` is Suriname, `ML` is Mali, `LB` is
+ * Lebanon. A join on `tag` does not fail — it silently attaches Suriname's
+ * advisory to Switzerland. Reading the tag as ISO across our own country list
+ * would have mis-attached four outright: Spain would show El Salvador's level,
+ * South Korea Kiribati's, Switzerland China's, South Africa Zambia's.
+ *
+ * The title ("Switzerland - Level 1: Exercise Normal Precautions") is
+ * unambiguous, human-checkable, and the same key the daily checker already
+ * matches on. Keep it that way.
+ */
+import feedSnapshot from "./state-advisory-feed.json";
+
+interface FeedEntry { country: string; lvl: number; tag: string | null; url: string; published: string | null }
+const FEED = feedSnapshot.entries as FeedEntry[];
+
+/** The feed names some countries differently from our display names. */
+const FEED_NAME: Record<string, string> = {
+  UAE: "United Arab Emirates",
+  "South Korea": "Korea (Republic of)",
+  "Turks & Caicos": "Turks and Caicos Islands",
+  "St. Lucia": "Saint Lucia",
+  Bahamas: "The Bahamas",
+};
+
+const normName = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
+const FEED_BY_NAME = new Map(FEED.map((e) => [normName(e.country), e]));
+
+/** State's own published URL for a country, or null if the feed has no entry. */
+export function statePublishedUrl(countryName: string): string | null {
+  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), `The ${countryName}`]) {
+    if (!cand) continue;
+    const hit = FEED_BY_NAME.get(normName(cand));
+    if (hit) return hit.url;
+  }
+  return null;
+}
+
+/**
+ * The level State published for a country at the snapshot date — for
+ * RECONCILIATION, not for rendering. Our cards read `safety.json`, which is the
+ * curated baseline a human has reviewed; this is what the gate compares it
+ * against so a drift between the two shows up as a check rather than as a
+ * traveler seeing a stale number.
+ */
+export function stateSnapshotLevel(countryName: string): { lvl: number; published: string | null } | null {
+  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), `The ${countryName}`]) {
+    if (!cand) continue;
+    const hit = FEED_BY_NAME.get(normName(cand));
+    if (hit) return { lvl: hit.lvl, published: hit.published };
+  }
+  return null;
+}
+
+export const STATE_FEED_UPDATED = feedSnapshot._feed_updated as string;
+
 export type AdvisorySourceId = "state" | "fcdo" | "cdc";
 
 export interface AdvisorySource {
@@ -118,6 +196,13 @@ export interface AdvisoryLink {
 export function advisoryLinks(countryName: string, iso: string | null): AdvisoryLink[] {
   return (["state", "fcdo", "cdc"] as AdvisorySourceId[]).map((id) => {
     const source = ADVISORY_SOURCES[id];
+    // State publishes its own URL per country. Prefer it over anything we can
+    // derive — a rule that produces 22 of 36 correctly is not a rule worth
+    // keeping when the source hands you the answer.
+    if (id === "state" && !isMultiCountry(countryName)) {
+      const published = statePublishedUrl(countryName);
+      if (published) return { source, href: published, deep: true };
+    }
     const slug = slugFor(id, iso, countryName);
     if (!slug) return { source, href: source.index, deep: false };
     const href =

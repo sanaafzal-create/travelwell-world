@@ -27,6 +27,7 @@ import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { SIS, boardSis, REGIONS, WELLS, LUX_WELLS, SI_GROUPS, SUBREGIONS, taglineSubject } from "../src/data/taxonomy";
 import { DESTINATIONS, ACTIVITIES, PROVIDERS, GUIDES, SUBREGION_TOP } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
+import { stateSnapshotLevel, STATE_FEED_UPDATED } from "../src/data/advisory-sources";
 
 /**
  * A citation that survives the file moving underneath it.
@@ -106,6 +107,23 @@ const allJewels = dests.flatMap((d) => d.data?.jewels ?? []);
 const jewelCount = allJewels.length;
 const jewelSourced = allJewels.filter((j) => j.source).length;
 const jewelAccessed = allJewels.filter((j) => j.accessed).length;
+
+// OUR CURATED LEVEL vs THE LEVEL STATE PUBLISHED. Not the same thing and not
+// meant to be — safety.json is a baseline a human reviewed, and it holds through
+// a source we could not read. But a silent divergence is how St. Lucia sat at
+// Level 1 in our data for six weeks after State moved it to Level 2, showing
+// travelers a LESS strict level than the source. Nothing in the product could
+// see it, because nothing compared the two.
+//
+// The snapshot is dated. That is the point: it ages visibly, and a check against
+// a six-month-old snapshot says so rather than quietly passing.
+const levelDrift = Object.entries(COUNTRY_ISO).flatMap(([name, iso]) => {
+  const ours = (SAFETY_DATA as Record<string, { lvl?: number; country?: string }>)[iso];
+  const theirs = stateSnapshotLevel(name);
+  if (!ours?.lvl || !theirs) return [];
+  return ours.lvl === theirs.lvl ? [] : [`${name}: ours L${ours.lvl}, State L${theirs.lvl} (published ${theirs.published})`];
+});
+const stateCovered = Object.keys(COUNTRY_ISO).filter((n) => stateSnapshotLevel(n)).length;
 
 // Every country we know by name should have an advisory row. `COUNTRY_ISO` is
 // the set we recognise — it drives the advisory checker's daily payload — so an
@@ -213,6 +231,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${Object.keys(SAFETY_DATA).length} covered`,
     ok: isoNoRow.length === 0,
     where: "src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json",
+  },
+  {
+    rule: "Our curated level matches the level State published for that country",
+    result: levelDrift.length
+      ? `${levelDrift.length} diverge: ${levelDrift.join("; ")}`
+      : `all ${stateCovered} countries State covers agree (feed snapshot ${STATE_FEED_UPDATED.slice(0, 10)})`,
+    ok: levelDrift.length === 0,
+    where: "src/data/safety.json vs src/data/state-advisory-feed.json",
   },
   {
     rule: "A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate",
