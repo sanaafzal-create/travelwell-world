@@ -160,4 +160,25 @@ for (const p of pages) {
   if (p.jsonLd?.length) withLd++;
 }
 
-console.log(`Wrote ${written} static <head> pages — ${withLd} carrying JSON-LD in raw HTML.`);
+/**
+ * The 404 page Vercel serves for an unmatched path.
+ *
+ * Paired with the generated rewrite list (`gen-vercel-routes`): a path that is
+ * neither a real file nor a known route now falls through to here with a real
+ * 404 status, instead of returning 200 carrying the home page.
+ *
+ * `noindex` matters as much as the status code. Some crawlers reach a body
+ * before they reach a status, and a page that looks like the home page and
+ * carries no directive is exactly how a dead URL keeps its place in an index —
+ * which is the thing this whole change exists to end.
+ */
+const notFound = render({
+  path: "/404",
+  title: "Page not found — TravelWell.World",
+  description: "That page wandered off the map. Every destination, interest and Well is one click away from here.",
+}).replace("</head>", '  <meta name="robots" content="noindex, follow" />\n  </head>')
+  // A canonical pointing at /404 would ask a crawler to index the 404 itself.
+  .replace(/\n?\s*<link rel="canonical"[^>]*>/, "");
+writeFileSync(join(DIST, "404.html"), notFound);
+
+console.log(`Wrote ${written} static <head> pages — ${withLd} carrying JSON-LD in raw HTML, plus 404.html (noindex).`);

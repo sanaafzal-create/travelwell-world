@@ -24,7 +24,8 @@
     "gen:catalog": "esbuild scripts/gen-catalog-seed.ts --bundle --platform=node --format=esm --outfile=scratchpad/gen.mjs && node scratchpad/gen.mjs",
     "check:generated": "node scripts/check-generated.mjs",
     "check:brand": "node scripts/check-brand.mjs",
-    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true"
+    "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
+    "gen:routes": "esbuild scripts/gen-vercel-routes.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/routes.mjs && node scratchpad/routes.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
