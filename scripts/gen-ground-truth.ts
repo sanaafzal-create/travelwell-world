@@ -125,6 +125,20 @@ const levelDrift = Object.entries(COUNTRY_ISO).flatMap(([name, iso]) => {
 });
 const stateCovered = Object.keys(COUNTRY_ISO).filter((n) => stateSnapshotLevel(n)).length;
 
+// THREE INTERESTS ARRIVE FROM JSON, NOT FROM THE LITERAL ARRAY. `sailing`,
+// `yacht` and `wine` are merged into SIS from `special-interests.json` at module
+// load. Anything that reads the `BASE_SIS` literal instead of the exported `SIS`
+// is blind to them.
+//
+// That is not hypothetical — the research library reported all three as missing
+// from the board (David 2026-08-14) because every tool on their side read the
+// literal. Our exported SIS does include them, and this check is what keeps that
+// true: if the merge is ever moved, refactored or dropped, three interests would
+// vanish from the board, the seed's `delete ... where id not in (...)` would drop
+// their Postgres rows, and nothing else here would notice.
+const JSON_SOURCED = ["sailing", "yacht", "wine"];
+const jsonSourcedMissing = JSON_SOURCED.filter((id) => !SIS.some((s) => s.id === id));
+
 // Every country we know by name should have an advisory row. `COUNTRY_ISO` is
 // the set we recognise — it drives the advisory checker's daily payload — so an
 // ISO in there with no row in safety.json is a country we ask about every
@@ -231,6 +245,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${Object.keys(SAFETY_DATA).length} covered`,
     ok: isoNoRow.length === 0,
     where: "src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json",
+  },
+  {
+    rule: "The three interests merged in from `special-interests.json` (`sailing`, `yacht`, `wine`) are present in the exported `SIS`",
+    result: jsonSourcedMissing.length
+      ? `${jsonSourcedMissing.length} missing: ${jsonSourcedMissing.join(", ")} — the merge has broken, and the seed's delete-what-is-missing would drop their rows`
+      : `all ${JSON_SOURCED.length} present — read \`SIS\`, never the \`BASE_SIS\` literal`,
+    ok: jsonSourcedMissing.length === 0,
+    where: "src/data/taxonomy.ts (`import siExtra from \"./special-interests.json\"`)",
   },
   {
     rule: "Our curated level matches the level State published for that country",

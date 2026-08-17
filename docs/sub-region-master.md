@@ -54,8 +54,29 @@ Italy · Greece & the Islands · Spain — Catalonia · Spain — Andalusia · S
 ### 03F — Northern Europe & Nordics
 Scandinavia · Nordic Atlantic · Finland & the Baltics · British Isles
 
-### 04A — Middle East & Gulf
-Middle East & Gulf *(flat — one rich sub-region)*
+### 04A — Middle East, Gulf & North Africa
+Egypt & the Nile · The Red Sea · Morocco · The Maghreb · Jordan & the Levant · The Gulf · Oman · Israel & the Holy Land
+
+*Split from flat to eight, David-locked 2026-08-14. A sub-region is a browsing
+shelf, and one shelf holding Morocco, Egypt, Dubai, Petra and Oman showed a
+traveller five unrelated trips at once — the same reasoning that split Europe
+into 36 and took the Caribbean from 7 to 12.*
+
+*Two strings carry a decision. **Morocco** is the plain country name: the first
+draft was "Morocco & the Atlas", and the range crosses three countries while
+Atlas is our own AI — **never put a coined product name in a geographic string**.
+**The Red Sea** is a dive region rather than an Egypt region: it spans Sharm,
+Hurghada, Marsa Alam, Dahab, Aqaba and Eilat across three countries, and its
+chamber coverage belongs to the water, not to a country.*
+
+*The region TITLE needs no change — "Middle East, Gulf & North Africa" in
+`taxonomy.ts` already names all three parts and covers all eight children. This
+heading was the thing that was stale, reading "Middle East & Gulf" while the
+taxonomy said otherwise.*
+
+*Turkey is NOT here. It sits in 02F (The Mediterranean) in `places.ts` today, and
+02F has no Turkey shelf yet — that is an 02F gap to fill from this master, not a
+reason to move the country across regions and orphan its existing data.*
 
 ### 05A — East Africa
 Safari Heartland · Gorilla & Great Lakes · Swahili Coast & Islands · Horn & Highlands
@@ -87,4 +108,4 @@ British Columbia · The Rockies · The Prairies · Ontario · Québec · The Mar
 ---
 
 ## Count
-≈ **88 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 1 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S *from master, per block* · 11C 12 · 12A 11 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(11C refined 7 → 12 at build time; 10S strings come verbatim from David's locked master — Central America is by-country, so its count firms as blocks land; the old "168" figure was an error and is retired.)*
+≈ **95 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 8 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S *from master, per block* · 11C 12 · 12A 11 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(11C refined 7 → 12 at build time; 10S strings come verbatim from David's locked master — Central America is by-country, so its count firms as blocks land; the old "168" figure was an error and is retired.)*

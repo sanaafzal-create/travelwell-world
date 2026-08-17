@@ -30,7 +30,7 @@ good as regenerating it.
 | Thing | Count | Read from |
 |---|---|---|
 | Signature Interests on the board | 35 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
-| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:413 · `export const boardSis = (sis: { retired?: bool` |
+| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:440 · `export const boardSis = (sis: { retired?: bool` |
 | …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
 | SI categories | 10 | src/data/taxonomy.ts:277 · `export const SI_GROUPS: SiGroup[] = [` |
 | Destinations | 44 | src/data/places.ts:98 · `export const DESTINATIONS: Record<string, Dest` |
@@ -102,7 +102,7 @@ the provider.
 
 ✅ **Retired interests stay in SIS (the seed carries `delete … where id not in (…)`)**
    → 4 retired rows still present: nightlife, olympic, prosports, compsports
-   → `src/data/taxonomy.ts:413 · `export const boardSis = (sis: { retired?: bool``
+   → `src/data/taxonomy.ts:440 · `export const boardSis = (sis: { retired?: bool``
 
 ✅ **7 launch interests are live, plus `ultra` as the luxury overlay — 8 rows at status live**
    → 8 live: ultra, tropical, romance, safari, expedition, ski, liveaboard, river
@@ -135,6 +135,10 @@ the provider.
 ✅ **Every country in `COUNTRY_ISO` has an advisory row — it is the set the daily checker asks about, so a missing row is a country we query and hold no baseline for**
    → all 38 covered
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json`
+
+✅ **The three interests merged in from `special-interests.json` (`sailing`, `yacht`, `wine`) are present in the exported `SIS`**
+   → all 3 present — read `SIS`, never the `BASE_SIS` literal
+   → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
 ✅ **Our curated level matches the level State published for that country**
    → all 36 countries State covers agree (feed snapshot 2026-08-17)

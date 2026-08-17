@@ -123,6 +123,14 @@ exception when duplicate_object then null;
 end $$;
 
 insert into public.sub_regions (region_code, name, position) values
+  ('04A', 'Egypt & the Nile', 0),
+  ('04A', 'The Red Sea', 1),
+  ('04A', 'Morocco', 2),
+  ('04A', 'The Maghreb', 3),
+  ('04A', 'Jordan & the Levant', 4),
+  ('04A', 'The Gulf', 5),
+  ('04A', 'Oman', 6),
+  ('04A', 'Israel & the Holy Land', 7),
   ('12A', 'Pacific Coast', 0),
   ('12A', 'Pacific Northwest', 1),
   ('12A', 'Mountain West', 2),

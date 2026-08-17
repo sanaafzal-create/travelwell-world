@@ -334,7 +334,7 @@ export const REGIONS: Region[] = [
   { code: "01F", name: "Western Europe", line: "Old-world capitals, modern ease", countries: 8, gateways: "CDG · LHR · AMS", status: "live" },
   { code: "02F", name: "The Mediterranean", line: "Sun, sea, and centuries", countries: 9, gateways: "BCN · FCO · ATH", status: "live" },
   { code: "03F", name: "Northern Europe & Nordics", line: "Fjords, design, long light", countries: 7, gateways: "CPH · OSL · HEL", status: "live" },
-  { code: "04A", name: "Middle East, Gulf & North Africa", line: "Where ancient meets audacious", countries: 8, gateways: "DXB · CAI · DOH", status: "live" },
+  { code: "04A", name: "Middle East, Gulf & North Africa", line: "Where ancient meets audacious", countries: 14, gateways: "DXB · CAI · DOH", status: "live" },
   { code: "05A", name: "East Africa", line: "The cradle of the safari", countries: 5, gateways: "NBO · JRO · KGL", status: "live" },
   { code: "06A", name: "Southern Africa", line: "Big skies, bigger game", countries: 5, gateways: "CPT · JNB · WDH", status: "live" },
   { code: "07A", name: "South & Southeast Asia", line: "Temples, islands, spice", countries: 9, gateways: "BKK · SIN · DPS", status: "live" },
@@ -347,6 +347,33 @@ export const REGIONS: Region[] = [
 ];
 
 export const SUBREGIONS: Record<string, string[]> = {
+  /**
+   * 04A — eight shelves, David-locked 2026-08-14. Order is his.
+   *
+   * It was flat ("one rich sub-region") and that was the problem: a single shelf
+   * held Morocco, Egypt, Dubai, Petra and Oman, so a traveler browsing it saw
+   * five unrelated trips at once. Same reasoning that split Europe into 36 and
+   * took the Caribbean from 7 to 12 — a sub-region is a browsing shelf, and a
+   * shelf should hold one trip somebody can picture.
+   *
+   * Two strings carry a decision inside them:
+   *   · "Morocco" is the plain country name. The first draft was "Morocco & the
+   *     Atlas" and it fails twice — the range crosses three countries, and Atlas
+   *     is our own AI. **Never put a coined product name in a geographic string.**
+   *   · "The Red Sea" is a DIVE region rather than an Egypt region. It crosses
+   *     three countries (Sharm, Hurghada, Marsa Alam, Dahab, Aqaba, Eilat) and
+   *     its chamber coverage belongs to the water, not to a country.
+   */
+  "04A": [
+    "Egypt & the Nile",
+    "The Red Sea",
+    "Morocco",
+    "The Maghreb",
+    "Jordan & the Levant",
+    "The Gulf",
+    "Oman",
+    "Israel & the Holy Land",
+  ],
   "12A": ["Pacific Coast", "Pacific Northwest", "Mountain West", "The Southwest", "Texas & The Gulf", "The Midwest", "The South", "New England", "Mid-Atlantic", "Alaska", "Hawai‘i"],
   "13A": ["British Columbia", "The Rockies", "The Prairies", "Ontario", "Québec", "The Maritimes", "The North"],
 };

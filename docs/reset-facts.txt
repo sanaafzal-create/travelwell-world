@@ -22,7 +22,7 @@ NOT POPULATED YET  (an empty structure and a filled one look identical in a sche
   Destinations with feel tags .... 7 of 44
   Destinations with sub_region ... 13 of 44
 
-CONFORMANCE  15 checks, 0 failing
+CONFORMANCE  16 checks, 0 failing
   All passing.
 
 THE RESEARCH LIBRARY IS A DIFFERENT INVENTORY. Its dossier counts answer a
