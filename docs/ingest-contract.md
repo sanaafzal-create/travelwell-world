@@ -217,12 +217,15 @@ The card shows the zones a traveler needs: the one this destination is *in*
 (named, so the level is checkable against the advisory they're about to open),
 and the rest of the country's stricter areas below the considerations.
 
-**The same gap elsewhere:** every country behind a live destination now has a
-baseline. **Ethiopia is the one exception** — it is in `COUNTRY_ISO` and in the
-daily checker's payload with no row in `safety.json`, so we ask about it every
-morning and hold nothing to compare against. It renders fail-safe today (no level,
-"not yet verified"), and it is the one deliberately-failing conformance check in
-`docs/ground-truth.md`. **An Ethiopia country row is the outstanding ask.**
+**The same gap elsewhere:** every country in `COUNTRY_ISO` now has a baseline
+row. Ethiopia was the one exception — in the daily checker's payload with nothing
+to compare against — and it was **closed on 2026-08-17 from State's own feed**
+(L3, with thirteen L4 regions). `docs/ground-truth.md` runs 15 checks with none
+failing. **There is no outstanding country-row ask.**
+
+*Left here as a worked example of the shape, not as a request. If you are reading
+this to find out what to send, the answer is nothing — check `ground-truth.md`,
+which is generated and cannot go stale the way this sentence just did.*
 
 ### 3c. Jewels — the citation travels with the jewel
 
