@@ -42,8 +42,8 @@ good as regenerating it.
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:294 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:437 · `export const GUIDES: Guide[] = [` |
-| Country name→ISO entries (`COUNTRY_ISO`) | 37 | src/data/safety-data.ts:134 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 36 | src/data/safety-data.ts:152 · `export const SAFETY_DATA = safetyJson as Recor` |
+| Country name→ISO entries (`COUNTRY_ISO`) | 38 | src/data/safety-data.ts:182 · `export const COUNTRY_ISO: Record<string, strin` |
+| …of those, countries WITH an advisory row (`safety.json`) | 37 | src/data/safety-data.ts:201 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 
@@ -136,8 +136,12 @@ the provider.
    → 1 with no row: ET — checked daily, nothing to compare against
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json`
 
+✅ **A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate**
+   → 31 zones across 11 country rows, all structured
+   → `src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts`
+
 ✅ **No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)**
-   → all 36 rows consistent
+   → all 37 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
 ✅ **A `reported` safety row carries no `verified` date — we act on it, we don't claim it**
@@ -149,9 +153,9 @@ the provider.
    → `src/data/interests/, src/data/destinations/`
 
 *Scope note on the safety check: it covers the countries we serve **today**. An
-incoming dossier can name a country with no row yet — the Philippines has none —
-and that surfaces at `npm run validate:ingest`, not here. A green tick above is
-not a claim about countries we haven't ingested.*
+incoming dossier can name a country with no row yet, and that surfaces at
+`npm run validate:ingest`, not here. A green tick above is not a claim about
+countries we haven't ingested.*
 
 ## What is NOT populated yet
 

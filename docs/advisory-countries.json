@@ -229,6 +229,14 @@
       "fcdo_slug": "french-polynesia"
     },
     {
+      "iso": "PH",
+      "name": "Philippines",
+      "match": [
+        "philippines"
+      ],
+      "fcdo_slug": "philippines"
+    },
+    {
       "iso": "PT",
       "name": "Portugal",
       "match": [

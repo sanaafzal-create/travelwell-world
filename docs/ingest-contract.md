@@ -146,6 +146,84 @@ A dossier that carries `data.safety` with **notes but no `advisory_level`** is
 treated as enrichment, not a carve-out — the note is added to the country card
 rather than replacing its level.
 
+### 3b. Named zones — the shape a country's sub-country advisory goes in
+
+**This is the answer to "what shape do you want the Philippines row in."** Send a
+country row, and put every named area with a level attached in `zones[]`.
+
+Some advisories are *mostly* zones. The Philippines is Level 2 with a Level 4
+archipelago, a Level 4 city and a Level 3 island inside it — and four named
+places carved back out of that Level 3 to the country baseline. The country
+number alone tells a traveler almost nothing true.
+
+Until 2026-08-17 those areas were **prose**, inside `considerations`:
+
+> `Level 4 "Do Not Travel" zones: the VRAEM (Apurimac/Ene/Mantaro valley) and the Colombia-border area of Loreto.`
+
+That renders correctly and reads well, and **no code can see it.** The booking
+gate reads `lvl`, which is the country number, so a destination inside a
+Do-Not-Travel zone would have shown its country's Level 2 and offered a Book
+button. Ten of thirty-six country rows were carrying zones this way. Nothing was
+wrong live only because all 44 live destinations sit in the mainstream part of
+their country — luck, not a gate. All ten are now structured, and
+`npm run gen:ground-truth` fails if a level claim goes back into prose.
+
+**On the country row** (`src/data/safety.json`):
+
+```jsonc
+"PH": {
+  "country": "Philippines", "lvl": 2, "label": "Exercise increased caution",
+  "summary": "…",
+  "considerations": ["Reissued 8 May 2025 with a Kidnapping indicator.", "…"],
+  "zones": [
+    { "name": "The Sulu Archipelago, including the southern Sulu Sea", "lvl": 4 },
+    { "name": "Marawi City, Mindanao", "lvl": 4 },
+    { "name": "Mindanao", "lvl": 3,
+      "except": ["Davao City", "Davao del Norte", "Siargao Island", "The Dinagat Islands"],
+      "note": "The remainder of Mindanao. The four named exceptions sit at the country baseline." }
+  ],
+  "source": "US State Dept L2, reissued 8 May 2025 / UK FCDO, reissued 1 Apr 2026",
+  "verified": "2026-08"
+}
+```
+
+`except` is not decoration. Dropping it holds four bookable places at Level 3 —
+an over-restriction is still an inaccuracy, and it is one that costs us bookings
+we are entitled to take.
+
+**On a destination dossier**, name the zone instead of restating its level:
+
+```jsonc
+"data": { "safety": { "zone": "The Sulu Archipelago, including the southern Sulu Sea",
+                      "advisory_level": "L4", "booking_hold": true, "posture": "content-only" } }
+```
+
+Four rules, so this can't drift:
+- **The zone name is the join key and the match is exact** (case and whitespace
+  aside). Not the destination's name, not its `sub_region` — fuzzy geography is
+  how a place silently inherits the wrong advisory, and a safety read is the last
+  place to be clever. `npm run validate:ingest` **rejects a name that doesn't
+  join** and prints the country's known zones, so a near miss is a one-line fix.
+- **The level lives on the country row, once.** When State moves the Sulu
+  Archipelago, one row changes and every destination in it follows. Copies would
+  have to be found.
+- **If a dossier declares both a `zone` and an `advisory_level` and they
+  disagree, the stricter wins** — of the two possible mistakes, refusing a
+  bookable place and selling a held one, only the second can't be taken back.
+- **An unresolvable zone fails safe at runtime too**: no level printed, booking
+  held. The gate should catch it first; this is what happens if one slips past.
+
+The card shows the zones a traveler needs: the one this destination is *in*
+(named, so the level is checkable against the advisory they're about to open),
+and the rest of the country's stricter areas below the considerations.
+
+**The same gap elsewhere:** every country behind a live destination now has a
+baseline. **Ethiopia is the one exception** — it is in `COUNTRY_ISO` and in the
+daily checker's payload with no row in `safety.json`, so we ask about it every
+morning and hold nothing to compare against. It renders fail-safe today (no level,
+"not yet verified"), and it is the one deliberately-failing conformance check in
+`docs/ground-truth.md`. **An Ethiopia country row is the outstanding ask.**
+
 ### The traveler's own check — deep links, not a gesture
 
 Every destination page now names the sources, publishes our verification date,

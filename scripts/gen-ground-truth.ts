@@ -104,6 +104,31 @@ const claimsBoth = safetyRows.filter(([, r]) => r.reported && r.verified);
 // morning and hold no baseline for. The counts differing is how this surfaced.
 const isoNoRow = [...new Set(Object.values(COUNTRY_ISO))].filter((i) => !(i in SAFETY_DATA));
 
+// A named area with a level attached must live in `zones[]`, where the booking
+// gate can read it — never only as a sentence in `considerations`.
+//
+// This is the check that found the thing. Ten of thirty-six rows carried lines
+// like 'Level 4 "Do Not Travel": the Sinai Peninsula, the Western Desert…'. They
+// rendered correctly and read well, and no code could see them: the gate reads
+// `lvl`, which is the COUNTRY number. A destination inside a Do-Not-Travel zone
+// would have shown its country's Level 2 and offered a Book button. Nothing was
+// wrong live only because all 44 live destinations sit in the mainstream part of
+// their country — luck, not a gate.
+//
+// The regex is deliberately narrow: it matches a LEVEL claim, not the words
+// "reconsider" or "do not travel" on their own, which legitimately appear in a
+// country's own summary line at that level.
+const ZONE_PROSE = /level\s*[34]\b|"?do not travel"?\s*(zones?|:|within|areas?)/i;
+const proseZones = (Object.entries(SAFETY_DATA as Record<string, {
+  lvl?: number; considerations?: string[]; zones?: { name: string; lvl: number }[];
+}>)).flatMap(([iso, r]) =>
+  (r.considerations ?? [])
+    .filter((c) => ZONE_PROSE.test(c) && (r.lvl ?? 0) < 3)
+    .map((c) => `${iso}: “${c.slice(0, 60)}…”`));
+const zoneRows = Object.entries(SAFETY_DATA as Record<string, { zones?: unknown[] }>)
+  .filter(([, r]) => (r.zones ?? []).length);
+const zoneCount = zoneRows.reduce((n, [, r]) => n + (r.zones ?? []).length, 0);
+
 // No two interests may share a slogan subject (David, nineteen-rules §1). Two
 // interests resolving to the same "If It's [X]… TravelWell." makes the line
 // ambiguous about which world it is selling — and for a mark whose filing rests
@@ -179,6 +204,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${Object.keys(SAFETY_DATA).length} covered`,
     ok: isoNoRow.length === 0,
     where: "src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json",
+  },
+  {
+    rule: "A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate",
+    result: proseZones.length
+      ? `${proseZones.length} level claim(s) still only in prose: ${proseZones.join("; ")}`
+      : `${zoneCount} zones across ${zoneRows.length} country rows, all structured`,
+    ok: proseZones.length === 0,
+    where: "src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts",
   },
   {
     rule: "No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)",
@@ -322,9 +355,9 @@ the provider.
 ${checks.map((c) => `${tick(c.ok)} **${c.rule}**\n   → ${c.result}\n   → \`${c.where}\``).join("\n\n")}
 
 *Scope note on the safety check: it covers the countries we serve **today**. An
-incoming dossier can name a country with no row yet — the Philippines has none —
-and that surfaces at \`npm run validate:ingest\`, not here. A green tick above is
-not a claim about countries we haven't ingested.*
+incoming dossier can name a country with no row yet, and that surfaces at
+\`npm run validate:ingest\`, not here. A green tick above is not a claim about
+countries we haven't ingested.*
 
 ## What is NOT populated yet
 

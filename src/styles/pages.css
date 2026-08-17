@@ -1439,6 +1439,21 @@
   [data-page="destination-detail"] .safety-row--carve span:last-child,
   [data-page="destination-detail"] .safety-row--hold span:last-child { font-weight: 500; }
 
+  /* ---- Named zones under a stricter advisory -------------------------------
+     The level badge carries the same green→red ramp as the card header, and the
+     same DARK variants: SAFE_COLOR is too light for white text at L1–L3 and
+     would fail AA in a chip this small. It is never colour alone — the badge
+     reads "L4", so the meaning survives greyscale and colour-blindness, which
+     is the accessibility canon's "never colour alone for meaning". */
+  [data-page="destination-detail"] .safety-zones { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+  [data-page="destination-detail"] .safety-zones__h { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 8px; }
+  [data-page="destination-detail"] .safety-zone { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; font-size: 13px; line-height: 1.5; }
+  [data-page="destination-detail"] .safety-zone + .safety-zone { border-top: 1px solid var(--border); }
+  [data-page="destination-detail"] .safety-zone__lvl { flex: none; min-width: 30px; text-align: center; padding: 2px 6px; border-radius: 999px; color: #fff; font-size: 11px; font-weight: 700; font-family: var(--font-mono); letter-spacing: .04em; margin-top: 1px; }
+  [data-page="destination-detail"] .safety-zone__n { font-weight: 600; }
+  [data-page="destination-detail"] .safety-zone__x,
+  [data-page="destination-detail"] .safety-zone__note { color: var(--muted-foreground); }
+
   /* ---- Worldwide advisory note --------------------------------------------
      Above the country card, collapsed by default: it applies to every
      destination, so expanded on all of them it becomes wallpaper and stops

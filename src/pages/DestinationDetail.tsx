@@ -8,7 +8,7 @@ import { useDestinationImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useRegions, useWells, useProviders, useDestinations, useGuides } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
-import { resolveSafety, isoForCountry, SAFE_HEADER_COLOR } from "@/data/safety-data";
+import { resolveSafety, stricterZones, isoForCountry, SAFE_HEADER_COLOR } from "@/data/safety-data";
 import { CheckItYourself } from "@/components/ui/CheckItYourself";
 import { GlobalAdvisoryNote } from "@/components/ui/GlobalAdvisoryNote";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
@@ -82,6 +82,10 @@ function bookingLabel(p: Provider): string {
   return "Atlas will connect you";
 }
 
+/** "A", "A and B", "A, B and C" — the exceptions read as a sentence, not a CSV. */
+const listOf = (xs: string[]): string =>
+  xs.length <= 1 ? (xs[0] ?? "") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+
 function providersByWell(allWells: Record<string, Well>, providers: Record<string, Provider[]>, regionCode?: string): { well: Well; items: Provider[] }[] {
   const groups: { well: Well; items: Provider[] }[] = [];
   (["stay", "activities", "eat", "move"] as const).forEach((wid) => {
@@ -129,6 +133,11 @@ export default function DestinationDetail() {
   // dossier declares one (ingest contract §3). Previously only the country level
   // was read, so a named-zone exclusion in a dossier never reached the page.
   const s = resolveSafety(DEST, iso);
+  // Named areas stricter than what this page already shows. If the destination
+  // itself resolved into a zone, that zone is the card's own level — repeating it
+  // in the "elsewhere in the country" list would read as a second, separate
+  // warning about the place you are already reading about.
+  const zonesToShow = stricterZones(s).filter((z) => z.name !== s.inZone?.name);
   // Local emergency line joins off the same ISO key (David's emergency-numbers data).
   const localEmergency = iso ? (getEmergencyNumbers(iso).emergency || UNIVERSAL_EMERGENCY) : UNIVERSAL_EMERGENCY;
 
@@ -350,10 +359,45 @@ export default function DestinationDetail() {
                   <span><span className="safety-row__k">Not bookable with us right now.</span> We keep the page so you can read it &mdash; we won&rsquo;t sell you a trip here while this stands.</span>
                 </div>
               )}
+              {s.inZone && (
+                // A level with no place attached is a number a traveler can't
+                // check against the advisory they're about to open. Name the zone.
+                <div className="safety-row safety-row--carve">
+                  <span className="safety-row__ic"><Icon name="pin" small /></span>
+                  <span>
+                    <span className="safety-row__k">Why this level:</span> this destination sits in {s.inZone.name}, which the advisory carries at Level {s.inZone.lvl}.{s.inZone.note ? ` ${s.inZone.note}` : ""}
+                    {/* Name them. A note reading "the four named exceptions sit
+                        at the country baseline" is unusable to the one traveler
+                        who most needs it — someone deciding whether the place
+                        they're looking at is one of the four. */}
+                    {s.inZone.except?.length ? ` The exceptions are ${listOf(s.inZone.except)}.` : ""}
+                  </span>
+                </div>
+              )}
               <div className="safety-row"><span className="safety-row__ic"><Icon name="info" small /></span><span>{s.summary}</span></div>
               {s.considerations.map((c, i) => (
                 <div className="safety-row" key={i}><span className="safety-row__ic"><Icon name="pin" small /></span><span>{c}</span></div>
               ))}
+              {/* Named areas of this country carrying a STRICTER level than the
+                  country baseline. These used to be one prose sentence inside
+                  `considerations` — readable, but invisible to the booking gate,
+                  and impossible to render as anything but a wall of place names.
+                  Level first, because that is what a traveler is scanning for. */}
+              {zonesToShow.length > 0 && (
+                <div className="safety-zones">
+                  <div className="safety-zones__h">Areas of {country} under a stricter advisory</div>
+                  {zonesToShow.map((z) => (
+                    <div className="safety-zone" key={z.name}>
+                      <span className="safety-zone__lvl" style={{ background: SAFE_HEADER_COLOR[z.lvl] }}>L{z.lvl}</span>
+                      <span className="safety-zone__b">
+                        <span className="safety-zone__n">{z.name}</span>
+                        {z.except?.length ? <span className="safety-zone__x"> — except {listOf(z.except)}, which {z.except.length > 1 ? "sit" : "sits"} at the country level</span> : null}
+                        {z.note ? <span className="safety-zone__note"> {z.note}</span> : null}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
               {s.medical && (
                 <div className="safety-row"><span className="safety-row__ic"><Icon name="cross" small /></span><span><span className="safety-row__k">Medical:</span> {s.medical}</span></div>
               )}

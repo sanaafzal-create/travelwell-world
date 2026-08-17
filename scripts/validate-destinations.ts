@@ -19,6 +19,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { REGIONS, SIS, SUBREGIONS } from "../src/data/taxonomy";
 import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places";
+import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 import { checkHero } from "./lib/check-hero";
 import { checkSafetyLanguage } from "./lib/check-safety-language";
 
@@ -160,6 +161,34 @@ for (const { code, d } of rows) {
     // booking on a row that cannot be booked.
     if (data.safety?.advisory_level === "L4" && data.safety.posture === "book-freely") {
       errs.push(`${at}: advisory_level L4 with posture "book-freely" — those cannot both be true.`);
+    }
+    // ── THE ZONE LINK ────────────────────────────────────────────────────────
+    // `safety.zone` names an area on the COUNTRY row (safety.json `zones[]`), so
+    // the level lives in one place and every destination inside it follows when
+    // the advisory moves. That only holds if the name actually joins: a typo, a
+    // renamed zone, or a country whose row carries no zones at all would leave a
+    // destination silently inheriting the country baseline while its author
+    // believed they had placed it under a Level 4.
+    //
+    // Checked here rather than trusted at runtime because the runtime fallback
+    // is deliberately blunt — an unresolvable zone holds booking and prints no
+    // level, which is right for safety and wrong for a page anyone wants to
+    // publish. The gate is where a bad join should be caught and fixed.
+    const zoneName = data.safety?.zone;
+    if (zoneName) {
+      const iso = d.country ? COUNTRY_ISO[d.country] : undefined;
+      const row = iso ? (SAFETY_DATA as Record<string, { zones?: { name: string }[] }>)[iso] : undefined;
+      if (!iso) {
+        errs.push(`${at}: safety.zone "${zoneName}" but country "${d.country}" has no ISO mapping in COUNTRY_ISO — nothing to join the zone against.`);
+      } else if (!row) {
+        errs.push(`${at}: safety.zone "${zoneName}" but ${d.country} (${iso}) has no row in src/data/safety.json — add the country baseline first, zones live on it.`);
+      } else {
+        const names = (row.zones ?? []).map((z) => z.name);
+        const hit = names.some((n) => n.trim().toLowerCase() === zoneName.trim().toLowerCase());
+        if (!hit) {
+          errs.push(`${at}: safety.zone "${zoneName}" doesn't match any zone on the ${d.country} row. Known zones: ${names.length ? names.map((n) => `"${n}"`).join(", ") : "(none — the country row carries no zones)"}`);
+        }
+      }
     }
     for (const [i, j] of (data.jewels ?? []).entries()) {
       if (!j?.name) errs.push(`${at}: jewel #${i + 1} missing "name"`);

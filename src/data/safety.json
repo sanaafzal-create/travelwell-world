@@ -103,14 +103,42 @@
     "label": "Reconsider travel",
     "summary": "Reconsider travel due to crime, terrorism, kidnapping and civil unrest, with several regions off-limits entirely.",
     "considerations": [
-      "Several departments are Level 4 \"Do Not Travel\": Arauca, Norte de Santander, parts of Cauca (except Popayan) and Valle del Cauca (except Cali), and within ~10 km of the Venezuela border.",
       "Violent crime and express kidnapping occur nationwide.",
       "Terrorist attacks target transit and government sites; protests can turn violent.",
       "Active volcanoes and landslides in some regions."
     ],
     "medical": "Yellow-fever vaccination is recommended for lower-altitude/jungle regions (verify per region).",
     "source": "US State Dept L3 / UK FCDO, Mar 2026",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "Arauca",
+        "lvl": 4
+      },
+      {
+        "name": "Norte de Santander",
+        "lvl": 4
+      },
+      {
+        "name": "Cauca",
+        "lvl": 4,
+        "except": [
+          "Popayan"
+        ],
+        "note": "Parts of the department."
+      },
+      {
+        "name": "Valle del Cauca",
+        "lvl": 4,
+        "except": [
+          "Cali"
+        ]
+      },
+      {
+        "name": "Within ~10 km of the Venezuela border",
+        "lvl": 4
+      }
+    ]
   },
   "DE": {
     "country": "Germany",
@@ -130,14 +158,30 @@
     "label": "Exercise increased caution",
     "summary": "Exercise increased caution due to terrorism; the Nile corridor — Cairo, Luxor and Aswan — is Level 2, but the Sinai Peninsula and the Western Desert / Libya border are off-limits.",
     "considerations": [
-      "Level 4 \"Do Not Travel\": the Sinai Peninsula (except Sharm el-Sheikh by air), the Western Desert, and the border areas with Libya and Sudan.",
       "Terrorist groups can attack with little warning — tourist sites, transport hubs, and places of worship.",
       "Cairo, Giza and the Luxor–Aswan Nile-cruise corridor sit in the mainstream Level 2 zone.",
       "Petty crime and harassment occur; use licensed guides and reputable cruise operators."
     ],
     "medical": "Hepatitis A/typhoid vaccination advised; drink only bottled or treated water; carry rehydration salts for traveler's diarrhea; sun and heat precautions on the Nile; carry travel/medevac insurance.",
     "source": "US State Dept L2 (terrorism), 2025",
-    "verified": "2026-07"
+    "verified": "2026-07",
+    "zones": [
+      {
+        "name": "Sinai Peninsula",
+        "lvl": 4,
+        "except": [
+          "Sharm el-Sheikh, arriving by air"
+        ]
+      },
+      {
+        "name": "The Western Desert",
+        "lvl": 4
+      },
+      {
+        "name": "The Libya and Sudan border areas",
+        "lvl": 4
+      }
+    ]
   },
   "ES": {
     "country": "Spain",
@@ -186,13 +230,24 @@
     "label": "Exercise increased caution",
     "summary": "Exercise increased caution due to terrorism and natural hazards; parts of Papua are off-limits.",
     "considerations": [
-      "Central Papua and Highland Papua are Level 4 \"Do Not Travel\" (conflict, armed separatists, kidnapping).",
       "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
       "Ongoing terrorism plotting; variable road and ferry safety."
     ],
     "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic, malaria in Papua/eastern/rural areas, rabies present (incl. Bali); Hep A/B and typhoid recommended.",
     "source": "US State Dept L2 / UK FCDO, Apr 2025",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "Central Papua",
+        "lvl": 4,
+        "note": "Conflict, armed separatists, kidnapping."
+      },
+      {
+        "name": "Highland Papua",
+        "lvl": 4,
+        "note": "Conflict, armed separatists, kidnapping."
+      }
+    ]
   },
   "IS": {
     "country": "Iceland",
@@ -228,14 +283,31 @@
     "label": "Reconsider travel",
     "summary": "Reconsider travel due to terrorism and regional conflict; several border zones are off-limits.",
     "considerations": [
-      "Level 4 \"Do Not Travel\" zones include the Syria/Iraq border areas, designated refugee camps, Rusayfah, and the Baqa'a area of Ayn Basha.",
       "Conflict-driven drone/missile risk region-wide since Feb 2026.",
       "The core Amman-Petra-Wadi Rum-Dead Sea circuit sits away from the Level 4 zones, but the country-wide Level 3 is volatile.",
       "Modest dress and customs sensitivity at religious sites."
     ],
     "medical": "Drink bottled water; extreme desert heat and sun exposure at Petra/Wadi Rum — hydrate and protect from sun.",
     "source": "US State Dept L3 / UK FCDO, May 2026",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "The Syria and Iraq border areas",
+        "lvl": 4
+      },
+      {
+        "name": "Designated refugee camps",
+        "lvl": 4
+      },
+      {
+        "name": "Rusayfah",
+        "lvl": 4
+      },
+      {
+        "name": "The Baqa'a area of Ayn Basha",
+        "lvl": 4
+      }
+    ]
   },
   "JP": {
     "country": "Japan",
@@ -257,14 +329,44 @@
     "label": "Exercise increased caution",
     "summary": "Exercise increased caution; mainstream safari areas are Level 2, but several border and coastal zones are off-limits.",
     "considerations": [
-      "Level 4 \"Do Not Travel\" zones: Somalia-border counties (Mandera, Wajir, Garissa), parts of the coast (Lamu County, Tana River, Kilifi north of Malindi) and northern border areas; Level 3 for Nairobi's Eastleigh and Kibera.",
       "Violent crime and carjacking, including in Nairobi.",
       "Poor road safety — avoid night driving.",
       "Maasai Mara, Amboseli and Tsavo sit in the Level 2 zone."
     ],
     "medical": "Yellow-fever vaccination recommended (certificate required if arriving from a risk country); malaria prophylaxis strongly advised for safari areas; bottled/treated water; carry medevac insurance.",
     "source": "US State Dept L2 / UK FCDO, Mar 2025",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "Mandera, Wajir and Garissa counties",
+        "lvl": 4,
+        "note": "The Somalia border counties."
+      },
+      {
+        "name": "Lamu County",
+        "lvl": 4
+      },
+      {
+        "name": "Tana River",
+        "lvl": 4
+      },
+      {
+        "name": "Kilifi north of Malindi",
+        "lvl": 4
+      },
+      {
+        "name": "The northern border areas",
+        "lvl": 4
+      },
+      {
+        "name": "Eastleigh, Nairobi",
+        "lvl": 3
+      },
+      {
+        "name": "Kibera, Nairobi",
+        "lvl": 3
+      }
+    ]
   },
   "KH": {
     "country": "Cambodia",
@@ -272,14 +374,20 @@
     "label": "Exercise increased caution",
     "summary": "Exercise increased caution; most of the country is fine, but the Thailand border is off-limits and landmines persist in some rural areas.",
     "considerations": [
-      "Level 4 \"Do Not Travel\" within ~50 km of the Cambodia-Thailand border (2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists).",
       "Street crime in Phnom Penh (phone and bag snatching), with occasional violent incidents.",
       "Unexploded ordnance and landmines in remote/forested areas (Battambang, Banteay Meanchey, Pursat, Pailin) — use local guides.",
       "Poor road safety."
     ],
     "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic and malaria occurs in rural/forest/border areas; serious cases evacuate to Bangkok — carry evacuation insurance.",
     "source": "US State Dept L2 / UK FCDO, Jul 2025",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "Within ~50 km of the Cambodia–Thailand border",
+        "lvl": 4,
+        "note": "2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists."
+      }
+    ]
   },
   "KR": {
     "country": "South Korea",
@@ -368,14 +476,23 @@
     "label": "Exercise increased caution",
     "summary": "Exercise increased caution; the tourist circuit is Level 2, but two remote regions are off-limits.",
     "considerations": [
-      "Level 4 \"Do Not Travel\" zones: the VRAEM (Apurimac/Ene/Mantaro valley) and the Colombia-border area of Loreto.",
       "Petty theft, carjackings and muggings occur even in daylight.",
       "Demonstrations can block roads and rail without warning.",
       "Cusco, the Sacred Valley, the Inca Trail and Machu Picchu are NOT in the restricted zones."
     ],
     "medical": "Altitude is the key concern — Cusco (~3,400 m) and the Sacred Valley/Inca Trail carry real altitude-sickness risk; acclimatize first. Yellow-fever vaccination recommended for the Amazon/jungle.",
     "source": "US State Dept L2 / UK FCDO, May 2025",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "The VRAEM (Apurimac, Ene and Mantaro valley)",
+        "lvl": 4
+      },
+      {
+        "name": "The Colombia-border area of Loreto",
+        "lvl": 4
+      }
+    ]
   },
   "PF": {
     "country": "French Polynesia",
@@ -390,6 +507,40 @@
     "medical": "Good care on Tahiti, limited on outer atolls; mosquito-borne illness (e.g. dengue) present; evacuation insurance advised.",
     "source": "US State Dept L1, Dec 2024",
     "verified": "2026-06"
+  },
+  "PH": {
+    "country": "Philippines",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution; the country baseline is Level 2, and Mindanao and the Sulu Archipelago carry their own, stricter levels.",
+    "considerations": [
+      "Reissued 8 May 2025 with a Kidnapping indicator.",
+      "UK FCDO advice reissued 1 April 2026: advises against all travel to western and central Mindanao including the Sulu archipelago, and against all but essential travel to the rest of Mindanao.",
+      "Luzon and the Visayas — Manila, Palawan, Cebu, Bohol, Boracay, Siargao — sit at the country baseline."
+    ],
+    "zones": [
+      {
+        "name": "The Sulu Archipelago, including the southern Sulu Sea",
+        "lvl": 4
+      },
+      {
+        "name": "Marawi City, Mindanao",
+        "lvl": 4
+      },
+      {
+        "name": "Mindanao",
+        "lvl": 3,
+        "except": [
+          "Davao City",
+          "Davao del Norte",
+          "Siargao Island",
+          "the Dinagat Islands"
+        ],
+        "note": "The remainder of Mindanao. The four named exceptions sit at the country baseline."
+      }
+    ],
+    "source": "US State Dept L2, reissued 8 May 2025 / UK FCDO, reissued 1 Apr 2026",
+    "verified": "2026-08"
   },
   "PT": {
     "country": "Portugal",
@@ -412,13 +563,19 @@
     "summary": "Reconsider travel due to a regional Ebola health emergency and DRC-border conflict spillover.",
     "considerations": [
       "Driven by a regional Ebola public-health emergency (declared May 2026) plus eastern-DRC conflict.",
-      "Level 4 \"Do Not Travel\" within ~10 km of the DRC border (incl. parts of Rusizi, Lake Kivu islands, Kamembe airport).",
       "Reduced US emergency-consular capacity; crime in Kigali is low, but plan around the thinner consular support.",
       "Gorilla-trekking areas (Volcanoes NP) are near the northwest border — check status before booking."
     ],
     "medical": "Active regional Ebola outbreak with heightened screening; yellow fever required if arriving from a transmission country; malaria prophylaxis; bottled/treated water; medevac insurance essential.",
     "source": "US State Dept L3 / UK FCDO / WHO Ebola emergency, Jun 2026",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "Within ~10 km of the DRC border",
+        "lvl": 4,
+        "note": "Includes parts of Rusizi, the Lake Kivu islands and Kamembe airport."
+      }
+    ]
   },
   "SA": {
     "country": "Saudi Arabia",
@@ -426,14 +583,23 @@
     "label": "Reconsider travel",
     "summary": "Reconsider travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
     "considerations": [
-      "Level 4 \"Do Not Travel\" zones: the Yemen border region (within ~20 mi) and Qatif (Eastern Province).",
       "Conflict-driven drone/missile risk and falling intercept debris since Feb 2026.",
       "Exit bans can block departure during legal, commercial or family disputes.",
       "Strict laws on social-media posts, drugs, alcohol (prohibited), dress/behavior, and photography of government/military sites."
     ],
     "medical": "Drink bottled water; extreme summer heat (45-50C); Hajj/Umrah pilgrims must meet Saudi vaccination requirements (e.g. meningococcal ACWY) — verify current rules.",
     "source": "US State Dept L3 / UK FCDO, Mar 2026",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "The Yemen border region (within ~20 miles)",
+        "lvl": 4
+      },
+      {
+        "name": "Qatif, Eastern Province",
+        "lvl": 4
+      }
+    ]
   },
   "TC": {
     "country": "Turks and Caicos Islands",
@@ -454,13 +620,19 @@
     "label": "Exercise increased caution",
     "summary": "Exercise increased caution; most of the country is fine, but the deep south and the Cambodia border are off-limits or sensitive.",
     "considerations": [
-      "Level 4 \"Do Not Travel\" within ~50 km of the Cambodia border (2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists).",
       "Deep-south insurgency provinces (Yala, Pattani, Narathiwat) are under increased caution / state of emergency.",
       "Poor road safety (very high motorcycle fatality rate); monsoon flooding."
     ],
     "medical": "Tap water is not safe — bottled/boiled; dengue endemic year-round, malaria in border/forest areas, rabies present; Hep A/B and typhoid recommended; excellent private hospitals in Bangkok.",
     "source": "US State Dept L2 / UK FCDO, Jul 2025",
-    "verified": "2026-06"
+    "verified": "2026-06",
+    "zones": [
+      {
+        "name": "Within ~50 km of the Thailand–Cambodia border",
+        "lvl": 4,
+        "note": "2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists."
+      }
+    ]
   },
   "TZ": {
     "country": "Tanzania",

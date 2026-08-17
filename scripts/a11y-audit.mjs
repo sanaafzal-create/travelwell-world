@@ -16,6 +16,7 @@
  */
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
+import { existsSync } from "node:fs";
 
 const BASE = process.env.A11Y_BASE || "http://localhost:4173";
 const TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
@@ -28,8 +29,13 @@ const ROUTES = [
   "/guides", "/providers", "/about", "/first-aid-kit",
 ];
 
+// Prefer an explicit override, then the browser this container ships with, then
+// whatever Playwright resolves for itself. A gate that only runs on one machine
+// gets skipped on the others, and an accessibility check people skip is not a
+// standard — it's a preference.
+const PRE_INSTALLED = "/opt/pw-browsers/chromium";
 const browser = await chromium.launch({
-  executablePath: process.env.PW_EXECUTABLE || undefined,
+  executablePath: process.env.PW_EXECUTABLE || (existsSync(PRE_INSTALLED) ? PRE_INSTALLED : undefined),
   args: ["--no-sandbox"],
 });
 const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
