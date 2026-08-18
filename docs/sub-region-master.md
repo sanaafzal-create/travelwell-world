@@ -108,4 +108,58 @@ British Columbia · The Rockies · The Prairies · Ontario · Québec · The Mar
 ---
 
 ## Count
+## Incoming → canon: the sub_region reconcile table
+
+The research library authors against its own geography and we validate on exact
+strings, so a mismatch is a hard error at `validate:ingest` and a round trip to
+fix. These are the mappings already agreed, recorded here so the next batch casts
+to them without asking twice.
+
+**The principle, stated once.** A sub_region is a **browsing shelf**, not a
+physiographic feature. It answers "what would a traveller click", and a mountain
+range that crosses four shelves is not one. Where an incoming string names a
+range, it maps to the shelf the destination actually sits in.
+
+### 04A — after the eight-way split (2026-08-14)
+
+| incoming | canon |
+|---|---|
+| `Jordan & Petra` | `Jordan & the Levant` |
+| `Morocco & the Sahara` | `Morocco` |
+| `Tunisia & the Sahara` | `The Maghreb` |
+| `Oman — Muscat` | `Oman` |
+| `Egypt — Red Sea (liveaboard coast)` | `The Red Sea` |
+| `United Arab Emirates — Abu Dhabi` | `The Gulf` |
+| `United Arab Emirates — Dubai` | `The Gulf` |
+| `Qatar — Doha` | `The Gulf` |
+| `Saudi Arabia — AlUla` | `The Gulf` |
+| `Saudi Arabia — Riyadh` | `The Gulf` |
+
+*`Egypt & the Nile` already matches.* These 17 rows failed only because 04A was
+split **after** the batch was emitted — the strings were correct against the
+scheme that existed when they were written.
+
+### 12A — physiographic ranges → census-style shelves
+
+| incoming | canon |
+|---|---|
+| `Rocky Mountains` | `Mountain West` |
+| `Green Mountains` | `New England` |
+
+**And the inconsistency in our own scheme, stated rather than defended.** 12A is
+census-style and 13A is not: it carries `The Rockies`, `The Prairies` and
+`The North` beside three province names. So "we use census regions, you use
+ranges" is not quite true — we use whatever reads as a shelf in that country, and
+in Canada a range does. The rule that actually holds is the exact-string one: cast
+to the list in `taxonomy.ts` for the region you are in, and do not generalise from
+one region's flavour to another's.
+
+### Region codes
+
+**There is no `11U`.** It is not retired — it has never appeared as a token in
+any commit in this repository's history (checked across all refs, 2026-08-18).
+The 13 codes are `01F 02F 03F 04A 05A 06A 07A 08A 09P 10S 11C 12A 13A`, and
+`11C` is Caribbean & Atlantic. An incoming `11U` is a library-side invention with
+no counterpart here, so there is nothing to map it to — the rows need a real code.
+
 ≈ **95 sub-regions** total across 13 regions (01F 4 · 02F 9 · 03F 4 · 04A 8 · 05A 4 · 06A 4 built +1 future · 07A 6 · 08A 4 · 09P 5 · 10S *from master, per block* · 11C 12 · 12A 11 · 13A 7). At ~12–20 destinations each, the ~1,600-destination "big world, built once" corpus. *(11C refined 7 → 12 at build time; 10S strings come verbatim from David's locked master — Central America is by-country, so its count firms as blocks land; the old "168" figure was an error and is retired.)*
