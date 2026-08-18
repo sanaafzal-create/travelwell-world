@@ -31,7 +31,7 @@ Every user-facing string, English → current Arabic. Mark up the AR column; bra
 | step2.title | Choose where in the world | اختر وجهتك في العالم |
 | step2.body | Thirteen regions, each with researched destinations and an accurate Safety Card you can trust. | ثلاث عشرة منطقة، كلٌّ بوجهات مدروسة وبطاقة أمان دقيقة يمكنك الوثوق بها. |
 | step3.title | Move through the Wells | تنقّل عبر الـ Wells |
-| step3.body | Flights, stays, dining, transport, activities — each Well surfaces the best 6 providers, matched to you. | الطيران، الإقامة، الطعام، التنقّل، الأنشطة — كل Well يعرض أفضل 6 مزوّدين، مختارين لك. |
+| step3.body | Flights, stays, dining, transport, activities — each Well surfaces a shortlist of providers, matched to you. | الطيران، الإقامة، الطعام، التنقّل، الأنشطة — كل Well يعرض قائمة مختارة من المزوّدين، مختارين لك. | ⚠️ retranslated 2026-08-18 when the false "6" was removed — needs a native check |
 | step4.title | Book it — all in one trip | احجزها — كلّها في رحلة واحدة |
 | step4.body | Everything lands in a single itinerary, always saved. You always choose, and you always book. | كل شيء يجتمع في مسار واحد، محفوظ دائمًا. أنت دائمًا من يختار، وأنت دائمًا من يحجز. |
 | feat.eyebrow | Start with what moves you | ابدأ بما يحرّكك |
@@ -58,8 +58,8 @@ Every user-facing string, English → current Arabic. Mark up the AR column; bra
 | os.band3.body | The whole map, organized — Western Europe to the Caribbean, each region scored for safety and stitched into your route, never a detour off it. | الخريطة كاملة، منظَّمة — من أوروبا الغربية إلى الكاريبي، كل منطقة مُقيَّمة أمنيًّا ومنسوجة في مسارك، لا التفافًا عنه. |
 | os.band3.cta | Browse all 13 regions | تصفّح المناطق الـ13 |
 | os.band4.eyebrow | Curated, never overwhelming | منتقى، دون إرباك |
-| os.band4.title | The best matches, not endless lists | أفضل الخيارات، لا قوائم لا تنتهي |
-| os.band4.body | Six best recommendations for each part of your trip — matched to you and your budget. Want more? Tap “See more.” And if a booking earns us a commission, we say so right there. | ست توصيات هي الأفضل لكل جزء من رحلتك — مختارة لك ولميزانيتك. تريد المزيد؟ انقر «عرض المزيد». وإن كان الحجز يمنحنا عمولة، نقول ذلك هناك مباشرة. |
+| os.band4.title | Matched to you, not endless lists | مختار لك، لا قوائم لا تنتهي | ⚠️ retranslated 2026-08-18 — needs a native check |
+| os.band4.body | A shortlist for each part of your trip — matched to you and your budget, and ordered by fit rather than by commission. If a booking earns us a commission, we say so right there. | قائمة مختارة لكل جزء من رحلتك — مختارة لك ولميزانيتك، ومرتّبة حسب مدى ملاءمتها لك لا حسب العمولة. وإن كان الحجز يمنحنا عمولة، نقول ذلك هناك مباشرة. | ⚠️ retranslated 2026-08-18 — the old line promised six recommendations and a "See more" tap, neither of which exists. Needs a native check |
 | os.band4.cta | See how it works | كيف يعمل |
 | os.arch | See the full architecture | اطّلع على البنية الكاملة |
 | talk.eyebrow | Meet your Concierge | تعرّف على مرشدك |

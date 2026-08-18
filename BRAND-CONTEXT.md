@@ -149,7 +149,7 @@ and deliberate.
 
 1. **Tell us what moves you** — *"Pick the ways you love to travel — safari, romance, culinary, and more. Or just speak with Atlas."*
 2. **Choose where in the world** — *"Thirteen regions, each with researched destinations and an accurate Safety Card you can trust."*
-3. **Move through the Wells** — *"Flights, stays, dining, transport, activities — each Well surfaces the best 6 providers, matched to you."*
+3. **Move through the Wells** — *"Flights, stays, dining, transport, activities — each Well surfaces a shortlist of providers, matched to you."*
 4. **Book it — all in one trip** — *"Everything lands in a single itinerary, always saved. You always choose, and you always book."*
 
 ### Counts and the exact terms
@@ -235,10 +235,15 @@ Both are on-brand for the new name with no change of meaning.
 
 ## ⚠️ THINGS THAT ARE AMBIGUOUS OR PLACEHOLDER — do not treat as fact
 
-1. **"the best 6 providers" (step 3) is not what the product does.** The code caps
-   provider lists at 4 on a destination page and 9 on a travel-style page. The
-   number 6 appears in the marketing copy and nowhere in the logic. **Don't repeat
-   "6" in social copy.** "A shortlist matched to you" is accurate.
+1. ~~"the best 6 providers"~~ **— FIXED 2026-08-18, and worth knowing why.** The
+   site claimed six providers per Well in three places, including a large numeral
+   on the home page. No code produced six: the caps are four on a destination
+   page, three per Well and nine total on a travel-style page, and the Wells
+   surface caps nothing. One of the three also invited the reader to "Tap 'See
+   more'", an affordance that does not exist. All three now say **"a shortlist,
+   matched to you"** and the numeral is gone. **Never reintroduce a provider
+   count** — the shortlist length genuinely varies by Well and region, so there is
+   no true number to quote.
 
 2. **"504 destinations" is true in the catalogue, not yet on the live site.** The
    data is merged and built but the database step has not been run. Until it has,

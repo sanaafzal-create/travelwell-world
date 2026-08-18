@@ -25,7 +25,18 @@ const FEAT_ORDER = ["romance", "tropical", "safari", "expedition", "ultra", "riv
 /* ---- The four cinematic "Operating System" feature bands ----
    `countKey` instead of a hardcoded number: the band headline and its "+N more"
    chip read the live catalog, so growing the interest board can't leave a stale
-   "25" on the home page. Band 4's "6" is not a catalog count and stays literal. */
+   "25" on the home page.
+
+   BAND 4 CARRIES NO NUMERAL, and that is the fix rather than the omission. It
+   said "6 to choose from", and no code anywhere produces six: the caps are four
+   on a destination page, three per Well and nine total on an interest page, and
+   the Wells surface caps nothing at all. The literal was flagged in this very
+   comment as "not a catalog count" and left standing — which is how a number
+   nobody can source survives on the home page.
+
+   There is no true number here, because the shortlist length genuinely varies by
+   Well and region. So the band makes the claim it can keep — curation — and the
+   numeral slot is simply absent. */
 const OS_BANDS = [
   {
     side: "left", countKey: "si", numSub: "", eyebrow: "os.band1.eyebrow", title: "os.band1.title",
@@ -49,7 +60,7 @@ const OS_BANDS = [
     image: "mountainValley",
   },
   {
-    side: "right", num: "6", numSub: "to choose from", eyebrow: "os.band4.eyebrow", title: "os.band4.title",
+    side: "right", numSub: "", eyebrow: "os.band4.eyebrow", title: "os.band4.title",
     body: "os.band4.body",
     chips: ["Top picks first", "Straight about commissions", "You decide & book"], to: "/wells-surface", cta: "os.band4.cta",
     bg: "radial-gradient(120% 90% at 75% 20%, #cf9468 0%, transparent 55%), linear-gradient(240deg, #9c5b3b 0%, #5e3520 55%, #2e1a10 100%)",
@@ -354,7 +365,11 @@ export default function Home() {
                 style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", zIndex: 1 }} />
               <div className="os-feature__scrim" />
               <div className="os-feature__content">
-                <div className="os-feature__num">{"countKey" in b ? counts[b.countKey] : b.num}{b.numSub && <span style={{ fontSize: ".42em", fontWeight: 600, verticalAlign: "middle", opacity: 0.85 }}> {b.numSub}</span>}</div>
+                {/* A band without a countKey has no numeral. Rendering `b.num`
+                    unconditionally printed "undefined" the moment one was removed. */}
+                {"countKey" in b && (
+                  <div className="os-feature__num">{counts[b.countKey]}{b.numSub && <span style={{ fontSize: ".42em", fontWeight: 600, verticalAlign: "middle", opacity: 0.85 }}> {b.numSub}</span>}</div>
+                )}
                 <Eyebrow>{t(b.eyebrow)}</Eyebrow>
                 <h3>{t(b.title)}</h3>
                 <p>{t(b.body)}</p>
