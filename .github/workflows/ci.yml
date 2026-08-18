@@ -19,6 +19,30 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # ── THE DATA GATES ──────────────────────────────────────────────────
+      # Content now arrives by pull request (Sana, 2026-08-17), and until this
+      # was added CI never ran a single one of them: typecheck, build, brand and
+      # a11y all pass happily on a batch that fails the ingest gate. PR 49 —
+      # 484 rows from the research library — carried a green tick while failing
+      # `validate:ingest` on 17 rows.
+      #
+      # That is the exact failure the two-gate argument exists to prevent, with
+      # the gates present in the repo and simply not wired to the one place a
+      # human reads before merging. A gate nobody runs is a document.
+      #
+      # These run BEFORE the slow steps: a bad batch should fail in seconds, not
+      # after a Chromium install.
+      - name: Ingest gate — destinations (self-check + any dropped-in batch)
+        run: npm run validate:ingest
+      - name: Ingest gate — Special-Interest dossiers
+        run: npm run validate:si
+      - name: Provider gate
+        run: npm run validate:providers
+      - name: Generated files match their source
+        # Catches the other half: a source edit committed without regenerating
+        # the seed migration, the sitemap, the fact sheet or the rewrite list.
+        run: npm run check:generated
+
       - name: Typecheck
         run: npm run typecheck
       - name: Build
