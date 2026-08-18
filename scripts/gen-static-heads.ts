@@ -58,6 +58,10 @@ interface Page {
   path: string;        // "/destination/paris-france"
   title: string;
   description: string;
+  /** Keep it out of the index — auth surfaces, the traveller's own pages, the
+   *  investor demo gate. A canonical is still emitted so the URL is unambiguous
+   *  if it is ever linked. */
+  noindex?: boolean;
   jsonLd?: object[];
 }
 
@@ -112,16 +116,78 @@ for (const g of GUIDES) {
   });
 }
 
-// ── The hub pages ──────────────────────────────────────────────────────────
-const HUBS: Array<[string, string, string]> = [
-  ["/special-interests", "The 35 Signature Interests", "Every world we build a trip around — from safari to river cruising to winter."],
-  ["/regions", "The 13 World Regions", "Every destination belongs to one of thirteen regions. Start with where."],
-  ["/destinations", "Destinations", "Every destination we cover, with the safety read that comes with it."],
-  ["/guides", "Read Before Travel", "Field guides, seasonal timing and how-to — read before you go."],
-  ["/wells", "The 13 Wells", "Fly-Well, Stay-Well, Eat-Well and the rest — how a trip is actually assembled."],
+// ── Every static route ─────────────────────────────────────────────────────
+// EVERY one, and the list is checked against the router below.
+//
+// It used to be five hand-picked hubs. The other 24 static routes had no
+// pre-rendered page, so they served `dist/index.html` — which carries the HOME
+// page's title, the home page's description, the home page's `og:url` and no
+// canonical at all. `/about`, `/contact`, `/privacy`, `/terms`, `/providers`,
+// `/luxury`, `/first-aid-kit` were all presenting to a crawler as the home page
+// (David, 2026-08-15: "There is no canonical tag at all — absent, not
+// misconfigured"). Same class of defect as the ghost, on real pages.
+//
+// `index` is explicit per route rather than defaulted, because the auth and demo
+// surfaces must NOT be indexed and defaulting to indexable is how one of them
+// quietly ends up in a search result. `/vc-demo` is the investor gate.
+const STATIC_PAGES: Array<{ path: string; name: string; description: string; index: boolean }> = [
+  { path: "/", name: "Designed around you", description: "A Travel Operating System. From a feeling to a beautifully booked trip — with the safety read that comes with it.", index: true },
+  { path: "/special-interests", name: "The 35 Signature Interests", description: "Every world we build a trip around — from safari to river cruising to winter.", index: true },
+  { path: "/regions", name: "The 13 World Regions", description: "Every destination belongs to one of thirteen regions. Start with where.", index: true },
+  { path: "/destinations", name: "Destinations", description: "Every destination we cover, with the safety read that comes with it.", index: true },
+  { path: "/guides", name: "Read Before Travel", description: "Field guides, seasonal timing and how-to — read before you go.", index: true },
+  { path: "/wells", name: "The 13 Wells", description: "Fly-Well, Stay-Well, Eat-Well and the rest — how a trip is actually assembled.", index: true },
+  { path: "/wells-surface", name: "The Wells, in Detail", description: "What each Well covers, what it switches on, and which providers sit behind it.", index: true },
+  { path: "/providers", name: "Our Providers", description: "The partners we book through — how each one is curated, and how the handoff works.", index: true },
+  { path: "/activities", name: "Activities", description: "What you'll actually do — the experiences that hang off each Signature Interest.", index: true },
+  { path: "/luxury", name: "TravelWell-Ultra", description: "The extraordinary, made effortless — with Nanny-Well and Security-Well alongside.", index: true },
+  { path: "/calendar", name: "When to Go", description: "Seasons, timing and the events worth planning a trip around.", index: true },
+  { path: "/plan", name: "Plan a Trip", description: "Start from a feeling and let Atlas build the days around it.", index: true },
+  { path: "/flights", name: "Fly-Well", description: "Finding the flight that fits the trip, not just the cheapest fare.", index: true },
+  { path: "/first-aid-kit", name: "The Travel First-Aid Kit", description: "What to carry, what it treats, and the numbers that work without a signal.", index: true },
+  { path: "/about", name: "About TravelWell", description: "Who we are, what Safer-Informed Travel means, and why we never promise safe.", index: true },
+  { path: "/contact", name: "Contact", description: "How to reach us.", index: true },
+  { path: "/privacy", name: "Privacy", description: "What we collect, what we don't, and what we do with it.", index: true },
+  { path: "/terms", name: "Terms", description: "The terms that apply when you use TravelWell.", index: true },
+  { path: "/disclosure", name: "Disclosure", description: "How we earn, and why the provider is always the merchant of record.", index: true },
+  { path: "/sitemap", name: "Site Map", description: "Every page on TravelWell, in one list.", index: true },
+  // Not for the index — a traveller's own surfaces, and the investor gate.
+  { path: "/itinerary", name: "Your Itinerary", description: "The trip you're building.", index: false },
+  { path: "/profile", name: "Your Profile", description: "Your Identity Card and saved trips.", index: false },
+  { path: "/signup", name: "Create an Account", description: "Join TravelWell.", index: false },
+  { path: "/signin", name: "Sign In", description: "Welcome back.", index: false },
+  { path: "/verify", name: "Verify Your Email", description: "Confirm your address to finish signing up.", index: false },
+  { path: "/activation", name: "Activation", description: "Activating your account.", index: false },
+  { path: "/welcome-back", name: "Welcome Back", description: "Picking up where you left off.", index: false },
+  { path: "/go", name: "Book It", description: "Handing you to the provider to complete your booking.", index: false },
+  { path: "/demo", name: "Demo", description: "A guided walk through TravelWell.", index: false },
+  { path: "/vc-demo", name: "Demo", description: "A guided walk through TravelWell.", index: false },
 ];
-for (const [path, name, description] of HUBS) {
-  pages.push({ path, title: `${name} — TravelWell.World`, description });
+for (const sp of STATIC_PAGES) {
+  pages.push({
+    path: sp.path,
+    title: sp.path === "/" ? `TravelWell.World — ${sp.name}` : `${sp.name} — TravelWell.World`,
+    description: sp.description,
+    noindex: !sp.index,
+  });
+}
+
+// THE LIST MUST EQUAL THE ROUTER. A static route with no entry here silently
+// serves the home page's <head>, which is the bug this replaced — so a new route
+// added without a line above fails the build rather than shipping mislabelled.
+{
+  const app = readFileSync("src/App.tsx", "utf8");
+  const routed = [...app.matchAll(/<Route\s+path="([^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((p) => p !== "*" && !p.includes(":"));
+  const covered = new Set(STATIC_PAGES.map((sp) => sp.path));
+  const uncovered = routed.filter((p) => !covered.has(p));
+  if (uncovered.length) {
+    throw new Error(
+      `gen-static-heads: ${uncovered.length} static route(s) have no STATIC_PAGES entry — ` +
+      `they would serve the home page's title, description and og:url with no canonical: ${uncovered.join(", ")}`
+    );
+  }
 }
 
 /** Swap the head fields, leaving body and scripts untouched. */
@@ -140,6 +206,10 @@ function render(p: Page): string {
   html = /<link rel="canonical"/.test(html)
     ? html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${attr(canonical)}$2`)
     : html.replace("</head>", `  <link rel="canonical" href="${attr(canonical)}" />\n  </head>`);
+
+  if (p.noindex) {
+    html = html.replace("</head>", `  <meta name="robots" content="noindex, follow" />\n  </head>`);
+  }
 
   // The structured data, marked so the runtime injector can remove it rather
   // than emit a second copy for a reader that DOES run JavaScript.
