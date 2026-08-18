@@ -657,20 +657,23 @@
     "country": "Rwanda",
     "lvl": 3,
     "label": "Reconsider travel",
-    "summary": "Reconsider travel due to a regional Ebola health emergency and DRC-border conflict spillover.",
+    "summary": "Reconsider travel due to crime and unrest. Some areas carry increased risk — the DRC border zone below is Do Not Travel.",
     "considerations": [
-      "Driven by a regional Ebola public-health emergency (declared May 2026) plus eastern-DRC conflict.",
-      "Reduced US emergency-consular capacity; crime in Kigali is low, but plan around the thinner consular support.",
-      "Gorilla-trekking areas (Volcanoes NP) are near the northwest border — check status before booking."
+      "Petty crime such as pickpocketing is a risk in urban areas; burglary and targeted theft are less common but do happen.",
+      "Armed groups and military forces clash in nearby countries, and that violence carries a risk of spilling into Rwanda.",
+      "State names Volcanoes National Park as NOT included in the area of increased risk — the gorilla-trekking destination sits outside the border zone."
     ],
     "medical": "Active regional Ebola outbreak with heightened screening; yellow fever required if arriving from a transmission country; malaria prophylaxis; bottled/treated water; medevac insurance essential.",
-    "source": "US State Dept L3 / UK FCDO / WHO Ebola emergency, Jun 2026",
-    "verified": "2026-06",
+    "source": "US State Dept, Travel Advisories feed — L3, reissued 11 May 2026",
+    "verified": "2026-08",
     "zones": [
       {
         "name": "Within ~10 km of the DRC border",
         "lvl": 4,
-        "note": "Includes parts of Rusizi, the Lake Kivu islands and Kamembe airport."
+        "except": [
+          "Volcanoes National Park"
+        ],
+        "note": "Unrest. Multiple armed groups, individuals and military forces operate in North and South Kivu; violence may spill into Rwanda without warning. US government employees need special authorisation to travel here. State states Volcanoes National Park is not included in this area."
       }
     ]
   },
@@ -755,17 +758,16 @@
     "country": "Uganda",
     "lvl": 4,
     "label": "Do not travel",
-    "summary": "Do not travel due to an active Ebola (Bundibugyo) outbreak. This is a health-driven Level 4 — the same regional emergency behind Rwanda's Level 3.",
+    "summary": "Do not travel due to crime, terrorism and unrest. Level 4 is content-only on TravelWell: we show the destination and why it is held, and do not offer booking.",
     "considerations": [
-      "Driven by an active Ebola (Bundibugyo) outbreak — a health advisory, separate from the security level.",
-      "Part of the same regional Ebola public-health emergency affecting neighbouring Rwanda.",
-      "Level 4 is content-only on TravelWell: we show the destination and why it's held, and do not offer booking.",
-      "Outbreak levels move quickly in both directions — re-check the official advisory before relying on this."
+      "Violent crime — armed robbery, home invasion, sexual assault — is a real danger, more common in larger cities, the Karamoja region and along the western and northern borders.",
+      "State names a risk of terrorist violence, with attacks having targeted religious venues, transport hubs and areas visited by tourists including national parks.",
+      "Protests develop with little warning around political events; security services have used batons, rubber bullets, tear gas and gunfire.",
+      "State also flags the 2023 Anti-Homosexuality Act — read the advisory in full before planning any travel."
     ],
     "medical": "Active Ebola outbreak with heightened screening and entry/exit controls. Confirm current requirements with the CDC travel health notices and your national advisory before any travel.",
-    "source": "Founder report, Aug 2026 — an active Ebola (Bundibugyo) outbreak, consistent with the regional emergency behind Rwanda's level. Not independently confirmed against an official advisory.",
-    "verified": "",
-    "reported": true
+    "source": "US State Dept, Travel Advisories feed — L4, reissued 8 Dec 2025",
+    "verified": "2026-08"
   },
   "ZA": {
     "country": "South Africa",

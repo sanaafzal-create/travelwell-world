@@ -38,6 +38,8 @@ jobs:
         run: npm run validate:si
       - name: Provider gate
         run: npm run validate:providers
+      - name: Advisory text gate — no hazard attributed to a source that doesn't name it
+        run: npm run check:advisory-text
       - name: Generated files match their source
         # Catches the other half: a source edit committed without regenerating
         # the seed migration, the sitemap, the fact sheet or the rewrite list.

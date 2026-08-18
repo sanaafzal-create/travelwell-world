@@ -2,7 +2,7 @@
   "_source": "US State Department, Travel Advisories Atom feed (cadatacatalog.state.gov/download/traveladvisory)",
   "_feed_updated": "2026-08-17T09:28:11Z",
   "_snapshot_taken": "2026-08-17",
-  "_note": "Reduced to the fields we use. The COUNTRY NAME is the join key — see the header comment in advisory-sources.ts for why `tag` must never be one.",
+  "_note": "The COUNTRY NAME is the join key — see the header comment in advisory-sources.ts for why `tag` must never be one. `summary` is State's own prose, verbatim, carried only for the countries we serve, so a quotation we render can be checked against it as a substring.",
   "entries": [
     {
       "country": "Afghanistan",
@@ -93,14 +93,16 @@
       "lvl": 1,
       "tag": "AU",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.aus.html",
-      "published": "2026-05-30"
+      "published": "2026-05-30",
+      "summary": "Exercise normal precaution in Australia . Australia is generally a safe destination for travelers. Review our Travel Guidance for Australia to learn how to prepare for a safe trip."
     },
     {
       "country": "Australia",
       "lvl": 1,
       "tag": "AS",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/australia-travel-advisory.html",
-      "published": "2025-05-30"
+      "published": "2025-05-30",
+      "summary": "Reissued after periodic review with minor edits. Exercise normal precautions in Australia. Read the country information page for additional information on travel to Australia. If you decide to travel to Australia: Enroll in the Smart Traveler Enrollment Program ( STEP ) to receive alerts and make it easier to locate you in an emergency. Review the Country Security Report for Australia. Prepare a plan for emergency situations. Review the Traveler’s Checklist . Visit the CDC page for the latest Travel Health Information related to your travel and return to the United States. We highly recommend that you buy insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancellation coverage."
     },
     {
       "country": "Azerbaijan",
@@ -268,7 +270,8 @@
       "lvl": 2,
       "tag": "CB",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/cambodia-travel-advisory.html",
-      "published": "2025-07-25"
+      "published": "2025-07-25",
+      "summary": "The advisory level was increased to 2. The \"unrest\" risk indicator was added. An area of increased risk was added. The advisory summary was updated. Exercise increased caution in Cambodia due to crime and landmines . Some areas have increased risks. Read the entire Travel Advisory. Do Not Travel to: Areas along Cambodian and Thai border due to armed conflict. Advisory summary: Phnom Penh Street crime, particularly phone and bag snatchings, occurs frequently in areas where foreigners gather; resistance can result in injury. Violent crimes, such as sexual assault and homicide do occur and sometimes are committed against foreigners. Battambang, Banteay Meanchey, Pursat, Siem Reap, Pailin, and Kampong Thom provinces Landmines and unexploded ordnance are found in remote areas throughout Cambodia, and especially in Battambang, Banteay Meanchey, Pursat, Siem Reap, Pailin, and Kampong Thom provinces. Do not touch unknown metal objects; instead notify the Cambodia Mine Action Center at 012-800-473/023-995-437. Use a local guide when walking in forested areas or dry rice paddies in these areas. Level 4: Do Not Travel Cambodia – Thailand Border Do not travel to areas within 50km of the Cambodia – Thailand border due to ongoing fighting between Cambodian and Thai military forces. There are reports of fighting, including rocket and artillery fire, between Cambodian and Thai forces along the border. Armed conflict has led to reports of civilian casualties. There is a collateral risk of violence, and U.S. citizens are advised to avoid all but essential travel to within 50km of these border areas until further notice. The U.S. government has limited ability to provide emergency services to U.S. citizens in these provinces due to the ongoing risk of armed conflict. Read the destination information page for additional information on travel to Cambodia. If you decide to travel to Cambodia: Do not physically resist any robbery attempt. Have evacuation plans that do not rely on U.S. government assistance. Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Cambodia. Prepare a contingency plan for emergency situations. Review the Traveler’s Checklist. Visit the CDC page for the latest Travel Health Information related to your travel. We highly recommend that you buy insurance before you travel. Check with your travel insurance provider about evacuation assistance, "
     },
     {
       "country": "Cameroon",
@@ -282,7 +285,8 @@
       "lvl": 1,
       "tag": "CA",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.can.html",
-      "published": "2026-06-05"
+      "published": "2026-06-05",
+      "summary": "Exercise normal precaution in Canada . Canada is generally a safe destination for travelers. Crime Petty crime is common, especially in popular tourist locations. Stay aware of your surroundings. Most crimes against foreigners are crimes of opportunity, like purse snatching, pickpocketing, and car break-ins or theft. Review our Travel Guidance for Canada to learn how to prepare for a safe trip."
     },
     {
       "country": "Cayman Islands",
@@ -317,7 +321,8 @@
       "lvl": 3,
       "tag": "CO",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.col.html",
-      "published": "2026-03-31"
+      "published": "2026-03-31",
+      "summary": "Reconsider travel to Colombia due to crime, terrorism, civil unrest, kidnapping, and natural disasters. Some areas have an increased risk. Read the entire Travel Advisory. Violent crime is common in many areas of Colombia, including murder, assault, and robbery. Other crimes, such as drugging, extortion, kidnapping, and armed break-ins—including at hotels and other places tourists stay—also occur frequently in some regions. Street crime occurs throughout Colombia and can quickly become violent. If you are targeted by criminals, do not resist. Police procedures and investigations in Colombia differ from those in the United States, and crimes against tourists are not always prosecuted. This can be a source of frustration for victims. Terrorism There is risk of terrorist violence, including terrorist attacks and other activity, in Colombia. Visit the U.S. Department of State’s Country Reports on Terrorism to learn more. Terrorists in Colombia may attack with little or no warning and target: U.S. government facilities Local government facilities Tourist areas and attractions Transportation centers Shopping malls and markets Military and police facilities Hotels Clubs Restaurants Airports Police, military personnel, and their facilities are often targeted, including in large cities. In the past, attacks have included car bombs, grenades, explosive devices placed in buildings or on main roads, and the use of drones. Illegal armed groups, including narcotrafficking groups and terrorist organizations, have increased in number and expanded into more regions of Colombia. In remote areas where these groups are fighting with the government, they use improvised explosive devices (IEDs) and landmines against rivals and government forces. These explosives may be hidden in vehicles, attached to drones, or buried in the ground. Truck bombs have also been used to attack police and military installations. Civilians could be unintentionally harmed by IED attacks aimed at rival groups and government targets. Demonstrations Political demonstrations are common throughout Colombia and can: Shut down roads and highways without notice or estimated reopening timelines. Lead to road closures that reduce access to public transportation. Interrupt travel within and between cities. Become violent and result in deaths and injuries. Due to the risks, U.S. government employees working in Colombia are prohibited from : Going to Colombia’s land borders with neighboring countries without special authorization. Using motorcycles. Hailing taxis from the street or using any form of public tran"
     },
     {
       "country": "Comoros",
@@ -415,7 +420,8 @@
       "lvl": 2,
       "tag": "EG",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.egy.html",
-      "published": "2025-07-15"
+      "published": "2025-07-15",
+      "summary": "Exercise increased caution in Egypt due to terrorism , crime , and health . Some areas have increased risk. The U.S. Embassy has limited ability to help dual national U.S.-Egyptian citizens who are arrested or detained. Egyptian law considers dual citizens to be solely Egyptian citizens. Terrorism There is risk of terrorist violence, including terrorist attacks and other activity in Northern and Middle Sinai Peninsula. Visit the U.S. Department of State's country reports on terrorism to learn more. Terrorists may attack with little or no warning: Egyptian authorities generally offer effective security protection. However, extremists continue to express interest in planning and carrying out attacks. Security is generally present at potential targets, which include: Religious sites (mosques, churches, monasteries, and buses traveling there) Local government buildings, and diplomatic facilities (embassies) Tourist sites Transportation centers Shopping malls Restaurants and foreign businesses Resorts Roadside checkpoints Urban areas in Cairo Crime Most crimes against foreigners are crimes of opportunity, like purse snatching and pickpocketing. Harassment of women, including foreigners, is a problem in Egypt. It can include vulgar comments, gestures, indecent exposure, and unwanted physical contact. Tourists should beware of overcharging and scams in tourist areas. Review the Country Security Report for Egypt for further details. Health Emergency and intensive care facilities are limited in Egypt and may be unavailable in remote areas. Ambulances are rare, unreliable in most areas, and don’t have advanced medical equipment. Global polio Some international destinations, including Egypt, have circulating poliovirus. Before traveling to Egypt, make sure you are up to date on your polio vaccines. Check the CDC website for current vaccination recommendations . Demonstrations Protests or demonstrations may occur suddenly: Individuals have been arrested for being in the vicinity of protests in Egypt, even when not actively participating. U.S. citizens have been arrested for participating in protests. You may be detained for posting anything on social media seen as critical of Egypt or its allies, or for disrespecting its cultural sites. Local law prohibits protesting or demonstrating without a permit. Do not travel to: The Northern and Middle Sinai Peninsula due to terrorism. The Western Desert due to risk to safety and security unless traveling with a professionally licensed tour company. Egyptian border areas due to military zones ."
     },
     {
       "country": "El Salvador",
@@ -457,7 +463,8 @@
       "lvl": 3,
       "tag": "ET",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/ethiopia-travel-advisory.html",
-      "published": "2026-04-01"
+      "published": "2026-04-01",
+      "summary": "There was no change to the advisory level. The \"other\" risk indicator was updated to include exit bans and communication disruptions. The advisory summary was updated. Reconsider travel to Ethiopia due to unrest, crime, kidnapping, terrorism, landmines, communications disruptions, and exit bans. Some areas have increased risk. Read the entire Travel Advisory. Do Not Travel To: Tigray region and border with Eritrea due to armed conflict, unrest, and crime. Afar region due to armed conflict, unrest, and crime. Amhara region due to armed conflict, unrest, and crime. Gambella region due to crime, kidnapping, armed conflict, and unrest. Benishangul Gumuz region due to crime, kidnapping, armed conflict, and unrest. Specific areas within the Oromia region due to armed conflict, ethnically motivated violence, and unrest. Sidama Region due to armed conflict and unrest. Central Ethiopia Region due to armed conflict and unrest. South Ethiopia Region due to armed conflict and unrest. Southwest Ethiopia Region due to armed conflict and unrest. Border with Somalia due to terrorism, kidnapping, and landmines. Border with Sudan and South Sudan due to crime, kidnapping, unrest, and armed conflict. Border with Kenya due to terrorism, armed conflict, and unrest. Advisory summary Unrest The security situation in Addis Ababa is stable. However, there is sporadic violent armed conflict and civil unrest in other areas of Ethiopia. The security situation may worsen without warning. Communications Disruptions Internet, cellular data, and phone services are often restricted or shut down before, during, and after unrest. These disruptions affect the U.S. embassy’s ability to communicate with Americans in Ethiopia and delay consular services. Limited consular services for Americans U.S. government employees working in Ethiopia need special authorization to travel outside of Addis Ababa due to safety risks. Due to travel restrictions, the U.S. embassy has limited access to Americans arrested or detained in Ethiopia and routine consular services are only available at the embassy. Ethiopian law does not recognize dual citizenship. There are often delays in notifying the U.S. embassy of an arrest for dual U.S.-Ethiopia nationals. Exit bans that prevent departure Americans are subject to local laws. If you break immigration laws in Ethiopia – even by mistake – you could be deported, fined, imprisoned, or subjected to an exit ban. Exit bans prevent travelers from leaving. The Government of Ethiopia imposes exit bans on Americans who have unpaid immigration fines and strictly enforces the"
     },
     {
       "country": "Federated States of Micronesia",
@@ -485,7 +492,8 @@
       "lvl": 2,
       "tag": "FR",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.fra.html",
-      "published": "2025-05-28"
+      "published": "2025-05-28",
+      "summary": "Exercise increased caution in France due to terrorism and unrest . Pickpocketing and phone thefts are common, especially in crowded places. Terrorist groups continue to plan possible attacks in France and may attack with little to no warning. There are also regular, peaceful protests and strikes in Paris and other cities throughout France. Pickpocketing and phone thefts are frequent crimes. They can occur in crowded areas such as: Airports Subways and train cars Tourist attractions Train stations Terrorist groups continue to plan possible attacks in France. They may attack with little or no warning. Possible targets include: Tourist locations Transportation hubs and airports Markets and shopping malls Local government facilities Hotels, restaurants, and clubs Places of worship Major sporting and cultural events Educational institutions Parks Other public areas Peaceful demonstrations and strikes happen often in Paris and other cities in France. Protests can disrupt transportation services. On rare occasions, protests have turned violent or caused property damage. Police may respond with water cannons and tear gas."
     },
     {
       "country": "French Guiana",
@@ -499,7 +507,8 @@
       "lvl": 1,
       "tag": "FP",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/french-polynesia-travel-advisory.html",
-      "published": "2024-12-02"
+      "published": "2024-12-02",
+      "summary": "Reissued after periodic review without changes Exercise normal precautions in French Polynesia. Read the country information page for additional information on travel to French Polynesia. If you decide to travel to French Polynesia: Enroll in the Smart Traveler Enrollment Program ( STEP ) to receive security messages and make it easier to locate you in an emergency. Follow the Department of State on Facebook and X/Twitter . Review the Country Security Report for French Polynesia. Visit the CDC page for the latest Travel Health Information related to your travel. Prepare a contingency plan for emergency situations. Review the Traveler’s Checklist ."
     },
     {
       "country": "French Saint Martin",
@@ -534,7 +543,8 @@
       "lvl": 2,
       "tag": "GM",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.deu.html",
-      "published": "2025-05-13"
+      "published": "2025-05-13",
+      "summary": "Exercise increased caution in Germany due to terrorism . Terrorist groups and lone actors remain a constant threat in Germany and Europe, attacking people in public locations with knives, small arms, rudimentary explosive devices, and vehicles. Such attacks may occur with little or no warning and target: Tourist locations Transportation centers (airports, train, or bus stations) Markets and shopping malls Local government facilities Hotels, clubs, and restaurants Places of worship and educational institutions Parks Major sporting and cultural events Schools"
     },
     {
       "country": "Ghana",
@@ -548,7 +558,8 @@
       "lvl": 1,
       "tag": "GR",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/greece-travel-advisory.html",
-      "published": "2025-10-23"
+      "published": "2025-10-23",
+      "summary": "There were no changes to the advisory level or risk indicators. Advisory summary was updated. Advisory Summary Exercise normal precautions in Greece. Petty crime is common, especially in popular tourist locations. Stay aware of your surroundings. Large-scale demonstrations related to the local political situation may occur with little notice. Demonstrations may disrupt transportation and other essential services. If you decide to travel to Greece: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Greece. Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Health Information for Greece. Whether you’re a first time or frequent traveler, use the International Travel Checklist . We highly recommend that you buy travel insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancelation coverage."
     },
     {
       "country": "Greenland",
@@ -632,7 +643,8 @@
       "lvl": 1,
       "tag": "IC",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/iceland-travel-advisory.html",
-      "published": "2026-05-05"
+      "published": "2026-05-05",
+      "summary": "There were no changes to the advisory level or risk indicators. Advisory summary was updated. Exercise normal precautions in Iceland . Advisory Summary Iceland is generally a safe destination for travelers. Iceland regularly experiences quickly changing weather, dangerous natural features, active volcanoes, and earthquakes. Review our information on weather and natural disasters in Iceland. Petty crime is common, especially in popular tourist locations. Stay aware of your surroundings. Most crimes against foreigners are crimes of opportunity, like purse snatching and pickpocketing. Review our travel guidance for Iceland to learn how to prepare for a safe trip. If you decide to travel to Iceland: Enroll in the Smart Traveler Enrollment Program ( STEP ) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Iceland. Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Health Information for Iceland. Whether you’re a first time or frequent traveler, use the International Travel Checklist. We highly recommend that you buy travel insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancelation coverage."
     },
     {
       "country": "India",
@@ -646,7 +658,8 @@
       "lvl": 2,
       "tag": "ID",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/indonesia-travel-advisory.html",
-      "published": "2026-07-07"
+      "published": "2026-07-07",
+      "summary": "There was no change to the advisory level or risk indicators. Advisory summary was updated. Exercise increased caution in Indonesia due to risk of natural disasters, unrest, and terrorism. Some areas have increased risk. Read the entire Travel Advisory. Do not travel to the provinces of Central Papua , or \"Papua Tengah,\" and Highland Papua , or \"Papua Pegunungan,\" due to civil unrest . Advisory summary Unrest Demonstrations occur frequently in Indonesia, and they are a normal part of the political landscape, but the type, size, and impact vary significantly, and some demonstrations can turn violent. Avoid demonstrations and crowds. Natural disasters Indonesia regularly experiences natural disasters such as earthquakes, tsunamis, and volcanic eruptions. These may result in disruptions to transportation, infrastructure, sanitation, and health services. Review our information on Weather and Natural Disasters in Indonesia. Terrorism There is a risk of terrorist violence, including terrorist attacks and other activity in Indonesia. Visit the U.S. Department of State's country reports on terrorism to learn more. Terrorists may attack with little or no warning. Terrorists target police stations, places of worship, hotels, bars, nightclubs, markets, shopping malls, and restaurants. Risks in specific areas Level 4 – Do Not Travel Central Papua and Highland Papua Do Not Travel to Central Papua and Highland Papua due to risk of civil unrest . Central Papua and Highland Papua experience sporadic but persistent, localized conflict. Armed separatist groups have kidnapped foreign nationals in isolated incidents. Avoid these regions. U.S. government employees working in Indonesia need special authorization to travel to Central Papua and Highland Papua due to safety risks. The U.S. government has limited ability to provide emergency services to U.S. citizens in Central Papua and Highland Papua due to safety risks. Do not travel to Central Papua and Highland Papua for any reason. If you decide to travel to Indonesia: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Indonesia. Review our information on Travel to High-Risk Areas . Monitor local media for breaking news. Be prepared to adjust your plans. Have a plan to depart in an emergency that does not depend on U.S. government help. Review our information on Crisis and Evacuations . Visit the Indonesian geol"
     },
     {
       "country": "Iran",
@@ -674,7 +687,8 @@
       "lvl": 2,
       "tag": "IT",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ita.html",
-      "published": "2025-05-23"
+      "published": "2025-05-23",
+      "summary": "Exercise increased caution in Italy due to terrorism . There is risk of terrorist violence, including terrorist attacks and other activity in Italy. Visit the U.S. Department of State's country reports on terrorism to learn more. Terrorists may attack with little or no warning. Common targets include: Tourist spots Transportation centers Shopping malls and markets Local government buildings Hotels, clubs and restaurants Religious sites Parks Sporting and cultural events Schools Airports Public areas"
     },
     {
       "country": "Jamaica",
@@ -688,14 +702,16 @@
       "lvl": 1,
       "tag": "JA",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.jpn.html",
-      "published": "2025-05-15"
+      "published": "2025-05-15",
+      "summary": "Exercise normal precaution in Japan. U.S. citizens should always exercise caution when traveling abroad. Use these general tips to stay safe."
     },
     {
       "country": "Jordan",
       "lvl": 3,
       "tag": "JO",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/jordan-travel-advisory.html",
-      "published": "2026-05-04"
+      "published": "2026-05-04",
+      "summary": "Updated to reflect the ordered departure of non-emergency U.S. government personnel and family members of government personnel on March 2 and the change to Level 3: Reconsider Travel due to safety risks, and to add the \"other\" risk indicator. Advisory summary was updated to reflect changes to U.S. embassy operations. Reconsider Travel to Jordan due to terrorism and armed conflict . Advisory Summary On March 2, 2026, the Department of State ordered non-emergency U.S. government employees and their family members to leave Jordan due to safety risks. Armed Conflict Following the onset of hostilities between the United States and Iran on February 28, there has been an ongoing threat of drone and missile attacks from Iran and significant disruptions to commercial flights. Terrorism There is a risk of terrorist violence, including terrorist attacks and other activity in Jordan. Visit the U.S. Department of State’s country reports on terrorism to learn more. Terrorists may attack without warning, including such targets as: Tourist locations; Transportation hubs; Markets and shopping malls; Local government buildings. Jordan is relatively stable but due to high tensions in the region, the security environment remains complex and can change quickly. Do not travel to: Mansheyat al Ghayyath, Ruwayshid, and the border with Syria and Iraq due to the risk of terrorism and unrest. Designated Syrian refugee camps in Jordan due to Government of Jordan’s restrictions on entry into these camps . Rusayfah city due to the risk of terrorism and crime. The Baqa’a neighborhood of Ayn Basha due to risk of terrorism and crime . Reconsider travel to: Ma’an city and designated areas of Ma’an Governorate due to the risk of terrorism and crime . Zarqa city due to the risk of terrorism and crime. Mansheyat al Ghayyath, Ruwayshid, and the Border with Syria and Iraq – Level 4: Do Not Travel Do not travel to the towns of Mansheyat al Ghayyath, Ruwayshid, and Jordan's border with Syria and Iraq due to the continued threat of cross-border violence, terrorism, and crime. All U.S. government personnel must follow U.S. embassy travel restrictions for all official travel within 3.5 km of the Jordan-Syria border. All travel must occur during daylight hours. U.S. government personnel must follow U.S. embassy travel restrictions for official travel to the towns of Mansheyat al Ghayyath and Ruwayshid along highway 40 towards the Iraq border. All travel must occur during daylight hours. &#183; Personal travel by U.S. government employees to these border areas is not authorized. Syrian Refugee Camps"
     },
     {
       "country": "Kazakhstan",
@@ -716,7 +732,8 @@
       "lvl": 2,
       "tag": "KE",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.ken.html",
-      "published": "2026-07-28"
+      "published": "2026-07-28",
+      "summary": "Exercise increased caution in Kenya due to risk of crime , kidnapping , terrorism , unrest , health , and traffic safety . Some areas have increased risk. Read the entire Travel Advisory. Crime Violent crime can occur at any time. Violent crimes include armed carjacking, mugging, home invasion, sexual assault, and kidnapping for ransom. Petty crime is common. Criminal fraud targeting Americans is a concern. Local police often are unable to respond effectively to crimes. Crimes like robbery are common. They are often committed by individuals riding motorcycles. Solo travelers in particular should exercise caution. Some Americans have been victims of sexual assault in bars and resorts/hotels. Petty crimes often occur in crowded areas or when people are distracted. Schemes to defraud investors are common. Americans often fall victim to schemes involving transactions in gold and other high-value commodities. Kenyan authorities are unlikely to assist Americans in recovering losses. Property disputes are common in Kenya. Americans who have bought land, churches, and businesses have lost their investments or been pushed off the property by locals who claim the land or business. Kidnapping Terrorists, criminal gangs, and other armed groups kidnap for ransom. Local law enforcement officials are not equipped or trained to handle the threat of kidnapping. Terrorism There is risk of terrorist violence, including terrorist attacks and other activity. Visit the U.S. Department of State’s country reports on terrorism to learn more. Terrorists plot kidnappings, bombings, grenade attacks, armed assaults, suicide attacks, and other action in Kenya. Terrorists attack without warning. They have targeted: Kenyan and foreign government buildings tourist locations transportation hubs hotels and resorts markets and shopping malls places of worship Unrest Cross-border incursions occur along the border with Ethiopia. Demonstrations, strikes, and other political and economic protests are common. They can turn violent. Protests often block key intersections and highways, resulting in widespread traffic jams. Protestors have also attacked vehicles containing Americans, including motorcycle taxis and safari vehicles. Violence during protests has occurred across Kenya. This includes rock-throwing by protesters and use of deadly force by police. Violent protests are most common in Nairobi and in western Kenya. Health Medical services in Kenya are limited. They are often unavailable in rural areas. Medical facilities in Kenya often lack sufficient medicine and equipment. Except for a fe"
     },
     {
       "country": "Kingdom of Denmark",
@@ -968,7 +985,8 @@
       "lvl": 2,
       "tag": "WA",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/namibia-travel-advisory.html",
-      "published": "2026-05-15"
+      "published": "2026-05-15",
+      "summary": "There were no changes to the advisory level or risk indicators. Advisory summary was updated. Exercise increased caution in Namibia due to crime and health . Advisory Summary Crime Non-violent crimes of opportunity are common. Most crimes against foreigners are crimes of opportunity, like purse snatching, pickpocketing, and smash and grabs from unoccupied parked vehicles. Potentially violent crimes are possible, including home invasions and armed robberies. Weapons most commonly used by criminals are knives and machetes. Health Namibia is sparsely populated. Many visitors travel to remote areas far from emergency services and medical facilities. Health facilities are limited and may not have adequate supplies of basic medications, especially outside of large cities. If you decide to travel to Namibia: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Namibia. Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Health Information for Namibia. Whether you’re a first time or frequent traveler, use the International Travel Checklist . We highly recommend that you buy travel insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancelation coverage. Be cautious of people appearing to request help by the side of the road. Keep car doors locked, and windows always shut. Carry a copy of your passport and visa (if applicable). Leave originals in your hotel safe. Stay alert when visiting banks or ATMs. Do not display signs of wealth, like expensive watches or jewelry. Use caution when walking or driving at night. Medical services for routine and emergency procedures are limited. Read the Health section of the Travel Guidance on this page for more information. Review our information on Crime Abroad and for Victims of Crime ."
     },
     {
       "country": "Nauru",
@@ -989,7 +1007,8 @@
       "lvl": 2,
       "tag": "NL",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.nld.html",
-      "published": "2024-08-09"
+      "published": "2024-08-09",
+      "summary": "Exercise increased caution in the Netherlands due to terrorism . Terrorists continue plotting possible attacks in the Netherlands. Terrorists may attack with little or no warning, targeting tourist locations, transportation hubs, markets/shopping malls, local government facilities, hotels, clubs, restaurants, places of worship, parks, major sporting and cultural events, educational institutions, airports, and other public areas. Review our Travel Guidance for the Netherlands to learn how to prepare for a safe trip."
     },
     {
       "country": "New Caledonia",
@@ -1003,7 +1022,8 @@
       "lvl": 1,
       "tag": "NZ",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/new-zealand-travel-advisory.html",
-      "published": "2026-04-29"
+      "published": "2026-04-29",
+      "summary": "There were no changes to the advisory level or risk indicators. Advisory summary was updated. Exercise normal precautions in New Zealand . New Zealand is generally a safe destination for travelers. Review our country information page for additional information on travel to New Zealand. If you decide to travel to New Zealand: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for New Zealand. Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Health Information for New Zealand. Whether you’re a first time or frequent traveler, use the International Travel Checklist . We highly recommend that you buy insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancellation coverage."
     },
     {
       "country": "Nicaragua",
@@ -1045,7 +1065,8 @@
       "lvl": 1,
       "tag": "NO",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/norway-travel-advisory.html",
-      "published": "2026-07-06"
+      "published": "2026-07-06",
+      "summary": "There was no change to the advisory level or risk indicators. Advisory summary was updated. Exercise normal precautions in Norway. Advisory Summary Norway is generally a safe destination for travelers. Be aware of landslides and avalanches. Norway’s steep mountains make these common. Heavy summer rain or winter snow accumulation can cause them. A special kind of clay called \"quick clay\" (kvikkleire) can cause ground to collapse in some areas where people live. Keep your belongings safe. Watch your wallet, phone, and bags in busy tourist spots like hotels and transit stations. Review our Travel Guidance for Norway to learn how to prepare for a safe trip. If you decide to travel to Norway: Enroll in the Smart Traveler Enrollment Program ( STEP ) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Oslo . Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Health Information for Norway . Whether you’re a first time or frequent traveler, use the International Travel Checklist. We highly recommend that you buy travel insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancelation coverage."
     },
     {
       "country": "Oman",
@@ -1094,21 +1115,24 @@
       "lvl": 2,
       "tag": "PE",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/peru-travel-advisory.html",
-      "published": "2025-05-16"
+      "published": "2025-05-16",
+      "summary": "Reissued after periodic review with minor edits. Exercise increased caution due to crime, civil unrest, and the risk of kidnapping. Some areas have increased risk. Read the entire Travel Advisory. Do not travel to: The Colombia-Peru border area in the Loreto Region due to crime . The Valley of the Apur&#237;mac, Ene, and Mantaro Rivers (VRAEM), which includes Vilcabamba, due to crime and threats of terrorism . Some areas within the regions of Ayacucho, Cusco*, Huancavelica, and Jun&#237;n, due to crime and threats of terrorism . * The city of Cusco and popular tourist sites nearby, like the Sacred Valley, the Inca Trail, and Machu Picchu, are not located in the affected area. Country Summary: Crime is common in Peru. Petty theft, carjackings, muggings, assaults, and other violent crime often happen even in daylight hours and with many witnesses around. Kidnapping is rare, but it does occur. The risk of crime increases at night. Criminal groups sometimes set up roadblocks to rob people in areas outside of Lima. Ayahuasca and Kambo Usage U.S. travelers should not use Ayahuasca or Kambo because of the known dangers. U.S. citizens have suffered serious illness and, in some cases, died after taking these drugs. They have also been sexually assaulted, injured, or robbed while under the influence of these substances. Demonstrations Demonstrations occur regularly throughout the country. Public demonstrations can take place for a variety of political and economic issues. Demonstrations can shut down local roads, trains, and major highways. This often happens without warning or clear information on reopening times. Road closures can limit access to public transportation and airports. Closures may also disrupt travel in and between cities. Due to road safety risks, U.S. government employees working in Peru are prohibited from nighttime driving except within cities, between Lima and Huacho (to the north), and Lima and Paracas (to the south). U.S. government employees working in Peru may travel at night with commercial bus companies along the Pan-American Highway, to Huaraz, and on the Lima-Arequipa-Cusco corridor. Read the country information page for additional information on travel to Peru. If you decide to travel to Peru: Stay aware of your surroundings. Visit our website for Travel to High-Risk Areas . Check local media for breaking news. Be prepared to adjust your plans. Avoid demonstrations and large crowds. Develop a communication plan with family or your employer or host organization (if you are traveling on business), so that they can monitor your safety an"
     },
     {
       "country": "Philippines",
       "lvl": 2,
       "tag": "PH",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.phl.html",
-      "published": "2025-05-08"
+      "published": "2025-05-08",
+      "summary": "Exercise increased caution in the Philippines due to crime, terrorism, civil unres t, and kidnapping . Some areas have increased risk. Read the entire Travel Advisory. Terrorists and armed groups have carried out kidnappings, bombings, and other attacks targeting public areas like tourist sites, markets, and local government facilities in the Philippines. Violent crimes are also common in the Philippines such as robbery, kidnappings, and physical assaults. Protests happen in the Philippines and could turn violent and/or result in traffic jams and road closures with limited capacity of the local government to respond. Due to the risks, U.S. government employees working in the Philippines must obtain special authorization to travel to certain areas of the country as stated below. Read the Travel Guidance section for additional formation on travel to the Philippines. Do Not Travel to: The Sulu Archipelago, including the southern Sulu Sea, due to crime, terrorism, civil unrest , and kidnapping . Marawi City in Mindanao due to terrorism and civil unrest . Reconsider Travel to: Other areas of Mindanao due to crime, terrorism, civil unrest , and kidnapping ."
     },
     {
       "country": "Philippines",
       "lvl": 2,
       "tag": "RP",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/philippines-travel-advisory.html",
-      "published": "2025-05-08"
+      "published": "2025-05-08",
+      "summary": "Reissued after periodic review with minor edits. Exercise increased caution in the Philippines due to crime, terrorism, civil unrest, and kidnapping. Some areas have increased risk. Read the entire Travel Advisory. Do Not Travel to: The Sulu Archipelago, including the southern Sulu Sea, due to crime, terrorism, civil unrest, and kidnapping . Marawi City in Mindanao due to terrorism and civil unrest . Reconsider Travel to: Other areas of Mindanao due to crime, terrorism, civil unrest, and kidnapping . Country Summary: Terrorists and armed groups have carried out kidnappings, bombings, and other attacks targeting public areas like tourist sites, markets, and local government facilities in the Philippines. Violent crimes are also common in the Philippines such as robbery, kidnappings, and physical assaults. Protests happen in the Philippines and could turn violent and/or result in traffic jams and road closures with limited capacity of the local government to respond. Due to the risks, U.S. government employees working in the Philippines must obtain special authorization to travel to certain areas of the country as stated below. Read the country information page for additional information on travel to the Philippines. If you decide to travel to the Philippines: Monitor local media for breaking events and adjust your plans based on new information. Avoid demonstrations. Enroll in the Smart Traveler Enrollment Program (STEP) to receive Alerts and make it easier to locate you in an emergency. Review the Country Security Report for the Philippines. Prepare a contingency plan for emergency situations. Review the Traveler’s Checklist . Visit the CDC page for the latest Travel Health Information related to your travel. We highly recommend that you buy insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancellation coverage The Sulu Archipelago and Sulu Sea – Level 4: Do Not Travel Do not travel to these areas for any reason. Terrorist and armed groups in the Sulu Archipelago and the Sulu Sea have historically engaged in kidnappings for ransom on land and at sea, in addition to bombings and other attacks. These incidents often target foreign nationals, including U.S. citizens, local government entities, and security personnel. Due to the risks, U.S. government employees working in the Philippines must obtain special authorization to travel to Sulu Archipelago and Sulu Sea. The U.S. government has limited ability to provide emergency services to U.S. citizens in these areas. Visit our websi"
     },
     {
       "country": "Poland",
@@ -1122,7 +1146,8 @@
       "lvl": 1,
       "tag": "PO",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.prt.html",
-      "published": "2025-12-23"
+      "published": "2025-12-23",
+      "summary": "Exercise normal precaution in Portugal . Portugal is generally a safe destination for travelers. Travelers should remain vigilant against petty theft, particularly in crowded tourist areas and on public transportation. Review our travel guidance for Portugal to learn how to prepare for a safe trip."
     },
     {
       "country": "Qatar",
@@ -1157,7 +1182,8 @@
       "lvl": 3,
       "tag": "RW",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/rwanda-travel-advisory.html",
-      "published": "2026-05-11"
+      "published": "2026-05-11",
+      "summary": "There was no change to the advisory level. The 3 areas of increased risk were combined into 1. The Advisory Summary was updated. Exercise increased caution in Rwanda due to crime and unrest . Some areas have increased risk. Read the entire Travel Advisory. Read the entire Do not travel to within 10 kilometers of Rwanda’s border with the Democratic Republic of the Congo due to unrest. Advisory Summary Crime Petty crime like pickpocketing is a risk in urban areas. More serious incidents are less common but can happen. This includes burglary or targeted theft. Stay aware of your surroundings. Unrest Armed groups, individuals, and military forces often clash in nearby countries. The ongoing violence in these areas has the risk of spilling over into Rwanda. Level 4 - Do Not Travel - Rwanda’s Border with the Democratic Republic of the Congo Do not travel to within 10 kilometers of Rwanda’s border with the Democratic Republic of the Congo for any reason due to unrest . Multiple armed groups, individuals, and military forces operate in North and South Kivu provinces of the Democratic Republic of the Congo. Some of these groups oppose the Rwandan government. Violence may spill into Rwanda without warning. U.S. government employees working in Rwanda must obtain special authorization to travel to this area. Volcanoes National Park is not included in this area of increased risk. Review our information on Tourism Safety in Rwanda . If you decide to travel to Rwanda: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Rwanda. Review our information on Crime Abroad and for Victims of Crime . Do not physically resist any robbery attempt. Use caution when walking or driving at night. Stay aware of your surrounding. Have a plan to leave in an emergency that does not depend on U.S. government help. Review our information on Crisis and Evacuations . Keep travel documents up to date and easily accessible. Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Health Information for Rwanda. Whether you’re a first time or frequent traveler, use the International Travel Checklist . We highly recommend that you buy travel insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancelation coverage."
     },
     {
       "country": "Saba",
@@ -1178,14 +1204,16 @@
       "lvl": 2,
       "tag": "LC",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.lca.html",
-      "published": "2026-07-10"
+      "published": "2026-07-10",
+      "summary": "Exercise increased caution in Saint Lucia due to risk of crime . Violent crime can occur anywhere in Saint Lucia. U.S. citizens and other foreigners in Saint Lucia have been victims of armed robbery, assault, burglary, and rape. In some cases, U.S. citizens have been killed. Crime Guests at tourist resorts have been victims of violent crimes. Police response times are not as fast as in the United States. Petty crime is common, especially in popular tourist locations. Stay aware of your surroundings. Most crimes against foreigners are crimes of opportunity, like purse snatching and pickpocketing. Tourists should beware of overcharging and scams in tourist areas. You may encounter aggressive vendors. Most sites have tourist police available to help in uncomfortable situations. Hurricanes Saint Lucia regularly experiences hurricanes. Review our information on Weather and Natural Disasters in Saint Lucia."
     },
     {
       "country": "Saint Lucia",
       "lvl": 2,
       "tag": "ST",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saint-lucia-travel-advisory.html",
-      "published": "2026-07-10"
+      "published": "2026-07-10",
+      "summary": "The advisory level was increased to 2. The \"Crime\" indicator was added. Advisory summary was updated. Exercise Increased Caution in Saint Lucia due to risk of crime. Advisory summary Violent crime can occur anywhere in Saint Lucia. U.S. citizens and other foreigners in Saint Lucia have been victims of armed robbery, assault, burglary, and rape. In some cases, U.S. citizens have been killed. Crime Guests at tourist resorts have been victims of violent crimes. Police response times are not as fast as in the United States. Petty crime is common, especially in popular tourist locations. Stay aware of your surroundings. Most crimes against foreigners are crimes of opportunity, like purse snatching and pickpocketing. Tourists should beware of overcharging and scams in tourist areas. You may encounter aggressive vendors. Most sites have tourist police available to help in uncomfortable situations. Hurricanes Saint Lucia regularly experiences hurricanes. Review our information on Weather and Natural Disasters in Saint Lucia. If you decide to travel to Saint Lucia: Review the Country Security Report for the Eastern Caribbean. Before you leave the United States for Saint Lucia, carefully check your luggage for any weapons or loose ammunition you may have forgotten and remove them. Review our information on Local Laws and Customs in Saint Lucia. Review our information on Crime Abroad and for Victims of Crime . Do not physically resist any robbery attempt. Use caution when walking or driving at night. Keep a low profile. Stay aware of your surroundings. Do not display signs of wealth, like expensive watches or jewelry. Do not answer your door at your hotel or residence unless you know who it is. Stay alert in tourist spots. Stay alert when visiting banks or ATMs. Whether you’re a first time or frequent traveler, use the International Travel Checklist . We highly recommend that you buy travel insurance before you travel. Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancelation coverage."
     },
     {
       "country": "Saint Vincent and the Grenadines",
@@ -1213,7 +1241,8 @@
       "lvl": 3,
       "tag": "SA",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/saudi-arabia-travel-advisory.html",
-      "published": "2026-03-13"
+      "published": "2026-03-13",
+      "summary": "There were no changes to the advisory level or risk indicators. Advisory summary was updated. Reconsider travel to Saudi Arabia due to risk of Iranian drone and missile targeting of American interests, armed conflict , terrorism, exit bans, and local laws regarding social media activity. Some areas have increased risk. Read the entire Travel Advisory. Do Not Travel to the Yemen border due to threat of Terrorism. Advisory summary On March 8, 2026, the Department of State ordered non-emergency U.S. government employees and U.S. government employee family members to leave Saudi Arabia due to safety risks. This amends the prior on March 3, 2026, Department of State authorization order for non-emergency U.S. government employees and U.S. government employee family members to leave Saudi Arabia due to safety risks. Armed conflict Following the onset of hostilities between the United States and Iran on February 28, there has been an ongoing threat of drone and missile attacks from Iran. Commercial flights are operational from Saudi Arabia though have been significantly disrupted. The U.S. government has limited ability to offer emergency services to U.S. citizens in Saudi Arabia due to the safety risks . U.S. government employee travel restrictions near Yemen U.S. government employees working in Saudi Arabia are not allowed to travel within 20 miles of the Yemen border due to safety risks. U.S. government employees are not allowed to travel to Qatif for non-official travel due to safety risks. The U.S. government has limited ability to offer emergency services to U.S. citizens in the Yemen border region due to the safety risks. U.S. citizens in Saudi Arabia are advised to take the same precautions. Terrorism There is risk of terrorist violence, including terrorist attacks in Saudi Arabia. Visit the U.S. Department of State’s country reports on terrorism to learn more. Terrorism is a concern in Saudi Arabia. Attacks can occur with little or no warning, especially around holidays. They can involve knives, firearms, and vehicles. Potential targets include: Important political, cultural, or religious locations Places visited by U.S. citizens and other foreigners Tourist locations and large gatherings Hotels, and locations where American citizens gather Transportation hubs Markets and shopping malls Entertainment venues Government facilities Terrorists may use violence to respond to direct attacks against them or other military operations in the region. Missile and drone attacks from Iran and threats from Houthis in Yemen. Iran has launched missile and drone attacks"
     },
     {
       "country": "Senegal",
@@ -1297,14 +1326,16 @@
       "lvl": 2,
       "tag": "SF",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.zaf.html",
-      "published": "2025-05-27"
+      "published": "2025-05-27",
+      "summary": "Exercise increased caution in South Africa due to crime, terrorism, unrest, and kidnapping. Violent crime is common and includes robbery, rape, carjacking and mugging. There are also &quot;smash-and-grab&quot; attacks on vehicles. Violent crime is more common in the downtown areas of big cities, especially after dark. Kidnapping is a threat in South Africa. Kidnappers target U.S. citizens and other foreign travelers to steal money. Captors often force victims to withdraw cash or give online account passwords before they are let go. Though rare, some kidnappings involve demanding ransom from families. There is risk of terrorist violence, including terrorist attacks and other activity, in South Africa. Demonstrations, protests, and strikes occur frequently. They can: Start suddenly Interrupt traffic, transportation, and other services Turn violent Due to the risks, U.S. government employees working in South Africa must obtain special authorization to travel to many informal settlements (townships) in and around Cape Town. U.S. mission staff must use fully armored vehicles when visiting and visiting hours are limited to 10:00 -15:00 weekdays only."
     },
     {
       "country": "South Korea",
       "lvl": 1,
       "tag": "KS",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.kor.html",
-      "published": "2025-05-28"
+      "published": "2025-05-28",
+      "summary": "Exercise normal precaution in the Republic of Korea (ROK or South Korea). Large-scale demonstrations may occur with little notice, potentially disrupting transportation and other essential services. Tensions on the Korean Peninsula remain high. North Korea continues to conduct missile launches and other military activities that may increase tensions. Travelers should monitor local developments and remain vigilant. The South Korean government conducts civil emergency drills throughout the year. Please note that consular services, including passport services, are not available at the U.S. Consulate in Busan; they are only available at the U.S. Embassy in Seoul."
     },
     {
       "country": "South Sudan",
@@ -1318,7 +1349,8 @@
       "lvl": 2,
       "tag": "SP",
       "url": "https://travel.state.gov/content/tsg_aem/us/en/home/international-travel/travel-advisories/destination.esp.html",
-      "published": "2026-08-01"
+      "published": "2026-08-01",
+      "summary": "Exercise increased caution in Spain due to terrorism and unrest . Terrorist groups continue plotting possible attacks in Spain. Terrorists may attack with little or no warning and target: Tourist locations Transportation centers like airports and train stations Markets and shopping malls Local government facilities Hotels, clubs, and restaurants Places of worship and educational institutions Parks Major sporting and cultural events Demonstrations are common. They may take place in response to political or economic issues, on politically significant holidays, and during international events. Reconsider travel to Ceuta due to unrest ."
     },
     {
       "country": "Sri Lanka",
@@ -1353,7 +1385,8 @@
       "lvl": 1,
       "tag": "SR",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/switzerland-travel-advisory.html",
-      "published": "2025-05-20"
+      "published": "2025-05-20",
+      "summary": "Reissued after periodic review with minor edits. Exercise normal precautions in Switzerland. Read the country information page for additional information on travel to Switzerland. If you decide to travel to Switzerland: Enroll in the Smart Traveler Enrollment Program (STEP) to receive messages and alerts from the U.S. Embassy and make it easier to locate you in an emergency. Review the Country Security Report for Switzerland. Prepare a plan for emergency situations. Review the International Traveler’s Checklist . Visit the CDC page for the latest Travelers’ Health Information related to your travel and return to the United States. We highly recommend that you buy insurance before you travel. The U.S. government does not provide insurance for U.S. citizens overseas . Check with your travel insurance provider about evacuation assistance, medical insurance, and trip cancellation coverage."
     },
     {
       "country": "Syria",
@@ -1381,21 +1414,24 @@
       "lvl": 3,
       "tag": "TZ",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/tanzania-travel-advisory.html",
-      "published": "2025-10-31"
+      "published": "2025-10-31",
+      "summary": "The advisory level increased from Level 2 to 3. The \"unrest\" risk indicator was added. Reconsider travel to Tanzania due to unrest , crime , terrorism , and targeting of gay and lesbian individuals . Some areas have increased risk. Read the entire Travel Advisory. Advisory summary Unrest Demonstrations often take place in response to political or economic issues. They may also occur on holidays or during large events. Demonstrations can be unpredictable. The Tanzanian government increases security presence around protests. This includes stationary checkpoints and roadblocks. The Tanzanian government limits or does not authorize large gatherings. Crime Violent crime is common. It includes assault, sexual assault, robberies, mugging, and carjacking. Local police have limited resources to respond effectively to serious crime. Terrorism There is risk of terrorist violence, including terrorist attacks and other activity in Tanzania. Visit the U.S. Department of State's country reports on terrorism to learn more. The risk of terrorist violence is most common in the Mtwara Region. Targeting of gay and lesbian individuals Members of the gay and lesbian community have been arrested, targeted, and harassed. People who identify as gay or lesbian may experience a higher likelihood of being targeted by police. People detained under suspicion of same-sex sexual conduct may face invasive physical exams. If you decide to travel to Tanzania: Have a plan to leave in an emergency that does not depend on U.S. government help. Review our information on Crisis and Evacuations. Monitor local media for breaking news. Be prepared to adjust your plans. Keep a low profile. Always carry a copy of your U.S. passport and visa. Keep original documents in a safe location. Stay aware of your surroundings. Do not leave your food or drink unattended. Stay alert in tourist spots. Avoid public displays of affection particularly between same-sex couples. Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Tanzania. Review our information on Terrorism , Travel to High-Risk Areas , Crime Abroad , and for Victims of Crime . Prepare a backup plan for emergency situations. Review the Traveler’s Checklist . Visit the CDC page for the latest Travel Health Information related to your travel."
     },
     {
       "country": "Thailand",
       "lvl": 1,
       "tag": "TH",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/thailand-travel-advisory.html",
-      "published": "2026-07-07"
+      "published": "2026-07-07",
+      "summary": "The advisory level was decreased to 1. There were no changes to the risk indicators. An area of increased risk was added. Advisory summary was updated. Exercise normal precautions in Thailand . Some areas have increased risk. Read the entire Travel Advisory. Exercise Increased Caution near the Thai-Cambodian border due to the risk of armed conflict. Exercise Increased Caution in the Yala, Pattani, and Narathiwat provinces due to the risk of unrest. Advisory summary Thailand is generally a safe destination for travelers. Review our Travel Guidance for Thailand to learn how to prepare for a safe trip. Risks in specific areas Level 2 – Exercise Increased Caution Thailand – Cambodia border Exercise increased caution in the Cambodia border region due to the risk of armed conflict. Thai authorities may establish security exclusion zones with little notice. This is to protect the public from possible unexploded ordnance or if there is an assessed risk of possible military conflict. Follow all directives and instructions issued by Thai military and security personnel. The U.S. government has limited ability to provide emergency services to U.S. citizens near the Thai-Cambodian border due to the safety risks. Yala, Pattani, and Narathiwat provinces Exercise increased caution in the Yala, Pattani, and Narathiwat provinces due to the risk of unrest. The potential for overall collateral risk is elevated for Americans in Thailand’s southernmost provinces due to low intensity conflict. Sporadic incidents of violence between Thai security services and insurgents have been occurring in Thailand’s three southernmost provinces of Yala, Pattani, and Narathiwat. Various districts in these three provinces remain subject to Emergency Decree, which provides Thai security services special powers to address security concerns in the area. The U.S. government has limited ability to provide emergency services to Americans in these provinces due to the safety risks. U.S government employees must obtain special authorization to travel to these provinces. If you decide to travel to Thailand: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for Thailand Have a plan to leave in an emergency that does not depend on U.S. government help. Review our information on Crisis and Evacuations . Visit the Centers for Disease Control and Prevention (CDC) website for the latest Travel Hea"
     },
     {
       "country": "The Bahamas",
       "lvl": 2,
       "tag": "BF",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/the-bahamas-travel-advisory.html",
-      "published": "2026-07-28"
+      "published": "2026-07-28",
+      "summary": "There are no changes to the advisory level or risk indicators. Advisory summary was updated. Exercise increased caution in The Bahamas due to crime . Advisory summary Crime Violent crime, including armed robberies, burglaries, and sexual assaults, can occur anywhere in The Bahamas. Most crime occurs in Nassau and Freeport on New Providence and Grand Bahama islands. Stay alert in the \"Over the Hill\" area in Nassau, south of Shirley Street, where gangs have killed residents. Stay alert in vacation rental properties, especially where private security is not present. Jet skis, boating, and licenses Boating is not well regulated. Injuries and deaths have occurred. There have been reports of sexual assaults by jet ski operators. Due to safety risks, U.S. government employees are not allowed to use or rent jet skis and personal watercraft from independent operators on New Providence and Paradise Islands. Watercraft may not be safe, and some operators are not licensed or insured. Watercraft operators sometimes ignore weather forecasts. Always follow local weather and marine alerts. Do not operate a fishing boat or other charter in Bahamian waters without a license from The Bahamas Port Department . Police have detained American boaters and seized their vessels. Penalties include a fine of up to $100,000 and 3 years in prison. Beach safety Never swim alone and beware of jet skis or other watercraft operating close to shore. Sexual assaults have occurred on and near downtown Nassau beaches. Be aware of your surroundings and stay alert in public restrooms. Be aware of your own fitness and swimming capabilities. If you are new to snorkeling, understand the risks. Swimmers and snorkelers have died after overestimating their physical fitness or health. Stay alert for sharks. Shark attacks have led to serious injury and death. Be aware of weather and water conditions and follow local warnings. Weapons and ammunition Firearms and ammunition are illegal, including small quantities in carry-on bags or luggage. Police strictly enforce these laws, even at the airport when travelers are leaving. Travelers with firearms or ammunition can face arrest, jail time, and fines. Authorities have detained U.S. citizens for several days or more after finding firearms or ammunition, preventing them from leaving. Hurricanes The Bahamas regularly experiences hurricanes. Review our information on Weather and Natural Disasters in The Bahamas. Review our Travel Guidance for The Bahamas to learn how to prepare for a safe trip. If you decide to travel to The Bahamas: Enroll in the Smart Trave"
     },
     {
       "country": "The Gambia",
@@ -1465,7 +1501,8 @@
       "lvl": 2,
       "tag": "TK",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/turks-and-caicos-travel-advisory.html",
-      "published": "2026-07-07"
+      "published": "2026-07-07",
+      "summary": "There are no changes to the advisory level or risk indicators. Advisory summary was updated. Exercise increased caution in the Turks and Caicos Islands due to crime . Advisory summary Crime Most crime occurs in Providenciales. Police may have limited resources to investigate crimes. There have been reports of sexual assaults in the Turks and Caicos Islands. Petty crime is common, especially in popular tourist locations. Stay aware of your surroundings. Most crimes against foreigners are crimes of opportunity, like purse snatching and pickpocketing. Tourists should beware of overcharging and scams in tourist areas. You may encounter aggressive vendors. Some will offer \"free\" gifts that lead to money demands. Most sites have tourist police available to help in uncomfortable situations. U.S. Embassy Nassau in The Bahamas helps U.S. citizens who are victims of crime in the Turks and Caicos Islands. Ammunition arrests U.S. citizens must follow local laws abroad. If you break laws in another country – even by mistake – you could be deported, fined, or imprisoned. It is illegal to have firearms and ammunition in the Turks and Caicos Islands. This includes single bullets and cartridges brought by mistake in carry-on bags or luggage. A firearm license or permit obtained in the United States or any other country is not valid in the Turks and Caicos Islands. Police strictly enforce these laws, especially at the airport when travelers are leaving the country. Travelers may face arrest, jail time, and heavy fines. Some U.S. citizens have been detained and unable to depart for several weeks or more after being found with bullets in their luggage. Offenders may face 12 years or more in prison. We cannot get U.S. citizens out of detention. Hurricanes The Turks and Caicos Islands regularly experiences hurricanes. Review our information on Weather and Natural Disasters in the Turks and Caicos Islands. Review our Travel Guidance for the Turks and Caicos Islands to learn how to prepare for a safe trip. If you decide to travel to the Turks and Caicos Islands: Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Review the Country Security Report for the Turks and Caicos Islands. Before you leave the United States for the Turks and Caicos Islands, carefully check your luggage for any loose ammunition or weapons you may have forgotten. Review our information on Local Laws and Customs in the Turks and Caic"
     },
     {
       "country": "Tuvalu",
@@ -1479,7 +1516,8 @@
       "lvl": 4,
       "tag": "UG",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/uganda-travel-advisory.html",
-      "published": "2025-12-08"
+      "published": "2025-12-08",
+      "summary": "There was no change to the advisory level or indicators. Advisory summary was updated. Advisory Summary Crime Violent crime is a real danger in Uganda. This includes armed robbery, home invasion, and sexual assault. Crime can happen anytime. It is more common in larger cities, the Karamoja region, and along Uganda’s western and northern borders. Both visitors and residents face these threats. Police struggle to respond to serious crime in most places due to limited resources. Terrorism There is risk of terrorist violence, including terrorist attacks and other activity in Uganda. Visit the U.S. Department of State's country reports on terrorism to learn more. Terrorist groups have targeted: Religious venues Schools Government buildings Police stations Transportation hubs Areas visited by tourists, including national parks These attacks have resulted in the deaths of Ugandans as well as foreign visitors. U.S. citizens should remain alert and avoid large public gatherings. Unrest Protests can happen with little to no warning. They often develop around political issues and events, like elections. National elections are set for January 15, 2026. Review the Department of State’s Human Rights Report for your destination prior to traveling. When protests, strikes, and demonstrations turn chaotic, security services respond with force. They have used batons, rubber bullets, tear gas, and gunfire to break up the crowds. Laws targeting persons based on sexual orientation The 2023 Anti-Homosexuality Act (AHA) criminalizes consensual same-sex relations in Uganda. The law applies to both visitors and residents. The AHA increases the danger for persons who may be targeted based on their real or perceived sexual orientation, and those accused of \"promoting homosexuality.\" Penalties include life imprisonment or the death penalty. Those seen as supporting gay and lesbian people have experienced harassment and violence by vigilantes. If you decide to travel to Uganda: Review our information on Travel to High-Risk Areas. Review our information on Crime Abroad and Victims of Crime . Review our information on Terrorism and Travel to High-Risk Areas . Have a plan to leave in an emergency that does not depend on U.S. government help. Review our information on Crisis and Evacuations . Avoid demonstrations and crowds. Stay aware of your surroundings. Do not display signs of wealth, such as expensive watches or jewelry, or smartphones. Use caution when walking or driving at night. Do not physically resist any robbery attempt. Stay alert in tourist spots. Be extra vigilant when visi"
     },
     {
       "country": "Ukraine",
@@ -1493,7 +1531,8 @@
       "lvl": 3,
       "tag": "AE",
       "url": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/united-arab-emirates-travel-advisory.html",
-      "published": "2026-03-03"
+      "published": "2026-03-03",
+      "summary": "Updated to reflect the ordered departure of non-emergency U.S. government personnel and family members of government personnel on March 2. Advisory summary was updated . Reconsider travel to the United Arab Emirates due to the threat of armed conflict and terrorism. Advisory Summary On March 2, 2026, the Department of State ordered non-emergency U.S. government employees and U.S. government family members to leave the United Arab Emirates due to the threat of armed conflict. Armed Conflict Following the onset of hostilities between the United States and Iran on February 28, there has been an ongoing threat of drone and missile attacks from Iran and significant disruptions to commercial flights. The Iranian regime has publicly stated its intention to target locations in the UAE associated with the United States. Terrorism There is a risk of terrorist violence, including terrorist attacks and other activity in the United Arab Emirates. Visit the U.S. Department of State’s country reports on terrorism to learn more. Terrorists may attack with little or no warning and may target tourist locations, transportation hubs, shopping areas, government facilities, places of worship, and in particular locations associated with the Jewish and Israeli communities. Aviation Safety The Federal Aviation Administration (FAA) has issued an advisory Notice to Air Missions (NOTAM) recommending caution for U.S. air carriers and commercial operators operating in the Middle East, including the UAE. For more information, Americans who plan to travel to the region should check the FAA’s Prohibitions, Restrictions and Notices . Local laws Residents and visitors should be aware the UAE has strict rules on social behavior, drug possession, traffic violations, and financial crimes. Breaking these rules can lead to arrest and/or an exit ban. Americans should review the Department of State’s Destination Information Page for the UAE to learn about local laws, special circumstances, and additional information about travel to the United Arab Emirates. For U.S. citizens in the United Arab Emirates: Monitor local media for breaking events and be prepared to adjust your plans. Enroll in the Smart Traveler Enrollment Program (STEP) to get important updates and alerts from the U.S. embassy or consulate. Enrolling helps the U.S. embassy or consulate contact you or your emergency contact in an emergency. Have a plan to depart in an emergency that does not depend on U.S. government help. Review our information on Crisis and Evacuations . Follow the U.S. Mission to the UAE on Facebook , Instagram ,"
     },
     {
       "country": "United Kingdom",
