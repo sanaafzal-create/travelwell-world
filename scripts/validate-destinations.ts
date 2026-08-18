@@ -17,7 +17,7 @@
  */
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { REGIONS, SIS, SUBREGIONS } from "../src/data/taxonomy";
+import { REGIONS, SIS, SUBREGIONS, boardSis } from "../src/data/taxonomy";
 import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 import { checkHero } from "./lib/check-hero";
@@ -26,6 +26,12 @@ import { checkSafetyLanguage } from "./lib/check-safety-language";
 // ── Canon, straight from the live source ──────────────────────────────────
 const REGION_CODES = new Set(REGIONS.map((r) => r.code));
 const SI_SLUGS = new Set(SIS.map((s) => s.id));
+// The BOARD is what a traveller can actually reach. `SIS` still holds retired
+// interests — they keep their Postgres rows on purpose — so validating against
+// SIS alone accepts a tag that can never surface: `useSpecialInterests()` filters
+// retired, so the interest page does not exist. Same silent non-appearance as a
+// missing tag, which is why it is called out rather than passed.
+const BOARD_SLUGS = new Set(boardSis(SIS).map((s) => s.id));
 const TIERS = new Set(["essential", "comfort", "premier", "luxury", "ultra"]);
 const STATUS = new Set(["live", "future"]);
 const DEPTH = new Set(["verified", "stub", "cached"]);
@@ -132,7 +138,10 @@ for (const { code, d } of rows) {
   if (d.draw_rank != null && !DRAW.has(d.draw_rank)) errs.push(`${at}: draw_rank "${d.draw_rank}" not anchor|core|emerging`);
   if (d.price_band != null && !TIERS.has(d.price_band)) errs.push(`${at}: price_band "${d.price_band}" not a valid tier`);
   for (const tb of d.tier_range ?? []) if (!TIERS.has(tb)) errs.push(`${at}: tier_range has "${tb}" (not a valid tier)`);
-  for (const s of d.si ?? []) if (!SI_SLUGS.has(s)) warns.push(`${at}: si "${s}" isn't a known SI slug (won't surface)`);
+  for (const s of d.si ?? []) {
+    if (!SI_SLUGS.has(s)) warns.push(`${at}: si "${s}" isn't a known SI slug (won't surface)`);
+    else if (!BOARD_SLUGS.has(s)) warns.push(`${at}: si "${s}" is RETIRED — off the board, so no interest page exists for it and this tag surfaces nowhere`);
+  }
   for (const f of d.feel ?? []) if (!FEEL.has(f)) errs.push(`${at}: feel "${f}" is outside the controlled vocabulary (breaks matching)`);
   if (!(d.si ?? []).length) warns.push(`${at}: no si tags`);
 
@@ -304,9 +313,15 @@ console.log(`linkage:     ${linked}/${rows.length} reconcile to a live row   uni
 // is why the safari page lists 39 providers and no places. The gate has always
 // warned per row, and a per-row warning in a list of forty scrolls past. So the
 // coverage is stated as a number, next to the tick, where it can't be missed.
-const tagged = rows.filter((d) => (d.si ?? []).length).length;
+// `rows` holds { code, d } wrappers, not destinations. The first version of this
+// read `d.si` off the WRAPPER, so it reported 0 on every input it was ever given
+// — including a 484-row batch where 482 rows are tagged. A coverage line that
+// always says zero is worse than no coverage line: it is the shape of an alarm
+// that cannot distinguish a real problem from itself, and it was about to be
+// quoted at the research library as evidence their batch surfaced nowhere.
+const tagged = rows.filter(({ d }) => (d.si ?? []).length).length;
 const bySi: Record<string, number> = {};
-for (const d of rows) for (const s of d.si ?? []) bySi[s] = (bySi[s] ?? 0) + 1;
+for (const { d } of rows) for (const s of d.si ?? []) bySi[s] = (bySi[s] ?? 0) + 1;
 const covered = Object.entries(bySi).sort((a, b) => b[1] - a[1]);
 console.log(`si coverage:  ${tagged}/${rows.length} rows carry an si tag${tagged < rows.length ? `  — the other ${rows.length - tagged} will not appear on ANY interest page` : ""}`);
 console.log(`             ${covered.length ? covered.map(([k, v]) => `${k}:${v}`).join("  ") : "none — this batch lights up no interest page"}`);

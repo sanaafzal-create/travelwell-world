@@ -338,7 +338,17 @@ const destRows = Object.entries(DESTS)
  * The delete-what-is-missing statement stays whole and runs last, so a partial
  * apply can never delete rows the earlier chunks had not inserted yet.
  */
-const DEST_CHUNK = 40;
+// Chunk by BYTES, not by row count.
+//
+// The first version cut every 40 rows, sized against synthetic dossiers. Measured
+// against the real library batch (2026-08-17, 504 rows): 40 fat rows is a 445KB
+// statement — a real dossier carries jewels, an FAQ, coordinates and a safety
+// block, and is many times the size of the row this was tuned on. Row count is a
+// proxy for the thing that actually matters, and it was the wrong proxy.
+//
+// ~100KB per statement, and always at least one row per chunk so a single
+// oversized dossier still emits rather than looping forever.
+const DEST_CHUNK_BYTES = 100_000;
 const destInsert = (() => {
   const cols = "(id, region_code, name, country, line, status, depth, img, sub_region, si, feel, tier_range, price_band, draw_rank, data, position)";
   const tail = `on conflict (id) do update set
@@ -346,16 +356,23 @@ const destInsert = (() => {
   line = excluded.line, status = excluded.status, depth = excluded.depth, img = excluded.img,
   sub_region = excluded.sub_region, si = excluded.si, feel = excluded.feel, tier_range = excluded.tier_range,
   price_band = excluded.price_band, draw_rank = excluded.draw_rank, data = excluded.data, position = excluded.position;`;
+  const slices: string[][] = [];
+  let cur: string[] = [], curBytes = 0;
+  for (const row of destRows) {
+    if (cur.length && curBytes + row.length > DEST_CHUNK_BYTES) { slices.push(cur); cur = []; curBytes = 0; }
+    cur.push(row); curBytes += row.length;
+  }
+  if (cur.length) slices.push(cur);
+
   const chunks: string[] = [];
-  for (let i = 0; i < destRows.length; i += DEST_CHUNK) {
-    const slice = destRows.slice(i, i + DEST_CHUNK);
-    const n = Math.floor(i / DEST_CHUNK) + 1;
-    const of = Math.ceil(destRows.length / DEST_CHUNK);
-    chunks.push(`-- destinations ${i + 1}-${i + slice.length} of ${destRows.length} (chunk ${n}/${of})
+  let at = 0;
+  slices.forEach((slice, i) => {
+    chunks.push(`-- destinations ${at + 1}-${at + slice.length} of ${destRows.length} (chunk ${i + 1}/${slices.length})
 insert into public.destinations ${cols} values
 ${slice.join(",\n")}
 ${tail}`);
-  }
+    at += slice.length;
+  });
   return chunks.join("\n\n");
 })();
 
