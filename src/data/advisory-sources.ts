@@ -58,7 +58,7 @@
  */
 import feedSnapshot from "./state-advisory-feed.json";
 
-interface FeedEntry { country: string; lvl: number; tag: string | null; url: string; published: string | null }
+interface FeedEntry { country: string; lvl: number; tag: string | null; url: string; published: string | null; summary?: string }
 const FEED = feedSnapshot.entries as FeedEntry[];
 
 /** The feed names some countries differently from our display names. */
@@ -95,6 +95,28 @@ export function stateSnapshotLevel(countryName: string): { lvl: number; publishe
     if (!cand) continue;
     const hit = FEED_BY_NAME.get(normName(cand));
     if (hit) return { lvl: hit.lvl, published: hit.published };
+  }
+  return null;
+}
+
+/**
+ * State's OWN WORDS for a country, plus when they published them.
+ *
+ * This is what the Level 3 consent screen renders. It is deliberately the stored
+ * snapshot rather than anything hand-transcribed: the screens arrived with three
+ * of four Cartagena lines paraphrased ("In some places, organized crime is
+ * rampant" appears nowhere in State's text) and a Rwanda framing taken from a
+ * superseded version of the advisory. Both were careful work by people who knew
+ * the rule. Hand-transcription is simply not a reliable way to quote, and the
+ * whole safety property of that screen is "we cannot get a quotation wrong".
+ *
+ * So the screen quotes this, and nobody retypes an advisory again.
+ */
+export function stateAdvisoryText(countryName: string): { summary: string; published: string | null; lvl: number; url: string } | null {
+  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), `The ${countryName}`]) {
+    if (!cand) continue;
+    const hit = FEED_BY_NAME.get(normName(cand));
+    if (hit?.summary) return { summary: hit.summary, published: hit.published, lvl: hit.lvl, url: hit.url };
   }
   return null;
 }

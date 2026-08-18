@@ -26,6 +26,11 @@ const ROUTES = [
   "/", "/special-interests", "/regions", "/region/05A",
   "/destination/maasai-mara-kenya", "/destination/zermatt-switzerland",
   "/itinerary", "/flights", "/wells-surface", "/luxury",
+  // The Level 3 consent gate — a safety screen, so it is audited like one. The
+  // scrollable advisory quote failed `scrollable-region-focusable` on the first
+  // build: a keyboard-only reader could not scroll to the rest of the advisory
+  // they were being asked to consent to.
+  "/go?to=Test%20Partner&well=stay&dest=cartagena-colombia",
   "/guides", "/providers", "/about", "/first-aid-kit",
 ];
 

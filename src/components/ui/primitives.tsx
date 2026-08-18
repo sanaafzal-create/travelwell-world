@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 /**
  * TravelWell.World — UI primitives built on the settled design-token classes
  * (.btn, .pill, .safety-chip, .ftc, .icon-chip, .card …). These keep screens
@@ -27,16 +28,23 @@ export function ButtonLink({
   );
 }
 
-/** Action button (no navigation). */
-export function Button({
-  variant = "primary", className, children, ...rest
-}: { variant?: Variant } & ButtonHTMLAttributes<HTMLButtonElement>) {
-  return (
-    <button className={cx("btn", variantClass[variant], className)} {...rest}>
-      {children}
-    </button>
-  );
-}
+/**
+ * Action button (no navigation).
+ *
+ * forwardRef because focus is sometimes a REQUIREMENT rather than a nicety. The
+ * Level 3 consent gate has to put focus on "Show me alternatives" rather than on
+ * "Continue" — equal-sized buttons with continue pre-focused is still a nudge,
+ * just a quieter one — and that cannot be done without a ref.
+ */
+export const Button = forwardRef<HTMLButtonElement, { variant?: Variant } & ButtonHTMLAttributes<HTMLButtonElement>>(
+  function Button({ variant = "primary", className, children, ...rest }, ref) {
+    return (
+      <button ref={ref} className={cx("btn", variantClass[variant], className)} {...rest}>
+        {children}
+      </button>
+    );
+  }
+);
 
 export type PillKind = "live" | "preview" | "soon" | "gold" | "engine";
 /** Live vs Preview trust pill (Trust Language). */

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useSearchParams, useNavigate, Navigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
@@ -5,6 +6,8 @@ import { useWellById, useProviders, useDestinations } from "@/store/useCatalog";
 import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 import { resolveDestId } from "@/data/places";
 import { resolveSafety, isoForCountry } from "@/data/safety-data";
+import { L3ConsentGate, type AdvisoryConsent } from "@/components/safety/L3ConsentGate";
+import { recordAdvisoryConsent } from "@/lib/consent";
 
 /**
  * Affiliate redirect interstitial — straight handoff + "mark as booked" return.
@@ -27,9 +30,12 @@ import { resolveSafety, isoForCountry } from "@/data/safety-data";
  * product. Making it one means deciding whether destination-originated bookings
  * should route through `/go`, which is a product call, not plumbing.
  *
- * The rule enforced here is the absolute one only: LEVEL 4 NEVER BOOKS, no
- * consent override (David, 2026-08-05). The Level 3 consent gate is a separate
- * screen waiting on his content and his attorney's wording.
+ * TWO RULES ARE ENFORCED HERE, and the difference between them is the point.
+ * LEVEL 4 NEVER BOOKS — no consent override, no way to agree past it (David,
+ * 2026-08-05). LEVEL 3 BOOKS ONLY AFTER AN INFORMED CHOICE: the traveller is
+ * shown the advisory in its own words and picks, with the alternatives option
+ * holding focus. One is a refusal, the other is a gate; conflating them would
+ * either sell a Do-Not-Travel trip or refuse a bookable one.
  */
 export default function Go() {
   const [params] = useSearchParams();
@@ -53,6 +59,9 @@ export default function Go() {
     ? Object.values(destinations).flat().find((d) => d.id === destId)
     : undefined;
   const safety = dest ? resolveSafety(dest, isoForCountry(dest.country)) : null;
+  // Above the early returns so hook order is stable whichever branch renders —
+  // the same crash this file already carries a comment about.
+  const [consented, setConsented] = useState(false);
 
   // GUARD: /go is a mid-booking handoff — only meaningful when a provider was
   // passed in. Reached cold (a restored tab, a bare /go URL) it has no partner to
@@ -99,6 +108,27 @@ export default function Go() {
           </div>
         </div>
       </div>
+    );
+  }
+
+  // LEVEL 3 — the consent gate. Shown once per visit to this handoff; a decision
+  // does not persist across a fresh arrival, because an advisory can move between
+  // one booking and the next and stale consent is not consent.
+  if (safety && safety.lvl === 3 && !consented) {
+    return (
+      <L3ConsentGate
+        dest={dest!}
+        safety={safety}
+        iso={isoForCountry(dest!.country)}
+        onDecision={(c: AdvisoryConsent) => {
+          // RECORDED BOTH WAYS, not only on the decline. A record that exists
+          // only when someone declines tells you nothing about the ones who
+          // continued — which is the half you would actually need.
+          recordAdvisoryConsent(c);
+          if (c.decision === "alternatives") { openPanel("concierge"); navigate(`/destination/${dest!.id}`); }
+          else setConsented(true);
+        }}
+      />
     );
   }
 
