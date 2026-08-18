@@ -15,13 +15,11 @@ import type { Destination } from "@/data/places";
 import type { SiData } from "@/data/taxonomy";
 import type { PlacedJewel } from "@/lib/jewels";
 
-/**
- * The canonical origin. Hard-coded rather than read from `window.location`
- * because this module also runs at BUILD time inside `gen-static-heads`, where
- * there is no window — and a structured-data URL that differs between the served
- * HTML and the client-injected copy is worse than one that is simply absolute.
- */
-const ORIGIN = "https://travelwell.world";
+// The canonical origin. Imported rather than declared here: it also runs at
+// BUILD time inside `gen-static-heads`, and a structured-data URL that differs
+// between the served HTML and the client-injected copy is worse than one that is
+// simply absolute. See src/lib/site.ts for why it is `www`.
+import { ORIGIN } from "@/lib/site";
 
 /**
  * The organization record lives STATICALLY in index.html so a crawler that
@@ -30,7 +28,7 @@ const ORIGIN = "https://travelwell.world";
  * it by @id rather than restating the name, so the brand string exists in
  * exactly one place and can't drift to two words in one of them.
  */
-const PUBLISHER = { "@id": "https://travelwell.world/#organization" };
+const PUBLISHER = { "@id": `${ORIGIN}/#organization` };
 
 interface Faq { q: string; a: string; source?: string }
 

@@ -15,8 +15,9 @@
 import { writeFileSync } from "node:fs";
 import { REGIONS, SIS } from "../src/data/taxonomy";
 import { DESTINATIONS, GUIDES } from "../src/data/places";
+import { ORIGIN } from "../src/lib/site";
 
-const ORIGIN = "https://travelwell.world";
+
 
 /** Public, indexable routes. Ordered roughly by importance. */
 const STATIC_ROUTES: { path: string; priority: number; changefreq: string }[] = [

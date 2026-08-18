@@ -44,8 +44,9 @@ import { DESTINATIONS, GUIDES, type Destination } from "../src/data/places";
 import { mergedDestinations } from "./lib/destination-batches";
 import { destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
 import { jewelsForSi } from "../src/lib/jewels";
+import { ORIGIN } from "../src/lib/site";
 
-const ORIGIN = "https://travelwell.world";
+
 const DIST = "dist";
 const TEMPLATE = readFileSync(join(DIST, "index.html"), "utf8");
 

@@ -48,6 +48,12 @@ const OWNED = [
   "supabase/migrations/0005_seed_destinations_guides.sql",
   "supabase/migrations/0007_seed_local_signals.sql",
   "supabase/migrations/0015_advisory_schedule.sql",
+  // GITIGNORED (a build artifact — `gen:sitemap` runs before every build, so
+  // Vercel emits it fresh). Only the before/after HASH half of this check applies
+  // to it: `git diff` can never report an ignored file, so the "correct on disk
+  // but not staged" branch is unreachable here. Listed anyway because the hash
+  // half is what catches a stale local copy — but do not read a pass on this file
+  // as "it is committed and correct", because it is not committed at all.
   "public/sitemap.xml",
   "docs/ground-truth.md",
   // The paste block goes stale the same way everything else does — and it is the
