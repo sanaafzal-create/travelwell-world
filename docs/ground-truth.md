@@ -157,7 +157,7 @@ the provider.
    → `src/data/safety.json`
 
 ✅ **`_`-prefixed dossier files are references and never ship**
-   → interests/: 1 file(s), 0 shipping · destinations/: 1 file(s), 0 shipping
+   → interests/: 1 file(s), 0 shipping · destinations/: 2 file(s), 1 shipping
    → `src/data/interests/, src/data/destinations/`
 
 *Scope note on the safety check: it covers the countries we serve **today**. An
@@ -176,7 +176,7 @@ it is.
 - **7 of 44 destinations carry a `price_band`.**
 - **7 of 44 destinations carry `feel` tags.**
 - **13 of 44 destinations carry a `sub_region`.**
-- **0 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
+- **1 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
 ## Exact-match strings — the characters that bounce a batch
 
