@@ -42,8 +42,8 @@ good as regenerating it.
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:313 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:456 · `export const GUIDES: Guide[] = [` |
-| Country name→ISO entries (`COUNTRY_ISO`) | 38 | src/data/safety-data.ts:182 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 38 | src/data/safety-data.ts:201 · `export const SAFETY_DATA = safetyJson as Recor` |
+| Country name→ISO entries (`COUNTRY_ISO`) | 40 | src/data/safety-data.ts:191 · `export const COUNTRY_ISO: Record<string, strin` |
+| …of those, countries WITH an advisory row (`safety.json`) | 38 | src/data/safety-data.ts:218 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 
@@ -140,12 +140,16 @@ the provider.
    → all 3 present — read `SIS`, never the `BASE_SIS` literal
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
+⚠️ **Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage**
+   → 233 of 503 destinations (46%) render "not yet verified", across 48 countries: Argentina, Belgium, Belgium / Luxembourg, Belize, Botswana, Brazil, British Virgin Islands, Costa Rica, +40 more
+   → `src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts`
+
 ✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
    → all 503 ids unique across 13 regions
    → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
 
 ✅ **Our curated level matches the level State published for that country**
-   → all 36 countries State covers agree (feed snapshot 2026-08-17)
+   → all 38 countries State covers agree (feed snapshot 2026-08-17)
    → `src/data/safety.json vs src/data/state-advisory-feed.json`
 
 ✅ **A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate**

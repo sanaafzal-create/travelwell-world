@@ -155,6 +155,22 @@ const byDestId = new Map<string, string[]>();
 for (const r of allDestRows) byDestId.set(r.id, [...(byDestId.get(r.id) ?? []), r.code]);
 const crossRegionDupes = [...byDestId.entries()].filter(([, codes]) => codes.length > 1);
 
+// HOW MANY INGESTED DESTINATIONS HAVE NO ADVISORY AT ALL.
+//
+// The old check asked whether every country behind a BUNDLED destination had a
+// row, and answered "all 33 covered" — true, and about the 44 rows we wrote
+// ourselves. After the library ingest the denominator is 503, and 233 of them
+// sit in 48 countries we hold nothing for. Those pages render the fail-safe
+// card: no level, "not yet verified", no Book button. Correct behaviour and a
+// large silent hole, and the check that was passing could not see it because it
+// was pointed at the wrong set.
+const mergedRows = Object.values(mergedDestinations()).flat() as { country: string }[];
+const noAdvisory = mergedRows.filter((d) => {
+  const iso = (COUNTRY_ISO as Record<string, string>)[d.country];
+  return !iso || !(iso in (SAFETY_DATA as Record<string, unknown>));
+});
+const noAdvisoryCountries = [...new Set(noAdvisory.map((d) => d.country))].sort();
+
 // Every country we know by name should have an advisory row. `COUNTRY_ISO` is
 // the set we recognise — it drives the advisory checker's daily payload — so an
 // ISO in there with no row in safety.json is a country we ask about every
@@ -269,6 +285,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${JSON_SOURCED.length} present — read \`SIS\`, never the \`BASE_SIS\` literal`,
     ok: jsonSourcedMissing.length === 0,
     where: "src/data/taxonomy.ts (`import siExtra from \"./special-interests.json\"`)",
+  },
+  {
+    rule: "Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage",
+    result: noAdvisory.length
+      ? `${noAdvisory.length} of ${mergedRows.length} destinations (${Math.round(100 * noAdvisory.length / mergedRows.length)}%) render "not yet verified", across ${noAdvisoryCountries.length} countries: ${noAdvisoryCountries.slice(0, 8).join(", ")}${noAdvisoryCountries.length > 8 ? `, +${noAdvisoryCountries.length - 8} more` : ""}`
+      : `all ${mergedRows.length} covered`,
+    ok: noAdvisory.length === 0,
+    where: "src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts",
   },
   {
     rule: "No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last",

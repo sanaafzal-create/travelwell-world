@@ -2,6 +2,14 @@
   "countries": [
     {
       "iso": "AE",
+      "name": "United Arab Emirates",
+      "match": [
+        "united arab emirates"
+      ],
+      "fcdo_slug": "united-arab-emirates"
+    },
+    {
+      "iso": "AE",
       "name": "UAE",
       "match": [
         "uae",
@@ -50,6 +58,14 @@
         "switzerland"
       ],
       "fcdo_slug": "switzerland"
+    },
+    {
+      "iso": "CL",
+      "name": "Chile",
+      "match": [
+        "chile"
+      ],
+      "fcdo_slug": "chile"
     },
     {
       "iso": "CO",

@@ -169,7 +169,16 @@ export const DEFAULT_SAFETY: SafetyInfo = {
   label: "Not yet verified — check the official advisory",
   summary: "We haven't verified a current government advisory for this destination yet. Check your government's latest advisory before you book or travel.",
   considerations: [],
-  source: "No verified advisory on file — confirm with travel.state.gov / your national advisory",
+  // NAMES NO SOURCE, deliberately. This read "confirm with travel.state.gov"
+  // until 2026-08-18 — the authority we DEPRIORITISED on 2026-08-13, printed on
+  // every unverified destination as the place to go and check. The FCDO is
+  // primary; State is enrichment and unreadable from our servers.
+  //
+  // It names none rather than swapping one for another, because the card already
+  // renders `CheckItYourself` directly beneath it with the real deep links for
+  // that country, in source order. A second, hard-coded source string here can
+  // only drift from those links, and drifted once already.
+  source: "No verified advisory on file — read the official advisory for this country below",
   verified: "",
   unverified: true,
 };
@@ -185,6 +194,14 @@ export const COUNTRY_ISO: Record<string, string> = {
   Iceland: "IS", Indonesia: "ID", Italy: "IT", Japan: "JP", Jordan: "JO", Kenya: "KE",
   Ethiopia: "ET", Namibia: "NA", Netherlands: "NL", "New Zealand": "NZ", Norway: "NO", Peru: "PE",
   Philippines: "PH",
+  // ── ALIASES ──────────────────────────────────────────────────────────────
+  // The research library spells two of these differently from us, and a name
+  // that doesn't match falls through to DEFAULT_SAFETY — so a destination shows
+  // "not yet verified" while the verified row sits right there under another key.
+  // Found when 240 of 503 ingested destinations hit the fallback (2026-08-18);
+  // 2 were this, 233 were a genuine gap, and the two look identical on the page.
+  "United Arab Emirates": "AE",   // we key it "UAE"
+  Chile: "CL",                    // we key the Patagonia row "Chile / Argentina"
   Portugal: "PT", Rwanda: "RW", "Saudi Arabia": "SA", "South Africa": "ZA", "South Korea": "KR",
   Spain: "ES", "St. Lucia": "LC", Switzerland: "CH", Tanzania: "TZ", Thailand: "TH",
   "Turks & Caicos": "TC", UAE: "AE", Uganda: "UG",
