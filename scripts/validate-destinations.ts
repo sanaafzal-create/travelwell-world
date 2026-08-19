@@ -128,6 +128,16 @@ for (const { code, d } of rows) {
   if (!ID_RE.test(id) && !LIVE_IDS.has(id)) errs.push(`${at}: id "${id}" isn't <city>-<country> (lowercase, hyphenated)`);
   if (d.id && d.id !== deriveId(d.name, d.country)) warns.push(`${at}: id "${d.id}" ≠ derived "${deriveId(d.name, d.country)}" (name/country drift)`);
   if (seenIds.has(id)) errs.push(`${at}: duplicate id "${id}" (two dossiers → same slot)`); else seenIds.add(id);
+  // ── AND THE SAME ID IN A DIFFERENT REGION FROM THE BUNDLE ────────────────
+  // Not an error — a batch is allowed to MOVE a destination, and the merge now
+  // removes the old row. But it is worth saying out loud, because it silently
+  // relocates a live page: cortina-dampezzo-italy was hand-authored onto the
+  // alpine shelf in 01F and delivered under 02F with Italy, and until 2026-08-18
+  // that emitted the id twice and Postgres kept whichever INSERT ran last.
+  const bundled = Object.entries(DESTINATIONS).find(([, l]) => l.some((d) => d.id === id));
+  if (bundled && bundled[0] !== code) {
+    warns.push(`${at}: MOVES an existing destination from region ${bundled[0]} to ${code}. The batch wins and the old row is dropped — intended?`);
+  }
   // sub_region — validate against the region's known set where we have it (12A/13A
   // in the bundle); can't strictly check regions whose sub_regions live only in the seed.
   const subs = SUBREGIONS[code];

@@ -140,6 +140,10 @@ the provider.
    → all 3 present — read `SIS`, never the `BASE_SIS` literal
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
+✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
+   → all 503 ids unique across 13 regions
+   → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
+
 ✅ **Our curated level matches the level State published for that country**
    → all 36 countries State covers agree (feed snapshot 2026-08-17)
    → `src/data/safety.json vs src/data/state-advisory-feed.json`

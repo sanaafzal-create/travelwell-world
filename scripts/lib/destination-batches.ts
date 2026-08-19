@@ -54,6 +54,7 @@ export function readDestinationBatches(dir = "src/data/destinations"): Record<st
 export function mergedDestinations(): Record<string, DestRow[]> {
   const merged: Record<string, DestRow[]> = {};
   for (const [code, list] of Object.entries(DESTINATIONS)) merged[code] = [...(list as unknown as DestRow[])];
+
   for (const [code, list] of Object.entries(readDestinationBatches())) {
     const target = (merged[code] ??= []);
     for (const row of list) {
@@ -61,6 +62,30 @@ export function mergedDestinations(): Record<string, DestRow[]> {
       // name + country — so a batch may omit it. Default rather than reject a good
       // dossier over a cosmetic field the DB happens to mark not-null.
       if (!row.img) row.img = "mountainValley";
+
+      // ── DEDUPE ACROSS EVERY REGION, NOT JUST THIS ONE ──────────────────────
+      // A destination has one id and belongs to one region. The first version of
+      // this replaced a row only within the SAME region code, so a batch row that
+      // moved a destination to a different region left the old row standing and
+      // emitted the id twice.
+      //
+      // Nothing failed loudly. `validate:ingest` checks ids within the incoming
+      // file, not against the bundle; the generator counted both; and Postgres
+      // collapsed them on `on conflict (id)`. So the seed reported 504
+      // destinations, the database held 503, and which region the survivor landed
+      // in depended on which INSERT ran last.
+      //
+      // Found because Sana ran the migration and the count disagreed by one:
+      // cortina-dampezzo-italy, hand-authored into 01F on the alpine ski shelf and
+      // delivered by the library under 02F with Italy.
+      if (row.id) {
+        for (const [otherCode, otherList] of Object.entries(merged)) {
+          if (otherCode === code) continue;
+          const dupe = otherList.findIndex((d) => d.id === row.id);
+          if (dupe >= 0) otherList.splice(dupe, 1);
+        }
+      }
+
       const at = row.id ? target.findIndex((d) => d.id === row.id) : -1;
       if (at >= 0) target[at] = row; else target.push(row);   // batch wins
     }

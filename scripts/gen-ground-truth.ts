@@ -27,6 +27,7 @@ import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { SIS, boardSis, REGIONS, WELLS, LUX_WELLS, SI_GROUPS, SUBREGIONS, taglineSubject } from "../src/data/taxonomy";
 import { DESTINATIONS, ACTIVITIES, PROVIDERS, GUIDES, SUBREGION_TOP } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
+import { mergedDestinations } from "./lib/destination-batches";
 import { stateSnapshotLevel, STATE_FEED_UPDATED } from "../src/data/advisory-sources";
 
 /**
@@ -138,6 +139,21 @@ const stateCovered = Object.keys(COUNTRY_ISO).filter((n) => stateSnapshotLevel(n
 // their Postgres rows, and nothing else here would notice.
 const JSON_SOURCED = ["sailing", "yacht", "wine"];
 const jsonSourcedMissing = JSON_SOURCED.filter((id) => !SIS.some((s) => s.id === id));
+
+// ONE ID, ONE REGION. A destination belongs to exactly one region, and the seed
+// upserts on id — so the same id under two region codes emits two INSERT rows and
+// Postgres silently keeps whichever ran last. Nothing failed: the generator
+// counted both, `validate:ingest` checks ids within the incoming file rather than
+// against the bundle, and the only symptom was a count that disagreed by one when
+// a human ran the migration and looked.
+// THE MERGED SET, not the bundle. Checking `DESTINATIONS` alone would report
+// "44 ids unique" and miss the entire ingested library — which is where the
+// duplicate actually was. A check that inspects the wrong set passes for the
+// wrong reason, and reads exactly like one that passed for the right one.
+const allDestRows = Object.entries(mergedDestinations()).flatMap(([code, list]) => list.map((d) => ({ id: String(d.id), code })));
+const byDestId = new Map<string, string[]>();
+for (const r of allDestRows) byDestId.set(r.id, [...(byDestId.get(r.id) ?? []), r.code]);
+const crossRegionDupes = [...byDestId.entries()].filter(([, codes]) => codes.length > 1);
 
 // Every country we know by name should have an advisory row. `COUNTRY_ISO` is
 // the set we recognise — it drives the advisory checker's daily payload — so an
@@ -253,6 +269,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${JSON_SOURCED.length} present — read \`SIS\`, never the \`BASE_SIS\` literal`,
     ok: jsonSourcedMissing.length === 0,
     where: "src/data/taxonomy.ts (`import siExtra from \"./special-interests.json\"`)",
+  },
+  {
+    rule: "No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last",
+    result: crossRegionDupes.length
+      ? `${crossRegionDupes.length} duplicated: ${crossRegionDupes.map(([id, c]) => `${id} in ${c.join(" and ")}`).join("; ")}`
+      : `all ${byDestId.size} ids unique across ${new Set(allDestRows.map((r) => r.code)).size} regions`,
+    ok: crossRegionDupes.length === 0,
+    where: "src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts",
   },
   {
     rule: "Our curated level matches the level State published for that country",
