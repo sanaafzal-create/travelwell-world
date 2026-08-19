@@ -5,6 +5,7 @@ import { useStore, type IoMode } from "@/store/useStore";
 import { useAtlas } from "@/lib/useAtlas";
 import { useSpeechInput } from "@/lib/useSpeech";
 import { useLiveVoice } from "@/lib/useLiveVoice";
+import { premiumVoiceReady } from "@/lib/voice/index";
 import { subscribeSpeaking } from "@/lib/voice";
 import { atlasSpeak, atlasStopSpeaking } from "@/lib/voice/index";
 import { renderMarkdown, stripMarkdown } from "@/lib/markdown";
@@ -96,6 +97,15 @@ export function Concierge() {
   // aloud (in their language) while the same text stays on screen. Routed through
   // the voice seam (atlasSpeak) — browser TTS by default, Cartesia/ElevenLabs via
   // VITE_TWW_MOUTH once wired; the UI never learns which mouth is talking.
+  // Only true once a premium mouth is wired (see src/lib/voice/index.ts). Live
+  // WebRTC voice is separate — the agent speaks over the room, not through this.
+  const voiceOffered = premiumVoiceReady();
+  // A persisted choice outlives the control. Someone who picked "Hear" before it
+  // was withdrawn would still hear browser TTS with no way to turn it off.
+  useEffect(() => {
+    if (!voiceOffered && io !== "read") setIo("read");
+  }, [voiceOffered, io, setIo]);
+
   const lastSpokenRef = useRef(-1);
   useEffect(() => {
     if (io === "read" || !isOpen) return;
@@ -394,13 +404,28 @@ export function Concierge() {
         </div>
 
         <div className="tw-concierge__foot">
-          <div className="tw-io-toggle" role="group" aria-label="How should I respond?">
-            {ioBtn("read", t("io.read"), "read")}
-            {ioBtn("hear", t("io.hear"), "sound")}
-            {ioBtn("both", t("io.both"))}
-          </div>
+          {/* SPOKEN REPLIES ARE OFFERED ONLY WHEN THERE IS A VOICE WORTH HEARING.
+              With no premium mouth wired, "Hear" and "Both" fall through to the
+              browser's own speech synthesis — flat on macOS, worse on Windows,
+              and silent in Firefox and some iOS builds. A control that promises a
+              voice and delivers a different one per device (or none) reads as
+              broken on a product built to get the details right.
+
+              The whole group is hidden rather than just "Hear": "Both" speaks
+              too, so removing one and leaving the other would have moved the
+              defect rather than fixed it. `io` is forced back to "read" in the
+              effect below, because it persists in localStorage — anyone who had
+              already chosen Hear would otherwise keep getting browser TTS from a
+              control that is no longer on screen. */}
+          {voiceOffered && (
+            <div className="tw-io-toggle" role="group" aria-label="How should I respond?">
+              {ioBtn("read", t("io.read"), "read")}
+              {ioBtn("hear", t("io.hear"), "sound")}
+              {ioBtn("both", t("io.both"))}
+            </div>
+          )}
           {primed && !listening && (
-            <div className="t-body-s" style={{ color: "var(--muted-foreground)", fontSize: 12.5, margin: "2px 2px 6px" }}>{t("atlas.cue")}</div>
+            <div className="t-body-s" style={{ color: "var(--muted-foreground)", fontSize: 12.5, margin: "2px 2px 6px" }}>{t("atlas.cue")}{voiceOffered ? ` ${t("atlas.cue.hear")}` : ""}</div>
           )}
           {listening && (
             <div className="tw-listening-live" role="status" aria-live="polite">

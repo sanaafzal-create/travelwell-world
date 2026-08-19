@@ -263,7 +263,8 @@ export const MESSAGES: Record<string, Dict> = {
   "io.read": { en: "Read", es: "Leer", ar: "قراءة", zh: "阅读", fr: "Lire" },
   "io.hear": { en: "Hear", es: "Escuchar", ar: "استماع", zh: "听", fr: "Écouter" },
   "io.both": { en: "Both", es: "Ambos", ar: "كلاهما", zh: "两者", fr: "Les deux" },
-  "atlas.cue": { en: "Type and press Enter, or tap the mic to talk. Choose Hear to have Atlas speak back.", es: "Escribe y pulsa Enter, o toca el micrófono para hablar. Elige Escuchar para que Atlas responda en voz alta.", ar: "اكتب واضغط Enter، أو انقر الميكروفون للتحدّث. اختر «استماع» ليجيبك Atlas بصوته.", zh: "输入后按 Enter，或点麦克风说话。选择“听”让 Atlas 出声回答。", fr: "Écrivez et appuyez sur Entrée, ou touchez le micro pour parler. Choisissez Écouter pour qu'Atlas réponde à voix haute." },
+  "atlas.cue":  { en: "Type and press Enter, or tap the mic to talk.", es: "Escribe y pulsa Enter, o toca el micrófono para hablar.", ar: "اكتب واضغط Enter، أو انقر الميكروفون للتحدّث.", zh: "输入后按 Enter，或点按麦克风说话。", fr: "Écrivez puis appuyez sur Entrée, ou touchez le micro pour parler." },
+  "atlas.cue.hear":  { en: "Choose Hear to have Atlas speak back.", es: "Elige Escuchar para que Atlas responda en voz alta.", ar: "اختر «استماع» ليجيبك Atlas بصوته.", zh: "选择“收听”让 Atlas 出声回答。", fr: "Choisissez Écouter pour qu'Atlas réponde à voix haute." },
 };
 
 /**

@@ -39,6 +39,38 @@ function pickEars(want: VoiceConfig["ears"], degrade: boolean): Ears {
   return browserEars;
 }
 
+/**
+ * IS THERE A VOICE WORTH OFFERING? — the one question the UI asks the seam.
+ *
+ * True only when a PREMIUM mouth is wired and reports itself supported. The
+ * browser mouth deliberately does not count, and that is the point of this
+ * function rather than a bug in it.
+ *
+ * ── Why the browser mouth is not "a voice we offer" ────────────────────────
+ * It is the guaranteed floor so a traveller is never left mute, and it is the
+ * right thing to fall back TO. It is not the right thing to advertise. What it
+ * actually sounds like depends entirely on the device: passable and flat on
+ * macOS, worse on Windows, and on Firefox and some iOS builds there is no output
+ * at all — `speechOutputSupported()` returns false and nothing is spoken.
+ *
+ * So "Hear" was a control that promised a voice, delivered a different one per
+ * laptop, and on some laptops delivered silence with no explanation. On a product
+ * whose whole pitch is that the details are right, that is worse than not
+ * offering it (David, 2026-08-16 — "a robotic or obvious un-premium voice gets
+ * more attention than a premium voice that complements the build").
+ *
+ * ── It turns itself back on ────────────────────────────────────────────────
+ * This is not a removal. The day a premium mouth is wired and `VITE_TWW_MOUTH`
+ * names it, `supported()` flips true and the Hear and Both controls reappear with
+ * no UI change. The decision lives in the seam, where the voice lives, rather
+ * than in a component that would have to be found and edited back.
+ */
+export function premiumVoiceReady(): boolean {
+  const choice = ENV_MOUTH;
+  const premium = choice ? PREMIUM_MOUTHS[choice] : undefined;
+  return Boolean(premium?.supported());
+}
+
 /** The browser belt: direct Web Speech, no WebRTC. Always available. */
 function createBrowserBelt(mouth: Mouth, ears: Ears): VoiceBelt {
   let connected = false;
