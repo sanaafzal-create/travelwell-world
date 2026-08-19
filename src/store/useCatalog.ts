@@ -98,6 +98,18 @@ export const useCatalog = create<CatalogState>((set) => ({
 }));
 
 /* Reactive helpers mirroring the old taxonomy/places call-sites. */
+/**
+ * Has the catalog come back from Postgres yet?
+ *
+ * Matters for one specific wrong statement. The bundle carries 44 destinations
+ * and the database carries every ingested row, so between first paint and
+ * hydration a page for an ingested destination is "not in the catalog" — and
+ * saying so out loud is a claim we cannot support yet. The prerendered HTML
+ * shows the real page, and a not-found rendered a moment later replaces correct
+ * content with a wrong denial.
+ */
+export const useCatalogLoaded = () => useCatalog((s) => s.source === "db");
+
 export const useSpecialInterests = () => useCatalog((s) => s.sis);
 export const useActivities = () => useCatalog((s) => s.activities);
 export const useWells = () => useCatalog((s) => s.wells);

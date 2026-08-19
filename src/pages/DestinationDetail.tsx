@@ -6,7 +6,7 @@ import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { useDestinationImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
-import { useRegions, useWells, useProviders, useDestinations, useGuides } from "@/store/useCatalog";
+import { useRegions, useWells, useProviders, useDestinations, useGuides, useCatalogLoaded } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 import { resolveSafety, stricterZones, isoForCountry, SAFE_HEADER_COLOR } from "@/data/safety-data";
 import { CheckItYourself } from "@/components/ui/CheckItYourself";
@@ -110,6 +110,11 @@ export default function DestinationDetail() {
   const allWells: Record<string, Well> = {};
   wells.forEach((w) => { allWells[w.id] = w; });
   const found = findDestination(regions, destinations, id);
+  // The bundle holds 44 destinations; the database holds every ingested one. So
+  // "we don't have this" is only true once the catalog has actually loaded —
+  // before that it is a denial we cannot support, and on a prerendered page it
+  // REPLACES correct server-rendered content with a wrong one.
+  const catalogLoaded = useCatalogLoaded();
   // Hooks below run unconditionally, so the not-found branch renders AFTER them
   // (see the early return further down) rather than short-circuiting here.
   const { dest: DEST, region: R, list } = found ?? {
@@ -162,6 +167,27 @@ export default function DestinationDetail() {
   // we don't carry this one and points at the two places worth going next. No
   // safety card, no providers, no level — we cannot identify the place, so we
   // assert nothing about it.
+  // STILL LOADING is not the same as NOT FOUND, and the difference is a claim.
+  //
+  // The bundle carries 44 destinations and the database carries every ingested
+  // one, so between first paint and hydration an ingested destination is absent
+  // from the client's catalog — and "we don't have this destination" is a denial
+  // we cannot support yet. Measured on a prerendered page: the server sent 6,374
+  // characters of the real Cairo page and the client replaced it with that
+  // denial. Wrong, and wrong in the direction that loses a traveller.
+  //
+  // A loading state rather than `null`, because a blank panel is its own kind of
+  // broken — it says nothing is happening when something is.
+  if (!found && !catalogLoaded) {
+    return (
+      <div className="dd-missing" style={{ maxWidth: "var(--content-max)", margin: "0 auto", padding: "3rem 1.25rem" }}>
+        <p className="t-body" style={{ color: "var(--muted-foreground)" }} role="status" aria-live="polite">
+          Loading this destination&hellip;
+        </p>
+      </div>
+    );
+  }
+
   if (!found) {
     return (
       <div className="dd-missing" style={{ maxWidth: "var(--content-max)", margin: "0 auto", padding: "3rem 1.25rem" }}>
