@@ -25,11 +25,11 @@
  * habit.
  */
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 
 const GENERATORS = [
-  ["gen:catalog", "the seed migrations (0003, 0004, 0005, 0007)"],
+  ["gen:catalog", "the seed migrations (0003, 0004, 0005 parts, 0007)"],
   ["gen:sitemap", "public/sitemap.xml"],
   // gen:heads writes into dist/, which is a build artifact and untracked — it runs
   // as part of `npm run build` and there is nothing in the repo for it to stale.
@@ -45,7 +45,14 @@ const GENERATORS = [
 const OWNED = [
   "supabase/migrations/0003_seed_si_activities.sql",
   "supabase/migrations/0004_seed_providers_subregions.sql",
-  "supabase/migrations/0005_seed_destinations_guides.sql",
+  // 0005 is emitted as numbered PARTS, not one file — the whole seed is ~4.8MB
+  // and the Supabase SQL editor cannot accept that in a single paste. The list is
+  // built at run time so a catalog that grows or shrinks by a part is still fully
+  // covered; hard-coding part01…part15 would silently stop guarding part16.
+  ...readdirSync("supabase/migrations")
+    .filter((f) => /^0005_part\d+_seed_destinations\.sql$/.test(f))
+    .sort()
+    .map((f) => `supabase/migrations/${f}`),
   "supabase/migrations/0007_seed_local_signals.sql",
   "supabase/migrations/0015_advisory_schedule.sql",
   // GITIGNORED (a build artifact — `gen:sitemap` runs before every build, so
