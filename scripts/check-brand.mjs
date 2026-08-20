@@ -32,10 +32,52 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = "dist";
-// "travel well" NOT followed by another letter — so "travel wellness" is fine
-// and "Travel Well." is not. Apostrophes and punctuation after are still caught.
-const TWO_WORD = /travel\s+well(?![a-z])/i;
 const SCAN = /\.(html|js|css|json|webmanifest|txt|xml|svg)$/i;
+
+const RULES = [
+  {
+    id: "two-word",
+    // "travel well" NOT followed by another letter — so "travel wellness" is fine
+    // and "Travel Well." is not. Apostrophes and punctuation after are still caught.
+    re: /travel\s+well(?![a-z])/i,
+    headline: "THE TWO-WORD FORM SHIPS",
+    advice: `The mark is ONE WORD — TravelWell. A two-word instance is a variant of our own
+mark on our own site, and for a filing resting on consistent use in commerce that
+works against us. Fix it at the source, not here.
+
+If the line is deliberate poetry, it still closes on the one-word mark: keep the
+image ("The wild is calling.") and let the mark end it.`,
+  },
+  {
+    // ── THE UNRELEASED NAME MUST NOT SHIP ───────────────────────────────────
+    // The site is TravelWell.World. The rebrand to TravelVisions.World is real
+    // and already on social, but it is NOT announced here — so the name reaching
+    // a live page is neither a rebrand nor a typo, it is the two coexisting,
+    // which is the one outcome that serves nobody: a page saying TravelVisions
+    // beside 573 saying TravelWell reads as a mistake on whichever is correct.
+    //
+    // Not hypothetical. A research-library dossier authored under the new name
+    // shipped `lalibela-ethiopia` with "Can I book a trip to Lalibela through
+    // TravelVisions?", a TravelVisions.World meta title and a TravelVisions.World
+    // byline — through every gate, into Postgres and into prerendered HTML,
+    // because nothing was looking for a name that is not wrong, only early.
+    //
+    // TO RETIRE THIS RULE ON LAUNCH DAY: delete this entry and invert the
+    // `two-word` rule's target. Do it as one deliberate change, not by loosening
+    // this one first — a window where neither name is enforced is how both end
+    // up shipping.
+    id: "unreleased-name",
+    re: /travel\s*visions/i,
+    headline: "THE UNRELEASED BRAND NAME SHIPS",
+    advice: `The live site is TravelWell.World. TravelVisions.World is the coming rebrand and
+it is not announced on this surface, so a page carrying it puts two brands in
+front of the same reader.
+
+Fix it in the SOURCE dossier or component, not here. If a research-library
+delivery introduced it, tell the library — otherwise the next batch reintroduces
+it and this gate catches it again after the work is redone.`,
+  },
+];
 
 function walk(dir) {
   const out = [];
@@ -55,29 +97,31 @@ try {
   process.exit(2);
 }
 
-const hits = [];
+const hitsByRule = new Map(RULES.map((r) => [r.id, []]));
 for (const f of files) {
   const text = readFileSync(f, "utf8");
   for (const [i, line] of text.split("\n").entries()) {
-    const m = TWO_WORD.exec(line);
-    if (!m) continue;
-    const at = Math.max(0, m.index - 60);
-    hits.push({ file: f, line: i + 1, excerpt: line.slice(at, m.index + 80).trim() });
+    for (const rule of RULES) {
+      const m = rule.re.exec(line);
+      if (!m) continue;
+      const at = Math.max(0, m.index - 60);
+      hitsByRule.get(rule.id).push({ file: f, line: i + 1, excerpt: line.slice(at, m.index + 80).trim() });
+    }
   }
 }
 
-if (hits.length) {
-  console.error(`\n✗ THE TWO-WORD FORM SHIPS — ${hits.length} occurrence(s) in the built output:\n`);
+// EVERY rule reports before exiting. Bailing on the first failure hides the
+// second, and the person then fixes one thing, re-runs, and is surprised again.
+let failed = false;
+for (const rule of RULES) {
+  const hits = hitsByRule.get(rule.id);
+  if (!hits.length) continue;
+  failed = true;
+  console.error(`\n✗ ${rule.headline} — ${hits.length} occurrence(s) in the built output:\n`);
   for (const h of hits.slice(0, 20)) console.error(`   ${h.file}:${h.line}\n      …${h.excerpt}…`);
   if (hits.length > 20) console.error(`   …and ${hits.length - 20} more`);
-  console.error(`
-The mark is ONE WORD — TravelWell. A two-word instance is a variant of our own
-mark on our own site, and for a filing resting on consistent use in commerce that
-works against us. Fix it at the source, not here.
-
-If the line is deliberate poetry, it still closes on the one-word mark: keep the
-image ("The wild is calling.") and let the mark end it.`);
-  process.exit(1);
+  console.error(`\n${rule.advice}`);
 }
+if (failed) process.exit(1);
 
-console.log(`✓ One form only — scanned ${files.length} built files, no two-word occurrences.`);
+console.log(`✓ One form only — scanned ${files.length} built files against ${RULES.length} rules, no occurrences.`);

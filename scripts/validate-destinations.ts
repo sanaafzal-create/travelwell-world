@@ -20,6 +20,7 @@ import { join } from "node:path";
 import { REGIONS, SIS, SUBREGIONS, boardSis } from "../src/data/taxonomy";
 import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
+import { mergedDestinations } from "./lib/destination-batches";
 import { checkHero } from "./lib/check-hero";
 import { checkSafetyLanguage } from "./lib/check-safety-language";
 
@@ -82,8 +83,25 @@ function normalize(raw: any, fromRegionKey?: string): Row[] {
 function loadRows(): { rows: Row[]; source: string } {
   const arg = process.argv[2];
   if (!arg) {
-    const rows = Object.entries(DESTINATIONS).flatMap(([code, list]) => list.map((d) => ({ code, d })));
-    return { rows, source: "src/data/places.ts (self-check)" };
+    // ── THE SELF-CHECK MUST COVER WHAT SHIPS, NOT WHAT WE HAND-WROTE ────────
+    // This read `DESTINATIONS` — the 44 bundled rows — so `npm run validate:ingest`
+    // and the CI step that runs it were both checking the catalog's smallest and
+    // most carefully-authored corner while 459 ingested dossiers went unexamined
+    // unless somebody remembered to pass the directory by hand.
+    //
+    // What that cost: 54 of 484 delivered rows carried a dangling markdown bold
+    // and a brand mark in `line` — "Turtle bay, cenotes and reef **TravelWell" —
+    // and shipped into Postgres, the prerendered HTML and 54 search snippets with
+    // every gate green. One of them named an unreleased brand. The gate was not
+    // wrong about the rows it read; it was pointed at the wrong rows.
+    //
+    // The merged set, so the default answers "is what we ship valid" — and via
+    // the same reader every other consumer uses, which is what stops this drifting
+    // apart again. Explicit-argument mode is unchanged: that is pre-ingest triage
+    // of an incoming batch, a different question.
+    const rows = Object.entries(mergedDestinations()).flatMap(([code, list]) =>
+      list.map((d) => ({ code, d: d as unknown as Row["d"] })));
+    return { rows, source: `merged catalog — src/data/places.ts + src/data/destinations/ (${rows.length} rows, self-check)` };
   }
   const st = statSync(arg);
   const files = st.isDirectory()
@@ -120,6 +138,27 @@ for (const { code, d } of rows) {
 
   for (const f of ["name", "country", "line", "status", "depth"]) {
     if (d[f] == null || d[f] === "") errs.push(`${at}: missing required "${f}"`);
+  }
+  // ── `line` IS RENDERED COPY, SO IT MUST BE FINISHED PROSE ─────────────────
+  // It shows on the destination page and, when a dossier carries no seo block,
+  // becomes the meta description — the sentence in the search result. Yet the
+  // gate only ever asked whether it was non-empty.
+  //
+  // 54 of 484 rows in one delivery ended with a dangling markdown bold and a
+  // brand mark: "Turtle bay, cenotes and reef **TravelWell". Every one shipped —
+  // into Postgres, into the prerendered HTML, into 54 search snippets — because
+  // "present and a string" was the whole test. The brand mark does not belong in
+  // a per-destination line at all; the Tagline primitive renders the slogan.
+  //
+  // Checked on the FRAGMENT, not on the brand name: a line legitimately naming
+  // TravelWell is not the defect, an unclosed `**` is.
+  if (typeof d.line === "string") {
+    if (d.line.includes("**")) {
+      errs.push(`${at}: line carries markdown "**" — it renders as literal asterisks in the page and the search snippet: ${JSON.stringify(d.line)}`);
+    }
+    if (/\s(–|—|-|\|)\s*$/.test(d.line) || /\.\.\.$/.test(d.line)) {
+      errs.push(`${at}: line ends mid-thought — truncated on the way in? ${JSON.stringify(d.line)}`);
+    }
   }
   // Region scheme — the 13-code is official; a 15-scheme code must be mapped down.
   if (!REGION_CODES.has(code)) errs.push(`${at}: region "${code}" is not a valid 13-code region — map 15→13 via the reconciliation table before ingest`);
