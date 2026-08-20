@@ -12,10 +12,25 @@
  *
  * Run:  npm run gen:sitemap        (also runs automatically before `npm run build`)
  */
-import { writeFileSync } from "node:fs";
+import { writeGenerated, VOLATILE_DATE } from "./lib/write-generated";
 import { REGIONS, SIS } from "../src/data/taxonomy";
-import { DESTINATIONS, GUIDES } from "../src/data/places";
-import { ORIGIN } from "../src/lib/site";
+import { GUIDES, type Destination } from "../src/data/places";
+import { mergedDestinations } from "./lib/destination-batches";
+import { ORIGIN, isIndexableDestination } from "../src/lib/site";
+
+// THE MERGED CATALOG, NOT THE BUNDLE. This read `DESTINATIONS` from
+// `src/data/places` — the 44 hand-authored rows — while `gen:heads` and
+// `prerender` had already been moved onto `mergedDestinations()`. So the build
+// rendered 590 pages and told Google about 121 of them: every one of the 459
+// ingested dossiers was crawlable, prerendered, carrying its FAQPage JSON-LD,
+// and listed nowhere.
+//
+// This is the third time the same shape has bitten (see the header of
+// `scripts/lib/destination-batches.ts`): not a crash, but one more consumer of
+// the catalog that nobody remembered was a consumer. `grep -rl mergedDestinations
+// scripts/` is the check — if a generator reads the catalog and is not on that
+// list, ask why before assuming it is deliberate.
+const ALL_DESTINATIONS = mergedDestinations() as unknown as Record<string, Destination[]>;
 
 
 
@@ -59,9 +74,12 @@ for (const r of REGIONS) {
 // Destinations — the dossier pages. These carry the Q&A + FAQPage JSON-LD, so
 // they're the ones that matter most for search and AI citation.
 let destCount = 0;
-for (const list of Object.values(DESTINATIONS)) {
+for (const list of Object.values(ALL_DESTINATIONS)) {
   for (const d of list) {
-    if (d.status !== "live") continue;                       // don't index future placeholders
+    // Unreleased destinations stay out — and `gen:heads` reads the SAME
+    // predicate to stamp them `noindex`, because leaving a URL out of a sitemap
+    // does not stop anything indexing it.
+    if (!isIndexableDestination(d)) continue;
     urls.push({
       loc: `${ORIGIN}/destination/${d.id}`,
       priority: d.depth === "verified" ? 0.9 : 0.6,          // deep dossiers rank first
@@ -81,5 +99,21 @@ const body = urls
 const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`
   .replace("http://www.sitemap.org", "http://www.sitemaps.org"); // correct namespace
 
-writeFileSync("public/sitemap.xml", xml);
-console.log(`sitemap.xml → ${urls.length} urls  (${destCount} destinations, ${SIS.length} interests, ${REGIONS.length} regions, ${GUIDES.length} guides, ${STATIC_ROUTES.length} static)`);
+// Written through `writeGenerated` so the date stamp only moves when the URL set
+// moves. Two reasons, and the second is the one that reaches Google:
+//
+//  1. A raw write made this generator non-idempotent, which is the one thing
+//     `check:generated` cannot tolerate: it asserts "run every generator and the
+//     repo is unchanged". With `lastmod` = today, that assertion failed on the
+//     FIRST commit of every calendar day — and the failure told you to
+//     `git add public/sitemap.xml`, a file .gitignore refuses, so the only ways
+//     past it were running the check twice or `--no-verify`. A check that cries
+//     wolf at midnight is a check people learn to skip, and then it catches
+//     nothing. Found 2026-08-20, on the first run of the day.
+//  2. `lastmod` is supposed to mean "when this page last changed", not "when
+//     somebody last ran the build". Re-stamping 590 URLs with today's date on
+//     every deploy tells a crawler the entire site changed daily, which is both
+//     untrue and self-defeating — a lastmod that is always today carries no
+//     information, and Google stops trusting the field.
+const wrote = writeGenerated("public/sitemap.xml", xml, VOLATILE_DATE);
+console.log(`sitemap.xml → ${urls.length} urls  (${destCount} destinations, ${SIS.length} interests, ${REGIONS.length} regions, ${GUIDES.length} guides, ${STATIC_ROUTES.length} static)${wrote === "unchanged" ? "  [unchanged — kept its lastmod]" : ""}`);

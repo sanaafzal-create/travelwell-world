@@ -312,6 +312,73 @@ build sandbox.
 **The FCDO and CDC slug tables are verified.** Every one lands on the right
 country page, which is what §7B asks for.
 
+## Re-run (2026-08-20) — 78 of 117 proven, and the 39 is really a 1
+
+Same command, same shape of machine (Sana's laptop, residential egress), against
+the grown link table: **117 deep links, 78 reached, 0 404s, 39 blocked — every
+blocked one `state`.** Exit 3.
+
+| Source | Deep links | Result |
+|---|---|---|
+| **UK FCDO** | 39 | **all resolve** |
+| **US CDC** | 39 | **all resolve** |
+| **US State** | 39 | 403 — website bot protection |
+| | | **0 404s among everything reached** |
+
+This **confirms** the existing matrix cell rather than adding a surprise:
+`travel.state.gov` HTML pages 403 to automation from a residential IP with a full
+Chrome User-Agent, exactly as recorded from the two earlier origins. Three
+origins now agree. **It is the website's bot protection, and it is not the thing
+the API cell is about** — `cadataapi.state.gov` (the machine-readable endpoint)
+and `travel.state.gov` (the human website) are different hosts with different
+answers, and conflating them is how this gets re-diagnosed a fourth time.
+
+### 39 unproven links, 1 unproven slug
+
+The headline count overstated the risk by 38×, and finding that out changed what
+the checker prints.
+
+**38 of the 39 blocked State URLs came verbatim out of State's own Atom feed**
+(`statePublishedUrl()` in `advisory-sources.ts`). Exactly one — **Austria** — is a
+slug our own rule derived, because Austria has no entry in the feed snapshot.
+
+The only defect this checker can catch is *our slug pointing at the wrong page*.
+A URL the source itself published cannot be our slug being wrong. So a 403 on an
+attested URL and a 403 on a derived one are the same HTTP status carrying
+completely different risk, and the run now counts them apart:
+
+```
+of the 39 unreached — source-published URL: 38   our derived slug: 1
+```
+
+**Exit codes** (`scripts/check-advisory-links.ts`):
+
+| code | meaning |
+|---|---|
+| 0 | every deep link reached, none 404. Real pass. |
+| 1 | a link 404s — a wrong slug. Fix `SLUG_OVERRIDES`. |
+| 2 | **nothing** was reached. Not a pass; "no 404s" is trivially true. |
+| 3 | partial, **and at least one of OUR derived slugs is unproven**. |
+| 4 | partial, but every unreached link is the source's own published URL — no slug of ours left unchecked. Liveness still unconfirmed. |
+
+Code 4 exists because the alternative was a check that can never go green from
+the machine anyone actually runs it on, and that is a check people stop running.
+It is deliberately not a 0: an attested URL that we could not fetch is still an
+unfetched URL.
+
+**The remaining work is one link, not thirty-nine**: prove
+`austria-travel-advisory.html` from an egress State's website will answer, or get
+Austria into the feed snapshot.
+
+### The 403 retry is a hypothesis, not a fix
+
+The checker now retries GET when HEAD returns 403, because CDN bot rules often
+reject HEAD while serving GET to the same client. **This has not been observed
+working** — the build sandbox cannot reach State — so it is written to report its
+own failure: a link refused both ways prints `403 (GET too)`, which is a new
+matrix cell, not a reason to start tuning headers. One variable at a time; do not
+stack a second change on this one before it has a result.
+
 ### The State API — the measured matrix, after three wrong readings
 
 This question got answered wrong three times in two days, each time from a single

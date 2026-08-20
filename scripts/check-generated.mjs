@@ -115,24 +115,49 @@ const rewritten = OWNED.filter((f) => hash(f) !== before[f]);
 const unstaged = git("diff", "--name-only", "--", ...OWNED).split("\n").filter(Boolean);
 const stale = [...new Set([...rewritten, ...unstaged])].sort();
 
+// Some owned files are gitignored build artifacts (public/sitemap.xml). Telling
+// someone to `git add` one of those is advice git refuses to take — it errors
+// with "paths are ignored by one of your .gitignore files" — so the only ways
+// past the hook are running the check twice or `--no-verify`. Both teach the
+// wrong lesson about a gate whose whole value is being obeyed.
+const ignored = new Set(
+  stale.length
+    ? (() => {
+        try { return git("check-ignore", "--", ...stale).split("\n").filter(Boolean); }
+        catch { return []; }   // exit 1 simply means none of them are ignored
+      })()
+    : [],
+);
+const toStage = stale.filter((f) => !ignored.has(f));
+
 if (stale.length) {
   console.error(`\n✗ STALE GENERATED FILES — ${stale.length} file(s) don't match their source:\n`);
   for (const f of stale) {
-    const why = rewritten.includes(f)
+    const why = ignored.has(f)
+      ? "gitignored build artifact — regenerated in place, nothing to stage"
+      : rewritten.includes(f)
       ? (unstaged.includes(f) ? "was out of date — regenerated, now needs staging" : "was hand-edited or stale — regenerated in place")
       : "correct on disk but not staged";
     console.error(`   ${f}\n      ${why}`);
   }
-  console.error(`
-All of them have been regenerated in your working tree. Review and stage them
-with the change that caused it:
+  if (toStage.length) {
+    console.error(`
+Regenerated in your working tree. Review and stage them with the change that
+caused it:
 
-   git diff ${stale.join(" ")}
-   git add ${stale.join(" ")}
+   git diff ${toStage.join(" ")}
+   git add ${toStage.join(" ")}
 
 Committing a source edit without its generated output is how a fact sheet, a
 seed migration or a link list ends up authoritative and wrong. If a file was
 hand-edited, the edit is gone — change the generator or the source instead.`);
+  } else {
+    console.error(`
+Every stale file here is a gitignored build artifact, so there is nothing to
+stage — but the drift is still real: what was on disk was not what the generator
+produces. It has been rewritten. Re-run to confirm, and if it goes stale again on
+the next run the generator is not idempotent, which is a bug in the generator.`);
+  }
   process.exit(1);
 }
 

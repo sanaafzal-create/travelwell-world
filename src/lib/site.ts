@@ -38,3 +38,23 @@ export const ORIGIN = "https://www.travelwell.world";
 /** An absolute URL on the canonical host. Accepts "/path" or "path". */
 export const absUrl = (path: string): string =>
   `${ORIGIN}${path.startsWith("/") ? path : `/${path}`}`;
+
+/**
+ * Is this destination one we want in the index?
+ *
+ * `status` is the shown/not-shown axis, so a `future` destination is one we have
+ * not released. The sitemap has always skipped them — but skipping a URL from a
+ * sitemap is a hint, not an instruction, and the page itself was prerendered and
+ * served at 200 with a full dossier and no `robots` tag. Six unreleased pages
+ * (four Uganda parks, two Mozambique islands, all `depth: verified`) were
+ * therefore indexable while being deliberately unlisted.
+ *
+ * Both consumers now read THIS, so the sitemap and the `noindex` tag cannot
+ * drift apart into "unlisted but indexable" again — the same one-definition
+ * argument as ORIGIN above, which existed in three copies and disagreed.
+ *
+ * Note this deliberately does NOT extend to Signature Interests or regions: a
+ * `preview` SI is an announced future way-to-travel and we want it found. Only a
+ * `future` destination is unreleased content.
+ */
+export const isIndexableDestination = (d: { status?: string }): boolean => d.status === "live";

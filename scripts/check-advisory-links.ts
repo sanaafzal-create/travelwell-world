@@ -18,9 +18,24 @@
  * A 403 is reported separately from a 404 on purpose: 403 means the source is
  * refusing an automated request (State did exactly this to a plain GET), which
  * says nothing about whether the slug is right. Only 404 condemns a slug.
+ *
+ * ── PROVENANCE IS PART OF THE ANSWER (2026-08-20) ──────────────────────────
+ * First real run, from Sana's laptop on residential egress: 78 of 117 proven,
+ * 39 blocked — every blocked one `state`, no 404s anywhere. Read as a count that
+ * is 39 links away from being trustworthy.
+ *
+ * It isn't. 38 of those 39 URLs came verbatim out of State's own machine-
+ * readable Atom feed (`statePublishedUrl`); exactly one — Austria — is a slug we
+ * derived ourselves. The thing this checker exists to catch is OUR slug being
+ * wrong, and a URL State published cannot be our slug being wrong. So the honest
+ * exposure was one link, not thirty-nine.
+ *
+ * A number that overstates risk 38× gets discounted, and a discounted check is a
+ * check nobody reads. So blocked links are now split by where the URL came from,
+ * and the exit code follows the split, not the raw count.
  */
 import { COUNTRY_ISO } from "../src/data/safety-data";
-import { advisoryLinks, isMultiCountry } from "../src/data/advisory-sources";
+import { advisoryLinks, isMultiCountry, statePublishedUrl } from "../src/data/advisory-sources";
 
 // A bare fetch gets bot-filtered by at least one of these sources; ask like a browser.
 const HEADERS = {
@@ -31,20 +46,40 @@ const HEADERS = {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-async function status(url: string): Promise<number | string> {
+/**
+ * Returns the status and the method that produced it, so a run records HOW it
+ * got its answer and not only what the answer was.
+ *
+ * The 403 retry is a HYPOTHESIS, and it is one variable: CDN bot rules in front
+ * of travel.state.gov commonly reject HEAD outright while serving GET to the
+ * same client. This has NOT been observed working — the sandbox cannot reach
+ * State — so it is written to be falsifiable rather than asserted. If the retry
+ * changes nothing, the run prints `403 (GET too)` and that is a second cell in
+ * the matrix in docs/advisory-checker.md, not a reason to start tuning headers.
+ * Do not stack a second change on top of this one before this one has a result.
+ */
+async function status(url: string): Promise<{ code: number | string; via: string }> {
   try {
     // HEAD first (cheap); some sites only answer GET.
-    let res = await fetch(url, { method: "HEAD", headers: HEADERS, redirect: "follow" });
-    if (res.status === 405 || res.status === 501) {
-      res = await fetch(url, { method: "GET", headers: HEADERS, redirect: "follow" });
+    const head = await fetch(url, { method: "HEAD", headers: HEADERS, redirect: "follow" });
+    if (head.status !== 405 && head.status !== 501 && head.status !== 403) {
+      return { code: head.status, via: "HEAD" };
     }
-    return res.status;
+    const res = await fetch(url, { method: "GET", headers: HEADERS, redirect: "follow" });
+    return { code: res.status, via: head.status === 403 && res.status === 403 ? "GET too" : "GET" };
   } catch (err) {
-    return `ERR ${(err as Error).message.slice(0, 60)}`;
+    return { code: `ERR ${(err as Error).message.slice(0, 60)}`, via: "-" };
   }
 }
 
-const rows: { country: string; iso: string; source: string; href: string; deep: boolean; code: number | string }[] = [];
+type Row = {
+  country: string; iso: string; source: string; href: string; deep: boolean;
+  code: number | string; via: string;
+  /** True when the URL is the source's own published one, not a slug we built. */
+  attested: boolean;
+};
+
+const rows: Row[] = [];
 const countries = Object.entries(COUNTRY_ISO);
 console.log(`Checking ${countries.length} countries × 3 sources…\n`);
 
@@ -54,9 +89,13 @@ for (const [country, iso] of countries) {
     continue;
   }
   for (const l of advisoryLinks(country, iso)) {
-    if (!l.deep) { rows.push({ country, iso, source: l.source.id, href: l.href, deep: false, code: "index" }); continue; }
-    const code = await status(l.href);
-    rows.push({ country, iso, source: l.source.id, href: l.href, deep: true, code });
+    // Only State hands us a URL; FCDO and CDC links are always slugs we derive,
+    // so for those "unreached" really does mean "unknown".
+    const attested = l.source.id === "state" && statePublishedUrl(country) === l.href;
+    const base = { country, iso, source: l.source.id, href: l.href, attested };
+    if (!l.deep) { rows.push({ ...base, deep: false, code: "index", via: "-" }); continue; }
+    const { code, via } = await status(l.href);
+    rows.push({ ...base, deep: true, code, via });
     await sleep(250);                                  // be a polite client
   }
 }
@@ -67,14 +106,31 @@ const blocked = deep.filter((r) => typeof r.code === "number" && (r.code === 403
 const errored = deep.filter((r) => typeof r.code === "string");
 const ok = deep.filter((r) => typeof r.code === "number" && r.code >= 200 && r.code < 400);
 
-console.log(`\n── ADVISORY LINK CHECK ─────────────────────`);
-console.log(`deep links: ${deep.length}   ok: ${ok.length}   404 (wrong slug): ${bad.length}   403/429 (blocked, slug unproven): ${blocked.length}   errors: ${errored.length}`);
-console.log(`index fallbacks (no confirmed slug): ${rows.filter((r) => !r.deep).length}`);
+// The split that matters: an unreached link whose URL the SOURCE published
+// cannot be a slug of ours that is wrong, which is the only thing this checker
+// is able to catch. An unreached link built from our own slug rule genuinely is
+// unknown. Same HTTP status, different risk, so they are counted apart.
+const unreached = [...blocked, ...errored];
+const unreachedAttested = unreached.filter((r) => r.attested);
+const unreachedOurs = unreached.filter((r) => !r.attested);
 
-if (blocked.length) {
-  console.log(`\n⚠︎ Blocked — these could not be proved either way. Re-run from an allow-listed egress:`);
-  for (const r of blocked.slice(0, 10)) console.log(`  ${r.code}  ${r.country} · ${r.source}`);
-  if (blocked.length > 10) console.log(`  …and ${blocked.length - 10} more`);
+console.log(`\n── ADVISORY LINK CHECK ─────────────────────`);
+console.log(`deep links: ${deep.length}   ok: ${ok.length}   404 (wrong slug): ${bad.length}   403/429 (blocked): ${blocked.length}   errors: ${errored.length}`);
+console.log(`index fallbacks (no confirmed slug): ${rows.filter((r) => !r.deep).length}`);
+if (unreached.length) {
+  console.log(`of the ${unreached.length} unreached — source-published URL: ${unreachedAttested.length}   our derived slug: ${unreachedOurs.length}`);
+}
+
+if (unreachedAttested.length) {
+  console.log(`\n· ${unreachedAttested.length} unreached links are the source's OWN published URL (State's feed),`);
+  console.log(`  so the slug is not ours to get wrong. Unreachable from this egress ≠ unknown.`);
+  const viaGet = unreachedAttested.filter((r) => r.via === "GET too").length;
+  if (viaGet) console.log(`  ${viaGet} refused GET as well as HEAD — the block is not the HTTP method.`);
+}
+if (unreachedOurs.length) {
+  console.log(`\n⚠︎ UNPROVEN AND OURS — derived slugs that could not be proved either way.`);
+  console.log(`  These are the ones a wrong slug could be hiding in. Re-run from an allow-listed egress:`);
+  for (const r of unreachedOurs) console.log(`  ${r.code}  ${r.country} · ${r.source}\n     ${r.href}`);
 }
 if (bad.length) {
   console.log(`\n✗ WRONG SLUGS — fix these in src/data/advisory-sources.ts (SLUG_OVERRIDES):`);
@@ -94,8 +150,22 @@ if (!ok.length) {
   process.exit(2);
 }
 // A partial run is a partial answer, and says so.
-if (blocked.length || errored.length) {
-  console.log(`\n⚠︎ PARTIAL — ${ok.length} of ${deep.length} links proven, ${blocked.length + errored.length} still unproven. No 404s among those reached.`);
+//
+// Exit 3 is reserved for the case that can still be hiding a wrong slug: one of
+// OUR derived URLs went unproven. When every unproven link is the source's own
+// published URL there is no slug of ours left unchecked, and that state gets its
+// own code (4) rather than being folded into either a tick or an alarm.
+//
+// It gets its own code and not a pass because it is still not a 200 — and not a
+// permanent 3 because a check that can never go green from the machine people
+// actually run it on is a check people stop running.
+if (unreachedOurs.length) {
+  console.log(`\n⚠︎ PARTIAL — ${ok.length} of ${deep.length} proven; ${unreachedOurs.length} of OUR slugs unproven. No 404s among those reached.`);
   process.exit(3);
+}
+if (unreachedAttested.length) {
+  console.log(`\n✓ No wrong slugs possible — ${ok.length} of ${deep.length} links proven, and all ${unreachedAttested.length} unreached are the source's own published URLs.`);
+  console.log(`  Still unreachable from this egress, so liveness is unconfirmed for those.`);
+  process.exit(4);
 }
 console.log(`\n✓ All ${ok.length} deep links resolve. None 404.`);

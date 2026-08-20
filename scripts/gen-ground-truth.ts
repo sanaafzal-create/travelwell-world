@@ -28,6 +28,7 @@ import { SIS, boardSis, REGIONS, WELLS, LUX_WELLS, SI_GROUPS, SUBREGIONS, taglin
 import { DESTINATIONS, ACTIVITIES, PROVIDERS, GUIDES, SUBREGION_TOP } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 import { mergedDestinations } from "./lib/destination-batches";
+import { isIndexableDestination } from "../src/lib/site";
 import { stateSnapshotLevel, STATE_FEED_UPDATED } from "../src/data/advisory-sources";
 
 /**
@@ -171,6 +172,28 @@ const noAdvisory = mergedRows.filter((d) => {
 });
 const noAdvisoryCountries = [...new Set(noAdvisory.map((d) => d.country))].sort();
 
+// ── The sitemap vs the catalog ──────────────────────────────────────────────
+// Read from the EMITTED FILE, not by re-running the sitemap's own logic. Asking
+// the generator what it would produce cannot catch a generator pointed at the
+// wrong catalog — it would agree with itself. The file is the artifact Google
+// fetches, so the file is what gets compared.
+//
+// It is gitignored (regenerated before every build), so absence is a real state
+// and reported as one rather than crashing the fact sheet.
+// Both halves come from the MERGED set. Writing the withheld count as
+// `dests.length - indexableDests.length` printed "-453 unreleased": `dests` is
+// the 44-row bundle and `indexableDests` is the 497 merged rows. Wrong set, in
+// the very check written to catch a wrong set — which is the argument for
+// deriving both numbers from one binding rather than two similar-looking ones.
+const allMergedDests = Object.values(mergedDestinations()).flat() as { id: string; status?: string }[];
+const indexableDests = allMergedDests.filter((d) => isIndexableDestination(d));
+const sitemapDestUrls: string[] | null = (() => {
+  try {
+    const xml = readFileSync("public/sitemap.xml", "utf8");
+    return [...xml.matchAll(/<loc>[^<]*\/destination\/([^<]+)<\/loc>/g)].map((m) => m[1]);
+  } catch { return null; }
+})();
+
 // Every country we know by name should have an advisory row. `COUNTRY_ISO` is
 // the set we recognise — it drives the advisory checker's daily payload — so an
 // ISO in there with no row in safety.json is a country we ask about every
@@ -255,6 +278,27 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
     result: `${idConforming.length} of ${dests.length} are hyphenated multi-part; ${idSingleWord.length} are single-word and cannot conform${idSingleWord.length ? ` (${idSingleWord.slice(0, 8).map((d) => d.id).join(", ")}${idSingleWord.length > 8 ? ", …" : ""})` : ""}`,
     ok: idSingleWord.length === 0,
     where: lineOf(PLACES, /export const DESTINATIONS/),
+  },
+  {
+    // The generators kept drifting apart on WHICH catalog they read. `gen:heads`
+    // and `prerender` were moved onto the merged set; `gen:sitemap` was not, and
+    // for weeks the build rendered 590 pages while telling Google about 121 —
+    // every ingested dossier crawlable, prerendered, and listed nowhere. Nothing
+    // failed; the sitemap was internally consistent, just consistent about the
+    // wrong 44 rows. So the check compares the emitted file against the catalog
+    // rather than trusting that two scripts read the same thing.
+    rule: "The sitemap lists every indexable destination (merged catalog, not the bundle)",
+    result: (() => {
+      if (!sitemapDestUrls) return "public/sitemap.xml not present — run `npm run gen:sitemap` (it is a gitignored build artifact)";
+      const listed = new Set(sitemapDestUrls);
+      const missing = indexableDests.filter((d) => !listed.has(d.id));
+      const extra = [...listed].filter((id) => !indexableDests.some((d) => d.id === id));
+      if (!missing.length && !extra.length) return `all ${indexableDests.length} indexable destinations listed; ${allMergedDests.length - indexableDests.length} unreleased withheld (and stamped noindex)`;
+      return `${missing.length} indexable destinations missing from the sitemap${missing.length ? ` (${missing.slice(0, 5).map((d) => d.id).join(", ")}${missing.length > 5 ? ", …" : ""})` : ""}; ${extra.length} listed but not indexable`;
+    })(),
+    ok: !!sitemapDestUrls && sitemapDestUrls.length === indexableDests.length
+      && indexableDests.every((d) => sitemapDestUrls!.includes(d.id)),
+    where: "scripts/gen-sitemap.ts",
   },
   {
     rule: "Every interest dossier layer is optional, but a populated one must carry labeled figures",

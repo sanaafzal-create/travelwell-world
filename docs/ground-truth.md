@@ -124,6 +124,10 @@ the provider.
    → 44 of 44 are hyphenated multi-part; 0 are single-word and cannot conform
    → `src/data/places.ts:98 · `export const DESTINATIONS: Record<string, Dest``
 
+✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
+   → all 497 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
+   → `scripts/gen-sitemap.ts`
+
 ✅ **Every interest dossier layer is optional, but a populated one must carry labeled figures**
    → 0 of 39 interests carry a dossier
    → `src/data/taxonomy.ts:80 · `export interface SiData {``

@@ -44,7 +44,7 @@ import { DESTINATIONS, GUIDES, type Destination } from "../src/data/places";
 import { mergedDestinations } from "./lib/destination-batches";
 import { destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
 import { jewelsForSi } from "../src/lib/jewels";
-import { ORIGIN } from "../src/lib/site";
+import { ORIGIN, isIndexableDestination } from "../src/lib/site";
 
 
 const DIST = "dist";
@@ -78,6 +78,12 @@ for (const [code, list] of Object.entries(ALL_DESTINATIONS)) {
       // The destination's own line, which is real editorial copy rather than a
       // template. If it ever isn't there, fall back to something true.
       description: d.line || `${d.name} in ${d.country} — what to know before you go.`,
+      // An unreleased destination is prerendered (so a shared link still works)
+      // but must not be indexed. The sitemap already skipped these; without the
+      // tag they were unlisted AND indexable, which is the weaker half of the
+      // pair — one inbound link is all it takes, and an indexed page does not
+      // age out on its own. Same predicate the sitemap reads.
+      noindex: !isIndexableDestination(d),
       jsonLd: destinationJsonLd(d, region?.name ?? "", `${ORIGIN}/destination/${d.id}`),
     });
   }
