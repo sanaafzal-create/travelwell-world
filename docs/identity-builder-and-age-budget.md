@@ -8,7 +8,7 @@
 ## WHY THIS IS THE FOUNDATION
 We're not booking a trip — we're building a **Travel ID for life.** The output is the traveler's **Identity Card**, their permanent anchor. And per the Lifetime Loop, *TravelWell wins by capturing the traveler's lifetime, not a booking.* Get this right and every future trip starts from a real picture of them.
 
-**And this is where our motto is earned — *"If It's Safer Informed Travel… Travel Well."*** The capabilities, limitations, and safety facts we gather here are what make the trip genuinely *safer* and *informed* — and we use them to build the trip *around* the traveler, never to limit them.
+**And this is where our motto is earned — *"If It's Safer Informed Travel… TravelWell."*** The capabilities, limitations, and safety facts we gather here are what make the trip genuinely *safer* and *informed* — and we use them to build the trip *around* the traveler, never to limit them.
 
 ---
 
@@ -35,7 +35,7 @@ We're not booking a trip — we're building a **Travel ID for life.** The output
 - **Senior (75–84)** — Energy: low/gentle (≈2,000–5,000). A few active hours, then real rest; short walks, frequent sit-downs.
 - **Senior+ (85+)** — Energy: very low (under ≈2,000). A "rest-and-visit" rhythm — one outing, then rest; everything around comfort + safety.
 
-**Then the overlay that beats the number — the "Safer Informed" ask:** Atlas asks, warmly, *what physical limitations or safety issues should we know about — and what are you fully able to do?* Both sides: capabilities AND limitations, pace, rest/naps, accessibility, any medical factor (e.g. a heart condition). **The promise, always: we use every fact to build the trip AROUND you — never to hand you limitations.** Enabling, not restricting. (A 35-year-old with a heart condition = a 65-year-old with one; the answer overrides the age default.) This ask is exactly why we get to say **"If It's Safer Informed Travel… Travel Well."**
+**Then the overlay that beats the number — the "Safer Informed" ask:** Atlas asks, warmly, *what physical limitations or safety issues should we know about — and what are you fully able to do?* Both sides: capabilities AND limitations, pace, rest/naps, accessibility, any medical factor (e.g. a heart condition). **The promise, always: we use every fact to build the trip AROUND you — never to hand you limitations.** Enabling, not restricting. (A 35-year-old with a heart condition = a 65-year-old with one; the answer overrides the age default.) This ask is exactly why we get to say **"If It's Safer Informed Travel… TravelWell."**
 
 ### Step 2 — HOW DO YOU LIKE TO MOVE? (activity + access)
 - **Activity level:** Very Active · Moderately Active · Lightly Active · Leisurely Strolls.
