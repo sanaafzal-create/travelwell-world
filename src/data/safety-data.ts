@@ -250,6 +250,41 @@ interface DossierSafety {
   zone?: string;
 }
 
+/**
+ * POSTURE — the FCDO doctrine's booking verb, and it has to DO something.
+ *
+ * The research library's safety doctrine (David, 2026-08-16) is three postures
+ * applied to areas rather than countries: no advisory books freely; against all
+ * but essential travel goes to the consent screen; against all travel never
+ * books, content only, no override. There is no green badge.
+ *
+ * `posture` was already declared on `DossierSafety` — and read by nothing. It sat
+ * beside `booking_hold`, which is what actually held the booking, so a dossier
+ * could carry `posture: "no-booking"` and still offer a Book button if its author
+ * trusted the word instead of the boolean. Today no row does: the one dossier
+ * carrying a posture also sets `booking_hold: true`, so nothing is live-wrong.
+ * That is the author being careful, not the code being safe — and nine more
+ * Ethiopian dossiers are written against this doctrine.
+ *
+ * So the verb is mapped onto machinery that already exists rather than a new gate:
+ *   · `book-freely`  → nothing; the level decides, as it always did.
+ *   · `consent`      → floor the level at 3, which is exactly what makes the
+ *                      existing L3 consent screen fire. "Goes to the consent
+ *                      screen" is a sentence our code can already honour.
+ *   · `no-booking`   → hold, unconditionally, whatever the level says.
+ *   · anything else  → hold, and say the posture was not understood.
+ *
+ * The last line is the important one. An unrecognised posture means the author
+ * intended a restriction we do not implement, and the same reasoning as an
+ * unresolvable zone applies: of the two available mistakes, refusing a bookable
+ * place is recoverable and selling a held one is not.
+ */
+const POSTURE_HOLD = "no-booking";
+const POSTURE_CONSENT = "consent";
+const POSTURE_FREE = "book-freely";
+const KNOWN_POSTURES = new Set([POSTURE_HOLD, POSTURE_CONSENT, POSTURE_FREE]);
+const normPosture = (p: string | undefined) => (p ?? "").trim().toLowerCase();
+
 /** Case/whitespace-insensitive zone lookup — the join is on a human-typed string. */
 const findZone = (zones: SafetyZone[] | undefined, name: string): SafetyZone | undefined =>
   zones?.find((z) => z.name.trim().toLowerCase() === name.trim().toLowerCase());
@@ -294,8 +329,18 @@ export function resolveSafety(
   // STRICTER wins. Two sources of truth on one page can't both be shown, and of
   // the two possible mistakes — refusing a bookable place, or selling a held one
   // — only the second is one we can't take back.
-  const lvl = (Math.max(declared ?? 0, zone?.lvl ?? 0) || undefined) as RiskLevel | undefined;
-  const hold = carve.booking_hold === true || lvl === 4 || zoneUnresolved;
+  // The posture, resolved before the level so it can raise it (see POSTURE_* above).
+  const posture = normPosture(carve.posture);
+  const postureUnknown = posture !== "" && !KNOWN_POSTURES.has(posture);
+  const postureFloor = posture === POSTURE_CONSENT ? 3 : 0;
+
+  const lvl = (Math.max(declared ?? 0, zone?.lvl ?? 0, postureFloor) || undefined) as RiskLevel | undefined;
+  const hold =
+    carve.booking_hold === true ||
+    lvl === 4 ||
+    zoneUnresolved ||
+    posture === POSTURE_HOLD ||
+    postureUnknown;
 
   if (zoneUnresolved) {
     return {
@@ -308,12 +353,21 @@ export function resolveSafety(
     };
   }
 
+  // An unrecognised posture holds booking (above) — and says why. A page that
+  // silently refuses to sell, with nothing on it explaining the refusal, is
+  // indistinguishable from a broken page, and the traveler deserves the reason
+  // as much as the restriction.
+  const postureNote = postureUnknown
+    ? `Booking is held here: this destination carries a booking posture (“${carve.posture}”) that we do not recognise, and we will not sell a place whose restriction we cannot read.`
+    : null;
+
   // A dossier that only carries notes (no level, no zone) enriches the country
   // record rather than overriding it — it isn't a carve-out.
   if (!lvl) {
+    const extra = [carve.notes, postureNote].filter(Boolean) as string[];
     return {
       ...base,
-      ...(carve.notes ? { considerations: [...base.considerations, carve.notes] } : {}),
+      ...(extra.length ? { considerations: [...base.considerations, ...extra] } : {}),
       ...(hold ? { bookingHold: true } : {}),
     };
   }
@@ -325,6 +379,7 @@ export function resolveSafety(
     ...(carve.notes ? { summary: carve.notes } : {}),
     ...(carve.source ? { source: carve.source } : {}),
     ...(carve.verified ? { verified: carve.verified } : {}),
+    ...(postureNote ? { considerations: [...base.considerations, postureNote] } : {}),
     unverified: false,
     bookingHold: hold,
     ...(zone ? { inZone: zone } : {}),

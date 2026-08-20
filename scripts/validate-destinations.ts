@@ -44,6 +44,8 @@ const CHECKABLE_CLAIM =
 const DRAW = new Set(["anchor", "core", "emerging"]);
 const FEEL = new Set(["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous"]);
 const ADVISORY = new Set(["L1", "L2", "L3", "L4"]);
+/** The three FCDO booking postures. Closed set — see the gate below. */
+const POSTURES = new Set(["book-freely", "consent", "no-booking"]);
 // The live MVP ids — the universe a reconciles_live_mvp / see-also must resolve
 // into. Built from our own bundle so it's always current.
 //
@@ -246,6 +248,18 @@ for (const { code, d } of rows) {
     }
     // The same contradiction wearing different clothes: a posture that invites
     // booking on a row that cannot be booked.
+    // ── THE POSTURE VOCABULARY IS CLOSED ──────────────────────────────────────
+    // The FCDO doctrine names exactly three (David, 2026-08-16): books freely,
+    // goes to the consent screen, never books. `resolveSafety` now acts on all
+    // three, and holds booking on anything it does not recognise.
+    //
+    // That runtime fail-safe is the floor, not the answer. A held destination is
+    // a destination we cannot sell, so a typo'd posture is a silent revenue stop
+    // as well as a correctness one — and "it fails safe" is how a typo survives
+    // for months. The gate is where a misspelling should die.
+    if (data.safety?.posture && !POSTURES.has(String(data.safety.posture).trim().toLowerCase())) {
+      errs.push(`${at}: posture ${JSON.stringify(data.safety.posture)} is not one of ${[...POSTURES].map((p) => `"${p}"`).join(" · ")}. Booking would be HELD at runtime rather than failing open — safe, but not what you meant.`);
+    }
     if (data.safety?.advisory_level === "L4" && data.safety.posture === "book-freely") {
       errs.push(`${at}: advisory_level L4 with posture "book-freely" — those cannot both be true.`);
     }
