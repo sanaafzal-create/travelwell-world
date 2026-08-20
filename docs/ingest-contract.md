@@ -46,6 +46,31 @@ replaces it.** That's deliberate: it's how a shallow hand-authored anchor
 (Zermatt, Cape Town) gets upgraded by its full dossier without creating a
 duplicate.
 
+### 2a. When the place IS the country (answered 2026-08-20)
+
+`<city>-<country>` assumes a place *inside* a country. For a small island state
+they are the same thing, and **the id is the country alone** — `malta`,
+`barbados`, `maldives`, `anguilla`.
+
+This is not a new rule, it is an existing one written down. The live catalog
+already carries `turks-and-caicos` and `st-lucia`, both country-only. They passed
+the gate only because those names happen to contain a hyphen, so a one-word
+country name was rejected for spelling rather than for substance. Our
+inconsistency, not yours — you were right to stop rather than rename eighteen
+places to satisfy a regex.
+
+**The gate now derives it, so nothing needs listing and a new island nation needs
+no edit on either side.** An id is accepted when *both* hold:
+
+```
+id === slug(country)   AND   slug(name) === slug(country)
+```
+
+The second half is load-bearing. Without it a lazy row for Paris keyed `france`
+would pass; with it, name "Paris" ≠ country "France" and it still fails with the
+same error as before. `deriveId` also stops warning "malta ≠ malta-malta" for
+these — that derivation is not drift, it's the convention.
+
 **Before you send, run:**
 ```bash
 npm run validate:ingest -- src/data/destinations/<batch-name>.json

@@ -67,6 +67,27 @@ const slug = (s: string) =>
     .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 const deriveId = (name: string, country: string) => `${slug(name)}-${slug(country)}`;
 
+/**
+ * A destination that IS its own country keys on the country alone.
+ *
+ * `<city>-<country>` assumes a place inside a country. For a small island state
+ * the place and the country are the same thing, and the convention ALREADY
+ * exists in the live catalog — `turks-and-caicos` and `st-lucia` are both
+ * country-only ids. They pass the id gate purely because those names happen to
+ * contain a hyphen; `malta` and `barbados` are exactly the same kind of id and
+ * were rejected for having one word. That is a spelling accident deciding a
+ * naming rule, and it is our inconsistency to fix, not the library's to guess
+ * around: they were right to stop and ask rather than rename eighteen places to
+ * satisfy a regex.
+ *
+ * Derived rather than listed, so a new island nation needs no edit here. BOTH
+ * halves are required — the id must equal the country slug AND the destination's
+ * own name must be that country. The second half is what stops a lazy row for
+ * Paris being keyed `france`: name "Paris" ≠ country "France", so it still fails.
+ */
+const isCountryOwnDestination = (d: { name?: string; country?: string }, id: string) =>
+  !!d.name && !!d.country && id === slug(d.country) && slug(d.name) === slug(d.country);
+
 // ── Load input → a flat list of { code, d } ───────────────────────────────
 type Row = { code: string; d: any };
 function normalize(raw: any, fromRegionKey?: string): Row[] {
@@ -164,8 +185,11 @@ for (const { code, d } of rows) {
   if (!REGION_CODES.has(code)) errs.push(`${at}: region "${code}" is not a valid 13-code region — map 15→13 via the reconciliation table before ingest`);
   // Id: net-new dossiers must be <city>-<country>; the 38 legacy live slugs
   // (bali, kyoto, machu…) are grandfathered canon — they're the reconcile anchors.
-  if (!ID_RE.test(id) && !LIVE_IDS.has(id)) errs.push(`${at}: id "${id}" isn't <city>-<country> (lowercase, hyphenated)`);
-  if (d.id && d.id !== deriveId(d.name, d.country)) warns.push(`${at}: id "${d.id}" ≠ derived "${deriveId(d.name, d.country)}" (name/country drift)`);
+  const countryOwn = isCountryOwnDestination(d, id);
+  if (!ID_RE.test(id) && !LIVE_IDS.has(id) && !countryOwn) errs.push(`${at}: id "${id}" isn't <city>-<country> (lowercase, hyphenated)`);
+  // A country-own id derives to "malta-malta", which is not drift — it is the
+  // convention. Warning on it would put 18 rows of noise in front of the real ones.
+  if (d.id && !countryOwn && d.id !== deriveId(d.name, d.country)) warns.push(`${at}: id "${d.id}" ≠ derived "${deriveId(d.name, d.country)}" (name/country drift)`);
   if (seenIds.has(id)) errs.push(`${at}: duplicate id "${id}" (two dossiers → same slot)`); else seenIds.add(id);
   // ── AND THE SAME ID IN A DIFFERENT REGION FROM THE BUNDLE ────────────────
   // Not an error — a batch is allowed to MOVE a destination, and the merge now
