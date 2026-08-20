@@ -22,7 +22,7 @@ NOT POPULATED YET  (an empty structure and a filled one look identical in a sche
   Destinations with feel tags .... 7 of 44
   Destinations with sub_region ... 13 of 44
 
-CONFORMANCE  19 checks, 1 failing
+CONFORMANCE  20 checks, 1 failing
   FAILING — Every INGESTED destination has a country advisory row
            233 of 503 destinations (46%) render "not yet verified", across 48 countries: Argentina, Belgium, Belgium / Luxembourg, Belize, Botswana, Brazil, British Virgin Islands, Costa Rica, +40 more
 

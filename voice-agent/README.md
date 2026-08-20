@@ -22,11 +22,32 @@ never drift from what we actually sell. Watch for this line on the first job:
 If you instead see `COULD NOT READ THE LIVE CATALOG`, the worker still runs but
 on a static fallback list that may be out of date — fix it before a demo.
 
-## Status
-Authored against the LiveKit Agents Node SDK docs; **not yet run** — it needs a
-live LiveKit project + keys, which the build sandbox can't reach. Running it (below)
-is the completing step of the voice spike: it pins exact plugin/API versions and
-turns the ~3–4 week estimate into a committed date.
+## Status — the spike is PROVEN; what remains is a deployment
+**Superseded 2026-08-20.** This section used to read *"not yet run"*, and it was
+still saying so long after the worker had been run against a live LiveKit project
+and debugged there. The evidence is in the history: `the transcript mirror never
+published — reliable is required` and `don't say "live" until the AGENT joins —
+the empty-room bug` are both faults you can only find by talking to it. Atlas
+hears and answers aloud, brain ours.
+
+That matters more than a tidy doc. A stale *"not yet run"* is what turns a
+committable date back into the old ~3–4 week estimate, because the next person to
+size this reads the README, not the log.
+
+**What is actually left is operational, not a build:**
+1. **A host for this process.** It runs wherever someone starts it — today, a
+   laptop. Nothing is deployed anywhere, so live voice dies when that shell
+   closes. This is the whole gap between "proven" and "up".
+2. **Paid vendor tiers.** The keys below are free-tier dev keys.
+3. **`LIVEKIT_*` as Supabase secrets** as well as in `.env` — see the warning
+   below; this one has bitten before.
+4. **Cartesia vs ElevenLabs**, decided by ear on our real lines (`VITE_TWW_MOUTH`).
+
+**Known gap, sized honestly:** `llm: new anthropic.LLM()` gives voice Atlas our
+prompt but NOT the per-traveler context the typed Atlas receives — Travel I.D.,
+the current journey, happenings, the capabilities overlay. Voice Atlas is
+prompt-only. It is not wrong, it is less aware, and a tester who has used the
+typed Atlas will feel the difference. See the brain-stays-ours upgrade below.
 
 ## Run it (the spike's live step)
 ```bash

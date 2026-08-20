@@ -172,6 +172,20 @@ const noAdvisory = mergedRows.filter((d) => {
 });
 const noAdvisoryCountries = [...new Set(noAdvisory.map((d) => d.country))].sort();
 
+// ── Atlas's roster vs the taxonomy ──────────────────────────────────────────
+// Read the prompt files as TEXT, deliberately. They are Deno / standalone-Node
+// sources this build never imports, so there is no binding to check — the only
+// honest question is whether the string a traveler's concierge is given actually
+// contains the name. A missing file is reported, not skipped: "we couldn't look"
+// must never render as "nothing missing".
+const ATLAS_PROMPT_FILES = ["supabase/functions/atlas/index.ts", "voice-agent/index.ts"];
+const atlasPromptGaps: [string, string[]][] = ATLAS_PROMPT_FILES.flatMap((f) => {
+  let text: string;
+  try { text = readFileSync(f, "utf8"); } catch { return [[f, ["(file not found)"]] as [string, string[]]]; }
+  const missing = allWells.map((w) => w.name).filter((n) => !text.includes(n));
+  return missing.length ? [[f, missing] as [string, string[]]] : [];
+});
+
 // ── The sitemap vs the catalog ──────────────────────────────────────────────
 // Read from the EMITTED FILE, not by re-running the sitemap's own logic. Asking
 // the generator what it would produce cannot catch a generator pointed at the
@@ -299,6 +313,25 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
     ok: !!sitemapDestUrls && sitemapDestUrls.length === indexableDests.length
       && indexableDests.every((d) => sitemapDestUrls!.includes(d.id)),
     where: "scripts/gen-sitemap.ts",
+  },
+  {
+    // Atlas's roster is HAND-TYPED in the typed edge function and in the voice
+    // worker's fallback, and a hand-typed roster drifts the moment the board
+    // moves. Pets-Well was locked as the 13th Well on 2026-08-10 and named in
+    // neither prompt for ten days: the concierge could not have mentioned the
+    // one Well whose whole argument is that nobody else serves it.
+    //
+    // Nothing caught it because a prompt is a string — no import, no type, no
+    // generator. This check is the import: it reads the actual prompt files and
+    // asks whether every Well the taxonomy defines appears in them.
+    rule: "Both Atlas prompts (typed + voice fallback) name every Well in the taxonomy",
+    result: (() => {
+      const missing = atlasPromptGaps;
+      if (!missing.length) return `all ${allWells.length} Wells named in both prompts`;
+      return missing.map(([file, names]) => `${file}: missing ${names.join(", ")}`).join("; ");
+    })(),
+    ok: atlasPromptGaps.length === 0,
+    where: "supabase/functions/atlas/index.ts + voice-agent/index.ts",
   },
   {
     rule: "Every interest dossier layer is optional, but a populated one must carry labeled figures",

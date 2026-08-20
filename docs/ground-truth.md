@@ -128,6 +128,10 @@ the provider.
    → all 497 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
    → `scripts/gen-sitemap.ts`
 
+✅ **Both Atlas prompts (typed + voice fallback) name every Well in the taxonomy**
+   → all 13 Wells named in both prompts
+   → `supabase/functions/atlas/index.ts + voice-agent/index.ts`
+
 ✅ **Every interest dossier layer is optional, but a populated one must carry labeled figures**
    → 0 of 39 interests carry a dossier
    → `src/data/taxonomy.ts:80 · `export interface SiData {``

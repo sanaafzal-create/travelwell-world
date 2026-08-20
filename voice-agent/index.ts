@@ -57,7 +57,7 @@ Hard rules, non-negotiable:
  * must still BOOT (a demo depends on this process starting), so it falls back to
  * a static list and says so loudly rather than dying.
  */
-const CATALOG_FALLBACK = `WHAT TRAVELWELL OFFERS — stay inside this; never imply we sell something we don't. Signature Interests you can plan today: Tropical Islands, Romance/Marriages & Honeymoons, Dive Liveaboards, River Cruises, Safari Adventures, Global Expedition Adventures, Winter/Ski. Ultra-Luxury is our luxury overlay, not a separate trip type. Anything else is still being curated — say so plainly rather than implying it's bookable. We cover 13 world regions. The Wells always take their full hyphenated name (Fly-Well, Stay-Well, Eat-Well, Move-Well, Gear-Well, Beauty-Well, Activities-Well, Shop-Well) — never the bare root. Insure-Well and Ship-Well activate at launch and are not bookable yet.`;
+const CATALOG_FALLBACK = `WHAT TRAVELWELL OFFERS — stay inside this; never imply we sell something we don't. Signature Interests you can plan today: Tropical Islands, Romance/Marriages & Honeymoons, Dive Liveaboards, River Cruises, Safari Adventures, Global Expedition Adventures, Winter/Ski. Ultra-Luxury is our luxury overlay, not a separate trip type. Anything else is still being curated — say so plainly rather than implying it's bookable. We cover 13 world regions. The Wells always take their full hyphenated name (Fly-Well, Stay-Well, Eat-Well, Move-Well, Gear-Well, Beauty-Well, Activities-Well, Shop-Well) — never the bare root. Nanny-Well and Security-Well are live too and belong to Ultra-Luxury. Insure-Well, Ship-Well and Pets-Well activate at launch and are not bookable yet.`;
 
 let PROMPT: string | null = null;
 
