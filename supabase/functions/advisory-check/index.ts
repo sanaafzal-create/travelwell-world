@@ -365,6 +365,22 @@ async function probeStateCatalog(): Promise<Response> {
           content_type: res.headers.get("content-type")?.slice(0, 60) ?? null,
           final_url: res.url !== url ? res.url : null,
           ms: Date.now() - started,
+          // WHO refused, and with what. The 2026-08-20 run returned six
+          // byte-identical 403 HTML pages and we could tell it was an edge block
+          // only by recognising the IE conditional comments in `head` — a guess
+          // dressed as a reading, which is the exact habit this file argues
+          // against. These headers name the intermediary and its rule outright,
+          // and cost nothing: they are already on the response.
+          //
+          // They also separate the two hypotheses that a status code cannot. An
+          // IP-reputation block and a browser-challenge block are both 403, but
+          // only one of them is fixable by changing where we fetch from.
+          blocked_by: {
+            server: res.headers.get("server"),
+            cf_ray: res.headers.get("cf-ray"),
+            cf_mitigated: res.headers.get("cf-mitigated"),
+            retry_after: res.headers.get("retry-after"),
+          },
           head: text.slice(0, 160),
         });
       } catch (err) {

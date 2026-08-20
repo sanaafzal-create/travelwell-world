@@ -425,11 +425,79 @@ when it is a data point about the client.
 
 It has one real consequence, which is why it is recorded: **`cadatacatalog.state.gov`
 cannot be tested from here at all.** Whether the catalog's dataset files are
-fetchable from a *datacenter* IP is still an open cell — it is a different host
-from the API and may well be static-file infrastructure with no bot protection,
-which would make it the daily route we need. Nobody has measured it. Filling that
-cell needs a fetch from the Edge Function, not from a laptop: a laptop success
-proves only the cell we already have.
+fetchable from a *datacenter* IP was an open cell — a different host from the API,
+possibly static-file infrastructure with no bot protection, which would have made
+it the daily route we need. Filling it needed a fetch from the Edge Function, not
+from a laptop: a laptop success proves only the cell we already have.
+
+**Filled 2026-08-20 — 403 to all three header profiles, byte-identical.** The
+measurement and what it does and does not prove are below, under *"The cell is
+filled"*. Short version: not the daily route, and headers are not the variable.
+
+**The cell is filled — 2026-08-20. `cadatacatalog.state.gov` 403s the Edge
+Function, and the header profile makes no difference whatsoever.**
+
+`?probe=state-catalog`, run from the deployed function (datacenter IP), both
+datasets × all three header profiles in one pass:
+
+| dataset | curl-like | minimal | browser-like |
+|---|---|---|---|
+| `traveladvisory` | 403, 5497 B HTML | 403, 5497 B HTML | 403, 5497 B HTML |
+| `geopoliticalarea` | 403, 5497 B HTML | 403, 5497 B HTML | 403, 5497 B HTML |
+
+*Six attempts, `content-type: text/html`, **byte-identical** at 5497 in every
+cell; 347 ms on the first and ~103 ms on the rest. The body is an edge block
+page — IE conditional comments and `class="no-js ie6 oldie"`, the shape a CDN
+serves, not an application.*
+
+**What this settles.** The catalog host is not the daily route. The hope recorded
+above — that it might be plain static-file infrastructure with no bot protection —
+is dead, and it turns out to be *more* defended than the API, not less: the API
+answers 200 with `[]`, the catalog refuses at the edge. Different failure mode,
+and the harder one.
+
+**What it also settles, and this is the cleaner finding: headers are not the
+variable here.** Three profiles, from `curl/8.7.1` to a full Chrome UA, produced
+responses identical to the byte. That is as decisive as this kind of measurement
+gets — whatever is refusing us is not reading the User-Agent. Header tuning is
+closed for this host on its own evidence, not by analogy to the API.
+
+### What it does NOT settle — and the one measurement that would
+
+It is tempting to read "403 from a datacenter IP" as the API's egress finding
+again. **It is not, yet.** Two hypotheses survive this run:
+
+1. **Egress** — the datacenter IP is refused, and a residential one is not.
+2. **Client** — the host demands a real browser (JS challenge, TLS fingerprint),
+   and *no* server-side fetch passes from anywhere, including a laptop.
+
+The 12 August laptop download can't choose between them: that was a **real
+browser**, which differs from the Edge Function in **both** ways at once. Reading
+it as proof of the egress theory would be wrong reading #2 exactly — a
+two-variable measurement used to settle a one-variable question.
+
+**The discriminator is one command, from Sana's laptop:**
+
+```bash
+curl -s -o /dev/null -w '%{http_code} %{size_download}\n' \
+  -A 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36' \
+  https://cadatacatalog.state.gov/download/traveladvisory
+```
+
+Residential IP held constant, client changed from browser to fetch — one
+variable. **`403 5497`** means the block is the client and no egress work can fix
+it. **`200` with a large body** means the block is the egress, and a proxy or a
+registered key would work. Until that runs, "it's the egress" is a hypothesis
+about this host, not a finding — record it as one.
+
+The probe now also captures `server`, `cf-ray`, `cf-mitigated` and `retry-after`
+on each attempt, so a re-run names the intermediary and its rule instead of us
+inferring a CDN from the shape of its HTML.
+
+**Neither answer changes the plan.** FCDO stays primary, State stays enrichment
+from the stored feed snapshot, and the recorded remediations are unchanged:
+request API access, or route through a non-datacenter egress — with the caveat
+that hypothesis 2, if true, means the second one does nothing for *this* host.
 
 **The three wrong readings, on the record, because the method matters more than
 the answer:**
@@ -570,10 +638,17 @@ authority; build the map from the file, commit it as generated, and make an
 unmapped code a hard error rather than a pass-through. A pass-through here means an
 unrecognised code silently becomes a country.
 
-**Still open, and only the Edge Function can answer it:** whether these files are
-fetchable from a datacenter IP. A laptop download proves the residential cell we
-already have. The URLs are `cadatacatalog.state.gov/download/traveladvisory` and
-`/download/geopoliticalarea` (David, 2026-08-17).
+**Answered 2026-08-20 — no.** These files are **not** fetchable from a datacenter
+IP: 403 with a 5497-byte edge block page to all three header profiles, both
+datasets. The URLs are `cadatacatalog.state.gov/download/traveladvisory` and
+`/download/geopoliticalarea` (David, 2026-08-17); the run is recorded under *"The
+cell is filled"* above, along with the one laptop `curl` that would separate an
+egress block from a browser-challenge block.
+
+Practically this costs us little: the FIPS→ISO map these files would author is
+**not** on the critical path, because the advisory join is the country **name**,
+not the two-letter code (see the correction above). The files Sana pasted on
+12 August remain the authority if we ever do build it.
 
 *The `#void` on `cadatacatalog.state.gov/Datasets` is a JavaScript placeholder —
 the download links render in-page, which is why the endpoints had to come from
@@ -599,6 +674,9 @@ question that has been mis-diagnosed three times from single readings.
 **Whatever it returns, add it to the matrix above.** Six new cells, dated, with
 the command recorded. Do not overwrite the existing rows — the residential cell
 stays true regardless of what this one says.
+
+*Run 2026-08-20. Six cells added, existing rows untouched. Result: 403 across the
+board — see "The cell is filled" above.*
 
 ### What the feed actually gave us, once read
 
