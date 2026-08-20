@@ -68,14 +68,90 @@ const FEED_NAME: Record<string, string> = {
   "Turks & Caicos": "Turks and Caicos Islands",
   "St. Lucia": "Saint Lucia",
   Bahamas: "The Bahamas",
+  // State issues ONE advisory for the Kingdom of Denmark, and it covers the
+  // constituent countries. Listed explicitly rather than inferred: "this
+  // territory is covered by that state's advisory" is a political judgement, and
+  // the place to make one is a table a person can read and disagree with.
+  Denmark: "Kingdom of Denmark",
+  "Faroe Islands (Kingdom of Denmark)": "Kingdom of Denmark",
 };
 
 const normName = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
-const FEED_BY_NAME = new Map(FEED.map((e) => [normName(e.country), e]));
+
+/**
+ * THE FEED TITLES ARE NOT ALL BARE COUNTRY NAMES, and the ones that aren't were
+ * silently missing.
+ *
+ * Some entries are titled "Mexico Travel Advisory" rather than "Mexico". Because
+ * the join normalises to letters only, "mexicotraveladvisory" never equalled
+ * "mexico", so `statePublishedUrl` returned null for Mexico — our single largest
+ * country by destination count, 54 rows — and `advisoryLinks` quietly fell back
+ * to a slug we derive ourselves. The whole argument for preferring the feed is
+ * that the source hands us the answer; a suffix was throwing that away.
+ *
+ * Found while measuring which countries lacked a safety row: Mexico appeared in
+ * the "not in the feed" column, which was implausible enough to check. Denmark,
+ * St. Kitts & Nevis and St. Vincent & the Grenadines were in the same column for
+ * the neighbouring reason — the feed spells "Saint" where we spell "St.".
+ *
+ * So both sides get normalised rather than one: the feed key is also indexed with
+ * a trailing "travel advisory" removed, and the lookup tries a "St." → "Saint"
+ * expansion. Indexed under BOTH forms, never replaced, so an entry genuinely
+ * titled with the suffix still matches on its full name.
+ */
+const stripAdvisorySuffix = (s: string) => s.replace(/traveladvisory$/, "");
+
+/**
+ * THE FEED CARRIES THE SAME COUNTRY TWICE, and which copy wins was decided by
+ * array order until this was written down.
+ *
+ * State is migrating to an ISO-3 path (`destination.aus.html`) from the old
+ * slug (`australia-travel-advisory.html`), and the feed publishes BOTH — Australia
+ * at index 12 and 13, Philippines at 156 and 157, Saint Lucia at 167 and 168.
+ * The original index was `new Map(FEED.map(...))`, where a later duplicate
+ * overwrites an earlier one, so the OLD-shape URL won by being second. Rebuilding
+ * the map as a loop with a first-wins guard silently flipped that, and three
+ * traveller-facing links changed for no reason anyone had stated.
+ *
+ * Neither order is a rule. So the winner is chosen explicitly: the most recently
+ * PUBLISHED entry, and where the dates tie, the new path shape — because that is
+ * the direction State is migrating, so the modern URL is the one more likely to
+ * outlive this snapshot. Australia's two copies are a year apart (2026-05-30 vs
+ * 2025-05-30) and the rule picks the newer, which the old code did not.
+ *
+ * Exact names are indexed before suffix-stripped ones, so an exact title always
+ * beats a derived key regardless of where either sits in the array.
+ */
+const NEW_SHAPE = (u: string) => /\/destination\.[a-z]{3}\.html/i.test(u);
+const better = (a: FeedEntry, b: FeedEntry) => {
+  const da = a.published ?? "", db = b.published ?? "";
+  if (da !== db) return da > db ? a : b;
+  if (NEW_SHAPE(a.url) !== NEW_SHAPE(b.url)) return NEW_SHAPE(a.url) ? a : b;
+  return a;
+};
+
+const FEED_BY_NAME = new Map<string, FeedEntry>();
+const EXACT = new Set<string>();
+for (const e of FEED) {                                   // pass 1 — exact titles
+  const key = normName(e.country);
+  const cur = FEED_BY_NAME.get(key);
+  FEED_BY_NAME.set(key, cur ? better(cur, e) : e);
+  EXACT.add(key);
+}
+for (const e of FEED) {                                   // pass 2 — suffix-stripped
+  const key = normName(e.country);
+  const bare = stripAdvisorySuffix(key);
+  if (!bare || bare === key || EXACT.has(bare)) continue; // an exact title always wins
+  const cur = FEED_BY_NAME.get(bare);
+  FEED_BY_NAME.set(bare, cur ? better(cur, e) : e);
+}
+
+/** Our spelling → the feed's, for names no normalisation rule reaches. */
+const expandSaint = (s: string) => s.replace(/\bSt\.?\s+/g, "Saint ");
 
 /** State's own published URL for a country, or null if the feed has no entry. */
 export function statePublishedUrl(countryName: string): string | null {
-  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), `The ${countryName}`]) {
+  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), expandSaint(countryName), expandSaint(countryName).replace("&", "and"), `The ${countryName}`]) {
     if (!cand) continue;
     const hit = FEED_BY_NAME.get(normName(cand));
     if (hit) return hit.url;
@@ -91,7 +167,7 @@ export function statePublishedUrl(countryName: string): string | null {
  * traveler seeing a stale number.
  */
 export function stateSnapshotLevel(countryName: string): { lvl: number; published: string | null } | null {
-  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), `The ${countryName}`]) {
+  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), expandSaint(countryName), expandSaint(countryName).replace("&", "and"), `The ${countryName}`]) {
     if (!cand) continue;
     const hit = FEED_BY_NAME.get(normName(cand));
     if (hit) return { lvl: hit.lvl, published: hit.published };
@@ -113,7 +189,7 @@ export function stateSnapshotLevel(countryName: string): { lvl: number; publishe
  * So the screen quotes this, and nobody retypes an advisory again.
  */
 export function stateAdvisoryText(countryName: string): { summary: string; published: string | null; lvl: number; url: string } | null {
-  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), `The ${countryName}`]) {
+  for (const cand of [FEED_NAME[countryName], countryName, countryName.replace("&", "and"), expandSaint(countryName), expandSaint(countryName).replace("&", "and"), `The ${countryName}`]) {
     if (!cand) continue;
     const hit = FEED_BY_NAME.get(normName(cand));
     if (hit?.summary) return { summary: hit.summary, published: hit.published, lvl: hit.lvl, url: hit.url };

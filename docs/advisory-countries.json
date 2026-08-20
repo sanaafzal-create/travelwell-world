@@ -29,7 +29,8 @@
       "iso": "AU",
       "name": "Australia",
       "match": [
-        "australia"
+        "australia",
+        "destination.aus.html"
       ],
       "fcdo_slug": "australia"
     },
@@ -202,7 +203,7 @@
       "match": [
         "st. lucia",
         "st lucia",
-        "saint lucia"
+        "destination.lca.html"
       ],
       "fcdo_slug": "st-lucia"
     },
@@ -259,7 +260,8 @@
       "iso": "PH",
       "name": "Philippines",
       "match": [
-        "philippines"
+        "philippines",
+        "destination.phl.html"
       ],
       "fcdo_slug": "philippines"
     },
