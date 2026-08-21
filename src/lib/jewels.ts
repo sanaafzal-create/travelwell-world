@@ -37,6 +37,16 @@ export interface PlacedJewel {
  * surface under Wellness rather than Ski — the jewel is the unit of interest,
  * which is the whole reason the field is on the jewel.
  */
+/**
+ * A jewel's interest slugs, always as a list.
+ *
+ * The ONE place that decides what `si` means, so a second reader can never
+ * disagree with the first — the shape of bug this repo keeps finding is two
+ * consumers of the same field that were written months apart.
+ */
+export const jewelSis = (jewel: { si?: string | string[] }): string[] =>
+  jewel.si == null ? [] : Array.isArray(jewel.si) ? jewel.si : [jewel.si];
+
 export function jewelsForSi(
   destinations: Record<string, Destination[]>,
   siId: string,
@@ -48,7 +58,10 @@ export function jewelsForSi(
       // A destination we don't show has nowhere for the jewel's link to land.
       if (dest.status !== "live") continue;
       for (const jewel of dest.data?.jewels ?? []) {
-        if (jewel.si === siId) out.push({ jewel, dest });
+        // `si` is one slug or several — normalise, never compare a raw value.
+        // `=== siId` against a string field quietly excluded every jewel that
+        // serves two interests, which is exactly the jewel most worth showing.
+        if (jewelSis(jewel).includes(siId)) out.push({ jewel, dest });
       }
     }
   }

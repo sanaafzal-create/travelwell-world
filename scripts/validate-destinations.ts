@@ -294,7 +294,15 @@ for (const { code, d } of rows) {
     for (const [i, j] of (data.jewels ?? []).entries()) {
       if (!j?.name) errs.push(`${at}: jewel #${i + 1} missing "name"`);
       if (j?.tier && !TIERS.has(j.tier)) errs.push(`${at}: jewel "${j.name}" tier "${j.tier}" not a valid tier`);
-      if (j?.si && !SI_SLUGS.has(j.si)) warns.push(`${at}: jewel "${j.name}" si "${j.si}" isn't a known SI slug`);
+      // One slug or several — validate EVERY one. Checking `j.si` as a string
+      // would pass an array silently (an array is truthy and not in the Set, so
+      // the old form actually warned on every multi-interest jewel with the whole
+      // array printed as its "slug"), and a jewel serving two interests is the
+      // normal case for romance, culinary and tropical.
+      for (const s of (j?.si == null ? [] : Array.isArray(j.si) ? j.si : [j.si])) {
+        if (!SI_SLUGS.has(s)) warns.push(`${at}: jewel "${j.name}" si "${s}" isn't a known SI slug`);
+        else if (!BOARD_SLUGS.has(s)) warns.push(`${at}: jewel "${j.name}" si "${s}" is a RETIRED interest — it is off the board, so this jewel surfaces on no interest page`);
+      }
       if (!j?.commission) warns.push(`${at}: jewel "${j?.name}" has no commission lane (the money — set it if bookable)`);
       // ── A CHECKABLE CLAIM NEEDS A SOURCE ──────────────────────────────────
       // Not every jewel does. "The Matterhorn head-on, before the crowds" is an

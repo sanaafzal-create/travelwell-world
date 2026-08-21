@@ -56,7 +56,22 @@ export interface Jewel {
   name: string; blurb?: string;
   tier?: string;                                   // its budget tier (essential…ultra)
   when?: string;                                   // best time/conditions
-  si?: string;                                     // the Signature Interest it serves (slug)
+  /**
+   * The Signature Interest(s) this jewel serves — one slug, or several.
+   *
+   * It was a single string, and that was a modelling mistake rather than a
+   * simplification. A sunset dhow dinner genuinely serves Romance AND Tropical
+   * Islands; a Champagne cellar tour serves Culinary AND Wine. 107 jewels in the
+   * library sit on two interests, and the single field forced an author to pick
+   * one and silently drop the other from the shelf it also belonged on. It was
+   * the constraint blocking 643 of the 667 still-untagged jewels.
+   *
+   * A string stays valid — every existing dossier and every bundled row keeps
+   * working, and `jewelsForSi` normalises before matching. Widening a field is
+   * the cheap direction; the expensive one would have been asking the library to
+   * re-emit 4,537 rows as arrays for the 107 that need it.
+   */
+  si?: string | string[];                          // the Signature Interest(s) it serves (slug)
   commission?: string;                             // the earning path/lane for this jewel (the money)
   source?: string;                                 // where the claim came from — a URL or a named publisher
   accessed?: string;                               // when we last read it (YYYY-MM or YYYY-MM-DD)
