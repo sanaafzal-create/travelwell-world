@@ -373,6 +373,17 @@ export const SUBREGIONS: Record<string, string[]> = {
     "The Gulf",
     "Oman",
     "Israel & the Holy Land",
+    // NINTH, added 2026-08-17 (David). Saudi Arabia is opening to tourism as a
+    // distinct proposition — AlUla and the Red Sea coast are being built as
+    // destinations in their own right — and shelving them with Dubai would put
+    // two unrelated trips under one name. His reasoning, recorded because the
+    // string on its own reads like a country list that happened to grow.
+    //
+    // Note this sits alongside "The Red Sea", which is deliberate and not a
+    // duplication: that entry is a DIVE region spanning three countries and its
+    // chamber coverage belongs to the water. A Saudi Red Sea resort can be
+    // shelved either way, and the choice is per-destination rather than by rule.
+    "Saudi Arabia",
   ],
   "12A": ["Pacific Coast", "Pacific Northwest", "Mountain West", "The Southwest", "Texas & The Gulf", "The Midwest", "The South", "New England", "Mid-Atlantic", "Alaska", "Hawai‘i"],
   "13A": ["British Columbia", "The Rockies", "The Prairies", "Ontario", "Québec", "The Maritimes", "The North"],

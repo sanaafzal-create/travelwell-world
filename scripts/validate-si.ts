@@ -124,6 +124,37 @@ for (const { d, from } of rows) {
       warns.push(`${at}: group "${d.group}" has no SI_GROUPS entry — the board will render it unordered until one is added (no migration needed, grp is free text)`);
     }
     if (d.lux != null && typeof d.lux !== "boolean") errs.push(`${at}: lux must be true or false`);
+
+    // ── AN IDENTITY FIELD THAT DISAGREES WITH THE BOARD OVERWRITES IT ───────
+    // SI batches shallow-merge, so a full row carrying `group` or `accent`
+    // REPLACES what the board holds. That makes a stale identity field in a
+    // dossier not a cosmetic mismatch but a silent edit to a David-locked board.
+    //
+    // The gold reference file carried `group: "active"` and `accent: "#3C7E55"`
+    // against the board's `premium` and `#2F6B3A`. Shipping it would have moved
+    // Golf off the Premium & Signature shelf and changed its colour — and the old
+    // check could not see it: it asked whether the group was A valid group, not
+    // whether it was THIS interest's group. "active" isn't even an SI_GROUPS id
+    // (the id is `adventure`), so it produced a warning about an unorderable
+    // board rather than an error about the wrong shelf.
+    //
+    // Worse, it was in the file every other SI dossier is authored against, so
+    // the drift was positioned to propagate 34 more times.
+    //
+    // The board is locked (David, 2026-08-10: "locked and it will not move
+    // again"). A dossier is therefore never the right place to move an interest;
+    // that is a taxonomy.ts edit and a deliberate one. Hard error, both values
+    // named, so the fix is obvious without opening two files.
+    const live = SIS.find((s) => s.id === id);
+    if (live) {
+      for (const f of ["name", "sig", "status", "accent", "lux", "group"] as const) {
+        if (!(f in d) || d[f] == null) continue;
+        const mine = JSON.stringify(d[f]), theirs = JSON.stringify((live as Record<string, unknown>)[f]);
+        if (mine !== theirs) {
+          errs.push(`${at}: ${f} is ${mine} but the board says ${theirs} — an SI batch shallow-merges, so this would OVERWRITE the locked board. Drop the field from the dossier, or change it in taxonomy.ts on purpose.`);
+        }
+      }
+    }
   }
 
   // ── The dossier ─────────────────────────────────────────────────────────

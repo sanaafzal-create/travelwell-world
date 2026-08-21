@@ -6,9 +6,9 @@
       "name": "Golf Globally",
       "sig": "the round of your life",
       "status": "preview",
-      "accent": "#3C7E55",
+      "accent": "#2F6B3A",
       "lux": false,
-      "group": "active",
+      "group": "premium",
 
       "data": {
         "_comment": "LAYER 1 — the market, sized and range-cited. Every figure carries confidence + source. An unlabeled number is a guessed number and the gate rejects it.",

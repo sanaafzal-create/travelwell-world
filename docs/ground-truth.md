@@ -30,7 +30,7 @@ good as regenerating it.
 | Thing | Count | Read from |
 |---|---|---|
 | Signature Interests on the board | 35 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
-| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:440 · `export const boardSis = (sis: { retired?: bool` |
+| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:451 · `export const boardSis = (sis: { retired?: bool` |
 | …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
 | SI categories | 10 | src/data/taxonomy.ts:277 · `export const SI_GROUPS: SiGroup[] = [` |
 | Destinations | 44 | src/data/places.ts:98 · `export const DESTINATIONS: Record<string, Dest` |
@@ -102,7 +102,7 @@ the provider.
 
 ✅ **Retired interests stay in SIS (the seed carries `delete … where id not in (…)`)**
    → 4 retired rows still present: nightlife, olympic, prosports, compsports
-   → `src/data/taxonomy.ts:440 · `export const boardSis = (sis: { retired?: bool``
+   → `src/data/taxonomy.ts:451 · `export const boardSis = (sis: { retired?: bool``
 
 ✅ **7 launch interests are live, plus `ultra` as the luxury overlay — 8 rows at status live**
    → 8 live: ultra, tropical, romance, safari, expedition, ski, liveaboard, river
@@ -127,6 +127,10 @@ the provider.
 ✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
    → all 497 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
    → `scripts/gen-sitemap.ts`
+
+✅ **No interest dossier — references included — redeclares an identity field against the locked board**
+   → all 0 shipping + 1 reference file(s) agree with the board
+   → `scripts/validate-si.ts (shipping files) + this check (references too)`
 
 ✅ **Both Atlas prompts (typed + voice fallback) name every Well in the taxonomy**
    → all 13 Wells named in both prompts
@@ -191,7 +195,7 @@ it is.
 - **14 jewels across 7 of 44 destinations** — all hand-authored here. Any larger figure quoted for the experience catalogue (5,422, say) is counting a research library this repo cannot read; **nothing in it has been ingested.** 2 of the 14 carry a `source`, 0 an `accessed` date.
 - **7 of 44 destinations carry a `price_band`.**
 - **7 of 44 destinations carry `feel` tags.**
-- **13 of 44 destinations carry a `sub_region`.**
+- **14 of 44 destinations carry a `sub_region`.**
 - **1 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
 ## Exact-match strings — the characters that bounce a batch

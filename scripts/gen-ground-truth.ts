@@ -172,6 +172,40 @@ const noAdvisory = mergedRows.filter((d) => {
 });
 const noAdvisoryCountries = [...new Set(noAdvisory.map((d) => d.country))].sort();
 
+// ── SI dossier identity vs the locked board ─────────────────────────────────
+// `validate:si` now errors when a dossier's identity field disagrees with the
+// board, because an SI batch shallow-merges and would overwrite it. But its
+// loader skips `_`-prefixed files by design — references never ship — which
+// leaves the GOLD REFERENCE, the file every other dossier is authored against,
+// as the one the gate cannot see.
+//
+// That is where the drift actually was: `_REFERENCE.golf.json` carried
+// `group: "active"` and `accent: "#3C7E55"` against the board's `premium` and
+// `#2F6B3A`, positioned to propagate into 34 more dossiers. An unguarded
+// exemplar is worse than an unguarded instance.
+//
+// So this check reads EVERY interest file, references included, and reports
+// drift without blocking a commit over a teaching file.
+const SI_ID_FIELDS = ["name", "sig", "status", "accent", "lux", "group"] as const;
+const siIdentityDrift: string[] = [];
+for (const f of readdirSync("src/data/interests").filter((f) => f.endsWith(".json"))) {
+  let rows: Record<string, unknown>[];
+  try {
+    const raw = JSON.parse(readFileSync(`src/data/interests/${f}`, "utf8"));
+    rows = Array.isArray(raw) ? raw : (raw.special_interests as Record<string, unknown>[]) ?? [raw];
+  } catch { siIdentityDrift.push(`${f}: unreadable`); continue; }
+  for (const d of rows) {
+    const live = SIS.find((s) => s.id === d.id) as Record<string, unknown> | undefined;
+    if (!live) continue;
+    for (const k of SI_ID_FIELDS) {
+      if (!(k in d) || d[k] == null) continue;
+      if (JSON.stringify(d[k]) !== JSON.stringify(live[k])) {
+        siIdentityDrift.push(`${f} (${d.id}): ${k} ${JSON.stringify(d[k])} vs board ${JSON.stringify(live[k])}`);
+      }
+    }
+  }
+}
+
 // ── Atlas's roster vs the taxonomy ──────────────────────────────────────────
 // Read the prompt files as TEXT, deliberately. They are Deno / standalone-Node
 // sources this build never imports, so there is no binding to check — the only
@@ -324,6 +358,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
     // Nothing caught it because a prompt is a string — no import, no type, no
     // generator. This check is the import: it reads the actual prompt files and
     // asks whether every Well the taxonomy defines appears in them.
+    rule: "No interest dossier — references included — redeclares an identity field against the locked board",
+    result: siIdentityDrift.length
+      ? `${siIdentityDrift.length} field(s) drifting: ${siIdentityDrift.join("; ")}`
+      : `all ${shipping(dossierFiles.interests).length} shipping + ${dossierFiles.interests.length - shipping(dossierFiles.interests).length} reference file(s) agree with the board`,
+    ok: siIdentityDrift.length === 0,
+    where: "scripts/validate-si.ts (shipping files) + this check (references too)",
+  },
+  {
     rule: "Both Atlas prompts (typed + voice fallback) name every Well in the taxonomy",
     result: (() => {
       const missing = atlasPromptGaps;

@@ -96,7 +96,7 @@ const D = (id: string, name: string, country: string, line: string, quality: "li
   ({ id, name, country, line, status: "live", depth: quality === "live" ? "verified" : "stub", img, ...(sub_region ? { sub_region } : {}) });
 
 export const DESTINATIONS: Record<string, Destination[]> = {
-  "01F": [D("paris-france", "Paris", "France", "The first and last word in romance", "live", "paris"), D("amsterdam-netherlands", "Amsterdam", "Netherlands", "Canals, galleries, easy charm", "live", "venice"), D("swiss-alps-switzerland", "The Alps", "Switzerland", "Peaks, spas and slow trains", "live", "mountainValley"),
+  "01F": [D("paris-france", "Paris", "France", "The first and last word in romance", "live", "paris"), D("amsterdam-netherlands", "Amsterdam", "Netherlands", "Canals, galleries, easy charm", "live", "venice"), D("swiss-alps-switzerland", "The Alps", "Switzerland", "Peaks, spas and slow trains", "live", "mountainValley", "Switzerland & the Alps"),
     // Winter/Ski launch shelf — hand-authored, real destinations (swap for full
     // dossiers when the alpine library is ingested). depth:"verified" so they
     // render as live, populated pages (not the preview/no-providers path).

@@ -131,6 +131,7 @@ insert into public.sub_regions (region_code, name, position) values
   ('04A', 'The Gulf', 5),
   ('04A', 'Oman', 6),
   ('04A', 'Israel & the Holy Land', 7),
+  ('04A', 'Saudi Arabia', 8),
   ('12A', 'Pacific Coast', 0),
   ('12A', 'Pacific Northwest', 1),
   ('12A', 'Mountain West', 2),
