@@ -199,7 +199,7 @@ it is.
 - **14 jewels across 7 of 44 destinations** — all hand-authored here. Any larger figure quoted for the experience catalogue (5,422, say) is counting a research library this repo cannot read; **nothing in it has been ingested.** 2 of the 14 carry a `source`, 0 an `accessed` date.
 - **7 of 44 destinations carry a `price_band`.**
 - **7 of 44 destinations carry `feel` tags.**
-- **14 of 44 destinations carry a `sub_region`.**
+- **15 of 44 destinations carry a `sub_region`.**
 - **1 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
 ## Exact-match strings — the characters that bounce a batch
