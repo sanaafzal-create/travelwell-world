@@ -267,8 +267,26 @@ async function readFcdo(slugs: Array<{ iso: string; slug: string }>): Promise<{ 
       const doc = await getJson(`${GOVUK_CONTENT}/${slug}`) as Record<string, any>;
       const headline: string = doc?.description ?? doc?.details?.parts?.[0]?.title ?? "";
       const updated: string | null = doc?.public_updated_at ?? null;
-      // The alert/summary block is what actually moves; hash it, not the whole doc.
-      const alert = String(doc?.details?.alert_status ?? "") + String(doc?.details?.parts?.[0]?.body ?? "");
+
+      // ── HASH EVERY PART, NOT THE FIRST ONE ────────────────────────────────
+      // This hashed `alert_status` + `parts[0].body` on the reasoning that the
+      // summary block is "what actually moves". That is wrong in the one way that
+      // matters most now: the FCDO's value to us is its REGIONAL detail — Rwanda's
+      // Rusizi District, Kenya's Lamu County excepting Lamu and Manda Islands, the
+      // 5km lifted around Jinka and Hawassa — and those live in the country page's
+      // later sections. A carve-out could be added, moved or lifted and the hash
+      // would not budge, so the daily checker would report no change on exactly the
+      // thing we made the FCDO primary in order to see.
+      //
+      // Deliberately hashing ALL parts rather than picking the regional one by
+      // title: which section carries a given carve-out varies by country, and the
+      // sandbox has no route to gov.uk to confirm the ordering. Hashing everything
+      // needs no assumption about the shape, and a false positive here costs a human
+      // read of a page while a false negative costs a missed restriction.
+      const parts = Array.isArray(doc?.details?.parts) ? doc.details.parts : [];
+      const alert =
+        String(doc?.details?.alert_status ?? "") +
+        parts.map((p: Record<string, unknown>) => `${String(p?.title ?? "")}\n${String(p?.body ?? "")}`).join("\n");
       readings.push({
         country_iso: iso,
         source: "fcdo",
