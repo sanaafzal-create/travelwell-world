@@ -16,10 +16,32 @@
  * lodges on the dive page — a fallback on a matching surface isn't a graceful
  * degradation, it's a wrong answer delivered confidently.
  *
- * It does not sort by anything it can't measure. Order is destination order then
- * authoring order, which is a real editorial decision someone made. Sorting by
- * tier would imply luxury is better; sorting by "relevance" would need a score
- * we don't have. Stable and explicable beats clever.
+ * It does not sort by anything it can't measure. Sorting by tier would imply
+ * luxury is better; sorting by "relevance" would need a score we don't have.
+ * Stable and explicable beats clever.
+ *
+ * ── BUT THE CAP HAS TO SPREAD (2026-08-17) ─────────────────────────────────
+ * It used to take the first `limit` in destination-then-authoring order, which
+ * was fine while an interest had a handful of jewels and silently became the
+ * thing deciding the page once it had hundreds. Measured after the library's tag
+ * mapping landed:
+ *
+ *   liveaboard   93 jewels across 21 destinations → all 12 shown from ONE (Red Sea)
+ *   ski         333 across 58                     → 3
+ *   ultra       133 across 62                     → 4
+ *   romance     485 across 263                    → 5
+ *
+ * A shelf whose whole promise is breadth was rendering a monoculture, and
+ * `destinationsBehind()` prints that count on the page — so the Dive Liveaboards
+ * page said "1 destination" while we held twenty-one. Raising the cap would not
+ * have fixed it; the first 24 would have come from two.
+ *
+ * So the cap now spreads: one jewel from each destination, then a second from
+ * each, and so on. Twelve jewels become up to twelve PLACES. This adds no
+ * ranking — within a destination the authoring order is untouched, and no
+ * destination is preferred over another — it only changes which axis the
+ * truncation cuts along, from "everything from the first few" to "a little from
+ * many". Deterministic, and explicable in one sentence to a traveller.
  */
 import type { Destination, Jewel } from "@/data/places";
 
@@ -52,20 +74,37 @@ export function jewelsForSi(
   siId: string,
   limit = 12
 ): PlacedJewel[] {
-  const out: PlacedJewel[] = [];
+  // Grouped by destination, preserving both destination order and, inside each
+  // destination, the order the jewels were authored in.
+  const byDest: PlacedJewel[][] = [];
   for (const list of Object.values(destinations)) {
     for (const dest of list) {
       // A destination we don't show has nowhere for the jewel's link to land.
       if (dest.status !== "live") continue;
+      const mine: PlacedJewel[] = [];
       for (const jewel of dest.data?.jewels ?? []) {
         // `si` is one slug or several — normalise, never compare a raw value.
         // `=== siId` against a string field quietly excluded every jewel that
         // serves two interests, which is exactly the jewel most worth showing.
-        if (jewelSis(jewel).includes(siId)) out.push({ jewel, dest });
+        if (jewelSis(jewel).includes(siId)) mine.push({ jewel, dest });
       }
+      if (mine.length) byDest.push(mine);
     }
   }
-  return out.slice(0, limit);
+
+  // Round-robin: the first from each destination, then the second from each…
+  // so a cap of 12 buys twelve PLACES rather than twelve jewels from one.
+  // With `limit` at or above the total this returns everything, in the same
+  // order-preserving interleave — callers asking for all of it are unaffected.
+  const out: PlacedJewel[] = [];
+  const deepest = byDest.reduce((m, l) => Math.max(m, l.length), 0);
+  for (let round = 0; round < deepest && out.length < limit; round++) {
+    for (const list of byDest) {
+      if (out.length >= limit) break;
+      if (round < list.length) out.push(list[round]);
+    }
+  }
+  return out;
 }
 
 /** How many destinations contributed — the section says so, so the count is checkable. */
