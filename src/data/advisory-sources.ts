@@ -325,14 +325,18 @@ export const isMultiCountry = (countryName: string) => countryName.includes("/")
  * whose links were never checked until the checker was widened.
  *
  * `null` means "no slug we can stand behind" and produces the source's INDEX with
- * the page saying so. That is the honest state for a URL we have MEASURED to 404:
+ * the page saying so — the honest state for a URL we have MEASURED to 404.
+ *
  * `foreign-travel-advice/united-states` was one of the eight failures in Sana's
- * 2026-08-20 run. `usa` is the obvious candidate and is deliberately not written
- * here, because obvious is not measured — and a deep link we guessed is the exact
- * failure this file exists to prevent. It goes in when someone opens it.
+ * 2026-08-20 run. `usa` was the obvious candidate and was deliberately left out
+ * until it was opened, because obvious is not measured and a guessed deep link is
+ * the failure this file exists to prevent. **Sana opened it the same day and it
+ * serves the FCDO's United States page**, so it goes in now — with the check
+ * recorded beside it rather than in a commit message nobody greps.
  */
 const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, string | null>>> = {
-  "United States": { fcdo: null },
+  // Verified in a browser by Sana, 2026-08-20 — `united-states` 404s, `usa` serves.
+  "United States": { fcdo: "usa" },
 };
 
 function slugFor(source: AdvisorySourceId, iso: string | null, countryName: string): string | null {
