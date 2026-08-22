@@ -80,9 +80,26 @@ for (const list of Object.values(ALL_DESTINATIONS)) {
     // predicate to stamp them `noindex`, because leaving a URL out of a sitemap
     // does not stop anything indexing it.
     if (!isIndexableDestination(d)) continue;
+    // ── PRIORITY FOLLOWS THE CONTENT, NOT THE LABEL ───────────────────────
+    // This read `depth === "verified"` alone. `depth` is a claim about how far we
+    // went, and 13 rows claim `verified` while carrying no dossier at all — the
+    // original hand-authored anchors: Bali, Kyoto, Tokyo, Bangkok, Bora Bora,
+    // Banff, Queenstown, Turks & Caicos, The Alps and four more. Real pages, but
+    // a fraction of the text of a row with a dossier behind it.
+    //
+    // So the sitemap was telling Google that our thinnest pages were our most
+    // important ones, at 0.9. Found from the Search Console report: the single
+    // real page in the duplicate-without-canonical bucket is
+    // `swiss-alps-switzerland`, which is first on that list of 13.
+    //
+    // `depth` is deliberately NOT changed to fix this. It drives rendering — a
+    // non-verified row takes the preview/no-providers path — so relabelling these
+    // to `stub` would visibly downgrade thirteen live pages to fix a number in an
+    // XML file. The label stays; the claim we broadcast is what gets corrected.
+    const hasDossier = !!(d.data && Object.keys(d.data as object).length);
     urls.push({
       loc: `${ORIGIN}/destination/${d.id}`,
-      priority: d.depth === "verified" ? 0.9 : 0.6,          // deep dossiers rank first
+      priority: d.depth === "verified" && hasDossier ? 0.9 : 0.6,
       changefreq: "monthly",
     });
     destCount++;
