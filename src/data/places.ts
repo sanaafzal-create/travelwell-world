@@ -107,11 +107,28 @@ export interface Destination {
 // or not) + depth (how deep). Existing rows are all shown, so status is "live";
 // depth carries the old distinction. sub_region is optional — wired per region
 // from the canonical master as dossiers land.
-const D = (id: string, name: string, country: string, line: string, quality: "live" | "stub", img: string, sub_region?: string): Destination =>
-  ({ id, name, country, line, status: "live", depth: quality === "live" ? "verified" : "stub", img, ...(sub_region ? { sub_region } : {}) });
+/**
+ * The bundled-anchor constructor.
+ *
+ * ── IT HAD NO `si` PARAMETER, AND THAT WAS THE WHOLE STORY ─────────────────
+ * 37 of the 44 bundled rows are built here and 7 are object literals. So the
+ * rows carrying no interest tag were not 37 authoring omissions — they were the
+ * 37 rows that went through a function which could not accept one. Nobody
+ * forgot; the signature made it impossible, and reviewing the data would never
+ * have shown that, because an absent field looks identical either way.
+ *
+ * Found by David (2026-08-18) from the outside, reading our coverage numbers
+ * rather than our code. It is the same shape as the defect he was correcting in
+ * the same message — a field read by its shape rather than its construction.
+ *
+ * `si` is now the eighth parameter. A destination with no tag appears on no
+ * interest page at all, which is the most expensive kind of invisible.
+ */
+const D = (id: string, name: string, country: string, line: string, quality: "live" | "stub", img: string, sub_region?: string, si?: string[]): Destination =>
+  ({ id, name, country, line, status: "live", depth: quality === "live" ? "verified" : "stub", img, ...(sub_region ? { sub_region } : {}), ...(si?.length ? { si } : {}) });
 
 export const DESTINATIONS: Record<string, Destination[]> = {
-  "01F": [D("paris-france", "Paris", "France", "The first and last word in romance", "live", "paris"), D("amsterdam-netherlands", "Amsterdam", "Netherlands", "Canals, galleries, easy charm", "live", "venice"), D("swiss-alps-switzerland", "The Alps", "Switzerland", "Peaks, spas and slow trains", "live", "mountainValley", "Switzerland & the Alps"),
+  "01F": [D("paris-france", "Paris", "France", "The first and last word in romance", "live", "paris"), D("amsterdam-netherlands", "Amsterdam", "Netherlands", "Canals, galleries, easy charm", "live", "venice"), D("swiss-alps-switzerland", "The Alps", "Switzerland", "Peaks, spas and slow trains", "live", "mountainValley", "Switzerland & the Alps", ["ski"]),
     // Winter/Ski launch shelf — hand-authored, real destinations (swap for full
     // dossiers when the alpine library is ingested). depth:"verified" so they
     // render as live, populated pages (not the preview/no-providers path).
@@ -250,15 +267,15 @@ export const DESTINATIONS: Record<string, Destination[]> = {
     },
   ],
   "02F": [D("santorini-greece", "Santorini", "Greece", "Whitewashed cliffs over a caldera", "live", "santorini"), D("amalfi-coast-italy", "Amalfi Coast", "Italy", "Lemon groves and vertical villages", "live", "venice"), D("barcelona-spain", "Barcelona", "Spain", "Gaudí, tapas and Mediterranean light", "live", "marrakech"), D("algarve-portugal", "The Algarve", "Portugal", "Golden cliffs and quiet coves", "stub", "tropicalBeach")],
-  "03F": [D("reykjavik-iceland", "Reykjavík & Ring Road", "Iceland", "Waterfalls, lava and aurora", "live", "northernLights"), D("lofoten-islands-norway", "Lofoten Islands", "Norway", "Sea-cliff drama above the Arctic Circle", "stub", "mountainValley")],
+  "03F": [D("reykjavik-iceland", "Reykjavík & Ring Road", "Iceland", "Waterfalls, lava and aurora", "live", "northernLights"), D("lofoten-islands-norway", "Lofoten Islands", "Norway", "Sea-cliff drama above the Arctic Circle", "stub", "mountainValley", undefined, ["expedition"])],
   "04A": [D("dubai-united-arab-emirates", "Dubai", "UAE", "Audacious, golden, around the clock", "live", "dubai"), D("petra-jordan", "Petra & Wadi Rum", "Jordan", "Rose-red city and red-sand desert", "live", "desertDunes"), D("alula-saudi-arabia", "AlUla", "Saudi Arabia", "Ancient tombs in a living desert", "stub", "desertDunes", "Saudi Arabia")],
-  "05A": [D("maasai-mara-kenya", "Maasai Mara", "Kenya", "Front-row seat to the Great Migration", "live", "safariGiraffe"), D("serengeti-tanzania", "Serengeti", "Tanzania", "Endless plains, endless herds", "live", "lion"), D("ngorongoro-tanzania", "Ngorongoro Crater", "Tanzania", "A natural amphitheatre of wildlife", "live", "elephant"), D("volcanoes-national-park-rwanda", "Volcanoes NP", "Rwanda", "Mountain gorillas in the mist", "stub", "mountainValley")],
-  "06A": [D("cape-town-south-africa", "Cape Town", "South Africa", "Where the mountain meets two oceans", "live", "oceanAerial", "South Africa"), D("greater-kruger-south-africa", "Greater Kruger", "South Africa", "Big Five in the lowveld", "live", "elephant", "South Africa"), D("sossusvlei-namibia", "Sossusvlei", "Namibia", "The world's tallest dunes", "stub", "desertDunes", "Namibia Desert & Coast")],
-  "07A": [D("bali-indonesia", "Bali", "Indonesia", "Rice terraces, temples and surf", "live", "baliRice"), D("bangkok-thailand", "Bangkok", "Thailand", "Street food capital of the world", "live", "restaurant"), D("phuket-thailand", "Phuket & Phi Phi", "Thailand", "Limestone islands and warm seas", "live", "tropicalBeach"), D("siem-reap-cambodia", "Siem Reap", "Cambodia", "Sunrise over Angkor Wat", "stub", "kyoto")],
+  "05A": [D("maasai-mara-kenya", "Maasai Mara", "Kenya", "Front-row seat to the Great Migration", "live", "safariGiraffe"), D("serengeti-tanzania", "Serengeti", "Tanzania", "Endless plains, endless herds", "live", "lion"), D("ngorongoro-tanzania", "Ngorongoro Crater", "Tanzania", "A natural amphitheatre of wildlife", "live", "elephant", undefined, ["safari"]), D("volcanoes-national-park-rwanda", "Volcanoes NP", "Rwanda", "Mountain gorillas in the mist", "stub", "mountainValley")],
+  "06A": [D("cape-town-south-africa", "Cape Town", "South Africa", "Where the mountain meets two oceans", "live", "oceanAerial", "South Africa"), D("greater-kruger-south-africa", "Greater Kruger", "South Africa", "Big Five in the lowveld", "live", "elephant", "South Africa", ["safari"]), D("sossusvlei-namibia", "Sossusvlei", "Namibia", "The world's tallest dunes", "stub", "desertDunes", "Namibia Desert & Coast")],
+  "07A": [D("bali-indonesia", "Bali", "Indonesia", "Rice terraces, temples and surf", "live", "baliRice", undefined, ["tropical"]), D("bangkok-thailand", "Bangkok", "Thailand", "Street food capital of the world", "live", "restaurant"), D("phuket-thailand", "Phuket & Phi Phi", "Thailand", "Limestone islands and warm seas", "live", "tropicalBeach", undefined, ["tropical"]), D("siem-reap-cambodia", "Siem Reap", "Cambodia", "Sunrise over Angkor Wat", "stub", "kyoto")],
   "08A": [D("kyoto-japan", "Kyoto", "Japan", "Geisha districts and golden temples", "live", "kyoto"), D("tokyo-japan", "Tokyo", "Japan", "Neon, Michelin stars and calm shrines", "live", "dubai"), D("seoul-south-korea", "Seoul", "South Korea", "Palaces, markets and midnight food", "stub", "marrakech")],
-  "09P": [D("queenstown-new-zealand", "Queenstown", "New Zealand", "Adventure capital of the south", "live", "mountainValley"), D("bora-bora-french-polynesia", "Bora Bora", "French Polynesia", "Overwater bungalows on a lagoon", "live", "maldivesResort"), D("great-barrier-reef-australia", "Great Barrier Reef", "Australia", "The largest living thing on Earth", "stub", "oceanAerial")],
-  "10S": [D("machu-picchu-peru", "Machu Picchu", "Peru", "The lost city in the clouds", "live", "mountainValley"), D("patagonia-chile-argentina", "Patagonia", "Chile / Argentina", "Granite spires and turquoise lakes", "live", "mountainValley"), D("cartagena-colombia", "Cartagena", "Colombia", "Walled city of color and rhythm", "stub", "marrakech")],
-  "11C": [D("turks-and-caicos", "Turks & Caicos", "Turks & Caicos", "Grace Bay's impossible blues", "live", "oceanAerial", "Turks & Caicos"), D("st-lucia", "St. Lucia", "St. Lucia", "The Pitons above the sea", "live", "tropicalBeach", "Eastern Caribbean — Windwards & South"), D("exuma-bahamas", "The Exumas", "Bahamas", "Sandbars and swimming pigs", "stub", "maldivesResort", "Bahamas")],
+  "09P": [D("queenstown-new-zealand", "Queenstown", "New Zealand", "Adventure capital of the south", "live", "mountainValley"), D("bora-bora-french-polynesia", "Bora Bora", "French Polynesia", "Overwater bungalows on a lagoon", "live", "maldivesResort", undefined, ["tropical", "romance"]), D("great-barrier-reef-australia", "Great Barrier Reef", "Australia", "The largest living thing on Earth", "stub", "oceanAerial")],
+  "10S": [D("machu-picchu-peru", "Machu Picchu", "Peru", "The lost city in the clouds", "live", "mountainValley"), D("patagonia-chile-argentina", "Patagonia", "Chile / Argentina", "Granite spires and turquoise lakes", "live", "mountainValley", undefined, ["expedition"]), D("cartagena-colombia", "Cartagena", "Colombia", "Walled city of color and rhythm", "stub", "marrakech")],
+  "11C": [D("turks-and-caicos", "Turks & Caicos", "Turks & Caicos", "Grace Bay's impossible blues", "live", "oceanAerial", "Turks & Caicos", ["tropical"]), D("st-lucia", "St. Lucia", "St. Lucia", "The Pitons above the sea", "live", "tropicalBeach", "Eastern Caribbean — Windwards & South"), D("exuma-bahamas", "The Exumas", "Bahamas", "Sandbars and swimming pigs", "stub", "maldivesResort", "Bahamas")],
   "13A": [D("banff-canada", "Banff & Lake Louise", "Canada", "Turquoise lakes under the Rockies", "live", "mountainValley"), D("vancouver-canada", "Vancouver", "Canada", "Sea, city and mountains at once", "stub", "oceanAerial")],
 };
 
