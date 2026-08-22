@@ -22,7 +22,7 @@ import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places"
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 import { mergedDestinations } from "./lib/destination-batches";
 import { checkHero } from "./lib/check-hero";
-import { checkSafetyLanguage } from "./lib/check-safety-language";
+import { checkSafetyLanguage, countRetiredAuthority } from "./lib/check-safety-language";
 
 // ── Canon, straight from the live source ──────────────────────────────────
 const REGION_CODES = new Set(REGIONS.map((r) => r.code));
@@ -137,6 +137,12 @@ function loadRows(): { rows: Row[]; source: string } {
 // ── Validate ──────────────────────────────────────────────────────────────
 const errs: string[] = [];
 const warns: string[] = [];
+// Traveller-facing citations of the RETIRED advisory authority (David, 2026-08-18).
+// Ratcheted at the end of the run rather than errored per row — see the baseline note.
+const retiredAuthority: { where: string; match: string; context: string }[] = [];
+// Safety PROMISES — a separate bucket from `errs` so the count can be ratcheted.
+// The rule is absolute; the ratchet is a migration device, not a tolerance.
+const safetyPromises: string[] = [];
 const bump = (m: Record<string, number>, k: string) => { m[k] = (m[k] || 0) + 1; };
 const perRegion: Record<string, number> = {};
 const seenIds = new Set<string>();
@@ -336,7 +342,8 @@ for (const { code, d } of rows) {
     // two answers to one question.
     checkHero(at, data.hero, { errs, warns });
     // Never promise "safe" — locked canon, and the FAQ ships as structured data.
-    checkSafetyLanguage(at, data, { errs, warns });
+    checkSafetyLanguage(at, data, { errs: safetyPromises, warns });
+    countRetiredAuthority(at, data, retiredAuthority);
 
     // reconciles_live_mvp → must resolve to an ACTUAL live MVP id (not just a slug).
     const rec = data.reconciles_live_mvp;
@@ -421,5 +428,55 @@ const covered = Object.entries(bySi).sort((a, b) => b[1] - a[1]);
 console.log(`si coverage:  ${tagged}/${rows.length} rows carry an si tag${tagged < rows.length ? `  — the other ${rows.length - tagged} will not appear on ANY interest page` : ""}`);
 console.log(`             ${covered.length ? covered.map(([k, v]) => `${k}:${v}`).join("  ") : "none — this batch lights up no interest page"}`);
 if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block, but check):`); warns.forEach((w) => console.log("  · " + w)); }
+
+// ── THE SAFETY-PROMISE RATCHET ─────────────────────────────────────────────
+// "Never promise safe" is absolute — an outcome we do not control, said in the
+// field that emits FAQPage structured data. So this is NOT a tolerance and the
+// only acceptable number is zero. It is ratcheted purely so a pre-existing set
+// does not hold every unrelated change hostage; every one is listed on every
+// run, and a new one fails immediately.
+//
+// The remedy is DELETION, never a generated replacement. Precedent from PR 49:
+// five answers asserting a place was safe had the claim removed at source,
+// nothing hedged and no replacement claim written. A script writing safety
+// sentences is what put a line State never wrote into a Cartagena screen.
+{
+  const promiseMax = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).promise_max as number;
+  if (safetyPromises.length > promiseMax) {
+    console.log(`\n\u2717 SAFETY PROMISES \u2014 ${safetyPromises.length} claims that a place IS safe; the ratchet allows ${promiseMax}.`);
+    safetyPromises.forEach((e) => console.log("  \u2717 " + e));
+    process.exit(1);
+  }
+  if (safetyPromises.length) {
+    console.log(`\n\u26a0\ufe0e ${safetyPromises.length} SAFETY PROMISES still live (ratchet ${promiseMax}, target 0). Delete the claim; do not rewrite it.`);
+    safetyPromises.forEach((e) => console.log("  \u00b7 " + e));
+  }
+}
+
+// ── THE RETIRED-AUTHORITY RATCHET ──────────────────────────────────────────
+// State stopped being a safety authority on 2026-08-18. Existing prose still
+// cites it; new prose may not. Counted and compared against a committed
+// baseline so the set can only shrink — the same shape the research library
+// arrived at independently on its own side.
+{
+  const baselinePath = "scripts/lib/retired-authority-baseline.json";
+  const max = JSON.parse(readFileSync(baselinePath, "utf8")).max as number;
+  const n = retiredAuthority.length;
+  if (n > max) {
+    console.log(`\n\u2717 RETIRED AUTHORITY \u2014 ${n} traveller-facing claims cite the US State Department; the ratchet allows ${max}.`);
+    console.log(`  ${n - max} more than the baseline. State is not a safety authority (David, 2026-08-18), and the FAQ`);
+    console.log(`  field emits FAQPage structured data \u2014 a citation there is the machine-readable answer to a`);
+    console.log(`  safety question, published under our name. Rewrite from the FCDO by hand; never generate one.`);
+    for (const h of retiredAuthority.slice(0, 8)) console.log(`   \u00b7 ${h.where} \u2014 "${h.match}"  \u2026${h.context}\u2026`);
+    if (n - max > 8) console.log(`   \u2026and ${n - max - 8} more`);
+    process.exit(1);
+  }
+  if (n < max) {
+    console.log(`\n\u2713 retired-authority claims: ${n} (baseline ${max}) \u2014 lower "max" in ${baselinePath} to ${n} to hold the ground.`);
+  } else if (n) {
+    console.log(`\n\u00b7 retired-authority claims: ${n}, at the ratchet. Can shrink, cannot grow.`);
+  }
+}
+
 if (errs.length) { console.log(`\n✗ ${errs.length} ERRORS (must fix before ingest):`); errs.forEach((e) => console.log("  ✗ " + e)); process.exit(1); }
 console.log(`\n✓ Clean against live canon — safe to ingest.`);

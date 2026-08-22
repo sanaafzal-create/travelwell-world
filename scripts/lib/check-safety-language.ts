@@ -39,7 +39,56 @@ export interface SafetyLanguageHit {
  * literal list of phrases would miss.
  */
 const PROMISE =
-  /\b(?:is|are|was|were|remains?|stays?|feels?|seems?)\s+(?:\w+\s+){0,2}?safe\b(?!\w)|(?:perfectly|completely|totally|entirely|absolutely|100%)\s+safe\b|no\s+danger\b|nothing\s+to\s+worry\s+about\b/gi;
+  /\b(?:is|are|was|were|remains?|stays?|feels?|seems?)\s+(?:\w+\s+){0,2}?safe\b(?!\w)|(?:perfectly|completely|totally|entirely|absolutely|100%)\s+safe\b|no\s+danger\b|nothing\s+to\s+worry\s+about\b|\bsafest\b|\bsafer\s+than\b/gi;
+// ── `safest` WAS THE HOLE, AND IT IS THE COMMONER PHRASING ─────────────────
+// The pattern above required the word `safe` with a word boundary after it, so
+// "safest" never matched — `safe` is followed by `st`. Every superlative form
+// walked through: "the safest tier", "one of the safest cities in Europe",
+// "safer than most capitals".
+//
+// That is not a smaller claim than "is safe", it is a larger one, and it is how
+// the sentence actually gets written. Found live on 2026-08-18 in FAQPage
+// structured data on the deployed site: "Yes — freely bookable. Hungary is US
+// Level 1 (Exercise Normal Precautions), the safest tier". Published under our
+// name, in the surface an answer engine quotes, on the one claim the doctrine
+// calls absolute.
+//
+// A rule that catches the plain form and misses the emphatic one is worse than
+// no rule, because the emphatic one is what a confident author writes.
+
+/**
+ * A traveller-facing claim resting on the RETIRED advisory authority.
+ *
+ * David's decision, 2026-08-18: State stops being read, published or cited as a
+ * safety authority anywhere in the product. Our own numbers say why it needs a
+ * detector rather than a memo — all 38 rows in safety.json name State as their
+ * source, and 164 FAQ answers across 157 destinations cite it in prose that
+ * renders into FAQPage structured data.
+ *
+ * The Budapest answer is the shape to catch: *"Yes — freely bookable. Hungary is
+ * US Level 1 (Exercise Normal Precautions), the safest tier."* The booking
+ * conclusion is right under our doctrine — no advisory against travel means
+ * freely bookable — and the authority it rests on is retired. That is worse than
+ * a wrong answer, because it reads as defensible: anyone checking finds a sound
+ * decision sourced to something we have said we do not use.
+ *
+ * Deliberately NOT rewritten by anything mechanical. A human reads the FCDO and
+ * a human writes the posture — the alternative is what put a sentence State
+ * never wrote into a Cartagena consent screen.
+ */
+const RETIRED_AUTHORITY =
+  /\bU\.?S\.?\s*Level\s*[1-4]\b|\bLevel\s*[1-4]\b(?=[^.]{0,60}\b(?:State|U\.?S\.?)\b)|State\s+Department|State\s+Dept\b|travel\.state\.gov|Exercise\s+Normal\s+Precautions|Exercise\s+Increased\s+Caution|Reconsider\s+Travel|Do\s+Not\s+Travel/gi;
+
+/** Every retired-authority citation in a blob of text. */
+export function findRetiredAuthority(text: unknown): SafetyLanguageHit[] {
+  if (typeof text !== "string" || !text) return [];
+  const hits: SafetyLanguageHit[] = [];
+  for (const m of text.matchAll(RETIRED_AUTHORITY)) {
+    const at = m.index ?? 0;
+    hits.push({ match: m[0].trim(), context: text.slice(Math.max(0, at - 55), at + m[0].length + 45).trim() });
+  }
+  return hits;
+}
 
 /** Every safety promise in a blob of text, with enough context to find it. */
 export function findSafetyPromises(text: unknown): SafetyLanguageHit[] {
@@ -80,5 +129,33 @@ export function checkSafetyLanguage(
     for (const hit of findSafetyPromises(f?.a)) {
       out.errs.push(`${at}: faq #${i + 1} answer promises safety — "${hit.match}". Keep the question, answer it with the real risk. …${hit.context}…`);
     }
+  }
+}
+
+/**
+ * Count retired-authority citations across everything traveller-facing.
+ *
+ * Counted rather than errored, and the caller ratchets on the total. 164 answers
+ * across 157 destinations cite it today; erroring would paint the gate red until
+ * 157 dossiers are rewritten by hand, and a permanently red gate is one people
+ * learn to pass with --no-verify. A ratchet makes the set shrinkable and
+ * un-growable, which is the property that matters. Same approach the research
+ * library took on its own side, independently.
+ */
+export function countRetiredAuthority(
+  at: string,
+  data: unknown,
+  found: { where: string; match: string; context: string }[],
+): void {
+  if (!data || typeof data !== "object") return;
+  const d = data as { safety?: Record<string, unknown>; faq?: Array<{ q?: unknown; a?: unknown }> };
+  for (const [field, value] of Object.entries(d.safety ?? {})) {
+    for (const hit of findRetiredAuthority(value)) found.push({ where: `${at}: safety.${field}`, ...hit });
+  }
+  // The ANSWER only, again — and the FAQ matters most here, because it is the
+  // field that emits FAQPage structured data. A citation there is the
+  // machine-readable answer to a safety question, published under our name.
+  for (const [i, f] of (d.faq ?? []).entries()) {
+    for (const hit of findRetiredAuthority(f?.a)) found.push({ where: `${at}: faq #${i + 1}`, ...hit });
   }
 }
