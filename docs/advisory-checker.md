@@ -370,6 +370,47 @@ unfetched URL.
 `austria-travel-advisory.html` from an egress State's website will answer, or get
 Austria into the feed snapshot.
 
+### Re-run 2026-08-20 (evening) — the GET hypothesis is FALSIFIED
+
+Same laptop, same residential egress, after the retry landed. **78 of 117 proven,
+39 blocked, 0 404s** — and the line that settles it:
+
+```
+38 refused GET as well as HEAD — the block is not the HTTP method.
+```
+
+So the CDN-rejects-HEAD theory is dead. `travel.state.gov` refuses this client
+whichever verb it uses, from an origin that is *not* a datacenter. Combined with
+the byte-identical results across three header profiles on the catalog host, two
+variables are now eliminated for State's website: **not the method, not the
+headers.** What remains is the client itself (a real browser passes; a fetch does
+not) or an allow-list we are not on.
+
+Recorded as a closed line of work. Do not retry a third verb, a fourth header
+profile, or a redirect setting — each would be a one-variable change against a
+question where two variables are already ruled out and the remaining one is not
+addressable from our side.
+
+**Exit 3, and correctly**: Austria is the single derived slug still unproven, and
+exit 3 exists precisely to say "one of ours is unknown" rather than folding it in
+with 38 attested URLs.
+
+### Coverage: the link checker had the same loop as the daily one
+
+It iterated `COUNTRY_ISO` — 39 countries, 117 links — while the site emits
+advisory links for **83** countries, one per country a destination sits in. So 45
+countries and roughly 135 traveller-facing links were never checked, Mexico's 54
+destinations among them.
+
+Widened 2026-08-20 to the union of both sets. This one was fixable where the daily
+checker's version is not: `advisoryLinks` derives FCDO and CDC slugs from the
+country NAME and joins State's feed on the name too, so a country with no ISO code
+still produces checkable links. No country-code map is required, which is exactly
+what makes widening safe here and unsafe there.
+
+Expect the next run to report ~252 links rather than 117, and expect some 404s
+among the newly-covered derived slugs — that is the point of covering them.
+
 ### The 403 retry is a hypothesis, not a fix
 
 The checker now retries GET when HEAD returns 403, because CDN bot rules often

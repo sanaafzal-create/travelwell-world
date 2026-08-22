@@ -36,6 +36,25 @@
  */
 import { COUNTRY_ISO } from "../src/data/safety-data";
 import { advisoryLinks, isMultiCountry, statePublishedUrl } from "../src/data/advisory-sources";
+import { mergedDestinations } from "./lib/destination-batches";
+
+/**
+ * ── CHECK EVERY LINK WE EMIT, NOT EVERY LINK WE HAVE A SAFETY ROW FOR ──────
+ * This iterated `COUNTRY_ISO`, so it exercised 39 countries and 117 links. The
+ * site emits advisory links for every country a destination sits in — 83 — so
+ * 45 countries and roughly 135 traveller-facing links were never checked at all.
+ * Mexico's 54 destinations were among them.
+ *
+ * Third instance of the same loop this week: a check derived from the countries
+ * we already hold a row for, rather than the countries we actually serve. The
+ * daily advisory checker has it too. The difference is that this one is fixable
+ * today — `advisoryLinks` derives an FCDO/CDC slug from the country NAME and
+ * joins State's feed on the name as well, so a country with no ISO code still
+ * produces checkable links. No country-code map is needed, which is what makes
+ * this safe to widen and the other one not.
+ */
+const servedCountries = (Object.values(mergedDestinations()).flat() as { country?: string }[])
+  .map((d) => d.country).filter((c): c is string => !!c);
 
 // A bare fetch gets bot-filtered by at least one of these sources; ask like a browser.
 const HEADERS = {
@@ -80,8 +99,19 @@ type Row = {
 };
 
 const rows: Row[] = [];
-const countries = Object.entries(COUNTRY_ISO);
-console.log(`Checking ${countries.length} countries × 3 sources…\n`);
+// Every country we hold a row for, PLUS every country a destination sits in.
+// A served country with no safety row has no ISO — the links still derive from
+// its name, and an unchecked link on a live page is the thing this exists to
+// find.
+const countries: [string, string | null][] = [
+  ...Object.entries(COUNTRY_ISO) as [string, string][],
+  ...[...new Set(servedCountries)]
+    .filter((c) => !(c in (COUNTRY_ISO as Record<string, string>)))
+    .sort()
+    .map((c) => [c, null] as [string, null]),
+];
+const withRow = Object.keys(COUNTRY_ISO).length;
+console.log(`Checking ${countries.length} countries × 3 sources — ${withRow} with a safety row, ${countries.length - withRow} served but rowless…\n`);
 
 for (const [country, iso] of countries) {
   if (isMultiCountry(country)) {
