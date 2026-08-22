@@ -56,6 +56,30 @@ import { mergedDestinations } from "./lib/destination-batches";
 const servedCountries = (Object.values(mergedDestinations()).flat() as { country?: string }[])
   .map((d) => d.country).filter((c): c is string => !!c);
 
+/**
+ * Links a HUMAN opened in a real browser and confirmed landed on the right page.
+ *
+ * State refuses this script whichever verb and whichever headers it uses, from a
+ * residential IP — method and headers are both ruled out, and what passes is a
+ * real browser. So for a slug we derive ourselves and cannot fetch, a person
+ * opening the URL is not a workaround; it is the only measurement available, and
+ * it is a better one than the script would make.
+ *
+ * The entry carries WHO, WHEN and HOW, because a verification with no provenance
+ * is the thing this repo keeps refusing to accept from anyone else. And these are
+ * never silently suppressed: the run prints them with their date, so an entry
+ * that has aged is visible rather than quietly counted as fine. A slug can change
+ * under a manual tick exactly as it can under an automated one.
+ */
+const MANUALLY_VERIFIED: Record<string, { on: string; by: string; how: string }> = {
+  "Austria|state": {
+    on: "2026-08-20",
+    by: "Sana",
+    how: "opened in a browser; landed on the Austria travel advisory page",
+  },
+};
+const VERIFY_KEY = (country: string, source: string) => `${country}|${source}`;
+
 // A bare fetch gets bot-filtered by at least one of these sources; ask like a browser.
 const HEADERS = {
   "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
@@ -142,13 +166,18 @@ const ok = deep.filter((r) => typeof r.code === "number" && r.code >= 200 && r.c
 // unknown. Same HTTP status, different risk, so they are counted apart.
 const unreached = [...blocked, ...errored];
 const unreachedAttested = unreached.filter((r) => r.attested);
-const unreachedOurs = unreached.filter((r) => !r.attested);
+const unreachedOursAll = unreached.filter((r) => !r.attested);
+// A human-verified link is still unreached by the script — it is NOT folded into
+// the proven count, because it was not proven by this run. It is separated out so
+// the "could be hiding a wrong slug" number means only what it says.
+const manuallyOk = unreachedOursAll.filter((r) => MANUALLY_VERIFIED[VERIFY_KEY(r.country, r.source)]);
+const unreachedOurs = unreachedOursAll.filter((r) => !MANUALLY_VERIFIED[VERIFY_KEY(r.country, r.source)]);
 
 console.log(`\n── ADVISORY LINK CHECK ─────────────────────`);
 console.log(`deep links: ${deep.length}   ok: ${ok.length}   404 (wrong slug): ${bad.length}   403/429 (blocked): ${blocked.length}   errors: ${errored.length}`);
 console.log(`index fallbacks (no confirmed slug): ${rows.filter((r) => !r.deep).length}`);
 if (unreached.length) {
-  console.log(`of the ${unreached.length} unreached — source-published URL: ${unreachedAttested.length}   our derived slug: ${unreachedOurs.length}`);
+  console.log(`of the ${unreached.length} unreached — source-published URL: ${unreachedAttested.length}   our derived slug: ${unreachedOurs.length}${manuallyOk.length ? `   hand-verified in a browser: ${manuallyOk.length}` : ""}`);
 }
 
 if (unreachedAttested.length) {
@@ -156,6 +185,13 @@ if (unreachedAttested.length) {
   console.log(`  so the slug is not ours to get wrong. Unreachable from this egress ≠ unknown.`);
   const viaGet = unreachedAttested.filter((r) => r.via === "GET too").length;
   if (viaGet) console.log(`  ${viaGet} refused GET as well as HEAD — the block is not the HTTP method.`);
+}
+if (manuallyOk.length) {
+  console.log(`\n\u00b7 ${manuallyOk.length} unreached link(s) were verified BY HAND in a browser \u2014 not proven by this run:`);
+  for (const r of manuallyOk) {
+    const v = MANUALLY_VERIFIED[VERIFY_KEY(r.country, r.source)];
+    console.log(`  ${r.country} \u00b7 ${r.source} \u2014 ${v.by}, ${v.on}: ${v.how}`);
+  }
 }
 if (unreachedOurs.length) {
   console.log(`\n⚠︎ UNPROVEN AND OURS — derived slugs that could not be proved either way.`);

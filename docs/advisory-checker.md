@@ -395,6 +395,19 @@ addressable from our side.
 exit 3 exists precisely to say "one of ours is unknown" rather than folding it in
 with 38 attested URLs.
 
+**Austria closed, by hand — 2026-08-20, Sana, browser.** The URL
+`…/austria-travel-advisory.html` opens the Austria travel advisory page. That was
+the last unproven derived slug of the original 39, and a person opening it is not
+a workaround: the script is refused by method and by headers from a residential
+IP, a real browser is what passes, so the human read is the *only* measurement
+available and a better one than the script could make.
+
+Recorded in `MANUALLY_VERIFIED` in the checker with who, when and how, and printed
+on every run rather than silently subtracted — a slug can change under a manual
+tick exactly as under an automated one, and an entry that has aged should be
+visible. It is deliberately **not** added to the proven count: it was not proven
+by that run.
+
 ### Coverage: the link checker had the same loop as the daily one
 
 It iterated `COUNTRY_ISO` — 39 countries, 117 links — while the site emits
