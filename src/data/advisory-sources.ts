@@ -258,9 +258,53 @@ const SLUG_OVERRIDES: Record<string, Partial<Record<AdvisorySourceId, string>>> 
   SA: { state: "saudi-arabia", fcdo: "saudi-arabia", cdc: "saudi-arabia" },
 };
 
+/**
+ * Two corrections, both inferred from links that VERIFIABLY resolve rather than
+ * from what a slug ought to look like (Sana's run, 2026-08-20, 252 links):
+ *
+ *   · `&` becomes "and", it does not vanish. We produced `st-kitts-nevis` and
+ *     `st-vincent-the-grenadines`, both 404. The evidence is in the passing set:
+ *     `turks-and-caicos-islands` resolves at the FCDO, so the source spells the
+ *     conjunction out. (And `st-lucia` resolves, so "St." stays "st-" — the two
+ *     facts together are why this is a rule and not a guess.)
+ *   · A trailing parenthetical is OUR annotation, not part of the country's name.
+ *     "Puerto Rico (US territory)" produced `puerto-rico-us-territory`; no source
+ *     has ever published that. The parenthetical exists to disambiguate a shelf
+ *     for a human reader and has no business in a URL.
+ */
 const derive = (countryName: string) =>
-  countryName.normalize("NFD").replace(/[̀-ͯ]/g, "")
+  countryName
+    .replace(/\s*\([^)]*\)\s*$/, "")          // drop our own annotation
+    .replace(/&/g, " and ")                   // "&" is a conjunction, not a delimiter
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
     .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+/**
+ * A SOURCE DOES NOT ISSUE TRAVEL ADVICE ABOUT ITS OWN COUNTRY.
+ *
+ * State publishes no advisory for the United States or its territories; the FCDO
+ * publishes none for the United Kingdom. A deep link there is wrong by
+ * construction — it cannot ever resolve — and Sana's run found exactly that:
+ * four State links and four FCDO links 404 or refuse, on the US, Puerto Rico, the
+ * US Virgin Islands and the UK.
+ *
+ * The link is OMITTED rather than degraded to an index. "We could not confirm a
+ * page" is a different and misleading statement when the truth is "this authority
+ * does not advise on this country" — and a 404 on a traveller-facing safety link
+ * reads as *we checked* when we did not, which is the whole reason this file is
+ * checkable at all.
+ *
+ * Territories are listed explicitly rather than pattern-matched. Whether an
+ * advisory covers a territory is a political fact, and the right place for one is
+ * a table a person can read and disagree with.
+ */
+const SOURCE_HOME_COUNTRIES: Record<AdvisorySourceId, string[]> = {
+  state: ["United States", "Puerto Rico (US territory)", "US Virgin Islands (US territory)"],
+  cdc: ["United States", "Puerto Rico (US territory)", "US Virgin Islands (US territory)"],
+  fcdo: ["United Kingdom"],
+};
+const advisesOn = (source: AdvisorySourceId, countryName: string) =>
+  !SOURCE_HOME_COUNTRIES[source].includes(countryName);
 
 /**
  * A destination whose `country` spans TWO countries has no single advisory page
@@ -272,8 +316,29 @@ const derive = (countryName: string) =>
  */
 export const isMultiCountry = (countryName: string) => countryName.includes("/");
 
+/**
+ * Overrides for countries we hold NO ISO code for.
+ *
+ * `SLUG_OVERRIDES` is keyed by ISO, which works only for the 39 countries that
+ * have a safety row. The 45 we serve without one — Mexico, the UK, the US
+ * territories — cannot be corrected there at all, and that is precisely the set
+ * whose links were never checked until the checker was widened.
+ *
+ * `null` means "no slug we can stand behind" and produces the source's INDEX with
+ * the page saying so. That is the honest state for a URL we have MEASURED to 404:
+ * `foreign-travel-advice/united-states` was one of the eight failures in Sana's
+ * 2026-08-20 run. `usa` is the obvious candidate and is deliberately not written
+ * here, because obvious is not measured — and a deep link we guessed is the exact
+ * failure this file exists to prevent. It goes in when someone opens it.
+ */
+const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, string | null>>> = {
+  "United States": { fcdo: null },
+};
+
 function slugFor(source: AdvisorySourceId, iso: string | null, countryName: string): string | null {
   if (isMultiCountry(countryName)) return null;
+  const byName = SLUG_OVERRIDES_BY_NAME[countryName];
+  if (byName && source in byName) return byName[source] ?? null;
   const override = iso ? SLUG_OVERRIDES[iso.toUpperCase()]?.[source] : undefined;
   if (override) return override;
   const d = derive(countryName);
@@ -292,7 +357,10 @@ export interface AdvisoryLink {
  * Never throws, never fetches; returns an index link rather than a bad guess.
  */
 export function advisoryLinks(countryName: string, iso: string | null): AdvisoryLink[] {
-  return (["state", "fcdo", "cdc"] as AdvisorySourceId[]).map((id) => {
+  return (["state", "fcdo", "cdc"] as AdvisorySourceId[]).flatMap((id) => {
+    // A source that does not advise on this country is left out entirely, rather
+    // than shown with a link that cannot resolve.
+    if (!advisesOn(id, countryName)) return [];
     const source = ADVISORY_SOURCES[id];
     // State publishes its own URL per country. Prefer it over anything we can
     // derive — a rule that produces 22 of 36 correctly is not a rule worth
