@@ -23,6 +23,34 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { COUNTRY_ISO } from "../src/data/safety-data";
 import { advisoryLinks, isMultiCountry } from "../src/data/advisory-sources";
+import { mergedDestinations } from "./lib/destination-batches";
+
+/**
+ * ── THE LIST IS DERIVED FROM WHAT WE ALREADY HOLD, WHICH CLOSES A LOOP ──────
+ * The header above says a country appearing on the site cannot quietly go
+ * unchecked. It reads `COUNTRY_ISO`, which is the countries we already have a
+ * safety row for — not the countries we actually serve. Those are different sets
+ * and the difference is 45 countries behind 230 destinations, measured
+ * 2026-08-18 (David asked for the number and said nobody had counted it).
+ *
+ * The loop: a country with no safety row is absent from COUNTRY_ISO, so it is
+ * absent from this payload, so the daily checker never reads it, so no reading
+ * ever arrives that would justify creating the row. Unchecked because it has no
+ * row; no row because it is unchecked. It cannot self-heal, and every run reports
+ * a clean 39 of 39 while 46% of the catalog goes unread.
+ *
+ * Adding those 45 needs an ISO code each, and this repo's standing rule is that a
+ * country-code map is never hand-written from memory — the failure mode is a
+ * silent join to the wrong country's advisory, which is the exact defect the
+ * FIPS/ISO note warns about. So this does NOT invent them. It makes the omission
+ * loud instead of silent, and records it in the emitted file so the gap is
+ * auditable rather than merely absent.
+ */
+const servedCountries = [...new Set(
+  (Object.values(mergedDestinations()).flat() as { country?: string }[])
+    .map((d) => d.country).filter((c): c is string => !!c && !isMultiCountry(c)),
+)];
+const unchecked = servedCountries.filter((c) => !(c in (COUNTRY_ISO as Record<string, string>))).sort();
 
 const countries = Object.entries(COUNTRY_ISO)
   .filter(([name]) => !isMultiCountry(name))
@@ -46,8 +74,25 @@ const countries = Object.entries(COUNTRY_ISO)
   })
   .sort((a, b) => a.iso.localeCompare(b.iso));
 
-writeFileSync("docs/advisory-countries.json", JSON.stringify({ countries }, null, 2) + "\n");
+writeFileSync(
+  "docs/advisory-countries.json",
+  JSON.stringify({
+    countries,
+    // Recorded IN the artifact, not only in the console. A gap that exists only
+    // as a line of build output is a gap nobody reads twice.
+    unchecked_served_countries: unchecked,
+  }, null, 2) + "\n",
+);
 console.log(`Wrote docs/advisory-countries.json — ${countries.length} countries, ${countries.filter((c) => c.fcdo_slug).length} with an FCDO slug`);
+if (unchecked.length) {
+  console.log(
+    `\n⚠︎ ${unchecked.length} of ${servedCountries.length} countries we SERVE are not in this payload, so the daily\n` +
+    `  checker never reads them. They have no COUNTRY_ISO entry, and a country with no\n` +
+    `  entry can never acquire one from a check it is excluded from — the loop does not\n` +
+    `  self-heal. Every run still reports a clean ${countries.length} of ${countries.length}.\n\n` +
+    `  ${unchecked.slice(0, 12).join(", ")}${unchecked.length > 12 ? `, +${unchecked.length - 12} more` : ""}\n`,
+  );
+}
 
 // ── The scheduled job ──────────────────────────────────────────────────────
 // Project ref comes from supabase/config.toml so it lives in one place; a
