@@ -356,11 +356,43 @@ export interface Provider {
   name: string; well: string; tier: Tier; price: Price; mode: Mode; desc: string; commission: string;
   /** Which Special Interests this provider serves (real taxonomy keys). The matching keystone. */
   si: string[];
+  /**
+   * THE SAME PROVIDER, DESCRIBED BY THE DOOR THE TRAVELLER CAME THROUGH.
+   *
+   * `desc` is one sentence and a provider surfaces on every interest it serves,
+   * so one sentence had to work for all of them. David's example (2026-08-17) is
+   * Eatwith, a home-dining marketplace across 90+ destinations serving at least
+   * six: culinary, culture, romance, honeymoons, wine and family. On Romance the
+   * useful line is "dinner with a family on a terrace above the water"; on
+   * Culinary it is "hands-on pasta making at a rural farmhouse". Same record,
+   * same truth, different sentence — because the description is what the traveller
+   * actually reads and they arrived somewhere specific.
+   *
+   * This is the jewel `si` problem one layer up, and it takes the same shape of
+   * fix: optional, additive, keyed by slug, with `desc` as the fallback. A record
+   * that fills none of it behaves exactly as it does today, so nothing has to be
+   * rewritten to adopt it — and `providerDesc()` is the only reader, so the
+   * fallback can never be applied inconsistently by a second consumer.
+   *
+   * Keys must be slugs the provider actually serves; `validate:providers` refuses
+   * a framing for a door the provider does not stand in.
+   */
+  desc_by_si?: Record<string, string>;
   /** Region code where the provider operates (regions.code), or undefined for cross-region (e.g. airlines). */
   region?: string;
   /** Real affiliate/booking URL the /go handoff redirects to. Filled from David's provider intel. */
   bookingUrl?: string;
 }
+/**
+ * What this provider's card should say on a given interest page.
+ *
+ * The ONE reader of `desc_by_si`. A surface with no door — the Providers index,
+ * a Well shelf — passes nothing and gets the general line, which is correct
+ * rather than a degradation: there is no traveller intent to speak to.
+ */
+export const providerDesc = (p: Pick<Provider, "desc" | "desc_by_si">, siId?: string): string =>
+  (siId && p.desc_by_si?.[siId]) || p.desc;
+
 // si/region default to the current catalog's reality — the Maasai-Mara safari
 // demo (safari · East Africa 05A). NEW providers must pass explicit si + region
 // so the matching layer (Step 2) can filter by them; the defaults only cover the

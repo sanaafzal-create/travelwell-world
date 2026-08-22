@@ -4,7 +4,7 @@ import { REGION_SI, taglineSubject, type Region, type SiData } from "@/data/taxo
 import { Tagline } from "@/components/ui/primitives";
 import { siJsonLd, useJsonLd } from "@/lib/jsonld";
 import { jewelsForSi, destinationsBehind, type PlacedJewel } from "@/lib/jewels";
-import { type Provider, type Activity } from "@/data/places";
+import { type Provider, type Activity, providerDesc } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useSiImage } from "@/lib/unsplash";
 import { useStore, MAX_SIS } from "@/store/useStore";
@@ -502,7 +502,7 @@ export default function SiDetail() {
                     {p.tier === "prime" ? "★ Prime" : "Vetted"}
                   </span>
                   <div className="sd-pv__name">{p.name}</div>
-                  <div className="sd-pv__desc">{p.desc}</div>
+                  <div className="sd-pv__desc">{providerDesc(p, si.id)}</div>
                 </div>
                 <div className="sd-pv__foot">{allWells[p.well].name}</div>
               </div>

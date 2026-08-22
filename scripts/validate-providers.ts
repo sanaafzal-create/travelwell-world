@@ -96,6 +96,27 @@ for (const file of files) {
       else bySi[s] = (bySi[s] || 0) + 1;
     }
 
+    // ── A PER-DOOR DESCRIPTION FOR A DOOR THIS PROVIDER DOESN'T STAND IN ────
+    // `desc_by_si` lets one provider read differently on each interest page it
+    // serves. The failure it invites is a framing keyed to an interest the row
+    // does not carry: it is never rendered, never wrong on screen, and looks like
+    // finished work — so an author fills it, ships it, and the Romance page keeps
+    // showing the generic line with nobody able to say why.
+    //
+    // Refused rather than warned. A description written for a door is evidence
+    // someone believed the provider stands in it, so the disagreement with `si`
+    // is a real contradiction to resolve, not noise.
+    if (r.desc_by_si) {
+      let byDoor: Record<string, string> | null = null;
+      try { byDoor = JSON.parse(r.desc_by_si) as Record<string, string>; }
+      catch { errs.push(`${at}: desc_by_si is not valid JSON — expected {"romance": "…", "culinary": "…"}`); }
+      for (const [door, line] of Object.entries(byDoor ?? {})) {
+        if (!SI_SLUGS.has(door)) errs.push(`${at}: desc_by_si key "${door}" is not an interest slug`);
+        else if (!si.includes(door)) errs.push(`${at}: desc_by_si has a description for "${door}" but the row's si column doesn't list it — it would never render. Add "${door}" to si, or drop the description.`);
+        if (!String(line ?? "").trim()) errs.push(`${at}: desc_by_si["${door}"] is empty — an empty override silently falls back, which reads as the field not working`);
+      }
+    }
+
     if (r.region && !REGION_CODES.has(r.region)) errs.push(`${at}: region "${r.region}" is not a 13-code region (blank = cross-region, which is fine)`);
 
     if (r.commission && LOOKS_LIKE_A_RATE.test(r.commission)) {

@@ -60,6 +60,7 @@ function readProviderCsvs(): CsvProvider[] {
         si: rec.si ? rec.si.split("|").map((s) => s.trim()).filter(Boolean) : [],
         region: rec.region || undefined,
         bookingUrl: rec.booking_url || undefined,
+        desc_by_si: rec.desc_by_si ? JSON.parse(rec.desc_by_si) as Record<string, string> : undefined,
       });
     }
   }
@@ -247,7 +248,7 @@ const allProviders: CsvProvider[] = [...Object.values(PROVIDERS).flat(), ...read
 const seenPk = new Set<string>();
 const provRows = allProviders
   .filter((p) => { const k = `${p.name}|${p.well}`; if (seenPk.has(k)) return false; seenPk.add(k); return true; })
-  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"}, ${p.bookingUrl ? q(p.bookingUrl) : "null"})`)
+  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"}, ${p.bookingUrl ? q(p.bookingUrl) : "null"}, ${p.desc_by_si && Object.keys(p.desc_by_si).length ? q(JSON.stringify(p.desc_by_si)) : "null"})`)
   .join(",\n");
 
 const subRows = Object.entries(SUBREGIONS)
@@ -274,14 +275,19 @@ create unique index if not exists providers_name_well_key on public.providers (n
 alter table public.providers add column if not exists si          text[] not null default '{}';
 alter table public.providers add column if not exists region      text;
 alter table public.providers add column if not exists booking_url text;
+-- One description cannot serve six SI doors: a provider surfaces on every interest
+-- it serves, and the sentence a traveller reads should answer the door they came
+-- through. Additive and nullable: a row that fills none of it renders description.
+alter table public.providers add column if not exists desc_by_si jsonb;
 create index if not exists providers_region_idx on public.providers (region);
 
-insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url) values
+insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url, desc_by_si) values
 ${provRows}
 on conflict (name, well) do update set
   tier = excluded.tier, price = excluded.price, mode = excluded.mode,
   description = excluded.description, commission = excluded.commission,
-  si = excluded.si, region = excluded.region, booking_url = excluded.booking_url;
+  si = excluded.si, region = excluded.region, booking_url = excluded.booking_url,
+  desc_by_si = excluded.desc_by_si;
 
 -- Sub-regions -----------------------------------------------------------------
 create table if not exists public.sub_regions (
