@@ -54,6 +54,27 @@ interface CatalogState {
   guides: Guide[];
   /** Where the live catalog came from — useful for debugging / a future badge. */
   source: "bundle" | "db";
+  /**
+   * Has the hydrate attempt FINISHED, whatever the outcome?
+   *
+   * Distinct from `source === "db"`, and the distinction is a live defect.
+   * `hydrate()` returned silently when the fetch failed, so `source` stayed
+   * "bundle" forever and every consumer asking "has the catalog loaded?" got
+   * `false` for the rest of the session. On a destination the bundle does not
+   * carry — 459 of 503 — the page then showed "Loading this destination…"
+   * permanently. Measured in a browser: still loading at 9.5 seconds, and it
+   * would never change.
+   *
+   * The server had already delivered the whole page — 9,126 characters of
+   * prerendered HTML for cairo-egypt — and hydration replaced it with a spinner
+   * that could not resolve. A visitor behind a corporate proxy, an aggressive
+   * blocker, or a Supabase outage gets the worst version of a page we had
+   * already answered correctly.
+   *
+   * "Not yet" and "we tried and could not" are different states and the UI has
+   * to be able to tell them apart.
+   */
+  settled: boolean;
   hydrate: () => Promise<void>;
 }
 
@@ -79,9 +100,13 @@ export const useCatalog = create<CatalogState>((set) => ({
   destinations: BUNDLE_DESTINATIONS,
   guides: BUNDLE_GUIDES,
   source: "bundle",
+  settled: false,
   hydrate: async () => {
-    const db = await fetchCatalog();
-    if (!db) return; // offline / unconfigured / empty → keep the bundle
+    let db: Awaited<ReturnType<typeof fetchCatalog>> = null;
+    try { db = await fetchCatalog(); } catch { db = null; }
+    // Settled either way. A failed read is an ANSWER — "we tried, and the catalog
+    // is the bundle" — not a reason to leave every consumer waiting forever.
+    if (!db) { set({ settled: true }); return; }
 
     set((s) => ({
       sis: db.sis ? (boardSis(mergeByKey(BUNDLE_SIS, db.sis, (x) => x.id)) as SpecialInterest[]) : s.sis,
@@ -93,6 +118,7 @@ export const useCatalog = create<CatalogState>((set) => ({
       destinations: db.destinations ? { ...BUNDLE_DESTINATIONS, ...db.destinations } : s.destinations,
       guides: db.guides ? mergeByKey(BUNDLE_GUIDES, db.guides, (x) => x.id) : s.guides,
       source: "db",
+      settled: true,
     }));
   },
 }));
@@ -109,6 +135,15 @@ export const useCatalog = create<CatalogState>((set) => ({
  * content with a wrong denial.
  */
 export const useCatalogLoaded = () => useCatalog((s) => s.source === "db");
+
+/**
+ * Has the catalog attempt finished, successfully or not?
+ *
+ * This is what a "still loading?" question should ask. `useCatalogLoaded` asks
+ * whether the DB answered, which is a different question and the wrong one for
+ * deciding whether to keep showing a spinner.
+ */
+export const useCatalogSettled = () => useCatalog((s) => s.settled);
 
 export const useSpecialInterests = () => useCatalog((s) => s.sis);
 export const useActivities = () => useCatalog((s) => s.activities);

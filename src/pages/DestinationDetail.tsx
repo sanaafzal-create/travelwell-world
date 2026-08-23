@@ -6,7 +6,7 @@ import type { Region, Well } from "@/data/taxonomy";
 import { img } from "@/lib/images";
 import { useDestinationImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
-import { useRegions, useWells, useProviders, useDestinations, useGuides, useCatalogLoaded } from "@/store/useCatalog";
+import { useRegions, useWells, useProviders, useDestinations, useGuides, useCatalogSettled, useCatalogLoaded } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 import { resolveSafety, stricterZones, isoForCountry, SAFE_HEADER_COLOR } from "@/data/safety-data";
 import { CheckItYourself } from "@/components/ui/CheckItYourself";
@@ -114,6 +114,9 @@ export default function DestinationDetail() {
   // "we don't have this" is only true once the catalog has actually loaded —
   // before that it is a denial we cannot support, and on a prerendered page it
   // REPLACES correct server-rendered content with a wrong one.
+  // Whether the attempt FINISHED — not whether it succeeded. Waiting on the
+  // stricter flag is what made the spinner permanent when the fetch failed.
+  const catalogSettled = useCatalogSettled();
   const catalogLoaded = useCatalogLoaded();
   // Hooks below run unconditionally, so the not-found branch renders AFTER them
   // (see the early return further down) rather than short-circuiting here.
@@ -178,11 +181,48 @@ export default function DestinationDetail() {
   //
   // A loading state rather than `null`, because a blank panel is its own kind of
   // broken — it says nothing is happening when something is.
-  if (!found && !catalogLoaded) {
+  if (!found && !catalogSettled) {
     return (
       <div className="dd-missing" style={{ maxWidth: "var(--content-max)", margin: "0 auto", padding: "3rem 1.25rem" }}>
         <p className="t-body" style={{ color: "var(--muted-foreground)" }} role="status" aria-live="polite">
           Loading this destination&hellip;
+        </p>
+      </div>
+    );
+  }
+
+  // ── COULD NOT LOAD ≠ DO NOT HAVE ─────────────────────────────────────────
+  // The catalogue attempt finished and the database never answered, so the store
+  // holds only the 44 bundled rows. For any of the other 459, "nothing matches
+  // this id" is a confident denial of something we simply could not look up —
+  // and the page would go on to explain that we cannot tell which place they
+  // meant, which is untrue: we know exactly, we just could not reach the row.
+  //
+  // Found in a browser (2026-08-20) with Supabase unreachable. Fixing the
+  // permanent spinner first produced exactly this wrong statement, which is the
+  // more dangerous of the two failures — a spinner is visibly broken, a false
+  // denial reads as an answer.
+  if (!found && !catalogLoaded) {
+    return (
+      <div className="dd-missing" style={{ maxWidth: "var(--content-max)", margin: "0 auto", padding: "3rem 1.25rem" }}>
+        <nav className="jn-crumbs" aria-label="Breadcrumb">
+          <Link to="/">Home</Link><span className="sep">/</span>
+          <Link to="/regions">Regions</Link>
+        </nav>
+        <h1 style={{ marginTop: "1rem" }}>We couldn&rsquo;t load this destination</h1>
+        <p style={{ maxWidth: "62ch" }} role="status" aria-live="polite">
+          Our catalogue didn&rsquo;t answer just now, so we can&rsquo;t show you{" "}
+          <code>{id}</code> yet. This is us, not the link &mdash; reloading usually fixes it.
+        </p>
+        <p style={{ maxWidth: "62ch" }}>
+          We haven&rsquo;t shown you a safety level or an advisory, because we
+          couldn&rsquo;t read one. A level we can&rsquo;t source is worse than none.
+        </p>
+        <p className="dd-missing__actions" style={{ display: "flex", gap: ".75rem", flexWrap: "wrap", marginTop: "1.25rem" }}>
+          <button type="button" className="btn btn--primary" onClick={() => window.location.reload()}>
+            Try again
+          </button>
+          <Link className="btn btn--ghost" to="/regions">Browse the 13 regions</Link>
         </p>
       </div>
     );
