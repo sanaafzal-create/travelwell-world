@@ -255,6 +255,15 @@ const atlasPromptGaps: [string, string[]][] = ATLAS_PROMPT_FILES.flatMap((f) => 
 // deriving both numbers from one binding rather than two similar-looking ones.
 const allMergedDests = Object.values(mergedDestinations()).flat() as { id: string; status?: string }[];
 const indexableDests = allMergedDests.filter((d) => isIndexableDestination(d));
+// The board, and the interest ids the sitemap actually lists.
+const board_ = boardSis(SIS);
+const sitemapSiIds: string[] | null = (() => {
+  try {
+    const xml = readFileSync("public/sitemap.xml", "utf8");
+    return [...xml.matchAll(/<loc>[^<]*\/si\/([^<]+)<\/loc>/g)].map((m) => m[1]);
+  } catch { return null; }
+})();
+
 const sitemapDestUrls: string[] | null = (() => {
   try {
     const xml = readFileSync("public/sitemap.xml", "utf8");
@@ -355,6 +364,32 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
     // failed; the sitemap was internally consistent, just consistent about the
     // wrong 44 rows. So the check compares the emitted file against the catalog
     // rather than trusting that two scripts read the same thing.
+    // The destination half of this check existed; the INTEREST half did not, and
+    // that is where the next instance of the same bug turned up. `gen-sitemap`
+    // read raw `SIS` while `gen-static-heads` read `boardSis()`, so four retired
+    // interests — compsports, nightlife, olympic, prosports — were listed in the
+    // sitemap with no page behind them, each serving the generic app shell. One
+    // of them is `olympic`, which our own canon says needs trademark clearance
+    // before public use.
+    //
+    // Checked against the BOARD rather than against `dist/`, deliberately: dist is
+    // a build artifact that may not exist, and the question is whether the file we
+    // publish agrees with the source of truth, not with a previous build.
+    rule: "The sitemap lists exactly the interests on the board — no retired ones, none missing",
+    result: (() => {
+      if (!sitemapSiIds) return "public/sitemap.xml not present — run `npm run gen:sitemap`";
+      const board = new Set(board_.map((s) => s.id));
+      const listed = new Set(sitemapSiIds);
+      const retiredListed = [...listed].filter((id) => !board.has(id));
+      const boardMissing = [...board].filter((id) => !listed.has(id));
+      if (!retiredListed.length && !boardMissing.length) return `all ${board.size} board interests listed, no retired ones`;
+      return `${retiredListed.length} retired interest(s) listed (${retiredListed.join(", ") || "—"}); ${boardMissing.length} board interest(s) missing (${boardMissing.join(", ") || "—"})`;
+    })(),
+    ok: !!sitemapSiIds && sitemapSiIds.length === board_.length
+      && board_.every((s) => sitemapSiIds!.includes(s.id)),
+    where: "scripts/gen-sitemap.ts vs boardSis() in src/data/taxonomy.ts",
+  },
+  {
     rule: "The sitemap lists every indexable destination (merged catalog, not the bundle)",
     result: (() => {
       if (!sitemapDestUrls) return "public/sitemap.xml not present — run `npm run gen:sitemap` (it is a gitignored build artifact)";

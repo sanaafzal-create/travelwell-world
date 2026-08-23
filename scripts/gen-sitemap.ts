@@ -13,7 +13,7 @@
  * Run:  npm run gen:sitemap        (also runs automatically before `npm run build`)
  */
 import { writeGenerated, VOLATILE_DATE } from "./lib/write-generated";
-import { REGIONS, SIS } from "../src/data/taxonomy";
+import { REGIONS, SIS, boardSis } from "../src/data/taxonomy";
 import { GUIDES, type Destination } from "../src/data/places";
 import { mergedDestinations } from "./lib/destination-batches";
 import { ORIGIN, isIndexableDestination } from "../src/lib/site";
@@ -64,7 +64,26 @@ type Url = { loc: string; priority: number; changefreq: string };
 const urls: Url[] = STATIC_ROUTES.map((r) => ({ loc: ORIGIN + r.path, ...r }));
 
 // Signature Interests — a landing page per way-to-travel.
-for (const si of SIS) {
+//
+// ── THE BOARD, VIA `boardSis()`, NEVER RAW `SIS` ──────────────────────────
+// This read `SIS`, which still holds retired interests on purpose — removing a
+// row from the array really drops it from Postgres, because the generated seed
+// carries `delete … where id not in (…)`. `gen-static-heads` reads `boardSis()`,
+// which filters them. Two generators, two readers, one catalogue.
+//
+// The result was 39 `/si/` URLs in the sitemap against 35 built pages: we were
+// submitting `compsports`, `nightlife`, `olympic` and `prosports` to Google, and
+// each served the generic app shell because no page exists for an interest the
+// store filters out. Found by David, 2026-08-19, from the outside.
+//
+// Two reasons this is worse than a dead URL. It is the /en/ ghost in miniature —
+// a listed URL returning 200 with content that does not match it. And one of the
+// four is `olympic`, which our own canon says needs trademark clearance before
+// public use; a sitemap entry is about as public as a URL gets.
+//
+// CLAUDE.md already states the rule — "Read the board through `boardSis()`, never
+// raw `SIS`" — so this was documented canon that one generator did not follow.
+for (const si of boardSis(SIS)) {
   urls.push({ loc: `${ORIGIN}/si/${si.id}`, priority: si.status === "live" ? 0.8 : 0.5, changefreq: "weekly" });
 }
 // Regions.
@@ -133,4 +152,4 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.s
 //     untrue and self-defeating — a lastmod that is always today carries no
 //     information, and Google stops trusting the field.
 const wrote = writeGenerated("public/sitemap.xml", xml, VOLATILE_DATE);
-console.log(`sitemap.xml → ${urls.length} urls  (${destCount} destinations, ${SIS.length} interests, ${REGIONS.length} regions, ${GUIDES.length} guides, ${STATIC_ROUTES.length} static)${wrote === "unchanged" ? "  [unchanged — kept its lastmod]" : ""}`);
+console.log(`sitemap.xml → ${urls.length} urls  (${destCount} destinations, ${boardSis(SIS).length} interests, ${REGIONS.length} regions, ${GUIDES.length} guides, ${STATIC_ROUTES.length} static)${wrote === "unchanged" ? "  [unchanged — kept its lastmod]" : ""}`);

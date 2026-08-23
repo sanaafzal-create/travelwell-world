@@ -3,5 +3,7 @@
   "_rewritten_by": "a human reading the FCDO, never a script. The alternative is what put a sentence State never wrote into a Cartagena consent screen.",
   "max": 366,
   "promise_max": 27,
-  "_promise_note": "Safety promises are ABSOLUTE \u2014 target 0, not a tolerance. Ratcheted only so a pre-existing set does not block unrelated work. Remedy is deletion of the claim, never a generated replacement."
+  "_promise_note": "Safety promises are ABSOLUTE \u2014 target 0, not a tolerance. Ratcheted only so a pre-existing set does not block unrelated work. Remedy is deletion of the claim, never a generated replacement.",
+  "advisory_text_max": 13,
+  "_advisory_text_note": "Hazards attributed to an advisory that does not name them, in FAQ answers. Target 0. Ratcheted only so a pre-existing set does not block unrelated work; a human rewrites from the source text or drops the claim."
 }

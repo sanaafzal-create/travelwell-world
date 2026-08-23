@@ -33,8 +33,10 @@
  * fires on every instance of a word gets muted within a week, and then it catches
  * nothing at all. Scope is the thing that makes a check survive.
  */
+import { readFileSync } from "node:fs";
 import { SAFETY_DATA, COUNTRY_ISO } from "../src/data/safety-data";
 import feedSnapshot from "../src/data/state-advisory-feed.json";
+import { mergedDestinations } from "./lib/destination-batches";
 
 interface FeedEntry { country: string; lvl: number; url: string; published: string | null; summary?: string }
 const FEED = feedSnapshot.entries as FeedEntry[];
@@ -97,9 +99,56 @@ for (const [displayName, iso] of Object.entries(COUNTRY_ISO)) {
   }
 }
 
+// ── THE SAME QUESTION, ASKED OF THE FAQ (David, 2026-08-19) ────────────────
+// This gate only ever read `safety.json` country rows. David's point: the Ebola
+// framing we corrected on the Rwanda and Uganda ROWS is still sitting in the FAQ
+// answers underneath them — 16 answers on 7 destinations on his side. Same
+// defect, one field over, and the check could not see it because nobody had
+// pointed it there.
+//
+// It is NOT a copy of the country check. A destination FAQ legitimately names
+// hazards no national advisory mentions — riptides, altitude, a road. Flagging
+// those would fire on correct content, and a matcher that fires on correct data
+// gets switched off.
+//
+// So it fires only when the answer ATTRIBUTES the hazard to an advisory: the
+// sentence invokes a level or an authority AND names a hazard the source's own
+// text does not contain. "L3 CONSENT (2026 regional Ebola-alert precaution)" is
+// caught; "swim at the guarded cove" is not.
+const ATTRIBUTES = /\bL[1-4]\b|\blevel\s*[1-4]\b|\badvisory\b|\bState Dept|\bState Department|\bFCDO\b|\breconsider travel\b|\bdo not travel\b|\bexercise (?:normal|increased)/i;
+
+let faqChecked = 0;
+for (const d of Object.values(mergedDestinations()).flat() as any[]) {
+  const country = d.country as string | undefined;
+  if (!country) continue;
+  const cand = [FEED_NAME[country], country, country.replace("&", "and"), `The ${country}`].filter(Boolean) as string[];
+  const theirs = cand.map((c) => byName.get(normName(c))).find(Boolean);
+  if (!theirs?.summary) continue;
+  for (const [i, f] of ((d.data?.faq ?? []) as any[]).entries()) {
+    const a = String(f?.a ?? "");
+    if (!a || !ATTRIBUTES.test(a)) continue;
+    faqChecked++;
+    for (const h of HAZARDS) {
+      if (h.ours.test(a) && !h.theirs.test(theirs.summary)) {
+        // A defect on a page a traveller can open today is a different urgency
+        // from one on an unreleased row. Both are wrong; only one is live.
+        const liveTag = d.status === "live" ? "LIVE" : "unreleased";
+        problems.push(
+          `[${liveTag}] ${d.id} · faq #${i + 1}: the answer invokes an advisory and names ${h.name}, which ${country}'s advisory — L${theirs.lvl}, published ${theirs.published} — does not mention anywhere.`
+        );
+      }
+    }
+  }
+}
+
 console.log(`\n── ADVISORY TEXT GATE ──────────────────────`);
 console.log(`compared: ${compared} countries against State's own summary   no source text on file: ${noSource}`);
-if (problems.length) {
+console.log(`           ${faqChecked} faq answers that invoke an advisory, checked the same way`);
+// Ratcheted like the other traveller-facing prose gates: a pre-existing set must
+// not hold every unrelated change hostage, and the target is zero rather than a
+// tolerance. A new mismatch fails immediately.
+const MAX = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).advisory_text_max as number;
+if (problems.length > MAX) {
   console.log(`\n✗ ${problems.length} REASON MISMATCH(ES) — the level may agree while the stated cause does not:\n`);
   for (const p of problems) console.log("  ✗ " + p);
   console.log(`\nThe reason renders on the destination card and inside the Level 3 consent screen.`);
@@ -108,4 +157,12 @@ if (problems.length) {
   console.log(`or drop the claim. Do not soften it — softening keeps a hazard we cannot attribute.`);
   process.exit(1);
 }
-console.log(`\n✓ No hazard is attributed to a source that doesn't name it.`);
+const liveProblems = problems.filter((p) => p.startsWith("[LIVE]")).length;
+if (problems.length) {
+  console.log(`\n⚠︎ ${problems.length} REASON MISMATCH(ES) at the ratchet (${liveProblems} on LIVE pages, target 0):`);
+  for (const p of problems) console.log("  · " + p);
+  console.log(`\nRewrite from the source text or drop the claim. Do not soften it — softening`);
+  console.log(`keeps a hazard we cannot attribute. A human writes safety prose, never a script.`);
+} else {
+  console.log(`\n✓ No hazard is attributed to a source that doesn't name it.`);
+}
