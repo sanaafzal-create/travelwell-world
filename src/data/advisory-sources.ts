@@ -337,6 +337,27 @@ export const isMultiCountry = (countryName: string) => countryName.includes("/")
 const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, string | null>>> = {
   // Verified in a browser by Sana, 2026-08-20 — `united-states` 404s, `usa` serves.
   "United States": { fcdo: "usa" },
+
+  // ── THE FCDO PUBLISHES NO PAGE FOR A TERRITORY (measured 2026-08-20) ──────
+  // Second run, after the "&" and parenthetical fixes: 8 failures became 4, and
+  // all four are the same thing. `faroe-islands`, `puerto-rico`, `sint-eustatius`
+  // and `us-virgin-islands` all 404 at the FCDO. It does not write separate
+  // travel advice for a constituent country or a dependent territory.
+  //
+  // The parent pages DO resolve — `denmark`, `netherlands` and `usa` all came
+  // back clean in the same run — so pointing a territory at its parent is
+  // available and is probably right. It is not written here, because "this
+  // territory is covered by that state's advice" is a COVERAGE judgement about
+  // what a government document applies to, not a fact about a URL. Getting it
+  // wrong shows a traveller advice for somewhere else and labels it as theirs.
+  //
+  // So: index fallback, which the page states plainly, until a person reads each
+  // parent page and confirms it covers the territory. That is a different check
+  // from "does the URL load", and only the second one is automatable.
+  "Faroe Islands (Kingdom of Denmark)": { fcdo: null },
+  "Puerto Rico (US territory)": { fcdo: null },
+  "US Virgin Islands (US territory)": { fcdo: null },
+  "Sint Eustatius": { fcdo: null },
 };
 
 function slugFor(source: AdvisorySourceId, iso: string | null, countryName: string): string | null {
