@@ -16,11 +16,25 @@ import { RETIRED_AUTHORITY_RE } from "../../src/lib/retired-authority";
  * every destination in that country. "Switzerland is very safe" appeared under
  * Zermatt and St. Moritz both.
  *
- * THE FIX IS NEVER TO DELETE THE QUESTION. People search "is X safe" and that
- * question deserves an answer; it just gets the real risk instead of a promise.
- * For the Alps that is the mountain, not crime: "an orderly Alpine resort; the
- * practical risk to plan for is the mountain — check the avalanche bulletin
- * daily."
+ * ── THE RULE ABOVE WAS REVERSED. READ THIS BEFORE RESTORING ANYTHING ──────
+ * This file used to say, in capitals, that the fix is NEVER to delete the
+ * question — that people search "is X safe", the question deserves an answer,
+ * and it should get the real risk instead of a promise. That was David's ruling
+ * of 2026-08-02 and it is no longer in force.
+ *
+ * He reversed it on 2026-08-19 and confirmed it directly on 2026-08-24: "The
+ * question as written is not to be allowed — stating that a destination is safe.
+ * That's a promise we will not make. No one can."
+ *
+ * The reasoning that changed it is worth keeping, because the earlier argument
+ * was not wrong about search demand: the ANSWER is now one standard shape
+ * everywhere — the FCDO advisory verbatim, its date, and the decision is the
+ * traveller's. Once the answer is fixed and identical on every page, a question
+ * asking whether a place is safe has nothing left to do.
+ *
+ * This note exists because the old rule was stated emphatically enough that the
+ * next person to read it would have restored 168 questions in good faith. A
+ * superseded rule written in capitals is more dangerous than one written plainly.
  *
  * WHAT THIS DOES NOT FLAG, deliberately: "safer", "safety", "keep valuables
  * safe", "safe-deposit". The offence is asserting that a PLACE is safe, not the
@@ -125,14 +139,43 @@ export function checkSafetyLanguage(
       out.errs.push(`${at}: safety.${field} promises safety — "${hit.match}". Describe the real risk instead. …${hit.context}…`);
     }
   }
-  // Only the ANSWER. A question may — and should — ask whether somewhere is safe;
-  // that is what people search for, and removing it loses the traffic and the
-  // chance to answer well.
+  // The ANSWER is checked for a promise, and the QUESTION is checked for being
+  // asked at all — see FORBIDDEN_QUESTION. The second of those was the opposite
+  // of the rule this file used to state; see the header.
   for (const [i, f] of (d.faq ?? []).entries()) {
     for (const hit of findSafetyPromises(f?.a)) {
-      out.errs.push(`${at}: faq #${i + 1} answer promises safety — "${hit.match}". Keep the question, answer it with the real risk. …${hit.context}…`);
+      out.errs.push(`${at}: faq #${i + 1} answer promises safety — "${hit.match}". Rewrite it from the advisory, or delete the pair. …${hit.context}…`);
     }
   }
+}
+
+/**
+ * A question that ASKS whether a place is safe.
+ *
+ * David, 2026-08-19: "The question as written is not to be allowed — stating
+ * that a destination is safe. That's a promise we will not make."
+ *
+ * The whole PAIR goes, not the answer alone. An answer deleted from under its
+ * question leaves the question standing with nothing behind it, which is worse
+ * than either. And the research library established the constraint that makes
+ * whole-pair deletion safe: no destination may be left with an empty `faq`, or
+ * it stops emitting FAQPage entirely and the page gets weaker rather than safer.
+ */
+const FORBIDDEN_QUESTION =
+  /\bis\s+[^?]{0,40}?\bsafe\b|\bsafe\s+to\s+(?:visit|travel|go)\b|\bhow\s+safe\b/i;
+
+/** Every faq entry whose QUESTION may not be asked. */
+export function findForbiddenQuestions(
+  data: unknown,
+): { index: number; q: string }[] {
+  if (!data || typeof data !== "object") return [];
+  const faq = (data as { faq?: Array<{ q?: unknown }> }).faq ?? [];
+  const out: { index: number; q: string }[] = [];
+  for (const [i, f] of faq.entries()) {
+    const q = String(f?.q ?? "");
+    if (q && FORBIDDEN_QUESTION.test(q)) out.push({ index: i + 1, q });
+  }
+  return out;
 }
 
 /**

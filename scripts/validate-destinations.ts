@@ -22,7 +22,7 @@ import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places"
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 import { mergedDestinations } from "./lib/destination-batches";
 import { checkHero } from "./lib/check-hero";
-import { checkSafetyLanguage, countRetiredAuthority } from "./lib/check-safety-language";
+import { checkSafetyLanguage, countRetiredAuthority, findForbiddenQuestions } from "./lib/check-safety-language";
 
 // ── Canon, straight from the live source ──────────────────────────────────
 const REGION_CODES = new Set(REGIONS.map((r) => r.code));
@@ -143,6 +143,9 @@ const retiredAuthority: { where: string; match: string; context: string }[] = []
 // Safety PROMISES — a separate bucket from `errs` so the count can be ratcheted.
 // The rule is absolute; the ratchet is a migration device, not a tolerance.
 const safetyPromises: string[] = [];
+// Questions that may not be asked (David, 2026-08-19). Ratcheted rather than
+// hard-failed only because the batch removing ours has not landed yet.
+const forbiddenQuestions: string[] = [];
 const bump = (m: Record<string, number>, k: string) => { m[k] = (m[k] || 0) + 1; };
 const perRegion: Record<string, number> = {};
 const seenIds = new Set<string>();
@@ -344,6 +347,7 @@ for (const { code, d } of rows) {
     // Never promise "safe" — locked canon, and the FAQ ships as structured data.
     checkSafetyLanguage(at, data, { errs: safetyPromises, warns });
     countRetiredAuthority(at, data, retiredAuthority);
+    for (const f of findForbiddenQuestions(data)) forbiddenQuestions.push(`${at}: faq #${f.index} asks whether a place is safe — "${f.q}"`);
 
     // reconciles_live_mvp → must resolve to an ACTUAL live MVP id (not just a slug).
     const rec = data.reconciles_live_mvp;
@@ -428,6 +432,25 @@ const covered = Object.entries(bySi).sort((a, b) => b[1] - a[1]);
 console.log(`si coverage:  ${tagged}/${rows.length} rows carry an si tag${tagged < rows.length ? `  — the other ${rows.length - tagged} will not appear on ANY interest page` : ""}`);
 console.log(`             ${covered.length ? covered.map(([k, v]) => `${k}:${v}`).join("  ") : "none — this batch lights up no interest page"}`);
 if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block, but check):`); warns.forEach((w) => console.log("  · " + w)); }
+
+// ── THE FORBIDDEN QUESTION ─────────────────────────────────────────────────
+// "Is X safe to visit right now?" may not be asked. The research library's copy
+// has been clean since 2026-08-19 and hard-fails at zero; ours still carries the
+// set until their batch lands, so it ratchets until then and becomes a hard fail
+// the moment it reaches zero.
+{
+  const max = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).forbidden_question_max as number;
+  if (forbiddenQuestions.length > max) {
+    console.log(`\n\u2717 FORBIDDEN QUESTIONS \u2014 ${forbiddenQuestions.length} faq questions ask whether a place is safe; the ratchet allows ${max}.`);
+    forbiddenQuestions.slice(0, 10).forEach((e) => console.log("  \u2717 " + e));
+    if (forbiddenQuestions.length > 10) console.log(`  \u2026and ${forbiddenQuestions.length - 10} more`);
+    console.log(`  Delete the whole PAIR, never the answer alone \u2014 and never leave a row with an empty faq.`);
+    process.exit(1);
+  }
+  if (forbiddenQuestions.length) {
+    console.log(`\n\u26a0\ufe0e ${forbiddenQuestions.length} FORBIDDEN QUESTIONS live (ratchet ${max}, target 0). The library's batch removes them.`);
+  }
+}
 
 // ── THE SAFETY-PROMISE RATCHET ─────────────────────────────────────────────
 // "Never promise safe" is absolute — an outcome we do not control, said in the

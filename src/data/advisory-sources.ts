@@ -360,15 +360,18 @@ const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, st
   "Puerto Rico (US territory)": { fcdo: "usa" },
   "US Virgin Islands (US territory)": { fcdo: "usa" },
 
-  // THE EXCEPTION, and it is explicit rather than absent. The Netherlands page
-  // says: "Check separate travel advice pages for advice on travel to the
-  // constituent countries and special municipalities in the Dutch Caribbean."
-  // Sint Eustatius is one of those special municipalities, so the parent page
-  // declines to cover it and tells you a separate page exists — we just do not
-  // know its slug, and `sint-eustatius` is not it. Index fallback until someone
-  // finds the real one; guessing at a page the FCDO has told us exists is the
-  // same mistake as guessing at one it has not.
-  "Sint Eustatius": { fcdo: null },
+  // THE EXCEPTION — and the research library found the page we could not.
+  // The Netherlands page declines to cover it: "Check separate travel advice
+  // pages for advice on travel to the constituent countries and special
+  // municipalities in the Dutch Caribbean." So a separate page existed and we
+  // did not know its slug; `sint-eustatius` 404s.
+  //
+  // It is `bonaire-st-eustatius-saba` — three islands on one page. Taken from
+  // the FCDO's own 226-country index rather than derived, which is why it was
+  // findable at all: our derivation produced "-and-" and no rule would have
+  // produced this. (Their note, 2026-08-19: six other names failed the same way —
+  // Bonaire, Saba, Antigua & Barbuda, Trinidad & Tobago, Montserrat, Hungary.)
+  "Sint Eustatius": { fcdo: "bonaire-st-eustatius-saba" },
 
   // ── DISPROVED BY HAND, 2026-08-24 (Sana) ─────────────────────────────────
   // `monaco-travel-advisory.html` does not open. Monaco has no entry in State's
