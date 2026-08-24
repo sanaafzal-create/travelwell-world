@@ -88,8 +88,30 @@ function wellsActivated(siId: string, activities: Record<string, Activity[]>): s
   return FALLBACK_WELLS;
 }
 
+/**
+ * The regions curated for this interest.
+ *
+ * ── THE `slice(0, 4)` WAS TRUNCATING AN EDITORIAL LIST BY REGION NUMBER ────
+ * `REGION_SI` is hand-curated — somebody decided the Caribbean is a romance
+ * region — and then this cut it to four in REGIONS order, which sorts by region
+ * CODE. That is not an editorial axis; `11C` was being dropped from Romance
+ * because eleven is bigger than nine.
+ *
+ * Measured 2026-08-24, and it was hiding real affinities across the board:
+ * Romance hid the Caribbean, Ski hid Canada, Adventure hid three regions
+ * including the United States, Culinary hid Latin America.
+ *
+ * Found while adding `ski` to 02F on David's Cortina ruling — that addition
+ * alone would have pushed the United States off the Ski page, because 02F sorts
+ * ahead of 12A. A ruling about Italy would have silently removed America.
+ *
+ * Same shape as the twelve-jewel cap: a limit that was harmless when the list
+ * was short became the thing deciding the page once it grew. The curated list is
+ * already the selection; truncating it again adds nothing but an arbitrary
+ * ordering. Seven is the largest any interest has.
+ */
 function featuredRegions(siId: string, regions: Region[]): Region[] {
-  return regions.filter((r) => (REGION_SI[r.code] || []).includes(siId)).slice(0, 4);
+  return regions.filter((r) => (REGION_SI[r.code] || []).includes(siId));
 }
 
 function providerRail(

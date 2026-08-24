@@ -412,7 +412,12 @@ export const LOCALES: Locale[] = [
 /** SI → Region affinity: which regions shine for each interest (ranking input). */
 export const REGION_SI: Record<string, string[]> = {
   "01F": ["ski", "culture", "culinary", "romance", "arts", "heritage", "wine", "rail", "city"],
-  "02F": ["romance", "culinary", "ocean", "wine", "sailing", "yacht", "culture", "heritage", "surf"],
+  // `ski` added 2026-08-24 (David): Cortina d'Ampezzo and Val Gardena stay in 02F
+  // with the Dolomites as their sub-region, rather than moving to 01F to sit on
+  // an alpine shelf. The sub-region name carries the massif a traveller says out
+  // loud; the region code carries the geography. Both true, and the Mediterranean
+  // genuinely has ski.
+  "02F": ["romance", "culinary", "ocean", "wine", "sailing", "yacht", "culture", "heritage", "surf", "ski"],
   "03F": ["photo", "adventure", "eco", "wellness", "rail", "sacred", "ski"],
   "04A": ["ultra", "river", "culture", "heritage", "city", "yacht", "wellness", "family", "golf"],
   "05A": ["safari", "photo", "adventure", "eco", "romance", "family", "heritage"],
