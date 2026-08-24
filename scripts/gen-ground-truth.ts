@@ -172,6 +172,25 @@ const noAdvisory = mergedRows.filter((d) => {
 });
 const noAdvisoryCountries = [...new Set(noAdvisory.map((d) => d.country))].sort();
 
+// ── THE CONSENT RECORD MUST STAY APPEND-ONLY ────────────────────────────────
+// `advisory_consents` exists to answer one question: what was on the screen when
+// the traveller decided, and what did they choose. A record that can be edited
+// afterwards does not answer it — it becomes a claim about the past rather than
+// evidence of it.
+//
+// The property is enforced by ABSENCE: RLS is on and only insert and select
+// policies exist, so update and delete are denied to every ordinary role,
+// including the row's own author. Absence is fragile in exactly one way — someone
+// adds a policy later, in good faith, because a traveller asked to remove
+// something. This check makes that visible in the same commit.
+const consentSql = (() => {
+  try { return readFileSync("supabase/migrations/0016_advisory_consents.sql", "utf8"); }
+  catch { return null; }
+})();
+const consentMutatingPolicies = consentSql
+  ? [...consentSql.matchAll(/create policy[^;]*?\bfor\s+(update|delete|all)\b/gis)].map((m) => m[1].toLowerCase())
+  : [];
+
 // ── The hosting rewrite list must not resurrect the catch-all ───────────────
 // This is the check for the most expensive defect the project has had. A single
 // `{ source: "/(.*)", destination: "/index.html" }` served the home shell with a
@@ -413,6 +432,16 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
     // Nothing caught it because a prompt is a string — no import, no type, no
     // generator. This check is the import: it reads the actual prompt files and
     // asks whether every Well the taxonomy defines appears in them.
+    rule: "The advisory consent record is append-only — no update, delete or ALL policy",
+    result: !consentSql
+      ? "migration 0016 not found"
+      : consentMutatingPolicies.length
+      ? `${consentMutatingPolicies.length} mutating policy/policies present (${[...new Set(consentMutatingPolicies)].join(", ")}) — a consent record that can be revised is not evidence of what was shown`
+      : "insert and select only; update and delete denied to everyone including the author",
+    ok: !!consentSql && consentMutatingPolicies.length === 0,
+    where: "supabase/migrations/0016_advisory_consents.sql",
+  },
+  {
     rule: "vercel.json has no catch-all rewrite — an unknown path must 404, never return the home shell with a 200",
     result: catchAlls.length
       ? `${catchAlls.length} catch-all rewrite(s) present: ${catchAlls.map((r) => r.source).join(", ")} — every dead URL will serve 200 and can never age out of the index`

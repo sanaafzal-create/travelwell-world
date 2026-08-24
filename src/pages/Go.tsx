@@ -124,7 +124,12 @@ export default function Go() {
           // RECORDED BOTH WAYS, not only on the decline. A record that exists
           // only when someone declines tells you nothing about the ones who
           // continued — which is the half you would actually need.
-          recordAdvisoryConsent(c);
+          //
+          // `void` because the promise is deliberately not awaited: a traveller
+          // must never wait on a network round-trip to act on a safety decision
+          // they have already made. It writes locally before it touches the
+          // network and never rejects, so nothing is lost by not waiting.
+          void recordAdvisoryConsent(c);
           if (c.decision === "alternatives") { openPanel("concierge"); navigate(`/destination/${dest!.id}`); }
           else setConsented(true);
         }}
