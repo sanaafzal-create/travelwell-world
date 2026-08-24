@@ -312,7 +312,7 @@ build sandbox.
 **The FCDO and CDC slug tables are verified.** Every one lands on the right
 country page, which is what §7B asks for.
 
-## Re-run (2026-08-20) — 78 of 117 proven, and the 39 is really a 1
+## Re-run (2026-08-24) — 78 of 117 proven, and the 39 is really a 1
 
 Same command, same shape of machine (Sana's laptop, residential egress), against
 the grown link table: **117 deep links, 78 reached, 0 404s, 39 blocked — every
@@ -370,7 +370,7 @@ unfetched URL.
 `austria-travel-advisory.html` from an egress State's website will answer, or get
 Austria into the feed snapshot.
 
-### Re-run 2026-08-20 (evening) — the GET hypothesis is FALSIFIED
+### Re-run 2026-08-24 (evening) — the GET hypothesis is FALSIFIED
 
 Same laptop, same residential egress, after the retry landed. **78 of 117 proven,
 39 blocked, 0 404s** — and the line that settles it:
@@ -395,7 +395,7 @@ addressable from our side.
 exit 3 exists precisely to say "one of ours is unknown" rather than folding it in
 with 38 attested URLs.
 
-**Austria closed, by hand — 2026-08-20, Sana, browser.** The URL
+**Austria closed, by hand — 2026-08-24, Sana, browser.** The URL
 `…/austria-travel-advisory.html` opens the Austria travel advisory page. That was
 the last unproven derived slug of the original 39, and a person opening it is not
 a workaround: the script is refused by method and by headers from a residential
@@ -428,7 +428,7 @@ the same response.
 `null` with the date and the reason, not an absence — otherwise the next person to
 notice `monaco` missing assumes an oversight and derives it again.
 
-### The FCDO publishes no pages for territories (2026-08-20)
+### The FCDO publishes no pages for territories (2026-08-24)
 
 `faroe-islands`, `puerto-rico`, `sint-eustatius` and `us-virgin-islands` all 404.
 The parent pages — `denmark`, `netherlands`, `usa` — all resolve in the same run.
@@ -450,7 +450,7 @@ advisory links for **83** countries, one per country a destination sits in. So 4
 countries and roughly 135 traveller-facing links were never checked, Mexico's 54
 destinations among them.
 
-Widened 2026-08-20 to the union of both sets. This one was fixable where the daily
+Widened 2026-08-24 to the union of both sets. This one was fixable where the daily
 checker's version is not: `advisoryLinks` derives FCDO and CDC slugs from the
 country NAME and joins State's feed on the name too, so a country with no ISO code
 still produces checkable links. No country-code map is required, which is exactly
@@ -519,11 +519,11 @@ possibly static-file infrastructure with no bot protection, which would have mad
 it the daily route we need. Filling it needed a fetch from the Edge Function, not
 from a laptop: a laptop success proves only the cell we already have.
 
-**Filled 2026-08-20 — 403 to all three header profiles, byte-identical.** The
+**Filled 2026-08-24 — 403 to all three header profiles, byte-identical.** The
 measurement and what it does and does not prove are below, under *"The cell is
 filled"*. Short version: not the daily route, and headers are not the variable.
 
-**The cell is filled — 2026-08-20. `cadatacatalog.state.gov` 403s the Edge
+**The cell is filled — 2026-08-24. `cadatacatalog.state.gov` 403s the Edge
 Function, and the header profile makes no difference whatsoever.**
 
 `?probe=state-catalog`, run from the deployed function (datacenter IP), both
@@ -727,7 +727,7 @@ authority; build the map from the file, commit it as generated, and make an
 unmapped code a hard error rather than a pass-through. A pass-through here means an
 unrecognised code silently becomes a country.
 
-**Answered 2026-08-20 — no.** These files are **not** fetchable from a datacenter
+**Answered 2026-08-24 — no.** These files are **not** fetchable from a datacenter
 IP: 403 with a 5497-byte edge block page to all three header profiles, both
 datasets. The URLs are `cadatacatalog.state.gov/download/traveladvisory` and
 `/download/geopoliticalarea` (David, 2026-08-17); the run is recorded under *"The
@@ -764,7 +764,7 @@ question that has been mis-diagnosed three times from single readings.
 the command recorded. Do not overwrite the existing rows — the residential cell
 stays true regardless of what this one says.
 
-*Run 2026-08-20. Six cells added, existing rows untouched. Result: 403 across the
+*Run 2026-08-24. Six cells added, existing rows untouched. Result: 403 across the
 board — see "The cell is filled" above.*
 
 ### What the feed actually gave us, once read

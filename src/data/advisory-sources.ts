@@ -260,7 +260,7 @@ const SLUG_OVERRIDES: Record<string, Partial<Record<AdvisorySourceId, string>>> 
 
 /**
  * Two corrections, both inferred from links that VERIFIABLY resolve rather than
- * from what a slug ought to look like (Sana's run, 2026-08-20, 252 links):
+ * from what a slug ought to look like (Sana's run, 2026-08-24, 252 links):
  *
  *   · `&` becomes "and", it does not vanish. We produced `st-kitts-nevis` and
  *     `st-vincent-the-grenadines`, both 404. The evidence is in the passing set:
@@ -328,38 +328,49 @@ export const isMultiCountry = (countryName: string) => countryName.includes("/")
  * the page saying so — the honest state for a URL we have MEASURED to 404.
  *
  * `foreign-travel-advice/united-states` was one of the eight failures in Sana's
- * 2026-08-20 run. `usa` was the obvious candidate and was deliberately left out
+ * 2026-08-24 run. `usa` was the obvious candidate and was deliberately left out
  * until it was opened, because obvious is not measured and a guessed deep link is
  * the failure this file exists to prevent. **Sana opened it the same day and it
  * serves the FCDO's United States page**, so it goes in now — with the check
  * recorded beside it rather than in a commit message nobody greps.
  */
 const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, string | null>>> = {
-  // Verified in a browser by Sana, 2026-08-20 — `united-states` 404s, `usa` serves.
+  // Verified in a browser by Sana, 2026-08-24 — `united-states` 404s, `usa` serves.
   "United States": { fcdo: "usa" },
 
-  // ── THE FCDO PUBLISHES NO PAGE FOR A TERRITORY (measured 2026-08-20) ──────
-  // Second run, after the "&" and parenthetical fixes: 8 failures became 4, and
-  // all four are the same thing. `faroe-islands`, `puerto-rico`, `sint-eustatius`
-  // and `us-virgin-islands` all 404 at the FCDO. It does not write separate
-  // travel advice for a constituent country or a dependent territory.
+  // ── TERRITORY COVERAGE, READ OFF THE PAGES (Sana, 2026-08-24) ────────────
+  // `faroe-islands`, `puerto-rico`, `sint-eustatius` and `us-virgin-islands` all
+  // 404: the FCDO does not write separate advice for most territories. The parent
+  // pages resolve, so pointing a territory at its parent was AVAILABLE — and was
+  // deliberately not done, because "this document covers that territory" is a
+  // coverage judgement rather than a URL fact.
   //
-  // The parent pages DO resolve — `denmark`, `netherlands` and `usa` all came
-  // back clean in the same run — so pointing a territory at its parent is
-  // available and is probably right. It is not written here, because "this
-  // territory is covered by that state's advice" is a COVERAGE judgement about
-  // what a government document applies to, not a fact about a URL. Getting it
-  // wrong shows a traveller advice for somewhere else and labels it as theirs.
+  // That restraint paid. Three of the four are covered and one is not, and no
+  // rule would have separated them. Each parent page states its own scope in a
+  // callout, quoted here verbatim so the claim is checkable without re-reading:
   //
-  // So: index fallback, which the page states plainly, until a person reads each
-  // parent page and confirms it covers the territory. That is a different check
-  // from "does the URL load", and only the second one is automatable.
-  "Faroe Islands (Kingdom of Denmark)": { fcdo: null },
-  "Puerto Rico (US territory)": { fcdo: null },
-  "US Virgin Islands (US territory)": { fcdo: null },
+  //   denmark — "This travel advice also covers the Faroe Islands and Greenland."
+  //   usa     — "This travel advice also covers American Samoa, Guam, Northern
+  //              Mariana Islands, Puerto Rico, and United States Virgin Islands."
+  //
+  // Had we inferred territory → parent as a rule, Sint Eustatius would have been
+  // wrong, and wrong in the worst way: a real page, for the wrong jurisdiction,
+  // under the traveller's destination name.
+  "Faroe Islands (Kingdom of Denmark)": { fcdo: "denmark" },
+  "Puerto Rico (US territory)": { fcdo: "usa" },
+  "US Virgin Islands (US territory)": { fcdo: "usa" },
+
+  // THE EXCEPTION, and it is explicit rather than absent. The Netherlands page
+  // says: "Check separate travel advice pages for advice on travel to the
+  // constituent countries and special municipalities in the Dutch Caribbean."
+  // Sint Eustatius is one of those special municipalities, so the parent page
+  // declines to cover it and tells you a separate page exists — we just do not
+  // know its slug, and `sint-eustatius` is not it. Index fallback until someone
+  // finds the real one; guessing at a page the FCDO has told us exists is the
+  // same mistake as guessing at one it has not.
   "Sint Eustatius": { fcdo: null },
 
-  // ── DISPROVED BY HAND, 2026-08-20 (Sana) ─────────────────────────────────
+  // ── DISPROVED BY HAND, 2026-08-24 (Sana) ─────────────────────────────────
   // `monaco-travel-advisory.html` does not open. Monaco has no entry in State's
   // feed, so this was a slug we derived, and the script could never condemn it:
   // State 403s us by method and by header from every egress we have, so a real

@@ -145,7 +145,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.s
 //     `git add public/sitemap.xml`, a file .gitignore refuses, so the only ways
 //     past it were running the check twice or `--no-verify`. A check that cries
 //     wolf at midnight is a check people learn to skip, and then it catches
-//     nothing. Found 2026-08-20, on the first run of the day.
+//     nothing. Found 2026-08-24, on the first run of the day.
 //  2. `lastmod` is supposed to mean "when this page last changed", not "when
 //     somebody last ran the build". Re-stamping 590 URLs with today's date on
 //     every deploy tells a crawler the entire site changed daily, which is both

@@ -46,7 +46,7 @@ replaces it.** That's deliberate: it's how a shallow hand-authored anchor
 (Zermatt, Cape Town) gets upgraded by its full dossier without creating a
 duplicate.
 
-### 2a. When the place IS the country (answered 2026-08-20)
+### 2a. When the place IS the country (answered 2026-08-24)
 
 `<city>-<country>` assumes a place *inside* a country. For a small island state
 they are the same thing, and **the id is the country alone** — `malta`,

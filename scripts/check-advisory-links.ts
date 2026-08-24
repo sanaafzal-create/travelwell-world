@@ -19,7 +19,7 @@
  * refusing an automated request (State did exactly this to a plain GET), which
  * says nothing about whether the slug is right. Only 404 condemns a slug.
  *
- * ── PROVENANCE IS PART OF THE ANSWER (2026-08-20) ──────────────────────────
+ * ── PROVENANCE IS PART OF THE ANSWER (2026-08-24) ──────────────────────────
  * First real run, from Sana's laptop on residential egress: 78 of 117 proven,
  * 39 blocked — every blocked one `state`, no 404s anywhere. Read as a count that
  * is 39 links away from being trustworthy.
@@ -73,10 +73,15 @@ const servedCountries = (Object.values(mergedDestinations()).flat() as { country
  */
 const MANUALLY_VERIFIED: Record<string, { on: string; by: string; how: string }> = {
   "Austria|state": {
-    on: "2026-08-20",
+    on: "2026-08-24",
     by: "Sana",
     how: "opened in a browser; landed on the Austria travel advisory page",
   },
+  // The negative results belong here as much as the positives — see
+  // SLUG_OVERRIDES_BY_NAME for what each one became:
+  //   Monaco · state    — did not open. Slug removed, index fallback.
+  //   Sint Eustatius    — the FCDO's Netherlands page declines to cover it and
+  //                       says separate Dutch Caribbean pages exist. Slug unknown.
 };
 const VERIFY_KEY = (country: string, source: string) => `${country}|${source}`;
 

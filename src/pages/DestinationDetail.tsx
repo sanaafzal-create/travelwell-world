@@ -198,7 +198,7 @@ export default function DestinationDetail() {
   // and the page would go on to explain that we cannot tell which place they
   // meant, which is untrue: we know exactly, we just could not reach the row.
   //
-  // Found in a browser (2026-08-20) with Supabase unreachable. Fixing the
+  // Found in a browser (2026-08-24) with Supabase unreachable. Fixing the
   // permanent spinner first produced exactly this wrong statement, which is the
   // more dangerous of the two failures — a spinner is visibly broken, a false
   // denial reads as an answer.
