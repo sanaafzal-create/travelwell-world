@@ -408,6 +408,41 @@ tick exactly as under an automated one, and an entry that has aged should be
 visible. It is deliberately **not** added to the proven count: it was not proven
 by that run.
 
+### The "unproven and ours" bucket was cashed in, and it held a real defect
+
+Two derived State slugs have now been checked by a human in a browser, because
+State refuses the script by method and by header from every egress we have:
+
+| slug | result | recorded |
+|---|---|---|
+| `austria-travel-advisory.html` | **opens** the Austria advisory | `MANUALLY_VERIFIED` in the checker |
+| `monaco-travel-advisory.html` | **does not open** | `SLUG_OVERRIDES_BY_NAME` → index fallback |
+
+**One of two was broken.** That is the whole argument for the category, made
+empirically rather than by reasoning: a 403 on a URL *State published* cannot be
+our slug being wrong, and a 403 on a slug *we derived* can be — and here it was.
+To a fetch, a real 404 behind a bot block and a live page behind a bot block are
+the same response.
+
+**Record the negative as precisely as the positive.** Monaco is now an explicit
+`null` with the date and the reason, not an absence — otherwise the next person to
+notice `monaco` missing assumes an oversight and derives it again.
+
+### The FCDO publishes no pages for territories (2026-08-20)
+
+`faroe-islands`, `puerto-rico`, `sint-eustatius` and `us-virgin-islands` all 404.
+The parent pages — `denmark`, `netherlands`, `usa` — all resolve in the same run.
+
+Pointing a territory at its parent is therefore *available*, and is deliberately
+not done: whether a government document **covers** a territory is a coverage
+judgement, not a URL fact, and only the URL half is automatable. They fall back to
+the index until a person reads each parent page.
+
+**Consequence to weigh, not to park:** Puerto Rico and the US Virgin Islands now
+carry no deep advisory link at all — State and CDC are omitted because they do not
+advise on US territory, and the FCDO has no page. Twelve destinations with an
+index link and nothing else.
+
 ### Coverage: the link checker had the same loop as the daily one
 
 It iterated `COUNTRY_ISO` — 39 countries, 117 links — while the site emits

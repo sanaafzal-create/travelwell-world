@@ -358,6 +358,21 @@ const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, st
   "Puerto Rico (US territory)": { fcdo: null },
   "US Virgin Islands (US territory)": { fcdo: null },
   "Sint Eustatius": { fcdo: null },
+
+  // ── DISPROVED BY HAND, 2026-08-20 (Sana) ─────────────────────────────────
+  // `monaco-travel-advisory.html` does not open. Monaco has no entry in State's
+  // feed, so this was a slug we derived, and the script could never condemn it:
+  // State 403s us by method and by header from every egress we have, so a real
+  // 404 and a bot block are the same result to a fetch.
+  //
+  // This is the first time the "unproven and ours" bucket has been cashed in, and
+  // it held a genuinely broken link. That category was created on the argument
+  // that a 403 on OUR slug is different in kind from a 403 on a URL the source
+  // published — the record now shows it: two derived slugs checked by hand,
+  // Austria good, Monaco broken. A negative result is worth recording as
+  // precisely as a positive one, because the next person to see `monaco` missing
+  // will otherwise assume it was an oversight and derive it again.
+  Monaco: { state: null },
 };
 
 function slugFor(source: AdvisorySourceId, iso: string | null, countryName: string): string | null {
