@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import type { Destination } from "@/data/places";
 import type { SiData } from "@/data/taxonomy";
 import type { PlacedJewel } from "@/lib/jewels";
+import { faqAnswerIsPublishable } from "@/lib/retired-authority";
 
 // The canonical origin. Imported rather than declared here: it also runs at
 // BUILD time inside `gen-static-heads`, and a structured-data URL that differs
@@ -92,12 +93,30 @@ export function destinationJsonLd(d: Destination, regionName: string, url: strin
   for (const j of d.data?.jewels ?? []) {
     out.push(jewelAttraction(j, { name: d.name, country: d.country }, url));
   }
+  // ── AN ANSWER CITING THE RETIRED AUTHORITY IS NOT PUBLISHED ───────────────
+  // FAQPage is the surface an answer engine quotes VERBATIM as the answer to a
+  // safety question. 153 answers across 150 destinations still cite the US State
+  // Department by URL, and the prerender put every one of them into static HTML
+  // on the same day David measured them — the exposure moved from "in the data"
+  // to "in the machine-readable answer" in one build.
+  //
+  // Rewriting them is a human writing safety prose, 150 times, and it cannot be
+  // rushed. Withholding them from the structured data can be done today, and it
+  // decouples the two: the citation stays in the data and on the rendered page
+  // where a reader has context, and the claim stops being published as a clean
+  // quotable answer while the rewrite happens on its own schedule.
+  //
+  // Per-ANSWER, not per-page: a destination keeps whichever of its Q&A are clean.
+  // And if nothing survives, no FAQPage is emitted at all rather than an empty
+  // one — `mainEntity: []` is invalid schema and would be a worse claim than
+  // silence.
   const faq = (d.data as { faq?: Faq[] } | undefined)?.faq;
-  if (faq?.length) {
+  const publishableFaq = faq?.filter(faqAnswerIsPublishable);
+  if (publishableFaq?.length) {
     out.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faq.map((f) => ({
+      mainEntity: publishableFaq.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.source ? `${f.a} (Source: ${f.source})` : f.a },

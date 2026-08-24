@@ -1,3 +1,4 @@
+import { RETIRED_AUTHORITY_RE } from "../../src/lib/retired-authority";
 /**
  * NEVER PROMISE "SAFE". Locked canon, and until now nothing enforced it.
  *
@@ -76,8 +77,10 @@ const PROMISE =
  * a human writes the posture — the alternative is what put a sentence State
  * never wrote into a Cartagena consent screen.
  */
-const RETIRED_AUTHORITY =
-  /\bU\.?S\.?\s*Level\s*[1-4]\b|\bLevel\s*[1-4]\b(?=[^.]{0,60}\b(?:State|U\.?S\.?)\b)|State\s+Department|State\s+Dept\b|travel\.state\.gov|Exercise\s+Normal\s+Precautions|Exercise\s+Increased\s+Caution|Reconsider\s+Travel|Do\s+Not\s+Travel/gi;
+// THE SAME PREDICATE THE APP PUBLISHES BY. Imported rather than restated: this
+// gate COUNTS what `jsonld.ts` WITHHOLDS, and if the two definitions drift the
+// ratchet stops describing the thing on the page. One rule, two consumers.
+const RETIRED_AUTHORITY = new RegExp(RETIRED_AUTHORITY_RE.source, "gi");
 
 /** Every retired-authority citation in a blob of text. */
 export function findRetiredAuthority(text: unknown): SafetyLanguageHit[] {
