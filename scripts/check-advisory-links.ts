@@ -35,7 +35,8 @@
  * and the exit code follows the split, not the raw count.
  */
 import { COUNTRY_ISO } from "../src/data/safety-data";
-import { advisoryLinks, isMultiCountry, statePublishedUrl } from "../src/data/advisory-sources";
+import { advisoryLinks, isMultiCountry } from "../src/data/advisory-sources";
+import { statePublishedUrl } from "./lib/state-feed";
 import { mergedDestinations } from "./lib/destination-batches";
 
 /**

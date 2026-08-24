@@ -29,7 +29,7 @@ import { DESTINATIONS, ACTIVITIES, PROVIDERS, GUIDES, SUBREGION_TOP } from "../s
 import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
 import { mergedDestinations } from "./lib/destination-batches";
 import { isIndexableDestination } from "../src/lib/site";
-import { stateSnapshotLevel, STATE_FEED_UPDATED } from "../src/data/advisory-sources";
+import { stateSnapshotLevel, STATE_FEED_UPDATED } from "./lib/state-feed";
 
 /**
  * A citation that survives the file moving underneath it.

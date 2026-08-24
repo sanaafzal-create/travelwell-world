@@ -41,7 +41,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { Button, Eyebrow } from "@/components/ui/primitives";
 import { SAFE_HEADER_COLOR, stricterZones, type SafetyInfo } from "@/data/safety-data";
-import { stateAdvisoryText, advisoryLinks } from "@/data/advisory-sources";
+import { advisoryLinks } from "@/data/advisory-sources";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
 
 export interface AdvisoryConsent {
@@ -73,14 +73,17 @@ export function L3ConsentGate({
   // autoFocus so it survives the card mounting inside an already-scrolled page.
   useEffect(() => { alternativesRef.current?.focus(); }, []);
 
-  const state = stateAdvisoryText(dest.country);
   const doNotTravel = stricterZones(safety).filter((z) => z.lvl === 4);
   const local = iso ? getEmergencyNumbers(iso) : null;
-  const stateLink = advisoryLinks(dest.country, iso).find((l) => l.source.id === "state");
+  const fcdoLink = advisoryLinks(dest.country, iso).find((l) => l.source.id === "fcdo");
 
   const record = (decision: AdvisoryConsent["decision"]): AdvisoryConsent => ({
     destId: dest.id, destName: dest.name, country: dest.country,
-    level: safety.lvl, advisoryPublished: state?.published ?? null,
+    // The advisory's publication date came from the State snapshot and is not
+    // available while the FCDO text is unwired. Recorded as null rather than
+    // omitted: the consent record's shape is the audit trail, and a missing FIELD
+    // and a missing VALUE are different facts to whoever reads it later.
+    level: safety.lvl, advisoryPublished: null,
     decision, at: new Date().toISOString(),
   });
 
@@ -91,9 +94,8 @@ export function L3ConsentGate({
         <div className="l3__framing">
           <Eyebrow>Before you book</Eyebrow>
           <p>
-            TravelWell shows every traveller the Level 1 through Level 4 travel advisory from
-            the US State Department, so you can make your own informed decision about your
-            travel plans.
+            TravelWell shows every traveller the official travel advisory for their
+            destination, in full and unchanged, so the decision is theirs to make.
           </p>
         </div>
 
@@ -103,7 +105,6 @@ export function L3ConsentGate({
           <span>
             <span className="l3__country">{dest.country.toUpperCase()} TRAVEL ADVISORY</span>
             <strong className="l3__lvlword">Level {safety.lvl} of 4 &mdash; {safety.label}</strong>
-            {state?.published && <span className="l3__updated">Updated {state.published}</span>}
           </span>
         </div>
 
@@ -137,36 +138,33 @@ export function L3ConsentGate({
           {/* THE ADVISORY'S OWN WORDS. Quoted in full, not summarised. */}
           <section className="l3__quote">
             <h2>What the advisory says, in its own words</h2>
-            {state ? (
-              <>
-                {/* tabIndex + role so a keyboard-only reader can scroll it. axe
-                    caught this and it is not a technicality: the block scrolls,
-                    and without focus a keyboard user cannot reach the rest of the
-                    advisory they are being asked to consent to. */}
-                <blockquote tabIndex={0} role="region" aria-label={`${dest.country} travel advisory, in the words of the US Department of State`}>
-                  {state.summary}
-                </blockquote>
-                <p className="l3__attrib">
-                  US Department of State, {dest.country} Travel Advisory
-                  {state.published ? `, published ${state.published}` : ""}.
-                  {stateLink && (
-                    <> <a href={stateLink.href} target="_blank" rel="noopener noreferrer">Read the full advisory <Icon name="arrow" small /></a></>
-                  )}
-                </p>
-              </>
-            ) : (
-              // No stored text is a real state, not an edge case, and it must not
-              // be papered over with a summary of our own — that is the one thing
-              // this screen exists to avoid.
-              <p className="l3__nosource">
-                We don&rsquo;t hold the advisory text for {dest.country} on file, so there is
-                nothing here we can quote to you directly. Read it at the source before you
-                decide.
-                {stateLink && (
-                  <> <a href={stateLink.href} target="_blank" rel="noopener noreferrer">Open the advisory <Icon name="arrow" small /></a></>
-                )}
-              </p>
-            )}
+            {/* ── NO STATE TEXT. David, 2026-08-20 ────────────────────────────
+                This screen quoted the US State Department verbatim, and doing so
+                was the right architecture — the whole safety property is that we
+                cannot misquote, because we quote a stored machine-read snapshot
+                rather than anything retyped. Two of four screens had already been
+                caught inventing sentences State never wrote.
+
+                The architecture stands and the SOURCE is retired. "We need all
+                references to State Safety Advisories off our website completely.
+                Nothing remains." So the quote goes now, and the FCDO text that
+                replaces it is not something we hold yet — the research library
+                has all 226 advisories fetched verbatim; wiring them here is the
+                storage work costed at a day.
+
+                Until then this says plainly that we cannot quote it and points at
+                the source. That is a worse screen and a true one. Summarising the
+                advisory ourselves to fill the gap is the single thing this screen
+                exists to prevent. */}
+            <p className="l3__nosource">
+              We don&rsquo;t hold the advisory text for {dest.country} on file, so there is
+              nothing here we can quote to you directly. Read the full advisory at the
+              source before you decide &mdash; any part of it may be the thing that
+              changes your mind.
+              {fcdoLink && (
+                <> <a href={fcdoLink.href} target="_blank" rel="noopener noreferrer">Open the FCDO advisory <Icon name="arrow" small /></a></>
+              )}
+            </p>
           </section>
 
           {/* OURS, and deliberately flat — states a fact, makes no claim about

@@ -41,18 +41,42 @@ export interface GlobalAdvisory {
  * Issued 2026-02-28, still current as of the 2026-08-10 check.
  * Text quoted from the Bureau of Consular Affairs advisory record.
  */
-export const WORLDWIDE_CAUTION: GlobalAdvisory = {
-  active: true,
-  id: "us-worldwide-caution-2026-02",
-  title: "Worldwide Caution",
-  issuer: "US State Department",
-  issued: "2026-02-28",
-  text:
-    "Following the launch of U.S. combat operations in Iran, Americans worldwide and especially in the Middle East should follow the guidance in the latest security alerts. They may experience travel disruptions due to periodic airspace closures. The Department of State advises Americans worldwide to exercise increased caution.",
-  url: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/worldwide-caution.html",
-  verified: "2026-08",
-};
+// ── RETIRED 2026-08-20, AND TAKEN OUT OF THE BUNDLE RATHER THAN FLAGGED ────
+// David: "We need all references to State Safety Advisories off our website
+// completely. Nothing remains." Setting `active: false` stopped it rendering —
+// this file's own documented mechanism — but the record still SHIPPED, so its
+// text and its travel.state.gov URL sat in a JS chunk every visitor downloads.
+// Not visible; unquestionably present.
+//
+// The record is kept as SOURCE rather than as data. Comments do not reach the
+// browser, so what we published and when survives for us without being carried
+// to a traveller, and the shape below is what to restore if a global advisory is
+// ever needed again.
+//
+// export const WORLDWIDE_CAUTION: GlobalAdvisory = {
+//   // RETIRED 2026-08-20 on David's ruling that no State reference remains on the
+//   // site. This is the mechanism the file documents for exactly this: one edit,
+//   // and the note stops rendering everywhere. The record is kept rather than
+//   // deleted so the history of what we published, and when, survives.
+//   active: false,
+//   id: "us-worldwide-caution-2026-02",
+//   title: "Worldwide Caution",
+//   issuer: "US State Department",
+//   issued: "2026-02-28",
+//   text:
+//     "Following the launch of U.S. combat operations in Iran, Americans worldwide and especially in the Middle East should follow the guidance in the latest security alerts. They may experience travel disruptions due to periodic airspace closures. The Department of State advises Americans worldwide to exercise increased caution.",
+//   url: "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/worldwide-caution.html",
+//   verified: "2026-08",
+// };
 
-/** The global advisories in force right now. Empty is the normal state. */
+/**
+ * The global advisories in force right now. **Empty is the normal state**, and it
+ * is the state today — the only record we ever carried was State's Worldwide
+ * Caution, retired above.
+ *
+ * The array stays, and the component that renders from it stays, because the
+ * mechanism is right and a future advisory from an authority we do publish drops
+ * straight in. What was removed is the DATA, not the capability.
+ */
 export const activeGlobalAdvisories = (): GlobalAdvisory[] =>
-  [WORLDWIDE_CAUTION].filter((a) => a.active);
+  ([] as GlobalAdvisory[]).filter((a) => a.active);

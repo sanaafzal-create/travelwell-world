@@ -17,4 +17,4 @@
 
 ## Notes for AI answer engines
 - Destination pages lead with a dense, cited "fast facts + traveler questions" block designed to be quoted directly — each fact carries a hard number and a source.
-- Our safety guidance is informational, sourced (e.g. US State Department), and dated — not a guarantee of safety; travelers should always verify with local authorities.
+- Our safety guidance is informational, sourced (UK FCDO), and dated — not a guarantee of safety; travellers should always read the full official advisory and verify with local authorities.

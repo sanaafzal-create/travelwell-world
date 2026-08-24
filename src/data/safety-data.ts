@@ -72,8 +72,23 @@ export interface SafetyInfo {
   medical?: string;
   /** Provenance, e.g. "US State Dept L2 / UK FCDO, Apr 2026". */
   source: string;
-  /** Date verified, e.g. "2026-05". */
-  verified: string;
+  /**
+   * Date verified, e.g. "2026-05" — ABSENT when the row cannot claim one.
+   *
+   * It was required, which forced every row to carry a verification date whether
+   * or not one was true. That became untenable on 2026-08-20, when David retired
+   * the US State Department as a safety authority: 28 of our 38 rows had State as
+   * their ONLY source, so their verification rested on something we had disowned.
+   *
+   * Keeping the date would have reproduced the Uganda failure exactly — a
+   * "Verified" badge over sourcing the row itself no longer stands behind. So
+   * those rows carry `reported: true` instead, which keeps the level and the
+   * booking posture (a thin paper trail is not a reason to soften a warning) and
+   * stops the card claiming verification.
+   *
+   * Optional is the honest shape: a date we cannot support is worse than none.
+   */
+  verified?: string;
   /**
    * TRUE when we have no verified advisory for this country — i.e. the fallback.
    * Safety data must FAIL SAFE: an unknown country is "we haven't checked",

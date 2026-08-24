@@ -139,7 +139,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "wellness"], feel: ["alpine", "dramatic", "refined"],
       tier_range: ["premier", "luxury", "ultra"], price_band: "luxury", draw_rank: "anchor",
       data: {
-        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; alpine risk is weather + avalanche, managed by resort patrol — ski in-bounds and heed closures.", source: "US State Dept L1 / Swiss authorities", verified: "2026-06" },
+        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; alpine risk is weather + avalanche, managed by resort patrol — ski in-bounds and heed closures.", source: "Swiss national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Glacier skiing extends the season; Feb–Mar for the most reliable snow." },
         jewels: [
           { name: "Gornergrat cog railway at sunrise", tier: "premier", when: "clear mornings", blurb: "The Matterhorn head-on, before the crowds.", si: "ski", commission: "Rail + experience partner — commission lane" },
@@ -158,7 +158,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "adventure"], feel: ["alpine", "rugged", "festive"],
       tier_range: ["comfort", "premier", "luxury"], price_band: "premier", draw_rank: "core",
       data: {
-        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; renowned off-piste carries real avalanche risk — hire a certified guide off the marked runs.", source: "US State Dept L1 / Austrian authorities", verified: "2026-06" },
+        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; renowned off-piste carries real avalanche risk — hire a certified guide off the marked runs.", source: "Austrian national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Legendary après-ski; Jan–Mar for the deepest snow on the Arlberg." },
         jewels: [
           { name: "Off-piste day with an Arlberg guide", tier: "premier", when: "after fresh snow", blurb: "The terrain that made the sport, read by someone who knows it.", si: "ski", commission: "Certified guide bureau — commission lane" },
@@ -177,7 +177,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "adventure"], feel: ["alpine", "dramatic", "rugged"],
       tier_range: ["comfort", "premier", "luxury"], price_band: "premier", draw_rank: "core",
       data: {
-        safety: { advisory_level: "L2", posture: "book-freely", booking_hold: false, notes: "Exercise increased caution (France-wide, mainly urban). In the valley the practical risk is the mountain rather than crime — high-alpine routes and the Vallée Blanche need a qualified guide.", source: "US State Dept L2 / French authorities", verified: "2026-06" },
+        safety: { advisory_level: "L2", posture: "book-freely", booking_hold: false, notes: "Exercise increased caution (France-wide, mainly urban). In the valley the practical risk is the mountain rather than crime — high-alpine routes and the Vallée Blanche need a qualified guide.", source: "French national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Serious terrain; the Vallée Blanche is spring-dependent — check conditions." },
         jewels: [
           { name: "Aiguille du Midi cable car", tier: "comfort", when: "clear days", blurb: "3,842m and the roof of Europe in twenty minutes.", si: "adventure", commission: "Lift + experience partner" },
@@ -196,7 +196,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "wellness"], feel: ["alpine", "refined", "polished"],
       tier_range: ["luxury", "ultra"], price_band: "ultra", draw_rank: "anchor",
       data: {
-        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; alpine risk is weather + avalanche, managed by resort patrol — ski in-bounds and heed closures.", source: "US State Dept L1 / Swiss authorities", verified: "2026-06" },
+        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; alpine risk is weather + avalanche, managed by resort patrol — ski in-bounds and heed closures.", source: "Swiss national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "High, sunny Engadin snow; Jan–Feb for the classic season and the frozen-lake events." },
         jewels: [
           { name: "A night at Badrutt's, the lake frozen below", tier: "ultra", when: "peak season", blurb: "The birthplace of winter tourism, taken at full glamour.", si: "wellness", commission: "Hotel partner — commission lane" },
@@ -215,7 +215,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "wellness"], feel: ["alpine", "refined", "polished"],
       tier_range: ["premier", "luxury", "ultra"], price_band: "luxury", draw_rank: "anchor",
       data: {
-        safety: { advisory_level: "L2", posture: "book-freely", booking_hold: false, notes: "Exercise increased caution (France-wide, mainly urban). In resort the practical risk is the mountain rather than crime — off-piste across the Trois Vallées needs a qualified guide.", source: "US State Dept L2 / French authorities", verified: "2026-06" },
+        safety: { advisory_level: "L2", posture: "book-freely", booking_hold: false, notes: "Exercise increased caution (France-wide, mainly urban). In resort the practical risk is the mountain rather than crime — off-piste across the Trois Vallées needs a qualified guide.", source: "French national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Gateway to the 3 Vallées — 600km of linked pistes; Feb–Mar for depth and sun." },
         jewels: [
           { name: "First tracks across the Trois Vallées", tier: "premier", when: "after a snowfall", blurb: "The world's largest linked ski area, empty, at dawn.", si: "ski", commission: "Lift + guide partner" },
@@ -234,7 +234,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "adventure"], feel: ["alpine", "dramatic", "refined"],
       tier_range: ["premier", "luxury"], price_band: "luxury", draw_rank: "anchor",
       data: {
-        safety: { advisory_level: "L2", posture: "book-freely", booking_hold: false, notes: "Exercise increased caution (Italy-wide, mainly urban posture). In Cortina the practical risk is the mountain rather than crime — Dolomiti Superski off-piste and via ferrata need a guide.", source: "US State Dept L2 / Italian authorities", verified: "2026-06" },
+        safety: { advisory_level: "L2", posture: "book-freely", booking_hold: false, notes: "Exercise increased caution (Italy-wide, mainly urban posture). In Cortina the practical risk is the mountain rather than crime — Dolomiti Superski off-piste and via ferrata need a guide.", source: "Italian national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "Co-hosts the Milano-Cortina 2026 Winter Olympics — book well ahead for the Games window." },
         jewels: [
           { name: "Sunset on the Tofane from a Dolomiti rifugio", tier: "premier", when: "clear afternoons", blurb: "Pink light on the Dolomites, a plate of casunziei, the pistes gone quiet.", si: "ski", commission: "Mountain-hut partner" },
@@ -253,7 +253,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
       si: ["ski", "adventure"], feel: ["alpine", "historic", "festive"],
       tier_range: ["comfort", "premier", "luxury"], price_band: "premier", draw_rank: "core",
       data: {
-        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; the Hahnenkamm's Streif is expert-only — the resort's blue and red runs suit everyone, off-piste wants a guide.", source: "US State Dept L1 / Austrian authorities", verified: "2026-06" },
+        safety: { advisory_level: "L1", posture: "book-freely", booking_hold: false, notes: "Normal precautions; the Hahnenkamm's Streif is expert-only — the resort's blue and red runs suit everyone, off-piste wants a guide.", source: "Austrian national authorities", verified: "2026-06" },
         timing: { season: "Dec–Apr", best_months: [1, 2, 3], notes: "The Hahnenkamm race is late January — electric, but book far ahead; Feb–Mar is quieter and deep." },
         jewels: [
           { name: "Standing at the top of the Streif", tier: "comfort", when: "a clear morning", blurb: "Look down the most feared downhill in ski racing — then take the gentle way home.", si: "ski", commission: "Lift partner" },
