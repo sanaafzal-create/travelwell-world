@@ -185,9 +185,16 @@ export const DEFAULT_SAFETY: SafetyInfo = {
   summary: "We haven't verified a current government advisory for this destination yet. Check your government's latest advisory before you book or travel.",
   considerations: [],
   // NAMES NO SOURCE, deliberately. This read "confirm with travel.state.gov"
-  // until 2026-08-18 — the authority we DEPRIORITISED on 2026-08-13, printed on
-  // every unverified destination as the place to go and check. The FCDO is
-  // primary; State is enrichment and unreadable from our servers.
+  // until 2026-08-18 — printed on every unverified destination as the place to go
+  // and check.
+  //
+  // The wording here used to say State had been "deprioritised" and was
+  // "enrichment". That was true on 2026-08-13 and is not true now, and the
+  // research library was right to flag it: David RETIRED State on 2026-08-19 —
+  // not read, not published, not quoted, not compared, not linked. A comment
+  // describing a softer rule than the one in force is how a later reader
+  // reintroduces a State reference while believing they are following canon.
+  // The code was already correct; only this sentence was behind.
   //
   // It names none rather than swapping one for another, because the card already
   // renders `CheckItYourself` directly beneath it with the real deep links for
