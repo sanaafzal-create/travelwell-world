@@ -10,6 +10,7 @@ import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { cx } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
+import { BackBar } from "@/components/shell/BackBar";
 
 // The four clean taps home → booked (David, Jul 2026): Special Interests →
 // Regions → the Wells → Book It. Activities stays a real page but an OPTIONAL
@@ -86,6 +87,7 @@ export function JourneyBar({ current, crumbs }: { current: number; crumbs: Crumb
   const t = useT();
   const label = (l: string) => (CRUMB_KEY[l] ? t(CRUMB_KEY[l]) : l);
   return (
+    <>
     <div className="jn-subhead">
       <div className="jn-subhead__inner">
         <nav className="jn-crumbs" aria-label="Breadcrumb">
@@ -103,5 +105,14 @@ export function JourneyBar({ current, crumbs }: { current: number; crumbs: Crumb
         <StepIndicator current={current} />
       </div>
     </div>
+    {/* BELOW the sub-header, not above it (Sana, 2026-08-24). Sitting above, it
+        floated over the breadcrumb and read as chrome; here it sits with the
+        content it returns from, directly over the page's eyebrow.
+
+        Shell also renders one at the top of <main> for pages with no sub-header.
+        CSS hides that copy whenever a `.jn-subhead` is present, keyed on the
+        subhead itself rather than a route list, so the two cannot drift. */}
+    <BackBar inline />
+    </>
   );
 }

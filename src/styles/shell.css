@@ -209,9 +209,50 @@
 
 /* Back control — big, obvious, one consistent spot at the top of every page but
    Home (senior-first: "how do I go back?" never a question). Content-aligned. */
-.tw-backbar { max-width: var(--content-max); margin-inline: auto; padding: 12px var(--gutter) 0; }
-.tw-back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 13px; border-radius: var(--radius-pill); background: var(--card); border: 1.5px solid var(--border); color: var(--foreground); font-family: var(--font-sans); font-weight: 600; font-size: 15px; cursor: pointer; box-shadow: var(--e1); transition: background-color .15s ease, transform .15s ease; }
-@media (hover: hover) { .tw-back:hover { background: var(--surface-alt); transform: translateX(-2px); } }
+/* ── THE BACK CONTROL ──────────────────────────────────────────────────────
+   A quiet text control rather than a pill (Sana, 2026-08-24). It was a bordered
+   white button with a shadow, which read as a primary action sitting above the
+   page — competing with the thing the traveller actually came to do.
+
+   It still meets the senior-first bar it was built for: the hit target stays
+   44px tall via padding, the label is a real word rather than a lone glyph, and
+   focus is visible. What changed is weight, not affordance.
+
+   Letter-spacing because a four-letter word at this size reads as a label
+   otherwise; the tracking is what makes it read as a control. */
+.tw-backbar { max-width: var(--content-max); margin-inline: auto; padding: 14px var(--gutter) 2px; }
+.tw-back {
+  display: inline-flex; align-items: center; gap: 9px;
+  min-height: 44px; padding: 0; margin-inline-start: -2px;
+  background: none; border: 0; box-shadow: none;
+  color: var(--muted-foreground);
+  font-family: var(--font-sans); font-weight: 600; font-size: 14px;
+  letter-spacing: .08em; text-transform: none;
+  cursor: pointer;
+  transition: color .15s ease;
+}
+/* The arrow travels on hover, the label does not — the movement reads as
+   direction rather than as the whole control shifting. */
+.tw-back .ic { transition: transform .15s ease; }
+@media (hover: hover) {
+  .tw-back:hover { color: var(--primary); }
+  .tw-back:hover .ic { transform: translateX(-3px); }
+}
+@media (prefers-reduced-motion: reduce) { .tw-back .ic { transition: none; } .tw-back:hover .ic { transform: none; } }
+
+/* ── ONE BACK PER PAGE ─────────────────────────────────────────────────────
+   Shell renders a Back at the top of <main>. Pages that carry a `.jn-subhead`
+   render their own directly beneath it, because above the sub-header is the
+   wrong place: it floats over the breadcrumb rather than sitting with the
+   content it returns from.
+
+   Keyed on the PRESENCE of a subhead rather than on a list of routes, so a new
+   journey page needs no edit here and the two cannot drift apart.
+
+   The two copies are told apart by `--inline`, NOT by position: both render as
+   direct children of `.tw-main`, so an earlier `>`-and-order rule matched both
+   and hid the control on every journey page while leaving it in the DOM twice. */
+.tw-main:has(.jn-subhead) > .tw-backbar:not(.tw-backbar--inline) { display: none; }
 .tw-back:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .tw-back .ic { width: 18px; height: 18px; }
 

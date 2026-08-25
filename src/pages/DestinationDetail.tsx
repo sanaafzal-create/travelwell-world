@@ -11,6 +11,7 @@ import { cx } from "@/lib/utils";
 import { resolveSafety, stricterZones, isoForCountry, SAFE_HEADER_COLOR } from "@/data/safety-data";
 import { CheckItYourself } from "@/components/ui/CheckItYourself";
 import { GlobalAdvisoryNote } from "@/components/ui/GlobalAdvisoryNote";
+import { BackBar } from "@/components/shell/BackBar";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
 
 const TIER: Record<string, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
@@ -264,6 +265,9 @@ export default function DestinationDetail() {
           </nav>
         </div>
       </div>
+      {/* Below the sub-header — see the note in StepIndicator's JourneyBar.
+          Shell's copy hides itself whenever a `.jn-subhead` is on the page. */}
+      <BackBar inline />
 
       <section className={cx("dd-hero", stub && "dd-hero--stub")}>
         <div className="dd-hero__img"><img src={hero.src} alt={DEST.name} referrerPolicy="no-referrer" loading="lazy" /></div>

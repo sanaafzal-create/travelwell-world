@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { REGION_SI, taglineSubject, type Region, type SiData } from "@/data/taxonomy";
+import { BackBar } from "@/components/shell/BackBar";
 import { Tagline } from "@/components/ui/primitives";
 import { siJsonLd, useJsonLd } from "@/lib/jsonld";
 import { jewelsForSi, destinationsBehind, type PlacedJewel } from "@/lib/jewels";
@@ -370,6 +371,7 @@ export default function SiDetail() {
       </div>
     </div>
   );
+  const back = <BackBar inline />;
 
   const hero = (
     <section className={cx("sd-hero", isSchema && "sd-hero--schema")}>
@@ -433,7 +435,7 @@ export default function SiDetail() {
   if (isSchema) {
     return (
       <>
-        {subhead}
+        {subhead}{back}
         {hero}
         <div className="sd-schema-notice">
           <div className="sd-schema-card">
@@ -474,7 +476,7 @@ export default function SiDetail() {
 
   return (
     <>
-      {subhead}
+      {subhead}{back}
       {hero}
 
       <div className="sd-intro">
