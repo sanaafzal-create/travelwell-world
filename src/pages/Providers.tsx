@@ -155,7 +155,22 @@ export default function Providers() {
                       <div className="pv__cta-row">
                         {affiliate ? (
                           <>
-                            <a className="btn btn-primary" href={`/go?to=${encodeURIComponent(p.name)}`}>Visit partner</a>
+                            {/* `nofollow` so a crawler stops DISCOVERING these.
+                                Each one is `/go?to=<partner name>`, and the
+                                research library's read of 20 Aug found them in
+                                the index — its words, "our supplier list is
+                                being published one query parameter at a time."
+
+                                This does not de-index the ones already there;
+                                `/go` carries `noindex` plus a canonical to
+                                itself, which is what clears them, and it only
+                                works while Google can still crawl `/go` to read
+                                it. Blocking `/go` in robots.txt would freeze
+                                them in the index permanently — the crawler
+                                cannot obey a directive it is forbidden to
+                                fetch. Discovery is the half that is safe to
+                                close today. */}
+                            <a className="btn btn-primary" rel="nofollow" href={`/go?to=${encodeURIComponent(p.name)}`}>Visit partner</a>
                             <span className="pv__mode"><Icon name="arrow" small /> via /go</span>
                           </>
                         ) : (

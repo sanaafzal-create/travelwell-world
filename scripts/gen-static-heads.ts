@@ -42,7 +42,7 @@ import { DESTINATIONS, GUIDES, type Destination } from "../src/data/places";
 // <head>, no JSON-LD and no per-route description: the whole answer-engine
 // surface silently skipped every destination the research library delivered.
 import { mergedDestinations } from "./lib/destination-batches";
-import { destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
+import { breadcrumbJsonLd, destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
 import { jewelsForSi } from "../src/lib/jewels";
 import { ORIGIN, isIndexableDestination } from "../src/lib/site";
 
@@ -84,7 +84,7 @@ for (const [code, list] of Object.entries(ALL_DESTINATIONS)) {
       // pair — one inbound link is all it takes, and an indexed page does not
       // age out on its own. Same predicate the sitemap reads.
       noindex: !isIndexableDestination(d),
-      jsonLd: destinationJsonLd(d, region?.name ?? "", `${ORIGIN}/destination/${d.id}`),
+      jsonLd: destinationJsonLd(d, region?.name ?? "", `${ORIGIN}/destination/${d.id}`, region?.code),
     });
   }
 }
@@ -110,6 +110,14 @@ for (const r of REGIONS) {
     path: `/region/${r.code}`,
     title: `${r.name} — TravelWell.World`,
     description: (r as { blurb?: string }).blurb || `Travel in ${r.name}.`,
+    // Breadcrumbs only. A region page has a rendered trail to mirror; guides do
+    // not, which is why they get none — structured data with no visible
+    // counterpart is the violation, not the omission.
+    jsonLd: [breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Regions", path: "/regions" },
+      { name: r.name },
+    ])],
   });
 }
 
@@ -124,6 +132,22 @@ for (const g of GUIDES) {
 
 // ── Every static route ─────────────────────────────────────────────────────
 // EVERY one, and the list is checked against the router below.
+//
+// ── AND DELIBERATELY NO BreadcrumbList ON THESE ───────────────────────────
+// Eight hub pages render `.jn-crumbs` and get no breadcrumb structured data,
+// which looks like an omission next to the 551 pages that do. It is not.
+//
+// Their rendered trail is the JOURNEY — where you came from in the flow — not
+// the hierarchy. `/regions` shows "Home / Special Interests / Regions", and
+// `/destinations` shows "Home / Regions / Destinations". As breadcrumb markup
+// that would tell a crawler `/regions` is a CHILD of `/special-interests`. They
+// are siblings: two steps of one flow, neither containing the other.
+//
+// A destination's trail is different in kind — "Home / Regions / Southern
+// Africa / Cape Town" is the real containment, which is why those emit.
+//
+// So the choice on a hub is between publishing a false hierarchy and publishing
+// nothing, and nothing is correct. Don't "complete" this by counting pages.
 //
 // It used to be five hand-picked hubs. The other 24 static routes had no
 // pre-rendered page, so they served `dist/index.html` — which carries the HOME

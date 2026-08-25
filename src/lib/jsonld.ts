@@ -34,6 +34,45 @@ const PUBLISHER = { "@id": `${ORIGIN}/#organization` };
 interface Faq { q: string; a: string; source?: string }
 
 /**
+ * The breadcrumb trail, as structured data.
+ *
+ * ── WE WERE EMITTING NONE, ANYWHERE (2026-08-25) ──────────────────────────
+ * Search Console reported "Breadcrumbs: 7 valid" against 248 indexed pages, and
+ * the open question was whether 7 was a sampling artifact or a gap. It was a
+ * gap: a grep for `BreadcrumbList` across all 590 built pages returned zero.
+ * Every page has RENDERED crumbs — `.jn-crumbs`, correct and complete — and a
+ * crawler had nothing machine-readable to read them from.
+ *
+ * That matters more here than on a normal site. Our own robots.txt goes out of
+ * its way to welcome answer engines, and a breadcrumb is how one of them learns
+ * that a destination sits inside a region rather than floating free. It is also
+ * what search renders in place of a raw URL.
+ *
+ * ── IT MUST MIRROR THE VISIBLE TRAIL, NOT A PARALLEL ONE ──────────────────
+ * Google treats structured data that disagrees with the page as a violation,
+ * and it would be right to: two trails means neither is trustworthy. So the
+ * SAME array is passed to both, and the last crumb carries no `item` — it is
+ * the current page, which is exactly why the rendered version is a `<span>` and
+ * not a `<Link>`. The shapes correspond because they are the same list.
+ */
+export interface Crumb { name: string; path?: string }
+
+export function breadcrumbJsonLd(trail: Crumb[]): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: trail.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      // Omitted on the final crumb: schema.org allows it, and a self-referential
+      // link on the page you are already reading tells a crawler nothing.
+      ...(c.path && i < trail.length - 1 ? { item: `${ORIGIN}${c.path}` } : {}),
+    })),
+  };
+}
+
+/**
  * One `TouristAttraction` per jewel (David's decision 3, 2026-08-12).
  *
  * `TouristAttraction` rather than `Event`: a jewel is a place or a standing
@@ -78,8 +117,25 @@ function jewelAttraction(
 }
 
 /** Build the JSON-LD objects for a destination page. */
-export function destinationJsonLd(d: Destination, regionName: string, url: string): object[] {
+export function destinationJsonLd(
+  d: Destination,
+  regionName: string,
+  url: string,
+  /** The region's 13-code, so the trail can link the region step. Optional
+   *  because a destination whose region we can't resolve still deserves the rest
+   *  of its structured data — the crumb simply goes unlinked rather than
+   *  pointing at `/region/undefined`. */
+  regionCode?: string
+): object[] {
   const out: object[] = [
+    // Home / Regions / <region> / <destination> — the same four steps the page
+    // renders in `.jn-crumbs`.
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Regions", path: "/regions" },
+      ...(regionName ? [{ name: regionName, ...(regionCode ? { path: `/region/${regionCode}` } : {}) }] : []),
+      { name: d.name },
+    ]),
     {
       "@context": "https://schema.org",
       "@type": "TouristDestination",
@@ -142,6 +198,12 @@ export function siJsonLd(
 ): object[] {
   const d = si.data ?? {};
   const out: object[] = [
+    // Home / Special Interests / <interest> — mirrors the rendered `.jn-crumbs`.
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Special Interests", path: "/special-interests" },
+      { name: si.name },
+    ]),
     {
       "@context": "https://schema.org",
       "@type": "TouristTrip",

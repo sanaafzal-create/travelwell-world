@@ -128,7 +128,7 @@ export default function DestinationDetail() {
   // AEO: emit TouristDestination + FAQ (buffet Q&A) structured data so answer
   // engines can parse the page into quotable chunks. (Authoritative once the
   // SSG socket bakes it into the served <head>; client-injected here for now.)
-  useJsonLd(destinationJsonLd(DEST, R.name, typeof window !== "undefined" ? window.location.href : ""));
+  useJsonLd(destinationJsonLd(DEST, R.name, typeof window !== "undefined" ? window.location.href : "", R.code));
   const stub = DEST.depth !== "verified";
   const data = DEST.data;                       // the dossier body (jewels, faq, …)
   const jewels = data?.jewels ?? [];

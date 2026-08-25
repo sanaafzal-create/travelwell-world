@@ -150,8 +150,13 @@ export default function Go() {
           This is an affiliate link. We may earn a commission at no extra cost to you.
         </Ftc>
         <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 24 }}>
+          {/* `sponsored` is not optional decoration. The page says it in words a
+              few lines up — "This is an affiliate link" — and Google's link
+              policy requires monetised links to say the same thing in markup.
+              Declaring it in prose and not in `rel` is the shape of an
+              undisclosed link scheme even when the intent is the opposite. */}
           {bookingUrl ? (
-            <a className="btn btn-primary" href={bookingUrl} target="_blank" rel="noopener noreferrer">Continue to {to} <Icon name="arrow" small /></a>
+            <a className="btn btn-primary" href={bookingUrl} target="_blank" rel="sponsored nofollow noopener noreferrer">Continue to {to} <Icon name="arrow" small /></a>
           ) : (
             <Button onClick={() => openPanel("concierge")}><Icon name="sparkles" small /> Ask Atlas to connect you with {to}</Button>
           )}
