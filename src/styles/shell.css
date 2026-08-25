@@ -253,6 +253,18 @@
    direct children of `.tw-main`, so an earlier `>`-and-order rule matched both
    and hid the control on every journey page while leaving it in the DOM twice. */
 .tw-main:has(.jn-subhead) > .tw-backbar:not(.tw-backbar--inline) { display: none; }
+
+/* A browser without `:has()` drops the rule above and would show BOTH — two Back
+   buttons on every journey page. That is the worst of the three outcomes, and it
+   would land on old iPads and Android tablets, which is disproportionately the
+   senior-first traveler this control exists for.
+
+   So where `:has()` is missing we hide the page's copy instead of Shell's. The
+   result is exactly one Back, at the top of <main> — the placement we just moved
+   away from, which is a downgrade rather than a defect. Never two. */
+@supports not selector(:has(*)) {
+  .tw-backbar--inline { display: none; }
+}
 .tw-back:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .tw-back .ic { width: 18px; height: 18px; }
 
