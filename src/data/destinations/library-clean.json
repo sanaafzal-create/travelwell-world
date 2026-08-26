@@ -63362,6 +63362,7 @@
    "key_facts": null,
    "safety": {
     "posture": "no-booking",
+    "zone": "The Amhara Region",
     "booking_hold": true,
     "notes": "FCDO advises against all travel to parts of Ethiopia, including the Amhara region, in which Lalibela sits. We do not book this destination. SINGLE SOURCE: travel.state.gov returned HTTP 403 on a fourth attempt (2026-08-16), so no US level was obtained.",
     "source": "UK Foreign, Commonwealth & Development Office — Ethiopia travel advice",
