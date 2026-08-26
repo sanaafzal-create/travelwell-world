@@ -77,6 +77,13 @@
 .choices { display: grid; gap: 10px; }
 .choices--2 { grid-template-columns: 1fr 1fr; }
 .choices--3 { grid-template-columns: repeat(3, 1fr); }
+/* A tile carrying a sentence and two bullets needs a full column on a phone.
+   Two columns at 390px broke "Young Adult · 18–24" over two lines and wrapped
+   every bullet to three — legible, but hard work, which on the pace step is the
+   one thing we cannot afford: it is the screen where a 69-year-old decides
+   whether this site is for them. */
+.choices--rich { grid-template-columns: 1fr; }
+@media (min-width: 40rem) { .choices--rich { grid-template-columns: 1fr 1fr; } }
 .choice { border: 1.5px solid var(--border); border-radius: var(--radius); padding: 15px 16px; cursor: pointer; background: var(--card); transition: border-color .15s ease, background-color .15s ease; display: flex; gap: 12px; align-items: center; text-align: start; }
 .choice:hover { border-color: color-mix(in oklch, var(--primary) 40%, var(--border)); }
 .choice[aria-pressed="true"] { border-color: var(--primary); background: var(--secondary); }
@@ -85,8 +92,20 @@
 .choice[aria-pressed="true"] .choice__check svg { display: block; }
 .choice__check svg { display: none; }
 .choice__t { font-weight: 600; font-size: 15px; }
-.choice__s { font-size: 13px; color: var(--muted-foreground); margin-top: 2px; }
+/* The pace tile's own copy. This is a READING line, not a label, so it sits at
+   the 16px reading floor rather than the 13px label floor — it is a sentence a
+   traveler has to read and recognise themselves in before choosing, and the
+   choice shapes the whole trip. */
+.choice__s { font-size: 16px; line-height: 1.5; color: var(--muted-foreground); margin-top: 2px; }
 .choice[aria-pressed="true"] .choice__s { color: var(--secondary-foreground); }
+/* The step count — the number a great many people over sixty already track, so
+   it is weighted like a figure someone hunts for rather than like body copy. */
+.choice__steps { font-size: 14px; font-weight: 700; color: var(--gold-deep); letter-spacing: .01em; }
+.choice[aria-pressed="true"] .choice__steps { color: var(--primary); }
+.choice__pts { margin: 6px 0 0; padding-inline-start: 20px; display: grid; gap: 3px; list-style: disc; }
+.choice__pts li::marker { color: var(--primary); }
+.choice__pts li { font-size: 15px; line-height: 1.45; color: var(--muted-foreground); }
+.choice[aria-pressed="true"] .choice__pts li { color: var(--secondary-foreground); }
 .choice__ic { width: 40px; height: 40px; border-radius: 10px; background: var(--secondary); color: var(--primary); display: grid; place-items: center; flex: none; }
 
 /* party builder */

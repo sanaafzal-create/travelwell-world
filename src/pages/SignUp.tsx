@@ -204,14 +204,24 @@ export default function SignUp() {
             {!isBuild && STEPS[step].key === "age" && (
               <>
                 <Eyebrow className="ob__eyebrow">A gentle question</Eyebrow>
-                <h2 className="ob__title">Which age range fits you?</h2>
-                <Why ic="shield">We use a <b>range, never your birthday</b> — only to shape pace and mobility (think: nightlife vs. nap-friendly pacing), <b>never your budget</b>. It's yours to change anytime.</Why>
+                {/* The pick is the pace, not the birthday (David, 2026-08-25):
+                    "there are many people who may be physically capable of
+                    younger age ranges than their actual chronological age, and
+                    there are younger people who are older capability-wise."
+                    So the age on each tile is a suggestion of where most people
+                    land, and the traveler's own pick is what we store. */}
+                <h2 className="ob__title">Pick the pace that matches your body</h2>
+                <Why ic="shield">The age is a <b>suggestion of where most people land</b>, never a fact from a birthday — pick the one that reads like your day. It shapes <b>pace, rest and timing</b>, <b>never your budget</b>, and it's yours to change anytime.</Why>
                 <div className="ob__fields">
-                  <div className="choices choices--2" role="group" aria-label="Age range">
+                  <div className="choices choices--rich" role="group" aria-label="Pace">
                     {ADULT_COHORTS.map((c) => (
-                      <button key={c.key} className="choice" aria-pressed={age === c.key} onClick={() => setAge(c.key)} style={{ flexDirection: "column", alignItems: "flex-start", gap: 3 }}>
+                      <button key={c.key} className="choice" aria-pressed={age === c.key} onClick={() => setAge(c.key)} style={{ flexDirection: "column", alignItems: "flex-start", gap: 4 }}>
                         <span className="choice__t"><span className="choice__check"><Icon name="check" small /></span>{c.label} · {c.range}</span>
-                        <span className="choice__s">{c.note}</span>
+                        <span className="choice__steps">{c.steps}</span>
+                        <span className="choice__s">{c.sentence}</span>
+                        <ul className="choice__pts">
+                          {c.bullets.map((b) => <li key={b}>{b}</li>)}
+                        </ul>
                       </button>
                     ))}
                     <button key="na" className="choice" aria-pressed={age === "na"} onClick={() => setAge("na")}>

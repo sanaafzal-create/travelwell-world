@@ -17,21 +17,79 @@ import type { TravelIdRecord, PartyMember } from "./travelId";
  * Age shapes pace/tone/mobility, NEVER budget (separate axis, locked). Stored as a
  * range, never a birthday. `cohortFor` also accepts the legacy Sign-Up buckets so
  * older Travel IDs keep rendering while onboarding catches up to the 12-cohort set. */
-export interface Cohort { key: string; label: string; range: string; note: string }
+/**
+ * `note` is the compact line — used where there is room for one clause (a party
+ * member's row). `pace` is the fuller copy the picker shows, because the pick is
+ * the one that shapes the whole trip and a person should be able to recognise
+ * themselves in it before choosing.
+ *
+ * ── STEPS, AND WHY THEY SIT UNDER THE RANGE ───────────────────────────────
+ * About 2,100–2,250 steps to the mile, so three miles is roughly 6,500. The
+ * count is there because a great many people over sixty already track it daily
+ * and recognise themselves in it instantly — faster than any adjective.
+ *
+ * ⛔ Pace shapes distance, rest and timing. It NEVER shapes budget — that is a
+ * separate axis, set per Well, and the separation is locked.
+ */
+export interface Cohort {
+  key: string; label: string; range: string; note: string;
+  /** What the range means in steps — the recognisable number. */
+  steps: string;
+  /** One sentence, written to the traveler. */
+  sentence: string;
+  /** Two specifics that shape the day. */
+  bullets: [string, string];
+}
 
 export const AGE_COHORTS: Cohort[] = [
-  { key: "infant", label: "Infant & Toddler", range: "0–3", note: "Runs on naps; stroller/carrier" },
-  { key: "child", label: "Young Child", range: "4–8", note: "Energy in bursts, then a break" },
-  { key: "tween", label: "Tween", range: "9–12", note: "High energy; keeps up with adults" },
-  { key: "teen", label: "Teen", range: "13–17", note: "Full grown-up energy, dawn to dark" },
-  { key: "young-adult", label: "Young Adult", range: "18–24", note: "Peak energy, all day and night" },
-  { key: "early-adult", label: "Early Adult", range: "25–34", note: "Very high; the couples core" },
-  { key: "established", label: "Established Adult", range: "35–44", note: "Strong days; first back-and-knees" },
-  { key: "peak-earner", label: "Peak Earner", range: "45–54", note: "Strong, but rest days now planned" },
-  { key: "pre-retirement", label: "Pre-Retirement", range: "55–64", note: "Steady; likes an easier pace" },
-  { key: "young-senior", label: "Young Senior", range: "65–74", note: "A morning outing, then ease off" },
-  { key: "senior", label: "Senior", range: "75–84", note: "A few active hours, then real rest" },
-  { key: "senior-plus", label: "Senior+", range: "85+", note: "Rest-and-visit; comfort & safety first" },
+  { key: "infant", label: "Infant & Toddler", range: "0–3", note: "Runs on naps; stroller/carrier",
+    steps: "carried — not walking yet",
+    sentence: "Your child rides. The day follows their naps, not the map.",
+    bullets: ["Stroller or arms for any real distance", "Watch heat and drinks — they can't tell you"] },
+  { key: "child", label: "Young Child", range: "4–8", note: "Energy in bursts, then a break",
+    steps: "5,000–10,000 steps",
+    sentence: "A few good hours, then they're done. They'll walk miles for something they want to see.",
+    bullets: ["Busy morning, then a proper rest", "Shade, water and a sit-down every hour"] },
+  { key: "tween", label: "Tween", range: "9–12", note: "High energy; keeps up with adults",
+    steps: "10,000–15,000 steps",
+    sentence: "Keeps pace with adults and barely needs a break. Long days work if there's something at the end.",
+    bullets: ["Full walking days, little rest needed", "Can start diving at 10 — shallow, with an adult"] },
+  { key: "teen", label: "Teen", range: "13–17", note: "Full grown-up energy, dawn to dark",
+    steps: "10,000–20,000 steps",
+    sentence: "Dawn to dark, no rest needed. Can do almost anything an adult can.",
+    bullets: ["Adult pace, adult activities", "Diving to 60 feet from 12, with an adult"] },
+  { key: "young-adult", label: "Young Adult", range: "18–24", note: "Peak energy, all day and night",
+    steps: "8,000–10,000 steps",
+    sentence: "About as strong as a body gets. All day, then all night.",
+    bullets: ["Anything, back to back", "Recovery looks after itself"] },
+  { key: "early-adult", label: "Early Adult", range: "25–34", note: "Very high; the couples core",
+    steps: "8,000–10,000 steps",
+    sentence: "Full days are still easy and you bounce back fast.",
+    bullets: ["Long days, high energy", "Picking between options, not managing limits"] },
+  { key: "established", label: "Established Adult", range: "35–44", note: "Strong days; first back-and-knees",
+    steps: "8,000–10,000 steps",
+    sentence: "Still full days — you just feel them the morning after.",
+    bullets: ["Nothing is off the table", "One easy day after a hard one"] },
+  { key: "peak-earner", label: "Peak Earner", range: "45–54", note: "Strong, but rest days now planned",
+    steps: "8,000–10,000 steps",
+    sentence: "Still strong, but you plan it now. Heat and early starts cost more.",
+    bullets: ["Rest days planned, not hoped for", "Sore knees are common — a big day costs a quiet one"] },
+  { key: "pre-retirement", label: "Pre-Retirement", range: "55–64", note: "Steady; likes an easier pace",
+    steps: "8,000–10,000 steps",
+    sentence: "A good full day, at your own speed. Knees and hips start having opinions.",
+    bullets: ["Full days, easier pace by choice", "Somewhere to sit matters on a long walk"] },
+  { key: "young-senior", label: "Young Senior", range: "65–74", note: "A morning outing, then ease off",
+    steps: "6,000–8,000 steps",
+    sentence: "One good outing, then an easy afternoon. Time is finally yours.",
+    bullets: ["A three-mile walk hits the mark", "Steady footing matters more than distance"] },
+  { key: "senior", label: "Senior", range: "75–84", note: "A few active hours, then real rest",
+    steps: "2,000–5,000 steps",
+    sentence: "Short walks and real rests. Flat ground and a bench beat a long list.",
+    bullets: ["Step-free routes wherever there's a choice", "Every bit counts — it's a direction, not a test"] },
+  { key: "senior-plus", label: "Senior+", range: "85+", note: "Rest-and-visit; comfort & safety first",
+    steps: "up to 2,000 steps",
+    sentence: "One outing, then a proper rest. The outing is the point.",
+    bullets: ["Flat, lifts, and help close by", "Sitting down is fine — being there is what matters"] },
 ];
 
 // Legacy Sign-Up values (and child/teen party ages) → the closest cohort key.
