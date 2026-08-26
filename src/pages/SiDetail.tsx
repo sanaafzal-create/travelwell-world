@@ -5,12 +5,12 @@ import { BackBar } from "@/components/shell/BackBar";
 import { Tagline } from "@/components/ui/primitives";
 import { siJsonLd, useJsonLd } from "@/lib/jsonld";
 import { jewelsForSi, destinationsBehind, type PlacedJewel } from "@/lib/jewels";
-import { type Provider, type Activity, providerDesc } from "@/data/places";
+import { type Provider, type Activity, type Destination, providerDesc } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useSiImage } from "@/lib/unsplash";
 import { useStore, MAX_SIS } from "@/store/useStore";
 import { SiPickBar } from "@/components/ui/SiPickBar";
-import { useSpecialInterests, useActivities, useRegions, useProviders, useWells, useSiCount, useDestinations } from "@/store/useCatalog";
+import { useSpecialInterests, useActivities, useRegions, useProviders, useWells, useSiCount, useDestinations, useCatalogLoaded } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
 
 /** Per-SI editorial copy — mirrors the design prototype's EDITORIAL map. */
@@ -59,8 +59,58 @@ const EDITORIAL: Record<string, { promise: string; intro: string[] }> = {
   },
 };
 
-const GENERIC_INTRO = (si: { name: string; sig: string }, count: number) => [
-  `${si.name} is one of the ${count} ways travelers love to move through the world — ${si.sig}. This world is being curated now.`,
+/**
+ * The fallback intro for an interest with no hand-authored copy.
+ *
+ * ── "BEING CURATED NOW" WAS ASSERTED, NEVER DERIVED (2026-08-26) ──────────
+ * That sentence shipped on every interest without editorial copy, regardless of
+ * what we hold. `/si/tropical` — a LIVE launch interest — told visitors its
+ * world was being curated while carrying 437 jewels across 73 destinations in
+ * six regions. So did `/si/ski`, over 1,476 jewels.
+ *
+ * It is the same defect as the regions shelf below it: a claim about our
+ * catalogue made without reading the catalogue. And it is the worst possible
+ * version of it, because a visitor cannot check it and simply believes us — five
+ * weeks before a demo.
+ *
+ * So the second sentence is DERIVED. An interest with places behind it says what
+ * is there; only a genuinely empty one says it is being curated, which is then
+ * true.
+ */
+const GENERIC_INTRO = (
+  si: { name: string; sig: string },
+  count: number,
+  behind: { destinations: number; regions: number },
+  authoritative: boolean
+) => [
+  `${si.name} is one of the ${count} ways travelers love to move through the world — ${si.sig}.` +
+  // ── THE TWO CLAIMS ARE NOT SYMMETRIC, AND ONLY ONE NEEDS THE GATE ────────
+  // A COUNT is a floor. The browser starts with the 44-row bundle and fills in
+  // when the catalogue answers, so a count taken early understates and then
+  // rises — never wrong, just modest, and it is right in the prerendered HTML
+  // where the full library is present.
+  //
+  // "Being curated now" is the opposite: it is a claim that we hold NOTHING,
+  // and an incomplete catalogue produces it for interests that are full.
+  // `liveaboard` has 26 destinations and zero in the bundle, so it said exactly
+  // that in the browser after the count was derived — the false sentence coming
+  // straight back through the new mechanism.
+  //
+  // ⛔ AND `settled` IS NOT THE GATE, WHICH IS THE SECOND VERSION OF THIS.
+  // `settled` means the fetch FINISHED, and it is set true when the fetch FAILS
+  // — deliberately, because a failed read is an answer. But the answer is "the
+  // catalogue is the 44-row bundle", and a known subset cannot support a claim
+  // that something is empty. Gating on `settled` put the false sentence back for
+  // exactly as long as Supabase is unreachable.
+  //
+  // The predicate is AUTHORITY, not completion: the database, or the server
+  // render, where the full library is seeded at build time. Everything else says
+  // nothing — before we know, a page that is briefly quieter beats one that is
+  // briefly wrong. Same rule `DestinationDetail` follows before it says a place
+  // does not exist.
+  (behind.destinations
+    ? ` ${behind.destinations} ${behind.destinations === 1 ? "destination" : "destinations"} across ${behind.regions} ${behind.regions === 1 ? "region" : "regions"} are ready to build a trip around.`
+    : authoritative ? " This world is being curated now." : ""),
 ];
 
 const FALLBACK_WELLS = ["stay", "activities", "eat", "move"];
@@ -111,8 +161,49 @@ function wellsActivated(siId: string, activities: Record<string, Activity[]>): s
  * already the selection; truncating it again adds nothing but an arbitrary
  * ordering. Seven is the largest any interest has.
  */
-function featuredRegions(siId: string, regions: Region[]): Region[] {
-  return regions.filter((r) => (REGION_SI[r.code] || []).includes(siId));
+/**
+ * Where this interest actually is — read from the CATALOG, ranked by the
+ * editorial map rather than filtered by it.
+ *
+ * ── THE SHELF ASKED A TABLE INSTEAD OF THE DESTINATIONS (2026-08-26) ──────
+ * This filtered `REGION_SI`, a hand-kept affinity map, and never looked at where
+ * the interest's destinations sit. The map has not kept up with the library
+ * ingest, and it is wrong in BOTH directions:
+ *
+ *   tropical    map 0 regions · destinations in 6   → no shelf at all
+ *   liveaboard  map 0          · in 6               → no shelf at all
+ *   expedition  map 0          · in 4               → no shelf at all
+ *   ultra       map 1          · in 8
+ *   river       map 1          · in 6
+ *   romance     map 5          · in 11
+ *   ski         map names 13A, where ski has NO destinations → an over-claim
+ *
+ * So `/si/tropical` rendered no "Best regions" section while holding 77
+ * destinations across six regions, and `/si/ski` offered a region with nothing
+ * in it. Same shape as every other one of these: the thing that decides what to
+ * show reads one level away from the thing it is describing.
+ *
+ * The map is not discarded — it is demoted from GATE to ORDER. A region an
+ * editor named leads; the rest follow by how many destinations they actually
+ * hold, which is a real signal and self-maintaining. A region with none for this
+ * interest never appears, because that is the over-claim.
+ */
+function featuredRegions(
+  siId: string,
+  regions: Region[],
+  destinations: Record<string, Destination[]>
+): Region[] {
+  const counts = new Map<string, number>();
+  for (const [code, list] of Object.entries(destinations)) {
+    const n = list.filter((d) => (d.si ?? []).includes(siId)).length;
+    if (n) counts.set(code, n);
+  }
+  const curated = (code: string) => (REGION_SI[code] || []).includes(siId);
+  return regions
+    .filter((r) => counts.has(r.code))
+    .sort((a, b) =>
+      Number(curated(b.code)) - Number(curated(a.code)) ||
+      (counts.get(b.code) ?? 0) - (counts.get(a.code) ?? 0));
 }
 
 function providerRail(
@@ -315,7 +406,7 @@ function JewelsSection({ si, jewels }: { si: { name: string }; jewels: PlacedJew
 }
 
 function RegionsSection({ si }: { si: { id: string; name: string } }) {
-  const regions = featuredRegions(si.id, useRegions());
+  const regions = featuredRegions(si.id, useRegions(), useDestinations());
   if (!regions.length) return null;
   return (
     <section className="sd-section">
@@ -470,9 +561,21 @@ export default function SiDetail() {
     );
   }
 
+  const allDestinations = useDestinations();
+  // Authoritative = the database answered, or we are the server render, where
+  // the SSR alias seeds the full merged library. Never the browser's bundle.
+  const catalogIsAuthoritative = useCatalogLoaded() || typeof window === "undefined";
   const wells = wellsActivated(si.id, activities);
   const rail = providerRail(si.id, activities, providers);
-  const intro = ed ? ed.intro : GENERIC_INTRO(si, siCount);
+  // Counted from the SETTLED catalog only. Before it settles the browser holds
+  // the 44-row bundle, and a count taken then would understate the page — the
+  // same reason `DestinationDetail` waits before saying it has no such place.
+  const behind = { destinations: 0, regions: 0 };
+  for (const list of Object.values(allDestinations)) {
+    const n = list.filter((d: Destination) => (d.si ?? []).includes(si.id)).length;
+    if (n) { behind.destinations += n; behind.regions += 1; }
+  }
+  const intro = ed ? ed.intro : GENERIC_INTRO(si, siCount, behind, catalogIsAuthoritative);
 
   return (
     <>
