@@ -141,8 +141,23 @@ const advisesOn = (source: AdvisorySourceId, countryName: string) =>
  * Deliberately a slash and nothing else: "&" and "and" appear inside plenty of
  * SINGLE country names — Turks & Caicos, Antigua & Barbuda, Trinidad and Tobago.
  * A looser rule silently downgraded Turks & Caicos to an index link.
+ *
+ * ── BUT NOT A SLASH INSIDE A PARENTHESIS (2026-08-25) ─────────────────────
+ * "St. Barthélemy (France/EU)" is ONE jurisdiction with a parenthetical saying
+ * whose it is. The bare `includes("/")` read it as two and served the FCDO index
+ * instead of the island's own page — which the research library's ETag-verified
+ * batch shows exists, at `st-martin-and-st-barthelemy`.
+ *
+ * The failure is the same kind the comment above already warns about, one layer
+ * in: a rule that is right about the separator and wrong about where it may
+ * appear. The parenthetical is a QUALIFIER — "(US territory)", "(Kingdom of
+ * Denmark)", "(NL)" — and never the span itself, so it is stripped before the
+ * test. A real span is written outside the brackets, which is what "Chile /
+ * Argentina", "Belgium / Luxembourg" and "Sint Maarten (NL) / Saint-Martin (FR)"
+ * all do — and all three still read as multi-country after the strip.
  */
-export const isMultiCountry = (countryName: string) => countryName.includes("/");
+export const isMultiCountry = (countryName: string) =>
+  countryName.replace(/\([^)]*\)/g, "").includes("/");
 
 /**
  * Overrides for countries we hold NO ISO code for.
@@ -200,6 +215,15 @@ const SLUG_OVERRIDES_BY_NAME: Record<string, Partial<Record<AdvisorySourceId, st
   // produced this. (Their note, 2026-08-19: six other names failed the same way —
   // Bonaire, Saba, Antigua & Barbuda, Trinidad & Tobago, Montserrat, Hungary.)
   "Sint Eustatius": { fcdo: "bonaire-st-eustatius-saba" },
+
+  // Same shape as Sint Eustatius, found the same way: two islands on one FCDO
+  // page, under a name no derivation would produce. From the research library's
+  // ETag-verified batch of 2026-08-25, not derived here.
+  //
+  // This one needed the `isMultiCountry` fix above to be reachable at all — the
+  // slash in "(France/EU)" was sending it to the index before any slug was
+  // consulted, so the override alone would have done nothing.
+  "St. Barthélemy (France/EU)": { fcdo: "st-martin-and-st-barthelemy" },
 
   // ── DISPROVED BY HAND, 2026-08-24 (Sana) ─────────────────────────────────
   // `monaco-travel-advisory.html` does not open. Monaco has no entry in State's

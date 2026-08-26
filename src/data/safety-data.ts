@@ -227,6 +227,41 @@ export const COUNTRY_ISO: Record<string, string> = {
   Portugal: "PT", Rwanda: "RW", "Saudi Arabia": "SA", "South Africa": "ZA", "South Korea": "KR",
   Spain: "ES", "St. Lucia": "LC", Switzerland: "CH", Tanzania: "TZ", Thailand: "TH",
   "Turks & Caicos": "TC", UAE: "AE", Uganda: "UG",
+
+  // ── THE FCDO BACKFILL (2026-08-25) ───────────────────────────────────────
+  // 233 destinations across 48 countries were reaching DEFAULT_SAFETY, and the
+  // cause was not missing rows: every country this map could NAME already had
+  // one. It was the naming. A country absent from here resolves to no ISO, so it
+  // gets no row, so it never enters the advisory checker's list, so no reading
+  // ever arrives to justify a row. The loop closes on itself, and widening this
+  // map is what opens it.
+  //
+  // 38 of the 48 are added here, from the research library's ETag-verified FCDO
+  // batch. The ISO codes are ours — the library holds no sourced ISO-3166 table
+  // and declined to type one from memory, which was the right call.
+  //
+  // The 10 that are NOT here are deliberate, and each is a different reason:
+  //   · 7 are AREA-RESTRICTED at the FCDO (Mexico, Mozambique, Brazil, Tunisia,
+  //     Guatemala, Ecuador, Laos — 87 destinations). Naming them here without
+  //     first joining each destination to a zone would print a country-wide
+  //     Level 1 over places sitting inside a named restricted area. Staying
+  //     unnamed keeps them at DEFAULT_SAFETY, which fails safe.
+  //   · 2 span two jurisdictions ("Belgium / Luxembourg", "Sint Maarten (NL) /
+  //     Saint-Martin (FR)"). `isMultiCountry` already refuses to deep-link one
+  //     advisory for these; picking one half's LEVEL is the same guess somewhere
+  //     it matters more.
+  //   · 1 is the United Kingdom. The FCDO issues no advice for its own country,
+  //     so with State retired we hold no advisory authority for it at all. That
+  //     is an accurate gap, not an oversight.
+  Argentina: "AR", Belgium: "BE", Belize: "BZ", Botswana: "BW", "British Virgin Islands": "VG",
+  "Costa Rica": "CR", Croatia: "HR", Denmark: "DK", "Dominican Republic": "DO",
+  "El Salvador": "SV", Estonia: "EE", "Faroe Islands (Kingdom of Denmark)": "FO", Finland: "FI",
+  Honduras: "HN", Hungary: "HU", Ireland: "IE", Jamaica: "JM", Luxembourg: "LU", Monaco: "MC",
+  Morocco: "MA", Nicaragua: "NI", Oman: "OM", Palau: "PW", Panama: "PA",
+  "Puerto Rico (US territory)": "PR", Qatar: "QA", "Sint Eustatius": "BQ", Slovenia: "SI",
+  "St. Barthélemy (France/EU)": "BL", "St. Kitts & Nevis": "KN",
+  "St. Vincent & the Grenadines": "VC", Sweden: "SE", "United States": "US", Uruguay: "UY",
+  "US Virgin Islands (US territory)": "VI", Vietnam: "VN", Zambia: "ZM", Zimbabwe: "ZW",
 };
 
 export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;

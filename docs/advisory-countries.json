@@ -18,6 +18,14 @@
       "fcdo_slug": "united-arab-emirates"
     },
     {
+      "iso": "AR",
+      "name": "Argentina",
+      "match": [
+        "argentina"
+      ],
+      "fcdo_slug": "argentina"
+    },
+    {
       "iso": "AT",
       "name": "Austria",
       "match": [
@@ -34,12 +42,54 @@
       "fcdo_slug": "australia"
     },
     {
+      "iso": "BE",
+      "name": "Belgium",
+      "match": [
+        "belgium"
+      ],
+      "fcdo_slug": "belgium"
+    },
+    {
+      "iso": "BL",
+      "name": "St. Barthélemy (France/EU)",
+      "match": [
+        "st. barthélemy (france/eu)",
+        "st martin and st barthelemy"
+      ],
+      "fcdo_slug": "st-martin-and-st-barthelemy"
+    },
+    {
+      "iso": "BQ",
+      "name": "Sint Eustatius",
+      "match": [
+        "sint eustatius",
+        "bonaire st eustatius saba"
+      ],
+      "fcdo_slug": "bonaire-st-eustatius-saba"
+    },
+    {
       "iso": "BS",
       "name": "Bahamas",
       "match": [
         "bahamas"
       ],
       "fcdo_slug": "bahamas"
+    },
+    {
+      "iso": "BW",
+      "name": "Botswana",
+      "match": [
+        "botswana"
+      ],
+      "fcdo_slug": "botswana"
+    },
+    {
+      "iso": "BZ",
+      "name": "Belize",
+      "match": [
+        "belize"
+      ],
+      "fcdo_slug": "belize"
     },
     {
       "iso": "CA",
@@ -74,12 +124,44 @@
       "fcdo_slug": "colombia"
     },
     {
+      "iso": "CR",
+      "name": "Costa Rica",
+      "match": [
+        "costa rica"
+      ],
+      "fcdo_slug": "costa-rica"
+    },
+    {
       "iso": "DE",
       "name": "Germany",
       "match": [
         "germany"
       ],
       "fcdo_slug": "germany"
+    },
+    {
+      "iso": "DK",
+      "name": "Denmark",
+      "match": [
+        "denmark"
+      ],
+      "fcdo_slug": "denmark"
+    },
+    {
+      "iso": "DO",
+      "name": "Dominican Republic",
+      "match": [
+        "dominican republic"
+      ],
+      "fcdo_slug": "dominican-republic"
+    },
+    {
+      "iso": "EE",
+      "name": "Estonia",
+      "match": [
+        "estonia"
+      ],
+      "fcdo_slug": "estonia"
     },
     {
       "iso": "EG",
@@ -106,6 +188,23 @@
       "fcdo_slug": "ethiopia"
     },
     {
+      "iso": "FI",
+      "name": "Finland",
+      "match": [
+        "finland"
+      ],
+      "fcdo_slug": "finland"
+    },
+    {
+      "iso": "FO",
+      "name": "Faroe Islands (Kingdom of Denmark)",
+      "match": [
+        "faroe islands (kingdom of denmark)",
+        "denmark"
+      ],
+      "fcdo_slug": "denmark"
+    },
+    {
       "iso": "FR",
       "name": "France",
       "match": [
@@ -122,12 +221,44 @@
       "fcdo_slug": "greece"
     },
     {
+      "iso": "HN",
+      "name": "Honduras",
+      "match": [
+        "honduras"
+      ],
+      "fcdo_slug": "honduras"
+    },
+    {
+      "iso": "HR",
+      "name": "Croatia",
+      "match": [
+        "croatia"
+      ],
+      "fcdo_slug": "croatia"
+    },
+    {
+      "iso": "HU",
+      "name": "Hungary",
+      "match": [
+        "hungary"
+      ],
+      "fcdo_slug": "hungary"
+    },
+    {
       "iso": "ID",
       "name": "Indonesia",
       "match": [
         "indonesia"
       ],
       "fcdo_slug": "indonesia"
+    },
+    {
+      "iso": "IE",
+      "name": "Ireland",
+      "match": [
+        "ireland"
+      ],
+      "fcdo_slug": "ireland"
     },
     {
       "iso": "IS",
@@ -144,6 +275,14 @@
         "italy"
       ],
       "fcdo_slug": "italy"
+    },
+    {
+      "iso": "JM",
+      "name": "Jamaica",
+      "match": [
+        "jamaica"
+      ],
+      "fcdo_slug": "jamaica"
     },
     {
       "iso": "JO",
@@ -178,6 +317,15 @@
       "fcdo_slug": "cambodia"
     },
     {
+      "iso": "KN",
+      "name": "St. Kitts & Nevis",
+      "match": [
+        "st. kitts & nevis",
+        "st kitts and nevis"
+      ],
+      "fcdo_slug": "st-kitts-and-nevis"
+    },
+    {
       "iso": "KR",
       "name": "South Korea",
       "match": [
@@ -195,12 +343,44 @@
       "fcdo_slug": "st-lucia"
     },
     {
+      "iso": "LU",
+      "name": "Luxembourg",
+      "match": [
+        "luxembourg"
+      ],
+      "fcdo_slug": "luxembourg"
+    },
+    {
+      "iso": "MA",
+      "name": "Morocco",
+      "match": [
+        "morocco"
+      ],
+      "fcdo_slug": "morocco"
+    },
+    {
+      "iso": "MC",
+      "name": "Monaco",
+      "match": [
+        "monaco"
+      ],
+      "fcdo_slug": "monaco"
+    },
+    {
       "iso": "NA",
       "name": "Namibia",
       "match": [
         "namibia"
       ],
       "fcdo_slug": "namibia"
+    },
+    {
+      "iso": "NI",
+      "name": "Nicaragua",
+      "match": [
+        "nicaragua"
+      ],
+      "fcdo_slug": "nicaragua"
     },
     {
       "iso": "NL",
@@ -227,6 +407,22 @@
       "fcdo_slug": "new-zealand"
     },
     {
+      "iso": "OM",
+      "name": "Oman",
+      "match": [
+        "oman"
+      ],
+      "fcdo_slug": "oman"
+    },
+    {
+      "iso": "PA",
+      "name": "Panama",
+      "match": [
+        "panama"
+      ],
+      "fcdo_slug": "panama"
+    },
+    {
       "iso": "PE",
       "name": "Peru",
       "match": [
@@ -251,12 +447,37 @@
       "fcdo_slug": "philippines"
     },
     {
+      "iso": "PR",
+      "name": "Puerto Rico (US territory)",
+      "match": [
+        "puerto rico (us territory)",
+        "usa"
+      ],
+      "fcdo_slug": "usa"
+    },
+    {
       "iso": "PT",
       "name": "Portugal",
       "match": [
         "portugal"
       ],
       "fcdo_slug": "portugal"
+    },
+    {
+      "iso": "PW",
+      "name": "Palau",
+      "match": [
+        "palau"
+      ],
+      "fcdo_slug": "palau"
+    },
+    {
+      "iso": "QA",
+      "name": "Qatar",
+      "match": [
+        "qatar"
+      ],
+      "fcdo_slug": "qatar"
     },
     {
       "iso": "RW",
@@ -273,6 +494,30 @@
         "saudi arabia"
       ],
       "fcdo_slug": "saudi-arabia"
+    },
+    {
+      "iso": "SE",
+      "name": "Sweden",
+      "match": [
+        "sweden"
+      ],
+      "fcdo_slug": "sweden"
+    },
+    {
+      "iso": "SI",
+      "name": "Slovenia",
+      "match": [
+        "slovenia"
+      ],
+      "fcdo_slug": "slovenia"
+    },
+    {
+      "iso": "SV",
+      "name": "El Salvador",
+      "match": [
+        "el salvador"
+      ],
+      "fcdo_slug": "el-salvador"
     },
     {
       "iso": "TC",
@@ -308,59 +553,89 @@
       "fcdo_slug": "uganda"
     },
     {
+      "iso": "US",
+      "name": "United States",
+      "match": [
+        "united states",
+        "usa"
+      ],
+      "fcdo_slug": "usa"
+    },
+    {
+      "iso": "UY",
+      "name": "Uruguay",
+      "match": [
+        "uruguay"
+      ],
+      "fcdo_slug": "uruguay"
+    },
+    {
+      "iso": "VC",
+      "name": "St. Vincent & the Grenadines",
+      "match": [
+        "st. vincent & the grenadines",
+        "st vincent and the grenadines"
+      ],
+      "fcdo_slug": "st-vincent-and-the-grenadines"
+    },
+    {
+      "iso": "VG",
+      "name": "British Virgin Islands",
+      "match": [
+        "british virgin islands"
+      ],
+      "fcdo_slug": "british-virgin-islands"
+    },
+    {
+      "iso": "VI",
+      "name": "US Virgin Islands (US territory)",
+      "match": [
+        "us virgin islands (us territory)",
+        "usa"
+      ],
+      "fcdo_slug": "usa"
+    },
+    {
+      "iso": "VN",
+      "name": "Vietnam",
+      "match": [
+        "vietnam"
+      ],
+      "fcdo_slug": "vietnam"
+    },
+    {
       "iso": "ZA",
       "name": "South Africa",
       "match": [
         "south africa"
       ],
       "fcdo_slug": "south-africa"
+    },
+    {
+      "iso": "ZM",
+      "name": "Zambia",
+      "match": [
+        "zambia"
+      ],
+      "fcdo_slug": "zambia"
+    },
+    {
+      "iso": "ZW",
+      "name": "Zimbabwe",
+      "match": [
+        "zimbabwe"
+      ],
+      "fcdo_slug": "zimbabwe"
     }
   ],
   "unchecked_served_countries": [
-    "Argentina",
-    "Belgium",
-    "Belize",
-    "Botswana",
     "Brazil",
-    "British Virgin Islands",
-    "Costa Rica",
-    "Croatia",
-    "Denmark",
-    "Dominican Republic",
     "Ecuador",
-    "El Salvador",
-    "Estonia",
-    "Faroe Islands (Kingdom of Denmark)",
-    "Finland",
     "Guatemala",
-    "Honduras",
-    "Hungary",
-    "Ireland",
-    "Jamaica",
     "Laos",
-    "Luxembourg",
     "Mexico",
-    "Monaco",
-    "Morocco",
     "Mozambique",
-    "Nicaragua",
-    "Oman",
-    "Palau",
-    "Panama",
-    "Puerto Rico (US territory)",
-    "Qatar",
-    "Sint Eustatius",
-    "Slovenia",
-    "St. Kitts & Nevis",
-    "St. Vincent & the Grenadines",
-    "Sweden",
     "Tunisia",
-    "US Virgin Islands (US territory)",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Vietnam",
-    "Zambia",
-    "Zimbabwe"
+    "United Kingdom"
   ]
 }
