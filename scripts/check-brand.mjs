@@ -34,12 +34,39 @@ import { join } from "node:path";
 const ROOT = "dist";
 const SCAN = /\.(html|js|css|json|webmanifest|txt|xml|svg)$/i;
 
+/**
+ * ── LAUNCH DAY IS ONE FLIP, NOT TWO EDITS (2026-08-26) ─────────────────────
+ * Retiring the old name used to mean deleting one rule AND inverting the other,
+ * and the note below already warned why that is dangerous: "a window where
+ * neither name is enforced is how both end up shipping." A procedure that warns
+ * against its own middle state should not have a middle state.
+ *
+ * So both rules read this constant and invert together. `false` today: the site
+ * is TravelWell.World, and the unreleased name must not ship. On filing day this
+ * becomes `true` and the pair swaps — TravelVisions becomes correct, TravelWell
+ * becomes the failure — atomically, with no version of this file that enforces
+ * neither.
+ *
+ * The research library's gate carries the same constant under the same name, so
+ * the two repositories flip on one agreed date and neither can be caught holding
+ * the other's state. ⛔ Do not flip this until the filing is through AND the
+ * other side flips in the same window.
+ */
+const BRAND_SWITCHED = false;
+
+const LIVE = BRAND_SWITCHED ? "TravelVisions.World" : "TravelWell.World";
+const COMING = BRAND_SWITCHED ? "TravelWell.World" : "TravelVisions.World";
+// The one-word rule always targets whichever name is NOT live, plus the two-word
+// split of the live one.
+const TWO_WORD_RE = BRAND_SWITCHED ? /travel\s+visions(?![a-z])/i : /travel\s+well(?![a-z])/i;
+const UNRELEASED_RE = BRAND_SWITCHED ? /travel\s*well/i : /travel\s*visions/i;
+
 const RULES = [
   {
     id: "two-word",
     // "travel well" NOT followed by another letter — so "travel wellness" is fine
     // and "Travel Well." is not. Apostrophes and punctuation after are still caught.
-    re: /travel\s+well(?![a-z])/i,
+    re: TWO_WORD_RE,
     headline: "THE TWO-WORD FORM SHIPS",
     advice: `The mark is ONE WORD — TravelWell. A two-word instance is a variant of our own
 mark on our own site, and for a filing resting on consistent use in commerce that
@@ -62,12 +89,12 @@ image ("The wild is calling.") and let the mark end it.`,
     // byline — through every gate, into Postgres and into prerendered HTML,
     // because nothing was looking for a name that is not wrong, only early.
     //
-    // TO RETIRE THIS RULE ON LAUNCH DAY: delete this entry and invert the
-    // `two-word` rule's target. Do it as one deliberate change, not by loosening
-    // this one first — a window where neither name is enforced is how both end
-    // up shipping.
+    // TO RETIRE THIS RULE ON LAUNCH DAY: flip `BRAND_SWITCHED` above. Both rules
+    // invert together, which is what removes the window this note used to warn
+    // about — there is no longer a state where one is loosened and the other has
+    // not yet been tightened.
     id: "unreleased-name",
-    re: /travel\s*visions/i,
+    re: UNRELEASED_RE,
     headline: "THE UNRELEASED BRAND NAME SHIPS",
     advice: `The live site is TravelWell.World. TravelVisions.World is the coming rebrand and
 it is not announced on this surface, so a page carrying it puts two brands in
