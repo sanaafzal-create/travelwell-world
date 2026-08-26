@@ -118,6 +118,26 @@ export interface SafetyInfo {
    */
   reported?: boolean;
   /**
+   * TRUE when the level came from a source's SILENCE rather than its grade.
+   *
+   * ── THE FCDO GRADES NOTHING (2026-08-26) ─────────────────────────────────
+   * The 34 backfilled rows sit at `lvl: 1` because the FCDO publishes no
+   * advisory against travel anywhere in that country. That is a curated
+   * baseline, which our canon allows — our L1–L4 are ours, not the source's.
+   *
+   * But the CARD was presenting it as "Level 1 of 4" in dark green on a
+   * four-colour ramp, directly above a source line naming the FCDO. A reader
+   * reasonably concludes the FCDO graded the country 1 of 4. It grades nothing,
+   * and an absence of a warning is not a statement that a place is safe — the
+   * research library asked for exactly this ("no level and no green badge") and
+   * was right to.
+   *
+   * So the number and the ramp are withheld while the LABEL and the summary do
+   * the work. Distinct from `unverified`: we DO hold a reading here and the
+   * destination books freely. We simply will not draw a grade nobody issued.
+   */
+  fromAbsence?: boolean;
+  /**
    * Set when a DESTINATION-level carve-out is in force — a named zone whose
    * advisory differs from its country's (the FCDO 7km volcanic exclusion on
    * Flores, which State doesn't carry, is the worked example). The card must say
@@ -455,6 +475,9 @@ export function resolveSafety(
     label: LABEL_FOR_LEVEL[lvl],
     ...(carve.notes ? { summary: carve.notes } : {}),
     source,
+    // The level is now a DECLARED reading from this destination's dossier, not
+    // the country's silence — so the card draws the number and the ramp again.
+    fromAbsence: false,
     ...(baseDenies ? { reported: true } : {}),
     ...(carve.verified ? { verified: carve.verified } : {}),
     ...(postureNote ? { considerations: [...base.considerations, postureNote] } : {}),

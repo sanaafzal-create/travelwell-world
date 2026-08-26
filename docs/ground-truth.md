@@ -42,8 +42,8 @@ good as regenerating it.
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:345 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:520 · `export const GUIDES: Guide[] = [` |
-| Country name→ISO entries (`COUNTRY_ISO`) | 78 | src/data/safety-data.ts:213 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 76 | src/data/safety-data.ts:275 · `export const SAFETY_DATA = safetyJson as Recor` |
+| Country name→ISO entries (`COUNTRY_ISO`) | 78 | src/data/safety-data.ts:233 · `export const COUNTRY_ISO: Record<string, strin` |
+| …of those, countries WITH an advisory row (`safety.json`) | 76 | src/data/safety-data.ts:295 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 

@@ -403,11 +403,26 @@ export default function DestinationDetail() {
         <aside className="dd-side">
           <div className="safety-card">
             {/* An unverified card must NOT assert a level we don't have — show "?"
-                and "Not yet verified" instead of inventing "Level 1 of 4". */}
-            <div className="safety-card__top" style={{ background: SAFE_HEADER_COLOR[s.lvl] }}>
-              <div className="safety-card__lvl">{s.unverified ? "?" : s.lvl}</div>
+                and "Not yet verified" instead of inventing "Level 1 of 4".
+
+                AND NEITHER MUST AN ABSENCE (2026-08-26). `fromAbsence` marks a
+                row whose level came from the FCDO publishing NO advisory against
+                travel — which is silence, not a grade. Drawing "Level 1 of 4" in
+                dark green above a source line naming the FCDO tells a reader the
+                FCDO graded the country 1 of 4. It grades nothing.
+
+                So those show a dash on a neutral ground and let the label say
+                what is true. This is NOT the unverified branch: we hold a real
+                reading and the place books freely. We just won't draw a grade
+                nobody issued. */}
+            <div className="safety-card__top" style={{ background: s.fromAbsence ? "#4a4a44" : SAFE_HEADER_COLOR[s.lvl] }}>
+              <div className="safety-card__lvl">{s.unverified ? "?" : s.fromAbsence ? "\u2014" : s.lvl}</div>
               <div>
-                <div className="safety-card__title">{s.unverified ? "Safety Card · Not yet verified" : `Safety Card · Level ${s.lvl} of 4`}</div>
+                <div className="safety-card__title">
+                  {s.unverified ? "Safety Card · Not yet verified"
+                    : s.fromAbsence ? "Safety Card · no advisory against travel"
+                    : `Safety Card · Level ${s.lvl} of 4`}
+                </div>
                 <div className="safety-card__level-label">{s.label}</div>
               </div>
             </div>
