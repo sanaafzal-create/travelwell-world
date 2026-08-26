@@ -45,7 +45,7 @@ function WellCard({ w }: { w: Well }) {
 export default function Wells() {
   const t = useT();
   const allWells = useWells();
-  const wells = allWells.filter((w) => !w.lux); // the core ten
+  const wells = allWells.filter((w) => !w.lux); // the core, non-tiered Wells
   const universalExtras = allWells.filter((w) => WELL_AUDIENCE[w.id] === "universal"); // Nanny — every family
   const ultraExtras = allWells.filter((w) => WELL_AUDIENCE[w.id] === "ultra"); // Security — Ultra only
 
@@ -66,7 +66,7 @@ export default function Wells() {
           {wells.map((w) => <WellCard key={w.id} w={w} />)}
         </div>
 
-        {/* The +2 Wells beyond the core ten, each tiered to the need (David's call):
+        {/* The +2 Wells beyond the core set, each tiered to the need (David's call):
             Nanny is universal (every family); Security is Ultra-only. NOTE: copy
             here is first-pass — flagged for David's wordsmith in the review. */}
         <div className="wi-lux-band" style={{ marginTop: 22 }}>
@@ -74,7 +74,7 @@ export default function Wells() {
             <span className="wi-card__ic" style={{ width: 44, height: 44, background: "color-mix(in oklch,var(--accent) 22%,white)", color: "var(--gold-deep)" }}><Icon name="sparkles" /></span>
             <div>
               <span className="eyebrow" style={{ color: "var(--gold-deep)" }}>Two more Wells, tiered to the need</span>
-              <h2 className="t-h3" style={{ marginTop: 2 }}>Beyond the core ten</h2>
+              <h2 className="t-h3" style={{ marginTop: 2 }}>Beyond the core Wells</h2>
             </div>
           </div>
           <p className="wi-lux-band__note">

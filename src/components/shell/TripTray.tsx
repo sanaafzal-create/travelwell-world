@@ -1,15 +1,29 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
-import { useWells, useLiveWellCount } from "@/store/useCatalog";
+import { useWells } from "@/store/useCatalog";
 import { cap } from "@/lib/utils";
 
 export function TripTray() {
   const { panel, closePanel, trip } = useStore();
-  const wells = useWells().filter((w) => !w.lux);
+  // ── THE DOTS AND THE DENOMINATOR MUST BE THE SAME SET (2026-08-25) ────────
+  // This mapped the full Well ROSTER while the label beside it counted only LIVE
+  // Wells, so the strip drew a different number of dots than the "of N" it sat
+  // next to. Both numbers are individually correct and documented — roster is
+  // what we offer, live is what a trip can fill — which is exactly why the strip
+  // has to pick one and say which. It is a coverage meter, so it is the live set:
+  // a dot for Insure-Well or Ship-Well can never be filled, and a meter with
+  // permanently unfillable segments reads as a trip that is never finished.
+  const wells = useWells().filter((w) => !w.lux && w.status === "live");
   const open = panel === "tray";
-  const covered = new Set(trip.map((b) => b.well)).size;
-  const liveWells = useLiveWellCount();
+  // ONE array decides all three: the dots drawn, the denominator printed, and
+  // what counts as covered. They were three separate expressions and drifted —
+  // the strip drew the full roster while the label counted live Wells only.
+  // Deriving them from the same set is what makes the drift impossible rather
+  // than merely fixed today.
+  const liveWells = wells.length;
+  const wellIds = new Set(wells.map((w) => w.id));
+  const covered = new Set(trip.map((b) => b.well).filter((id) => wellIds.has(id))).size;
 
   return (
     <div className="tw-tray" data-open={open} role="dialog" aria-modal="false" aria-label="Your Trip" aria-hidden={!open} {...(open ? {} : ({ inert: "" } as any))}>

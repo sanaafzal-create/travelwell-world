@@ -81,6 +81,37 @@ const dossierFiles = {
 };
 const shipping = (files: string[]) => files.filter((f) => !f.startsWith("_"));
 
+// ── A COUNT SPELLED OUT IN COPY CANNOT BE READ FROM THE STORE ──────────────
+// Every NUMERIC count on the site already reads from the catalog (`useSiCount`,
+// `useWellCount`), which is why "35 Special Interests" is right by construction.
+// A count written as a WORD is invisible to that machinery: the OS band read
+// "Twenty-five reasons to go" against a board of 35, in five languages, long
+// after the digits were fixed.
+//
+// So the words are checked too. Only the English is scanned — the translations
+// are of the English, so if the source sentence is right the rest follow, and a
+// checker that tried to parse numerals in five scripts would be a second thing
+// to get wrong.
+const NUMBER_WORDS: Record<string, number> = {
+  ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15,
+  twenty: 20, "twenty-five": 25, thirty: 30, "thirty-five": 35, "thirty-eight": 38, forty: 40,
+};
+//
+// Scanned from the English STRING VALUES, not the raw file. The first version
+// read the whole text and immediately flagged its own explanatory comment, which
+// quoted the wrong copy it had just removed — a checker that reports the note
+// describing a fixed bug as the bug.
+const COPY_SRC = readFileSync("src/lib/i18n.ts", "utf8") + readFileSync("src/lib/i18n-catalog.ts", "utf8");
+const COPY = [...COPY_SRC.matchAll(/\ben:\s*"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]).join("\n");
+const countClaims: string[] = [];
+for (const m of COPY.matchAll(/\b([A-Za-z]+(?:-[a-z]+)?)\s+(reasons to go|Signature Interests|Special Interests|interests|Wells)\b/g)) {
+  const n = NUMBER_WORDS[m[1].toLowerCase()];
+  if (n === undefined) continue;
+  const noun = m[2].toLowerCase();
+  const expected = noun === "wells" ? allWells.length : board.length;
+  if (n !== expected) countClaims.push(`"${m[1]} ${m[2]}" — the taxonomy says ${expected}`);
+}
+
 // A RESOLVED destination must not print a level under a source that denies
 // holding one. The row-level check below cannot see this: it reads `safety.json`,
 // and this state only exists after `resolveSafety` merges a dossier carve-out
@@ -566,6 +597,12 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${safetyRows.length} rows consistent`,
     ok: provenanceLies.length === 0,
     where: "src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)",
+  },
+  {
+    rule: "No user-facing copy states a count IN WORDS that disagrees with the taxonomy — the numeric counts read from the store, a spelled-out one cannot",
+    result: countClaims.length ? `${countClaims.length} wrong: ${countClaims.join(" · ")}` : "none — every spelled-out count matches",
+    ok: countClaims.length === 0,
+    where: "src/lib/i18n.ts + src/lib/i18n-catalog.ts vs boardSis(SIS) / WELLS+LUX_WELLS",
   },
   {
     rule: "No RESOLVED destination prints a level under a source that denies holding one — the row check can't see this, it only exists after a carve-out merges over an unverified baseline",

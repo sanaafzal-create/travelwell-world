@@ -184,6 +184,10 @@ the provider.
    → all 76 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
+✅ **No user-facing copy states a count IN WORDS that disagrees with the taxonomy — the numeric counts read from the store, a spelled-out one cannot**
+   → none — every spelled-out count matches
+   → `src/lib/i18n.ts + src/lib/i18n-catalog.ts vs boardSis(SIS) / WELLS+LUX_WELLS`
+
 ✅ **No RESOLVED destination prints a level under a source that denies holding one — the row check can't see this, it only exists after a carve-out merges over an unverified baseline**
    → none — every printed level carries provenance that stands behind it
    → `src/data/safety-data.ts (`resolveSafety`) vs the merged catalog`
