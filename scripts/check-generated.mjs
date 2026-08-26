@@ -37,6 +37,7 @@ const GENERATORS = [
   ["gen:taglines", "docs/tagline-family.md"],
   ["gen:advisory-links", "docs/advisory-links.md"],
   ["gen:advisory-payload", "docs/advisory-countries.json + migration 0015"],
+  ["gen:board", "docs/board.json"],
   ["gen:routes", "vercel.json (the rewrite list, read from the router)"],
 ];
 
@@ -70,6 +71,7 @@ const OWNED = [
   "docs/tagline-family.md",
   "docs/advisory-links.md",
   "docs/advisory-countries.json",
+  "docs/board.json",
   // The hosting config. Generated because a rewrite list that drifts from the
   // router either 404s a real page or resurrects the catch-all it replaced.
   "vercel.json",

@@ -1,0 +1,315 @@
+{
+  "_what": "The taxonomy as separated sets, for tools that cannot import taxonomy.ts. Generated — do not hand-edit.",
+  "_rule": "A slug is a Signature Interest ONLY if it appears in `interests`. Categories, Wells and retired rows are listed so a consumer can recognise them and reject them, never so it can accept them.",
+  "_generated_by": "npm run gen:board",
+  "counts": {
+    "interests": 35,
+    "retired": 4,
+    "categories": 10,
+    "wells": 13
+  },
+  "interests": [
+    {
+      "id": "ultra",
+      "name": "Ultra-Luxury",
+      "status": "live"
+    },
+    {
+      "id": "tropical",
+      "name": "Tropical Islands",
+      "status": "live"
+    },
+    {
+      "id": "romance",
+      "name": "Romance, Marriages & Honeymoons",
+      "status": "live"
+    },
+    {
+      "id": "safari",
+      "name": "Safari Adventures",
+      "status": "live"
+    },
+    {
+      "id": "expedition",
+      "name": "Global Expedition Adventures",
+      "status": "live"
+    },
+    {
+      "id": "ski",
+      "name": "Winter/Ski",
+      "status": "live"
+    },
+    {
+      "id": "golf",
+      "name": "Golf Globally",
+      "status": "preview"
+    },
+    {
+      "id": "rail",
+      "name": "Global Rail Journeys",
+      "status": "preview"
+    },
+    {
+      "id": "barge",
+      "name": "Hotel-Barge & Canal Cruising",
+      "status": "preview"
+    },
+    {
+      "id": "privatejet",
+      "name": "Private-Jet Expeditions",
+      "status": "preview"
+    },
+    {
+      "id": "caravan",
+      "name": "Desert & Camel Caravans",
+      "status": "preview"
+    },
+    {
+      "id": "overland",
+      "name": "Luxury Overland Expeditions",
+      "status": "preview"
+    },
+    {
+      "id": "motoring",
+      "name": "Classic-Car & Motorcycle Touring",
+      "status": "preview"
+    },
+    {
+      "id": "adventure",
+      "name": "Global Adventures",
+      "status": "preview"
+    },
+    {
+      "id": "hiking",
+      "name": "Hiking & Trekking",
+      "status": "preview"
+    },
+    {
+      "id": "liveaboard",
+      "name": "Dive Liveaboards",
+      "status": "live"
+    },
+    {
+      "id": "river",
+      "name": "River Cruises",
+      "status": "live"
+    },
+    {
+      "id": "diveglobal",
+      "name": "Dive Globally",
+      "status": "preview"
+    },
+    {
+      "id": "ocean",
+      "name": "Ocean & Watersports",
+      "status": "preview"
+    },
+    {
+      "id": "wellness",
+      "name": "Wellness, Spa & Retreats",
+      "status": "preview"
+    },
+    {
+      "id": "wildlife",
+      "name": "Wildlife & Nature",
+      "status": "preview"
+    },
+    {
+      "id": "glamping",
+      "name": "Global Glamping",
+      "status": "preview"
+    },
+    {
+      "id": "family",
+      "name": "Family Travel",
+      "status": "preview"
+    },
+    {
+      "id": "group",
+      "name": "Group Travel",
+      "status": "preview"
+    },
+    {
+      "id": "senior",
+      "name": "Senior Travel",
+      "status": "preview"
+    },
+    {
+      "id": "culture",
+      "name": "Culture & Heritage",
+      "status": "preview"
+    },
+    {
+      "id": "deepdive",
+      "name": "Cultural Deep Dives",
+      "status": "preview"
+    },
+    {
+      "id": "pilgrimage",
+      "name": "Religious & Pilgrimage",
+      "status": "preview"
+    },
+    {
+      "id": "entertainment",
+      "name": "Global Live Entertainment",
+      "status": "preview"
+    },
+    {
+      "id": "culinary",
+      "name": "Culinary Experiences",
+      "status": "preview"
+    },
+    {
+      "id": "sports",
+      "name": "Individual Sports",
+      "status": "preview"
+    },
+    {
+      "id": "spectator",
+      "name": "Sports Spectator Travel",
+      "status": "preview"
+    },
+    {
+      "id": "sailing",
+      "name": "Sailing Charters",
+      "status": "preview"
+    },
+    {
+      "id": "yacht",
+      "name": "Yacht Charters",
+      "status": "preview"
+    },
+    {
+      "id": "wine",
+      "name": "Wine & Whiskey/Spirits Tours",
+      "status": "preview"
+    }
+  ],
+  "retired": [
+    {
+      "id": "nightlife",
+      "name": "Nightlife & City"
+    },
+    {
+      "id": "olympic",
+      "name": "Olympic Travel"
+    },
+    {
+      "id": "prosports",
+      "name": "Pro Sports Team Travel"
+    },
+    {
+      "id": "compsports",
+      "name": "Competitive Sports Team Travel"
+    }
+  ],
+  "categories": [
+    {
+      "id": "premium",
+      "name": "Premium & Signature"
+    },
+    {
+      "id": "journeys",
+      "name": "Journeys of a Lifetime"
+    },
+    {
+      "id": "adventure",
+      "name": "Adventure & Active"
+    },
+    {
+      "id": "water",
+      "name": "Water & Cruise"
+    },
+    {
+      "id": "nature",
+      "name": "Nature & Wellbeing"
+    },
+    {
+      "id": "lifestage",
+      "name": "Life-Stage"
+    },
+    {
+      "id": "culture",
+      "name": "Culture, Heritage & Pilgrimage"
+    },
+    {
+      "id": "entertainment",
+      "name": "Global Entertainment"
+    },
+    {
+      "id": "culinary",
+      "name": "Culinary, Wine & Spirits"
+    },
+    {
+      "id": "sports",
+      "name": "Sports"
+    }
+  ],
+  "wells": [
+    {
+      "id": "fly",
+      "name": "Fly-Well",
+      "status": "live"
+    },
+    {
+      "id": "stay",
+      "name": "Stay-Well",
+      "status": "live"
+    },
+    {
+      "id": "eat",
+      "name": "Eat-Well",
+      "status": "live"
+    },
+    {
+      "id": "move",
+      "name": "Move-Well",
+      "status": "live"
+    },
+    {
+      "id": "gear",
+      "name": "Gear-Well",
+      "status": "live"
+    },
+    {
+      "id": "beauty",
+      "name": "Beauty-Well",
+      "status": "live"
+    },
+    {
+      "id": "activities",
+      "name": "Activities-Well",
+      "status": "live"
+    },
+    {
+      "id": "shop",
+      "name": "Shop-Well",
+      "status": "live"
+    },
+    {
+      "id": "insure",
+      "name": "Insure-Well",
+      "status": "soon"
+    },
+    {
+      "id": "ship",
+      "name": "Ship-Well",
+      "status": "soon"
+    },
+    {
+      "id": "pets",
+      "name": "Pets-Well",
+      "status": "soon"
+    },
+    {
+      "id": "nanny",
+      "name": "Nanny-Well",
+      "status": "live"
+    },
+    {
+      "id": "security",
+      "name": "Security-Well",
+      "status": "live"
+    }
+  ]
+}

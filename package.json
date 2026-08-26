@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.4.0",
   "type": "module",
-  "description": "TravelWell.World \u2014 a Travel Operating System. React + TypeScript + Tailwind + Supabase + Claude.",
+  "description": "TravelWell.World — a Travel Operating System. React + TypeScript + Tailwind + Supabase + Claude.",
   "scripts": {
     "dev": "vite",
     "build": "npm run gen:sitemap && tsc -b && vite build && npm run gen:heads && npm run prerender",
@@ -27,7 +27,8 @@
     "prepare": "git config core.hooksPath .githooks 2>/dev/null || true",
     "gen:routes": "esbuild scripts/gen-vercel-routes.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/routes.mjs && node scratchpad/routes.mjs",
     "check:advisory-text": "esbuild scripts/check-advisory-text.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/advtext.mjs && node scratchpad/advtext.mjs",
-    "prerender": "esbuild scripts/prerender.tsx --bundle --platform=node --format=esm --jsx=automatic --loader:.css=empty --loader:.png=empty --loader:.svg=empty --alias:@=./src --alias:@/data/places=./scripts/ssr/places-merged.ts --packages=external --define:import.meta.env.DEV=false --define:import.meta.env.PROD=true --define:import.meta.env.VITE_SUPABASE_URL='\"\"' --define:import.meta.env.VITE_SUPABASE_ANON_KEY='\"\"' --outfile=scratchpad/prerender.mjs && node scratchpad/prerender.mjs"
+    "prerender": "esbuild scripts/prerender.tsx --bundle --platform=node --format=esm --jsx=automatic --loader:.css=empty --loader:.png=empty --loader:.svg=empty --alias:@=./src --alias:@/data/places=./scripts/ssr/places-merged.ts --packages=external --define:import.meta.env.DEV=false --define:import.meta.env.PROD=true --define:import.meta.env.VITE_SUPABASE_URL='\"\"' --define:import.meta.env.VITE_SUPABASE_ANON_KEY='\"\"' --outfile=scratchpad/prerender.mjs && node scratchpad/prerender.mjs",
+    "gen:board": "esbuild scripts/gen-board.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genboard.mjs && node scratchpad/genboard.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
