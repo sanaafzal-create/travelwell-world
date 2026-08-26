@@ -81,6 +81,17 @@ const dossierFiles = {
 };
 const shipping = (files: string[]) => files.filter((f) => !f.startsWith("_"));
 
+// A RESOLVED destination must not print a level under a source that denies
+// holding one. The row-level check below cannot see this: it reads `safety.json`,
+// and this state only exists after `resolveSafety` merges a dossier carve-out
+// over an unverified baseline. On the day it was added, 86 live destinations were
+// in it — "Exercise increased caution" over "No verified advisory on file".
+const DENIES_HOLDING = /no verified advisory on file|not yet verified|held pending review/i;
+const resolvedContradiction = Object.values(mergedDestinations()).flat().filter((d) => {
+  const s = resolveSafety(d as never, (COUNTRY_ISO as Record<string, string>)[(d as { country: string }).country] ?? null);
+  return !s.unverified && DENIES_HOLDING.test(s.source);
+}) as { id: string }[];
+
 // Every country a destination sits in needs a country-level safety row, because
 // `resolveSafety` cascades country → destination: a dossier carve-out with no
 // baseline underneath it has nothing to carve out of.
@@ -555,6 +566,14 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${safetyRows.length} rows consistent`,
     ok: provenanceLies.length === 0,
     where: "src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)",
+  },
+  {
+    rule: "No RESOLVED destination prints a level under a source that denies holding one — the row check can't see this, it only exists after a carve-out merges over an unverified baseline",
+    result: resolvedContradiction.length
+      ? `${resolvedContradiction.length} contradict themselves: ${resolvedContradiction.slice(0, 6).map((d) => d.id).join(", ")}${resolvedContradiction.length > 6 ? `, +${resolvedContradiction.length - 6} more` : ""}`
+      : "none — every printed level carries provenance that stands behind it",
+    ok: resolvedContradiction.length === 0,
+    where: "src/data/safety-data.ts (`resolveSafety`) vs the merged catalog",
   },
   {
     rule: "A `reported` safety row carries no `verified` date — we act on it, we don't claim it",

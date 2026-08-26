@@ -22,7 +22,7 @@ NOT POPULATED YET  (an empty structure and a filled one look identical in a sche
   Destinations with feel tags .... 7 of 44
   Destinations with sub_region ... 15 of 44
 
-CONFORMANCE  24 checks, 2 failing
+CONFORMANCE  25 checks, 2 failing
   FAILING — Every INGESTED destination has a country advisory row
            94 of 503 destinations (19%) sit in a country with NO row, across 10 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +2 more · of those, 15 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Honduras, Mexico, Nicaragua, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
   FAILING — Our curated level matches the level State published for that country

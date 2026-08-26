@@ -16,7 +16,9 @@ import { cohortLabel, activityLabel, accessLabel } from "./identity";
 import { fetchSignals } from "./signals";
 import { useStore } from "@/store/useStore";
 import { useCatalog } from "@/store/useCatalog";
-import { resolveDestId } from "@/data/places";
+import { resolveDestId, type Destination } from "@/data/places";
+import { resolveSafety, isoForCountry, stricterZones } from "@/data/safety-data";
+import { advisoryLinks } from "@/data/advisory-sources";
 
 interface Considered {
   regions: string[];
@@ -35,6 +37,78 @@ function hereFrom(path: string | null): { kind: "destination" | "region" | "si";
   if (a === "region") return { kind: "region", id: b };
   if (a === "si") return { kind: "si", id: b };
   return null;
+}
+
+/**
+ * The safety block Atlas is given for the destination in play.
+ *
+ * ── ATLAS COULD NOT WARN ABOUT A LEVEL IT WAS NEVER GIVEN (2026-08-25) ─────
+ * Canon has said since 2026-08-10 that Atlas surfaces the level and then solves
+ * — "that area carries a Level 3 for this reason, here is where the risk sits
+ * versus where you'd be, and here are three places that give you the same thing
+ * at Level 1." The context carried no safety field of any kind, so the rule
+ * described behaviour the model had no way to perform. The prompt said "never
+ * fabricate a safety fact", which left it correctly silent and no more.
+ *
+ * Sana asked for exactly this on 2026-08-10: "put the level in that context, and
+ * add a rule that Atlas states it the first time a destination comes into play,
+ * before it starts building."
+ *
+ * ── BUILT FROM `resolveSafety`, NOT FROM A SECOND COPY ────────────────────
+ * The research library supplied a 545-row per-destination safety file for this.
+ * We read our own cascade instead, because `resolveSafety(dest, iso)` IS the
+ * canonical country → destination read, and a parallel table would be a second
+ * source of truth for the one fact we can least afford to hold twice. It also
+ * means the backfill and any advisory move reach Atlas the same day they reach
+ * the card, with nothing to re-ingest.
+ *
+ * ── AND IT IS NEVER TRUNCATED ─────────────────────────────────────────────
+ * The library's rule, and it is right: a safety field that degrades gracefully
+ * is a safety field that vanishes under load. Everything else in this file is
+ * best-effort and sliced to fit; this block is whole or the destination is not
+ * described as safe-to-plan at all. `unverified` is carried as itself rather
+ * than collapsed to a level, because "we have not checked" and "we checked and
+ * it is fine" must never arrive at the model as the same value.
+ */
+// Exported so it can be checked directly. The rest of this file is only
+// observable by driving the app; a safety field is the one part that has to be
+// verifiable on its own, without a browser and without a network.
+export function safetyBlockFor(dest: Destination): Record<string, unknown> {
+  const iso = isoForCountry(dest.country);
+  const s = resolveSafety(dest, iso);
+  // The FCDO first because it is our primary source, but NOT only the FCDO: it
+  // publishes nothing for the United Kingdom, and taking `find(fcdo)` alone left
+  // London with a level and no advisory to point a traveller at.
+  const links = advisoryLinks(dest.country, iso);
+  const fcdo = links.find((l) => l.source.id === "fcdo") ?? links[0];
+  return {
+    destination: dest.name,
+    country: dest.country,
+    // No number at all when we hold none. A null here is a fact Atlas must state,
+    // not a gap for it to fill.
+    level: s.unverified ? null : s.lvl,
+    label: s.label,
+    unverified: Boolean(s.unverified),
+    // We hold a level but cannot call it verified — Atlas may act on it and must
+    // not present it as confirmed.
+    reported: Boolean(s.reported),
+    bookingHold: Boolean(s.bookingHold),
+    source: s.source,
+    ...(s.inZone ? { inNamedArea: { name: s.inZone.name, level: s.inZone.lvl } } : {}),
+    // The rest of the country's picture, so a Level 1 destination inside a
+    // country with Level 4 areas can be described accurately rather than flatly.
+    ...(stricterZones(s).length
+      ? { stricterAreasElsewhereInCountry: stricterZones(s).map((z) => ({ name: z.name, level: z.lvl })) }
+      : {}),
+    ...(fcdo ? { advisoryUrl: fcdo.href, advisoryUrlIsDeepLink: fcdo.deep } : {}),
+    atlasMust: s.unverified
+      ? "State plainly that we hold no verified advisory for this destination and point at the official advisory. Do not describe it as safe, and do not plan around a level you do not have."
+      : s.bookingHold
+        ? "State the level and why booking is held here BEFORE planning anything, then offer alternatives that give them the same thing at a lower level. Never read as a refusal."
+        : s.lvl >= 3
+          ? "State the level and the reason the first time this destination comes into play, before building. Say where the risk sits versus where they would be, and offer alternatives in the same breath."
+          : "State the level once when this destination first comes into play. An absence of an advisory is never a statement that a place is safe.",
+  };
 }
 
 /** What the traveler viewed but didn't commit to — the considered-not-chosen trail. */
@@ -113,6 +187,16 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
   };
 
   if (here) ctx.viewing = here.kind === "si" ? { kind: "si", name: nameOfSI(here.id) } : here.kind === "region" ? { kind: "region", name: nameOfRegion(here.id) } : here;
+
+  // The destination in play gets its safety block. Deliberately NOT inside the
+  // try/catch that guards the rest: everything else here degrades to "Atlas knows
+  // less", and a safety read must not be allowed to degrade that way. If the
+  // catalogue can't produce the destination we emit nothing rather than a partial
+  // block, so Atlas has no half-fact to reason from.
+  if (here?.kind === "destination") {
+    const dest = Object.values(cat.destinations).flat().find((d) => d.id === here.id);
+    if (dest) ctx.safety = safetyBlockFor(dest);
+  }
 
   if (profileRec) {
     ctx.profile = {

@@ -429,12 +429,33 @@ export function resolveSafety(
     };
   }
   const differs = !base.unverified && lvl !== base.lvl;
+  // ── A LEVEL MUST NOT INHERIT A SOURCE THAT DENIES HOLDING ONE (2026-08-25)
+  // When the country baseline is unverified and a dossier carve-out supplies the
+  // level, `unverified` flips to false and the level prints — but the source
+  // string was still the base's, which reads "No verified advisory on file". 86
+  // live destinations showed "Exercise increased caution" attributed to a
+  // sentence saying we hold no advisory: Mexico's 50, Mozambique's 12, the UK's
+  // 5, and so on.
+  //
+  // That is the Uganda failure in a different coat — a card contradicting itself
+  // about its own provenance — and the existing conformance check could not see
+  // it, because it reads `safety.json` ROWS and this only exists on the RESOLVED
+  // record. The check now reads the resolver too.
+  //
+  // So when the baseline holds nothing, the level's provenance is the dossier's,
+  // and it is `reported` rather than verified: a claim we act on and do not
+  // dress up as a confirmed government reading.
+  const baseDenies = base.unverified && !carve.source;
+  const source = carve.source ?? (baseDenies
+    ? "From this destination's own dossier — we hold no country-level advisory for it yet"
+    : base.source);
   return {
     ...base,
     lvl,
     label: LABEL_FOR_LEVEL[lvl],
     ...(carve.notes ? { summary: carve.notes } : {}),
-    ...(carve.source ? { source: carve.source } : {}),
+    source,
+    ...(baseDenies ? { reported: true } : {}),
     ...(carve.verified ? { verified: carve.verified } : {}),
     ...(postureNote ? { considerations: [...base.considerations, postureNote] } : {}),
     unverified: false,

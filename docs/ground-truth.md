@@ -184,6 +184,10 @@ the provider.
    → all 76 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
+✅ **No RESOLVED destination prints a level under a source that denies holding one — the row check can't see this, it only exists after a carve-out merges over an unverified baseline**
+   → none — every printed level carries provenance that stands behind it
+   → `src/data/safety-data.ts (`resolveSafety`) vs the merged catalog`
+
 ✅ **A `reported` safety row carries no `verified` date — we act on it, we don't claim it**
    → none claim both
    → `src/data/safety.json`
