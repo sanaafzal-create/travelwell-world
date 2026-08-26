@@ -49,13 +49,25 @@ await context.addInitScript(() => { try { localStorage.setItem("tww:consent", "1
 const page = await context.newPage();
 
 let total = 0;
+// UNREACHABLE IS NOT A VIOLATION, AND SAYING SO WAS A LIE (2026-08-25).
+// A route that failed to load used to add 1 to `total`, so a run with the
+// preview server down printed "❌ a11y gate FAILED — 15 violation node(s)".
+// Zero nodes had been examined. The number was not an overstatement, it was a
+// fabrication, and it is the mirror of the rule this repo already wrote for the
+// advisory checker: a verifier that reports a result it did not measure is worse
+// than no verifier, because someone points at it before shipping.
+//
+// Both outcomes still fail — an unreachable route is a real problem — but they
+// fail as different things, with different exit codes, so "the server wasn't up"
+// can never be read as "the pages have accessibility defects".
+let unreachable = 0;
 const byRule = {};
 for (const route of ROUTES) {
   try {
     await page.goto(BASE + route, { waitUntil: "domcontentloaded", timeout: 20000 });
   } catch {
     console.error(`  ✗ could not load ${route}`);
-    total += 1;
+    unreachable += 1;
     continue;
   }
   await page.waitForTimeout(700); // let React settle / lazy chunk mount
@@ -77,11 +89,25 @@ for (const route of ROUTES) {
 await browser.close();
 
 console.log("\n────────────────────────────────────────");
+const audited = ROUTES.length - unreachable;
+if (unreachable === ROUTES.length) {
+  // Nothing was read, so nothing is known. Exit 2, not 1: a build that treats
+  // this as "accessibility broke" sends someone hunting a defect that isn't there.
+  console.log(`⚠️  a11y gate DID NOT RUN — all ${ROUTES.length} routes unreachable at ${BASE}`);
+  console.log(`   Nothing was audited, so this is not a pass and not a violation count.`);
+  console.log(`   Start the server first:  npm run build && npm run preview`);
+  process.exit(2);
+}
+if (unreachable > 0) {
+  console.log(`❌ a11y gate FAILED — ${unreachable} of ${ROUTES.length} routes unreachable at ${BASE}`);
+  console.log(`   ${audited} route(s) were audited and found ${total} violation node(s).`);
+  for (const [rule, n] of Object.entries(byRule).sort((a, b) => b[1] - a[1])) console.log(`   ${rule}: ${n}`);
+  process.exit(3);
+}
 if (total === 0) {
   console.log(`✅ a11y gate PASSED — ${ROUTES.length} routes, 0 WCAG 2 A/AA violations`);
   process.exit(0);
-} else {
-  console.log(`❌ a11y gate FAILED — ${total} violation node(s) across ${ROUTES.length} routes`);
-  for (const [rule, n] of Object.entries(byRule).sort((a, b) => b[1] - a[1])) console.log(`   ${rule}: ${n}`);
-  process.exit(1);
 }
+console.log(`❌ a11y gate FAILED — ${total} violation node(s) across ${ROUTES.length} routes`);
+for (const [rule, n] of Object.entries(byRule).sort((a, b) => b[1] - a[1])) console.log(`   ${rule}: ${n}`);
+process.exit(1);
