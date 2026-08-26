@@ -367,6 +367,27 @@ const findZone = (zones: SafetyZone[] | undefined, name: string): SafetyZone | u
   zones?.find((z) => z.name.trim().toLowerCase() === name.trim().toLowerCase());
 
 /**
+ * AN UNVERIFIED CARD MUST NOT SIT BESIDE A BOOK BUTTON (2026-08-26).
+ *
+ * `DEFAULT_SAFETY` has said since it was written that `unverified` "tells the
+ * booking gate to treat this as not-freely-bookable". The gate reads
+ * `bookingHold`, and nothing ever set it from `unverified` — so 15 live
+ * destinations rendered "Safety Card · Not yet verified", a "?" where the level
+ * goes, and a working Book It button directly underneath.
+ *
+ * The research library found the shape of this and put it at 110 rows; the
+ * backfill had already closed most of it. 15 is the real figure and every one is
+ * a place we have genuine doubt about — Guatemala, Mexico, and the four countries
+ * held because a stricter reading disagrees with the FCDO's silence. Those are
+ * exactly the ones not to sell.
+ *
+ * Their remedy is the better one and it is not in conflict: verify them and the
+ * hold lifts itself. Until then the page must not contradict its own card.
+ */
+const holdIfUnverified = (s: SafetyInfo): SafetyInfo =>
+  s.unverified && !s.bookingHold ? { ...s, bookingHold: true } : s;
+
+/**
  * THE CASCADE, resolved: country advisory → destination carve-out.
  *
  * The country level is the baseline; a destination's own dossier can override it
@@ -386,7 +407,7 @@ export function resolveSafety(
 ): SafetyInfo {
   const base = getSafety(iso);
   const carve = (dest?.data as { safety?: DossierSafety } | undefined)?.safety;
-  if (!carve) return base;
+  if (!carve) return holdIfUnverified(base);
 
   const declared = carve.advisory_level ? LEVEL_FROM_ADVISORY[carve.advisory_level.toUpperCase()] : undefined;
 
@@ -442,11 +463,11 @@ export function resolveSafety(
   // record rather than overriding it — it isn't a carve-out.
   if (!lvl) {
     const extra = [carve.notes, postureNote].filter(Boolean) as string[];
-    return {
+    return holdIfUnverified({
       ...base,
       ...(extra.length ? { considerations: [...base.considerations, ...extra] } : {}),
       ...(hold ? { bookingHold: true } : {}),
-    };
+    });
   }
   const differs = !base.unverified && lvl !== base.lvl;
   // ── A LEVEL MUST NOT INHERIT A SOURCE THAT DENIES HOLDING ONE (2026-08-25)
