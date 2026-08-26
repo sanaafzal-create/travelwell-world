@@ -30,6 +30,7 @@ import { COUNTRY_ISO, SAFETY_DATA, resolveSafety } from "../src/data/safety-data
 import { mergedDestinations } from "./lib/destination-batches";
 import { isIndexableDestination } from "../src/lib/site";
 import { stateSnapshotLevel, STATE_FEED_UPDATED } from "./lib/state-feed";
+import { LEGAL_ENTITY, GOVERNING_LAW } from "../src/lib/legal";
 
 /**
  * A citation that survives the file moving underneath it.
@@ -597,6 +598,18 @@ const checks: { rule: string; result: string; ok: boolean; where: string }[] = [
       : `all ${safetyRows.length} rows consistent`,
     ok: provenanceLies.length === 0,
     where: "src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)",
+  },
+  {
+    // Not a data-shape rule — a "we do not hold this fact yet" rule, which is the
+    // kind that rots silently. The old form of this was a parenthetical inside
+    // the rendered Terms page, which is to say: visible to every visitor and to
+    // nobody who could act on it.
+    rule: "The governing-law jurisdiction is set — until it is, the Terms page says so plainly rather than naming a state nobody checked",
+    result: GOVERNING_LAW
+      ? `${GOVERNING_LAW} — ${LEGAL_ENTITY}`
+      : `UNSET for ${LEGAL_ENTITY}. Terms renders the with-counsel wording; set GOVERNING_LAW in src/lib/legal.ts once confirmed and the real clause renders with no other edit`,
+    ok: GOVERNING_LAW !== null,
+    where: "src/lib/legal.ts · rendered by src/pages/Terms.tsx",
   },
   {
     rule: "No user-facing copy states a count IN WORDS that disagrees with the taxonomy — the numeric counts read from the store, a spelled-out one cannot",

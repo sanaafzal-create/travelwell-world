@@ -184,6 +184,10 @@ the provider.
    → all 76 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
+⚠️ **The governing-law jurisdiction is set — until it is, the Terms page says so plainly rather than naming a state nobody checked**
+   → UNSET for TravelWell.World LLC. Terms renders the with-counsel wording; set GOVERNING_LAW in src/lib/legal.ts once confirmed and the real clause renders with no other edit
+   → `src/lib/legal.ts · rendered by src/pages/Terms.tsx`
+
 ✅ **No user-facing copy states a count IN WORDS that disagrees with the taxonomy — the numeric counts read from the store, a spelled-out one cannot**
    → none — every spelled-out count matches
    → `src/lib/i18n.ts + src/lib/i18n-catalog.ts vs boardSis(SIS) / WELLS+LUX_WELLS`
