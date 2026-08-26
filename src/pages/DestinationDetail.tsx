@@ -273,7 +273,7 @@ export default function DestinationDetail() {
         <div className="dd-hero__img"><img src={hero.src} alt={DEST.name} referrerPolicy="no-referrer" loading="lazy" /></div>
         <div className="dd-hero__scrim" />
         {hero.credit && (
-          <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 11, color: "rgba(255,255,255,.8)" }}>
+          <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 13, color: "rgba(255,255,255,.8)" }}>
             {/* Only claim Unsplash when it IS one — a pinned editorial hero may come
                 from an operator or our own shoot, and mislabelling the source is
                 both wrong and an attribution problem. */}
@@ -348,7 +348,7 @@ export default function DestinationDetail() {
                       ) : (
                         <>
                           <button className="btn btn-primary" onClick={() => openPanel("concierge")} style={{ minHeight: 38, padding: "0 16px", fontSize: 13 }}>Book It</button>
-                          <span className="pv__mode" style={{ fontSize: 11.5, color: "var(--muted-foreground)" }}>{bookingLabel(p)}</span>
+                          <span className="pv__mode" style={{ fontSize: 13, color: "var(--muted-foreground)" }}>{bookingLabel(p)}</span>
                         </>
                       )}
                     </div>
@@ -491,7 +491,7 @@ export default function DestinationDetail() {
             <h4>At a glance</h4>
             <div className="dd-quick__row"><span className="dd-quick__k">Country</span><span className="dd-quick__v">{country}</span></div>
             <div className="dd-quick__row"><span className="dd-quick__k">Region</span><span className="dd-quick__v">{R.name}</span></div>
-            <div className="dd-quick__row"><span className="dd-quick__k">Gateways</span><span className="dd-quick__v" style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>{R.gateways}</span></div>
+            <div className="dd-quick__row"><span className="dd-quick__k">Gateways</span><span className="dd-quick__v" style={{ fontFamily: "var(--font-mono)", fontSize: 13 }}>{R.gateways}</span></div>
             <div className="dd-quick__row"><span className="dd-quick__k">Status</span><span className="dd-quick__v">{stub ? "Preview" : "Live"}</span></div>
           </div>
 

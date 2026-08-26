@@ -337,12 +337,12 @@ export default function Home() {
             {MARQUEE_EVENTS.slice(0, 8).map((e) => (
               <Link key={e.id} to="/calendar" className="mrq-tile" style={{ border: "1px solid var(--border)", borderRadius: 14, padding: 14, background: "var(--surface-alt)", display: "flex", flexDirection: "column", gap: 6, textDecoration: "none", color: "inherit" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", minHeight: 22 }}>
-                  {e.flagship && <span style={{ background: "var(--gold-deep)", color: "white", fontSize: 11, padding: "2px 8px", borderRadius: 999 }}>{t("mrq.flagship")}</span>}
+                  {e.flagship && <span style={{ background: "var(--gold-deep)", color: "white", fontSize: 13, padding: "2px 8px", borderRadius: 999 }}>{t("mrq.flagship")}</span>}
                   {e.regionName && <span className="t-body-s" style={{ color: "var(--muted-foreground)" }}>{ct(`region.${e.regionCode}.name`, e.regionName)}</span>}
                 </div>
                 <div style={{ fontWeight: 600, fontSize: 15, lineHeight: 1.3 }}>{e.title}</div>
                 <div className="t-body-s" style={{ color: "var(--muted-foreground)", display: "flex", alignItems: "center", gap: 5 }}><Icon name="pin" small /> {whenLabel(e)}</div>
-                {e.bookBy && <div style={{ fontSize: 12.5, color: "var(--gold-deep)", fontWeight: 600 }}>{t("mrq.bookBy")}: {e.bookBy}</div>}
+                {e.bookBy && <div style={{ fontSize: 13, color: "var(--gold-deep)", fontWeight: 600 }}>{t("mrq.bookBy")}: {e.bookBy}</div>}
               </Link>
             ))}
           </div>

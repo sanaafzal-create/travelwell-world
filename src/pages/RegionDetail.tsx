@@ -64,7 +64,7 @@ export default function RegionDetail() {
         <div className="rd-hero__img"><img src={heroPhoto.src} alt={R.name} referrerPolicy="no-referrer" /></div>
         <div className="rd-hero__scrim" />
         {heroPhoto.credit && (
-          <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 11, color: "rgba(255,255,255,.8)" }}>
+          <span style={{ position: "absolute", bottom: 8, insetInlineEnd: 12, zIndex: 3, fontSize: 13, color: "rgba(255,255,255,.8)" }}>
             Photo · <a href={heroPhoto.credit.link} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>{heroPhoto.credit.name}</a> / Unsplash
           </span>
         )}

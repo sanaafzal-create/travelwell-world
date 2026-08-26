@@ -10,7 +10,7 @@
 /* ============================================================================
    HEADER NAV (§3.1) — minimal top bar, full IA in the mega-menu
    ========================================================================== */
-.tw-header { position: sticky; top: 0; z-index: 80; background: color-mix(in oklch, var(--background) 90%, transparent); backdrop-filter: blur(12px) saturate(1.2); border-bottom: 1px solid var(--border); }
+.tw-header { position: sticky; top: 0; z-index: 80; background: color-mix(in oklch, var(--background) 90%, transparent); backdrop-filter: blur(12px) saturate(1.2); border-bottom: 1px solid var(--border-hair); }
 .tw-header__bar { max-width: var(--content-max); margin-inline: auto; padding: 0 var(--gutter); height: 68px; display: flex; align-items: center; gap: 6px; }
 
 .tw-logo { display: inline-flex; align-items: baseline; gap: 0; font-family: var(--font-display); font-weight: 600; font-size: 23px; color: var(--foreground); text-decoration: none; letter-spacing: -.01em; margin-inline-end: 8px; }
@@ -58,7 +58,7 @@
 .tw-emerg-btn .ic { width: 20px; height: 20px; }
 @media (hover: hover) { .tw-emerg-btn:hover { filter: brightness(1.08); transform: translateY(-1px); } }
 .tw-emerg-btn:focus-visible { outline: 3px solid var(--destructive); outline-offset: 3px; }
-.tw-iconbtn .badge, .tw-trip-btn .badge { position: absolute; top: -3px; inset-inline-end: -3px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; text-align: center; border: 2px solid var(--background); box-sizing: border-box; }
+.tw-iconbtn .badge, .tw-trip-btn .badge { position: absolute; top: -3px; inset-inline-end: -3px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 9px; background: var(--primary); color: #fff; font-size: 13px; font-weight: 700; line-height: 1; display: flex; align-items: center; justify-content: center; text-align: center; border: 2px solid var(--background); box-sizing: border-box; }
 
 /* Itinerary — a prominent, easy-to-spot labelled pill (senior-first, David).
    Outlined so it stands beside the filled-green Ask-Atlas without competing. */
@@ -77,7 +77,7 @@
 .tw-locale__btn { height: 42px; padding: 0 12px; border-radius: var(--radius-pill); border: 1px solid var(--border); background: var(--card); color: var(--foreground); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-sans); font-weight: 500; font-size: 14px; }
 .tw-locale__btn:hover { background: var(--surface-alt); }
 .tw-locale__menu { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; width: 232px; background: var(--popover); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--e2); padding: 6px; z-index: 90; }
-.tw-locale__group { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; padding: 8px 10px 4px; }
+.tw-locale__group { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; padding: 8px 10px 4px; }
 .tw-locale__item { width: 100%; text-align: start; border: 0; background: none; cursor: pointer; padding: 9px 10px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--foreground); }
 .tw-locale__item:hover { background: var(--secondary); }
 .tw-locale__item .native { color: var(--muted-foreground); margin-inline-start: auto; }
@@ -90,26 +90,26 @@
 /* ============================================================================
    MEGA MENU — "Worlds of Adventure" (§3.1, full IA)
    ========================================================================== */
-.tw-mega { position: fixed; inset: 68px 0 auto 0; z-index: 70; background: var(--card); border-bottom: 1px solid var(--border); box-shadow: var(--e2); max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+.tw-mega { position: fixed; inset: 68px 0 auto 0; z-index: 70; background: var(--card); border-bottom: 1px solid var(--border-hair); box-shadow: var(--e2); max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
 .tw-mega[data-open="true"] { opacity: 1; visibility: visible; transform: translateY(0); }
 .tw-mega__close { position: absolute; top: 14px; inset-inline-end: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; transition: background-color .15s ease; }
 .tw-mega__close:hover { background: var(--surface-alt); }
 .tw-mega__inner { max-width: var(--content-max); margin-inline: auto; padding: 32px var(--gutter) 36px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 36px; }
-.tw-mega__col h4 { font-family: var(--font-sans); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; margin-bottom: 14px; }
+.tw-mega__col h4 { font-family: var(--font-sans); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; margin-bottom: 14px; }
 .tw-mega__link { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: var(--radius-sm); color: var(--foreground); text-decoration: none; font-size: 14.5px; transition: background-color .12s ease; }
 .tw-mega__link:hover { background: var(--surface-alt); text-decoration: none; }
 .tw-mega__link--gold { color: var(--gold-deep); font-weight: 600; }
 .tw-mega__link--gold .ic { color: var(--accent); }
 .tw-mega__link--gold:hover { background: color-mix(in oklch, var(--accent) 12%, white); }
 .tw-mega__link .ic { color: var(--primary); }
-.tw-mega__link .tag { color: var(--muted-foreground); font-size: 12.5px; margin-inline-start: auto; }
+.tw-mega__link .tag { color: var(--muted-foreground); font-size: 13px; margin-inline-start: auto; }
 .tw-mega__si-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
 .tw-mega__feature { grid-column: 1 / -1; border-radius: var(--radius); overflow: hidden; position: relative; min-height: 132px; display: flex; flex-direction: column; justify-content: flex-end; padding: 16px; color: #fff; margin-bottom: 6px; background: linear-gradient(160deg, #2C6E68, #1f4f4a); }
 .tw-mega__feature .eyebrow { color: rgba(255,255,255,.8); }
 .tw-mega__feature h3 { color: #fff; font-size: 22px; margin-top: 4px; }
 .tw-mega__feature .sig { font-family: var(--font-display); font-style: italic; font-size: 13.5px; color: rgba(255,255,255,.85); margin-top: 4px; }
 .tw-mega__viewall { display:inline-flex; align-items:center; gap:6px; margin-top: 10px; font-weight: 600; font-size: 13.5px; color: var(--primary); }
-.tw-mega__signature { grid-column: 1 / -1; border-top: 1px solid var(--border); margin-top: 6px; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.tw-mega__signature { grid-column: 1 / -1; border-top: 1px solid var(--border-hair); margin-top: 6px; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 
 .tw-backdrop { position: fixed; inset: 0; background: rgba(28,27,24,.28); z-index: 60; opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility .2s; }
 .tw-backdrop[data-open="true"] { opacity: 1; visibility: visible; }
@@ -142,12 +142,12 @@
 /* ============================================================================
    CONCIERGE — "Talk to Me" panel (§3.2) — all states
    ========================================================================== */
-.tw-concierge { position: fixed; inset-block: 0; inset-inline-end: 0; width: 420px; max-width: 100vw; z-index: 95; background: var(--card); border-inline-start: 1px solid var(--border); box-shadow: var(--e3); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.tw-concierge { position: fixed; inset-block: 0; inset-inline-end: 0; width: 420px; max-width: 100vw; z-index: 95; background: var(--card); border-inline-start: 1px solid var(--border-hair); box-shadow: var(--e3); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); }
 [dir="rtl"] .tw-concierge { transform: translateX(-100%); }
 .tw-concierge[data-open="true"] { transform: translateX(0); }
-.tw-concierge__head { padding: 18px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+.tw-concierge__head { padding: 18px 20px; border-bottom: 1px solid var(--border-hair); display: flex; align-items: center; gap: 12px; }
 /* "Start over" — quiet ghost control in the head; clears the conversation. */
-.tw-concierge__restart { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; color: var(--muted-foreground); font-family: var(--font-sans); font-size: 12.5px; font-weight: 500; cursor: pointer; padding: 4px 6px; border-radius: var(--radius-sm); white-space: nowrap; }
+.tw-concierge__restart { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; color: var(--muted-foreground); font-family: var(--font-sans); font-size: 13px; font-weight: 500; cursor: pointer; padding: 4px 6px; border-radius: var(--radius-sm); white-space: nowrap; }
 .tw-concierge__restart:hover { background: var(--surface-alt); color: var(--foreground); }
 /* Collapsed Atlas — a gentle floating pill so Atlas stays beside you across the
    whole journey without taking the screen. Tap to reopen, full history intact. */
@@ -163,7 +163,7 @@
 .legal { max-width: var(--reading-max, 760px); margin-inline: auto; padding: clamp(36px, 6vw, 64px) var(--gutter) 80px; }
 .legal__head { margin-bottom: 30px; }
 .legal__head h1 { font-family: var(--font-serif, var(--font-sans)); font-size: clamp(30px, 5vw, 44px); line-height: 1.05; letter-spacing: -0.015em; margin: 10px 0 0; }
-.legal__updated { margin-top: 12px; font-family: var(--font-mono, monospace); font-size: 12.5px; letter-spacing: .04em; color: var(--muted-foreground); }
+.legal__updated { margin-top: 12px; font-family: var(--font-mono, monospace); font-size: 13px; letter-spacing: .04em; color: var(--muted-foreground); }
 .legal__body { font-size: 16.5px; line-height: 1.72; color: var(--foreground); }
 .legal__body > p { margin: 0 0 18px; }
 .legal__body h2 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; margin: 34px 0 10px; }
@@ -184,12 +184,12 @@
 .tw-footer__legal a:hover { opacity: 1; }
 .tw-concierge__avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(150deg, var(--primary), var(--primary-hover)); display: grid; place-items: center; color: #fff; flex: none; }
 .tw-concierge__title { font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.1; }
-.tw-concierge__sub { font-size: 12.5px; color: var(--muted-foreground); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.tw-concierge__sub { font-size: 13px; color: var(--muted-foreground); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
 .tw-concierge__sub .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--safety-1); }
-.tw-concierge__context { padding: 10px 20px; background: var(--surface-alt); border-bottom: 1px solid var(--border); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--muted-foreground); }
+.tw-concierge__context { padding: 10px 20px; background: var(--surface-alt); border-bottom: 1px solid var(--border-hair); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 13px; color: var(--muted-foreground); }
 .tw-concierge__context .ctx-chip { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 3px 9px; font-weight: 500; color: var(--foreground); }
 .tw-concierge__body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
-.tw-concierge__foot { border-top: 1px solid var(--border); padding: 14px 16px; }
+.tw-concierge__foot { border-top: 1px solid var(--border-hair); padding: 14px 16px; }
 
 /* messages */
 .tw-msg { max-width: 86%; padding: 12px 15px; border-radius: 16px; font-size: 14.5px; line-height: 1.5; }
@@ -281,7 +281,7 @@
 .tw-tour__cap { position: fixed; pointer-events: auto; display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 11px 13px; box-shadow: 0 12px 36px rgba(0,0,0,.24); }
 .tw-tour__avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; flex: none; }
 .tw-tour__line { font-size: 13.5px; line-height: 1.4; color: var(--foreground); }
-.tw-tour__skip { margin-inline-start: 2px; background: none; border: 0; color: var(--muted-foreground); font-size: 12px; text-decoration: underline; cursor: pointer; flex: none; }
+.tw-tour__skip { margin-inline-start: 2px; background: none; border: 0; color: var(--muted-foreground); font-size: 13px; text-decoration: underline; cursor: pointer; flex: none; }
 @media (prefers-reduced-motion: reduce) { .tw-tour__ring { animation: none; } }
 
 /* speaking signal — a tiny animated equalizer on the message Atlas is reading
@@ -304,9 +304,9 @@
 /* recommendation set (3–5 options each w/ a reason) */
 .tw-rec { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; background: var(--card); display: flex; gap: 12px; align-items: flex-start; transition: border-color .15s ease, box-shadow .15s ease; cursor: pointer; }
 .tw-rec:hover { border-color: var(--primary); box-shadow: var(--e1); }
-.tw-rec__num { width: 24px; height: 24px; border-radius: 50%; background: var(--secondary); color: var(--secondary-foreground); font-weight: 700; font-size: 12px; display: grid; place-items: center; flex: none; }
+.tw-rec__num { width: 24px; height: 24px; border-radius: 50%; background: var(--secondary); color: var(--secondary-foreground); font-weight: 700; font-size: 13px; display: grid; place-items: center; flex: none; }
 .tw-rec__name { font-weight: 600; font-size: 14.5px; }
-.tw-rec__why { font-size: 12.5px; color: var(--muted-foreground); margin-top: 3px; }
+.tw-rec__why { font-size: 13px; color: var(--muted-foreground); margin-top: 3px; }
 .tw-rec__why b { color: var(--primary); font-weight: 600; }
 
 /* listening (voice in) — an unmistakable animated widget above the composer: a
@@ -319,7 +319,7 @@
 .tw-listen-orb { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; flex: none; position: relative; }
 .tw-listen-orb::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid var(--primary); opacity: .4; animation: tw-pulse 1.6s infinite ease-out; }
 @keyframes tw-pulse { 0% { transform: scale(.9); opacity: .5; } 100% { transform: scale(1.3); opacity: 0; } }
-.tw-listen-copy { font-size: 12.5px; line-height: 1.4; color: var(--foreground); }
+.tw-listen-copy { font-size: 13px; line-height: 1.4; color: var(--foreground); }
 .tw-wave { display: flex; gap: 3px; align-items: center; height: 22px; flex: none; }
 .tw-wave i { width: 3px; background: var(--primary); border-radius: 2px; animation: tw-wave 1s infinite ease-in-out; }
 @keyframes tw-wave { 0%,100% { height: 5px; } 50% { height: 20px; } }
@@ -355,13 +355,13 @@
 
 /* read/hear/both toggle */
 .tw-io-toggle { display: flex; gap: 4px; background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 3px; margin-bottom: 12px; }
-.tw-io-toggle button { flex: 1; border: 0; background: none; cursor: pointer; padding: 6px 8px; border-radius: var(--radius-pill); font-size: 12.5px; font-weight: 500; color: var(--muted-foreground); display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
+.tw-io-toggle button { flex: 1; border: 0; background: none; cursor: pointer; padding: 6px 8px; border-radius: var(--radius-pill); font-size: 13px; font-weight: 500; color: var(--muted-foreground); display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
 .tw-io-toggle button[aria-pressed="true"] { background: var(--card); color: var(--foreground); font-weight: 600; box-shadow: var(--e1); }
 
 /* primer (first-use) */
 .tw-primer { text-align: center; padding: 8px 4px; }
 .tw-primer .tw-concierge__avatar { width: 56px; height: 56px; margin: 0 auto 14px; }
-.tw-stop-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 12.5px; color: var(--muted-foreground); }
+.tw-stop-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 13px; color: var(--muted-foreground); }
 
 /* degraded / offline banner */
 .tw-degraded { background: color-mix(in oklch, var(--safety-3) 14%, white); border: 1px solid color-mix(in oklch, var(--safety-3) 35%, white); color: oklch(.45 .12 55); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 13px; display: flex; gap: 8px; align-items: center; }
@@ -369,21 +369,21 @@
 /* ============================================================================
    YOUR TRIP tray (§3.3)
    ========================================================================== */
-.tw-tray { position: fixed; inset-block: 0; inset-inline-end: 0; width: 380px; max-width: 100vw; z-index: 95; background: var(--card); border-inline-start: 1px solid var(--border); box-shadow: var(--e3); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.tw-tray { position: fixed; inset-block: 0; inset-inline-end: 0; width: 380px; max-width: 100vw; z-index: 95; background: var(--card); border-inline-start: 1px solid var(--border-hair); box-shadow: var(--e3); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); }
 [dir="rtl"] .tw-tray { transform: translateX(-100%); }
 .tw-tray[data-open="true"] { transform: translateX(0); }
-.tw-tray__head { padding: 18px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.tw-tray__head { padding: 18px 20px; border-bottom: 1px solid var(--border-hair); display: flex; align-items: center; justify-content: space-between; }
 .tw-tray__body { flex: 1; overflow-y: auto; padding: 18px 20px; }
-.tw-tray__foot { border-top: 1px solid var(--border); padding: 16px 20px; }
+.tw-tray__foot { border-top: 1px solid var(--border-hair); padding: 16px 20px; }
 .tw-tray__empty { text-align: center; padding: 40px 16px; color: var(--muted-foreground); }
 .tw-tray__empty .tw-empty-ic { width: 64px; height: 64px; border-radius: 50%; background: var(--surface-alt); display: grid; place-items: center; margin: 0 auto 16px; color: var(--muted-foreground); }
 .tw-trip-coverage { display: flex; gap: 5px; margin: 14px 0; }
 .tw-trip-coverage i { flex: 1; height: 5px; border-radius: 3px; background: var(--border); }
 .tw-trip-coverage i.on { background: var(--primary); }
-.tw-trip-block { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.tw-trip-block { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-hair); }
 .tw-trip-block__ic { width: 38px; height: 38px; border-radius: 9px; background: var(--secondary); color: var(--primary); display: grid; place-items: center; flex: none; }
 .tw-trip-block__name { font-weight: 600; font-size: 14px; }
-.tw-trip-block__meta { font-size: 12.5px; color: var(--muted-foreground); margin-top: 2px; display:flex; gap:6px; align-items:center; }
+.tw-trip-block__meta { font-size: 13px; color: var(--muted-foreground); margin-top: 2px; display:flex; gap:6px; align-items:center; }
 
 .tw-toast { position: fixed; inset-inline: 0; bottom: 24px; margin-inline: auto; width: fit-content; max-width: 90vw; z-index: 110; background: var(--foreground); color: var(--background); padding: 12px 18px; border-radius: var(--radius-pill); box-shadow: var(--e3); display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; pointer-events: none; }
 .tw-toast[data-show="true"] { opacity: 1; transform: translateY(0); }
@@ -404,7 +404,7 @@
 .tw-emerg-item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius); }
 .tw-emerg-item__ic { width: 40px; height: 40px; border-radius: 10px; background: color-mix(in oklch, var(--destructive) 9%, white); color: var(--destructive); display: grid; place-items: center; flex: none; }
 .tw-emerg-item__name { font-weight: 600; font-size: 15px; }
-.tw-emerg-item__meta { font-size: 12.5px; color: var(--muted-foreground); }
+.tw-emerg-item__meta { font-size: 13px; color: var(--muted-foreground); }
 .tw-emerg-item__call { margin-inline-start: auto; }
 
 /* ============================================================================
@@ -413,7 +413,7 @@
 .tw-whisper { position: fixed; inset-inline-end: 24px; bottom: 24px; width: 320px; max-width: calc(100vw - 32px); z-index: 88; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--e2); padding: 14px 14px 14px 16px; display: flex; gap: 12px; transform: translateY(20px); opacity: 0; visibility: hidden; transition: opacity .3s ease, transform .3s ease, visibility .3s; }
 .tw-whisper[data-show="true"] { transform: translateY(0); opacity: 1; visibility: visible; }
 .tw-whisper__ic { width: 34px; height: 34px; border-radius: 50%; background: var(--secondary); color: var(--primary); display: grid; place-items: center; flex: none; }
-.tw-whisper__kind { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+.tw-whisper__kind { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); font-weight: 700; }
 .tw-whisper__text { font-size: 13.5px; line-height: 1.45; margin-top: 3px; }
 .tw-whisper__close { background: none; border: 0; cursor: pointer; color: var(--muted-foreground); padding: 2px; align-self: flex-start; }
 .tw-whisper__act { margin-top: 8px; background: none; border: 0; padding: 0; cursor: pointer; color: var(--primary); font-weight: 700; font-size: 13px; }
@@ -444,10 +444,10 @@
 .tw-footer__brand .tw-logo .lworld { color: var(--accent); }
 .tw-footer__sig { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--dark-band-muted); margin-top: 16px; max-width: 30ch; }
 .tw-footer__sig .tw { color: var(--accent); font-style: normal; }
-.tw-footer__col h5 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--dark-band-muted); font-weight: 700; margin-bottom: 16px; }
+.tw-footer__col h5 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--dark-band-muted); font-weight: 700; margin-bottom: 16px; }
 .tw-footer__col a { display: block; color: var(--dark-band-foreground); opacity: .85; font-size: 14px; padding: 5px 0; text-decoration: none; }
 .tw-footer__col a:hover { opacity: 1; color: var(--accent); text-decoration: none; }
-.tw-footer__bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 40px; padding-top: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--dark-band-muted); }
+.tw-footer__bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 40px; padding-top: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--dark-band-muted); }
 .tw-footer__version { font-family: var(--font-mono); }
 
 /* ============================================================================
@@ -533,7 +533,7 @@
    labelled buttons, ≥44px, visible focus, colour never the only signal. */
 /* ── Vision loop — Atlas writes the dream back, the traveler confirms ────── */
 .tw-vision { display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-alt); }
-.tw-vision__label { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted-foreground); }
+.tw-vision__label { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted-foreground); }
 .tw-vision__dream p { margin: 4px 0 0; font-family: var(--font-display, serif); font-size: 17px; line-height: 1.4; color: var(--foreground); }
 .tw-well-chip.is-picked { border-color: var(--primary); background: color-mix(in oklch, var(--primary) 12%, var(--surface-alt)); color: var(--primary); font-weight: 600; }
 .tw-well-chip[aria-pressed="true"]::after { content: " ✓"; }
@@ -546,7 +546,7 @@
    a calm weight, and does not stick (only the header does). Unmissable, not
    loud. */
 .tw-motto {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-hair);
   background: var(--surface-alt);
 }
 .tw-motto__line {

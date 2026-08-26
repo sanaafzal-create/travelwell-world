@@ -4,20 +4,20 @@
    ========================================================================== */
 
 /* ===== always-visible Wells bar ===== */
-.wb { position: relative; z-index: 45; background: var(--card); border-bottom: 1px solid var(--border); }
+.wb { position: relative; z-index: 45; background: var(--card); border-bottom: 1px solid var(--border-hair); }
 .wb__inner { max-width: var(--content-max); margin-inline: auto; padding: 12px var(--gutter); display: flex; align-items: center; gap: 10px; }
-.wb__label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; flex: none; }
+.wb__label { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; flex: none; }
 .wb__rail { display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none; padding: 2px; flex: 1; }
 .wb__rail::-webkit-scrollbar { display: none; }
 .wb-chip { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--border); background: var(--card); border-radius: var(--radius-pill); padding: 8px 14px 8px 11px; cursor: pointer; font-family: var(--font-sans); font-weight: 600; font-size: 13.5px; color: var(--foreground); white-space: nowrap; transition: border-color .15s, background-color .15s; flex: none; }
 .wb-chip:hover { border-color: color-mix(in oklch, var(--primary) 40%, var(--border)); }
 .wb-chip[aria-pressed="true"] { border-color: var(--primary); background: var(--secondary); color: var(--secondary-foreground); }
 .wb-chip__ic { width: 22px; height: 22px; display: grid; place-items: center; color: var(--primary); flex: none; }
-.wb-chip__count { width: 19px; height: 19px; border-radius: 50%; background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; display: grid; place-items: center; flex: none; }
+.wb-chip__count { width: 19px; height: 19px; border-radius: 50%; background: var(--primary); color: #fff; font-size: 13px; font-weight: 700; display: grid; place-items: center; flex: none; }
 .wb-chip--soon { color: var(--muted-foreground); }
 .wb-chip--soon .wb-chip__ic { color: var(--muted-foreground); }
 .wb-chip--soon[aria-pressed="true"] { color: var(--secondary-foreground); border-color: var(--primary); background: var(--secondary); }
-.wb-chip__soon { font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted-foreground); background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 2px 7px; }
+.wb-chip__soon { font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted-foreground); background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 2px 7px; }
 .wb-chip--lux .wb-chip__ic { color: var(--gold-deep); }
 
 /* ===== well panel ===== */
@@ -30,12 +30,12 @@
 .wp__meta { margin-inline-start: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
 .wp__budget { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--secondary-foreground); background: var(--secondary); border-radius: var(--radius-pill); padding: 6px 13px; }
 .wp__budget .ic { color: var(--primary); }
-.wp__scope { font-size: 12.5px; color: var(--muted-foreground); }
+.wp__scope { font-size: 13px; color: var(--muted-foreground); }
 
 /* filter row */
 .wp__filters { display: flex; align-items: center; gap: 8px; margin: 20px 0 6px; flex-wrap: wrap; }
-.wp__filters .sortlabel { font-size: 12.5px; color: var(--muted-foreground); margin-inline-end: 2px; }
-.wp-fchip { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-pill); padding: 6px 13px; font-size: 12.5px; font-weight: 600; color: var(--foreground); cursor: pointer; font-family: var(--font-sans); }
+.wp__filters .sortlabel { font-size: 13px; color: var(--muted-foreground); margin-inline-end: 2px; }
+.wp-fchip { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius-pill); padding: 6px 13px; font-size: 13px; font-weight: 600; color: var(--foreground); cursor: pointer; font-family: var(--font-sans); }
 .wp-fchip[aria-pressed="true"] { background: var(--foreground); color: var(--background); border-color: var(--foreground); }
 .wp__count-note { margin-inline-start: auto; font-size: 13px; color: var(--muted-foreground); }
 
@@ -47,25 +47,25 @@
 .pv__body { padding: 18px 20px; flex: 1; }
 .pv__top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
 .pv__name { font-family: var(--font-display); font-weight: 600; font-size: 19px; line-height: 1.15; flex: 1; }
-.pv__tier { font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: var(--radius-pill); flex: none; }
+.pv__tier { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 9px; border-radius: var(--radius-pill); flex: none; }
 .pv__tier--prime { background: var(--accent); color: var(--accent-foreground); }
 .pv__tier--vetted { background: var(--secondary); color: var(--secondary-foreground); }
 .pv__tier--prospective { background: var(--surface-alt); color: var(--muted-foreground); border: 1px solid var(--border); }
 .pv__desc { font-size: 14px; color: var(--muted-foreground); line-height: 1.5; }
 .pv__attrs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-.pv__attr { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--foreground); background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 4px 10px; }
+.pv__attr { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--foreground); background: var(--surface-alt); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 4px 10px; }
 .pv__attr .dot { width: 7px; height: 7px; border-radius: 50%; }
 .pv__attr--match { color: var(--primary); border-color: color-mix(in oklch, var(--primary) 35%, var(--border)); background: var(--secondary); }
-.pv__foot { border-top: 1px solid var(--border); padding: 14px 20px; background: var(--surface-alt); }
+.pv__foot { border-top: 1px solid var(--border-hair); padding: 14px 20px; background: var(--surface-alt); }
 .pv__cta-row { display: flex; align-items: center; gap: 10px; }
 .pv__cta-row .btn { flex: 1; }
-.pv__mode { font-size: 11.5px; color: var(--muted-foreground); display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.pv__ftc { display: flex; gap: 7px; align-items: flex-start; margin-top: 10px; font-size: 11.5px; line-height: 1.4; color: var(--muted-foreground); }
+.pv__mode { font-size: 13px; color: var(--muted-foreground); display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.pv__ftc { display: flex; gap: 7px; align-items: flex-start; margin-top: 10px; font-size: 13px; line-height: 1.4; color: var(--muted-foreground); }
 .pv__ftc svg { flex: none; margin-top: 1px; }
 .pv__added-tag { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-weight: 600; font-size: 13px; }
 
 /* prime divider */
-.pv-section-label { display: flex; align-items: center; gap: 10px; margin: 26px 0 4px; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; }
+.pv-section-label { display: flex; align-items: center; gap: 10px; margin: 26px 0 4px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; }
 .pv-section-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
 /* show more */
@@ -95,7 +95,7 @@
 .wp-writein__form input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--secondary); }
 
 /* continue bar */
-.wp-continue { position: sticky; bottom: 0; z-index: 44; background: var(--card); border-top: 1px solid var(--border); box-shadow: 0 -8px 28px rgba(28,27,24,.08); margin-top: 48px; }
+.wp-continue { position: sticky; bottom: 0; z-index: 44; background: var(--card); border-top: 1px solid var(--border-hair); box-shadow: 0 -8px 28px rgba(28,27,24,.08); margin-top: 48px; }
 .wp-continue__inner { max-width: var(--content-max); margin-inline: auto; padding: 14px var(--gutter); display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .wp-continue__summary { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
 .wp-continue__cov { display: flex; gap: 4px; }

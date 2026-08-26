@@ -425,7 +425,7 @@ export function Concierge() {
             </div>
           )}
           {primed && !listening && (
-            <div className="t-body-s" style={{ color: "var(--muted-foreground)", fontSize: 12.5, margin: "2px 2px 6px" }}>{t("atlas.cue")}{voiceOffered ? ` ${t("atlas.cue.hear")}` : ""}</div>
+            <div className="t-body-s" style={{ color: "var(--muted-foreground)", fontSize: 13, margin: "2px 2px 6px" }}>{t("atlas.cue")}{voiceOffered ? ` ${t("atlas.cue.hear")}` : ""}</div>
           )}
           {listening && (
             <div className="tw-listening-live" role="status" aria-live="polite">

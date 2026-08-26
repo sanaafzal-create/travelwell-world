@@ -45,7 +45,7 @@ export function TripTray() {
                 <div style={{ flex: 1 }}>
                   <div className="tw-trip-block__name">{b.name}</div>
                   <div className="tw-trip-block__meta">
-                    {b.meta} · <span className={`pill ${b.status === "confirmed" ? "pill-live" : b.status === "pending" ? "pill-gold" : "pill-preview"}`} style={{ padding: "2px 8px", fontSize: 11 }}>{cap(b.status)}</span>
+                    {b.meta} · <span className={`pill ${b.status === "confirmed" ? "pill-live" : b.status === "pending" ? "pill-gold" : "pill-preview"}`} style={{ padding: "2px 8px", fontSize: 13 }}>{cap(b.status)}</span>
                   </div>
                 </div>
               </div>

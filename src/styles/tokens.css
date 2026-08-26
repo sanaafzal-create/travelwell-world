@@ -22,7 +22,25 @@
   --secondary-foreground: oklch(0.44 0.052 178);
 
   --muted: oklch(0.984 0.008 85);              /* Linen                 #FBF9F3 */
-  --muted-foreground: oklch(0.52 0.008 80);    /* Stone                 #6B6760 */
+  /* ── STONE, TWO STEPS DARKER (David, 2026-08-25) ──────────────────────────
+     "I am having trouble reading what is below the headings in nearly every
+     button or tile on the website. So did Chloe and so did my sister. We are
+     all over 69… We choose readable above stylish font shown every time."
+
+     This was L=0.52 — #6B6864, which measures 4.96:1 on Ivory. It PASSED AA and
+     three people over 69 still could not read it, which is the whole lesson:
+     4.5:1 is a floor for a general population at a comfortable size, not a
+     target for the market our own canon names as our best-spending one. Near
+     the floor, at 15px, on a tinted ground, it is not enough.
+
+     Now 7.63:1 on Ivory, 8.08 on Linen, 8.47 on white. Chroma and hue are
+     UNCHANGED — this is the same warm grey, moved along its own lightness axis,
+     so nothing shifts character. It stays far from Espresso (16.1:1), which is
+     the hierarchy Stone exists to create.
+
+     It is the text colour on roughly 282 declarations across 11 stylesheets, so
+     this one line is most of the fix. */
+  --muted-foreground: oklch(0.42 0.008 80);    /* Stone                 #4F4D48 */
 
   --accent: oklch(0.74 0.085 85);              /* Champagne gold        #C2A35B */
   --accent-foreground: oklch(0.205 0.006 75);
@@ -31,8 +49,30 @@
   --destructive: oklch(0.50 0.20 27);          /* Emergency red         #B3261E */
   --destructive-foreground: oklch(0.99 0.005 85);
 
-  --border: oklch(0.905 0.012 85);             /* Sand line             #E7E2D6 */
-  --input: oklch(0.905 0.012 85);
+  /* ── ONE TOKEN WAS DOING TWO INCOMPATIBLE JOBS ───────────────────────────
+     `--border` was both the hairline between rows inside a panel AND the outer
+     edge of something you click. A hairline should be nearly invisible; a
+     control edge must be perceivable. One value cannot be both, so it settled at
+     the hairline value — 1.20:1 on Ivory — and every card, button, pill and
+     input inherited an edge that fails WCAG 1.4.11 (which wants 3:1).
+
+     David described the success criterion from the reading experience alone:
+     "each tile and button that needs to be chosen needs a border around it, not
+     just a white background against the full page colour."
+
+     So it splits. `--border` is now the CONTROL EDGE at 3.28:1 on Ivory — still
+     a warm sand, same chroma and hue, moved down its own lightness axis. The old
+     value survives verbatim as `--border-hair` for dividers, which means every
+     interior rule on the site looks exactly as it did today and only the edges
+     of things you can choose got stronger.
+
+     The split is applied mechanically and the rule is checkable: a SINGLE-SIDE
+     border (`border-top`, `border-bottom`, `border-inline-start`) is a divider
+     and takes the hairline; a full `border:` box is an edge and takes the
+     control value. */
+  --border: oklch(0.62 0.012 85);              /* Control edge          #89867E  3.28:1 on Ivory */
+  --border-hair: oklch(0.905 0.012 85);        /* Divider only          #E3DFD7  DECORATIVE — never the edge of a control */
+  --input: oklch(0.62 0.012 85);               /* Inputs are controls   #89867E */
   --ring: oklch(0.50 0.055 178);               /* Focus = pine */
 
   /* ---- Dark band (footer / investor strips only) --------------------- */
@@ -84,12 +124,28 @@
   /* Senior-first base type (David, Jul 2026): our highest spenders are older
      travelers — nobody should squint. Reading sizes bumped a notch; headings and
      legal micro unchanged. rem-free px scale, so this is a deliberate, verified
-     bump rather than a root-zoom that ripples unpredictably. */
+     bump rather than a root-zoom that ripples unpredictably.
+
+     ── TWO FLOORS, AND `--t-micro` WAS UNDER BOTH (David, 2026-08-25) ────────
+     "I am having trouble reading what is below the headings in nearly every
+     button or tile." The colour was half of it; this is the other half, and it
+     is the half a contrast audit cannot see — there is no WCAG minimum font
+     size, so 12px grey passes every automated AA gate that exists, forever.
+
+     So the floors are ours, and they are checkable:
+        reading text     >= 16px    sentences, bullets, meta lines, help text
+        uppercase label  >= 13px    eyebrows, pills, badges, column heads
+
+     `--t-body-s` was 15px and is the DEFAULT secondary size — the line under
+     almost every heading, which is precisely what he named. `--t-micro` and
+     `--t-eyebrow` were 12px, under the label floor. 211 further literals across
+     the stylesheets sat between 10px and 12.5px and were raised to 13px in the
+     same pass. */
   --t-lead: 22px;        --lh-lead: 1.5;
   --t-body: 17px;        --lh-body: 1.6;
-  --t-body-s: 15px;      --lh-body-s: 1.55;
-  --t-micro: 12px;       --lh-micro: 1.4;
-  --t-eyebrow: 12px;
+  --t-body-s: 16px;      --lh-body-s: 1.55;
+  --t-micro: 13px;       --lh-micro: 1.45;
+  --t-eyebrow: 13px;
 }
 
 @media (max-width: 640px) {
@@ -191,7 +247,7 @@ img { max-width: 100%; display: block; }
    ========================================================================== */
 .pill {
   display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-sans); font-weight: 500; font-size: 12px;
+  font-family: var(--font-sans); font-weight: 500; font-size: 13px;
   padding: 5px 11px; border-radius: var(--radius-pill);
   border: 1px solid transparent; white-space: nowrap;
 }
@@ -206,7 +262,7 @@ img { max-width: 100%; display: block; }
 
 /* Safety chip — color + number + label, never color alone */
 .safety-chip { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13px; padding: 6px 12px; border-radius: var(--radius-pill); }
-.safety-chip .lvl { width: 20px; height: 20px; border-radius: 50%; color: #fff; display: grid; place-items: center; font-size: 12px; }
+.safety-chip .lvl { width: 20px; height: 20px; border-radius: 50%; color: #fff; display: grid; place-items: center; font-size: 13px; }
 .safety-1 { background: color-mix(in oklch, var(--safety-1) 14%, white); color: oklch(0.40 0.10 150); }
 .safety-1 .lvl { background: var(--safety-1); }
 .safety-2 { background: color-mix(in oklch, var(--safety-2) 18%, white); color: var(--gold-deep); }
@@ -217,7 +273,7 @@ img { max-width: 100%; display: block; }
 .safety-4 .lvl { background: var(--safety-4); }
 
 /* FTC affiliate disclosure (§9.4) — stone micro, adjacent to CTA, never hidden */
-.ftc { font-size: 12px; line-height: 1.4; color: var(--muted-foreground); display: flex; gap: 6px; align-items: flex-start; }
+.ftc { font-size: 13px; line-height: 1.4; color: var(--muted-foreground); display: flex; gap: 6px; align-items: flex-start; }
 .ftc svg { flex: none; margin-top: 1px; }
 
 /* ============================================================================

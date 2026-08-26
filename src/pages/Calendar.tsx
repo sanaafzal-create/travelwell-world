@@ -22,7 +22,7 @@ export default function Calendar() {
           <article key={e.id} className="mrq-card" style={{ border: "1px solid var(--border)", borderRadius: 14, padding: 16, background: "var(--surface-alt)", display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               {e.flagship && (
-                <span className="pill" style={{ background: "var(--gold-deep)", color: "white", fontSize: 12, padding: "2px 10px", borderRadius: 999 }}>
+                <span className="pill" style={{ background: "var(--gold-deep)", color: "white", fontSize: 13, padding: "2px 10px", borderRadius: 999 }}>
                   <Icon name="sparkles" small /> {t("mrq.flagship")}
                 </span>
               )}
