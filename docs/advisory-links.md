@@ -14,8 +14,8 @@ because it looks like we checked and didn't.
 
 | | |
 |---|---|
-| Countries | 86 |
-| Deep links to verify | **167** |
+| Countries | 87 |
+| Deep links to verify | **169** |
 | Index fallbacks (no confirmed slug — expected to work, but not country-specific) | 0 |
 | Skipped (a destination spanning two countries) | 1 |
 
@@ -175,6 +175,8 @@ Sources: UK FCDO · CDC Travel Health Notices
 | Tanzania | TZ | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/tanzania> | |
 | Thailand | TH | UK FCDO | <https://www.gov.uk/foreign-travel-advice/thailand> | |
 | Thailand | TH | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/thailand> | |
+| Tunisia | TN | UK FCDO | <https://www.gov.uk/foreign-travel-advice/tunisia> | |
+| Tunisia | TN | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/tunisia> | |
 | Turks & Caicos | TC | UK FCDO | <https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands> | |
 | Turks & Caicos | TC | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/turks-and-caicos-islands> | |
 | UAE | AE | UK FCDO | <https://www.gov.uk/foreign-travel-advice/united-arab-emirates> | |

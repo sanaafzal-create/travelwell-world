@@ -51,7 +51,33 @@ export interface SafetyZone {
   except?: string[];
   /** Why, in the advisory's terms. Rendered beside the level. */
   note?: string;
+  /**
+   * The FCDO's own verb for this area — "advises against all travel" or
+   * "advises against all but essential travel".
+   *
+   * ── DAVID'S RULING, 2026-08-21: L1–L4 IS RETIRED OUTRIGHT ────────────────
+   * "We don't post them anymore, we don't book on them or against them anymore
+   * … Postures only." Postures order without being numbered: no advisory →
+   * against all but essential → against all travel. Three values, strictly
+   * ranked; stricter-wins unchanged; an unrecognised posture still holds.
+   *
+   * `lvl` stays as the internal ORDERING for one transition window, because
+   * 452 of the library's shipping rows still carry `advisory_level` and both
+   * sides agreed the strip is sequenced, not unilateral. But where `posture`
+   * is present the RENDER speaks the FCDO's words and never the number — a
+   * zone with a posture is FCDO-transcribed, and printing "Level 4" over an
+   * FCDO sentence would attribute State's scale to a source that has none.
+   * Zones without a posture predate the re-read and keep the number until
+   * their country is re-read from verbatim text.
+   */
+  posture?: "all" | "all-but-essential";
 }
+
+/** The FCDO's sentence for a zone posture — rendered instead of a level. */
+export const ZONE_POSTURE_TEXT: Record<NonNullable<SafetyZone["posture"]>, string> = {
+  all: "FCDO advises against all travel",
+  "all-but-essential": "FCDO advises against all but essential travel",
+};
 
 // Verified destination safety data (David's safety.json — 33 countries, keyed
 // by ISO alpha-2, sourced to US State Dept / UK FCDO advisories, verified 2026-06).
@@ -292,6 +318,10 @@ export const COUNTRY_ISO: Record<string, string> = {
   // Seven more name a country string no destination of ours uses yet.
   Aruba: "AW", Barbados: "BB", "Curaçao": "CW", Dominica: "DM", Grenada: "GD",
   Maldives: "MV", Malta: "MT",
+  // Tunisia landed 2026-08-27, the first row whose zones are transcribed from
+  // FCDO verbatim text (their snapshot of 2026-07-24) rather than from the
+  // retired scale — a named park, military zones and two border strips.
+  Tunisia: "TN",
   // ONE ISO, THREE ISLANDS. BQ is ISO's "Bonaire, Sint Eustatius and Saba", and
   // the FCDO serves all three on one page — which is why our slug override for
   // Sint Eustatius is `bonaire-st-eustatius-saba`. Both country strings map to

@@ -84,9 +84,19 @@ export function safetyBlockFor(dest: Destination): Record<string, unknown> {
   return {
     destination: dest.name,
     country: dest.country,
-    // No number at all when we hold none. A null here is a fact Atlas must state,
-    // not a gap for it to fill.
-    level: s.unverified ? null : s.lvl,
+    // ── NO NUMBER, PER DAVID'S RULING OF 2026-08-21 ─────────────────────────
+    // "We don't post them anymore, we don't book on them or against them
+    // anymore … Postures only." This block carried `level: 1–4` for six days;
+    // it now carries the posture and the label, which order without being
+    // numbered. Atlas quotes words a traveller can check against the advisory
+    // link — a number was always one step away from State's retired scale.
+    posture: s.unverified
+      ? "unverified"
+      : s.bookingHold
+        ? "no-travel"
+        : s.lvl >= 3
+          ? "essential-only"
+          : "no-restriction",
     label: s.label,
     unverified: Boolean(s.unverified),
     // We hold a level but cannot call it verified — Atlas may act on it and must
@@ -94,20 +104,20 @@ export function safetyBlockFor(dest: Destination): Record<string, unknown> {
     reported: Boolean(s.reported),
     bookingHold: Boolean(s.bookingHold),
     source: s.source,
-    ...(s.inZone ? { inNamedArea: { name: s.inZone.name, level: s.inZone.lvl } } : {}),
+    ...(s.inZone ? { inNamedArea: { name: s.inZone.name, restriction: s.inZone.posture === "all" ? "against all travel" : s.inZone.posture === "all-but-essential" ? "against all but essential travel" : `Level ${s.inZone.lvl}` } } : {}),
     // The rest of the country's picture, so a Level 1 destination inside a
     // country with Level 4 areas can be described accurately rather than flatly.
     ...(stricterZones(s).length
-      ? { stricterAreasElsewhereInCountry: stricterZones(s).map((z) => ({ name: z.name, level: z.lvl })) }
+      ? { stricterAreasElsewhereInCountry: stricterZones(s).map((z) => ({ name: z.name, restriction: z.posture === "all" ? "against all travel" : z.posture === "all-but-essential" ? "against all but essential travel" : `Level ${z.lvl}` })) }
       : {}),
     ...(fcdo ? { advisoryUrl: fcdo.href, advisoryUrlIsDeepLink: fcdo.deep } : {}),
     atlasMust: s.unverified
-      ? "State plainly that we hold no verified advisory for this destination and point at the official advisory. Do not describe it as safe, and do not plan around a level you do not have."
+      ? "State plainly that we hold no verified advisory for this destination and point at the official advisory. Do not describe it as safe, and do not plan around a reading you do not have."
       : s.bookingHold
-        ? "State the level and why booking is held here BEFORE planning anything, then offer alternatives that give them the same thing at a lower level. Never read as a refusal."
+        ? "State the advisory and why booking is held here BEFORE planning anything, then offer alternatives that give them the same thing without the restriction. Never read as a refusal."
         : s.lvl >= 3
-          ? "State the level and the reason the first time this destination comes into play, before building. Say where the risk sits versus where they would be, and offer alternatives in the same breath."
-          : "State the level once when this destination first comes into play. An absence of an advisory is never a statement that a place is safe.",
+          ? "State the advisory and the reason the first time this destination comes into play, before building. Say where the risk sits versus where they would be, and offer alternatives in the same breath."
+          : "State the advisory once when this destination first comes into play. An absence of an advisory is never a statement that a place is safe.",
   };
 }
 

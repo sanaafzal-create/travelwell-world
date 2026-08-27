@@ -348,7 +348,7 @@
     "country": "Ethiopia",
     "lvl": 3,
     "label": "Reconsider travel",
-    "summary": "Reconsider travel due to unrest, crime, kidnapping, terrorism, landmines, communications disruptions and exit bans. Large parts of the country are Do Not Travel.",
+    "summary": "The FCDO advises against all travel to several named regions and border areas of Ethiopia, and against all but essential travel to others — each is listed below in the advisory's own terms. Addis Ababa carries no FCDO restriction.",
     "considerations": [
       "State describes the security situation in Addis Ababa as stable, with sporadic armed conflict and civil unrest elsewhere.",
       "Exit bans and communications disruptions are named risk indicators — a traveler can be prevented from leaving, and networks can go down regionally.",
@@ -356,72 +356,104 @@
     ],
     "zones": [
       {
-        "name": "The Tigray Region, including the border with Eritrea",
+        "name": "The Tigray Region",
         "lvl": 4,
-        "note": "Armed conflict, unrest and crime."
-      },
-      {
-        "name": "The Afar Region",
-        "lvl": 4,
-        "note": "Armed conflict, unrest and crime."
+        "posture": "all",
+        "note": "FCDO advises against all travel. Civilian flights to and from Tigray have been suspended since 29 January 2026."
       },
       {
         "name": "The Amhara Region",
         "lvl": 4,
-        "note": "Armed conflict, unrest and crime."
+        "posture": "all",
+        "note": "FCDO advises against all travel to all of Amhara regional state."
       },
       {
-        "name": "The Gambella Region",
+        "name": "The Gambela Region",
         "lvl": 4,
-        "note": "Crime, kidnapping, armed conflict and unrest."
+        "posture": "all",
+        "note": "FCDO advises against all travel."
       },
       {
-        "name": "The Benishangul Gumuz Region",
+        "name": "Within 20km of the border with Sudan",
         "lvl": 4,
-        "note": "Crime, kidnapping, armed conflict and unrest."
+        "posture": "all"
       },
       {
-        "name": "Specific areas within the Oromia Region",
+        "name": "Within 10km of the border with South Sudan",
         "lvl": 4,
-        "note": "Armed conflict, ethnically motivated violence and unrest. State names Horro-Guduru Wollega, East Wollega, West Wollega, Kelem Wollega and Illubabor."
+        "posture": "all"
       },
       {
-        "name": "The Sidama Region",
+        "name": "Within 10km of the border with Eritrea",
         "lvl": 4,
-        "note": "Armed conflict and unrest."
+        "posture": "all",
+        "note": "Including the parts of Afar region within 10km of that border."
       },
       {
-        "name": "The Central Ethiopia Region",
+        "name": "Within 10km of the border with Kenya",
         "lvl": 4,
-        "note": "Armed conflict and unrest."
+        "posture": "all",
+        "except": [
+          "principal roads and towns"
+        ]
       },
       {
-        "name": "The South Ethiopia Region",
+        "name": "Somali region border areas",
         "lvl": 4,
-        "note": "Armed conflict and unrest."
+        "posture": "all",
+        "except": [
+          "the border town and crossing at Wajale",
+          "the principal road between Jijiga and Wajale"
+        ],
+        "note": "Within 100km of the Somalia and Kenya borders in Somali region, and within 30km of the Somalia border in Fafan zone."
       },
       {
-        "name": "The Southwest Ethiopia Region",
+        "name": "Named areas of Oromia Region",
         "lvl": 4,
-        "note": "Armed conflict and unrest."
+        "posture": "all",
+        "note": "North of (not including) the A4 in West Shewa; south and west of the A3 in North Shewa including the A3 itself there; West, East, Kellem and Horo Gudru Wollega zones including the main Addis Ababa to Gambela road."
       },
       {
-        "name": "The border with Somalia",
+        "name": "In Benishangul-Gumuz: within 20km of the Sudan border, the Metekel zone and the Maokomo special zone",
         "lvl": 4,
-        "note": "Terrorism, kidnapping and landmines."
+        "posture": "all"
       },
       {
-        "name": "The borders with Sudan and South Sudan",
+        "name": "In the Central, Southern, Sidama and South West regions (formerly SNNPR): within 10km of the borders with South Sudan and Kenya",
         "lvl": 4,
-        "note": "Crime, kidnapping, unrest and armed conflict."
+        "posture": "all",
+        "note": "Including the shores of Lake Turkana. The FCDO restricts these border strips, not the whole regions."
       },
       {
-        "name": "The border with Kenya",
-        "lvl": 4,
-        "note": "Terrorism, armed conflict and unrest."
+        "name": "Areas between 10 and 15km from the border with Eritrea",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "East Shewa and further named areas of Oromia",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the Addis Ababa to Adama Expressway",
+          "10km either side of the expressway between Addis Ababa and Bishoftu",
+          "the A7 from the expressway junction down to Hawassa",
+          "the Hawassa to Mega road (through West Guji and Guji)",
+          "the Finfine special zone section of the A4"
+        ],
+        "note": "All of East Shewa zone, the A4 between Addis Ababa and Cheliya, the remainder of North Shewa, and West Guji and Guji zones — each with the road exceptions listed."
+      },
+      {
+        "name": "In the Somali Region: the Siti, Nogob, Jarar, Shabelle, Korahe and Dollo zones, and areas of Liben and Afder more than 100km from the Somalia and Kenya borders",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "The rest of Benishangul-Gumuz Region",
+        "lvl": 3,
+        "posture": "all-but-essential"
       }
     ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+    "source": "UK FCDO — Ethiopia travel advice, reviewed 2026-05-29 (verbatim snapshot from the research library)",
     "reported": true
   },
   "FI": {
@@ -483,12 +515,13 @@
   },
   "HN": {
     "country": "Honduras",
-    "lvl": 2,
-    "label": "Not yet verified — sources disagree",
-    "summary": "We are not publishing a level for Honduras. The UK FCDO names no advisory against travel here, and our own records carry a materially stricter reading; until that is resolved against the source, showing either number would be a claim we cannot stand behind. Read the official advisory in full below before you plan.",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Honduras. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
-    "source": "Held pending review — the FCDO reports no advisory against travel, our records disagree",
-    "unverified": true
+    "source": "UK FCDO country advisory, reviewed 2026-07",
+    "reported": true,
+    "fromAbsence": true
   },
   "HR": {
     "country": "Croatia",
@@ -808,12 +841,13 @@
   },
   "NI": {
     "country": "Nicaragua",
-    "lvl": 2,
-    "label": "Not yet verified — sources disagree",
-    "summary": "We are not publishing a level for Nicaragua. The UK FCDO names no advisory against travel here, and our own records carry a materially stricter reading; until that is resolved against the source, showing either number would be a claim we cannot stand behind. Read the official advisory in full below before you plan.",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Nicaragua. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
-    "source": "Held pending review — the FCDO reports no advisory against travel, our records disagree",
-    "unverified": true
+    "source": "UK FCDO country advisory, reviewed 2025-12",
+    "reported": true,
+    "fromAbsence": true
   },
   "NL": {
     "country": "Netherlands",
@@ -857,12 +891,13 @@
   },
   "OM": {
     "country": "Oman",
-    "lvl": 2,
-    "label": "Not yet verified — sources disagree",
-    "summary": "We are not publishing a level for Oman. The UK FCDO names no advisory against travel here, and our own records carry a materially stricter reading; until that is resolved against the source, showing either number would be a claim we cannot stand behind. Read the official advisory in full below before you plan.",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Oman. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
-    "source": "Held pending review — the FCDO reports no advisory against travel, our records disagree",
-    "unverified": true
+    "source": "UK FCDO country advisory, reviewed 2026-07",
+    "reported": true,
+    "fromAbsence": true
   },
   "PA": {
     "country": "Panama",
@@ -982,12 +1017,13 @@
   },
   "QA": {
     "country": "Qatar",
-    "lvl": 2,
-    "label": "Not yet verified — sources disagree",
-    "summary": "We are not publishing a level for Qatar. The UK FCDO names no advisory against travel here, and our own records carry a materially stricter reading; until that is resolved against the source, showing either number would be a claim we cannot stand behind. Read the official advisory in full below before you plan.",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Qatar. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
-    "source": "Held pending review — the FCDO reports no advisory against travel, our records disagree",
-    "unverified": true
+    "source": "UK FCDO country advisory, reviewed 2026-08",
+    "reported": true,
+    "fromAbsence": true
   },
   "RW": {
     "country": "Rwanda",
@@ -1104,6 +1140,90 @@
       }
     ],
     "reported": true
+  },
+  "TN": {
+    "country": "Tunisia",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against travel to named areas of western and southern Tunisia — a national park, designated military zones and two border strips, listed below in its own words. It publishes no advisory against travel to the rest of the country, including Tunis, the coast and Djerba.",
+    "considerations": [
+      "A formal state of emergency has been in place since 2015; security forces are visibly present, including at entry points to some towns and cities.",
+      "Demonstrations happen occasionally, usually in central Tunis and other major cities, and can start with little warning.",
+      "It is illegal to bring drones into Tunisia without authorisation, and some smart electronic devices may be restricted or held on arrival."
+    ],
+    "source": "UK FCDO — Tunisia travel advice, reviewed 2026-07-24 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "The Chaambi Mountains National Park",
+        "lvl": 4,
+        "posture": "all",
+        "note": "Cross-border terrorist activity and operations by the Tunisian security forces."
+      },
+      {
+        "name": "The designated military operations zones of Mount Salloum, Mount Sammamma and Mount Mghila",
+        "lvl": 4,
+        "posture": "all"
+      },
+      {
+        "name": "The militarised zone south of the towns of El Borma and Dhehiba",
+        "lvl": 4,
+        "posture": "all",
+        "note": "Cross-border terrorist activity and fighting in Libya."
+      },
+      {
+        "name": "Within 20km of the rest of the Tunisia-Libya border area north of Dhehiba",
+        "lvl": 4,
+        "posture": "all"
+      },
+      {
+        "name": "The town of Ben Guerdane and immediate surrounding area",
+        "lvl": 4,
+        "posture": "all"
+      },
+      {
+        "name": "Areas north and west of the town of Ghardimaou in Jendouba Governorate, including El Feidja National Park",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "Within 20km of the Tunisia-Algeria border in El Kef and Jendouba governorates, south of the town of Jendouba",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "Including the archaeological site of Chemtou."
+      },
+      {
+        "name": "Kasserine Governorate, including the town of Sbeitla",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "Within 10km of the rest of the Tunisia-Algeria border south of Kasserine Governorate",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "Within 10km of Mount Mghila",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "Mount Orbata",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "Within 75km of the Tunisia-Libya border",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "Zarzis",
+          "the C118 road",
+          "all areas in Medenine Governorate north of the C118 road"
+        ],
+        "note": "Including Remada and El Borma."
+      }
+    ]
   },
   "TZ": {
     "country": "Tanzania",

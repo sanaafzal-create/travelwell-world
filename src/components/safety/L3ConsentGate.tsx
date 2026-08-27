@@ -40,7 +40,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { Button, Eyebrow } from "@/components/ui/primitives";
-import { SAFE_HEADER_COLOR, stricterZones, type SafetyInfo } from "@/data/safety-data";
+import { SAFE_HEADER_COLOR, stricterZones, type SafetyInfo, ZONE_POSTURE_TEXT } from "@/data/safety-data";
 import { advisoryLinks } from "@/data/advisory-sources";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
 
@@ -112,7 +112,7 @@ export function L3ConsentGate({
           {safety.inZone && (
             <p className="l3__zone">
               <Icon name="pin" small /> {dest.name} sits in <b>{safety.inZone.name}</b>, which the
-              advisory carries at Level {safety.inZone.lvl}.
+              {safety.inZone.posture ? `${ZONE_POSTURE_TEXT[safety.inZone.posture]} to` : `advisory carries at Level ${safety.inZone.lvl} for`} this area.
               {safety.inZone.except?.length ? ` The exceptions are ${listOf(safety.inZone.except)}.` : ""}
             </p>
           )}

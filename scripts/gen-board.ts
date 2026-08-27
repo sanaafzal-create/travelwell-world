@@ -47,8 +47,18 @@ const payload = {
     wells: WELLS.length + LUX_WELLS.length,
   },
 
-  /** THE BOARD. The only valid target for an `si` value. */
-  interests: board.map((s) => ({ id: s.id, name: s.name, status: s.status })),
+  /** THE BOARD. The only valid target for an `si` value.
+   *
+   * Carries the full Block-A field set (sig · accent · lux · group), because the
+   * library's Winter/Ski dossier sat finished and unshippable for want of four
+   * values that live only in this file — "we will not invent a value for your
+   * schema" was the right refusal, and this is the standing answer to it. */
+  interests: board.map((s) => ({
+    id: s.id, name: s.name, status: s.status,
+    sig: s.sig, accent: (s as { accent?: string }).accent ?? null,
+    lux: Boolean((s as { lux?: boolean }).lux),
+    group: (s as { group?: string }).group ?? null,
+  })),
 
   /**
    * In `SIS` and OFF the board. They keep their database row because the

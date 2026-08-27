@@ -12,177 +12,317 @@
     {
       "id": "ultra",
       "name": "Ultra-Luxury",
-      "status": "live"
+      "status": "live",
+      "sig": "the extraordinary",
+      "accent": "#A8873F",
+      "lux": true,
+      "group": "premium"
     },
     {
       "id": "tropical",
       "name": "Tropical Islands",
-      "status": "live"
+      "status": "live",
+      "sig": "barefoot luxury",
+      "accent": "#2E8C8C",
+      "lux": false,
+      "group": "premium"
     },
     {
       "id": "romance",
       "name": "Romance, Marriages & Honeymoons",
-      "status": "live"
+      "status": "live",
+      "sig": "the two of you",
+      "accent": "#A8527A",
+      "lux": false,
+      "group": "premium"
     },
     {
       "id": "safari",
       "name": "Safari Adventures",
-      "status": "live"
+      "status": "live",
+      "sig": "the wild calling",
+      "accent": "#B07A3C",
+      "lux": false,
+      "group": "premium"
     },
     {
       "id": "expedition",
       "name": "Global Expedition Adventures",
-      "status": "live"
+      "status": "live",
+      "sig": "to the edges of the map",
+      "accent": "#5C5C5C",
+      "lux": false,
+      "group": "premium"
     },
     {
       "id": "ski",
       "name": "Winter/Ski",
-      "status": "live"
+      "status": "live",
+      "sig": "the first track",
+      "accent": "#5B86A8",
+      "lux": false,
+      "group": "premium"
     },
     {
       "id": "golf",
       "name": "Golf Globally",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the round of your life",
+      "accent": "#2F6B3A",
+      "lux": false,
+      "group": "premium"
     },
     {
       "id": "rail",
       "name": "Global Rail Journeys",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the long way, beautifully",
+      "accent": "#6B5B4F",
+      "lux": false,
+      "group": "journeys"
     },
     {
       "id": "barge",
       "name": "Hotel-Barge & Canal Cruising",
-      "status": "preview"
+      "status": "preview",
+      "sig": "six knots, no hurry",
+      "accent": "#4F7A8C",
+      "lux": false,
+      "group": "journeys"
     },
     {
       "id": "privatejet",
       "name": "Private-Jet Expeditions",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the world in one arc",
+      "accent": "#8C7A4F",
+      "lux": false,
+      "group": "journeys"
     },
     {
       "id": "caravan",
       "name": "Desert & Camel Caravans",
-      "status": "preview"
+      "status": "preview",
+      "sig": "dunes at first light",
+      "accent": "#C08A4A",
+      "lux": false,
+      "group": "journeys"
     },
     {
       "id": "overland",
       "name": "Luxury Overland Expeditions",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the road as the journey",
+      "accent": "#8A6234",
+      "lux": false,
+      "group": "journeys"
     },
     {
       "id": "motoring",
       "name": "Classic-Car & Motorcycle Touring",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the open road, in something special",
+      "accent": "#9E3B2E",
+      "lux": false,
+      "group": "journeys"
     },
     {
       "id": "adventure",
       "name": "Global Adventures",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the world, wide open",
+      "accent": "#3C7E55",
+      "lux": false,
+      "group": "adventure"
     },
     {
       "id": "hiking",
       "name": "Hiking & Trekking",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the trail ahead",
+      "accent": "#4A8C5E",
+      "lux": false,
+      "group": "adventure"
     },
     {
       "id": "liveaboard",
       "name": "Dive Liveaboards",
-      "status": "live"
+      "status": "live",
+      "sig": "sleep above the reef",
+      "accent": "#2E6E8C",
+      "lux": false,
+      "group": "water"
     },
     {
       "id": "river",
       "name": "River Cruises",
-      "status": "live"
+      "status": "live",
+      "sig": "the slow current",
+      "accent": "#5B86A8",
+      "lux": false,
+      "group": "water"
     },
     {
       "id": "diveglobal",
       "name": "Dive Globally",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the world below",
+      "accent": "#1F6E8C",
+      "lux": false,
+      "group": "water"
     },
     {
       "id": "ocean",
       "name": "Ocean & Watersports",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the open water",
+      "accent": "#2C6E68",
+      "lux": false,
+      "group": "water"
     },
     {
       "id": "wellness",
       "name": "Wellness, Spa & Retreats",
-      "status": "preview"
+      "status": "preview",
+      "sig": "coming home to yourself",
+      "accent": "#4F8C7A",
+      "lux": false,
+      "group": "nature"
     },
     {
       "id": "wildlife",
       "name": "Wildlife & Nature",
-      "status": "preview"
+      "status": "preview",
+      "sig": "wild places, up close",
+      "accent": "#4A7A3C",
+      "lux": false,
+      "group": "nature"
     },
     {
       "id": "glamping",
       "name": "Global Glamping",
-      "status": "preview"
+      "status": "preview",
+      "sig": "wild, but well-appointed",
+      "accent": "#7A6B4F",
+      "lux": false,
+      "group": "nature"
     },
     {
       "id": "family",
       "name": "Family Travel",
-      "status": "preview"
+      "status": "preview",
+      "sig": "everyone, together",
+      "accent": "#C98A2E",
+      "lux": false,
+      "group": "lifestage"
     },
     {
       "id": "group",
       "name": "Group Travel",
-      "status": "preview"
+      "status": "preview",
+      "sig": "better, together",
+      "accent": "#C27A3C",
+      "lux": false,
+      "group": "lifestage"
     },
     {
       "id": "senior",
       "name": "Senior Travel",
-      "status": "preview"
+      "status": "preview",
+      "sig": "unhurried, well-earned",
+      "accent": "#7A5B3B",
+      "lux": false,
+      "group": "lifestage"
     },
     {
       "id": "culture",
       "name": "Culture & Heritage",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the soul of a place",
+      "accent": "#7A5BA8",
+      "lux": false,
+      "group": "culture"
     },
     {
       "id": "deepdive",
       "name": "Cultural Deep Dives",
-      "status": "preview"
+      "status": "preview",
+      "sig": "beneath the surface",
+      "accent": "#6B4F9E",
+      "lux": false,
+      "group": "culture"
     },
     {
       "id": "pilgrimage",
       "name": "Religious & Pilgrimage",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the road as devotion",
+      "accent": "#8C6B4F",
+      "lux": false,
+      "group": "culture"
     },
     {
       "id": "entertainment",
       "name": "Global Live Entertainment",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the lights come up",
+      "accent": "#C2562E",
+      "lux": false,
+      "group": "entertainment"
     },
     {
       "id": "culinary",
       "name": "Culinary Experiences",
-      "status": "preview"
+      "status": "preview",
+      "sig": "a table worth the flight",
+      "accent": "#9C5B3B",
+      "lux": false,
+      "group": "culinary"
     },
     {
       "id": "sports",
       "name": "Individual Sports",
-      "status": "preview"
+      "status": "preview",
+      "sig": "your sport, somewhere new",
+      "accent": "#3C7E55",
+      "lux": false,
+      "group": "sports"
     },
     {
       "id": "spectator",
       "name": "Sports Spectator Travel",
-      "status": "preview"
+      "status": "preview",
+      "sig": "from the stands",
+      "accent": "#2C6E68",
+      "lux": false,
+      "group": "sports"
     },
     {
       "id": "sailing",
       "name": "Sailing Charters",
-      "status": "preview"
+      "status": "preview",
+      "sig": "wind in your favor",
+      "accent": "#2E6E8C",
+      "lux": false,
+      "group": "water"
     },
     {
       "id": "yacht",
       "name": "Yacht Charters",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the open sea, served well",
+      "accent": "#1F5C73",
+      "lux": true,
+      "group": "water"
     },
     {
       "id": "wine",
       "name": "Wine & Whiskey/Spirits Tours",
-      "status": "preview"
+      "status": "preview",
+      "sig": "the world, one glass at a time",
+      "accent": "#7B3F52",
+      "lux": false,
+      "group": "culinary"
     }
   ],
   "retired": [

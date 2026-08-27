@@ -602,6 +602,14 @@
       "fcdo_slug": "thailand"
     },
     {
+      "iso": "TN",
+      "name": "Tunisia",
+      "match": [
+        "tunisia"
+      ],
+      "fcdo_slug": "tunisia"
+    },
+    {
       "iso": "TZ",
       "name": "Tanzania",
       "match": [
@@ -700,7 +708,6 @@
     "Laos",
     "Mexico",
     "Mozambique",
-    "Tunisia",
     "United Kingdom"
   ]
 }
