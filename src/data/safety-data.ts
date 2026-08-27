@@ -282,6 +282,22 @@ export const COUNTRY_ISO: Record<string, string> = {
   "St. Barthélemy (France/EU)": "BL", "St. Kitts & Nevis": "KN",
   "St. Vincent & the Grenadines": "VC", Sweden: "SE", "United States": "US", Uruguay: "UY",
   "US Virgin Islands (US territory)": "VI", Vietnam: "VN", Zambia: "ZM", Zimbabwe: "ZW",
+
+  // ── FROM THE LIBRARY'S 59-ROW BATCH, 2026-08-26 ──────────────────────────
+  // Seven of their 59. The rest were already held, or are held back: the seven
+  // AREA-RESTRICTED countries carry their restricted areas as PROSE in
+  // `considerations` with `zones: []`, which is the exact shape our own canon
+  // forbids — the booking gate reads `lvl`, so a destination inside a named
+  // restricted area would show the country number and offer a Book button.
+  // Seven more name a country string no destination of ours uses yet.
+  Aruba: "AW", Barbados: "BB", "Curaçao": "CW", Dominica: "DM", Grenada: "GD",
+  Maldives: "MV", Malta: "MT",
+  // ONE ISO, THREE ISLANDS. BQ is ISO's "Bonaire, Sint Eustatius and Saba", and
+  // the FCDO serves all three on one page — which is why our slug override for
+  // Sint Eustatius is `bonaire-st-eustatius-saba`. Both country strings map to
+  // it, and the row now names the jurisdiction rather than one island of it, so
+  // a Bonaire card does not claim to be about Sint Eustatius.
+  Bonaire: "BQ",
 };
 
 export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;

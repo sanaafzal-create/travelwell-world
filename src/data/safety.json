@@ -52,6 +52,26 @@
     "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
     "reported": true
   },
+  "AW": {
+    "country": "Aruba",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Aruba. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2026-07",
+    "reported": true,
+    "fromAbsence": true
+  },
+  "BB": {
+    "country": "Barbados",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Barbados. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2026-01",
+    "reported": true,
+    "fromAbsence": true
+  },
   "BE": {
     "country": "Belgium",
     "lvl": 1,
@@ -73,10 +93,10 @@
     "fromAbsence": true
   },
   "BQ": {
-    "country": "Sint Eustatius",
+    "country": "Bonaire, Sint Eustatius and Saba",
     "lvl": 1,
     "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Sint Eustatius. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Bonaire, Sint Eustatius and Saba. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
     "source": "UK FCDO country advisory, reviewed 2025-12",
     "reported": true,
@@ -210,6 +230,16 @@
     "reported": true,
     "fromAbsence": true
   },
+  "CW": {
+    "country": "Curaçao",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Curaçao. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2025-12",
+    "reported": true,
+    "fromAbsence": true
+  },
   "DE": {
     "country": "Germany",
     "lvl": 2,
@@ -229,6 +259,16 @@
     "summary": "The UK FCDO publishes no country-wide advisory against travel in Denmark. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
     "source": "UK FCDO country advisory, reviewed 2026-08",
+    "reported": true,
+    "fromAbsence": true
+  },
+  "DM": {
+    "country": "Dominica",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Dominica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2025-12",
     "reported": true,
     "fromAbsence": true
   },
@@ -416,6 +456,16 @@
     ],
     "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
     "reported": true
+  },
+  "GD": {
+    "country": "Grenada",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Grenada. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2025-12",
+    "reported": true,
+    "fromAbsence": true
   },
   "GR": {
     "country": "Greece",
@@ -719,6 +769,26 @@
     "summary": "The UK FCDO publishes no country-wide advisory against travel in Monaco. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
     "considerations": [],
     "source": "UK FCDO country advisory, reviewed 2025-12",
+    "reported": true,
+    "fromAbsence": true
+  },
+  "MT": {
+    "country": "Malta",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Malta. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2026-08",
+    "reported": true,
+    "fromAbsence": true
+  },
+  "MV": {
+    "country": "Maldives",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Maldives. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2026-08",
     "reported": true,
     "fromAbsence": true
   },

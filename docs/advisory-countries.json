@@ -42,6 +42,22 @@
       "fcdo_slug": "australia"
     },
     {
+      "iso": "AW",
+      "name": "Aruba",
+      "match": [
+        "aruba"
+      ],
+      "fcdo_slug": "aruba"
+    },
+    {
+      "iso": "BB",
+      "name": "Barbados",
+      "match": [
+        "barbados"
+      ],
+      "fcdo_slug": "barbados"
+    },
+    {
       "iso": "BE",
       "name": "Belgium",
       "match": [
@@ -66,6 +82,14 @@
         "bonaire st eustatius saba"
       ],
       "fcdo_slug": "bonaire-st-eustatius-saba"
+    },
+    {
+      "iso": "BQ",
+      "name": "Bonaire",
+      "match": [
+        "bonaire"
+      ],
+      "fcdo_slug": "bonaire"
     },
     {
       "iso": "BS",
@@ -132,6 +156,15 @@
       "fcdo_slug": "costa-rica"
     },
     {
+      "iso": "CW",
+      "name": "Curaçao",
+      "match": [
+        "curaçao",
+        "curacao"
+      ],
+      "fcdo_slug": "curacao"
+    },
+    {
       "iso": "DE",
       "name": "Germany",
       "match": [
@@ -146,6 +179,14 @@
         "denmark"
       ],
       "fcdo_slug": "denmark"
+    },
+    {
+      "iso": "DM",
+      "name": "Dominica",
+      "match": [
+        "dominica"
+      ],
+      "fcdo_slug": "dominica"
     },
     {
       "iso": "DO",
@@ -211,6 +252,14 @@
         "france"
       ],
       "fcdo_slug": "france"
+    },
+    {
+      "iso": "GD",
+      "name": "Grenada",
+      "match": [
+        "grenada"
+      ],
+      "fcdo_slug": "grenada"
     },
     {
       "iso": "GR",
@@ -365,6 +414,22 @@
         "monaco"
       ],
       "fcdo_slug": "monaco"
+    },
+    {
+      "iso": "MT",
+      "name": "Malta",
+      "match": [
+        "malta"
+      ],
+      "fcdo_slug": "malta"
+    },
+    {
+      "iso": "MV",
+      "name": "Maldives",
+      "match": [
+        "maldives"
+      ],
+      "fcdo_slug": "maldives"
     },
     {
       "iso": "NA",

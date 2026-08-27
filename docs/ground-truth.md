@@ -42,8 +42,8 @@ good as regenerating it.
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:345 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:520 · `export const GUIDES: Guide[] = [` |
-| Country name→ISO entries (`COUNTRY_ISO`) | 78 | src/data/safety-data.ts:233 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 76 | src/data/safety-data.ts:295 · `export const SAFETY_DATA = safetyJson as Recor` |
+| Country name→ISO entries (`COUNTRY_ISO`) | 86 | src/data/safety-data.ts:233 · `export const COUNTRY_ISO: Record<string, strin` |
+| …of those, countries WITH an advisory row (`safety.json`) | 83 | src/data/safety-data.ts:311 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 
@@ -129,7 +129,7 @@ the provider.
    → `scripts/gen-sitemap.ts vs boardSis() in src/data/taxonomy.ts`
 
 ✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
-   → all 497 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
+   → all 537 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
    → `scripts/gen-sitemap.ts`
 
 ✅ **The advisory consent record is append-only — no update, delete or ALL policy**
@@ -157,7 +157,7 @@ the provider.
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/places.ts (DESTINATIONS)`
 
 ✅ **Every country in `COUNTRY_ISO` has an advisory row — it is the set the daily checker asks about, so a missing row is a country we query and hold no baseline for**
-   → all 76 covered
+   → all 83 covered
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json`
 
 ✅ **The three interests merged in from `special-interests.json` (`sailing`, `yacht`, `wine`) are present in the exported `SIS`**
@@ -165,15 +165,15 @@ the provider.
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
 ⚠️ **Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage**
-   → 94 of 503 destinations (19%) sit in a country with NO row, across 10 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +2 more · of those, 15 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Honduras, Mexico, Nicaragua, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
+   → 95 of 543 destinations (17%) sit in a country with NO row, across 10 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +2 more · of those, 16 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Honduras, Mexico, Nicaragua, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
    → `src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts`
 
 ✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
-   → all 503 ids unique across 13 regions
+   → all 543 ids unique across 13 regions
    → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
 
 ⚠️ **Our curated level matches the level State published for that country**
-   → 17 diverge: Belgium: ours L1, State L2 (published 2026-07-23); Belize: ours L1, State L2 (published 2026-03-12); Botswana: ours L1, State L2 (published 2026-06-17); Costa Rica: ours L1, State L2 (published 2026-04-02); Denmark: ours L1, State L2 (published 2024-09-17); Dominican Republic: ours L1, State L2 (published 2025-06-12); Faroe Islands (Kingdom of Denmark): ours L1, State L2 (published 2024-09-17); Honduras: ours L2, State L3 (published 2024-12-10); Jamaica: ours L1, State L2 (published 2026-06-23); Morocco: ours L1, State L2 (published 2025-04-21); Nicaragua: ours L2, State L3 (published 2026-05-14); Oman: ours L2, State L3 (published 2026-04-09); Panama: ours L1, State L2 (published 2024-09-23); Qatar: ours L2, State L3 (published 2026-03-02); Sweden: ours L1, State L2 (published 2026-05-18); Uruguay: ours L1, State L2 (published 2026-07-28); Zimbabwe: ours L1, State L2 (published 2023-06-27)
+   → 19 diverge: Belgium: ours L1, State L2 (published 2026-07-23); Belize: ours L1, State L2 (published 2026-03-12); Botswana: ours L1, State L2 (published 2026-06-17); Costa Rica: ours L1, State L2 (published 2026-04-02); Denmark: ours L1, State L2 (published 2024-09-17); Dominican Republic: ours L1, State L2 (published 2025-06-12); Faroe Islands (Kingdom of Denmark): ours L1, State L2 (published 2024-09-17); Honduras: ours L2, State L3 (published 2024-12-10); Jamaica: ours L1, State L2 (published 2026-06-23); Morocco: ours L1, State L2 (published 2025-04-21); Nicaragua: ours L2, State L3 (published 2026-05-14); Oman: ours L2, State L3 (published 2026-04-09); Panama: ours L1, State L2 (published 2024-09-23); Qatar: ours L2, State L3 (published 2026-03-02); Sweden: ours L1, State L2 (published 2026-05-18); Uruguay: ours L1, State L2 (published 2026-07-28); Zimbabwe: ours L1, State L2 (published 2023-06-27); Grenada: ours L1, State L2 (published 2026-01-05); Maldives: ours L1, State L2 (published 2025-10-07)
    → `src/data/safety.json vs src/data/state-advisory-feed.json`
 
 ✅ **A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate**
@@ -181,7 +181,7 @@ the provider.
    → `src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts`
 
 ✅ **No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)**
-   → all 76 rows consistent
+   → all 83 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
 ⚠️ **The governing-law jurisdiction is set — until it is, the Terms page says so plainly rather than naming a state nobody checked**
