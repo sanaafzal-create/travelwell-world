@@ -30,7 +30,8 @@
  * `ids.includes(x)` and get a true for a Well. Anything reading this file should
  * read `interests[]` and nothing else unless it means something else.
  */
-import { SIS, boardSis, SI_GROUPS, WELLS, LUX_WELLS } from "../src/data/taxonomy";
+import { SIS, boardSis, SI_GROUPS, WELLS, LUX_WELLS, SUBREGIONS } from "../src/data/taxonomy";
+import { IMAGE_TOKENS, FALLBACK_IMG } from "../src/lib/images";
 import { writeGenerated, VOLATILE_DATE } from "./lib/write-generated";
 
 const board = boardSis(SIS);
@@ -75,6 +76,24 @@ const payload = {
 
   /** The Wells. A different axis entirely. `shop` is here, not in `interests`. */
   wells: [...WELLS, ...LUX_WELLS].map((w) => ({ id: w.id, name: w.name, status: w.status })),
+
+  /**
+   * The hero-image token vocabulary (`img` on a destination row). The library's
+   * Bali pilot claimed this was unreadable and reused a token that merely
+   * existed; the full allowed set is here so a new destination picks correctly.
+   * `fallback` is what an unknown token resolves to — an invalid token does not
+   * fail, it silently ships a generic mountain valley, which is worse.
+   */
+  img_tokens: { allowed: IMAGE_TOKENS, fallback: FALLBACK_IMG },
+
+  /**
+   * Sub-region shelves, WIRED regions only. A region absent here has no shelf
+   * list yet — its destinations carry free `sub_region` strings that group
+   * nothing. The canonical strings come from docs/sub-region-master.md and
+   * David's dossiers, never sketched from memory; the reconciliation loop for
+   * the unwired regions is propose-and-approve, not invent.
+   */
+  sub_regions_wired: SUBREGIONS,
 };
 
 const wrote = writeGenerated("docs/board.json", JSON.stringify(payload, null, 2) + "\n", VOLATILE_DATE);

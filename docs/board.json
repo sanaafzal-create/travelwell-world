@@ -451,5 +451,65 @@
       "name": "Security-Well",
       "status": "live"
     }
-  ]
+  ],
+  "img_tokens": {
+    "allowed": [
+      "safariGiraffe",
+      "lion",
+      "safariJeep",
+      "elephant",
+      "tropicalBeach",
+      "oceanAerial",
+      "maldivesResort",
+      "mountainValley",
+      "desertDunes",
+      "northernLights",
+      "baliRice",
+      "paris",
+      "venice",
+      "marrakech",
+      "dubai",
+      "kyoto",
+      "santorini",
+      "restaurant",
+      "spaWellness",
+      "luxuryPool"
+    ],
+    "fallback": "mountainValley"
+  },
+  "sub_regions_wired": {
+    "04A": [
+      "Egypt & the Nile",
+      "The Red Sea",
+      "Morocco",
+      "The Maghreb",
+      "Jordan & the Levant",
+      "The Gulf",
+      "Oman",
+      "Israel & the Holy Land",
+      "Saudi Arabia"
+    ],
+    "12A": [
+      "Pacific Coast",
+      "Pacific Northwest",
+      "Mountain West",
+      "The Southwest",
+      "Texas & The Gulf",
+      "The Midwest",
+      "The South",
+      "New England",
+      "Mid-Atlantic",
+      "Alaska",
+      "Hawai‘i"
+    ],
+    "13A": [
+      "British Columbia",
+      "The Rockies",
+      "The Prairies",
+      "Ontario",
+      "Québec",
+      "The Maritimes",
+      "The North"
+    ]
+  }
 }
