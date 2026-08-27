@@ -514,6 +514,42 @@ export default function DestinationDetail() {
             <div className="dd-quick__row"><span className="dd-quick__k">Status</span><span className="dd-quick__v">{stub ? "Preview" : "Live"}</span></div>
           </div>
 
+          {/* ── WHEN TO GO & WHEN TO BOOK (the timing panel, 2026-08-23) ──────
+              Renders the SIX traveler-facing canonical timing keys — 390
+              destinations carry a timing block and this turns that research
+              from invisible into rendered.
+
+              Deliberately NOT rendered: `fire_date` (né `campaign_start`) and
+              `inflection`. Those are the MARKETING calendar — when WE fire ads
+              relative to the booking curve — not advice to a traveler, and
+              putting our campaign trigger on a public page would read as a
+              booking deadline it is not. The panel was nearly built against
+              `campaign_start` while a rename to `fire_date` swept the library;
+              the durable fix was noticing the panel should never have read
+              either. The long tail of ~145 variant keys renders nothing until
+              the library converges it — absence over guesswork. */}
+          {(() => {
+            const t = (data as { timing?: Record<string, unknown> } | undefined)?.timing;
+            if (!t) return null;
+            const rows: [string, string][] = [];
+            const say = (k: string, label: string) => { const v = t[k]; if (typeof v === "string" && v.trim()) rows.push([label, v]); };
+            say("peak", "Peak");
+            say("shoulder", "Shoulder");
+            say("green", "Green season");
+            say("event_peaks", "Event peaks");
+            say("booking_lead", "Book ahead");
+            say("off_season_specials", "Off-season deals");
+            if (!rows.length) return null;
+            return (
+              <div className="dd-quick" style={{ marginTop: 14 }}>
+                <div className="dd-quick__h">When to go &amp; when to book</div>
+                {rows.map(([k, v]) => (
+                  <div className="dd-quick__row" key={k}><span className="dd-quick__k">{k}</span><span className="dd-quick__v">{v}</span></div>
+                ))}
+              </div>
+            );
+          })()}
+
           <div className="dd-addcta">
             <p>Love it here? Add {DEST.name} to your trip and keep building.</p>
             <button className="btn btn-primary" style={{ width: "100%" }} onClick={() => openPanel("concierge")}>Add {DEST.name} to trip</button>

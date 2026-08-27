@@ -85758,6 +85758,7 @@
     "Live redirect: Bazaruto Archipelago / southern Mozambique (bookable, far from Cabo Delgado)"
    ],
    "safety": {
+    "zone": "Cabo Delgado Province",
     "emergency": "police 119 (also 112); INEM ambulance 117 (non-functional in conflict zone)",
     "hospital": "Pemba - itself L4; no assured evacuation",
     "advisory_level": "L4",
@@ -111377,6 +111378,7 @@
     "Rest of Mozambique differs - southern coast (Bazaruto, Tofo, Vilanculos, Inhambane, Maputo) is bookable and far from the conflict"
    ],
    "safety": {
+    "zone": "Cabo Delgado Province",
     "emergency": "police 119 (also 112); INEM ambulance 117 (non-functional in conflict zone)",
     "hospital": "Pemba (Provincial Hospital / International SOS) - but Pemba itself is L4; evacuation not assured",
     "advisory_level": "L4",

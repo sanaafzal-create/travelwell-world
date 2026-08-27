@@ -1522,18 +1522,13 @@
   },
   "UG": {
     "country": "Uganda",
-    "lvl": 4,
-    "label": "Do not travel",
-    "summary": "Do not travel due to crime, terrorism and unrest. Level 4 is content-only on TravelWell: we show the destination and why it is held, and do not offer booking.",
-    "considerations": [
-      "Violent crime — armed robbery, home invasion, sexual assault — is a real danger, more common in larger cities, the Karamoja region and along the western and northern borders.",
-      "State names a risk of terrorist violence, with attacks having targeted religious venues, transport hubs and areas visited by tourists including national parks.",
-      "Protests develop with little warning around political events; security services have used batons, rubber bullets, tear gas and gunfire.",
-      "State also flags the 2023 Anti-Homosexuality Act — read the advisory in full before planning any travel."
-    ],
-    "medical": "Active Ebola outbreak with heightened screening and entry/exit controls. Confirm current requirements with the CDC travel health notices and your national advisory before any travel.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Uganda. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory — no advisory against travel; alert_status empty (verbatim snapshot from the research library, 2026-08-22)",
+    "reported": true,
+    "fromAbsence": true
   },
   "US": {
     "country": "United States",

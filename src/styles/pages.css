@@ -728,6 +728,8 @@
   [data-page="destination-detail"] .safety-card__foot { padding:12px 18px; border-top:1px solid var(--border-hair); background:var(--surface-alt); font-size:13px; color:var(--muted-foreground); display:flex; align-items:center; gap:8px; }
   [data-page="destination-detail"] .safety-card__source { display:flex; align-items:center; gap:6px; }
   [data-page="destination-detail"] .dd-quick { border:1px solid var(--border); border-radius:var(--radius); background:var(--card); box-shadow:var(--e1); padding:18px; }
+/* Heading for the when-to-go panel — a label, so the 13px label floor applies. */
+.dd-quick__h { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); padding-bottom: 6px; border-bottom: 1px solid var(--border-hair); margin-bottom: 4px; }
   [data-page="destination-detail"] .dd-quick h4 { font-family:var(--font-display); font-weight:600; font-size:17px; margin-bottom:12px; }
   [data-page="destination-detail"] .dd-quick__row { display:flex; justify-content:space-between; gap:12px; padding:7px 0; font-size:13.5px; }
   [data-page="destination-detail"] .dd-quick__row + .dd-quick__row { border-top:1px solid var(--border-hair); }
