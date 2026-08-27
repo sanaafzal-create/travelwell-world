@@ -368,7 +368,16 @@ export type Tier = "prime" | "vetted" | "prospective";
 // destinations. (Was a 4-band set; `essential`←value, `premier`←premium, with
 // `luxury` added between premier and ultra.)
 export type Price = "essential" | "comfort" | "premier" | "luxury" | "ultra";
-export type Mode = "api" | "widget" | "affiliate" | "first-party";
+/**
+ * The provider handoff — HOW a booking travels between us and the provider.
+ * Grew 4 → 7 on 2026-08-27: the research library's integration shelves are six
+ * and three had nowhere to live in the schema. `request-to-book` is the entire
+ * liveaboard model — certification, medical sign-off, verified dive insurance,
+ * a deposit against a cancellation clock; "the friction is the product".
+ * `email-parse` was already canon in the capability ledger as the
+ * confirmation-return everyone starts on; `lead` is the manual-close handoff.
+ */
+export type Mode = "api" | "widget" | "affiliate" | "first-party" | "email-parse" | "request-to-book" | "lead";
 export interface Provider {
   name: string; well: string; tier: Tier; price: Price; mode: Mode; desc: string; commission: string;
   /** Which Special Interests this provider serves (real taxonomy keys). The matching keystone. */

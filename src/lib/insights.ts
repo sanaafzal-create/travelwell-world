@@ -235,12 +235,20 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
   }
 
   // The curated "happenings" Atlas may speak — never invents beyond these.
+  //
+  // `startsOn` rides along so Atlas can tell a DATED event from a SLOT-ONLY
+  // one. Two-thirds of the event inventory has no announced date, only a
+  // season — and without this field the temporal rule made Atlas either
+  // silent about all of them or (worse) confident about dates it never had.
+  // The library asked what Atlas should say for those; the answer needs the
+  // distinction to arrive in the context first.
   ctx.happenings = signals.slice(0, 6).map((sig) => ({
     title: sig.title,
     blurb: sig.blurb,
     href: sig.href,
     season: sig.season,
     horizon: sig.horizon,
+    ...(sig.startsOn ? { startsOn: sig.startsOn } : { dateAnnounced: false }),
   }));
 
   return ctx;

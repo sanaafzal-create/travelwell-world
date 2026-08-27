@@ -36,12 +36,12 @@ good as regenerating it.
 | Destinations | 44 | src/data/places.ts:130 · `export const DESTINATIONS: Record<string, Dest` |
 | …with a `price_band` | 7 | src/data/places.ts:101 · `price_band?: string; // coarse overall price l` |
 | …at `depth: verified` | 33 | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
-| Activities | 60 | src/data/places.ts:560 · `export const ACTIVITIES: Record<string, Activi` |
-| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:422 · `export const PROVIDERS: Record<string, Provide` |
+| Activities | 60 | src/data/places.ts:569 · `export const ACTIVITIES: Record<string, Activi` |
+| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:431 · `export const PROVIDERS: Record<string, Provide` |
 | Regions | 13 | src/data/taxonomy.ts:333 · `export const REGIONS: Region[] = [` |
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:345 · `export const SUBREGION_TOP: Record<string, str` |
-| Guides | 9 | src/data/places.ts:520 · `export const GUIDES: Guide[] = [` |
+| Guides | 9 | src/data/places.ts:529 · `export const GUIDES: Guide[] = [` |
 | Country name→ISO entries (`COUNTRY_ISO`) | 87 | src/data/safety-data.ts:259 · `export const COUNTRY_ISO: Record<string, strin` |
 | …of those, countries WITH an advisory row (`safety.json`) | 84 | src/data/safety-data.ts:341 · `export const SAFETY_DATA = safetyJson as Recor` |
 
