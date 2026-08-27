@@ -205,7 +205,30 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
   // block, so Atlas has no half-fact to reason from.
   if (here?.kind === "destination") {
     const dest = Object.values(cat.destinations).flat().find((d) => d.id === here.id);
-    if (dest) ctx.safety = safetyBlockFor(dest);
+    if (dest) {
+      ctx.safety = safetyBlockFor(dest);
+      // ── THE WAREHOUSE, NOT THE SHOP WINDOW (David, 2026-08-23) ──────────
+      // The interest page shows twelve jewels for spread; the INVENTORY is the
+      // whole jewel list, and Atlas could not reach it — so when a traveller
+      // said "snorkeling" and Atlas expanded their vision, every specific thing
+      // it named came from the model's world knowledge rather than from what we
+      // actually hold and can book. That is the fabrication canon forbids for
+      // prices and providers, arriving through the side door of enthusiasm.
+      //
+      // So the destination in play hands Atlas its FULL jewel inventory —
+      // name, interests, Wells — every one an experience someone sells here.
+      // Deliberately uncapped: the largest destination carries 38, which is
+      // small, and a capped list would recreate the exact "first twelve in
+      // file order" failure the shelf just escaped.
+      const js = (dest.data?.jewels ?? []) as { name?: string; si?: string | string[]; si_all?: string[]; wells?: string[] }[];
+      if (js.length) {
+        ctx.jewelsHere = js.map((j) => ({
+          name: j.name,
+          si: Array.isArray(j.si_all) && j.si_all.length ? j.si_all : (Array.isArray(j.si) ? j.si : j.si ? [j.si] : []),
+          ...(Array.isArray(j.wells) && j.wells.length ? { wells: j.wells } : {}),
+        }));
+      }
+    }
   }
 
   if (profileRec) {
