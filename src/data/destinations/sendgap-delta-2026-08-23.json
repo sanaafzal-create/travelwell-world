@@ -1,0 +1,1373 @@
+[
+ {
+  "id": "anguilla",
+  "region_code": "11C",
+  "name": "Anguilla",
+  "country": "Anguilla",
+  "line": "The beach connoisseur's island",
+  "status": "live",
+  "depth": "verified",
+  "img": "tropicalBeach",
+  "sub_region": "Eastern Caribbean — Leewards",
+  "si": [
+   "tropical",
+   "romance",
+   "diveglobal"
+  ],
+  "tier_range": [
+   "premier",
+   "ultra"
+  ],
+  "data": {
+   "key_facts": [
+    "Status: British Overseas Territory.",
+    "Access: AXA airport + 20-30 min ferry from St. Maarten",
+    "Shoal Bay East - mile-long powder beach, world-ranked; reefs at each point",
+    "Luxury anchors: Belmond Cap Juluca (LVMH) + Four Seasons Anguilla",
+    "British Overseas Territory (UK jurisdiction)",
+    "Reefs + offshore cays (Sandy Island); no hyperbaric chamber; malaria none; hurricane Jun-Nov peak Aug-Oct (Irma 2017 rebuilt)"
+   ],
+   "safety": {
+    "emergency": "911",
+    "hospital": "Princess Alexandra Hospital, The Valley (serious -> St. Maarten; no hyperbaric chamber)",
+    "malaria": "NONE; dengue present",
+    "yellow_fever": "only if arriving from an endemic country",
+    "hurricane": "Jun-Nov, peak Aug-Oct (Irma 2017 rebuilt)",
+    "dive_no_fly": "18-24h (DAN)",
+    "fcdo": {
+     "posture": "1",
+     "quotes": [],
+     "url": "https://www.gov.uk/foreign-travel-advice/anguilla",
+     "read": "2026-08-20T14:55:34Z",
+     "page_updated": "2025-05-15T16:32:41+01:00",
+     "source_country": "anguilla",
+     "quotes_note": "not extracted by the join — a restricted-area clause is quoted by a human, never composed"
+    }
+   },
+   "timing": null,
+   "jewels": [
+    {
+     "name": "Belmond Cap Juluca stay",
+     "si_tag": "Romance & Honeymoons",
+     "status": "live",
+     "hook": "LVMH-Belmond icon on Maunday's Bay",
+     "bookable_category": "resort booking",
+     "source": "https://www.belmond.com/hotels/north-america/caribbean/anguilla/belmond-cap-juluca/",
+     "fit_rules": {
+      "duration": "multi-night",
+      "before": "ferry/air via SXM",
+      "after": "none",
+      "pairs_with": "Shoal Bay, Sandy Island",
+      "pace": "slow",
+      "time_season": "Dec-Apr peak"
+     },
+     "si": "romance",
+     "blurb": "LVMH-Belmond icon on Maunday's Bay",
+     "commission": "LUX agent / Virtuoso",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "romance"
+     ],
+     "shelf_fit": {
+      "diveglobal": "destination",
+      "romance": "primary",
+      "tropical": "destination"
+     },
+     "commission_lane": [
+      "consortia"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    },
+    {
+     "name": "Shoal Bay East beach day",
+     "si_tag": "Tropical Islands",
+     "status": "live",
+     "hook": "mile-long world-ranked powder sand",
+     "bookable_category": "beach/bar day",
+     "source": "https://www.anguilla-beaches.com/anguilla-beaches.html",
+     "fit_rules": {
+      "duration": "full-day",
+      "before": "none",
+      "after": "none (snorkel = no restriction)",
+      "pairs_with": "beach bars",
+      "pace": "relaxed",
+      "time_season": "year-round"
+     },
+     "si": "tropical",
+     "blurb": "mile-long world-ranked powder sand",
+     "commission": "F&B + tour OTA",
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "pass 2 — text",
+     "si_all": [
+      "tropical"
+     ],
+     "shelf_fit": {
+      "diveglobal": "destination",
+      "romance": "destination",
+      "tropical": "primary"
+     },
+     "commission_lane": [],
+     "commission_embedded": false,
+     "commission_basis": "unparsed"
+    },
+    {
+     "name": "Reef & wreck dive",
+     "si_tag": "Dive Globally",
+     "status": "live",
+     "hook": "reefs, shipwrecks and artificial reefs with turtles",
+     "bookable_category": "dive-charter",
+     "source": "https://www.padi.com/diving-in/anguilla/",
+     "fit_rules": {
+      "duration": "half-day",
+      "before": "cert card",
+      "after": "NO-FLY 18-24h (DAN)",
+      "pairs_with": "Sandy Ground",
+      "pace": "active",
+      "time_season": "calmest May-Oct"
+     },
+     "si": "diveglobal",
+     "blurb": "reefs, shipwrecks and artificial reefs with turtles",
+     "commission": "dive-op host / OTA",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "diveglobal",
+      "tropical"
+     ],
+     "shelf_fit": {
+      "diveglobal": "primary",
+      "romance": "destination",
+      "tropical": "evidenced"
+     },
+     "commission_lane": [
+      "operator"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    },
+    {
+     "name": "Sandy Island / offshore-cay day trip",
+     "si_tag": "Tropical Islands",
+     "status": "live",
+     "hook": "a tiny cay reached only by boat",
+     "bookable_category": "boat charter + lunch",
+     "source": "https://www.anguilla-vacation.com/activities/diving-snorkeling/",
+     "fit_rules": {
+      "duration": "half-full day",
+      "before": "boat booking",
+      "after": "none (snorkel = no restriction)",
+      "pairs_with": "Shoal Bay",
+      "pace": "relaxed",
+      "time_season": "calm seas"
+     },
+     "si": "tropical",
+     "blurb": "a tiny cay reached only by boat",
+     "commission": "dive-op / charter",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "tropical"
+     ],
+     "shelf_fit": {
+      "diveglobal": "destination",
+      "romance": "destination",
+      "tropical": "primary"
+     },
+     "commission_lane": [
+      "operator"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    }
+   ],
+   "faq": null,
+   "seo": {
+    "meta_title": "Anguilla: 33 Powder Beaches & Quiet Luxury",
+    "meta_description": "Anguilla — 33 world-class powder beaches, Belmond Cap Juluca and Four Seasons luxury, and reef diving. The Caribbean's beach connoisseur's isle.",
+    "slug": "anguilla",
+    "primary_keyword": "Shoal Bay East Anguilla",
+    "long_tail": [
+     "Belmond Cap Juluca Anguilla",
+     "Four Seasons Anguilla",
+     "Anguilla vs St. Maarten",
+     "Anguilla luxury honeymoon beaches",
+     "Anguilla diving"
+    ],
+    "jsonld_type": "TouristDestination",
+    "author_byline": "By David McCallister — commercial pilot, 56 countries",
+    "content_freshness": "2026-07-02"
+   },
+   "booking": {
+    "advisory_updated": "2026-08-20",
+    "advisory_authority": "FCDO"
+   },
+   "si_checklist_25": null,
+   "sis_present": [
+    {
+     "si": "tropical",
+     "status": "live"
+    },
+    {
+     "si": "romance",
+     "status": "live"
+    },
+    {
+     "si": "diveglobal",
+     "status": "live"
+    }
+   ],
+   "ultra": null,
+   "source_verified": "2026-07-02",
+   "hero": {
+    "query": "Anguilla, Anguilla (British Overseas Territory)"
+   },
+   "geo": {
+    "lat": 18.2206,
+    "lng": -63.0686
+   },
+   "orbit": [
+    {
+     "id": "guadeloupe",
+     "jewels": 3,
+     "si": [
+      "diveglobal",
+      "expedition"
+     ]
+    },
+    {
+     "id": "montserrat",
+     "jewels": 3,
+     "si": [
+      "expedition",
+      "tropical"
+     ]
+    },
+    {
+     "id": "saba",
+     "jewels": 3,
+     "si": [
+      "expedition",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "st-barths",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "ultra"
+     ]
+    },
+    {
+     "id": "st-kitts",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "expedition",
+      "diveglobal",
+      "culture"
+     ]
+    },
+    {
+     "id": "st-maarten-st-martin",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "culinary"
+     ]
+    },
+    {
+     "id": "tortola-bvi",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "liveaboard",
+      "yacht"
+     ]
+    },
+    {
+     "id": "virgin-gorda-bvi",
+     "jewels": 4,
+     "si": [
+      "expedition",
+      "diveglobal",
+      "yacht"
+     ]
+    }
+   ],
+   "orbit_country": []
+  },
+  "feel": [
+   "tropical"
+  ]
+ },
+ {
+  "id": "guadeloupe",
+  "region_code": "11C",
+  "name": "Guadeloupe",
+  "country": "Guadeloupe",
+  "line": "France in the tropics",
+  "status": "live",
+  "depth": "verified",
+  "img": "oceanAerial",
+  "sub_region": "Eastern Caribbean — Leewards",
+  "si": [
+   "diveglobal",
+   "expedition"
+  ],
+  "tier_range": [
+   "premier",
+   "ultra"
+  ],
+  "data": {
+   "key_facts": [
+    "Status: An overseas region of France and part of the EU.",
+    "Two-island 'butterfly': Basse-Terre (volcano/rainforest) + Grande-Terre (beaches)",
+    "La Soufrière = highest peak in the Lesser Antilles, 1,467 m (~3h hike)",
+    "EU/France territory - euro, no visa <90 days",
+    "Réserve Cousteau (Îlet Pigeon) - 10-15 min by boat from Malendure",
+    "Chutes du Carbet (3 falls, up to 125 m); malaria none; hurricane Jun-Nov peak Aug-Oct"
+   ],
+   "safety": {
+    "emergency": "112 (EU) / 15 (SAMU) / 18 (fire)",
+    "hospital": "CHU de la Guadeloupe (Pointe-à-Pitre)",
+    "malaria": "NONE; dengue present",
+    "yellow_fever": "no requirement",
+    "hurricane": "Jun-Nov, peak Aug-Oct",
+    "volcano": "La Soufrière active fumaroles - guided hike",
+    "dive_no_fly": "18-24h (DAN)",
+    "fcdo": {
+     "posture": "1",
+     "quotes": [],
+     "url": "https://www.gov.uk/foreign-travel-advice/guadeloupe",
+     "read": "2026-08-20T14:54:59Z",
+     "page_updated": "2025-12-10T13:54:06+00:00",
+     "source_country": "guadeloupe",
+     "quotes_note": "not extracted by the join — a restricted-area clause is quoted by a human, never composed"
+    }
+   },
+   "timing": null,
+   "jewels": [
+    {
+     "name": "Réserve Cousteau dive/snorkel (Pigeon Island)",
+     "si_tag": "Dive Globally",
+     "status": "live",
+     "hook": "the reef Cousteau called one of the world's best",
+     "bookable_category": "dive excursion",
+     "source": "https://www.lonelyplanet.com/guadeloupe/plage-de-malendure-pigeon-island/attractions/reserve-cousteau/a/poi-sig/1025566/1331196",
+     "fit_rules": {
+      "duration": "half-day",
+      "before": "light breakfast",
+      "after": "scuba = NO-FLY 18-24h (DAN); snorkel = no restriction",
+      "pairs_with": "beach day",
+      "pace": "moderate",
+      "time_season": "year-round"
+     },
+     "si": "diveglobal",
+     "blurb": "the reef Cousteau called one of the world's best",
+     "commission": "DMC/dive-op + OTA ~8-12%",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "diveglobal"
+     ],
+     "shelf_fit": {
+      "diveglobal": "primary",
+      "expedition": "destination"
+     },
+     "commission_pct_low": 8,
+     "commission_pct_high": 12,
+     "commission_lane": [
+      "operator",
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "band+lane"
+    },
+    {
+     "name": "La Soufrière volcano hike",
+     "si_tag": "Global Expedition Adventures",
+     "status": "live",
+     "hook": "summit the highest peak in the Lesser Antilles",
+     "bookable_category": "guided hike",
+     "source": "https://www.lesilesdeguadeloupe.com/en/islands/basse-terre-island/",
+     "fit_rules": {
+      "duration": "~3h up",
+      "before": "early start (afternoon cloud)",
+      "after": "rest/rainforest spa",
+      "pairs_with": "Carbet Falls",
+      "pace": "strenuous",
+      "time_season": "dry season Dec-Apr best"
+     },
+     "si": "expedition",
+     "blurb": "summit the highest peak in the Lesser Antilles",
+     "commission": "DMC + OTA ~8-12%",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "expedition"
+     ],
+     "shelf_fit": {
+      "diveglobal": "destination",
+      "expedition": "primary"
+     },
+     "commission_pct_low": 8,
+     "commission_pct_high": 12,
+     "commission_lane": [
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "band+lane"
+    },
+    {
+     "name": "Chutes du Carbet (3 tiered falls)",
+     "si_tag": "Global Expedition Adventures",
+     "status": "live",
+     "hook": "rainforest waterfall trek up to 125 m",
+     "bookable_category": "guided hike",
+     "source": "https://www.lesilesdeguadeloupe.com/en/islands/basse-terre-island/",
+     "fit_rules": {
+      "duration": "half-day",
+      "before": "sturdy shoes",
+      "after": "beach",
+      "pairs_with": "volcano",
+      "pace": "moderate",
+      "time_season": "year-round (wetter Jun-Nov)"
+     },
+     "si": "expedition",
+     "blurb": "rainforest waterfall trek up to 125 m",
+     "commission": "DMC + OTA",
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "expedition"
+     ],
+     "shelf_fit": {
+      "diveglobal": "destination",
+      "expedition": "primary"
+     },
+     "commission_lane": [
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    }
+   ],
+   "faq": null,
+   "seo": {
+    "meta_title": "Guadeloupe: Cousteau Reef, Volcano & Rainforest",
+    "meta_description": "Dive the Cousteau Reserve, hike La Soufrière volcano and chase the Carbet Falls in France's tropical Guadeloupe. When to go and how.",
+    "slug": "guadeloupe",
+    "primary_keyword": "Guadeloupe Cousteau reserve diving",
+    "long_tail": [
+     "La Soufrière volcano hike",
+     "Carbet Falls Guadeloupe",
+     "Pigeon Island snorkeling",
+     "French Caribbean rainforest",
+     "Guadeloupe diving"
+    ],
+    "jsonld_type": "TouristDestination",
+    "author_byline": "By David McCallister — commercial pilot, 56 countries",
+    "content_freshness": "2026-07-02"
+   },
+   "booking": {
+    "advisory_updated": "2026-08-20",
+    "advisory_authority": "FCDO"
+   },
+   "si_checklist_25": null,
+   "sis_present": [
+    {
+     "si": "diveglobal",
+     "status": "live"
+    },
+    {
+     "si": "expedition",
+     "status": "live"
+    }
+   ],
+   "ultra": null,
+   "source_verified": "2026-07-02",
+   "hero": {
+    "query": "Guadeloupe, Guadeloupe (France/EU)"
+   },
+   "geo": {
+    "lat": 16.25,
+    "lng": -61.58
+   },
+   "orbit": [
+    {
+     "id": "anguilla",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "romance",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "montserrat",
+     "jewels": 3,
+     "si": [
+      "expedition",
+      "tropical"
+     ]
+    },
+    {
+     "id": "saba",
+     "jewels": 3,
+     "si": [
+      "expedition",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "st-barths",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "ultra"
+     ]
+    },
+    {
+     "id": "st-kitts",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "expedition",
+      "diveglobal",
+      "culture"
+     ]
+    },
+    {
+     "id": "st-maarten-st-martin",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "culinary"
+     ]
+    },
+    {
+     "id": "tortola-bvi",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "liveaboard",
+      "yacht"
+     ]
+    },
+    {
+     "id": "virgin-gorda-bvi",
+     "jewels": 4,
+     "si": [
+      "expedition",
+      "diveglobal",
+      "yacht"
+     ]
+    }
+   ],
+   "orbit_country": []
+  },
+  "sub_region_detail": "Eastern Caribbean — Windwards & South"
+ },
+ {
+  "id": "martinique",
+  "region_code": "11C",
+  "name": "Martinique",
+  "country": "Martinique",
+  "line": "The chic French Caribbean",
+  "status": "live",
+  "depth": "verified",
+  "img": "oceanAerial",
+  "sub_region": "Eastern Caribbean — Windwards & South",
+  "si": [
+   "diveglobal",
+   "expedition",
+   "culinary"
+  ],
+  "tier_range": [
+   "premier",
+   "ultra"
+  ],
+  "data": {
+   "key_facts": [
+    "Status: An overseas region of France and part of the EU.",
+    "French overseas region / EU; euro, French standards, Créole-French culture",
+    "Mount Pelée 1,397 m active volcano; 1902 eruption destroyed St-Pierre (UNESCO 2023)",
+    "Rhum Agricole - world's only AOC rum; distillery circuit, harvest Feb-Jun",
+    "Diamond Rock - 175 m islet, advanced diving (currents)",
+    "St-Pierre 1902-eruption wreck diving; malaria none; hurricane Jun-Nov peak Aug-Oct"
+   ],
+   "safety": {
+    "emergency": "15 (SAMU) / 18 (fire) / 17 (police) / 112 (EU)",
+    "hospital": "CHU de Martinique (Fort-de-France)",
+    "malaria": "NONE; dengue present",
+    "yellow_fever": "no requirement",
+    "hurricane": "Jun-Nov, peak Aug-Oct",
+    "volcano": "Mount Pelée active but climbable - check weather/status",
+    "dive_no_fly": "18-24h (DAN); Diamond Rock advanced/currents",
+    "fcdo": {
+     "posture": "1",
+     "quotes": [],
+     "url": "https://www.gov.uk/foreign-travel-advice/martinique",
+     "read": "2026-08-20T14:55:05Z",
+     "page_updated": "2025-12-10T13:37:46+00:00",
+     "source_country": "martinique",
+     "quotes_note": "not extracted by the join — a restricted-area clause is quoted by a human, never composed"
+    }
+   },
+   "timing": null,
+   "jewels": [
+    {
+     "name": "Mount Pelée volcano climb",
+     "si_tag": "Global Expedition Adventures",
+     "status": "live",
+     "hook": "summit the volcano behind the 1902 St-Pierre catastrophe (UNESCO)",
+     "bookable_category": "guided hike/tour",
+     "source": "https://www.martinique.org/en/things-to-do/must-see",
+     "fit_rules": {
+      "duration": "full-day",
+      "before": "fitness, weather check (cloud/rain)",
+      "after": "rest",
+      "pairs_with": "St-Pierre history",
+      "pace": "strenuous",
+      "time_season": "dry season (Dec-May) for views"
+     },
+     "si": "expedition",
+     "blurb": "summit the volcano behind the 1902 St-Pierre catastrophe (UNESCO)",
+     "commission": "DMC/OTA ~10%",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "expedition"
+     ],
+     "shelf_fit": {
+      "culinary": "destination",
+      "diveglobal": "destination",
+      "expedition": "primary"
+     },
+     "commission_pct_low": 10,
+     "commission_pct_high": 10,
+     "commission_lane": [
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "band+lane"
+    },
+    {
+     "name": "Diamond Rock dive",
+     "si_tag": "Dive Globally",
+     "status": "live",
+     "hook": "advanced drift/wall diving around an iconic volcanic islet",
+     "bookable_category": "2-tank dive",
+     "source": "https://www.martinique.org/en/blog/highlights/diamond-rock",
+     "fit_rules": {
+      "duration": "half-day",
+      "before": "advanced (currents)",
+      "after": "NO-FLY 18-24h (DAN)",
+      "pairs_with": "St-Pierre wreck",
+      "pace": "moderate-advanced",
+      "time_season": "year-round, calmer dry season"
+     },
+     "si": "diveglobal",
+     "blurb": "advanced drift/wall diving around an iconic volcanic islet",
+     "commission": "dive-op host",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "diveglobal"
+     ],
+     "shelf_fit": {
+      "culinary": "destination",
+      "diveglobal": "primary",
+      "expedition": "destination"
+     },
+     "commission_lane": [
+      "operator"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    },
+    {
+     "name": "St-Pierre wreck dive",
+     "si_tag": "Dive Globally",
+     "status": "live",
+     "hook": "the ships sunk by the 1902 eruption",
+     "bookable_category": "2-tank dive",
+     "source": "https://www.deeperblue.com/a-taste-of-martinique/",
+     "fit_rules": {
+      "duration": "half-day",
+      "before": "certified",
+      "after": "NO-FLY 18-24h",
+      "pairs_with": "Pelée history",
+      "pace": "moderate",
+      "time_season": "year-round"
+     },
+     "si": "diveglobal",
+     "blurb": "the ships sunk by the 1902 eruption",
+     "commission": "dive-op host",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "diveglobal"
+     ],
+     "shelf_fit": {
+      "culinary": "destination",
+      "diveglobal": "primary",
+      "expedition": "destination"
+     },
+     "commission_lane": [
+      "operator"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    }
+   ],
+   "faq": null,
+   "seo": {
+    "meta_title": "Martinique: Mount Pelée, AOC Rum & Diving",
+    "meta_description": "Climb UNESCO Mount Pelée, dive Diamond Rock, and taste the world's only AOC rhum agricole in French-Caribbean Martinique. When to go and how.",
+    "slug": "martinique",
+    "primary_keyword": "Mount Pelée volcano hike",
+    "long_tail": [
+     "Martinique rhum agricole distillery tour",
+     "Diamond Rock diving",
+     "St-Pierre wreck dive",
+     "French Caribbean Martinique vacation",
+     "Martinique diving"
+    ],
+    "jsonld_type": "TouristDestination",
+    "author_byline": "By David McCallister — commercial pilot, 56 countries",
+    "content_freshness": "2026-07-02"
+   },
+   "booking": {
+    "advisory_updated": "2026-08-20",
+    "advisory_authority": "FCDO"
+   },
+   "si_checklist_25": null,
+   "sis_present": [
+    {
+     "si": "diveglobal",
+     "status": "live"
+    },
+    {
+     "si": "expedition",
+     "status": "live"
+    },
+    {
+     "si": "culinary",
+     "status": "future"
+    }
+   ],
+   "ultra": null,
+   "source_verified": "2026-07-02",
+   "hero": {
+    "query": "Martinique, Martinique (France/EU)"
+   },
+   "geo": {
+    "lat": 14.64,
+    "lng": -61.02
+   },
+   "orbit": [
+    {
+     "id": "barbados",
+     "jewels": 3,
+     "si": [
+      "tropical",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "dominica",
+     "jewels": 4,
+     "si": [
+      "expedition",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "grenada",
+     "jewels": 4,
+     "si": [
+      "diveglobal",
+      "expedition"
+     ]
+    },
+    {
+     "id": "st-lucia",
+     "jewels": 4,
+     "si": [
+      "romance",
+      "expedition",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "st-vincent",
+     "jewels": 3,
+     "si": [
+      "diveglobal",
+      "expedition"
+     ]
+    },
+    {
+     "id": "the-grenadines",
+     "jewels": 4,
+     "si": [
+      "diveglobal",
+      "yacht",
+      "ultra"
+     ]
+    }
+   ],
+   "orbit_country": []
+  }
+ },
+ {
+  "id": "montserrat",
+  "region_code": "11C",
+  "name": "Montserrat",
+  "country": "Montserrat",
+  "line": "The Caribbean's modern Pompeii",
+  "status": "live",
+  "depth": "verified",
+  "img": "mountainValley",
+  "sub_region": "Eastern Caribbean — Leewards",
+  "si": [
+   "expedition",
+   "tropical"
+  ],
+  "tier_range": [
+   "premier",
+   "ultra"
+  ],
+  "data": {
+   "key_facts": [
+    "Status: British Overseas Territory.",
+    "Air only - Fly Montserrat/SVG Air daily ANU->MNI (~$100); ferry ended (2026 relaunch unconfirmed)",
+    "Soufrière Hills destroyed Plymouth (ash-buried); MVO monitors 24/7; no major event since ~2010",
+    "Exclusion Zone tours require police permit -> guided-only",
+    "New capital/docking Little Bay; government at Brades",
+    "Rendezvous Bay = only white-sand beach; malaria none; hurricane Jun-Nov peak Aug-Oct"
+   ],
+   "safety": {
+    "emergency": "911 / 999",
+    "hospital": "Glendon Hospital area (small; serious -> Antigua)",
+    "malaria": "NONE; dengue possible",
+    "yellow_fever": "no requirement",
+    "hurricane": "Jun-Nov, peak Aug-Oct",
+    "volcano": "Zone V + maritime exclusion OFF-LIMITS except permitted guided tours; MVO 24/7",
+    "fcdo": {
+     "posture": "1",
+     "quotes": [],
+     "url": "https://www.gov.uk/foreign-travel-advice/montserrat",
+     "read": "2026-08-20T14:53:39Z",
+     "page_updated": "2026-07-03T16:32:01+01:00",
+     "source_country": "montserrat",
+     "quotes_note": "not extracted by the join — a restricted-area clause is quoted by a human, never composed"
+    }
+   },
+   "timing": null,
+   "jewels": [
+    {
+     "name": "Soufrière Hills exclusion-zone / Plymouth tour",
+     "si_tag": "Global Expedition Adventures",
+     "status": "live",
+     "hook": "guided entry to see the ash-buried capital — a modern Pompeii",
+     "bookable_category": "guided tour",
+     "source": "https://montserratislandtours.com/our-volcano/",
+     "fit_rules": {
+      "duration": "half/full day",
+      "before": "guided only, no independent entry (Zone V/maritime exclusion)",
+      "after": "none",
+      "pairs_with": "MVO observatory",
+      "pace": "moderate (vehicle + short walks)",
+      "time_season": "year-round, drier Dec-Apr"
+     },
+     "si": "expedition",
+     "blurb": "guided entry to see the ash-buried capital — a modern Pompeii",
+     "commission": "local guide DMC + OTA ~8-12%",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "expedition"
+     ],
+     "shelf_fit": {
+      "expedition": "primary",
+      "tropical": "destination"
+     },
+     "commission_pct_low": 8,
+     "commission_pct_high": 12,
+     "commission_lane": [
+      "DMC",
+      "guide"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "band+lane"
+    },
+    {
+     "name": "Montserrat Volcano Observatory (MVO)",
+     "si_tag": "Global Expedition Adventures",
+     "status": "live",
+     "hook": "interpretive center + safe volcano viewing",
+     "bookable_category": "attraction/guided stop",
+     "source": "https://www.mvo.ms/",
+     "fit_rules": {
+      "duration": "1-2h",
+      "before": "none",
+      "after": "none",
+      "pairs_with": "exclusion-zone tour",
+      "pace": "easy",
+      "time_season": "year-round"
+     },
+     "si": "expedition",
+     "blurb": "interpretive center + safe volcano viewing",
+     "commission": "OTA/DMC",
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "expedition"
+     ],
+     "shelf_fit": {
+      "expedition": "primary",
+      "tropical": "destination"
+     },
+     "commission_lane": [
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    },
+    {
+     "name": "Rendezvous Bay (white-sand beach)",
+     "si_tag": "Tropical Islands",
+     "status": "live",
+     "hook": "the island's only white-sand beach, boat/hike access",
+     "bookable_category": "day-trip/boat",
+     "source": "https://en.wikipedia.org/wiki/Montserrat",
+     "fit_rules": {
+      "duration": "half-day",
+      "before": "hike/boat",
+      "after": "none (snorkel = no restriction)",
+      "pairs_with": "beach day",
+      "pace": "moderate access",
+      "time_season": "year-round"
+     },
+     "si": "tropical",
+     "blurb": "the island's only white-sand beach, boat/hike access",
+     "commission": "OTA + local boat DMC",
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "tropical"
+     ],
+     "shelf_fit": {
+      "expedition": "destination",
+      "tropical": "primary"
+     },
+     "commission_lane": [
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    }
+   ],
+   "faq": null,
+   "seo": {
+    "meta_title": "Montserrat: Volcano Tours & the Buried City of Plymouth",
+    "meta_description": "Tour Montserrat's Soufrière Hills volcano and ash-buried Plymouth, the modern Pompeii, on guided permitted tours. When to go and how.",
+    "slug": "montserrat",
+    "primary_keyword": "Soufrière Hills volcano tour",
+    "long_tail": [
+     "Plymouth Montserrat buried city",
+     "Montserrat exclusion zone tour",
+     "Montserrat Volcano Observatory",
+     "Montserrat Emerald Isle",
+     "Rendezvous Bay Montserrat"
+    ],
+    "jsonld_type": "TouristDestination",
+    "author_byline": "By David McCallister — commercial pilot, 56 countries",
+    "content_freshness": "2026-07-02"
+   },
+   "booking": {
+    "advisory_updated": "2026-08-20",
+    "advisory_authority": "FCDO"
+   },
+   "si_checklist_25": null,
+   "sis_present": [
+    {
+     "si": "expedition",
+     "status": "live"
+    },
+    {
+     "si": "tropical",
+     "status": "live"
+    }
+   ],
+   "ultra": null,
+   "source_verified": "2026-07-02",
+   "hero": {
+    "query": "Montserrat, Montserrat (British Overseas Territory)"
+   },
+   "geo": {
+    "lat": 16.75,
+    "lng": -62.2
+   },
+   "orbit": [
+    {
+     "id": "anguilla",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "romance",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "guadeloupe",
+     "jewels": 3,
+     "si": [
+      "diveglobal",
+      "expedition"
+     ]
+    },
+    {
+     "id": "saba",
+     "jewels": 3,
+     "si": [
+      "expedition",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "st-barths",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "ultra"
+     ]
+    },
+    {
+     "id": "st-kitts",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "expedition",
+      "diveglobal",
+      "culture"
+     ]
+    },
+    {
+     "id": "st-maarten-st-martin",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "culinary"
+     ]
+    },
+    {
+     "id": "tortola-bvi",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "liveaboard",
+      "yacht"
+     ]
+    },
+    {
+     "id": "virgin-gorda-bvi",
+     "jewels": 4,
+     "si": [
+      "expedition",
+      "diveglobal",
+      "yacht"
+     ]
+    }
+   ],
+   "orbit_country": []
+  },
+  "feel": [
+   "tropical"
+  ]
+ },
+ {
+  "id": "saba",
+  "region_code": "11C",
+  "name": "Saba",
+  "country": "Saba",
+  "line": "The Unspoiled Queen",
+  "status": "live",
+  "depth": "verified",
+  "img": "mountainValley",
+  "sub_region": "Eastern Caribbean — Leewards",
+  "si": [
+   "expedition",
+   "diveglobal"
+  ],
+  "tier_range": [
+   "premier",
+   "ultra"
+  ],
+  "data": {
+   "key_facts": [
+    "Status: A special municipality of the Netherlands, in the Dutch Caribbean.",
+    "28 mi SW of St. Maarten; Winair Twin Otter ~12-min to the world's shortest runway",
+    "Saba Marine Park (1987): 30+ moored sites, famous pinnacles",
+    "Mount Scenery = highest point in the Kingdom of the Netherlands (~870 m, 1,015 steps)",
+    "Diving is day-boat, land-based (Sea Saba, Saba Divers)",
+    "Caribbean Explorer II visits but is St. Kitts/Statia-based; malaria none; hurricane Jun-Nov peak Aug-Oct"
+   ],
+   "safety": {
+    "emergency": "911",
+    "hospital": "A.M. Edwards Medical Centre (small; serious -> St. Maarten)",
+    "malaria": "NONE; dengue possible",
+    "yellow_fever": "no requirement",
+    "hurricane": "Jun-Nov, peak Aug-Oct",
+    "dive_no_fly": "18-24h (DAN); pinnacles advanced (current/depth)",
+    "fcdo": {
+     "posture": "1",
+     "quotes": [],
+     "url": "https://www.gov.uk/foreign-travel-advice/bonaire-st-eustatius-saba",
+     "read": "2026-08-19",
+     "page_updated": "2025-12-10T13:10:48+00:00",
+     "note": "Matched to the FCDO's own page 'bonaire-st-eustatius-saba' from their 226-country list; our derived slug did not resolve. Theirs is authoritative."
+    }
+   },
+   "timing": null,
+   "jewels": [
+    {
+     "name": "Saba Marine Park pinnacles (Third Encounter / Eye of the Needle)",
+     "si_tag": "Dive Globally",
+     "status": "live",
+     "hook": "volcanic seamounts rising from the deep, sharks/pelagics",
+     "bookable_category": "day-boat dive",
+     "source": "https://www.seasaba.com/saba-marine-park",
+     "fit_rules": {
+      "duration": "2-tank half-day",
+      "before": "Advanced cert (current + depth)",
+      "after": "NO-FLY 18-24h (DAN)",
+      "pairs_with": "reef dives",
+      "pace": "advanced (current/depth)",
+      "time_season": "year-round; calmest spring"
+     },
+     "si": "diveglobal",
+     "blurb": "volcanic seamounts rising from the deep, sharks/pelagics",
+     "commission": "dive-op host / DMC",
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "diveglobal"
+     ],
+     "shelf_fit": {
+      "diveglobal": "primary",
+      "expedition": "destination"
+     },
+     "commission_lane": [
+      "operator",
+      "DMC"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    },
+    {
+     "name": "Mount Scenery hike",
+     "si_tag": "Global Expedition Adventures",
+     "status": "live",
+     "hook": "1,015 steps to the Kingdom of the Netherlands' highest point",
+     "bookable_category": "guided hike",
+     "source": "https://www.sabatourism.com/hiking/mt-scenery/",
+     "fit_rules": {
+      "duration": "~2.5h RT",
+      "before": "fitness",
+      "after": "none",
+      "pairs_with": "Windwardside village",
+      "pace": "strenuous (steps)",
+      "time_season": "year-round; AM before cloud"
+     },
+     "si": "expedition",
+     "blurb": "1,015 steps to the Kingdom of the Netherlands' highest point",
+     "commission": "local guide DMC + OTA",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "wells_basis": "derived from name/blurb/hook",
+     "si_all": [
+      "expedition"
+     ],
+     "shelf_fit": {
+      "diveglobal": "destination",
+      "expedition": "primary"
+     },
+     "commission_lane": [
+      "DMC",
+      "guide"
+     ],
+     "commission_embedded": false,
+     "commission_basis": "lane"
+    }
+   ],
+   "faq": null,
+   "seo": {
+    "meta_title": "Saba: Marine Park Pinnacle Diving & Mount Scenery",
+    "meta_description": "Dive Saba's volcanic pinnacles and hike Mount Scenery, the Kingdom of the Netherlands' highest point. Day-boat diving. When to go and how.",
+    "slug": "saba",
+    "primary_keyword": "Saba Marine Park diving",
+    "long_tail": [
+     "Mount Scenery hike",
+     "Saba pinnacle dive",
+     "Sea Saba dive center",
+     "highest point Netherlands",
+     "Saba Twin Otter landing"
+    ],
+    "jsonld_type": "TouristDestination",
+    "author_byline": "By David McCallister — commercial pilot, 56 countries",
+    "content_freshness": "2026-07-02"
+   },
+   "booking": null,
+   "si_checklist_25": null,
+   "sis_present": [
+    {
+     "si": "expedition",
+     "status": "live"
+    },
+    {
+     "si": "diveglobal",
+     "status": "live"
+    }
+   ],
+   "ultra": null,
+   "source_verified": "2026-07-02",
+   "hero": {
+    "query": "Saba, Saba (Dutch Caribbean)"
+   },
+   "geo": {
+    "lat": 17.63,
+    "lng": -63.23
+   },
+   "orbit": [
+    {
+     "id": "anguilla",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "romance",
+      "diveglobal"
+     ]
+    },
+    {
+     "id": "guadeloupe",
+     "jewels": 3,
+     "si": [
+      "diveglobal",
+      "expedition"
+     ]
+    },
+    {
+     "id": "montserrat",
+     "jewels": 3,
+     "si": [
+      "expedition",
+      "tropical"
+     ]
+    },
+    {
+     "id": "st-barths",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "ultra"
+     ]
+    },
+    {
+     "id": "st-kitts",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "expedition",
+      "diveglobal",
+      "culture"
+     ]
+    },
+    {
+     "id": "st-maarten-st-martin",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "culinary"
+     ]
+    },
+    {
+     "id": "tortola-bvi",
+     "jewels": 4,
+     "si": [
+      "tropical",
+      "diveglobal",
+      "liveaboard",
+      "yacht"
+     ]
+    },
+    {
+     "id": "virgin-gorda-bvi",
+     "jewels": 4,
+     "si": [
+      "expedition",
+      "diveglobal",
+      "yacht"
+     ]
+    }
+   ],
+   "orbit_country": []
+  }
+ }
+]

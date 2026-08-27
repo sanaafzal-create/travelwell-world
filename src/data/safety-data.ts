@@ -324,10 +324,18 @@ export const COUNTRY_ISO: Record<string, string> = {
   Tunisia: "TN",
   // ONE ISO, THREE ISLANDS. BQ is ISO's "Bonaire, Sint Eustatius and Saba", and
   // the FCDO serves all three on one page — which is why our slug override for
-  // Sint Eustatius is `bonaire-st-eustatius-saba`. Both country strings map to
-  // it, and the row now names the jurisdiction rather than one island of it, so
-  // a Bonaire card does not claim to be about Sint Eustatius.
-  Bonaire: "BQ",
+  // Sint Eustatius is `bonaire-st-eustatius-saba`. All three country strings map
+  // to it, and the row names the jurisdiction rather than one island of it.
+  Bonaire: "BQ", Saba: "BQ",
+
+  // ── THE 23 AUGUST TABLE: the last gap countries ──────────────────────────
+  // Four Caribbean absence rows from the library's refreshed 226-country table,
+  // and the six AREA-RESTRICTED countries at last — Mexico, Brazil, Guatemala,
+  // Ecuador, Laos and Mozambique, each with its restricted areas transcribed
+  // from the FCDO's verbatim text into structured zones[] rather than prose.
+  // This is what the "96 destinations in a country with no row" block waited on.
+  Anguilla: "AI", Guadeloupe: "GP", Martinique: "MQ", Montserrat: "MS",
+  Mexico: "MX", Brazil: "BR", Guatemala: "GT", Ecuador: "EC", Laos: "LA", Mozambique: "MZ",
 };
 
 export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;

@@ -1232,7 +1232,7 @@
     "Rwanda's only Big-Five savanna park + one of conservation's great turnarounds - African Parks (with the RDB since 2010) reintroduced lions (2015), black rhinos (2017), and southern white rhinos in 2021 (30) and 2025 (70, 'Rhino Rewild')",
     "~1,100 km2 of plains, hills and lakes (largest protected wetland in central/eastern Africa); Big Five game drives + Lake Ihema boat safari (hippos, crocs, ~550 birds incl. the shoebill) + night drives",
     "Uncrowded (NatGeo Best of the World 2026) and ~2 hours from Kigali - fly in the morning, game-drive by lunch; completes the 3-park Rwanda circuit with Volcanoes (gorillas) + Nyungwe (chimps)",
-    "US L3 Reconsider Travel (2026 regional Ebola-alert; was L2) - Akagera is EASTERN Rwanda, far from the 10km DRC-border L4 carve-out; Rwanda is Africa's safest by crime; disclose L3 + consent",
+    "US L3 Reconsider Travel (2026 regional Ebola-alert; was L2) - Akagera is EASTERN Rwanda, far from the 10km DRC-border L4 carve-out; disclose L3 + consent",
     "Fees 2026: $100/adult, $50/child; sleeping in-park halves the fee nights 2-3 and is FREE from night 4 (up to a week) - a real reason to stay; best Jun-Sep + Jan-Feb",
     "Sold via Rwandan safari DMCs 10-15% - IATAN/host-gated, CLIA has NO Africa representation; African Parks fees bundle/pass-through; RWF (~1,467/USD); visa on arrival $30; malaria year-round in the lowland east; AMREF for evac"
    ],
@@ -1242,7 +1242,7 @@
     "advisory_level": "L3",
     "malaria": "present year-round in the lowland east (chloroquine-resistant) - prophylaxis advised; DEET at dawn/dusk",
     "yellow_fever": "required only if arriving from a YF-endemic country (not direct from the US)",
-    "activity_note": "L3 DISCLOSE + CONSENT (2026 regional Ebola-alert; Rwanda is Africa's safest by crime; Akagera is eastern Rwanda, far from the DRC-border L4 carve-out). Dangerous game at close range - stay in the vehicle, follow the guide, never approach rhino. Lake Ihema boat safari: hippo pods + shoreline crocs - remain seated, limbs in the boat. Remote - carry AMREF evac + insurance",
+    "activity_note": "L3 DISCLOSE + CONSENT (2026 regional Ebola-alert; Akagera is eastern Rwanda, far from the DRC-border L4 carve-out). Dangerous game at close range - stay in the vehicle, follow the guide, never approach rhino. Lake Ihema boat safari: hippo pods + shoreline crocs - remain seated, limbs in the boat. Remote - carry AMREF evac + insurance",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
@@ -1450,7 +1450,7 @@
     ],
     "consent_flow": true,
     "book_suppressed": false,
-    "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2) - yet Africa's safest by crime. Akagera is EASTERN Rwanda, far from the 10km DRC-border L4 carve-out (which applies to Volcanoes/NW). Disclose L3 + confirm consent. Re-verify each cycle."
+    "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2). Akagera is EASTERN Rwanda, far from the 10km DRC-border L4 carve-out (which applies to Volcanoes/NW). Disclose L3 + confirm consent. Re-verify each cycle."
    },
    "si_checklist_25": {
     "run_date": "2026-08-01",
@@ -11444,7 +11444,7 @@
      "si_tag": "safety"
     },
     {
-     "q": "Is it safe - and allowed - to swim near the stromatolites?",
+     "q": "Can you swim near the stromatolites - and is it allowed?",
      "a": "Yes to swimming the lagoon, but the stromatolites are strictly no-touch and no-sunscreen. Do not touch, stand on, or apply regular sunscreen near the colonies - a single handprint can destroy years of microbial growth - so view and photograph from a kayak only, using biodegradable sunscreen or none. Bacalar is not a scuba destination, so there are no dive or no-fly considerations.",
      "source": "sandinmycurls.com",
      "si_tag": "globaladv"
@@ -83331,7 +83331,7 @@
    "key_facts": [
     "Manuel Antonio NP is open Wed–Mon 07:00–16:00, CLOSED every Tuesday; adult entry US$18, child (2–12) US$5, under-2 free; advance online ticket + passport number required.",
     "One of few places to see all of Costa Rica's iconic wildlife at a beach: 2- & 3-toed sloths, white-faced capuchins (90%+ of visits), endangered Central American squirrel monkeys, howlers, coatis, toucans.",
-    "Two park beaches: crescent Playa Manuel Antonio (calm, turquoise — best/safest swim) and longer, choppier Playa Espadilla Sur.",
+    "Two park beaches: crescent Playa Manuel Antonio (calm, turquoise — the calmest, patrolled swim) and longer, choppier Playa Espadilla Sur.",
     "Access: ~2.5–3 hr / ~168 km drive from San José (SJO), OR ~25-min domestic flight to Quepos–Manuel Antonio (XQP) on Sansa / Costa Rica Green Airways + 15 km / 25-min transfer.",
     "Cliffside-resort belt (Arenas del Mar, Makanda, Gaia, Tulemar) makes it a top romance/honeymoon hub; hillside villas make it a strong family/multi-gen hub."
    ],
@@ -83343,7 +83343,7 @@
     "l2_disclosure": true,
     "advisory_note": "US Level 2 Exercise Increased Caution (reissued 2026-04-02); clean L2, no L4 zone near Manuel Antonio/Quepos; standard caution — petty crime, don't display wealth, avoid poorly lit beaches at night, enroll in STEP",
     "air_access_verified": "SJO gateway; XQP (Quepos–Manuel Antonio) ~25-min domestic flight on Sansa / Costa Rica Green Airways, or ~2.5–3 hr drive from SJO",
-    "riptide": "HARD FLAG — rip currents are the leading cause of tourist drowning in Costa Rica (>80% of drownings); most beaches unguarded. Swim only at guarded/flagged beaches (park cove safest), heed red flags, never swim alone; if caught, swim parallel to shore.",
+    "riptide": "HARD FLAG — rip currents are the leading cause of tourist drowning in Costa Rica (>80% of drownings); most beaches unguarded. Swim only at guarded/flagged beaches (the park cove is the calmest and patrolled), heed red flags, never swim alone; if caught, swim parallel to shore.",
     "wildlife": "Bold habituated monkeys/raccoons/coatis raid food — no feeding, seal food, don't leave bags unattended",
     "dengue": "Year-round mosquito-borne risk (higher green season May–Nov); no widely available traveler vaccine — DEET/picaridin, cover at dawn/dusk, screened/AC rooms",
     "water": "Tap water in San José & major tourist areas (incl. Manuel Antonio/Quepos) treated and generally safe; sensitive stomachs / remote lodges use bottled/filtered",
@@ -83376,7 +83376,7 @@
      "name": "Playa Manuel Antonio (in-park)",
      "si_tag": "Tropical Islands / Beaches",
      "status": "live",
-     "hook": "Crescent white sand + calm turquoise — the park's best and safest swim/snorkel, backed by monkey-filled rainforest.",
+     "hook": "Crescent white sand + calm turquoise — the park's calmest, patrolled swim and best snorkel, backed by monkey-filled rainforest.",
      "bookable_category": "guided park tour / DIY ticket",
      "tier": "essential",
      "source": "https://www.mustseespots.com/costa-rica/articles/manuel-antonio-national-park-beaches-wildlife-trails-explained/ + Accessed 2026-07-06",
@@ -83384,7 +83384,7 @@
      "when_source": "derived from destination timing",
      "timing_type": "SEASONAL-WINDOW",
      "si": "Tropical Islands / Beaches",
-     "blurb": "Crescent white sand + calm turquoise — the park's best and safest swim/snorkel, backed by monkey-filled rainforest.",
+     "blurb": "Crescent white sand + calm turquoise — the park's calmest, patrolled swim and best snorkel, backed by monkey-filled rainforest.",
      "when": "mid-December–April",
      "commission": "GYG/Viator or host-IATA guide; park entry non-commissionable",
      "accessed": "2026-07-06"
@@ -83536,7 +83536,7 @@
     },
     {
      "q": "What's the biggest safety risk in Manuel Antonio?",
-     "a": "Pacific rip currents — the leading cause of tourist drowning in Costa Rica (over 80% of drownings), on mostly unguarded beaches. Swim only at guarded/flagged beaches (the calm park cove of Playa Manuel Antonio is safest), heed red flags, never swim alone, and if caught, swim parallel to shore.",
+     "a": "Pacific rip currents — the leading cause of tourist drowning in Costa Rica (over 80% of drownings), on mostly unguarded beaches. Swim only at guarded/flagged beaches — the guarded park cove of Playa Manuel Antonio is the calmest water and the only patrolled swim — heed red flags, never swim alone, and if caught, swim parallel to shore.",
      "source": "crie.cr, 2026-07-06",
      "si_tag": "safety"
     },
@@ -97373,7 +97373,7 @@
    "faq": [
     {
      "q": "Which Nicoya beach is best for families and calm swimming?",
-     "a": "Sámara is the pick. Its long horseshoe bay is calm and reef-protected, making it the peninsula's safest swim and best family beach for kayaking, snorkeling and SUP — a gentler alternative to the surf breaks at Guiones and Santa Teresa.",
+     "a": "Sámara is the pick. Its long horseshoe bay is calm and reef-protected, making it the gentlest swim on the peninsula and its best family beach for kayaking, snorkeling and SUP — a gentler alternative to the surf breaks at Guiones and Santa Teresa.",
      "source": "costaricarios.com, 2026-07-06",
      "si_tag": "tropical"
     },
@@ -99023,7 +99023,7 @@
     "Rwanda's ancient montane rainforest (~1,019 km2) on the Congo-Nile divide (Nile headwaters) - 13 primate species incl. 500+ chimpanzees and one of East Africa's biggest colobus troops (up to ~400)",
     "The chimp trek is the draw (globaladv-primary) - a strenuous 2-6h hike to a 1-hour habituated encounter, $250 permit (vs Rwanda's $1,500 gorilla permit); safari (big-game) is a MISS - a forest, not a Big-Five park",
     "East Africa's FIRST canopy walkway (160m long, 70m high; $60); the Isumo waterfall hike (~10.6km, 4-5h, $15); 300+ birds incl. 29 Albertine-Rift endemics - a birder's grail",
-    "US L3 Reconsider Travel (2026 regional Ebola-alert; was L2) - Nyungwe is SW Rwanda (Burundi side), away from the 10km DRC-border L4 carve-out; Rwanda is Africa's safest by crime; disclose L3 + consent",
+    "US L3 Reconsider Travel (2026 regional Ebola-alert; was L2) - Nyungwe is SW Rwanda (Burundi side), away from the 10km DRC-border L4 carve-out; disclose L3 + consent",
     "Best Jun-Sep + Dec-Feb (hiking/canopy, firmer trails); chimps often best Oct-May (fruiting); pairs into the 3-park Rwanda circuit with Volcanoes (gorillas) + Akagera (Big Five)",
     "Sold via Rwandan safari DMCs 10-20% - IATAN/host-gated, CLIA has NO Africa representation; the $250 RDB chimp permit + canopy ($60)/waterfall ($15) fees are pass-through; RWF (~1,467/USD); visa on arrival $30; malaria present (lower at altitude); AMREF for evac"
    ],
@@ -99033,7 +99033,7 @@
     "advisory_level": "L3",
     "malaria": "present (chloroquine-resistant) - prophylaxis advised (lower at Nyungwe's 1,600-2,950m but real); DEET",
     "yellow_fever": "required only if arriving from a YF-endemic country (not direct from the US)",
-    "activity_note": "L3 DISCLOSE + CONSENT (2026 regional Ebola-alert; Rwanda is Africa's safest by crime; Nyungwe is SW Rwanda, away from the DRC-border L4 carve-out). Chimp trek = strenuous 2-6h over steep/slippery montane slopes (good boots + fitness), rules 7-8m/mask/1hr/armed ranger. Canopy walkway sways 70m up (head-for-heights). Remote - carry AMREF evac + insurance",
+    "activity_note": "L3 DISCLOSE + CONSENT (2026 regional Ebola-alert; Nyungwe is SW Rwanda, away from the DRC-border L4 carve-out). Chimp trek = strenuous 2-6h over steep/slippery montane slopes (good boots + fitness), rules 7-8m/mask/1hr/armed ranger. Canopy walkway sways 70m up (head-for-heights). Remote - carry AMREF evac + insurance",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
@@ -99243,7 +99243,7 @@
     ],
     "consent_flow": true,
     "book_suppressed": false,
-    "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2) - yet Africa's safest by crime. Nyungwe is SW Rwanda (Burundi side), away from the 10km DRC-border L4 carve-out (which applies to Volcanoes/NW). Disclose L3 + confirm consent. Re-verify each cycle."
+    "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2). Nyungwe is SW Rwanda (Burundi side), away from the 10km DRC-border L4 carve-out (which applies to Volcanoes/NW). Disclose L3 + confirm consent. Re-verify each cycle."
    },
    "si_checklist_25": {
     "run_date": "2026-08-01",
@@ -143840,7 +143840,7 @@
    "key_facts": [
     "Designated Pueblo Mágico art town with numerous galleries (Source: loscabosguide.com, Accessed 2026-07-04)",
     "Hotel California is the famous landmark; the Eagles' band denies any direct link (Source: incabotravel.com, Accessed 2026-07-04)",
-    "Most beaches are NOT safe to swim due to strong rip currents/backwash; Cerritos is the safest (Source: amyrextodossantos.com, Accessed 2026-07-04)",
+    "Most beaches are NOT safe to swim due to strong rip currents/backwash; Cerritos is the gentlest for swimming (Source: amyrextodossantos.com, Accessed 2026-07-04)",
     "San Pedrito has powerful currents unsuitable for swimming — advanced surf only (Source: tripadvisor.com, Accessed 2026-07-04)",
     "Whale season late-Dec–Apr (best Jan–Mar), gray + humpback, Magdalena Bay extensions (Source: todossantosvillarentals.com, Accessed 2026-07-04)"
    ],
@@ -143987,12 +143987,12 @@
      "name": "Playa Los Cerritos surf + safe swim",
      "si_tag": "Surf / Ocean Adventures",
      "status": "future",
-     "hook": "Best all-round break AND the area's safest swim beach",
+     "hook": "Best all-round break AND the area's gentlest swim beach",
      "bookable_category": "surf school / rental",
      "tier": "essential",
      "source": "https://www.amyrextodossantos.com/amy-rex-in-todos-santos/navigating-the-beautiful-beaches-of-todos-santoscerritos-area-safety-tips-for-visitors (Accessed 2026-07-04)",
      "si": "Surf / Ocean Adventures",
-     "blurb": "Best all-round break AND the area's safest swim beach",
+     "blurb": "Best all-round break AND the area's gentlest swim beach",
      "commission": "activity affiliate",
      "accessed": "2026-07-04"
     },
@@ -155423,7 +155423,7 @@
     "Rwanda's flagship mountain-gorilla trek (the wow) in the Virunga volcanoes - a one-hour habituated-family encounter; world mountain-gorilla population now 1,063 (no longer critically endangered); the birthplace of African conservation (Dian Fossey/Karisoke 1967)",
     "Permit $1,500/trekker (RDB), only 98/day, sells out - book 3-6 months ahead via a licensed operator or RDB (Irembo); min age 15; ~2h from Kigali - the accessible, premium gorilla trek",
     "Also: golden-monkey trekking (bamboo), Mount Bisoke crater-lake hike (3,711m, most popular), Karisimbi summit (4,507m, Rwanda's highest, 2-day), Dian Fossey grave hike, Kwita Izina gorilla-naming (Sep)",
-    "US L3 Reconsider Travel (2026 regional Ebola-alert; was L2) - bookable disclose+consent; PLUS a standing US L4 carve-out within 10km of the DRC border (Volcanoes' sectors/lodges are on the Rwandan side); Rwanda is Africa's safest by crime",
+    "US L3 Reconsider Travel (2026 regional Ebola-alert; was L2) - bookable disclose+consent; PLUS a standing US L4 carve-out within 10km of the DRC border (Volcanoes' sectors/lodges are on the Rwandan side)",
     "UGANDA IS L4 (Ebola) - Rwanda Volcanoes is the LIVE gorilla redirect; gorilla trek = strenuous high-altitude (~2,500-3,700m) muddy rainforest hike (moderate fitness); trekking rules: 7m distance, mask, max 1hr, max 8/group, armed ranger, no trekking if ill",
     "Sold via Rwandan safari DMCs 10-20% - IATAN/host-gated, CLIA has NO Africa representation; the $1,500 RDB permit is non-commissionable pass-through; RWF (~1,467/USD); visa on arrival $30; malaria year-round (prophylaxis); AMREF for evac"
    ],
@@ -155433,7 +155433,7 @@
     "advisory_level": "L3",
     "malaria": "present year-round (chloroquine-resistant) - prophylaxis advised; DEET at dusk (lower at altitude but real)",
     "yellow_fever": "required only if arriving from a YF-endemic country (not direct from the US)",
-    "activity_note": "L3 DISCLOSE + CONSENT (2026 regional Ebola-alert precaution; Rwanda is Africa's safest by crime). Standing US L4 within 10km of the DRC border - route to the Rwandan-side sectors/lodges, not the border. Gorilla trek = strenuous high-altitude (~2,500-3,700m) muddy hike (moderate fitness); rules: 7m/1hr/mask/max 8/armed ranger/no trekking if ill. Volcano climbs = altitude sickness risk. Remote - carry AMREF evac + insurance",
+    "activity_note": "L3 DISCLOSE + CONSENT (2026 regional Ebola-alert precaution). Standing US L4 within 10km of the DRC border - route to the Rwandan-side sectors/lodges, not the border. Gorilla trek = strenuous high-altitude (~2,500-3,700m) muddy hike (moderate fitness); rules: 7m/1hr/mask/max 8/armed ranger/no trekking if ill. Volcano climbs = altitude sickness risk. Remote - carry AMREF evac + insurance",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
@@ -155638,7 +155638,7 @@
     ],
     "consent_flow": true,
     "book_suppressed": false,
-    "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2) - yet Africa's safest by crime. Disclose L3 + confirm consent. Standing US L4 Do Not Travel carve-out within 10km of the DRC border - Volcanoes' sectors + lodges are on the Rwandan side (route there, not the border). Uganda's L4 makes Rwanda the LIVE gorilla choice. Re-verify each cycle."
+    "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2). Disclose L3 + confirm consent. Standing US L4 Do Not Travel carve-out within 10km of the DRC border - Volcanoes' sectors + lodges are on the Rwandan side (route there, not the border). Uganda's L4 makes Rwanda the LIVE gorilla choice. Re-verify each cycle."
    },
    "si_checklist_25": {
     "run_date": "2026-08-01",

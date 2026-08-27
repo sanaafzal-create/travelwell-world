@@ -14,8 +14,8 @@ because it looks like we checked and didn't.
 
 | | |
 |---|---|
-| Countries | 87 |
-| Deep links to verify | **169** |
+| Countries | 98 |
+| Deep links to verify | **191** |
 | Index fallbacks (no confirmed slug — expected to work, but not country-specific) | 0 |
 | Skipped (a destination spanning two countries) | 1 |
 
@@ -25,6 +25,8 @@ Sources: UK FCDO · CDC Travel Health Notices
 
 | Country | ISO | Source | URL | OK / 404 / blocked |
 |---|---|---|---|---|
+| Anguilla | AI | UK FCDO | <https://www.gov.uk/foreign-travel-advice/anguilla> | |
+| Anguilla | AI | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/anguilla> | |
 | Argentina | AR | UK FCDO | <https://www.gov.uk/foreign-travel-advice/argentina> | |
 | Argentina | AR | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/argentina> | |
 | Aruba | AW | UK FCDO | <https://www.gov.uk/foreign-travel-advice/aruba> | |
@@ -45,6 +47,8 @@ Sources: UK FCDO · CDC Travel Health Notices
 | Bonaire | BQ | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/bonaire> | |
 | Botswana | BW | UK FCDO | <https://www.gov.uk/foreign-travel-advice/botswana> | |
 | Botswana | BW | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/botswana> | |
+| Brazil | BR | UK FCDO | <https://www.gov.uk/foreign-travel-advice/brazil> | |
+| Brazil | BR | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil> | |
 | British Virgin Islands | VG | UK FCDO | <https://www.gov.uk/foreign-travel-advice/british-virgin-islands> | |
 | British Virgin Islands | VG | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/british-virgin-islands> | |
 | Cambodia | KH | UK FCDO | <https://www.gov.uk/foreign-travel-advice/cambodia> | |
@@ -68,6 +72,8 @@ Sources: UK FCDO · CDC Travel Health Notices
 | Dominica | DM | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/dominica> | |
 | Dominican Republic | DO | UK FCDO | <https://www.gov.uk/foreign-travel-advice/dominican-republic> | |
 | Dominican Republic | DO | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/dominican-republic> | |
+| Ecuador | EC | UK FCDO | <https://www.gov.uk/foreign-travel-advice/ecuador> | |
+| Ecuador | EC | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/ecuador> | |
 | Egypt | EG | UK FCDO | <https://www.gov.uk/foreign-travel-advice/egypt> | |
 | Egypt | EG | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/egypt> | |
 | El Salvador | SV | UK FCDO | <https://www.gov.uk/foreign-travel-advice/el-salvador> | |
@@ -90,6 +96,10 @@ Sources: UK FCDO · CDC Travel Health Notices
 | Greece | GR | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/greece> | |
 | Grenada | GD | UK FCDO | <https://www.gov.uk/foreign-travel-advice/grenada> | |
 | Grenada | GD | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/grenada> | |
+| Guadeloupe | GP | UK FCDO | <https://www.gov.uk/foreign-travel-advice/guadeloupe> | |
+| Guadeloupe | GP | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/guadeloupe> | |
+| Guatemala | GT | UK FCDO | <https://www.gov.uk/foreign-travel-advice/guatemala> | |
+| Guatemala | GT | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/guatemala> | |
 | Honduras | HN | UK FCDO | <https://www.gov.uk/foreign-travel-advice/honduras> | |
 | Honduras | HN | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/honduras> | |
 | Hungary | HU | UK FCDO | <https://www.gov.uk/foreign-travel-advice/hungary> | |
@@ -110,16 +120,26 @@ Sources: UK FCDO · CDC Travel Health Notices
 | Jordan | JO | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/jordan> | |
 | Kenya | KE | UK FCDO | <https://www.gov.uk/foreign-travel-advice/kenya> | |
 | Kenya | KE | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/kenya> | |
+| Laos | LA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/laos> | |
+| Laos | LA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/laos> | |
 | Luxembourg | LU | UK FCDO | <https://www.gov.uk/foreign-travel-advice/luxembourg> | |
 | Luxembourg | LU | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/luxembourg> | |
 | Maldives | MV | UK FCDO | <https://www.gov.uk/foreign-travel-advice/maldives> | |
 | Maldives | MV | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/maldives> | |
 | Malta | MT | UK FCDO | <https://www.gov.uk/foreign-travel-advice/malta> | |
 | Malta | MT | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/malta> | |
+| Martinique | MQ | UK FCDO | <https://www.gov.uk/foreign-travel-advice/martinique> | |
+| Martinique | MQ | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/martinique> | |
+| Mexico | MX | UK FCDO | <https://www.gov.uk/foreign-travel-advice/mexico> | |
+| Mexico | MX | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/mexico> | |
 | Monaco | MC | UK FCDO | <https://www.gov.uk/foreign-travel-advice/monaco> | |
 | Monaco | MC | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/monaco> | |
+| Montserrat | MS | UK FCDO | <https://www.gov.uk/foreign-travel-advice/montserrat> | |
+| Montserrat | MS | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/montserrat> | |
 | Morocco | MA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/morocco> | |
 | Morocco | MA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/morocco> | |
+| Mozambique | MZ | UK FCDO | <https://www.gov.uk/foreign-travel-advice/mozambique> | |
+| Mozambique | MZ | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/mozambique> | |
 | Namibia | NA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/namibia> | |
 | Namibia | NA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/namibia> | |
 | Netherlands | NL | UK FCDO | <https://www.gov.uk/foreign-travel-advice/netherlands> | |
@@ -147,6 +167,8 @@ Sources: UK FCDO · CDC Travel Health Notices
 | Qatar | QA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/qatar> | |
 | Rwanda | RW | UK FCDO | <https://www.gov.uk/foreign-travel-advice/rwanda> | |
 | Rwanda | RW | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/rwanda> | |
+| Saba | BQ | UK FCDO | <https://www.gov.uk/foreign-travel-advice/saba> | |
+| Saba | BQ | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/saba> | |
 | Saudi Arabia | SA | UK FCDO | <https://www.gov.uk/foreign-travel-advice/saudi-arabia> | |
 | Saudi Arabia | SA | CDC Travel Health Notices | <https://wwwnc.cdc.gov/travel/destinations/traveler/none/saudi-arabia> | |
 | Sint Eustatius | BQ | UK FCDO | <https://www.gov.uk/foreign-travel-advice/bonaire-st-eustatius-saba> | |

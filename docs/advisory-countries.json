@@ -18,6 +18,14 @@
       "fcdo_slug": "united-arab-emirates"
     },
     {
+      "iso": "AI",
+      "name": "Anguilla",
+      "match": [
+        "anguilla"
+      ],
+      "fcdo_slug": "anguilla"
+    },
+    {
       "iso": "AR",
       "name": "Argentina",
       "match": [
@@ -90,6 +98,22 @@
         "bonaire"
       ],
       "fcdo_slug": "bonaire"
+    },
+    {
+      "iso": "BQ",
+      "name": "Saba",
+      "match": [
+        "saba"
+      ],
+      "fcdo_slug": "saba"
+    },
+    {
+      "iso": "BR",
+      "name": "Brazil",
+      "match": [
+        "brazil"
+      ],
+      "fcdo_slug": "brazil"
     },
     {
       "iso": "BS",
@@ -197,6 +221,14 @@
       "fcdo_slug": "dominican-republic"
     },
     {
+      "iso": "EC",
+      "name": "Ecuador",
+      "match": [
+        "ecuador"
+      ],
+      "fcdo_slug": "ecuador"
+    },
+    {
       "iso": "EE",
       "name": "Estonia",
       "match": [
@@ -262,12 +294,28 @@
       "fcdo_slug": "grenada"
     },
     {
+      "iso": "GP",
+      "name": "Guadeloupe",
+      "match": [
+        "guadeloupe"
+      ],
+      "fcdo_slug": "guadeloupe"
+    },
+    {
       "iso": "GR",
       "name": "Greece",
       "match": [
         "greece"
       ],
       "fcdo_slug": "greece"
+    },
+    {
+      "iso": "GT",
+      "name": "Guatemala",
+      "match": [
+        "guatemala"
+      ],
+      "fcdo_slug": "guatemala"
     },
     {
       "iso": "HN",
@@ -383,6 +431,14 @@
       "fcdo_slug": "south-korea"
     },
     {
+      "iso": "LA",
+      "name": "Laos",
+      "match": [
+        "laos"
+      ],
+      "fcdo_slug": "laos"
+    },
+    {
       "iso": "LC",
       "name": "St. Lucia",
       "match": [
@@ -416,6 +472,22 @@
       "fcdo_slug": "monaco"
     },
     {
+      "iso": "MQ",
+      "name": "Martinique",
+      "match": [
+        "martinique"
+      ],
+      "fcdo_slug": "martinique"
+    },
+    {
+      "iso": "MS",
+      "name": "Montserrat",
+      "match": [
+        "montserrat"
+      ],
+      "fcdo_slug": "montserrat"
+    },
+    {
       "iso": "MT",
       "name": "Malta",
       "match": [
@@ -430,6 +502,22 @@
         "maldives"
       ],
       "fcdo_slug": "maldives"
+    },
+    {
+      "iso": "MX",
+      "name": "Mexico",
+      "match": [
+        "mexico"
+      ],
+      "fcdo_slug": "mexico"
+    },
+    {
+      "iso": "MZ",
+      "name": "Mozambique",
+      "match": [
+        "mozambique"
+      ],
+      "fcdo_slug": "mozambique"
     },
     {
       "iso": "NA",
@@ -702,12 +790,6 @@
     }
   ],
   "unchecked_served_countries": [
-    "Brazil",
-    "Ecuador",
-    "Guatemala",
-    "Laos",
-    "Mexico",
-    "Mozambique",
     "United Kingdom"
   ]
 }

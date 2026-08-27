@@ -14,6 +14,16 @@
     "source": "UK FCDO, Mar 2026",
     "verified": "2026-06"
   },
+  "AI": {
+    "country": "Anguilla",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Anguilla. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2025-05",
+    "reported": true,
+    "fromAbsence": true
+  },
   "AR": {
     "country": "Argentina",
     "lvl": 1,
@@ -101,6 +111,23 @@
     "source": "UK FCDO country advisory, reviewed 2025-12",
     "reported": true,
     "fromAbsence": true
+  },
+  "BR": {
+    "country": "Brazil",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against all but essential travel to river areas in the west of Amazonas State — listed below in its own words. The rest of Brazil, including Salvador, Rio de Janeiro and the coastal cities, carries no FCDO restriction.",
+    "considerations": [],
+    "source": "UK FCDO — Brazil travel advice, reviewed 2026-05-11 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "River areas in the west of Amazonas State",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "Along the Amazon River and its tributaries west of Codajás and east of Belém do Solimões; any part of the Itaquaí River; any part of the Japurá River or its tributaries; and the Rio Negro and its tributaries north or west of Barcelos."
+      }
+    ]
   },
   "BS": {
     "country": "Bahamas",
@@ -281,6 +308,37 @@
     "source": "UK FCDO country advisory, reviewed 2026-08",
     "reported": true,
     "fromAbsence": true
+  },
+  "EC": {
+    "country": "Ecuador",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against all but essential travel to the Coastal Region provinces and a strip of the Colombian border — listed below in its own words. Quito, the Andean highlands and the Galápagos carry no FCDO restriction.",
+    "considerations": [],
+    "source": "UK FCDO — Ecuador travel advice, reviewed 2026-07-10 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "The Coastal Region provinces of Esmeraldas, Manabí, Santa Elena, Guayas, El Oro, Los Ríos and Santo Domingo de los Tsáchilas",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "airside transit within Guayaquil Airport"
+        ],
+        "note": "Gang-related violence linked to organised crime; the city of Guayaquil is inside this restriction."
+      },
+      {
+        "name": "Within 20km of the Ecuador-Colombia border",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the El Ángel Ecological Reserve",
+          "the Rumichaca border crossing",
+          "the town of Tulcán",
+          "the Pan-American Highway (in Carchi province)"
+        ]
+      }
+    ]
   },
   "EE": {
     "country": "Estonia",
@@ -499,6 +557,16 @@
     "reported": true,
     "fromAbsence": true
   },
+  "GP": {
+    "country": "Guadeloupe",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Guadeloupe. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2025-12",
+    "reported": true,
+    "fromAbsence": true
+  },
   "GR": {
     "country": "Greece",
     "lvl": 1,
@@ -512,6 +580,29 @@
     "medical": "Tap water is generally safe on the mainland; bottled is advised on some smaller islands; mind summer heat.",
     "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
     "reported": true
+  },
+  "GT": {
+    "country": "Guatemala",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against all but essential travel to a strip of the Mexican border and three named towns — listed below in its own words. Antigua, Lake Atitlán, Tikal and Guatemala City carry no FCDO restriction.",
+    "considerations": [
+      "Pay particular attention to your security in the border areas with Mexico, Honduras, El Salvador and Belize."
+    ],
+    "source": "UK FCDO — Guatemala travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "Within 5km of the Mexican border, from the Pacific Coast up to and including the Gracias a Dios crossing",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "The towns of Santa Ana Huista, San Antonio Huista and La Democracia, in Huehuetenango",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      }
+    ]
   },
   "HN": {
     "country": "Honduras",
@@ -762,6 +853,22 @@
     "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
     "reported": true
   },
+  "LA": {
+    "country": "Laos",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against all but essential travel to one province — named below in its own words. Luang Prabang, Vientiane and the rest of the country carry no FCDO restriction.",
+    "considerations": [],
+    "source": "UK FCDO — Laos travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "Xaisomboun Province",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      }
+    ]
+  },
   "LC": {
     "country": "Saint Lucia",
     "lvl": 2,
@@ -805,6 +912,26 @@
     "reported": true,
     "fromAbsence": true
   },
+  "MQ": {
+    "country": "Martinique",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Martinique. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2025-12",
+    "reported": true,
+    "fromAbsence": true
+  },
+  "MS": {
+    "country": "Montserrat",
+    "lvl": 1,
+    "label": "No advisory against travel",
+    "summary": "The UK FCDO publishes no country-wide advisory against travel in Montserrat. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+    "considerations": [],
+    "source": "UK FCDO country advisory, reviewed 2026-07",
+    "reported": true,
+    "fromAbsence": true
+  },
   "MT": {
     "country": "Malta",
     "lvl": 1,
@@ -824,6 +951,159 @@
     "source": "UK FCDO country advisory, reviewed 2026-08",
     "reported": true,
     "fromAbsence": true
+  },
+  "MX": {
+    "country": "Mexico",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against all but essential travel to named states, cities and border areas of Mexico — listed below in its own words, each with its own exceptions. The Yucatán Peninsula, Mexico City, Baja California Sur and the other main visitor regions carry no FCDO restriction.",
+    "considerations": [],
+    "source": "UK FCDO — Mexico travel advice, reviewed 2026-07-16 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "The city of Tijuana, in Baja California",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "airside transit through Tijuana airport",
+          "the Cross Border Xpress bridge linking the airport across the border",
+          "federal toll road 1D and the Via Rápida through Tijuana to the border"
+        ]
+      },
+      {
+        "name": "The city of Tecate in Baja California, including roads between Tijuana and Tecate",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "The state of Chihuahua",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the city of Chihuahua",
+          "the border crossing in Ciudad Juárez via federal toll road 45",
+          "federal toll road 45D between Chihuahua and Ciudad Juárez",
+          "the Copper Canyon rail route and the towns immediately on it, including Creel",
+          "the road from Creel via San Juanito to San Pedro",
+          "state highway 16 from San Pedro to Chihuahua"
+        ],
+        "note": "The advisory also covers the areas south-west of road 45D."
+      },
+      {
+        "name": "The state of Sinaloa",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the cities of Los Mochis and Mazatlán",
+          "road 32 between El Fuerte and Los Mochis",
+          "the 15D federal toll road running the length of the state",
+          "the Copper Canyon rail route to and from Los Mochis and El Fuerte, and the towns immediately on it"
+        ]
+      },
+      {
+        "name": "The state of Tamaulipas",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the border crossing at Nuevo Laredo via federal toll road 85D from Monterrey",
+          "federal highways 80, 81 and 85 between Tampico, Ciudad Victoria and Magueyes",
+          "the area of Tamaulipas south of those highways"
+        ]
+      },
+      {
+        "name": "The state of Zacatecas",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "The state of Michoacán",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the city of Morelia via federal toll roads 15D, 126 and 43",
+          "toll road 48D between Morelia and its airport",
+          "the town of Pátzcuaro via toll roads 14D and 15 from Morelia, and boat trips on Lake Pátzcuaro",
+          "Federal Highway 15D"
+        ]
+      },
+      {
+        "name": "In Jalisco: the areas south and south-west of Lake Chapala to the Colima border",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "Thirty-nine named municipalities, including Autlán de Navarro, Sayula, Tapalpa, Cocula and Villa Corona — the advisory lists each by name."
+      },
+      {
+        "name": "In Jalisco: eleven northern municipalities",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "Bolaños, Chimaltitán, Colotlán, Hostotipaquillo, Huejúcar, Huequilla el Alto, Mezquitic, San Martín de Bolaños, Santa María de los Ángeles, Totatiche and Villa Guerrero."
+      },
+      {
+        "name": "The state of Colima",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the city of Manzanillo by sea, or by air via Manzanillo-Costalegre International Airport",
+          "direct travel via road 200 from that airport to Manzanillo"
+        ]
+      },
+      {
+        "name": "The state of Guerrero, including the city of Acapulco",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the town of Zihuatanejo/Ixtapa accessed by air"
+        ]
+      },
+      {
+        "name": "Within 40km of the Guatemalan border, from the Pacific Coast up to and including the Gracias a Dios crossing",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "Federal Highway 199 between Rancho Nuevo, outside San Cristóbal de las Casas, and the Chancalá junction outside Palenque",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "The restriction is the highway segment, not the towns at either end."
+      }
+    ]
+  },
+  "MZ": {
+    "country": "Mozambique",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "The FCDO advises against all travel to Cabo Delgado Province and named districts of Nampula and Niassa, and against all but essential travel to the excepted areas around Pemba — listed below in its own words. Maputo, Bazaruto and the southern coast carry no FCDO restriction.",
+    "considerations": [],
+    "source": "UK FCDO — Mozambique travel advice, reviewed 2026-08-20 (verbatim snapshot from the research library)",
+    "reported": true,
+    "zones": [
+      {
+        "name": "Cabo Delgado Province",
+        "lvl": 4,
+        "posture": "all",
+        "except": [
+          "Palma town",
+          "the area around Pemba and Afungi"
+        ],
+        "note": "Attacks by groups with links to Islamist extremism; the excepted areas themselves carry an all-but-essential advisory."
+      },
+      {
+        "name": "Palma town and the area around Pemba and Afungi",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "The districts of Memba and Eráti in Nampula Province",
+        "lvl": 4,
+        "posture": "all"
+      },
+      {
+        "name": "The districts of Mecula and Marrupo in Niassa Province",
+        "lvl": 4,
+        "posture": "all"
+      }
+    ]
   },
   "NA": {
     "country": "Namibia",
