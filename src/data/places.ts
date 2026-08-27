@@ -269,7 +269,7 @@ export const DESTINATIONS: Record<string, Destination[]> = {
   "02F": [D("santorini-greece", "Santorini", "Greece", "Whitewashed cliffs over a caldera", "live", "santorini"), D("amalfi-coast-italy", "Amalfi Coast", "Italy", "Lemon groves and vertical villages", "live", "venice"), D("barcelona-spain", "Barcelona", "Spain", "Gaudí, tapas and Mediterranean light", "live", "marrakech"), D("algarve-portugal", "The Algarve", "Portugal", "Golden cliffs and quiet coves", "stub", "tropicalBeach")],
   "03F": [D("reykjavik-iceland", "Reykjavík & Ring Road", "Iceland", "Waterfalls, lava and aurora", "live", "northernLights"), D("lofoten-islands-norway", "Lofoten Islands", "Norway", "Sea-cliff drama above the Arctic Circle", "stub", "mountainValley", undefined, ["expedition"])],
   "04A": [D("dubai-united-arab-emirates", "Dubai", "UAE", "Audacious, golden, around the clock", "live", "dubai"), D("petra-jordan", "Petra & Wadi Rum", "Jordan", "Rose-red city and red-sand desert", "live", "desertDunes"), D("alula-saudi-arabia", "AlUla", "Saudi Arabia", "Ancient tombs in a living desert", "stub", "desertDunes", "Saudi Arabia")],
-  "05A": [D("maasai-mara-kenya", "Maasai Mara", "Kenya", "Front-row seat to the Great Migration", "live", "safariGiraffe"), D("serengeti-tanzania", "Serengeti", "Tanzania", "Endless plains, endless herds", "live", "lion"), D("ngorongoro-tanzania", "Ngorongoro Crater", "Tanzania", "A natural amphitheatre of wildlife", "live", "elephant", undefined, ["safari"]), D("volcanoes-national-park-rwanda", "Volcanoes NP", "Rwanda", "Mountain gorillas in the mist", "stub", "mountainValley")],
+  "05A": [D("maasai-mara-kenya", "Maasai Mara", "Kenya", "Front-row seat to the Great Migration", "live", "safariGiraffe"), D("serengeti-tanzania", "Serengeti", "Tanzania", "Endless plains, endless herds", "live", "lion"), D("volcanoes-national-park-rwanda", "Volcanoes NP", "Rwanda", "Mountain gorillas in the mist", "stub", "mountainValley")],
   "06A": [D("cape-town-south-africa", "Cape Town", "South Africa", "Where the mountain meets two oceans", "live", "oceanAerial", "South Africa"), D("greater-kruger-south-africa", "Greater Kruger", "South Africa", "Big Five in the lowveld", "live", "elephant", "South Africa", ["safari"]), D("sossusvlei-namibia", "Sossusvlei", "Namibia", "The world's tallest dunes", "stub", "desertDunes", "Namibia Desert & Coast")],
   "07A": [D("bali-indonesia", "Bali", "Indonesia", "Rice terraces, temples and surf", "live", "baliRice", undefined, ["tropical"]), D("bangkok-thailand", "Bangkok", "Thailand", "Street food capital of the world", "live", "restaurant"), D("phuket-thailand", "Phuket & Phi Phi", "Thailand", "Limestone islands and warm seas", "live", "tropicalBeach", undefined, ["tropical"]), D("siem-reap-cambodia", "Siem Reap", "Cambodia", "Sunrise over Angkor Wat", "stub", "kyoto")],
   "08A": [D("kyoto-japan", "Kyoto", "Japan", "Geisha districts and golden temples", "live", "kyoto"), D("tokyo-japan", "Tokyo", "Japan", "Neon, Michelin stars and calm shrines", "live", "dubai"), D("seoul-south-korea", "Seoul", "South Korea", "Palaces, markets and midnight food", "stub", "marrakech")],
@@ -316,7 +316,16 @@ export const LEGACY_DEST_ID: Record<string, string> = {
   alula: "alula-saudi-arabia",
   "masai-mara": "maasai-mara-kenya",       // spelling drift fixed at the same time
   serengeti: "serengeti-tanzania",
-  ngorongoro: "ngorongoro-tanzania",
+  // ── THE DUPLICATE ANCHOR, MERGED (2026-08-27) ────────────────────────────
+  // Two live rows carried the identical display name "Ngorongoro Crater":
+  // this bundle anchor (0 jewels, si [safari]) and the library's
+  // `ngorongoro-crater-tanzania` (7 jewels, six interests). Two pages, one
+  // name, one thin — the Search Console duplicate class, on our own site,
+  // found by the library reading our database. The anchor retires; both its
+  // ids resolve to the row with the content. Nothing is lost: the anchor's
+  // one si tag is a subset of the survivor's.
+  ngorongoro: "ngorongoro-crater-tanzania",
+  "ngorongoro-tanzania": "ngorongoro-crater-tanzania",
   volcanoes: "volcanoes-national-park-rwanda",
   kruger: "greater-kruger-south-africa",
   sossusvlei: "sossusvlei-namibia",

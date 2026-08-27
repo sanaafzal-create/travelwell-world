@@ -346,7 +346,7 @@ export const LOCAL_SIGNALS: LocalSignal[] = [
     kind: "schedule", horizon: "lookahead",
     title: "Ngorongoro Crater — Big Five, any month",
     blurb: "The crater holds resident game year-round, so there's no bad month. June through October is driest, with the clearest views and the most predator action; the green months (Nov–May) bring lush scenery, fewer vehicles, and lower rates.",
-    destination: "ngorongoro-tanzania", region: "05A",
+    destination: "ngorongoro-crater-tanzania", region: "05A",
     si: ["safari"], wells: ["activities", "stay"],
     season: "year-round; Jun–Oct driest",
     priority: 70, source: "curated",

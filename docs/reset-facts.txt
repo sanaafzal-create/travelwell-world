@@ -5,7 +5,7 @@ These replace any count written from memory. If a number below disagrees with a
 number elsewhere in this document, this one is right and the other is stale.
 
 CATALOGUE
-  Destinations ............ 44   (all ids conform to <city>-<country>)
+  Destinations ............ 43   (all ids conform to <city>-<country>)
   Activities .............. 60
   Signature Interests ..... 35 on the board, in 10 categories
                           39 rows in total, 4 retired but not deleted
@@ -18,13 +18,13 @@ CATALOGUE
 
 NOT POPULATED YET  (an empty structure and a filled one look identical in a schema)
   Interests with a dossier ....... 0 of 39
-  Destinations with price_band ... 7 of 44
-  Destinations with feel tags .... 7 of 44
-  Destinations with sub_region ... 15 of 44
+  Destinations with price_band ... 7 of 43
+  Destinations with feel tags .... 7 of 43
+  Destinations with sub_region ... 15 of 43
 
 CONFORMANCE  27 checks, 3 failing
   FAILING — Every INGESTED destination has a country advisory row
-           92 of 543 destinations (17%) sit in a country with NO row, across 9 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +1 more · of those, 10 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Mexico, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
+           92 of 542 destinations (17%) sit in a country with NO row, across 9 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +1 more · of those, 10 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Mexico, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
   FAILING — Our curated level matches the level State published for that country
            19 diverge: Belgium: ours L1, State L2 (published 2026-07-23); Belize: ours L1, State L2 (published 2026-03-12); Botswana: ours L1, State L2 (published 2026-06-17); Costa Rica: ours L1, State L2 (published 2026-04-02); Denmark: ours L1, State L2 (published 2024-09-17); Dominican Republic: ours L1, State L2 (published 2025-06-12); Faroe Islands (Kingdom of Denmark): ours L1, State L2 (published 2024-09-17); Honduras: ours L1, State L3 (published 2024-12-10); Jamaica: ours L1, State L2 (published 2026-06-23); Morocco: ours L1, State L2 (published 2025-04-21); Nicaragua: ours L1, State L3 (published 2026-05-14); Oman: ours L1, State L3 (published 2026-04-09); Panama: ours L1, State L2 (published 2024-09-23); Qatar: ours L1, State L3 (published 2026-03-02); Sweden: ours L1, State L2 (published 2026-05-18); Uruguay: ours L1, State L2 (published 2026-07-28); Zimbabwe: ours L1, State L2 (published 2023-06-27); Grenada: ours L1, State L2 (published 2026-01-05); Maldives: ours L1, State L2 (published 2025-10-07)
   FAILING — The governing-law jurisdiction is set

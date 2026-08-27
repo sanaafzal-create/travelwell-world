@@ -33,15 +33,15 @@ good as regenerating it.
 | …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:456 · `export const boardSis = (sis: { retired?: bool` |
 | …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
 | SI categories | 10 | src/data/taxonomy.ts:277 · `export const SI_GROUPS: SiGroup[] = [` |
-| Destinations | 44 | src/data/places.ts:130 · `export const DESTINATIONS: Record<string, Dest` |
+| Destinations | 43 | src/data/places.ts:130 · `export const DESTINATIONS: Record<string, Dest` |
 | …with a `price_band` | 7 | src/data/places.ts:101 · `price_band?: string; // coarse overall price l` |
-| …at `depth: verified` | 33 | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
-| Activities | 60 | src/data/places.ts:569 · `export const ACTIVITIES: Record<string, Activi` |
-| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:431 · `export const PROVIDERS: Record<string, Provide` |
+| …at `depth: verified` | 32 | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
+| Activities | 60 | src/data/places.ts:578 · `export const ACTIVITIES: Record<string, Activi` |
+| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:440 · `export const PROVIDERS: Record<string, Provide` |
 | Regions | 13 | src/data/taxonomy.ts:333 · `export const REGIONS: Region[] = [` |
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
-| Sub-region lists | 18 | src/data/places.ts:345 · `export const SUBREGION_TOP: Record<string, str` |
-| Guides | 9 | src/data/places.ts:529 · `export const GUIDES: Guide[] = [` |
+| Sub-region lists | 18 | src/data/places.ts:354 · `export const SUBREGION_TOP: Record<string, str` |
+| Guides | 9 | src/data/places.ts:538 · `export const GUIDES: Guide[] = [` |
 | Country name→ISO entries (`COUNTRY_ISO`) | 87 | src/data/safety-data.ts:259 · `export const COUNTRY_ISO: Record<string, strin` |
 | …of those, countries WITH an advisory row (`safety.json`) | 84 | src/data/safety-data.ts:341 · `export const SAFETY_DATA = safetyJson as Recor` |
 
@@ -83,8 +83,8 @@ hard error in `npm run validate:si`. An unlabeled number is a guessed number.
 
 | Vocabulary | Values | Read from |
 |---|---|---|
-| Budget tier (`price`) | `essential` · `comfort` · `premier` · `luxury` · `ultra` | src/data/places.ts:370 · `export type Price = "essential" | "comfort" | ` |
-| Provider curation (`tier`) | `prime` · `vetted` · `prospective` | src/data/places.ts:366 · `export type Tier = "prime" | "vetted" | "prosp` |
+| Budget tier (`price`) | `essential` · `comfort` · `premier` · `luxury` · `ultra` | src/data/places.ts:379 · `export type Price = "essential" | "comfort" | ` |
+| Provider curation (`tier`) | `prime` · `vetted` · `prospective` | src/data/places.ts:375 · `export type Tier = "prime" | "vetted" | "prosp` |
 | Interest status | `live` · `preview` · `soon` | src/data/taxonomy.ts:19 · `export type Status = "live" | "preview" | "soo` |
 | Destination status | `live` · `future` | src/data/places.ts:35 · `export type DestStatus = "live" | "future"; //` |
 | Destination depth | `verified` · `stub` · `cached` | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
@@ -121,7 +121,7 @@ the provider.
    → `src/data/taxonomy.ts:333 · `export const REGIONS: Region[] = [``
 
 ✅ **Destination id is `<city>-<country>`, lowercase and hyphenated**
-   → 44 of 44 are hyphenated multi-part; 0 are single-word and cannot conform
+   → 43 of 43 are hyphenated multi-part; 0 are single-word and cannot conform
    → `src/data/places.ts:130 · `export const DESTINATIONS: Record<string, Dest``
 
 ✅ **The sitemap lists exactly the interests on the board — no retired ones, none missing**
@@ -129,7 +129,7 @@ the provider.
    → `scripts/gen-sitemap.ts vs boardSis() in src/data/taxonomy.ts`
 
 ✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
-   → all 537 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
+   → all 536 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
    → `scripts/gen-sitemap.ts`
 
 ✅ **The advisory consent record is append-only — no update, delete or ALL policy**
@@ -165,11 +165,11 @@ the provider.
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
 ⚠️ **Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage**
-   → 92 of 543 destinations (17%) sit in a country with NO row, across 9 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +1 more · of those, 10 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Mexico, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
+   → 92 of 542 destinations (17%) sit in a country with NO row, across 9 countries: Belgium / Luxembourg, Brazil, Ecuador, Guatemala, Laos, Mexico, Mozambique, Sint Maarten (NL) / Saint-Martin (FR), +1 more · of those, 10 actually RENDER "not yet verified" (Belgium / Luxembourg, Guatemala, Mexico, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
    → `src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts`
 
 ✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
-   → all 543 ids unique across 13 regions
+   → all 542 ids unique across 13 regions
    → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
 
 ⚠️ **Our curated level matches the level State published for that country**
@@ -216,10 +216,10 @@ identical in a schema, and a plan that assumes inheritance needs to know which
 it is.
 
 - **0 of 39 interests carry a dossier.** The only `booking_window` value in the repo is inside `src/data/interests/_REFERENCE.golf.json`, which is `_`-prefixed and never ships. **There is nothing to inherit booking windows from.**
-- **14 jewels across 7 of 44 destinations** — all hand-authored here. Any larger figure quoted for the experience catalogue (5,422, say) is counting a research library this repo cannot read; **nothing in it has been ingested.** 2 of the 14 carry a `source`, 0 an `accessed` date.
-- **7 of 44 destinations carry a `price_band`.**
-- **7 of 44 destinations carry `feel` tags.**
-- **15 of 44 destinations carry a `sub_region`.**
+- **14 jewels across 7 of 43 destinations** — all hand-authored here. Any larger figure quoted for the experience catalogue (5,422, say) is counting a research library this repo cannot read; **nothing in it has been ingested.** 2 of the 14 carry a `source`, 0 an `accessed` date.
+- **7 of 43 destinations carry a `price_band`.**
+- **7 of 43 destinations carry `feel` tags.**
+- **15 of 43 destinations carry a `sub_region`.**
 - **1 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
 ## Exact-match strings — the characters that bounce a batch
