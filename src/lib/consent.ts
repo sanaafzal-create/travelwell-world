@@ -40,7 +40,7 @@
  * and dropping a decision on the floor in those cases is worse than holding it
  * somewhere imperfect. They answer different questions and both are kept.
  */
-import type { AdvisoryConsent } from "@/components/safety/L3ConsentGate";
+import type { AdvisoryConsent } from "@/components/safety/ConsentGate";
 import { getSupabase } from "@/lib/supabase";
 import { getCurrentUser } from "@/lib/auth";
 
@@ -88,10 +88,39 @@ export async function recordAdvisoryConsent(c: AdvisoryConsent): Promise<"stored
       dest_name: c.destName,
       country: c.country,
       level: c.level ?? null,
+      // The founder-locked threshold that applied — stored in the 0016 `posture`
+      // column, which was declared for exactly this and written by nothing.
+      posture: c.threshold ?? null,
+      fcdo_area: c.fcdoArea ?? null,
+      // FIELD 4 of the record: the EXACT advisory text shown. Null is a fact —
+      // we held no verbatim text that day — distinguishable from unrecorded.
+      advisory_text: c.advisoryText ?? null,
+      advisory_url: c.advisoryUrl ?? null,
+      // FIELD 7: the statement itself, word-for-word. Not a duplicate of the
+      // decision — the label is attorney-pending, so it WILL change, and a row
+      // storing only `decision = continued` proves nothing after it is edited.
+      statement: c.statement ?? null,
       advisory_published: c.advisoryPublished,
       decision: c.decision,
       decided_at: c.at,
     });
+
+    // FIELD 6 — the profile attribute, written to the Travel I.D. A traveller
+    // who reads a complete advisory and chooses to continue has told us
+    // something durable: they accept a destination carrying a qualifying safety
+    // statement. PRIVACY-BEARING, so the permitted uses are stated here and are
+    // the only ones: avoid re-asking a question already answered, and prove
+    // what was disclosed. It must NEVER be used to route someone toward a
+    // riskier destination. Best-effort: the consent row above is the record;
+    // this is a convenience flag derived from it.
+    if (!error && c.decision === "continued") {
+      try {
+        await sb.from("travel_ids").upsert(
+          { user_id: user.id, accepts_advisory_destinations: true, updated_at: new Date().toISOString() },
+          { onConflict: "user_id" },
+        );
+      } catch { /* the consent row is the record; the flag can be re-derived */ }
+    }
     return error ? "local-only" : "stored";
   } catch {
     // A thrown insert is the same outcome as a failed one from the caller's side.
@@ -123,7 +152,7 @@ export async function storedAdvisoryConsents(): Promise<AdvisoryConsent[]> {
     if (!user) return [];
     const { data, error } = await sb
       .from("advisory_consents")
-      .select("dest_id, dest_name, country, level, advisory_published, decision, decided_at")
+      .select("dest_id, dest_name, country, level, posture, fcdo_area, advisory_text, advisory_url, statement, advisory_published, decision, decided_at")
       .order("decided_at", { ascending: false });
     if (error || !data) return [];
     return data.map((r) => ({
@@ -131,6 +160,11 @@ export async function storedAdvisoryConsents(): Promise<AdvisoryConsent[]> {
       destName: r.dest_name as string,
       country: r.country as string,
       level: (r.level ?? 0) as number,
+      threshold: (r.posture ?? "") as string,
+      fcdoArea: (r.fcdo_area ?? null) as string | null,
+      advisoryText: (r.advisory_text ?? null) as string | null,
+      advisoryUrl: (r.advisory_url ?? null) as string | null,
+      statement: (r.statement ?? "") as string,
       advisoryPublished: (r.advisory_published ?? null) as string | null,
       decision: r.decision as AdvisoryConsent["decision"],
       at: r.decided_at as string,

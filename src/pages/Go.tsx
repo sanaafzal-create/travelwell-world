@@ -2,12 +2,17 @@ import { useState } from "react";
 import { Link, useSearchParams, useNavigate, Navigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
-import { useWellById, useProviders, useDestinations } from "@/store/useCatalog";
+import { useWellById, useProviders, useDestinations, useCatalogSettled } from "@/store/useCatalog";
 import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 import { resolveDestId } from "@/data/places";
-import { resolveSafety, isoForCountry } from "@/data/safety-data";
-import { L3ConsentGate, type AdvisoryConsent } from "@/components/safety/L3ConsentGate";
+import { resolveSafety, isoForCountry, fcdoThreshold, fcdoQuote, THRESHOLD_TEXT } from "@/data/safety-data";
+import { ConsentGate, type AdvisoryConsent } from "@/components/safety/ConsentGate";
 import { recordAdvisoryConsent } from "@/lib/consent";
+import { advisoryLinks } from "@/data/advisory-sources";
+
+/** The refusal acknowledgement — David's words, 2026-08-23. ATTORNEY-PENDING on
+ *  exact wording; the record stores what it said on the day. */
+const REFUSAL_STATEMENT = "I have read and understood this complete safety advisory.";
 
 /**
  * Affiliate redirect interstitial — straight handoff + "mark as booked" return.
@@ -30,12 +35,14 @@ import { recordAdvisoryConsent } from "@/lib/consent";
  * product. Making it one means deciding whether destination-originated bookings
  * should route through `/go`, which is a product call, not plumbing.
  *
- * TWO RULES ARE ENFORCED HERE, and the difference between them is the point.
- * LEVEL 4 NEVER BOOKS — no consent override, no way to agree past it (David,
- * 2026-08-05). LEVEL 3 BOOKS ONLY AFTER AN INFORMED CHOICE: the traveller is
- * shown the advisory in its own words and picks, with the alternatives option
- * holding focus. One is a refusal, the other is a gate; conflating them would
- * either sell a Do-Not-Travel trip or refuse a bookable one.
+ * TWO RULES ARE ENFORCED HERE, and the difference between them is the point —
+ * the two thresholds, founder-locked (David, 2026-08-23). AGAINST ALL TRAVEL
+ * NEVER BOOKS — no consent override, no way to agree past it; the advisory
+ * shown verbatim, two boxes, nothing sold. AGAINST ALL BUT ESSENTIAL TRAVEL
+ * BOOKS ONLY AFTER AN INFORMED CHOICE: the traveller is shown the advisory in
+ * its own words, ticks the acknowledgement, and picks — with the alternatives
+ * option holding focus. One is a refusal, the other is a gate; conflating them
+ * would either sell a held trip or refuse a bookable one.
  */
 export default function Go() {
   const [params] = useSearchParams();
@@ -59,9 +66,15 @@ export default function Go() {
     ? Object.values(destinations).flat().find((d) => d.id === destId)
     : undefined;
   const safety = dest ? resolveSafety(dest, isoForCountry(dest.country)) : null;
+  const catalogSettled = useCatalogSettled();
   // Above the early returns so hook order is stable whichever branch renders —
   // the same crash this file already carries a comment about.
   const [consented, setConsented] = useState(false);
+  // The refusal screen's first box. Ticking it is recorded; the second box
+  // (similar options) stays inert until it is ticked — the block is a safety
+  // fact and the alternative is a commercial offer, and they must not arrive
+  // as one gesture.
+  const [ackHold, setAckHold] = useState(false);
 
   // GUARD: /go is a mid-booking handoff — only meaningful when a provider was
   // passed in. Reached cold (a restored tab, a bare /go URL) it has no partner to
@@ -76,47 +89,136 @@ export default function Go() {
   // Latent, not theoretical, and cheaper to fix while the file is open.
   if (!toParam) return <Navigate to="/" replace />;
 
-  // LEVEL 4 NEVER BOOKS. Refused here as well as at the button, deliberately —
-  // the button block is the first line of defence and this is the one that holds
-  // when a link is shared, restored from a tab, or reached by a path nobody
-  // predicted. Belt and braces is the correct posture for the rule David called
-  // absolute.
-  if (safety?.bookingHold) {
+  // A DESTINATION WE CANNOT RESOLVE MUST NOT HAND OFF (2026-08-28). The caller
+  // named a destination, which means this booking HAS an advisory to check —
+  // and until the catalog answers, or if it answers without that row, we cannot
+  // check it. Proceeding anyway is the silent fail-open: the bundle carries 43
+  // rows and the database carries every ingested one, so offline or pre-
+  // hydration, /go?dest=<ingested id> found nothing, `safety` stayed null, and
+  // BOTH gates were skipped — a held destination handed straight to a partner.
+  // Of the two available mistakes, refusing a bookable place is recoverable and
+  // selling a held one is not.
+  if (destId && !dest) {
     return (
       <div className="container" style={{ padding: "96px 0", maxWidth: 560 }}>
         <div className="card" style={{ padding: 32 }}>
-          <Eyebrow>We&rsquo;ve stopped this booking</Eyebrow>
+          <Eyebrow>{catalogSettled ? "We’ve stopped this booking" : "One moment"}</Eyebrow>
           <h1 className="t-h2" style={{ marginTop: 8 }}>
-            {dest!.name} is under a &ldquo;Do Not Travel&rdquo; advisory.
+            {catalogSettled
+              ? "We can’t check the travel advisory for this destination right now."
+              : "Checking the travel advisory…"}
           </h1>
           <p className="t-body" style={{ marginTop: 12 }}>
-            {dest!.country} currently carries <b>Level {safety.lvl} &mdash; {safety.label}</b>. We
-            don&rsquo;t sell trips to a place while its government advisory says do not travel,
-            and there&rsquo;s no way to agree past this one.
-          </p>
-          <p className="t-body" style={{ marginTop: 12, color: "var(--muted-foreground)" }}>
-            The page stays up so you can read the situation for yourself, including the
-            official advisory and what it says about specific areas.
+            {catalogSettled
+              ? "This booking names a destination we couldn’t look up, so we can’t confirm what its advisory says — and we don’t hand a booking to a partner without that check. Try again in a moment, or from the destination’s own page."
+              : "We’re looking up the official advisory for this destination before handing you to our partner."}
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 24 }}>
-            <Link className="btn btn-primary" to={`/destination/${dest!.id}`}>
-              Read the advisory for {dest!.name} <Icon name="arrow" small />
-            </Link>
-            <Button variant="secondary" onClick={() => openPanel("concierge")}>
-              <Icon name="sparkles" small /> Ask Atlas for somewhere comparable
-            </Button>
+            <Link className="btn btn-primary" to="/">Back to TravelWell <Icon name="arrow" small /></Link>
           </div>
         </div>
       </div>
     );
   }
 
-  // LEVEL 3 — the consent gate. Shown once per visit to this handoff; a decision
-  // does not persist across a fresh arrival, because an advisory can move between
-  // one booking and the next and stale consent is not consent.
-  if (safety && safety.lvl === 3 && !consented) {
+  // AGAINST ALL TRAVEL NEVER BOOKS. Refused here as well as at the button,
+  // deliberately — the button block is the first line of defence and this is the
+  // one that holds when a link is shared, restored from a tab, or reached by a
+  // path nobody predicted. Belt and braces is the correct posture for the rule
+  // David called absolute.
+  //
+  // THE REFUSAL SCREEN (founder-locked, 2026-08-23): the advisory shown verbatim
+  // when we hold it, in the advisory's own words never a number, and TWO boxes —
+  // "read and understood", then "show me similar options", the second inert
+  // until the first is ticked. The block is a safety fact and the alternative is
+  // a commercial offer, and they must not arrive as one sentence. Nothing sold.
+  // The advisory text renders in English in every locale — a translated
+  // quotation is a paraphrase wearing quotation marks.
+  if (safety?.bookingHold) {
+    const quote = fcdoQuote(safety);
+    const fcdoLink = advisoryLinks(dest!.country, isoForCountry(dest!.country)).find((l) => l.source.id === "fcdo");
     return (
-      <L3ConsentGate
+      <div className="container" style={{ padding: "96px 0", maxWidth: 620 }}>
+        <div className="card" style={{ padding: 32 }}>
+          <Eyebrow>We&rsquo;ve stopped this booking</Eyebrow>
+          <h1 className="t-h2" style={{ marginTop: 8 }}>
+            {quote
+              ? <>The advisory {THRESHOLD_TEXT["no-travel"]} where {dest!.name} sits.</>
+              : <>{dest!.name} is under an advisory we won&rsquo;t book against.</>}
+          </h1>
+          <p className="t-body" style={{ marginTop: 12 }}>
+            We don&rsquo;t sell trips to a place while an official advisory says do not
+            travel there, and there&rsquo;s no way to agree past this one.
+          </p>
+          {quote ? (
+            <blockquote className="l3__verbatim" style={{ marginTop: 16 }}>{quote.text}</blockquote>
+          ) : (
+            <p className="t-body" style={{ marginTop: 12 }}>
+              <b>{safety.label}.</b> {safety.summary}
+            </p>
+          )}
+          <p className="t-body" style={{ marginTop: 12, color: "var(--muted-foreground)" }}>
+            The page stays up so you can read the situation for yourself
+            {fcdoLink && (
+              <>
+                , including the{" "}
+                <a href={fcdoLink.href} target="_blank" rel="noopener noreferrer">official advisory</a>
+              </>
+            )}
+            {" "}and what it says about specific areas.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24 }}>
+            <label className="l3__ack">
+              <input
+                type="checkbox"
+                checked={ackHold}
+                onChange={(e) => {
+                  setAckHold(e.target.checked);
+                  // Recorded on the tick itself — the acknowledgement is the
+                  // event, whatever they do next. Not awaited: a safety
+                  // acknowledgement never waits on a network round-trip.
+                  if (e.target.checked) {
+                    void recordAdvisoryConsent({
+                      destId: dest!.id, destName: dest!.name, country: dest!.country,
+                      level: safety.lvl, threshold: "no-travel",
+                      fcdoArea: quote?.area ?? safety.inZone?.name ?? null,
+                      advisoryText: quote?.text ?? null,
+                      advisoryUrl: fcdoLink?.href ?? null,
+                      statement: REFUSAL_STATEMENT,
+                      advisoryPublished: safety.verified ?? null,
+                      decision: "acknowledged-hold", at: new Date().toISOString(),
+                    });
+                  }
+                }}
+              />
+              <span>{REFUSAL_STATEMENT}</span>
+            </label>
+            <label className="l3__ack" aria-disabled={!ackHold}>
+              <input
+                type="checkbox"
+                checked={false}
+                disabled={!ackHold}
+                onChange={() => { openPanel("concierge"); navigate(`/destination/${dest!.id}`); }}
+              />
+              <span>I would like to see similar options in an area we can book.</span>
+            </label>
+            <Link className="btn btn-secondary" to={`/destination/${dest!.id}`}>
+              Read more about {dest!.name} <Icon name="arrow" small />
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // AGAINST ALL BUT ESSENTIAL TRAVEL — the consent gate. Shown once per visit to
+  // this handoff; a decision does not persist across a fresh arrival, because an
+  // advisory can move between one booking and the next and stale consent is not
+  // consent. The condition is the derived THRESHOLD, not a number — same
+  // derivation the refusal, the card and Atlas's context read.
+  if (safety && fcdoThreshold(safety) === "essential-only" && !consented) {
+    return (
+      <ConsentGate
         dest={dest!}
         safety={safety}
         iso={isoForCountry(dest!.country)}

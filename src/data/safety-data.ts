@@ -572,3 +572,58 @@ export function resolveSafety(
  */
 export const stricterZones = (s: SafetyInfo): SafetyZone[] =>
   (s.zones ?? []).filter((z) => z.lvl > s.lvl).sort((a, b) => b.lvl - a.lvl);
+
+/**
+ * THE TWO THRESHOLDS, founder-locked (David, 2026-08-23):
+ * "If all travel is not advised, we won't book there. If it's the level under
+ * it — essential travel only is advised — they get shown the entire safety
+ * notice, verbatim, and have to check the box … Informed traveler."
+ *
+ * This is the ONE derivation from a resolved record to a booking threshold, so
+ * the refusal screen, the consent gate, and Atlas's context block can never
+ * disagree about which side of the line a destination sits on. It reads the
+ * resolved record only — never a raw dossier field — because `resolveSafety`
+ * is where zone joins, postures, and the stricter-wins rule have already been
+ * applied.
+ */
+export type FcdoThreshold = "no-travel" | "essential-only" | "none" | "unverified";
+
+export function fcdoThreshold(s: SafetyInfo): FcdoThreshold {
+  if (s.bookingHold) return "no-travel";
+  if (s.unverified) return "unverified";
+  // A zone at "all but essential", or the internal ordering's consent band.
+  if (s.inZone?.posture === "all-but-essential" || s.lvl === 3) return "essential-only";
+  return "none";
+}
+
+/** The threshold in the advisory's own words — never a number. */
+export const THRESHOLD_TEXT: Record<FcdoThreshold, string> = {
+  "no-travel": "advises against all travel",
+  "essential-only": "advises against all but essential travel",
+  none: "publishes no advisory against travel",
+  unverified: "is not on file — we hold no checked advisory",
+};
+
+/**
+ * The advisory's OWN words for this destination, when we hold any.
+ *
+ * Only a zone carrying a `posture` qualifies: those rows were transcribed from
+ * FCDO verbatim text (see `SafetyZone.posture`), so quoting them is quoting the
+ * source. A zone without a posture predates the re-read and its note is OUR
+ * curation — presenting it as the FCDO's sentence would be the misattribution
+ * this whole architecture exists to prevent. Returns null rather than a
+ * best-effort string, because "we cannot quote it" is a fact the screens are
+ * built to say plainly.
+ */
+export function fcdoQuote(s: SafetyInfo): { area: string; text: string } | null {
+  const z = s.inZone;
+  if (!z?.posture) return null;
+  // Some rows transcribed the FCDO's whole sentence into `note` ("FCDO advises
+  // against all travel to all of Amhara regional state."). When the note IS the
+  // sentence, it stands alone — composing our derived head in front of it would
+  // print the advisory twice and make the quotation partly ours.
+  if (z.note && /^FCDO advises/i.test(z.note.trim())) return { area: z.name, text: z.note.trim() };
+  const head = `${ZONE_POSTURE_TEXT[z.posture]} to ${z.name}`;
+  const except = z.except?.length ? `, except ${z.except.join(", ")}` : "";
+  return { area: z.name, text: z.note ? `${head}${except}. ${z.note}` : `${head}${except}.` };
+}

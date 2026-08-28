@@ -69,10 +69,21 @@ export interface PlacedJewel {
 export const jewelSis = (jewel: { si?: string | string[] }): string[] =>
   jewel.si == null ? [] : Array.isArray(jewel.si) ? jewel.si : [jewel.si];
 
+/**
+ * ── AND THE CAP GAINED DEPTH (2026-08-28, David: "VERY THIN. Increase.") ────
+ * The interleave bought breadth by spending depth: a cap of 12 showed twelve
+ * places and ONE jewel each, so an interest holding 1.9 jewels per destination
+ * (Romance) rendered one-and-done by construction. The shelf now shows up to
+ * `maxDests` places and runs the interleave DEEPER into those same places —
+ * twelve places × up to two jewels for the same authoring. Which destinations
+ * participate is unchanged (the first twelve contributing, in catalog order —
+ * stable and explicable); only how deep each is drawn from moved.
+ */
 export function jewelsForSi(
   destinations: Record<string, Destination[]>,
   siId: string,
-  limit = 12
+  limit = 24,
+  maxDests = 12
 ): PlacedJewel[] {
   // Grouped by destination, preserving both destination order and, inside each
   // destination, the order the jewels were authored in.
@@ -92,14 +103,16 @@ export function jewelsForSi(
     }
   }
 
-  // Round-robin: the first from each destination, then the second from each…
-  // so a cap of 12 buys twelve PLACES rather than twelve jewels from one.
+  // Round-robin: the first from each participating destination, then the
+  // second from each… so the cap buys PLACES first and then depth within them.
   // With `limit` at or above the total this returns everything, in the same
-  // order-preserving interleave — callers asking for all of it are unaffected.
+  // order-preserving interleave — callers asking for all of it are unaffected
+  // (pass Infinity for both to get the whole set).
+  const pool = byDest.slice(0, maxDests);
   const out: PlacedJewel[] = [];
-  const deepest = byDest.reduce((m, l) => Math.max(m, l.length), 0);
+  const deepest = pool.reduce((m, l) => Math.max(m, l.length), 0);
   for (let round = 0; round < deepest && out.length < limit; round++) {
-    for (const list of byDest) {
+    for (const list of pool) {
       if (out.length >= limit) break;
       if (round < list.length) out.push(list[round]);
     }

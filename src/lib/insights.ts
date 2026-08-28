@@ -17,7 +17,7 @@ import { fetchSignals } from "./signals";
 import { useStore } from "@/store/useStore";
 import { useCatalog } from "@/store/useCatalog";
 import { resolveDestId, type Destination } from "@/data/places";
-import { resolveSafety, isoForCountry, stricterZones } from "@/data/safety-data";
+import { resolveSafety, isoForCountry, stricterZones, fcdoThreshold, fcdoQuote, type SafetyZone } from "@/data/safety-data";
 import { advisoryLinks } from "@/data/advisory-sources";
 
 interface Considered {
@@ -73,9 +73,24 @@ function hereFrom(path: string | null): { kind: "destination" | "region" | "si";
 // Exported so it can be checked directly. The rest of this file is only
 // observable by driving the app; a safety field is the one part that has to be
 // verifiable on its own, without a browser and without a network.
+// A zone's restriction in WORDS, never a number. Zones carrying a posture are
+// FCDO-transcribed and speak the FCDO's phrase; zones that predate the re-read
+// still hold our curated internal ordering, so they speak our label words —
+// "Level 3" leaked into Atlas's context here for six days after the card
+// stopped printing numbers, which is the same retirement missed on one surface.
+const zoneRestriction = (z: SafetyZone): string =>
+  z.posture === "all"
+    ? "against all travel"
+    : z.posture === "all-but-essential"
+      ? "against all but essential travel"
+      : z.lvl >= 4
+        ? "do not travel (our curated reading; not yet re-read from FCDO text)"
+        : "reconsider travel (our curated reading; not yet re-read from FCDO text)";
+
 export function safetyBlockFor(dest: Destination): Record<string, unknown> {
   const iso = isoForCountry(dest.country);
   const s = resolveSafety(dest, iso);
+  const quote = fcdoQuote(s);
   // The FCDO first because it is our primary source, but NOT only the FCDO: it
   // publishes nothing for the United Kingdom, and taking `find(fcdo)` alone left
   // London with a level and no advisory to point a traveller at.
@@ -104,11 +119,19 @@ export function safetyBlockFor(dest: Destination): Record<string, unknown> {
     reported: Boolean(s.reported),
     bookingHold: Boolean(s.bookingHold),
     source: s.source,
-    ...(s.inZone ? { inNamedArea: { name: s.inZone.name, restriction: s.inZone.posture === "all" ? "against all travel" : s.inZone.posture === "all-but-essential" ? "against all but essential travel" : `Level ${s.inZone.lvl}` } } : {}),
-    // The rest of the country's picture, so a Level 1 destination inside a
-    // country with Level 4 areas can be described accurately rather than flatly.
+    // The founder-locked threshold, derived in ONE place (fcdoThreshold) so this
+    // block, the refusal screen and the consent gate can never disagree.
+    fcdoThreshold: fcdoThreshold(s),
+    ...(s.inZone ? { inNamedArea: { name: s.inZone.name, restriction: zoneRestriction(s.inZone) } } : {}),
+    // The advisory's OWN words, when the zone was transcribed from FCDO verbatim
+    // text. Atlas QUOTES this string or does not use it — the prompt forbids
+    // paraphrase, and a null here means "we cannot quote it", which Atlas says.
+    ...(quote ? { fcdoArea: quote.area, fcdoVerbatim: quote.text } : {}),
+    ...(s.verified ? { fcdoReviewed: s.verified } : {}),
+    // The rest of the country's picture, so a no-restriction destination inside
+    // a country with held areas can be described accurately rather than flatly.
     ...(stricterZones(s).length
-      ? { stricterAreasElsewhereInCountry: stricterZones(s).map((z) => ({ name: z.name, restriction: z.posture === "all" ? "against all travel" : z.posture === "all-but-essential" ? "against all but essential travel" : `Level ${z.lvl}` })) }
+      ? { stricterAreasElsewhereInCountry: stricterZones(s).map((z) => ({ name: z.name, restriction: zoneRestriction(z) })) }
       : {}),
     ...(fcdo ? { advisoryUrl: fcdo.href, advisoryUrlIsDeepLink: fcdo.deep } : {}),
     atlasMust: s.unverified
