@@ -1,0 +1,206 @@
+{
+ "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
+ "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
+ "generated": "2026-08-28",
+ "surfaces": [
+  {
+   "surface": "si-shelf · jewels (SiDetail JewelsSection)",
+   "cap": 24,
+   "cap_source": "src/lib/jewels.ts · jewelsForSi limit",
+   "reader_can_tell": "YES — the section line prints shown-of-total ('a selection of 24 from our N experiences across M destinations') whenever shown < length (2026-08-28)",
+   "lengths_by_interest": {
+    "ultra": {
+     "length": 133,
+     "shown": 24,
+     "dests": 62,
+     "dests_shown": 12
+    },
+    "tropical": {
+     "length": 96,
+     "shown": 23,
+     "dests": 63,
+     "dests_shown": 12
+    },
+    "romance": {
+     "length": 555,
+     "shown": 24,
+     "dests": 295,
+     "dests_shown": 12
+    },
+    "safari": {
+     "length": 90,
+     "shown": 24,
+     "dests": 45,
+     "dests_shown": 12
+    },
+    "expedition": {
+     "length": 433,
+     "shown": 19,
+     "dests": 186,
+     "dests_shown": 12
+    },
+    "ski": {
+     "length": 489,
+     "shown": 24,
+     "dests": 76,
+     "dests_shown": 12
+    },
+    "golf": {
+     "length": 10,
+     "shown": 10,
+     "dests": 8,
+     "dests_shown": 8
+    },
+    "adventure": {
+     "length": 133,
+     "shown": 24,
+     "dests": 78,
+     "dests_shown": 12
+    },
+    "hiking": {
+     "length": 54,
+     "shown": 24,
+     "dests": 26,
+     "dests_shown": 12
+    },
+    "liveaboard": {
+     "length": 106,
+     "shown": 24,
+     "dests": 22,
+     "dests_shown": 12
+    },
+    "river": {
+     "length": 52,
+     "shown": 20,
+     "dests": 29,
+     "dests_shown": 12
+    },
+    "diveglobal": {
+     "length": 99,
+     "shown": 17,
+     "dests": 68,
+     "dests_shown": 12
+    },
+    "ocean": {
+     "length": 59,
+     "shown": 17,
+     "dests": 37,
+     "dests_shown": 12
+    },
+    "wellness": {
+     "length": 268,
+     "shown": 24,
+     "dests": 119,
+     "dests_shown": 12
+    },
+    "wildlife": {
+     "length": 62,
+     "shown": 15,
+     "dests": 36,
+     "dests_shown": 12
+    },
+    "family": {
+     "length": 404,
+     "shown": 24,
+     "dests": 156,
+     "dests_shown": 12
+    },
+    "senior": {
+     "length": 6,
+     "shown": 6,
+     "dests": 6,
+     "dests_shown": 6
+    },
+    "culture": {
+     "length": 765,
+     "shown": 24,
+     "dests": 270,
+     "dests_shown": 12
+    },
+    "deepdive": {
+     "length": 24,
+     "shown": 12,
+     "dests": 24,
+     "dests_shown": 12
+    },
+    "pilgrimage": {
+     "length": 1,
+     "shown": 1,
+     "dests": 1,
+     "dests_shown": 1
+    },
+    "entertainment": {
+     "length": 107,
+     "shown": 24,
+     "dests": 55,
+     "dests_shown": 12
+    },
+    "culinary": {
+     "length": 309,
+     "shown": 24,
+     "dests": 164,
+     "dests_shown": 12
+    },
+    "sports": {
+     "length": 3,
+     "shown": 3,
+     "dests": 3,
+     "dests_shown": 3
+    },
+    "sailing": {
+     "length": 4,
+     "shown": 4,
+     "dests": 4,
+     "dests_shown": 4
+    },
+    "wine": {
+     "length": 49,
+     "shown": 16,
+     "dests": 32,
+     "dests_shown": 12
+    }
+   }
+  },
+  {
+   "surface": "si-shelf · destinations behind it (same section)",
+   "cap": 12,
+   "cap_source": "src/lib/jewels.ts · jewelsForSi maxDests",
+   "reader_can_tell": "YES — same line prints destination totals and '(12 shown here)'",
+   "note": "lengths are the dests/dests_shown fields on the row above"
+  },
+  {
+   "surface": "si-provider-rail (SiDetail providerRail)",
+   "cap": 9,
+   "cap_source": "src/pages/SiDetail.tsx · providerRail slice(0, 9), 3 per Well before it",
+   "reader_can_tell": "YES — the section line prints 'a selection of N from our M vetted partners' whenever cut (2026-08-28)",
+   "lengths_by_interest": {
+    "safari": 34,
+    "ski": 19,
+    "adventure": 2,
+    "wellness": 3
+   }
+  },
+  {
+   "surface": "mega-menu · interests column",
+   "cap": 5,
+   "cap_source": "src/components/shell/MegaMenu.tsx · slice(0, 5) of live interests",
+   "length": 8,
+   "reader_can_tell": "YES — column header prints the true count and links 'View all {n}'"
+  },
+  {
+   "surface": "mega-menu · wells column",
+   "cap": 8,
+   "cap_source": "src/components/shell/MegaMenu.tsx · slice(0, 8) of non-lux Wells",
+   "length": 11,
+   "length_note": "full roster is 13 (the published count); the column lists non-lux",
+   "reader_can_tell": "YES — true count + 'View all' link"
+  },
+  {
+   "surface": "mega-menu · regions column",
+   "cap": 8,
+   "cap_source": "src/components/shell/MegaMenu.tsx · slice(0, 8)",
+   "length": 13,
+   "reader_can_tell": "YES — true count + 'View all' link"
+  }
+ ]
+}

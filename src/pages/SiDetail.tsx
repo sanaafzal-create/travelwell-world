@@ -577,6 +577,11 @@ export default function SiDetail() {
   const catalogIsAuthoritative = useCatalogLoaded() || typeof window === "undefined";
   const wells = wellsActivated(si.id, activities);
   const rail = providerRail(si.id, activities, providers);
+  // The rail is capped (3 per Well, 9 total) — so the reader is told the whole,
+  // same rule as the jewels shelf: a truncation the reader cannot tell happened
+  // is the four-regions class, however polite the copy around it.
+  const railTotal = Object.values(providers).flat()
+    .filter((p) => p.tier !== "prospective" && (p.si ?? []).includes(si.id)).length;
   // Counted from the SETTLED catalog only. Before it settles the browser holds
   // the 44-row bundle, and a count taken then would understate the page — the
   // same reason `DestinationDetail` waits before saying it has no such place.
@@ -629,7 +634,9 @@ export default function SiDetail() {
           <span className="eyebrow sd-section__eyebrow">A taste of our partners</span>
           <h2 className="sd-section__title">Vetted providers you'll meet</h2>
           <p className="sd-section__sub">
-            Curated and scoped to your region during the journey. Prime Providers shown first.
+            {railTotal > rail.length
+              ? <>A selection of {rail.length} from our {railTotal} vetted partners for this interest — curated and scoped to your region during the journey. Prime Providers shown first.</>
+              : <>Curated and scoped to your region during the journey. Prime Providers shown first.</>}
           </p>
           <div className="sd-rail" tabIndex={0} role="group" aria-label="Vetted providers">
             {rail.map((p, i) => (

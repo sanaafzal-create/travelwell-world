@@ -28,7 +28,8 @@
     "gen:routes": "esbuild scripts/gen-vercel-routes.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/routes.mjs && node scratchpad/routes.mjs",
     "check:advisory-text": "esbuild scripts/check-advisory-text.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/advtext.mjs && node scratchpad/advtext.mjs",
     "prerender": "esbuild scripts/prerender.tsx --bundle --platform=node --format=esm --jsx=automatic --loader:.css=empty --loader:.png=empty --loader:.svg=empty --alias:@=./src --alias:@/data/places=./scripts/ssr/places-merged.ts --packages=external --define:import.meta.env.DEV=false --define:import.meta.env.PROD=true --define:import.meta.env.VITE_SUPABASE_URL='\"\"' --define:import.meta.env.VITE_SUPABASE_ANON_KEY='\"\"' --outfile=scratchpad/prerender.mjs && node scratchpad/prerender.mjs",
-    "gen:board": "esbuild scripts/gen-board.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genboard.mjs && node scratchpad/genboard.mjs"
+    "gen:board": "esbuild scripts/gen-board.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genboard.mjs && node scratchpad/genboard.mjs",
+    "gen:list-sizes": "esbuild scripts/gen-list-sizes.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genlistsizes.mjs && node scratchpad/genlistsizes.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
