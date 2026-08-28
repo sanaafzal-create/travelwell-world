@@ -589,8 +589,15 @@ export const stricterZones = (s: SafetyInfo): SafetyZone[] =>
 export type FcdoThreshold = "no-travel" | "essential-only" | "none" | "unverified";
 
 export function fcdoThreshold(s: SafetyInfo): FcdoThreshold {
-  if (s.bookingHold) return "no-travel";
+  // UNVERIFIED WINS OVER THE HOLD IT CAUSES (2026-08-28). `holdIfUnverified`
+  // sets bookingHold on every unverified row, so testing bookingHold first
+  // reported "no-travel" — a threshold that claims an advisory exists — for a
+  // place whose truth is "we hold no checked advisory". A traveller who can't
+  // tell a verification hold from an advisory hold assumes the stricter one,
+  // and the stricter claim here is also simply false. The hold is identical
+  // either way; only the REASON differs, and the reason is the point.
   if (s.unverified) return "unverified";
+  if (s.bookingHold) return "no-travel";
   // A zone at "all but essential", or the internal ordering's consent band.
   if (s.inZone?.posture === "all-but-essential" || s.lvl === 3) return "essential-only";
   return "none";

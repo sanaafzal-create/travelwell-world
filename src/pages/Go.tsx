@@ -152,14 +152,24 @@ export default function Go() {
               verbatim and complete. */}
           <Eyebrow>Safer Informed Travel</Eyebrow>
           <h1 className="t-h2" style={{ marginTop: 8 }}>We will not book this.</h1>
+          {/* THE REASON IS NAMED, NOT BLURRED (David → Sana, 2026-08-24). An
+              advisory hold and a verification hold are different sentences: one
+              says the advisory forbids it, the other says WE haven't checked —
+              our rule, not a statement about the place. A traveller who can't
+              tell them apart assumes the stricter, which here is also false. */}
           <p className="t-body" style={{ marginTop: 12 }}>
-            {quote
-              ? <>{dest!.name} sits in an area the UK Foreign Office advises against all
-                  travel to. We don&rsquo;t sell trips into one, and there is no way to
-                  agree past this.</>
-              : <>{dest!.name} is under an advisory we won&rsquo;t book against. We don&rsquo;t
-                  sell trips to a place while that stands, and there&rsquo;s no way to agree
-                  past this one.</>}
+            {safety.unverified
+              ? <>We haven&rsquo;t been able to verify the travel advisory for {dest!.name},
+                  and we won&rsquo;t sell a place we haven&rsquo;t checked. That&rsquo;s our rule,
+                  not a statement about this destination &mdash; read the official advisory
+                  yourself before you make any plans.</>
+              : quote
+                ? <>{dest!.name} sits in an area the UK Foreign Office advises against all
+                    travel to. We don&rsquo;t sell trips into one, and there is no way to
+                    agree past this.</>
+                : <>{dest!.name} is under an advisory we won&rsquo;t book against. We don&rsquo;t
+                    sell trips to a place while that stands, and there&rsquo;s no way to agree
+                    past this one.</>}
           </p>
           {countryText?.quotes.length ? (
             <>
@@ -191,7 +201,12 @@ export default function Go() {
             {" "}and what it says about specific areas.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 12, marginTop: 24 }}>
-            <label className="l3__ack">
+            {/* NO ACKNOWLEDGEMENT BOXES ON A VERIFICATION HOLD. The box says "I
+                have read … this complete safety advisory" — on an unverified
+                row we showed no advisory to read, and an acknowledgement of a
+                thing not shown is a false record (the canon's own rule about
+                truncated advisories, applied to an absent one). */}
+            {!safety.unverified && <label className="l3__ack">
               <input
                 type="checkbox"
                 checked={ackHold}
@@ -215,8 +230,8 @@ export default function Go() {
                 }}
               />
               <span>{REFUSAL_STATEMENT}</span>
-            </label>
-            <label className="l3__ack" aria-disabled={!ackHold}>
+            </label>}
+            {!safety.unverified && <label className="l3__ack" aria-disabled={!ackHold}>
               <input
                 type="checkbox"
                 checked={false}
@@ -224,7 +239,7 @@ export default function Go() {
                 onChange={() => { openPanel("concierge"); navigate(`/destination/${dest!.id}`); }}
               />
               <span>I would like to see similar options in an area we can book.</span>
-            </label>
+            </label>}
             <Link className="btn btn-secondary" to={`/destination/${dest!.id}`}>
               Read more about {dest!.name} <Icon name="arrow" small />
             </Link>

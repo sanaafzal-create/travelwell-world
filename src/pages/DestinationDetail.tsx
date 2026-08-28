@@ -342,8 +342,18 @@ export default function DestinationDetail() {
                     */}
                     <div className="dd-pv__row">
                       {s.bookingHold ? (
+                        // THE REASON IS THE POINT (David → Sana, 2026-08-24):
+                        // "we don't sell this, and here's why" is a different
+                        // sentence from "the advisory says don't go", and a
+                        // traveller who can't tell them apart assumes the
+                        // stricter one. An unverified hold is OUR rule, not a
+                        // statement about this place — saying "Do Not Travel
+                        // advisory" over it asserted an advisory that does not
+                        // exist.
                         <span className="dd-pv__held">
-                          <Icon name="shield" small /> Not bookable — this destination is under a Do Not Travel advisory.
+                          <Icon name="shield" small /> {s.unverified
+                            ? "Not bookable yet — we haven't verified the travel advisory here, and we won't sell a place we haven't checked. That's our rule, not a statement about this destination."
+                            : "Not bookable — the travel advisory here says do not travel, and we don't sell against that."}
                         </span>
                       ) : (
                         <>
@@ -433,8 +443,11 @@ export default function DestinationDetail() {
                 <div className="safety-row safety-row--carve">
                   <span className="safety-row__ic"><Icon name="pin" small /></span>
                   <span>
-                    <span className="safety-row__k">This destination specifically:</span> the {country}-wide advisory is
-                    Level {s.carveOut.countryLevel} ({s.carveOut.countryLabel}); this place carries its own level, shown above.
+                    {/* Words, not a number — the scale is retired (David,
+                        2026-08-21); this row printed "Level N" three days past
+                        the card above it stopping. */}
+                    <span className="safety-row__k">This destination specifically:</span> the {country}-wide advisory
+                    reads &ldquo;{s.carveOut.countryLabel}&rdquo;; this place carries its own reading, shown above.
                   </span>
                 </div>
               )}
