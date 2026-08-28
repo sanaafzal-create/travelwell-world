@@ -134,10 +134,16 @@ export function safetyBlockFor(dest: Destination): Record<string, unknown> {
       ? { stricterAreasElsewhereInCountry: stricterZones(s).map((z) => ({ name: z.name, restriction: zoneRestriction(z) })) }
       : {}),
     ...(fcdo ? { advisoryUrl: fcdo.href, advisoryUrlIsDeepLink: fcdo.deep } : {}),
+    // The no-booking line is the SIMILAR-OFFER canon (David, 2026-08-23): the
+    // block is a safety fact and the alternative is a commercial offer, and
+    // they must not arrive as one sentence — Atlas ASKS, and only an explicit
+    // yes brings the cousins. This replaced the earlier "alternatives in the
+    // same breath" rule for held destinations; same-breath solving remains
+    // right for the consent band, where planning is allowed.
     atlasMust: s.unverified
       ? "State plainly that we hold no verified advisory for this destination and point at the official advisory. Do not describe it as safe, and do not plan around a reading you do not have."
       : s.bookingHold
-        ? "State the advisory and why booking is held here BEFORE planning anything, then offer alternatives that give them the same thing without the restriction. Never read as a refusal."
+        ? "Say we will not book there, quote the advisory, and STOP — no alternatives in the same message. Then ask whether they would like to see similar places we can book; offer cousins only after an explicit yes."
         : s.lvl >= 3
           ? "State the advisory and the reason the first time this destination comes into play, before building. Say where the risk sits versus where they would be, and offer alternatives in the same breath."
           : "State the advisory once when this destination first comes into play. An absence of an advisory is never a statement that a place is safe.",

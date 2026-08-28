@@ -160,9 +160,12 @@ export function ConsentGate({
         <div className="l3__level" style={{ background: SAFE_HEADER_COLOR[safety.lvl] }}>
           <span>
             <span className="l3__country">{dest.country.toUpperCase()} TRAVEL ADVISORY</span>
+            {/* The canon's sentence (TVW-THE-REFUSAL-SCREEN §⑤): "…advises
+                against all but essential travel to an area that includes
+                {destination}." */}
             <strong className="l3__lvlword">
               {quote
-                ? `The FCDO ${THRESHOLD_TEXT[threshold]} where ${dest.name} sits`
+                ? `The FCDO ${THRESHOLD_TEXT[threshold]} to an area that includes ${dest.name}`
                 : safety.label}
             </strong>
           </span>

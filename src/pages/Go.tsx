@@ -5,7 +5,7 @@ import { useStore } from "@/store/useStore";
 import { useWellById, useProviders, useDestinations, useCatalogSettled } from "@/store/useCatalog";
 import { Eyebrow, Button, Ftc } from "@/components/ui/primitives";
 import { resolveDestId } from "@/data/places";
-import { resolveSafety, isoForCountry, fcdoThreshold, fcdoQuote, THRESHOLD_TEXT } from "@/data/safety-data";
+import { resolveSafety, isoForCountry, fcdoThreshold, fcdoQuote } from "@/data/safety-data";
 import { ConsentGate, type AdvisoryConsent } from "@/components/safety/ConsentGate";
 import { recordAdvisoryConsent } from "@/lib/consent";
 import { advisoryLinks } from "@/data/advisory-sources";
@@ -147,27 +147,31 @@ export default function Go() {
     return (
       <div className="container" style={{ padding: "96px 0", maxWidth: 620 }}>
         <div className="card" style={{ padding: 32 }}>
-          <Eyebrow>We&rsquo;ve stopped this booking</Eyebrow>
-          <h1 className="t-h2" style={{ marginTop: 8 }}>
-            {quote
-              ? <>The advisory {THRESHOLD_TEXT["no-travel"]} where {dest!.name} sits.</>
-              : <>{dest!.name} is under an advisory we won&rsquo;t book against.</>}
-          </h1>
+          {/* The canon's shape (TVW-THE-REFUSAL-SCREEN §④), David's words:
+              "We will not book this." — then the reason, then the advisory
+              verbatim and complete. */}
+          <Eyebrow>Safer Informed Travel</Eyebrow>
+          <h1 className="t-h2" style={{ marginTop: 8 }}>We will not book this.</h1>
           <p className="t-body" style={{ marginTop: 12 }}>
-            We don&rsquo;t sell trips to a place while an official advisory says do not
-            travel there, and there&rsquo;s no way to agree past this one.
+            {quote
+              ? <>{dest!.name} sits in an area the UK Foreign Office advises against all
+                  travel to. We don&rsquo;t sell trips into one, and there is no way to
+                  agree past this.</>
+              : <>{dest!.name} is under an advisory we won&rsquo;t book against. We don&rsquo;t
+                  sell trips to a place while that stands, and there&rsquo;s no way to agree
+                  past this one.</>}
           </p>
           {countryText?.quotes.length ? (
             <>
+              <p className="t-body" style={{ marginTop: 16, color: "var(--muted-foreground)", fontSize: 13, letterSpacing: ".04em" }}>
+                UK FOREIGN, COMMONWEALTH &amp; DEVELOPMENT OFFICE &mdash; travel advice for {countryText.country} &middot; page updated {countryText.publicUpdatedAt.slice(0, 10)}
+              </p>
               {/* The country's complete threshold quotes, the FCDO's own words
                   stored unchanged — every form it publishes, never a chosen
                   subset, and English in every locale. */}
               {countryText.quotes.map((q) => (
-                <blockquote className="l3__verbatim" style={{ marginTop: 16 }} tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim" key={q.form + q.text.slice(0, 40)}>FCDO {q.text}</blockquote>
+                <blockquote className="l3__verbatim" style={{ marginTop: 10 }} tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim" key={q.form + q.text.slice(0, 40)}>FCDO {q.text}</blockquote>
               ))}
-              <p className="t-body" style={{ marginTop: 10, color: "var(--muted-foreground)", fontSize: 13 }}>
-                UK FCDO &mdash; {countryText.country} travel advice, page updated {countryText.publicUpdatedAt.slice(0, 10)}.
-              </p>
             </>
           ) : quote ? (
             <blockquote className="l3__verbatim" style={{ marginTop: 16 }} tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim">{quote.text}</blockquote>
