@@ -9,6 +9,7 @@ import { resolveSafety, isoForCountry, fcdoThreshold, fcdoQuote, THRESHOLD_TEXT 
 import { ConsentGate, type AdvisoryConsent } from "@/components/safety/ConsentGate";
 import { recordAdvisoryConsent } from "@/lib/consent";
 import { advisoryLinks } from "@/data/advisory-sources";
+import { fcdoCountryText } from "@/data/fcdo-text";
 
 /** The refusal acknowledgement — David's words, 2026-08-23. ATTORNEY-PENDING on
  *  exact wording; the record stores what it said on the day. */
@@ -136,7 +137,13 @@ export default function Go() {
   // quotation is a paraphrase wearing quotation marks.
   if (safety?.bookingHold) {
     const quote = fcdoQuote(safety);
+    const countryText = fcdoCountryText(dest!.country);
     const fcdoLink = advisoryLinks(dest!.country, isoForCountry(dest!.country)).find((l) => l.source.id === "fcdo");
+    // What is actually rendered below, exactly — the record stores this string.
+    const shownText = countryText?.quotes.length
+      ? countryText.quotes.map((q) => `FCDO ${q.text}`).join("\n")
+      : quote?.text ?? null;
+    const advisoryUrl = countryText?.url ?? fcdoLink?.href ?? null;
     return (
       <div className="container" style={{ padding: "96px 0", maxWidth: 620 }}>
         <div className="card" style={{ padding: 32 }}>
@@ -150,8 +157,20 @@ export default function Go() {
             We don&rsquo;t sell trips to a place while an official advisory says do not
             travel there, and there&rsquo;s no way to agree past this one.
           </p>
-          {quote ? (
-            <blockquote className="l3__verbatim" style={{ marginTop: 16 }}>{quote.text}</blockquote>
+          {countryText?.quotes.length ? (
+            <>
+              {/* The country's complete threshold quotes, the FCDO's own words
+                  stored unchanged — every form it publishes, never a chosen
+                  subset, and English in every locale. */}
+              {countryText.quotes.map((q) => (
+                <blockquote className="l3__verbatim" style={{ marginTop: 16 }} tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim" key={q.form + q.text.slice(0, 40)}>FCDO {q.text}</blockquote>
+              ))}
+              <p className="t-body" style={{ marginTop: 10, color: "var(--muted-foreground)", fontSize: 13 }}>
+                UK FCDO &mdash; {countryText.country} travel advice, page updated {countryText.publicUpdatedAt.slice(0, 10)}.
+              </p>
+            </>
+          ) : quote ? (
+            <blockquote className="l3__verbatim" style={{ marginTop: 16 }} tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim">{quote.text}</blockquote>
           ) : (
             <p className="t-body" style={{ marginTop: 12 }}>
               <b>{safety.label}.</b> {safety.summary}
@@ -159,10 +178,10 @@ export default function Go() {
           )}
           <p className="t-body" style={{ marginTop: 12, color: "var(--muted-foreground)" }}>
             The page stays up so you can read the situation for yourself
-            {fcdoLink && (
+            {advisoryUrl && (
               <>
                 , including the{" "}
-                <a href={fcdoLink.href} target="_blank" rel="noopener noreferrer">official advisory</a>
+                <a href={advisoryUrl} target="_blank" rel="noopener noreferrer">official advisory</a>
               </>
             )}
             {" "}and what it says about specific areas.
@@ -182,10 +201,10 @@ export default function Go() {
                       destId: dest!.id, destName: dest!.name, country: dest!.country,
                       level: safety.lvl, threshold: "no-travel",
                       fcdoArea: quote?.area ?? safety.inZone?.name ?? null,
-                      advisoryText: quote?.text ?? null,
-                      advisoryUrl: fcdoLink?.href ?? null,
+                      advisoryText: shownText,
+                      advisoryUrl,
                       statement: REFUSAL_STATEMENT,
-                      advisoryPublished: safety.verified ?? null,
+                      advisoryPublished: countryText?.publicUpdatedAt || safety.verified || null,
                       decision: "acknowledged-hold", at: new Date().toISOString(),
                     });
                   }

@@ -95,17 +95,19 @@
       "iso": "BQ",
       "name": "Bonaire",
       "match": [
-        "bonaire"
+        "bonaire",
+        "bonaire st eustatius saba"
       ],
-      "fcdo_slug": "bonaire"
+      "fcdo_slug": "bonaire-st-eustatius-saba"
     },
     {
       "iso": "BQ",
       "name": "Saba",
       "match": [
-        "saba"
+        "saba",
+        "bonaire st eustatius saba"
       ],
-      "fcdo_slug": "saba"
+      "fcdo_slug": "bonaire-st-eustatius-saba"
     },
     {
       "iso": "BR",

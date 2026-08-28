@@ -58,6 +58,7 @@ import {
   type SafetyInfo, ZONE_POSTURE_TEXT,
 } from "@/data/safety-data";
 import { advisoryLinks } from "@/data/advisory-sources";
+import { fcdoCountryText } from "@/data/fcdo-text";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
 
 /** The consent statement — David's words, 2026-08-23. ATTORNEY-PENDING on exact
@@ -112,21 +113,33 @@ export function ConsentGate({
 
   const quote = fcdoQuote(safety);
   const threshold = fcdoThreshold(safety);
+  // The FCDO's COMPLETE restriction text for this country — the library's
+  // verbatim store (2026-08-24). This is "the entire safety notice, verbatim"
+  // David's ruling requires; the zone quote remains the where-you-would-be
+  // line, and the country text is what the traveller acknowledges reading.
+  const countryText = fcdoCountryText(dest.country);
   const doNotTravel = stricterZones(safety).filter((z) => z.lvl === 4);
   const local = iso ? getEmergencyNumbers(iso) : null;
   const fcdoLink = advisoryLinks(dest.country, iso).find((l) => l.source.id === "fcdo");
+
+  // What the traveller was actually shown, exactly — the record stores this
+  // string, so it must be assembled from the same values the screen renders.
+  const shownText = countryText?.quotes.length
+    ? countryText.quotes.map((q) => `FCDO ${q.text}`).join("\n")
+    : quote?.text ?? null;
 
   const record = (decision: AdvisoryConsent["decision"]): AdvisoryConsent => ({
     destId: dest.id, destName: dest.name, country: dest.country,
     level: safety.lvl,
     threshold,
     fcdoArea: quote?.area ?? safety.inZone?.name ?? null,
-    advisoryText: quote?.text ?? null,
-    advisoryUrl: fcdoLink?.href ?? null,
+    advisoryText: shownText,
+    advisoryUrl: countryText?.url ?? fcdoLink?.href ?? null,
     statement: decision === "continued" ? CONSENT_STATEMENT : "",
-    // The FCDO page date when the row carries one; null is a fact (we held
-    // none), distinguishable from a date we failed to record.
-    advisoryPublished: safety.verified ?? null,
+    // The advisory PAGE's own publication date — consent is to the advisory
+    // shown, not to the country. Null is a fact (we held none), distinguishable
+    // from a date we failed to record.
+    advisoryPublished: countryText?.publicUpdatedAt || safety.verified || null,
     decision, at: new Date().toISOString(),
   });
 
@@ -191,11 +204,28 @@ export function ConsentGate({
               to prevent. */}
           <section className="l3__quote">
             <h2>What the advisory says, in its own words</h2>
-            {quote ? (
+            {countryText?.quotes.length ? (
+              <>
+                {/* The COMPLETE set of the country's threshold quotes — every
+                    form the FCDO publishes for it, never a chosen subset. The
+                    text is the FCDO's own, stored unchanged; the "FCDO" prefix
+                    completes its sentence ("advises against…"). English in
+                    every locale: a translated quotation is a paraphrase
+                    wearing quotation marks. */}
+                {countryText.quotes.map((q) => (
+                  <blockquote className="l3__verbatim" tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim" key={q.form + q.text.slice(0, 40)}>FCDO {q.text}</blockquote>
+                ))}
+                <p className="l3__attrib">
+                  UK FCDO &mdash; {countryText.country} travel advice, page updated {countryText.publicUpdatedAt.slice(0, 10)}.{" "}
+                  <a href={countryText.url} target="_blank" rel="noopener noreferrer">Read the full advisory <Icon name="arrow" small /></a>
+                  {" "}&mdash; any part of it may be the thing that changes your mind.
+                </p>
+              </>
+            ) : quote ? (
               <>
                 {/* quote.text begins "FCDO advises…" — the attribution is part
                     of the transcribed sentence, so nothing is prefixed here. */}
-                <blockquote className="l3__verbatim">{quote.text}</blockquote>
+                <blockquote className="l3__verbatim" tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim">{quote.text}</blockquote>
                 {fcdoLink && (
                   <p className="l3__nosource">
                     Read the advisory in full before you decide &mdash; any part of it may be

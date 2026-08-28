@@ -85,6 +85,18 @@ const SLUG_OVERRIDES: Record<string, Partial<Record<AdvisorySourceId, string>>> 
   ZA: { fcdo: "south-africa", cdc: "south-africa" },
   NZ: { fcdo: "new-zealand", cdc: "new-zealand" },
   SA: { fcdo: "saudi-arabia", cdc: "saudi-arabia" },
+  // ── From the library's ETag-verified slug table (2026-08-24) ──────────────
+  // "A slug with an ETag beside it is not a guess about a URL — it is a URL we
+  // opened." The FCDO files territories under their covering advisory: its
+  // Denmark page states it also covers the Faroe Islands; Puerto Rico and the
+  // USVI sit on the `usa` page (the FCDO advises on the US — it is only its
+  // own country it publishes nothing for); the Bonaire trio share one page.
+  US: { fcdo: "usa" },
+  PR: { fcdo: "usa" },
+  VI: { fcdo: "usa" },
+  BQ: { fcdo: "bonaire-st-eustatius-saba" },
+  FO: { fcdo: "denmark" },
+  BL: { fcdo: "st-martin-and-st-barthelemy" },
 };
 
 /**

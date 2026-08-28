@@ -1,0 +1,4149 @@
+{
+ "_what": "The FCDO's own words, stored unchanged. 226 countries.",
+ "_why": "Sana 2026-08-24: 'the consent screen can't quote the FCDO because we don't hold the text — the library does, all 226 fetched verbatim… until it lands the highest-stakes screen in the product is degraded.'",
+ "_never": "Nothing here is written, reworded, summarised or paraphrased by TravelWell. Every body is the publisher's own HTML.",
+ "_parts_are_a_LIST_not_named_fields": "Her warning, and the payload obeys it: the advisory does NOT always have six parts. Measured across all 226 — 5 parts on 149 · 6 parts on 76 · 7 parts on 1. A renderer coded to six named parts renders nothing for two thirds of countries. Iterate what exists.",
+ "_generated_by": "scripts/gen_sana_fcdo_text_payload.py",
+ "_count": 226,
+ "_shape": "consent screen — threshold quotes, url, page date",
+ "countries": {
+  "afghanistan": {
+   "country": "Afghanistan",
+   "slug": "afghanistan",
+   "url": "https://www.gov.uk/foreign-travel-advice/afghanistan",
+   "public_updated_at": "2026-07-30T11:36:13+01:00",
+   "reviewed_at": "2026-07-30T10:36:13Z",
+   "etag": "W/\"d7f9b90e37bab28b45d79e6e86821ca5\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Afghanistan You should not travel to Afghanistan."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Afghanistan, even if you are part of an organised tour group."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Afghanistan."
+    },
+    {
+     "form": "against all travel",
+     "text": "advise against all travel to Afghanistan, even if you are part of an organised tour group."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel around Afghanistan."
+    }
+   ]
+  },
+  "albania": {
+   "country": "Albania",
+   "slug": "albania",
+   "url": "https://www.gov.uk/foreign-travel-advice/albania",
+   "public_updated_at": "2026-08-13T16:28:50+01:00",
+   "reviewed_at": "2026-08-13T15:28:50Z",
+   "etag": "W/\"2798f18f53ba9d055de634eadd3de1fb\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "algeria": {
+   "country": "Algeria",
+   "slug": "algeria",
+   "url": "https://www.gov.uk/foreign-travel-advice/algeria",
+   "public_updated_at": "2026-07-24T17:25:37+01:00",
+   "reviewed_at": "2026-07-24T16:25:37Z",
+   "etag": "W/\"b8b6314e2c074089f6c2de0d98093d07\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 30km of Algeria’s borders with: Libya Mauritania Mali Niger Tunisia – in the provinces of Illizi and Ouargla and in the Chaambi mountains area Rest of the Algeria-Tunisia border FCDO advises against all but essential travel to within 30km of the rest of Algeria’s border with Tunisia."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 30km of the rest of Algeria’s border with Tunisia."
+    }
+   ]
+  },
+  "andorra": {
+   "country": "Andorra",
+   "slug": "andorra",
+   "url": "https://www.gov.uk/foreign-travel-advice/andorra",
+   "public_updated_at": "2025-12-10T12:46:46+00:00",
+   "reviewed_at": "2025-12-10T12:46:46Z",
+   "etag": "W/\"6e04c2229fb61d0912a943d8b43c4ec7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "angola": {
+   "country": "Angola",
+   "slug": "angola",
+   "url": "https://www.gov.uk/foreign-travel-advice/angola",
+   "public_updated_at": "2026-05-28T11:50:56+01:00",
+   "reviewed_at": "2026-05-28T10:50:56Z",
+   "etag": "W/\"d7e208051752609b51892e8109b983fe\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the provinces of Kasaï and Kasaï Central, across the border in the Central Democratic Republic of Congo ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Cabinda Province, except Cabinda city FCDO advises against all but essential travel to Cabinda Province, except to Cabinda city."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 1km of the border with the Democratic Republic of the Congo (DRC) in Lunda Norte province, except for official border crossings and their access roads."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Cabinda Province, except to Cabinda city."
+    }
+   ]
+  },
+  "anguilla": {
+   "country": "Anguilla (British Overseas Territory)",
+   "slug": "anguilla",
+   "url": "https://www.gov.uk/foreign-travel-advice/anguilla",
+   "public_updated_at": "2025-05-15T16:32:41+01:00",
+   "reviewed_at": "2025-05-15T15:32:41Z",
+   "etag": "W/\"c28d61bf2be76af85c27af2e3da8c245\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "antarctica-british-antarctic-territory": {
+   "country": "Antarctica/British Antarctic Territory",
+   "slug": "antarctica-british-antarctic-territory",
+   "url": "https://www.gov.uk/foreign-travel-advice/antarctica-british-antarctic-territory",
+   "public_updated_at": "2025-04-10T16:27:54+01:00",
+   "reviewed_at": "2025-04-10T15:27:54Z",
+   "etag": "W/\"f26d7679b02dd705ad8ca566dcaa59d6\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "antigua-and-barbuda": {
+   "country": "Antigua and Barbuda",
+   "slug": "antigua-and-barbuda",
+   "url": "https://www.gov.uk/foreign-travel-advice/antigua-and-barbuda",
+   "public_updated_at": "2026-03-13T09:27:23+00:00",
+   "reviewed_at": "2026-03-13T09:27:23Z",
+   "etag": "W/\"630304ae6d11728fffd0a8d0be36bfad\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "argentina": {
+   "country": "Argentina",
+   "slug": "argentina",
+   "url": "https://www.gov.uk/foreign-travel-advice/argentina",
+   "public_updated_at": "2026-05-07T17:26:11+01:00",
+   "reviewed_at": "2026-05-07T16:26:11Z",
+   "etag": "W/\"b4b54d92ad3362c2a01c4fc092ea1e01\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "armenia": {
+   "country": "Armenia",
+   "slug": "armenia",
+   "url": "https://www.gov.uk/foreign-travel-advice/armenia",
+   "public_updated_at": "2026-03-01T17:29:01+00:00",
+   "reviewed_at": "2026-03-01T17:29:01Z",
+   "etag": "W/\"0ed51b70a4b91add7afbfefd1d09774e\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the entire eastern border between Armenia and Azerbaijan, due to tensions between the 2 countries."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel along the M16/H26 road between the towns of Ijevan and Noyemberyan, due to border tensions."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the entire eastern border between Armenia and Azerbaijan."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel along the M16/H26 road between the towns of Ijevan and Noyemberyan."
+    }
+   ]
+  },
+  "aruba": {
+   "country": "Aruba",
+   "slug": "aruba",
+   "url": "https://www.gov.uk/foreign-travel-advice/aruba",
+   "public_updated_at": "2026-07-07T14:03:43+01:00",
+   "reviewed_at": "2026-07-07T13:03:43Z",
+   "etag": "W/\"782dd547c115aa9a39f069ca4ff08a14\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "australia": {
+   "country": "Australia",
+   "slug": "australia",
+   "url": "https://www.gov.uk/foreign-travel-advice/australia",
+   "public_updated_at": "2026-03-19T14:06:09+00:00",
+   "reviewed_at": "2026-03-19T14:06:09Z",
+   "etag": "W/\"7a3e82d5bb7957ce3d3e91cfcb2d8ce1\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "austria": {
+   "country": "Austria",
+   "slug": "austria",
+   "url": "https://www.gov.uk/foreign-travel-advice/austria",
+   "public_updated_at": "2026-08-11T10:19:06+01:00",
+   "reviewed_at": "2026-08-11T09:19:06Z",
+   "etag": "W/\"0480c7fdf8b5c725af5f0732d66facfd\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "azerbaijan": {
+   "country": "Azerbaijan",
+   "slug": "azerbaijan",
+   "url": "https://www.gov.uk/foreign-travel-advice/azerbaijan",
+   "public_updated_at": "2026-07-20T14:03:02+01:00",
+   "reviewed_at": "2026-07-20T13:03:02Z",
+   "etag": "W/\"9983061f6d43bfcc079cc72ad91adb81\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the border with Armenia, due to tensions between Azerbaijan and Armenia."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 5km of the border with Armenia."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the rest of the border with Armenia."
+    },
+    {
+     "form": "against all travel",
+     "text": "advise against all travel to Russia."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel South-western Azerbaijan (those regions affected by conflict in 2020 and 2023) The Foreign, Commonwealth &amp; Development Office ( FCDO ) advises against all but essential travel to: The districts (‘rayons’) of Kelbajar, Lachin, Qubadli, Zengilan, Jabrayil, Fuzuli, Khojavand, Shusha, Khojali, Khankendi, Aghdam and Tartar You should follow Azerbaijani national government and local authorities’ advice in areas that have not been cleared of mines or unexploded ordnance."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advise against all but essential travel to some areas in south-western Azerbaijan due to the risks from mines or unexploded ordnance from former conflict, and advises against all travel within 5km of the border with Armenia."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to some areas in south-western Azerbaijan, including districts in and around the region formerly known as “Nagorno-Karabakh” due to the risks from leftover military equipment and weapons from former conflict."
+    }
+   ]
+  },
+  "bahamas": {
+   "country": "Bahamas",
+   "slug": "bahamas",
+   "url": "https://www.gov.uk/foreign-travel-advice/bahamas",
+   "public_updated_at": "2026-05-28T17:01:45+01:00",
+   "reviewed_at": "2026-05-28T16:01:45Z",
+   "etag": "W/\"b72bec53e158c39677e71b7e93a119b0\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "bahrain": {
+   "country": "Bahrain",
+   "slug": "bahrain",
+   "url": "https://www.gov.uk/foreign-travel-advice/bahrain",
+   "public_updated_at": "2026-08-20T11:51:52+01:00",
+   "reviewed_at": "2026-08-20T10:51:52Z",
+   "etag": "W/\"3e49fe898219e1bba11cbe3bbabfd2cc\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "bangladesh": {
+   "country": "Bangladesh",
+   "slug": "bangladesh",
+   "url": "https://www.gov.uk/foreign-travel-advice/bangladesh",
+   "public_updated_at": "2026-07-15T12:12:09+01:00",
+   "reviewed_at": "2026-07-15T11:12:09Z",
+   "etag": "W/\"df4bda54b17586db44074ef1bd7dbe87\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel FCDO advises against all but essential travel to the Chittagong Hill Tracts, an area made up of the districts of: Rangamati Khagrachari Bandarban Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Chittagong Hill Tracts, an area made up of the districts of: Rangamati Khagrachari Bandarban Chittagong City and other districts of Chittagong Division are not included in the travel warning."
+    }
+   ]
+  },
+  "barbados": {
+   "country": "Barbados",
+   "slug": "barbados",
+   "url": "https://www.gov.uk/foreign-travel-advice/barbados",
+   "public_updated_at": "2026-01-23T15:06:44+00:00",
+   "reviewed_at": "2026-01-23T15:06:44Z",
+   "etag": "W/\"2457974795c9acba1673566aa6227116\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "belarus": {
+   "country": "Belarus",
+   "slug": "belarus",
+   "url": "https://www.gov.uk/foreign-travel-advice/belarus",
+   "public_updated_at": "2026-05-11T12:38:13+01:00",
+   "reviewed_at": "2026-05-11T11:38:13Z",
+   "etag": "W/\"16754b5b556a7f9740584ac0f4232d14\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Belarus FCDO advises against all travel to Belarus."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel ."
+    }
+   ]
+  },
+  "belgium": {
+   "country": "Belgium",
+   "slug": "belgium",
+   "url": "https://www.gov.uk/foreign-travel-advice/belgium",
+   "public_updated_at": "2026-08-12T09:39:20+01:00",
+   "reviewed_at": "2026-08-12T08:39:20Z",
+   "etag": "W/\"7546d00f62f1a293d36bb10ba4cc2965\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "belize": {
+   "country": "Belize",
+   "slug": "belize",
+   "url": "https://www.gov.uk/foreign-travel-advice/belize",
+   "public_updated_at": "2026-06-12T10:40:30+01:00",
+   "reviewed_at": "2026-06-12T09:40:30Z",
+   "etag": "W/\"5d3209480e610263fed24296fba30222\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "benin": {
+   "country": "Benin",
+   "slug": "benin",
+   "url": "https://www.gov.uk/foreign-travel-advice/benin",
+   "public_updated_at": "2025-12-15T16:50:33+00:00",
+   "reviewed_at": "2025-12-15T16:50:33Z",
+   "etag": "W/\"a96be7f820eb6477f0abdc3a16bb9aa5\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Parc du W National Park and the hunting zones of Mékrou and Djona."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: the area between the Parc du W and the border with Niger the Pendjari National Park and adjacent hunting grounds all other areas within 5km of the border with Burkina Faso Eastern Benin FCDO advises against all but essential travel to the area between the Interstate Highway (RNIE) 2 from Tchaourou to Malanville and the Benin-Nigeria border, due to increasing criminality."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Parc du W National Park and the connecting hunting zones of Meêkrou and Djona."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: the area between the Parc du W and the border with Niger the Pendjari National Park and adjacent hunting grounds all other areas within 5km of the border with Burkina Faso There is a threat of kidnapping from terrorist groups operating in the region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the area between the Interstate Highway (RNIE) 2 from Tchaourou to Malanville and the Benin-Nigeria border, due to increasing criminality."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of the Alibori and Atacora departments."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of the Alibori and Atacora departments, due to increasing criminality."
+    }
+   ]
+  },
+  "bermuda": {
+   "country": "Bermuda (British Overseas Territory)",
+   "slug": "bermuda",
+   "url": "https://www.gov.uk/foreign-travel-advice/bermuda",
+   "public_updated_at": "2025-11-01T12:46:46+00:00",
+   "reviewed_at": "2025-11-01T12:46:46Z",
+   "etag": "W/\"807f2997a39b276d3e8cf0f87dbc5d50\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "bhutan": {
+   "country": "Bhutan",
+   "slug": "bhutan",
+   "url": "https://www.gov.uk/foreign-travel-advice/bhutan",
+   "public_updated_at": "2025-12-10T13:09:24+00:00",
+   "reviewed_at": "2025-12-10T13:09:24Z",
+   "etag": "W/\"406bbfdbea9b95ee4c18baf38995fa48\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "bolivia": {
+   "country": "Bolivia",
+   "slug": "bolivia",
+   "url": "https://www.gov.uk/foreign-travel-advice/bolivia",
+   "public_updated_at": "2026-08-21T10:53:00+01:00",
+   "reviewed_at": "2026-08-21T09:53:00Z",
+   "etag": "W/\"541903f3ab9a2b7de84d73ea07b7a444\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Chapare region of Cochabamba Department including Villa Tunari and highway routes 4 and 24 that pass through Chapare."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Chapare region of Cochabamba Department."
+    }
+   ]
+  },
+  "bonaire-st-eustatius-saba": {
+   "country": "Bonaire, St Eustatius and Saba",
+   "slug": "bonaire-st-eustatius-saba",
+   "url": "https://www.gov.uk/foreign-travel-advice/bonaire-st-eustatius-saba",
+   "public_updated_at": "2025-12-10T13:10:48+00:00",
+   "reviewed_at": "2025-12-10T13:10:48Z",
+   "etag": "W/\"cb839f7a827e186ef5a559865f5aa271\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "bosnia-and-herzegovina": {
+   "country": "Bosnia and Herzegovina",
+   "slug": "bosnia-and-herzegovina",
+   "url": "https://www.gov.uk/foreign-travel-advice/bosnia-and-herzegovina",
+   "public_updated_at": "2026-08-13T16:28:44+01:00",
+   "reviewed_at": "2026-08-13T15:28:44Z",
+   "etag": "W/\"9c3484ef28a9f16df61c7018d22ecaa6\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "botswana": {
+   "country": "Botswana",
+   "slug": "botswana",
+   "url": "https://www.gov.uk/foreign-travel-advice/botswana",
+   "public_updated_at": "2026-06-01T14:04:17+01:00",
+   "reviewed_at": "2026-06-01T13:04:17Z",
+   "etag": "W/\"7b66ce4a8bdcc8f14e78b7f1426e499b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "brazil": {
+   "country": "Brazil",
+   "slug": "brazil",
+   "url": "https://www.gov.uk/foreign-travel-advice/brazil",
+   "public_updated_at": "2026-05-11T12:32:48+01:00",
+   "reviewed_at": "2026-05-11T11:32:48Z",
+   "etag": "W/\"046dedb924cd821ce5950b35be0622a1\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Amazonas State FCDO advises against all but essential travel to the following river areas towards the west of Amazonas State: along the Amazonas (Amazon) River and its tributaries west of the town of Codajás and east of the town of Belém do Solimões in Amazonas State along any part of the Itaquaí River in Amazonas State along any part of the Japurá River or its tributaries in Amazonas State along the Rio Negro (Black River) and its tributaries north or west of the town of Barcelos in Amazonas State Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel: along the Amazonas (Amazon) River and its tributaries west of the town of Codajás and east of the town of Belém do Solimões in Amazonas State along any part of the Itaquaí River in Amazonas State along any part of the Japurá River or its tributaries in Amazonas State along the Rio Negro (Black River) and its tributaries north or west of the town of Barcelos in Amazonas State There are risks to travellers in river areas towards the west of Amazonas State, where Brazil shares borders with Colombia, Peru and Venezuela, due to criminal activity."
+    }
+   ]
+  },
+  "british-indian-ocean-territory": {
+   "country": "British Indian Ocean Territory",
+   "slug": "british-indian-ocean-territory",
+   "url": "https://www.gov.uk/foreign-travel-advice/british-indian-ocean-territory",
+   "public_updated_at": "2024-04-08T12:56:22+01:00",
+   "reviewed_at": "2024-04-08T11:56:22Z",
+   "etag": "W/\"ea165870e91aacdfebf387262e991b7d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "british-virgin-islands": {
+   "country": "British Virgin Islands (British Overseas Territory)",
+   "slug": "british-virgin-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/british-virgin-islands",
+   "public_updated_at": "2025-11-03T12:00:01+00:00",
+   "reviewed_at": "2025-11-03T12:00:01Z",
+   "etag": "W/\"80133ec78cfb7d7690fbb91827a2c978\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "brunei": {
+   "country": "Brunei",
+   "slug": "brunei",
+   "url": "https://www.gov.uk/foreign-travel-advice/brunei",
+   "public_updated_at": "2026-03-19T14:05:48+00:00",
+   "reviewed_at": "2026-03-19T14:05:48Z",
+   "etag": "W/\"18e48e3279b7b14dfdbf39d917bc5d30\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "bulgaria": {
+   "country": "Bulgaria",
+   "slug": "bulgaria",
+   "url": "https://www.gov.uk/foreign-travel-advice/bulgaria",
+   "public_updated_at": "2026-08-11T10:18:49+01:00",
+   "reviewed_at": "2026-08-11T09:18:49Z",
+   "etag": "W/\"1206d78f3d4c62fbb74ff7c67f8e2792\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "burkina-faso": {
+   "country": "Burkina Faso",
+   "slug": "burkina-faso",
+   "url": "https://www.gov.uk/foreign-travel-advice/burkina-faso",
+   "public_updated_at": "2025-12-10T13:14:03+00:00",
+   "reviewed_at": "2025-12-10T13:14:03Z",
+   "etag": "W/\"b0dd7cc194f5333fa98161cbc9d41ac4\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Burkina Faso."
+    }
+   ]
+  },
+  "burundi": {
+   "country": "Burundi",
+   "slug": "burundi",
+   "url": "https://www.gov.uk/foreign-travel-advice/burundi",
+   "public_updated_at": "2026-05-21T16:02:33+01:00",
+   "reviewed_at": "2026-05-21T15:02:33Z",
+   "etag": "W/\"c9130e54353b3d7d113f4ad15e43608e\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Mugina, Cibitoke, Bukinyayana, Bubanza and Mpanda communes due to the risk of the presence of a rebel group in the Kibira National Park and possible armed incursions from the Democratic Republic of the Congo ( DRC )."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to parts of Ntahangwa commune, specifically the RN5 road north of Melchior Ndadaye International Airport in Bujumbura towards Cibitoke and west of the Rusizi river towards the border with DRC , including Rusizi National Park (also known as Rusizi Delta Nature Reserve)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel on the main RN6 and RN10 roads running west from Kayanza through the Kibira National Park towards Cibitoke, due to the risk of the presence of a rebel group and possible armed incursions from DRC ."
+    }
+   ]
+  },
+  "cambodia": {
+   "country": "Cambodia",
+   "slug": "cambodia",
+   "url": "https://www.gov.uk/foreign-travel-advice/cambodia",
+   "public_updated_at": "2026-03-19T14:03:23+00:00",
+   "reviewed_at": "2026-03-19T14:03:23Z",
+   "etag": "W/\"6ef11e46fc064a5de9618713e63ac062\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 20km from the land border with Thailand."
+    }
+   ]
+  },
+  "cameroon": {
+   "country": "Cameroon",
+   "slug": "cameroon",
+   "url": "https://www.gov.uk/foreign-travel-advice/cameroon",
+   "public_updated_at": "2026-02-09T16:16:46+00:00",
+   "reviewed_at": "2026-02-09T16:16:46Z",
+   "etag": "W/\"7dc996f4a38b99300be02d7b12f55dc8\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Bakassi Peninsula."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 40km of the border with Central African Republic."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 40km of the border with Chad."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 40km of the border with Nigeria, except for Garoua in the North Region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Far-North Region, except for: a 20km radius to the north, east and west of Maroua 30km south of Maroua North-West Region FCDO advises against all travel to the North-West Region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the South-West Region, including the towns of Buea, Muyuka and Tiko in Fako Division."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 40km of the Central African Republic ( CAR ) and Nigeria borders."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Bakassi Peninsula."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 40km of the border with Central African Republic ( CAR )."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Far-North Region, except for: a 20km radius to the north, east and west of Maroua 30km south of Maroua Terrorist groups are active in the Far-North Region, see terrorism ."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the North-West Region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel or all but essential travel, you should consider carefully the risks of travel."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Limbé and the 35km stretch of the N3 road connecting Limbé to the Littoral Region in Fako Division, South-West Region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the North Region, including Garoua,, and a 20km radius to the north, east and west of Maroua, and 30km south of Maroua, in Far-North Region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 20km of the border with the North region of Cameroon."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Limbé and the 35km stretch of N3 road connecting Limbé to the Littoral Region in Fako Division, South-West Region."
+    }
+   ]
+  },
+  "canada": {
+   "country": "Canada",
+   "slug": "canada",
+   "url": "https://www.gov.uk/foreign-travel-advice/canada",
+   "public_updated_at": "2026-06-02T17:02:41+01:00",
+   "reviewed_at": "2026-06-02T16:02:41Z",
+   "etag": "W/\"364ccaf152f77800c64b43ff4da48f59\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "cape-verde": {
+   "country": "Cape Verde",
+   "slug": "cape-verde",
+   "url": "https://www.gov.uk/foreign-travel-advice/cape-verde",
+   "public_updated_at": "2026-07-28T16:13:41+01:00",
+   "reviewed_at": "2026-07-28T15:13:41Z",
+   "etag": "W/\"8cf0a532ad5f4b2a1b5aac05a59e3154\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "cayman-islands": {
+   "country": "Cayman Islands (British Overseas Territory)",
+   "slug": "cayman-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/cayman-islands",
+   "public_updated_at": "2025-10-29T15:42:43+00:00",
+   "reviewed_at": "2025-10-29T15:42:43Z",
+   "etag": "W/\"771f5172520fbbc18ddaa12261474485\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "central-african-republic": {
+   "country": "Central African Republic",
+   "slug": "central-african-republic",
+   "url": "https://www.gov.uk/foreign-travel-advice/central-african-republic",
+   "public_updated_at": "2026-05-28T12:08:37+01:00",
+   "reviewed_at": "2026-05-28T11:08:37Z",
+   "etag": "W/\"cb77d3a89b55c9689b183150d3e7a9fd\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the whole of the Central African Republic, including the areas of Bimbo, Begoua and Coline, except to the capital, Bangui."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Bangui, including Bangui M’Poko International Airport."
+    }
+   ]
+  },
+  "chad": {
+   "country": "Chad",
+   "slug": "chad",
+   "url": "https://www.gov.uk/foreign-travel-advice/chad",
+   "public_updated_at": "2026-08-06T12:06:47+01:00",
+   "reviewed_at": "2026-08-06T11:06:47Z",
+   "etag": "W/\"73e119f39748b32a65839acfecea903b\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the northern provinces of Chad: Borkou Province Ennedi Ouest Province Ennedi Est Province Tibesti Province Kanem Province, including Nokou FCDO advises against all travel to the western part of Kanem Province, including the town of Nokou."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Lake Chad region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 30km of all of Chad’s other borders."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the northern provinces of Chad: Borkou Province Ennedi Ouest Province Ennedi Est Province Tibesti Province There are many landmines near the Chad-Libya border in these provinces."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the western part of Kanem Province, including the town of Nokou due to the risk of terrorism."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of Chad, including the capital, N’Djamena."
+    }
+   ]
+  },
+  "chile": {
+   "country": "Chile",
+   "slug": "chile",
+   "url": "https://www.gov.uk/foreign-travel-advice/chile",
+   "public_updated_at": "2026-08-18T23:18:12+01:00",
+   "reviewed_at": "2026-08-18T22:18:12Z",
+   "etag": "W/\"c55b0be3ec15133f29a42983384ddb1b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "china": {
+   "country": "China",
+   "slug": "china",
+   "url": "https://www.gov.uk/foreign-travel-advice/china",
+   "public_updated_at": "2026-08-10T11:48:49+01:00",
+   "reviewed_at": "2026-08-10T10:48:49Z",
+   "etag": "W/\"a91b61b0d00d25fdf9ac99678eff5677\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "colombia": {
+   "country": "Colombia",
+   "slug": "colombia",
+   "url": "https://www.gov.uk/foreign-travel-advice/colombia",
+   "public_updated_at": "2026-08-18T15:51:11+01:00",
+   "reviewed_at": "2026-08-18T14:51:11Z",
+   "etag": "W/\"3e3187eb8980082fea4e62c5fd9248d8\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Venezuela’s border regions with Colombia ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Colombia-Venezuela border and northern Colombia FCDO advises against all but essential travel to: all of Norte de Santander Department, including Cúcuta."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Chocó Department, except for the department capital Quibdó, the towns of Nuquí and Bahía Solano and Capurganá the western part of Valle del Cauca Department, including Buenaventura the municipality of Jamundí, Valle del Cauca the South Pacific, Sanquianga and Telembi regions of Nariño Department the southern part of Córdoba Department the Urabá and Bajo Cauca regions of Antioquia Department the southern part of Bolívar Department Central Colombia FCDO advises against all but essential travel to: all of Guaviare Department, except for the department capital San José del Guaviare Cartagena del Chairá, San Vicente del Caguan, Puerto Rico, El Doncello, Paujil and La Montañita in Caquetá Department the Ariari region of southern Meta, except for Caño Cristales If travelling to the tourist site of Caño Cristales, travel by air from the town of La Macarena with a reputable tour company."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 5km of the border with Ecuador except for: all of Cauca Department, except for the department capital Popayán the border crossing on the Pan-American highway at the Puente Internacional de Rumichaca the city of Ipiales in Nariño Department FCDO advises against all but essential travel to Orito, San Miguel, Valle del Guamuez, Puerto Caicedo, Puerto Guzmán, Puerto Asis and Puerto Leguizamo in Putumayo Department."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: the Catatumbo region of Norte de Santander Department all of Arauca Department, except for the department capital, Arauca the municipality of Puerto Carreño in Vichada Department, except for the department capital, Puerto Carreño within 5km of the rest of the border with Venezuela, except for the city of Cúcuta FCDO currently advises against all travel to Venezuela’s border regions with Colombia ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Chocó Department, except for the department capital Quibdó, the whale-watching towns of Nuquí and Bahía Solano and the tourist site of Capurganá the western part of Valle del Cauca Department, including Buenaventura the municipality of Jamundí, Valle del Cauca the western part of Cauca Department the South Pacific, Sanquianga and Telembi regions of Nariño Department the southern part of Córdoba Department the Urabá and Bajo Cauca regions of Antioquia Department the southern part of Bolívar Department The Pacific coast of Chocó is a popular eco-tourist destination."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 5km of the border with Ecuador except for: the border crossing on the Pan-American highway at the Puente Internacional de Rumichaca the city of Ipiales in Nariño Department FCDO advises against all but essential travel to Orito, San Miguel, Valle del Guamuez, Puerto Caicedo, Puerto Guzmán, Puerto Asis and Puerto Leguizamo in Putumayo Department."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: all of Guaviare Department, except for the department capital San José de Guaviare Cartagena del Chairá, San Vicente del Caguan, Puerto Rico, El Doncello, Paujil and La Montañita in Caquetá Department the Ariari region of southern Meta, except for Caño Cristales If travelling to the tourist site of Caño Cristales, travel by air from the town of La Macarena with a reputable tour company."
+    }
+   ]
+  },
+  "comoros": {
+   "country": "Comoros",
+   "slug": "comoros",
+   "url": "https://www.gov.uk/foreign-travel-advice/comoros",
+   "public_updated_at": "2025-12-10T13:42:55+00:00",
+   "reviewed_at": "2025-12-10T13:42:55Z",
+   "etag": "W/\"dab6625a48edd9c7fbec64c3cb739806\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "congo": {
+   "country": "Congo",
+   "slug": "congo",
+   "url": "https://www.gov.uk/foreign-travel-advice/congo",
+   "public_updated_at": "2026-06-02T11:16:18+01:00",
+   "reviewed_at": "2026-06-02T10:16:18Z",
+   "etag": "W/\"c04ae9e8bc6c139878a7cb0efba7ac4c\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 50km of the Republic of Congo-Central African Republic border in Likouala Region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 50km of the Republic of Congo-Central African Republic ( CAR ) border in Likouala Region."
+    }
+   ]
+  },
+  "cook-islands-tokelau-and-niue": {
+   "country": "Cook Islands, Tokelau and Niue",
+   "slug": "cook-islands-tokelau-and-niue",
+   "url": "https://www.gov.uk/foreign-travel-advice/cook-islands-tokelau-and-niue",
+   "public_updated_at": "2025-12-10T13:43:48+00:00",
+   "reviewed_at": "2025-12-10T13:43:48Z",
+   "etag": "W/\"c9c8290cb4517b358663e857aabbfc95\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "costa-rica": {
+   "country": "Costa Rica",
+   "slug": "costa-rica",
+   "url": "https://www.gov.uk/foreign-travel-advice/costa-rica",
+   "public_updated_at": "2026-05-19T11:42:25+01:00",
+   "reviewed_at": "2026-05-19T10:42:25Z",
+   "etag": "W/\"b6bdd576d92ba30011cfd9ebc45751f0\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "cote-d-ivoire": {
+   "country": "Côte d'Ivoire",
+   "slug": "cote-d-ivoire",
+   "url": "https://www.gov.uk/foreign-travel-advice/cote-d-ivoire",
+   "public_updated_at": "2026-05-29T16:11:15+01:00",
+   "reviewed_at": "2026-05-29T15:11:15Z",
+   "etag": "W/\"5b6a09759ec81f7355c82b2dab466325\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: within 40km of the borders with Burkina Faso and Mali Northern Zanzan and Savanes provinces Comoé National Park This is due to an increased risk of terrorist attacks and kidnaps by terrorists based in the Sahel region, which includes Burkina Faso and Mali."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 40km of the borders with Burkina Faso and Mali."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Northern Zanzan and Savanes provinces Comoé National Park See Safety and security for details about terrorism risks in Côte d’Ivoire."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 20km of the border with Liberia owing to the risk of serious violence by local militias."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 20km of the border with Liberia."
+    }
+   ]
+  },
+  "croatia": {
+   "country": "Croatia",
+   "slug": "croatia",
+   "url": "https://www.gov.uk/foreign-travel-advice/croatia",
+   "public_updated_at": "2026-08-11T10:18:43+01:00",
+   "reviewed_at": "2026-08-11T09:18:43Z",
+   "etag": "W/\"159e9f68a04ef03981379cc3d0e2a320\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "cuba": {
+   "country": "Cuba",
+   "slug": "cuba",
+   "url": "https://www.gov.uk/foreign-travel-advice/cuba",
+   "public_updated_at": "2026-07-16T13:04:39+01:00",
+   "reviewed_at": "2026-07-16T12:04:39Z",
+   "etag": "W/\"2aef14e8fc5644657d21db83cceba609\"",
+   "posture": "2-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Cuba Protests in Cuba The ongoing situation in Cuba has led to a series of recent protests."
+    }
+   ]
+  },
+  "curacao": {
+   "country": "Curaçao",
+   "slug": "curacao",
+   "url": "https://www.gov.uk/foreign-travel-advice/curacao",
+   "public_updated_at": "2025-12-10T13:16:00+00:00",
+   "reviewed_at": "2025-12-10T13:16:00Z",
+   "etag": "W/\"b4cb01b9e91c61d2784023b05999b401\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "cyprus": {
+   "country": "Cyprus",
+   "slug": "cyprus",
+   "url": "https://www.gov.uk/foreign-travel-advice/cyprus",
+   "public_updated_at": "2026-08-14T10:34:05+01:00",
+   "reviewed_at": "2026-08-14T09:34:05Z",
+   "etag": "W/\"113b078bcb4e2bf6a8816d1e42c38750\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "czechia": {
+   "country": "Czechia",
+   "slug": "czechia",
+   "url": "https://www.gov.uk/foreign-travel-advice/czechia",
+   "public_updated_at": "2026-08-11T10:18:36+01:00",
+   "reviewed_at": "2026-08-11T09:18:36Z",
+   "etag": "W/\"7b46c6d53dad7309f02987305f64c91c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "democratic-republic-of-the-congo": {
+   "country": "Democratic Republic of the Congo",
+   "slug": "democratic-republic-of-the-congo",
+   "url": "https://www.gov.uk/foreign-travel-advice/democratic-republic-of-the-congo",
+   "public_updated_at": "2026-07-29T16:56:43+01:00",
+   "reviewed_at": "2026-07-29T15:56:43Z",
+   "etag": "W/\"fd4ac9c5d732bc093ecc609c066f2d6b\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 50km of the border with the Central African Republic."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the provinces of: Haut-Uélé and Ituri, including the entire DRC-South Sudan border North Kivu South Kivu Maniema Tanganyika Haut-Lomami South-East DRC FCDO advises against all but essential travel to Upemba National Park."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Kwamouth territory of Mai-Ndombe Province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel by air into and out of Goma airport."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the provinces of: North Kivu, including the city of Goma South Kivu, including the city of Bukavu Haut-Uélé and Ituri, including the entire DRC-South Sudan border Maniema Tanganyika Haut Lomami The security situation in eastern DRC remains unstable."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Goma in North Kivu and Bukavu in South Kivu in eastern DRC."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: The districts of N’djili and Kimbanseke in Kinshasa city south of the main access road to N’djili airport, in Nsele commune The N1 road in Kinshasa Province, between and including Menkao to the west, Kenge to the east, the border of Mai-Ndombe province to the north, and 10km to the south DRC-Central African Republic border FCDO advises against all travel to within 50km of the border with the Central African Republic."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Upemba National Park."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Bangoka International Airport, Kisangani due to multiple drone attacks in the area of Kisangani airport."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel in the districts of: N’djili and Kimbanseke in Kinshasa city, south of the main access road to N’djili airport, in Nsele commune Kasa Vubu in Kinshasa City, bordered by the N1 Triumphal Road (Stadium), Barumbu District, Lingwala District and the south of the botanical garden FCDO advises against all but essential travel to the N1 road in Kinshasa Province, between and including Menkao to the west, Kenge to the east, the border of Mai-Ndombe province to the north, and 10km to the south."
+    }
+   ]
+  },
+  "denmark": {
+   "country": "Denmark",
+   "slug": "denmark",
+   "url": "https://www.gov.uk/foreign-travel-advice/denmark",
+   "public_updated_at": "2026-08-11T10:18:28+01:00",
+   "reviewed_at": "2026-08-11T09:18:28Z",
+   "etag": "W/\"ec569083ccb14882bcd4fd6c771f6c26\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "djibouti": {
+   "country": "Djibouti",
+   "slug": "djibouti",
+   "url": "https://www.gov.uk/foreign-travel-advice/djibouti",
+   "public_updated_at": "2026-07-27T15:03:02+01:00",
+   "reviewed_at": "2026-07-27T14:03:02Z",
+   "etag": "W/\"8448f8508b24cd02a4aa87ae92c109af\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Djibouti-Eritrea border."
+    }
+   ]
+  },
+  "dominica": {
+   "country": "Dominica",
+   "slug": "dominica",
+   "url": "https://www.gov.uk/foreign-travel-advice/dominica",
+   "public_updated_at": "2025-12-10T13:28:48+00:00",
+   "reviewed_at": "2025-12-10T13:28:48Z",
+   "etag": "W/\"e56534176c9c41975a43bd1c161d493c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "dominican-republic": {
+   "country": "Dominican Republic",
+   "slug": "dominican-republic",
+   "url": "https://www.gov.uk/foreign-travel-advice/dominican-republic",
+   "public_updated_at": "2026-08-07T16:02:53+01:00",
+   "reviewed_at": "2026-08-07T15:02:53Z",
+   "etag": "W/\"34ff8fa24f607d9cadee9f183c96dec9\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Haiti due to the volatile security situation."
+    }
+   ]
+  },
+  "ecuador": {
+   "country": "Ecuador",
+   "slug": "ecuador",
+   "url": "https://www.gov.uk/foreign-travel-advice/ecuador",
+   "public_updated_at": "2026-07-10T10:44:44+01:00",
+   "reviewed_at": "2026-07-10T09:44:44Z",
+   "etag": "W/\"41947339bbf901cd2cc2f45d1b83a588\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Coastal Region FCDO advises against all but essential travel to the Coastal Region provinces of: Esmeraldas Manabí Santa Elena Guayas El Oro Los Ríos Santo Domingo de los Tsáchilas This does not apply to airside transit within Guayaquil Airport in Guayas province."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to areas within 20km of the Ecuador-Colombia border, except for these areas in Carchi province: El Ángel Ecological Reserve Rumichaca border crossing the town of Tulcán the Pan-American Highway Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Guayaquil, except for airside transit through the airport."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to those provinces) and get local advice on where to visit."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Coastal Region provinces of: Esmeraldas Manabi Santa Elena El Oro Los Ríos Santo Domingo de los Tsáchilas This is due to a high level of gang-related violence linked to the presence of organised crime relating to the production and trafficking of illegal drugs."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Coastal Region province of Guayas, except: airside transit within Guayaquil Airport in Guayas province."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to areas within 20km of the Ecuador-Colombia border, except for these areas in Carchi province: El Ángel Ecological Reserve Rumichaca border crossing the town of Tulcán the Pan-American Highway This is due to the presence of organised crime linked to the production and trafficking of drugs."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel."
+    }
+   ]
+  },
+  "egypt": {
+   "country": "Egypt",
+   "slug": "egypt",
+   "url": "https://www.gov.uk/foreign-travel-advice/egypt",
+   "public_updated_at": "2026-08-04T11:10:57+01:00",
+   "reviewed_at": "2026-08-04T10:10:57Z",
+   "etag": "W/\"98262a7da1b509ca343ddf6205ccbfe4\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 20km of the Egypt-Libya border, except for the town of El Salloum, where we advise against all but essential travel."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the North Sinai Governorate."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to North Sinai Governate due to continuing criminal activity and terrorist attacks on police and security forces that have resulted in deaths."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advise against all but essential travel."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the northern part of the South Sinai Governorate, beyond the St Catherine-Nuweibaa road, except for the coastal areas along the west and east of the peninsula."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Ismailiyah Governorate east of the Suez Canal."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the area west of the Nile Valley and Nile Delta regions, except for: Luxor, Qina, Aswan, Abu Simbel and the Valley of the Kings the Faiyum Governorate the coastal areas between the Nile Delta and Marsa Matruh the Marsa Matruh-Siwa road the oasis town of Siwa the Giza Governorate north-east of the Bahariya Oasis the White Desert and Black Desert the oasis towns of Bahariya, Farafra, Dakhla (Mut) and Kharga the following roads and the desert area between them and the Nile valley: the road between Giza and Farafra and within 50km either side of this road (but FCDO advises against all but essential travel on the road between Bahariya and Siwa) the road between Farafra, Dakhla (Mut) and Kharga the road between Kharga and Baris the road between Baris and Luxor Hala’ib Triangle and Bir Tawil Trapezoid FCDO advises against all but essential travel to the Hala’ib Triangle and the Bir Tawil Trapezoid."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the northern part of South Sinai Governate, beyond the St Catherine-Nuweibaa road, except for the coastal areas along the west and east of the peninsula."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advise against all but essential travel due to criminal activity and terrorist attacks on police and security forces that have resulted in deaths."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the parts of the Ismailiyah Governorate which are east of the Suez Canal, due to ongoing military operations against terrorists and criminals."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the area west of the Nile Valley and Nile Delta regions due to risks from criminal activity and military operations, except for: Luxor, Qina, Valley of the Kings, Aswan and Abu Simbel the Faiyum Governorate the coastal areas between the Nile Delta and Marsa Matruh the Marsa Matruh-Siwa road the oasis town of Siwa the Giza Governorate north-east of the Bahariya Oasis the White Desert and Black Desert the oasis towns of Bahariya, Farafra, Dakhla (Mut) and Kharga the following roads and the desert area between them and the Nile valley: the road between Giza and Farafra and within 50km either side of this road (but FCDO advises against all but essential travel on the road between Bahariya and Siwa) the road between Farafra, Dakhla (Mut) and Kharga the road between Kharga and Baris the road between Baris and Luxor Tourists who enter the Western Desert areas of Bahariya Oasis, Farafra, the White Desert and Black Desert must apply for permits in advance and use an official guide."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel on the road between Al Bawiti and Siwa, including the desert areas near the start of the road in Bahariya."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Hala’ib Triangle and Bir Tawil Trapezoid."
+    }
+   ]
+  },
+  "el-salvador": {
+   "country": "El Salvador",
+   "slug": "el-salvador",
+   "url": "https://www.gov.uk/foreign-travel-advice/el-salvador",
+   "public_updated_at": "2026-06-17T14:04:09+01:00",
+   "reviewed_at": "2026-06-17T13:04:09Z",
+   "etag": "W/\"e81c082db00ecf6c9fe0411a8ec69e7e\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "equatorial-guinea": {
+   "country": "Equatorial Guinea",
+   "slug": "equatorial-guinea",
+   "url": "https://www.gov.uk/foreign-travel-advice/equatorial-guinea",
+   "public_updated_at": "2026-01-08T10:25:07+00:00",
+   "reviewed_at": "2026-01-08T10:25:07Z",
+   "etag": "W/\"8aaea555b893b1e7b4b0e8e7dd2e7e46\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "eritrea": {
+   "country": "Eritrea",
+   "slug": "eritrea",
+   "url": "https://www.gov.uk/foreign-travel-advice/eritrea",
+   "public_updated_at": "2026-07-27T15:03:05+01:00",
+   "reviewed_at": "2026-07-27T14:03:05Z",
+   "etag": "W/\"fa05619e3e22da1bde89d3224c6d3a74\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 25km of all of Eritrea’s land borders."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 25km of Eritrea’s border with Djibouti."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 25km of Eritrea’s border with Ethiopia because of military activity on both sides of the border."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 25km of Eritrea’s border with Sudan because of military activity on both sides of the border."
+    }
+   ]
+  },
+  "estonia": {
+   "country": "Estonia",
+   "slug": "estonia",
+   "url": "https://www.gov.uk/foreign-travel-advice/estonia",
+   "public_updated_at": "2026-08-11T10:18:21+01:00",
+   "reviewed_at": "2026-08-11T09:18:21Z",
+   "etag": "W/\"19682ccfe157e7103ea296bae663da66\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "eswatini": {
+   "country": "Eswatini",
+   "slug": "eswatini",
+   "url": "https://www.gov.uk/foreign-travel-advice/eswatini",
+   "public_updated_at": "2025-12-10T13:32:46+00:00",
+   "reviewed_at": "2025-12-10T13:32:46Z",
+   "etag": "W/\"91cbffe0c86e291d216ef74466a865a7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "ethiopia": {
+   "country": "Ethiopia",
+   "slug": "ethiopia",
+   "url": "https://www.gov.uk/foreign-travel-advice/ethiopia",
+   "public_updated_at": "2026-05-29T11:35:25+01:00",
+   "reviewed_at": "2026-05-29T10:35:25Z",
+   "etag": "W/\"1925783f9ecf30bbf63d9d8100ec7756\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within: 20km of the border with Sudan 10km of the border with South Sudan 100km of the Ethiopian border with Somalia and Kenya in Ethiopia’s Somali region, and within 30km of the Ethiopian border with Somalia in Fafan zone, except the border town and crossing at Wajale, and the principal road between Jijiga and Wajale 10km of the border with Kenya, except for principal roads and towns 10km of the border with Eritrea FCDO advises against all but essential travel to: areas between 10-15km from the border with Eritrea Tigray region FCDO advises against all travel to Tigray region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Amhara region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the parts of Afar region within 10km of the border with Eritrea."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Gambela region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: within 10km of the border with Kenya, except for principal roads and towns north of (but not including) the A4 road in West Shewa zone south and west of the A3 road in North Shewa zone, including the A3 road itself in North Shewa West Wollega zone (including the main Addis Ababa to Gambela road), East Wollega zone, Kellem Wollega and Horo Gudru Wollega FCDO advises against all but essential travel to: all of East Shewa zone except the Addis Ababa to Adama Expressway, 10km either side of the Addis Ababa to Adaba expressway between Addis Ababa and Bishoftu, and the A7 from junction with the Addis Ababa to Adama expressway down to Hawassa the A4 road between Addis Ababa and Cheliya, except for the section in the Finfine special zone the remainder of North Shewa zone West Guji and Guji zones (except the Hawassa to Mega road) Somali region FCDO advises against all travel to within: 30km of the Ethiopia-Somalia border in Fafan zone, except the border town and crossing at Wajale, and the principal road between Jijiga and Wajale 100km of the Ethiopian border with Somalia and Kenya in the rest of the region FCDO advises against all but essential travel to: the Siti zone the Nogob (previously Fik) Jarar (previously Degehabur) Shabelle (previously Gode) Korahe and Dollo (previously Warder) areas of Liben and Afder zones more than 100km from the Somalia and Kenya borders Central, Southern, Sidama and South West regions (formerly SNNPR) FCDO advises against all travel to within 10km of the borders with South Sudan and Kenya including the shores of Lake Turkana."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: within 20km of the border with Sudan the Metekel zone the Maokomo special zone FCDO advises against all but essential travel to the rest of Benishangul-Gumuz region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to all of Amhara regional state."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: within 10km of the border with Kenya, except for principal roads and towns north of (but not including) the A4 road in West Shewa zone south and west of the A3 road in North Shewa zone including the A3 road itself in North Shewa West Wollega zone (including the main Addis Ababa to Gambella road), East Wollega zone, Kellem Wollega and Horo Gudru Wollega FCDO advises against all but essential travel to: all of East Shewa zone except the Addis Ababa to Adama Expressway and 10km either side of the expressway between Addis Ababa and Bishoftu and the Addis Ababa to Hawassa Expressway the A4 road between Addis Ababa and Cheliya, except for the section in the Finfine special zone the remainder of North Shewa zone West Guji and Guji zones (except the Hawassa to Mega road) Increased tensions and armed groups Violence has increased due to conflict in Oromia, and there may be disruption to travel, and to the operation of businesses and services."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within: 30km of the Ethiopia-Somalia border in Fafan zone, except the border town and crossing at Wajale, and the principal road between Jijiga and Wajale 100km of the Ethiopian border with Somalia and Kenya in the rest of the region FCDO advises against all but essential travel to: the Siti zone the Nogob (previously Fik) Jarar (previously Degehabur) Shabelle (previously Gode) Korahe and Dollo (previously Warder) areas of Liben and Afder zones more than 100km from the Somalia and Kenya borders There are irregular armed clashes between ethnic groups in Afar Region and Somali Regional State, in particular along the main Addis Ababa to Djibouti road (A1) and the surrounding areas."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 10km of the borders with South Sudan and Kenya including the shores of Lake Turkana."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: areas between 10-15km from the border with Eritrea Tigray region FCDO advises against all travel to Tigray region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: all of East Shewa zone except the Addis Ababa to Adama Expressway, 10km either side of the Addis Ababa to Adaba expressway between Addis Ababa and Bishoftu, and the A7 from junction with the Addis Ababa to Adama expressway down to Hawassa the A4 road between Addis Ababa and Cheliya, except for the section in the Finfine special zone the remainder of North Shewa zone West Guji and Guji zones (except the Hawassa to Mega road) Somali region FCDO advises against all travel to within: 30km of the Ethiopia-Somalia border in Fafan zone, except the border town and crossing at Wajale, and the principal road between Jijiga and Wajale 100km of the Ethiopian border with Somalia and Kenya in the rest of the region FCDO advises against all but essential travel to: the Siti zone the Nogob (previously Fik) Jarar (previously Degehabur) Shabelle (previously Gode) Korahe and Dollo (previously Warder) areas of Liben and Afder zones more than 100km from the Somalia and Kenya borders Central, Southern, Sidama and South West regions (formerly SNNPR) FCDO advises against all travel to within 10km of the borders with South Sudan and Kenya including the shores of Lake Turkana."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of Benishangul-Gumuz region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: all of East Shewa zone except the Addis Ababa to Adama Expressway and 10km either side of the expressway between Addis Ababa and Bishoftu and the Addis Ababa to Hawassa Expressway the A4 road between Addis Ababa and Cheliya, except for the section in the Finfine special zone the remainder of North Shewa zone West Guji and Guji zones (except the Hawassa to Mega road) Increased tensions and armed groups Violence has increased due to conflict in Oromia, and there may be disruption to travel, and to the operation of businesses and services."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: the Siti zone the Nogob (previously Fik) Jarar (previously Degehabur) Shabelle (previously Gode) Korahe and Dollo (previously Warder) areas of Liben and Afder zones more than 100km from the Somalia and Kenya borders There are irregular armed clashes between ethnic groups in Afar Region and Somali Regional State, in particular along the main Addis Ababa to Djibouti road (A1) and the surrounding areas."
+    }
+   ]
+  },
+  "falkland-islands": {
+   "country": "Falkland Islands (British Overseas Territory)",
+   "slug": "falkland-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/falkland-islands",
+   "public_updated_at": "2026-08-10T09:48:47+01:00",
+   "reviewed_at": "2026-08-10T08:48:47Z",
+   "etag": "W/\"0b80f3946c5b5ff5cc9a012b7286ad3b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "federated-states-of-micronesia": {
+   "country": "Federated States of Micronesia",
+   "slug": "federated-states-of-micronesia",
+   "url": "https://www.gov.uk/foreign-travel-advice/federated-states-of-micronesia",
+   "public_updated_at": "2026-03-19T14:07:21+00:00",
+   "reviewed_at": "2026-03-19T14:07:21Z",
+   "etag": "W/\"daa2979bf5cacffa01848c28decf33d4\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "fiji": {
+   "country": "Fiji",
+   "slug": "fiji",
+   "url": "https://www.gov.uk/foreign-travel-advice/fiji",
+   "public_updated_at": "2026-08-10T14:48:05+01:00",
+   "reviewed_at": "2026-08-10T13:48:05Z",
+   "etag": "W/\"604b1aece90c90b1a223504e4a152f0d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "finland": {
+   "country": "Finland",
+   "slug": "finland",
+   "url": "https://www.gov.uk/foreign-travel-advice/finland",
+   "public_updated_at": "2026-08-11T10:18:13+01:00",
+   "reviewed_at": "2026-08-11T09:18:13Z",
+   "etag": "W/\"f42b0ba9fa53c105bcf64cb2ac7fa525\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Russia ."
+    }
+   ]
+  },
+  "france": {
+   "country": "France",
+   "slug": "france",
+   "url": "https://www.gov.uk/foreign-travel-advice/france",
+   "public_updated_at": "2026-08-11T10:17:02+01:00",
+   "reviewed_at": "2026-08-11T09:17:02Z",
+   "etag": "W/\"7a69ca0aafece64da658958d37acb18d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "french-guiana": {
+   "country": "French Guiana",
+   "slug": "french-guiana",
+   "url": "https://www.gov.uk/foreign-travel-advice/french-guiana",
+   "public_updated_at": "2025-12-10T13:36:08+00:00",
+   "reviewed_at": "2025-12-10T13:36:08Z",
+   "etag": "W/\"3eee1050dba68872a48a26dbe4108f9c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "french-polynesia": {
+   "country": "French Polynesia",
+   "slug": "french-polynesia",
+   "url": "https://www.gov.uk/foreign-travel-advice/french-polynesia",
+   "public_updated_at": "2025-12-10T13:36:20+00:00",
+   "reviewed_at": "2025-12-10T13:36:20Z",
+   "etag": "W/\"e1a7a6bdab28f1c5bd072e058adbdad7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "gabon": {
+   "country": "Gabon",
+   "slug": "gabon",
+   "url": "https://www.gov.uk/foreign-travel-advice/gabon",
+   "public_updated_at": "2025-12-10T13:37:09+00:00",
+   "reviewed_at": "2025-12-10T13:37:09Z",
+   "etag": "W/\"38729034146a78bd8ed9545e07a3e37b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "georgia": {
+   "country": "Georgia",
+   "slug": "georgia",
+   "url": "https://www.gov.uk/foreign-travel-advice/georgia",
+   "public_updated_at": "2026-07-27T13:40:10+01:00",
+   "reviewed_at": "2026-07-27T12:40:10Z",
+   "etag": "W/\"79215e2744bc400a8924a11151331c17\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Russian occupied regions of: South Ossetia Abkhazia FCDO also advises against all but essential travel to areas immediately next to the administrative boundary lines with South Ossetia and Abkhazia."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Russia."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to areas immediately next to the administrative boundary lines with South Ossetia and Abkhazia."
+    }
+   ]
+  },
+  "germany": {
+   "country": "Germany",
+   "slug": "germany",
+   "url": "https://www.gov.uk/foreign-travel-advice/germany",
+   "public_updated_at": "2026-08-11T10:18:05+01:00",
+   "reviewed_at": "2026-08-11T09:18:05Z",
+   "etag": "W/\"6366901de7f00b67caa94035cbc74770\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "ghana": {
+   "country": "Ghana",
+   "slug": "ghana",
+   "url": "https://www.gov.uk/foreign-travel-advice/ghana",
+   "public_updated_at": "2026-07-02T14:48:30+01:00",
+   "reviewed_at": "2026-07-02T13:48:30Z",
+   "etag": "W/\"5be40a2d38e60e7d7c9e4e1ad4ba2c10\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Bawku Municipality FCDO advises against all but essential travel to the Bawku Municipal area in the Upper East region of Ghana."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Bawku Municipal area in the Upper East region of Ghana."
+    }
+   ]
+  },
+  "gibraltar": {
+   "country": "Gibraltar (British Overseas Territory)",
+   "slug": "gibraltar",
+   "url": "https://www.gov.uk/foreign-travel-advice/gibraltar",
+   "public_updated_at": "2026-07-14T09:32:42+01:00",
+   "reviewed_at": "2026-07-14T08:32:42Z",
+   "etag": "W/\"41413cf5feb1f89f7137218e37484587\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "greece": {
+   "country": "Greece",
+   "slug": "greece",
+   "url": "https://www.gov.uk/foreign-travel-advice/greece",
+   "public_updated_at": "2026-08-11T10:17:58+01:00",
+   "reviewed_at": "2026-08-11T09:17:58Z",
+   "etag": "W/\"9f69fcfdfd069ee9cf23611147b80fd9\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "grenada": {
+   "country": "Grenada",
+   "slug": "grenada",
+   "url": "https://www.gov.uk/foreign-travel-advice/grenada",
+   "public_updated_at": "2025-12-10T13:53:19+00:00",
+   "reviewed_at": "2025-12-10T13:53:19Z",
+   "etag": "W/\"056627c45475a10b0efc44182d797ac3\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "guadeloupe": {
+   "country": "Guadeloupe",
+   "slug": "guadeloupe",
+   "url": "https://www.gov.uk/foreign-travel-advice/guadeloupe",
+   "public_updated_at": "2025-12-10T13:54:06+00:00",
+   "reviewed_at": "2025-12-10T13:54:06Z",
+   "etag": "W/\"f904b929425f7b90bad8134fb66d4ce1\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "guatemala": {
+   "country": "Guatemala",
+   "slug": "guatemala",
+   "url": "https://www.gov.uk/foreign-travel-advice/guatemala",
+   "public_updated_at": "2026-08-13T14:45:16+01:00",
+   "reviewed_at": "2026-08-13T13:45:16Z",
+   "etag": "W/\"4276b95a194edd6b3691554d0f10b7fa\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel FCDO advises against all but essential travel to: within 5km of the Mexican border from the Pacific Coast up to and including the Gracias a Dios crossing to the towns of Santa Ana Huista, San Antonio Huista and La Democracia in the department of Huehuetenango Find out more about why FCDO advises against travel to these areas ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel within 5km of the Mexican border from the Pacific Coast up to and including the Gracias a Dios crossing."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the towns of Santa Ana Huista, San Antonio Huista and La Democracia in the department of Huehuetenango Pay particular attention to your security in the border areas with Mexico, Honduras, El Salvador and Belize."
+    }
+   ]
+  },
+  "guinea-bissau": {
+   "country": "Guinea-Bissau",
+   "slug": "guinea-bissau",
+   "url": "https://www.gov.uk/foreign-travel-advice/guinea-bissau",
+   "public_updated_at": "2025-12-10T13:55:45+00:00",
+   "reviewed_at": "2025-12-10T13:55:45Z",
+   "etag": "W/\"d7f392b30159e31c87745f5303d5dffd\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "guinea": {
+   "country": "Guinea",
+   "slug": "guinea",
+   "url": "https://www.gov.uk/foreign-travel-advice/guinea",
+   "public_updated_at": "2026-08-12T16:34:39+01:00",
+   "reviewed_at": "2026-08-12T15:34:39Z",
+   "etag": "W/\"58e950aa4660550df16728f24308c050\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "guyana": {
+   "country": "Guyana",
+   "slug": "guyana",
+   "url": "https://www.gov.uk/foreign-travel-advice/guyana",
+   "public_updated_at": "2025-12-30T14:37:59+00:00",
+   "reviewed_at": "2025-12-30T14:37:59Z",
+   "etag": "W/\"f57466f787082b292559b49c5d23d399\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "haiti": {
+   "country": "Haiti",
+   "slug": "haiti",
+   "url": "https://www.gov.uk/foreign-travel-advice/haiti",
+   "public_updated_at": "2025-12-10T13:57:03+00:00",
+   "reviewed_at": "2025-12-10T13:57:03Z",
+   "etag": "W/\"d6dc0994c1cf4a94d836ded250becbba\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Haiti FCDO advises against all travel to Haiti due to the volatile security situation."
+    }
+   ]
+  },
+  "honduras": {
+   "country": "Honduras",
+   "slug": "honduras",
+   "url": "https://www.gov.uk/foreign-travel-advice/honduras",
+   "public_updated_at": "2026-07-29T16:40:19+01:00",
+   "reviewed_at": "2026-07-29T15:40:19Z",
+   "etag": "W/\"2ca68fd320690313c5c966da38cb5cc8\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "hong-kong": {
+   "country": "Hong Kong (SAR of China)",
+   "slug": "hong-kong",
+   "url": "https://www.gov.uk/foreign-travel-advice/hong-kong",
+   "public_updated_at": "2026-04-01T16:59:28+01:00",
+   "reviewed_at": "2026-04-01T15:59:28Z",
+   "etag": "W/\"a5037d7dc4384dcc90b0e9f701bd4d32\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "hungary": {
+   "country": "Hungary",
+   "slug": "hungary",
+   "url": "https://www.gov.uk/foreign-travel-advice/hungary",
+   "public_updated_at": "2026-08-11T10:17:49+01:00",
+   "reviewed_at": "2026-08-11T09:17:49Z",
+   "etag": "W/\"831fe5bdbb9090d3e1edb7c6975fbb9e\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "iceland": {
+   "country": "Iceland",
+   "slug": "iceland",
+   "url": "https://www.gov.uk/foreign-travel-advice/iceland",
+   "public_updated_at": "2026-08-11T10:17:40+01:00",
+   "reviewed_at": "2026-08-11T09:17:40Z",
+   "etag": "W/\"7d573824493334dc828f091250c2d36a\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "india": {
+   "country": "India",
+   "slug": "india",
+   "url": "https://www.gov.uk/foreign-travel-advice/india",
+   "public_updated_at": "2026-07-09T14:54:18+01:00",
+   "reviewed_at": "2026-07-09T13:54:18Z",
+   "etag": "W/\"daadebe0304553d865238cbf9adac4dc\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 10km of the India-Pakistan border."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Union Territory of Jammu and Kashmir (including Pahalgam, Gulmarg, Sonamarg, the city of Srinagar and the Jammu-Srinagar national highway), except for: travel by air to and from the city of Jammu travel within the city of Jammu Manipur FCDO advises against all but essential travel to the state of Manipur including the capital, Imphal."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Union Territory of Jammu and Kashmir (including Pahalgam, Gulmarg, Sonamarg, the city of Srinagar and the Jammu-Srinagar national highway), except for: travel by air to and from the city of Jammu travel within the city of Jammu There have been frequent terrorist incidents in Jammu and Kashmir."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Manipur including the capital, Imphal."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Manipur."
+    }
+   ]
+  },
+  "indonesia": {
+   "country": "Indonesia",
+   "slug": "indonesia",
+   "url": "https://www.gov.uk/foreign-travel-advice/indonesia",
+   "public_updated_at": "2026-08-16T12:31:33+01:00",
+   "reviewed_at": "2026-08-16T11:31:33Z",
+   "etag": "W/\"de50dd560f1409b910caea336d288ac9\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel FCDO advises against all travel to a number of volcanoes in Indonesia: Mount Lewotobi Laki-Laki, on Flores Island, East Nusa Tenggara Province to within 7km of the crater Mount Sinabung, Karo Regency, North Sumatra to within 5km of the crater Mount Marapi, West Sumatra to within 3km of the crater Mount Semeru, Lumajang Regency, East Java to within 5km of the crater in the south-east of Mount Semura to within 500m from any riverbank of the Besuk Kobokan river for 13km from the crater Mount Ruang, Northern Sulawesi to within 7km of the crater Mount Ibu, North Maluku Province to within 7km of the crater See more details about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 7km of the crater of Mount Lewotobi Laki-Laki on Flores Island, East Nusa Tenggara province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the crater of Mount Sinabung in Karo Regency, North Sumatra."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 3km of the crater of Mount Marapi in West Sumatra."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: within 5 km of the crater of Mount Semeru in Lumajang Regency, East Java the south-east area of Mount Semeru along the Besuk Kobokan river, approximately 13km from the crater, and 500m from any Besuk Kobokan riverbank These areas align with exclusion zones put in place by the local authorities."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 7km of the crater of Mount Ruang in Northern Sulawesi."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 7km of the crater of Mount Ibu in North Maluku Province."
+    }
+   ]
+  },
+  "iran": {
+   "country": "Iran",
+   "slug": "iran",
+   "url": "https://www.gov.uk/foreign-travel-advice/iran",
+   "public_updated_at": "2026-08-13T16:37:44+01:00",
+   "reviewed_at": "2026-08-13T15:37:44Z",
+   "etag": "W/\"d0d21dd645c9e4ac75ab48a2c636c7e8\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Iran FCDO advises against all travel to Iran."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Afghanistan."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Iraq."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Balochistan Province bordering Iran."
+    }
+   ]
+  },
+  "iraq": {
+   "country": "Iraq",
+   "slug": "iraq",
+   "url": "https://www.gov.uk/foreign-travel-advice/iraq",
+   "public_updated_at": "2026-07-22T13:46:56+01:00",
+   "reviewed_at": "2026-07-22T12:46:56Z",
+   "etag": "W/\"fafd3a325753c97cc15174cf5922005c\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: The parts of Anbar province which are west of, but not including Ramadi City Diyala province except for Baqubah City Kirkuk province Ninawa province Salah al-Din province Jurf al-Sakr town in Babil province Sadr City, part of Baghdad province Within 5km of areas that border Iran in Wasit, Maysan and Basra provinces Within 5km of Iraq’s borders with Saudi Arabia and Kuwait FCDO advises against all but essential travel to: The remainder of Al-Muthanna province Al-Qadasiyah province The remainder of Anbar province Babil province (except Jurf al-Sakr town) Baghdad province (except Sadr City) The remainder of Basra province, including Highways 1 and 8 and the Safwan-Kuwait border crossing Dhi Qar Province Karbala Province The remainder of Maysan province The remainder of Najaf province The remainder of Wasit province Baqubah City in Diyala province The road sections of Highway 34 between Baghdad and Baqubah, and Highway 2 between Baqubah and Erbil Kurdistan Region of Iraq FCDO advises against all but essential travel to the Kurdistan Region of Iraq Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: The remainder of Al-Muthanna province Al-Qadasiyah province The remainder of Anbar province Babil province (except Jurf al-Sakr town) Baghdad province (except Sadr City) The remainder of Basra province, including Highways 1 and 8 and the Safwan-Kuwait border crossing Dhi Qar Province Karbala Province The remainder of Maysan province The remainder of Najaf province The remainder of Wasit province Baqubah City in Diyala province The road sections of Highway 34 between Baghdad and Baqubah, and Highway 2 between Baqubah and Erbil Kurdistan Region of Iraq FCDO advises against all but essential travel to the Kurdistan Region of Iraq Find out more about why FCDO advises against travel ."
+    }
+   ]
+  },
+  "ireland": {
+   "country": "Ireland",
+   "slug": "ireland",
+   "url": "https://www.gov.uk/foreign-travel-advice/ireland",
+   "public_updated_at": "2026-02-26T11:06:23+00:00",
+   "reviewed_at": "2026-02-26T11:06:23Z",
+   "etag": "W/\"47116cabd6f7dc4023d00ec7b3475ac3\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "israel": {
+   "country": "Israel",
+   "slug": "israel",
+   "url": "https://www.gov.uk/foreign-travel-advice/israel",
+   "public_updated_at": "2026-07-22T13:45:00+01:00",
+   "reviewed_at": "2026-07-22T12:45:00Z",
+   "etag": "W/\"a5888a6dda0dfe29eb5c1fe9db90031a\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Gaza Areas near Gaza FCDO advises against all travel within 500m of the border with Gaza The West Bank FCDO advises against all travel to: Tulkarm Governorate, Jenin Governorate, and Tubas Governorate except Route 90 Northern Israel and Occupied Golan Heights FCDO advises against all travel to: Areas north of Route 89 between Nahariyya and Dalton; north of a straight eastward line from Dalton to Route 91; and north of Route 91 across the Golan Heights, excluding routes 89 and 91 themselves Within 500m of the Area of Separation in the occupied Golan Heights (the ‘Alpha line’)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Gaza (including the waters off Gaza)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 500m of the border with Syria (the ‘Alpha Line’)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 500m of the Area of Separation in the occupied Golan Heights (the ‘Alpha line’)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Sheba’a Farms and Ghajjar."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the camps in Jenin and Nablus settlements and settlement outposts where there have been recent violent incidents – for example, near Beit El, Homesh, Shilo, Evyatar Avoid these locations after dark."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel West Bank FCDO advises against all but essential travel to: The rest of the West Bank, except for: East Jerusalem, Bethlehem Governate, Ramallah Municipality, Jericho municipality and all areas which lie south of it (this includes the Allenby crossing)."
+    }
+   ]
+  },
+  "italy": {
+   "country": "Italy",
+   "slug": "italy",
+   "url": "https://www.gov.uk/foreign-travel-advice/italy",
+   "public_updated_at": "2026-08-11T14:10:14+01:00",
+   "reviewed_at": "2026-08-11T13:10:14Z",
+   "etag": "W/\"7aaae7571bda7d87f74b767343de5f1c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "jamaica": {
+   "country": "Jamaica",
+   "slug": "jamaica",
+   "url": "https://www.gov.uk/foreign-travel-advice/jamaica",
+   "public_updated_at": "2026-05-06T12:06:25+01:00",
+   "reviewed_at": "2026-05-06T11:06:25Z",
+   "etag": "W/\"46fe0154683344998344bb3c988dae9a\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "japan": {
+   "country": "Japan",
+   "slug": "japan",
+   "url": "https://www.gov.uk/foreign-travel-advice/japan",
+   "public_updated_at": "2026-08-19T15:40:39+01:00",
+   "reviewed_at": "2026-08-19T14:40:39Z",
+   "etag": "W/\"5f611eb9755e6c7cf687877f83837d60\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "jordan": {
+   "country": "Jordan",
+   "slug": "jordan",
+   "url": "https://www.gov.uk/foreign-travel-advice/jordan",
+   "public_updated_at": "2026-07-22T13:47:55+01:00",
+   "reviewed_at": "2026-07-22T12:47:55Z",
+   "etag": "W/\"17bbc16c833878315d650fd35149633e\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 3km of the border with Syria."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Syria."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Iraq ."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the provinces in Iraq bordering Jordan."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Aqaba Governate FCDO advises against all but essential travel to Aqaba international airport and seaport."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Aqaba international airport and seaport."
+    }
+   ]
+  },
+  "kazakhstan": {
+   "country": "Kazakhstan",
+   "slug": "kazakhstan",
+   "url": "https://www.gov.uk/foreign-travel-advice/kazakhstan",
+   "public_updated_at": "2026-03-30T11:09:15+01:00",
+   "reviewed_at": "2026-03-30T10:09:15Z",
+   "etag": "W/\"142adc38883fc8ca52d47fbbe6e1b6e3\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "kenya": {
+   "country": "Kenya",
+   "slug": "kenya",
+   "url": "https://www.gov.uk/foreign-travel-advice/kenya",
+   "public_updated_at": "2026-06-24T12:48:44+01:00",
+   "reviewed_at": "2026-06-24T11:48:44Z",
+   "etag": "W/\"e7a5b6cf0415cad3ee8647768b39f20a\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Mandera County Tarbaj and Wajir East constituencies in Wajir County, except for Wajir Town areas of Wajir County within 60km of Kenya’s border with Somalia Garissa County - except for Garissa Town, the constituency of Lagdera and the areas of Balambala constituency which lie north and west of the main road which runs from Saka on the Tana River up to the intersection with the C81 Road Lamu County, except for Lamu Island and Manda Island FCDO advises against all but essential travel to: Garissa Town Tana River County north of the Tana River as far as the town of Saka within 15km of the east coast between the Tana River and the Galana (Athi-Galana-Sabaki) River Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Mandera County Tarbaj and Wajir East constituencies in Wajir County, except for Wajir Town areas of Wajir County within 60km of Kenya’s border with Somalia Garissa County - except for Garissa Town, the constituency of Lagdera and the areas of Balambala constituency which lie north and west of the main road which runs from Saka on the Tana River up to the intersection with the C81 Road Lamu County, except for Lamu Island and Manda Island FCDO advises against all but essential travel to: Garissa Town Tana River County north of the Tana River as far as the town of Saka within 15km of the east coast between the Tana River and the Galana (Athi-Galana-Sabaki) River There have been frequent attacks in the north-eastern border regions, most of which were attributed to Al Shabaab."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Garissa Town Tana River County north of the Tana River as far as the town of Saka within 15km of the east coast between the Tana River and the Galana (Athi-Galana-Sabaki) River Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Garissa Town Tana River County north of the Tana River as far as the town of Saka within 15km of the east coast between the Tana River and the Galana (Athi-Galana-Sabaki) River There have been frequent attacks in the north-eastern border regions, most of which were attributed to Al Shabaab."
+    }
+   ]
+  },
+  "kiribati": {
+   "country": "Kiribati",
+   "slug": "kiribati",
+   "url": "https://www.gov.uk/foreign-travel-advice/kiribati",
+   "public_updated_at": "2026-03-19T14:02:38+00:00",
+   "reviewed_at": "2026-03-19T14:02:38Z",
+   "etag": "W/\"b91f5326d436a44210943c243c087d86\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "kosovo": {
+   "country": "Kosovo",
+   "slug": "kosovo",
+   "url": "https://www.gov.uk/foreign-travel-advice/kosovo",
+   "public_updated_at": "2026-06-10T10:30:06+01:00",
+   "reviewed_at": "2026-06-10T09:30:06Z",
+   "etag": "W/\"ce0f107e025fbed32d8cf14ae9c31b6f\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel ."
+    }
+   ]
+  },
+  "kuwait": {
+   "country": "Kuwait",
+   "slug": "kuwait",
+   "url": "https://www.gov.uk/foreign-travel-advice/kuwait",
+   "public_updated_at": "2026-08-20T09:00:55+01:00",
+   "reviewed_at": "2026-08-20T08:00:55Z",
+   "etag": "W/\"e2a65a852365faad9dd4e0dd2fd89310\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "kyrgyzstan": {
+   "country": "Kyrgyzstan",
+   "slug": "kyrgyzstan",
+   "url": "https://www.gov.uk/foreign-travel-advice/kyrgyzstan",
+   "public_updated_at": "2026-06-19T16:26:15+01:00",
+   "reviewed_at": "2026-06-19T15:26:15Z",
+   "etag": "W/\"475eda79c90829d9d6301a45957e0976\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "laos": {
+   "country": "Laos",
+   "slug": "laos",
+   "url": "https://www.gov.uk/foreign-travel-advice/laos",
+   "public_updated_at": "2026-08-13T12:10:25+01:00",
+   "reviewed_at": "2026-08-13T11:10:25Z",
+   "etag": "W/\"1d27278e5f9e6130810860d4f5490611\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Xaisomboun Province FCDO advises against all but essential travel to Xaisomboun Province."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Xaisomboun Province."
+    }
+   ]
+  },
+  "latvia": {
+   "country": "Latvia",
+   "slug": "latvia",
+   "url": "https://www.gov.uk/foreign-travel-advice/latvia",
+   "public_updated_at": "2026-08-11T10:17:07+01:00",
+   "reviewed_at": "2026-08-11T09:17:07Z",
+   "etag": "W/\"79c026bc68c773bb2f40e62027187e18\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Belarus ."
+    }
+   ]
+  },
+  "lebanon": {
+   "country": "Lebanon",
+   "slug": "lebanon",
+   "url": "https://www.gov.uk/foreign-travel-advice/lebanon",
+   "public_updated_at": "2026-08-10T14:51:12+01:00",
+   "reviewed_at": "2026-08-10T13:51:12Z",
+   "etag": "W/\"e302864a57fff54174757ce3113d49ac\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the following areas of Beirut and its southern suburbs, excluding Route 51 from central Beirut to Rafic Hariri International Airport: Tariq el Jdideh and the area east of Tariq el Jdideh, south of Jalloul Street, west of Hourch and the war cemetery (not including the war cemetery), and south of the Soulieman Bastani Ghobeiry and the area north of Ghobeiry but south of Yarmouk street, the war cemetery and Horsh park (not including Horsh park and the cemetery and Yarmouk street) Chiyah (south and west of the Rizkallah Semaan road) Haret Hraik Burj Al Barajneh Mraije Laylaki Jnah, south of El Imam Mousa El Sader street The Golf Club of Lebanon all other areas west of the Camil Chamoun Boulevard (south of Forn el Chebbak) that becomes the Old Saida Road through Hadath to Beirut airport FCDO advises against all but essential travel to: The area of Mount Lebanon Governorate south of (but excluding) the road from Wadi El Zayni in the west (and extending to the Mediterranean Sea), which travels through the villages of Aanout, Gharifeh, Ainbal, Boqaata, Moukhtara, Maaser El Chouf to the Mount Lebanon-Beqaa Governorate boundary in the east Areas in the South and Nabatiyeh Governorates FCDO advises against all travel to South and Nabatiyeh Governorates."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: The area of Beqaa Governorate to the east of (but not including) the Masnaa-Rachaiya Road from Masnaa, Dahr El Ahmar to the Beqaa-Nabatiyeh boundary in the south."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: The area of Baalbek-Hermel Governorate north of (but not including) the Danniyeh-Hermel Road from the Baalbek-Hermel Governate boundary in the west to Hermel in the east."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: The area of Akkar Governorate north of (but excluding) the road from Qlayaat in the west (and extending to the Mediterranean Sea) to Tal Keri, Kouaikhat, Aamriyeh, and Qoubaiyat."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the 12 Palestinian refugee camps."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the southern suburbs of Beirut due to the presence of armed groups and heightened risk of organised crime including kidnapping."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel and all but essential travel to areas in the Beqaa Governorate (as described in ‘Warnings and insurance’ page) due to risks from Israeli airstrikes and criminal activity in these areas."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the area of Akkar Governate close to the Syrian border due to the unstable security situation in Syria."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: The area of Mount Lebanon Governorate south of (but excluding) the road from Wadi El Zayni in the west (and extending to the Mediterranean Sea), which travels through the villages of Aanout, Gharifeh, Ainbal, Boqaata, Moukhtara, Maaser El Chouf to the Mount Lebanon-Beqaa Governorate boundary in the east Areas in the South and Nabatiyeh Governorates FCDO advises against all travel to South and Nabatiyeh Governorates."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: The area of Beqaa Governorate to the south of (but not including) the road from Kafraiya to Joub Jannine, east of (but not including) the road from Joub Jannine to Bar Elias and south of the road from Bar Elias to Deir Zenoun."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of the Baalbek-Hermel Governate: Areas in the North Governorate FCDO advises against all but essential travel to the area of Tripoli to the east of the Bechara El Khoury road from Bohssas in the south to Beddaoui in the north – including the neighbourhoods of Abou Samra, Tabbaneh, Jessrin, Qoubbeh and Zaytoun."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to some areas of the city of Tripoli due to the risk of criminality, localised armed disputes, and public disorder."
+    }
+   ]
+  },
+  "lesotho": {
+   "country": "Lesotho",
+   "slug": "lesotho",
+   "url": "https://www.gov.uk/foreign-travel-advice/lesotho",
+   "public_updated_at": "2025-12-10T13:12:05+00:00",
+   "reviewed_at": "2025-12-10T13:12:05Z",
+   "etag": "W/\"6dcc3c436a72fe312bfc7831aa9509fe\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "liberia": {
+   "country": "Liberia",
+   "slug": "liberia",
+   "url": "https://www.gov.uk/foreign-travel-advice/liberia",
+   "public_updated_at": "2026-05-27T14:27:30+01:00",
+   "reviewed_at": "2026-05-27T13:27:30Z",
+   "etag": "W/\"ef012d6fa004ab7ea040c4dd5d859f0c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "libya": {
+   "country": "Libya",
+   "slug": "libya",
+   "url": "https://www.gov.uk/foreign-travel-advice/libya",
+   "public_updated_at": "2026-07-21T10:00:09+01:00",
+   "reviewed_at": "2026-07-21T09:00:09Z",
+   "etag": "W/\"5a65ca90c61b697eeb80dfd15ca892b6\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Libya except for the cities of: Tripoli Benghazi, Al-Bayda and Derna, and the surrounding area known as Jebel Akhdar, either side of the coastal and desert roads between and including the towns of Al-Maqrun and Al-Tamimi Misrata FCDO advises against all but essential travel to the cities of: Tripoli Benghazi, Al-Bayda and Derna, and the surrounding area knows as Jebel Akhdar, either side of the coastal and desert roads between and including the towns of Al-Maqrun and Al-Tamimi Misrata Find out more about why the FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the cities of: Tripoli Benghazi, Al-Bayda and Derna, and the surrounding area knows as Jebel Akhdar, either side of the coastal and desert roads between and including the towns of Al-Maqrun and Al-Tamimi Misrata Find out more about why the FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to all areas within the city limits of Tripoli."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to all areas within the city limits of Benghazi."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to all areas of within the city limits of Misrata."
+    }
+   ]
+  },
+  "liechtenstein": {
+   "country": "Liechtenstein",
+   "slug": "liechtenstein",
+   "url": "https://www.gov.uk/foreign-travel-advice/liechtenstein",
+   "public_updated_at": "2026-08-11T10:17:45+01:00",
+   "reviewed_at": "2026-08-11T09:17:45Z",
+   "etag": "W/\"fa8e3af219a857b73a9fbb56f8090c2a\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "lithuania": {
+   "country": "Lithuania",
+   "slug": "lithuania",
+   "url": "https://www.gov.uk/foreign-travel-advice/lithuania",
+   "public_updated_at": "2026-08-11T10:19:26+01:00",
+   "reviewed_at": "2026-08-11T09:19:26Z",
+   "etag": "W/\"6cf85b4b5b06586578d0d3364d60d359\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "luxembourg": {
+   "country": "Luxembourg",
+   "slug": "luxembourg",
+   "url": "https://www.gov.uk/foreign-travel-advice/luxembourg",
+   "public_updated_at": "2026-08-11T10:19:44+01:00",
+   "reviewed_at": "2026-08-11T09:19:44Z",
+   "etag": "W/\"bcab52cf57d1a5d625d223b74480af2a\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "macao": {
+   "country": "Macao (SAR of China)",
+   "slug": "macao",
+   "url": "https://www.gov.uk/foreign-travel-advice/macao",
+   "public_updated_at": "2025-12-11T11:32:17+00:00",
+   "reviewed_at": "2025-12-11T11:32:17Z",
+   "etag": "W/\"211d9c8d2b9f2d4283930bf5f31fb641\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "madagascar": {
+   "country": "Madagascar",
+   "slug": "madagascar",
+   "url": "https://www.gov.uk/foreign-travel-advice/madagascar",
+   "public_updated_at": "2026-01-26T10:47:11+00:00",
+   "reviewed_at": "2026-01-26T10:47:11Z",
+   "etag": "W/\"378472a2ca31ae72525c876c90017cca\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "malawi": {
+   "country": "Malawi",
+   "slug": "malawi",
+   "url": "https://www.gov.uk/foreign-travel-advice/malawi",
+   "public_updated_at": "2026-07-03T10:59:53+01:00",
+   "reviewed_at": "2026-07-03T09:59:53Z",
+   "etag": "W/\"bb855f9065324111e68b868bd3cfb440\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "malaysia": {
+   "country": "Malaysia",
+   "slug": "malaysia",
+   "url": "https://www.gov.uk/foreign-travel-advice/malaysia",
+   "public_updated_at": "2026-03-19T14:03:58+00:00",
+   "reviewed_at": "2026-03-19T14:03:58Z",
+   "etag": "W/\"deff8444b3ae6ed08b0ca3d319da9859\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Eastern Sabah coastal islands FCDO advises against all but essential travel to all islands and dive sites off the coast of eastern Sabah from Sandakan to Tawau, including Lankayan Island, due to the threat of kidnapping."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to all islands and dive sites off the coast of eastern Sabah from Sandakan to Tawau, including Lankayan Island, due to the threat of kidnapping."
+    }
+   ]
+  },
+  "maldives": {
+   "country": "Maldives",
+   "slug": "maldives",
+   "url": "https://www.gov.uk/foreign-travel-advice/maldives",
+   "public_updated_at": "2026-08-12T11:35:58+01:00",
+   "reviewed_at": "2026-08-12T10:35:58Z",
+   "etag": "W/\"ef4eb9d1aeaf700b2ed7fd77a4b5b064\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "mali": {
+   "country": "Mali",
+   "slug": "mali",
+   "url": "https://www.gov.uk/foreign-travel-advice/mali",
+   "public_updated_at": "2026-07-10T14:24:11+01:00",
+   "reviewed_at": "2026-07-10T13:24:11Z",
+   "etag": "W/\"f666957bdc1e5d591f0204e60dbc5e6d\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Mali FCDO advises against all travel to the whole of the Mali due to the unpredictable security conditions."
+    }
+   ]
+  },
+  "malta": {
+   "country": "Malta",
+   "slug": "malta",
+   "url": "https://www.gov.uk/foreign-travel-advice/malta",
+   "public_updated_at": "2026-08-11T10:20:07+01:00",
+   "reviewed_at": "2026-08-11T09:20:07Z",
+   "etag": "W/\"e277293cbb5585e2ab6d088a84d404b2\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "marshall-islands": {
+   "country": "Marshall Islands",
+   "slug": "marshall-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/marshall-islands",
+   "public_updated_at": "2026-03-19T14:02:32+00:00",
+   "reviewed_at": "2026-03-19T14:02:32Z",
+   "etag": "W/\"7d02ea1e23c30cae946eb6bbe0e4ef08\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "martinique": {
+   "country": "Martinique",
+   "slug": "martinique",
+   "url": "https://www.gov.uk/foreign-travel-advice/martinique",
+   "public_updated_at": "2025-12-10T13:37:46+00:00",
+   "reviewed_at": "2025-12-10T13:37:46Z",
+   "etag": "W/\"4becb708be078f85831b556b8b771e39\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "mauritania": {
+   "country": "Mauritania",
+   "slug": "mauritania",
+   "url": "https://www.gov.uk/foreign-travel-advice/mauritania",
+   "public_updated_at": "2026-03-24T16:23:01+00:00",
+   "reviewed_at": "2026-03-24T16:23:01Z",
+   "etag": "W/\"b07104a54e816168b6e69957881f7203\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to areas east of a line drawn between but excluding the towns of Kankossa, Akhreijit, Ghallaouia, Zouerat, Fderîck and onwards west to the border with Western Sahara."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to areas within 25km of the Malian border in the south, including Khabou."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel because of designated “military zones” by the Mauritanian military."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to areas within 25km of the Malian border in the south of Mauritania, including Khabou."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to areas within 25km of the Western Sahara border, excluding the section of the Nouakchott-Nouadhibou road and the city of Nouadhibou."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of the province of Tiris Zemmour, Assaba, Hodh el Gharbi, Gorgol and Guidimaka, and areas of Adrar and Tagant provinces, west of a line drawn between the towns of Ghallaouia, Akhreijit and Kankossa."
+    }
+   ]
+  },
+  "mauritius": {
+   "country": "Mauritius",
+   "slug": "mauritius",
+   "url": "https://www.gov.uk/foreign-travel-advice/mauritius",
+   "public_updated_at": "2026-06-15T15:36:43+01:00",
+   "reviewed_at": "2026-06-15T14:36:43Z",
+   "etag": "W/\"ef7f0dc8332d81f4e66281a2431a1bfb\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "mayotte": {
+   "country": "Mayotte",
+   "slug": "mayotte",
+   "url": "https://www.gov.uk/foreign-travel-advice/mayotte",
+   "public_updated_at": "2025-12-10T13:41:54+00:00",
+   "reviewed_at": "2025-12-10T13:41:54Z",
+   "etag": "W/\"4432630b59b6249a8b90cd592faa6de7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "mexico": {
+   "country": "Mexico",
+   "slug": "mexico",
+   "url": "https://www.gov.uk/foreign-travel-advice/mexico",
+   "public_updated_at": "2026-07-16T16:08:09+01:00",
+   "reviewed_at": "2026-07-16T15:08:09Z",
+   "etag": "W/\"9288c75ec98199a511ff0a0e1ae6b6b2\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel State of Baja California FCDO advises against all but essential travel to the city of Tijuana, except: airside transit through Tijuana airport the Cross Border Xpress bridge from the airport linking terminals across the Mexican-US border the federal toll road 1D and Via Rápida through Tijuana to the border FCDO advises against all but essential travel to the city of Tecate in Baja California, including roads between Tijuana and Tecate."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Chihuahua, except: the city of Chihuahua the border crossing in Ciudad Juárez (accessed by federal toll road 45) federal toll road 45D connecting the cities of Chihuahua and Ciudad Juárez the Copper Canyon rail route to and from Chihuahua and towns immediately on this route including Creel the road from Creel via San Juanito to San Pedro state highway 16 from San Pedro to Chihuahua State of Sinaloa FCDO advises against all but essential travel to the state of Sinaloa, except: the cities of Los Mochis and Mazatlán road 32 that runs between El Fuerte and Los Mochis the 15D federal toll road that runs the length of the state the Copper Canyon rail route to and from Los Mochis, El Fuerte and the towns immediately on this route State of Tamaulipas FCDO advises against all but essential travel to the state of Tamaulipas, except: the border crossing at Nuevo Laredo accessed by federal toll road 85D from Monterrey federal highways 80, 81 and 85 between Tampico, Ciudad de Victoria and Magueyes, and the entire area of Tamaulipas south of these highways State of Zacatecas FCDO advises against all but essential travel to the state of Zacatecas."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the areas south-west of road 45D."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Michoacán, except the: city of Morelia accessed by federal toll roads 15D, 126 and 43; and the federal toll road 48D between the city of Morelia and the General Francisco Mujica airport town of Pátzcuaro accessed by federal toll roads 14D and 15 from Morelia, and boat trips out to islands on Lake Pátzcuaro Federal Highway 15D State of Jalisco FCDO advises against all but essential travel to the areas south and south-west of Lake Chapala to the border with the state of Colima."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the northern municipalities of: Bolaños Chimaltitán Colotlán Hostotipaquillo Huejúcar Huequilla el Alto Mezquitic San Martin de Bolaños Santa Maria de los Ángeles Totatiche Villa Guerrero State of Colima FCDO advises against all but essential travel to the state of Colima, except the city of Manzanillo accessed by sea or air via the Manzanillo-Costalegre International Airport, and direct travel via road 200 from the airport to Manzanillo."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Guerrero, except the town of Zihuatanejo/Ixtapa accessed by air."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 40km of the Guatemalan border between the Pacific Coast up to and including the border crossing at Gracias a Dio."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel on Federal Highway 199 (Carretera Federal 199) between Rancho Nuevo (just outside San Cristobal de las Casas) and the Chancalá junction just outside Palenque (where Federal Highway 199 meets Federal Highway 307)."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the city of Acapulco."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the city of Tijuana, except: airside transit through Tijuana airport the Cross Border Xpress bridge from the airport linking terminals across the Mexican-US border the federal toll road 1D and Via Rápida through Tijuana to the border FCDO advises against all but essential travel to the city of Tecate in Baja California, including roads between Tijuana and Tecate."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Chihuahua, except: the city of Chihuahua the border crossing in Ciudad Juárez (accessed by federal toll road 45) federal toll road 45D connecting the cities of Chihuahua and Ciudad Juárez the Copper Canyon rail route to and from Chihuahua and towns immediately on this route including Creel the road from Creel via San Juanito to San Pedro state highway 16 from San Pedro to Chihuahua There are high levels of organised crime activity, particularly human and drugs trafficking."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Sinaloa, except: the cities of Los Mochis and Mazatlán road 32 that runs between El Fuerte and Los Mochis the 15D federal toll road that runs the length of the state the Copper Canyon rail route to and from Los Mochis, El Fuerte and the towns immediately on this route Armed robbery and vehicle theft has happened in El Fuerte."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Tamaulipas, except: the border crossing at Nuevo Laredo accessed from Monterrey by federal toll road 85D – you should travel during daylight hours federal highways 80, 81 and 85 between Tampico, Ciudad de Victoria and Magueyes, and the entire area of Tamaulipas south of these highways Tamaulipas is dangerous due to the presence of many organised crime groups who fight for control of drug trafficking routes."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Zacatecas."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the areas south-west of the road 45D."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the state of Michoacán, except the: city of Morelia accessed by federal toll roads 15D, 126 and 43; and the federal toll road 48D between the city of Morelia and the General Francisco Mujica airport town of Pátzcuaro accessed by federal toll roads 14D and 15 from Morelia, and boat trips out to islands on Lake Pátzcuaro federal highway 15D Michoacán is one of Mexico’s most violent states with high levels of organised crime and very little security presence."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the areas south and south-west of Lake Chapala to the border state of Colima, specifically the municipalities of: Acatlán de Juárez Amacueca Ameca Atemajac de Brizuela Atengo Atenguillo Atoyac Autlán de Navarro Ayutla Casimiro Castillo Chiquilistlán Cocula Cuautitlán de García Barragán Cuautla Ejutla El Grullo El Limón Gómez Farias Guachinango Juchitlán Mixtlán San Gabriel San Marcos San Martín Hidalgo Sayula Tapalpa Techaluta de Montenegro Tecolotlán Tenamaxtlán Teocuitatlán de Corona Tolimán Tonaya Tuxcacuesco Tuxcueca Unión de Tula Villa Corona Villa Purificación Zacoalco de Torres Zapotitlán de Vadill Zapotlán el Grande FCDO advises against all but essential travel to the northern municipalities of: Bolaños Chimaltitán Colotlán Hostotipaquillo Huejúcar Huequilla el Alto Mezquitic San Martin de Bolaños Santa Maria de los Ángeles Totatiche Villa Guerrero This is due to inaccessibility for security forces, lack of state control, drugs cultivation and high levels of violence between rival criminal groups."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the whole state of Colima, except the city of Manzanillo accessed by sea or by air via Manzanillo-Costalegre International Airport, and direct travel via road 200 from the airport to Manzanillo."
+    }
+   ]
+  },
+  "moldova": {
+   "country": "Moldova",
+   "slug": "moldova",
+   "url": "https://www.gov.uk/foreign-travel-advice/moldova",
+   "public_updated_at": "2025-12-10T13:44:10+00:00",
+   "reviewed_at": "2025-12-10T13:44:10Z",
+   "etag": "W/\"84a4c2a518622c4f13e33a99e0019d19\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Transnistria."
+    }
+   ]
+  },
+  "monaco": {
+   "country": "Monaco",
+   "slug": "monaco",
+   "url": "https://www.gov.uk/foreign-travel-advice/monaco",
+   "public_updated_at": "2025-12-10T13:45:13+00:00",
+   "reviewed_at": "2025-12-10T13:45:13Z",
+   "etag": "W/\"d55f37c41710c1b8b146b7f54f3669f8\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "mongolia": {
+   "country": "Mongolia",
+   "slug": "mongolia",
+   "url": "https://www.gov.uk/foreign-travel-advice/mongolia",
+   "public_updated_at": "2026-08-07T13:03:24+01:00",
+   "reviewed_at": "2026-08-07T12:03:24Z",
+   "etag": "W/\"c30ac190229073152f76b2ab9d14ef7e\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "montenegro": {
+   "country": "Montenegro",
+   "slug": "montenegro",
+   "url": "https://www.gov.uk/foreign-travel-advice/montenegro",
+   "public_updated_at": "2026-08-13T16:25:26+01:00",
+   "reviewed_at": "2026-08-13T15:25:26Z",
+   "etag": "W/\"fc62ee28e5b6bb8b2f2f20f04cd26e2d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "montserrat": {
+   "country": "Montserrat",
+   "slug": "montserrat",
+   "url": "https://www.gov.uk/foreign-travel-advice/montserrat",
+   "public_updated_at": "2026-07-03T16:32:01+01:00",
+   "reviewed_at": "2026-07-03T15:32:01Z",
+   "etag": "W/\"a3f45e588fa10baa591dc5af6ab68d5c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "morocco": {
+   "country": "Morocco",
+   "slug": "morocco",
+   "url": "https://www.gov.uk/foreign-travel-advice/morocco",
+   "public_updated_at": "2026-08-19T12:00:36+01:00",
+   "reviewed_at": "2026-08-19T11:00:36Z",
+   "etag": "W/\"39d36f55d831fb9a0b4a4f7ac78f5c12\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "mozambique": {
+   "country": "Mozambique",
+   "slug": "mozambique",
+   "url": "https://www.gov.uk/foreign-travel-advice/mozambique",
+   "public_updated_at": "2026-08-20T14:50:43+01:00",
+   "reviewed_at": "2026-08-20T13:50:43Z",
+   "etag": "W/\"18bb55871f3cdbbdad6a58ab014a0461\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Cabo Delgado Province, except for Palma town and the area around Pemba and Afungi."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the districts of Memba and Eráti in Nampula Province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the districts of Mecula and Marrupo in Niassa Province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Cabo Delgado, except Palma town and the area around Pemba and Afungi, due to attacks by groups with links to Islamist extremism and clashes between insurgents, armed vigilante groups and Mozambican security forces."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the districts of Memba and Eráti in Nampula Province due to attacks by groups with links to Islamist extremism."
+    },
+    {
+     "form": "against all travel",
+     "text": "advise against all travel to the Mecula and Marrupo districts of Niassa Province."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Palma town and the area around Pemba and Afungi."
+    }
+   ]
+  },
+  "myanmar": {
+   "country": "Myanmar",
+   "slug": "myanmar",
+   "url": "https://www.gov.uk/foreign-travel-advice/myanmar",
+   "public_updated_at": "2026-08-04T11:16:35+01:00",
+   "reviewed_at": "2026-08-04T10:16:35Z",
+   "etag": "W/\"3a15c12a5a16282bfa52aa127e4d7d4c\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Chin State Kachin State Kayah State Kayin Sate Mon State Rakhine State Sagaing and Magway regions Tanintharyi Region, excluding Myeik township, and the archipelago and townships south of Tanintharyi township Shan State North North Mandalay Region; the townships north of Mandalay City and Pyin Oo Lwin East of the Yangon-Mandalay Expressway in Bago region FCDO advises against all but essential travel to: Shan State South and East Mandalay Region Tanintharyi Region south of Tanintharyi township the rest of Bago region the townships of Kyangin, Myanaung, Ingapu, Lemyethna, Yegyi, Thabaung and Pathein in Ayeyarwady region The conflict is Myanmar is increasingly volatile."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the following border areas: Kachin State, Chin State, Kayah State, Kayin State, Sagaing Region, Rakhine State, Shan State North and Tanintharyi Region (excluding Myeik township, and the archipelago and townships south of Tanintharyi township)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Magway Region and the north of Mandalay Region and all but essential travel to the rest of Mandalay Region."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Mon State and east of the Yangon-Mandalay Expressway in Bago Region in southern Myanmar."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Shan State South and East Mandalay Region Tanintharyi Region south of Tanintharyi township the rest of Bago region the townships of Kyangin, Myanaung, Ingapu, Lemyethna, Yegyi, Thabaung and Pathein in Ayeyarwady region The conflict is Myanmar is increasingly volatile."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the following border areas: Shan State South and East, Tanintharyi Region south of Tanintharyi township."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Naypyitaw Region there is still a heightened risk."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of Bago Region and Ayeyarwady Region’s townships Kyangin, Myanaung, Ingapu, Lemyethna, Yegyi, Thabaung and Pathein along the border with Rakhine State."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Yangon Region, there is still a heightened risk."
+    }
+   ]
+  },
+  "namibia": {
+   "country": "Namibia",
+   "slug": "namibia",
+   "url": "https://www.gov.uk/foreign-travel-advice/namibia",
+   "public_updated_at": "2025-12-10T13:15:46+00:00",
+   "reviewed_at": "2025-12-10T13:15:46Z",
+   "etag": "W/\"0719ca506b9e510f5d52ff29274b195c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "nauru": {
+   "country": "Nauru",
+   "slug": "nauru",
+   "url": "https://www.gov.uk/foreign-travel-advice/nauru",
+   "public_updated_at": "2026-03-19T14:03:07+00:00",
+   "reviewed_at": "2026-03-19T14:03:07Z",
+   "etag": "W/\"db2156f3000381a754e82c86134288bd\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "nepal": {
+   "country": "Nepal",
+   "slug": "nepal",
+   "url": "https://www.gov.uk/foreign-travel-advice/nepal",
+   "public_updated_at": "2026-08-06T10:10:31+01:00",
+   "reviewed_at": "2026-08-06T09:10:31Z",
+   "etag": "W/\"a1dd8484b7e4954b1514a38f31065d9e\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "netherlands": {
+   "country": "Netherlands",
+   "slug": "netherlands",
+   "url": "https://www.gov.uk/foreign-travel-advice/netherlands",
+   "public_updated_at": "2026-08-11T10:20:34+01:00",
+   "reviewed_at": "2026-08-11T09:20:34Z",
+   "etag": "W/\"1b798a73b8fbd953d5d16ade4ad421b4\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "new-caledonia": {
+   "country": "New Caledonia",
+   "slug": "new-caledonia",
+   "url": "https://www.gov.uk/foreign-travel-advice/new-caledonia",
+   "public_updated_at": "2025-12-10T13:19:36+00:00",
+   "reviewed_at": "2025-12-10T13:19:36Z",
+   "etag": "W/\"620b82274a44b2cdd846473f1482e1a7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "new-zealand": {
+   "country": "New Zealand",
+   "slug": "new-zealand",
+   "url": "https://www.gov.uk/foreign-travel-advice/new-zealand",
+   "public_updated_at": "2026-03-19T14:06:12+00:00",
+   "reviewed_at": "2026-03-19T14:06:12Z",
+   "etag": "W/\"3eee70c4b4148fdddab2f3e6d126d62f\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "nicaragua": {
+   "country": "Nicaragua",
+   "slug": "nicaragua",
+   "url": "https://www.gov.uk/foreign-travel-advice/nicaragua",
+   "public_updated_at": "2025-12-10T13:20:42+00:00",
+   "reviewed_at": "2025-12-10T13:20:42Z",
+   "etag": "W/\"a7eee84b6e0fa49ba952414d29a00dce\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "niger": {
+   "country": "Niger",
+   "slug": "niger",
+   "url": "https://www.gov.uk/foreign-travel-advice/niger",
+   "public_updated_at": "2026-06-19T16:00:50+01:00",
+   "reviewed_at": "2026-06-19T15:00:50Z",
+   "etag": "W/\"62ec4a0d95a501817225f09d1ef1ac5c\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Niger This is due to the rise of reported terrorist and criminal kidnappings of foreign nationals which have taken place this year in Niger."
+    },
+    {
+     "form": "against all travel",
+     "text": "advise against all travel to Niger."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel outside the capital Niamey."
+    }
+   ]
+  },
+  "nigeria": {
+   "country": "Nigeria",
+   "slug": "nigeria",
+   "url": "https://www.gov.uk/foreign-travel-advice/nigeria",
+   "public_updated_at": "2026-08-20T15:18:43+01:00",
+   "reviewed_at": "2026-08-20T14:18:43Z",
+   "etag": "W/\"f0983e81883917a3259bff026e8dae56\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Borno State Yobe State Adamawa State Gombe State FCDO advises against all but essential travel to: Bauchi State North West Nigeria FCDO advises against all travel to: Katsina State Zamfara State FCDO advises against all but essential travel to: Kaduna State Kano State Kebbi State Jigawa State Sokoto State North Central Nigeria and the Federal Capital Territory, including Abuja FCDO advises against all but essential travel to: Niger State Kogi State Plateau State Taraba State Kwara State Benue State South East and South South Nigeria FCDO advises against all travel to the riverine areas (the river and swamp locations accessible by boat, but not by road) of Delta, Bayelsa, Rivers, Akwa Ibom and Cross River states."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Borno State Yobe State Adamawa State Gombe State FCDO advises against all but essential travel to: Bauchi state There is a high and increasing threat from Boko Haram or Islamic State West Africa, particularly around transport hubs, religious areas and large gatherings."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: Katsina State Zamfara State FCDO advises against all but essential travel to: Kaduna State Kano State Kebbi State Jigawa State Sokoto State Banditry and violent attacks are frequent and there is a high threat of kidnap."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the riverine areas (the river and swamp locations accessible by boat, but not by road) of Delta, Bayelsa, Rivers, Akwa Ibom and Cross River states."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Bauchi State North West Nigeria FCDO advises against all travel to: Katsina State Zamfara State FCDO advises against all but essential travel to: Kaduna State Kano State Kebbi State Jigawa State Sokoto State North Central Nigeria and the Federal Capital Territory, including Abuja FCDO advises against all but essential travel to: Niger State Kogi State Plateau State Taraba State Kwara State Benue State South East and South South Nigeria FCDO advises against all travel to the riverine areas (the river and swamp locations accessible by boat, but not by road) of Delta, Bayelsa, Rivers, Akwa Ibom and Cross River states."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Abia State non-riverine areas of Delta, Bayelsa, and Rivers States Anambra State Imo State Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Bauchi state There is a high and increasing threat from Boko Haram or Islamic State West Africa, particularly around transport hubs, religious areas and large gatherings."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Kaduna State Kano State Kebbi State Jigawa State Sokoto State Banditry and violent attacks are frequent and there is a high threat of kidnap."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Niger State Kogi State Plateau State Taraba State Kwara State Benue State This advice is due to criminal and militant activity and incidents of intercommunal violence."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: Abia State non-riverine areas of Delta, Bayelsa and Rivers states Anambra State Imo State Militant groups are active across the Niger Delta region and have carried out a number of attacks on oil and gas infrastructure."
+    }
+   ]
+  },
+  "north-korea": {
+   "country": "Korea, DPR (North Korea)",
+   "slug": "north-korea",
+   "url": "https://www.gov.uk/foreign-travel-advice/north-korea",
+   "public_updated_at": "2025-12-10T13:22:30+00:00",
+   "reviewed_at": "2025-12-10T13:22:30Z",
+   "etag": "W/\"97445f52d979752fa119fe968f876c83\"",
+   "posture": "2-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to North Korea The level of tension on the Korean Peninsula remains high."
+    }
+   ]
+  },
+  "north-macedonia": {
+   "country": "North Macedonia",
+   "slug": "north-macedonia",
+   "url": "https://www.gov.uk/foreign-travel-advice/north-macedonia",
+   "public_updated_at": "2026-08-13T16:16:47+01:00",
+   "reviewed_at": "2026-08-13T15:16:47Z",
+   "etag": "W/\"76550374b6d7260660430dd025c61e37\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "norway": {
+   "country": "Norway",
+   "slug": "norway",
+   "url": "https://www.gov.uk/foreign-travel-advice/norway",
+   "public_updated_at": "2026-08-21T21:50:00+01:00",
+   "reviewed_at": "2026-08-21T20:50:00Z",
+   "etag": "W/\"53385d4e5f4b81a490999d99d45dd912\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "oman": {
+   "country": "Oman",
+   "slug": "oman",
+   "url": "https://www.gov.uk/foreign-travel-advice/oman",
+   "public_updated_at": "2026-07-22T13:46:33+01:00",
+   "reviewed_at": "2026-07-22T12:46:33Z",
+   "etag": "W/\"42a183f0d7973d0182950a7338be0065\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "pakistan": {
+   "country": "Pakistan",
+   "slug": "pakistan",
+   "url": "https://www.gov.uk/foreign-travel-advice/pakistan",
+   "public_updated_at": "2026-08-07T10:33:58+01:00",
+   "reviewed_at": "2026-08-07T09:33:58Z",
+   "etag": "W/\"ba5aa2bd4af2b3292eb563cfa651462d\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 10 miles of the border between Pakistan and Afghanistan."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to these areas in Khyber Pakhtunkhwa Province: Bajaur Bannu Buner Chārsadda Dera Ismail Khan Hangu Karak Khyber Kohat Kurram Lakki Marwat Upper Dir Lower Dir Mohmand Orakzai Peshawar, including the city of Peshawar Swat Tank North Waziristan Upper South Waziristan Lower South Waziristan the Karakoram Highway between Mansehra and Chilas via Battagram, Besham City, Dasu and Sazin up to the junction with the N15 the N45 Highway, from the north of the Mardan ring road, to the edge of Chitral City, including Kalash valley FCDO advises against all but essential travel to these areas in Khyber Pakhtunkhwa Province: Malakand Mardan Nowshera Shangla Swabi Balochistan Province FCDO advises against all travel to Balochistan Province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 10 miles of the Line of Control."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Afghanistan and Iran."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to these districts in Khyber Pakhtunkhwa Province: Bajaur Bannu Buner Chārsadda Dera Ismail Khan Hangu Karak Khyber Kohat Kurram Lakki Marwat Upper Dir Lower Dir Mohmand Orakzai Peshawar, including the city of Peshawar Swat Tank North Waziristan Upper South Waziristan Lower South Waziristan FCDO advises against all but essential travel to these areas in Khyber Pakhtunkhwa Province: Malakand Mardan Nowshera Shangla Swabi FCDO advises against travel to much of Khyber Pakhtunkhwa Province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel on the N45 Highway, from the north of the Mardan ring road, to the edge of the city of Chitral because of high crime and terrorism incidents."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Balochistan Province."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 10 miles of the India-Pakistan border area within Pakistan-administered Kashmir, known as the Line of Control."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel on the Highway between Mansehra and Chilas via Battagram, Besham City, Dasu and Sazin up to the junction with the N15."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to these areas in Khyber Pakhtunkhwa Province: Malakand Mardan Nowshera Shangla Swabi Balochistan Province FCDO advises against all travel to Balochistan Province."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel within 5 miles of the international border between Pakistan and India."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Azad Jammu and Kashmir."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to all areas of Sindh Province north of and including the city of Nawabshah."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Dera Ghazi Khan."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to these areas in Khyber Pakhtunkhwa Province: Malakand Mardan Nowshera Shangla Swabi FCDO advises against travel to much of Khyber Pakhtunkhwa Province."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within: 5 miles of the border with India, with the exception of official land crossings (see ‘Crossing land borders’ section ) Except for official border crossing points, foreign nationals are not allowed to travel within certain distances of Pakistan’s international borders."
+    }
+   ]
+  },
+  "palau": {
+   "country": "Palau",
+   "slug": "palau",
+   "url": "https://www.gov.uk/foreign-travel-advice/palau",
+   "public_updated_at": "2025-12-10T13:25:21+00:00",
+   "reviewed_at": "2025-12-10T13:25:21Z",
+   "etag": "W/\"99930c383bc4cebea3f76c193c21eef4\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "palestine": {
+   "country": "Palestine",
+   "slug": "palestine",
+   "url": "https://www.gov.uk/foreign-travel-advice/palestine",
+   "public_updated_at": "2026-07-22T13:43:56+01:00",
+   "reviewed_at": "2026-07-22T12:43:56Z",
+   "etag": "W/\"6749c8a84e0e5b44e86e8c978aa336d1\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Gaza Areas near Gaza FCDO advises against all travel within 500m of the border with Gaza The West Bank FCDO advises against all travel to: Tulkarm Governorate, Jenin Governorate, and Tubas Governorate except Route 90 Northern Israel and Occupied Golan Heights FCDO advises against all travel to: Areas north of Route 89 between Nahariyya and Dalton; north of a straight eastward line from Dalton to Route 91; and north of Route 91 across the Golan Heights, excluding routes 89 and 91 themselves Within 500m of the Area of Separation in the occupied Golan Heights (the ‘Alpha line’)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Gaza (including the waters off Gaza)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 500m of the border with Syria (the ‘Alpha Line’)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 500m of the Area of Separation in the occupied Golan Heights (the ‘Alpha line’)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Sheba’a Farms and Ghajjar."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the camps in Jenin and Nablus settlements and settlement outposts where there have been recent violent incidents – for example, near Beit El, Homesh, Shilo, Evyatar Avoid these locations after dark."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel West Bank FCDO advises against all but essential travel to: The rest of the West Bank, except for: East Jerusalem, Bethlehem Governate, Ramallah Municipality, Jericho municipality and all areas which lie south of it (this includes the Allenby crossing)."
+    }
+   ]
+  },
+  "panama": {
+   "country": "Panama",
+   "slug": "panama",
+   "url": "https://www.gov.uk/foreign-travel-advice/panama",
+   "public_updated_at": "2025-12-10T13:26:25+00:00",
+   "reviewed_at": "2025-12-10T13:26:25Z",
+   "etag": "W/\"6cbf84d1742edb2275971773caa6ff74\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "papua-new-guinea": {
+   "country": "Papua New Guinea",
+   "slug": "papua-new-guinea",
+   "url": "https://www.gov.uk/foreign-travel-advice/papua-new-guinea",
+   "public_updated_at": "2026-08-17T15:35:08+01:00",
+   "reviewed_at": "2026-08-17T14:35:08Z",
+   "etag": "W/\"1b6ec4673d7bf9d0ca77006ac98fca74\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel FCDO advises against all but essential travel to: Hela and Southern Highlands Provinces due to the high risk of tribal fighting Enga Province in the Highlands, except Wabag District Find out more about why FCDO advises against travel ."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to Hela, Southern Highlands and Enga Provinces (except Wabag District) due to the high risk of tribal fighting."
+    }
+   ]
+  },
+  "paraguay": {
+   "country": "Paraguay",
+   "slug": "paraguay",
+   "url": "https://www.gov.uk/foreign-travel-advice/paraguay",
+   "public_updated_at": "2026-01-21T16:11:30+00:00",
+   "reviewed_at": "2026-01-21T16:11:30Z",
+   "etag": "W/\"dfd17d6799e384c2fbd56dff9023068a\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "peru": {
+   "country": "Peru",
+   "slug": "peru",
+   "url": "https://www.gov.uk/foreign-travel-advice/peru",
+   "public_updated_at": "2026-06-22T23:35:12+01:00",
+   "reviewed_at": "2026-06-22T22:35:12Z",
+   "etag": "W/\"ab288cd71714b2b2d8068b365e65d58b\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Within 20km south of the Peru-Colombia border FCDO advises against all but essential travel to areas within 20km south of the Putumayo River and the border between Peru and Colombia (Loreto region) except for: the Amazon River the area of the triple border with Brazil and Colombia from and including the towns of Caballococha in Peru up to the actual triple border at Santa Rosa de Yavari town Valley of the Apurímac, Ene, and Mantaro Rivers ( VRAEM ) FCDO advises against all but essential travel to the Valley of the Apurímac, Ene, and Mantaro Rivers, also known as the VRAEM region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advise against all but essential travel to these two areas for safety and security reasons."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to areas within 20km south of the Putumayo River and the border between Peru and Colombia (Loreto region) except for: the Amazon River the area of the triple border with Brazil and Colombia from and including the towns of Caballococha in Peru up to the actual triple border at Santa Rosa de Yavari town This is due to a high level of violence from organised criminal gangs who produce and traffic illegal drugs."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the Valley of the Apurímac, Ene and Mantaro Rivers, also known as the VRAEM region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel."
+    }
+   ]
+  },
+  "philippines": {
+   "country": "Philippines",
+   "slug": "philippines",
+   "url": "https://www.gov.uk/foreign-travel-advice/philippines",
+   "public_updated_at": "2026-07-15T09:55:25+01:00",
+   "reviewed_at": "2026-07-15T08:55:25Z",
+   "etag": "W/\"8fc6331466c8ca9ba1a0553c1abc8461\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to western and central Mindanao and the Sulu archipelago."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the remainder of Mindanao, except for: Camiguin Island Dinagat Island Siargao Island This advice is due to terrorist activity and clashes between the military and insurgent groups in south Philippines."
+    }
+   ]
+  },
+  "pitcairn-island": {
+   "country": "Pitcairn Island",
+   "slug": "pitcairn-island",
+   "url": "https://www.gov.uk/foreign-travel-advice/pitcairn-island",
+   "public_updated_at": "2025-03-27T16:14:53+00:00",
+   "reviewed_at": "2025-03-27T16:14:53Z",
+   "etag": "W/\"5326b0d3b6382540a5a31368ce4fe760\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "poland": {
+   "country": "Poland",
+   "slug": "poland",
+   "url": "https://www.gov.uk/foreign-travel-advice/poland",
+   "public_updated_at": "2026-08-11T10:21:18+01:00",
+   "reviewed_at": "2026-08-11T09:21:18Z",
+   "etag": "W/\"09cad0eeb61870183a5c729a66bceee9\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Belarus ."
+    }
+   ]
+  },
+  "portugal": {
+   "country": "Portugal",
+   "slug": "portugal",
+   "url": "https://www.gov.uk/foreign-travel-advice/portugal",
+   "public_updated_at": "2026-08-11T10:21:44+01:00",
+   "reviewed_at": "2026-08-11T09:21:44Z",
+   "etag": "W/\"30e9923e07ec4b09965fe0b00992cca9\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "qatar": {
+   "country": "Qatar",
+   "slug": "qatar",
+   "url": "https://www.gov.uk/foreign-travel-advice/qatar",
+   "public_updated_at": "2026-08-19T14:38:09+01:00",
+   "reviewed_at": "2026-08-19T13:38:09Z",
+   "etag": "W/\"b9dd75cf75b421a0535db74ebdc3ac65\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "reunion": {
+   "country": "Réunion",
+   "slug": "reunion",
+   "url": "https://www.gov.uk/foreign-travel-advice/reunion",
+   "public_updated_at": "2025-12-10T13:30:27+00:00",
+   "reviewed_at": "2025-12-10T13:30:27Z",
+   "etag": "W/\"e1a84b41b18086fb28c962cee21b1d9c\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "romania": {
+   "country": "Romania",
+   "slug": "romania",
+   "url": "https://www.gov.uk/foreign-travel-advice/romania",
+   "public_updated_at": "2026-08-11T10:22:08+01:00",
+   "reviewed_at": "2026-08-11T09:22:08Z",
+   "etag": "W/\"2c2afa47447450f3409bc3425df33b2b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "russia": {
+   "country": "Russia",
+   "slug": "russia",
+   "url": "https://www.gov.uk/foreign-travel-advice/russia",
+   "public_updated_at": "2026-07-03T09:40:32+01:00",
+   "reviewed_at": "2026-07-03T08:40:32Z",
+   "etag": "W/\"2d56948c412273010fd9fb930d0476cf\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Russia FCDO advises against all travel to Russia due to the risks and threats from its continuing invasion of Ukraine, including: security incidents, such as drone attacks, and Russian air defence activity lack of flights to return to the UK limited ability for the UK government to provide support There is an increased risk of British nationals being detained in Russia, including if the Russian authorities suspect you of engaging in or supporting activities against Russian law, even if activities took place outside Russia."
+    }
+   ]
+  },
+  "rwanda": {
+   "country": "Rwanda",
+   "slug": "rwanda",
+   "url": "https://www.gov.uk/foreign-travel-advice/rwanda",
+   "public_updated_at": "2026-06-10T15:14:19+01:00",
+   "reviewed_at": "2026-06-10T14:14:19Z",
+   "etag": "W/\"efc98b297df7546b1ce4a0ac8b1e305b\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel Rusizi District FCDO advises against all but essential travel to the parts of Rusizi District which are within 10km of the border with the Democratic Republic of Congo (DRC), including the Rwandan islands in Lake Kivu and Kamembe Airport."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to parts of the Rubavu and Rusizi Districts."
+    }
+   ]
+  },
+  "samoa": {
+   "country": "Samoa",
+   "slug": "samoa",
+   "url": "https://www.gov.uk/foreign-travel-advice/samoa",
+   "public_updated_at": "2026-03-19T14:02:53+00:00",
+   "reviewed_at": "2026-03-19T14:02:53Z",
+   "etag": "W/\"4098aa3ebd1804d3c53b4583856478ca\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "san-marino": {
+   "country": "San Marino",
+   "slug": "san-marino",
+   "url": "https://www.gov.uk/foreign-travel-advice/san-marino",
+   "public_updated_at": "2025-12-10T13:33:32+00:00",
+   "reviewed_at": "2025-12-10T13:33:32Z",
+   "etag": "W/\"183966b464235b6e2c18bd8acd111753\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "sao-tome-and-principe": {
+   "country": "Sao Tome & Príncipe",
+   "slug": "sao-tome-and-principe",
+   "url": "https://www.gov.uk/foreign-travel-advice/sao-tome-and-principe",
+   "public_updated_at": "2025-12-10T13:33:54+00:00",
+   "reviewed_at": "2025-12-10T13:33:54Z",
+   "etag": "W/\"1a1df72ec509df2371cab857f30f48a5\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "saudi-arabia": {
+   "country": "Saudi Arabia",
+   "slug": "saudi-arabia",
+   "url": "https://www.gov.uk/foreign-travel-advice/saudi-arabia",
+   "public_updated_at": "2026-07-25T18:34:42+01:00",
+   "reviewed_at": "2026-07-25T17:34:42Z",
+   "etag": "W/\"eb50431d746123a56605208cde5c775c\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "bulleted",
+     "text": "advises against: all travel to within 10km of the border with Yemen all but essential travel to areas between 10km and 80km from the border with Yemen"
+    }
+   ]
+  },
+  "senegal": {
+   "country": "Senegal",
+   "slug": "senegal",
+   "url": "https://www.gov.uk/foreign-travel-advice/senegal",
+   "public_updated_at": "2026-05-13T16:45:46+01:00",
+   "reviewed_at": "2026-05-13T15:45:46Z",
+   "etag": "W/\"8337f78b9c76cc7c521730a59143814d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "serbia": {
+   "country": "Serbia",
+   "slug": "serbia",
+   "url": "https://www.gov.uk/foreign-travel-advice/serbia",
+   "public_updated_at": "2026-08-13T16:18:02+01:00",
+   "reviewed_at": "2026-08-13T15:18:02Z",
+   "etag": "W/\"a0e5225af831ca8e3fe55fcb991b564f\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "seychelles": {
+   "country": "Seychelles",
+   "slug": "seychelles",
+   "url": "https://www.gov.uk/foreign-travel-advice/seychelles",
+   "public_updated_at": "2026-01-21T12:01:13+00:00",
+   "reviewed_at": "2026-01-21T12:01:13Z",
+   "etag": "W/\"787b6ebad3312af45344b574b7412441\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "sierra-leone": {
+   "country": "Sierra Leone",
+   "slug": "sierra-leone",
+   "url": "https://www.gov.uk/foreign-travel-advice/sierra-leone",
+   "public_updated_at": "2026-06-19T15:34:37+01:00",
+   "reviewed_at": "2026-06-19T14:34:37Z",
+   "etag": "W/\"f0e51f3024ca8a2d8eadbaeb4cdb5375\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "singapore": {
+   "country": "Singapore",
+   "slug": "singapore",
+   "url": "https://www.gov.uk/foreign-travel-advice/singapore",
+   "public_updated_at": "2026-03-19T14:08:04+00:00",
+   "reviewed_at": "2026-03-19T14:08:04Z",
+   "etag": "W/\"6148f86c638b8daeb65221d52f26a63d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "slovakia": {
+   "country": "Slovakia",
+   "slug": "slovakia",
+   "url": "https://www.gov.uk/foreign-travel-advice/slovakia",
+   "public_updated_at": "2026-08-11T10:22:25+01:00",
+   "reviewed_at": "2026-08-11T09:22:25Z",
+   "etag": "W/\"03f9dbbd1a84a5a35b86dc700b070d6b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "slovenia": {
+   "country": "Slovenia",
+   "slug": "slovenia",
+   "url": "https://www.gov.uk/foreign-travel-advice/slovenia",
+   "public_updated_at": "2026-08-11T10:22:42+01:00",
+   "reviewed_at": "2026-08-11T09:22:42Z",
+   "etag": "W/\"b4230a0d74e7522405952396cd370b2d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "solomon-islands": {
+   "country": "Solomon Islands",
+   "slug": "solomon-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/solomon-islands",
+   "public_updated_at": "2026-05-26T09:39:14+01:00",
+   "reviewed_at": "2026-05-26T08:39:14Z",
+   "etag": "W/\"938ad8f0969759744ae9138c22856d6d\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "somalia": {
+   "country": "Somalia",
+   "slug": "somalia",
+   "url": "https://www.gov.uk/foreign-travel-advice/somalia",
+   "public_updated_at": "2026-06-04T15:57:41+01:00",
+   "reviewed_at": "2026-06-04T14:57:41Z",
+   "etag": "W/\"188d2b1dbaa8098bf644d65d97aee579\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Somalia, including Somaliland, except for the regions of Awdal, Maroodijeh, and Sahil."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the regions of Toghdeer, Sanaag and Sool in eastern Somaliland."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the rest of Somalia."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the regions of Awdal, Maroodijeh, and Sahil."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the 3 western regions of Somaliland – Awdal (including Boorama), Maroodijeh (including Hargeisa) and Sahil (including Berbera)."
+    }
+   ]
+  },
+  "south-africa": {
+   "country": "South Africa",
+   "slug": "south-africa",
+   "url": "https://www.gov.uk/foreign-travel-advice/south-africa",
+   "public_updated_at": "2026-07-08T16:36:29+01:00",
+   "reviewed_at": "2026-07-08T15:36:29Z",
+   "etag": "W/\"244ed832cfe9534e078441b567bc2989\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "south-georgia-and-south-sandwich-islands": {
+   "country": "South Georgia and South Sandwich Islands (British Overseas Territory)",
+   "slug": "south-georgia-and-south-sandwich-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/south-georgia-and-south-sandwich-islands",
+   "public_updated_at": "2025-09-24T11:48:52+01:00",
+   "reviewed_at": "2025-09-24T10:48:52Z",
+   "etag": "W/\"31a8c6ff937bf3b60ef6e72d14e643cb\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "south-korea": {
+   "country": "South Korea",
+   "slug": "south-korea",
+   "url": "https://www.gov.uk/foreign-travel-advice/south-korea",
+   "public_updated_at": "2026-05-14T11:06:39+01:00",
+   "reviewed_at": "2026-05-14T10:06:39Z",
+   "etag": "W/\"012f36a4e2bf6ff831782c052ccd52f7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "south-sudan": {
+   "country": "South Sudan",
+   "slug": "south-sudan",
+   "url": "https://www.gov.uk/foreign-travel-advice/south-sudan",
+   "public_updated_at": "2026-05-26T13:55:03+01:00",
+   "reviewed_at": "2026-05-26T12:55:03Z",
+   "etag": "W/\"e3a28d3aed78ae6612be9dcd44aaf559\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to South Sudan FCDO advises against all travel to South Sudan due to the risk of armed violence and criminality."
+    },
+    {
+     "form": "against all travel",
+     "text": "advise against all travel to South Sudan."
+    }
+   ]
+  },
+  "spain": {
+   "country": "Spain",
+   "slug": "spain",
+   "url": "https://www.gov.uk/foreign-travel-advice/spain",
+   "public_updated_at": "2026-08-12T16:46:24+01:00",
+   "reviewed_at": "2026-08-12T15:46:24Z",
+   "etag": "W/\"a52242111b596072dc356272b64cd703\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "sri-lanka": {
+   "country": "Sri Lanka",
+   "slug": "sri-lanka",
+   "url": "https://www.gov.uk/foreign-travel-advice/sri-lanka",
+   "public_updated_at": "2026-05-26T15:31:56+01:00",
+   "reviewed_at": "2026-05-26T14:31:56Z",
+   "etag": "W/\"11adfadf49f666ccd31b59ed227dbe77\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-helena-ascension-and-tristan-da-cunha": {
+   "country": "St Helena, Ascension and Tristan da Cunha",
+   "slug": "st-helena-ascension-and-tristan-da-cunha",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-helena-ascension-and-tristan-da-cunha",
+   "public_updated_at": "2026-07-07T11:04:38+01:00",
+   "reviewed_at": "2026-07-07T10:04:38Z",
+   "etag": "W/\"73b9b40f7c069225249cb636ba3bb32f\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-kitts-and-nevis": {
+   "country": "St Kitts and Nevis",
+   "slug": "st-kitts-and-nevis",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-kitts-and-nevis",
+   "public_updated_at": "2026-01-05T14:54:43+00:00",
+   "reviewed_at": "2026-01-05T14:54:43Z",
+   "etag": "W/\"30c8cdf8e9fac71f664a8f0879995859\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-lucia": {
+   "country": "St Lucia",
+   "slug": "st-lucia",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-lucia",
+   "public_updated_at": "2025-12-10T12:34:04+00:00",
+   "reviewed_at": "2025-12-10T12:34:04Z",
+   "etag": "W/\"64496317e5a1dc841ecdb832aae1ce44\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-maarten": {
+   "country": "St Maarten",
+   "slug": "st-maarten",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-maarten",
+   "public_updated_at": "2025-12-10T12:38:22+00:00",
+   "reviewed_at": "2025-12-10T12:38:22Z",
+   "etag": "W/\"5a78eae8d93917356a7ed5f532baac47\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-martin-and-st-barthelemy": {
+   "country": "St Martin and St Barthélemy",
+   "slug": "st-martin-and-st-barthelemy",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-martin-and-st-barthelemy",
+   "public_updated_at": "2025-12-10T12:39:06+00:00",
+   "reviewed_at": "2025-12-10T12:39:06Z",
+   "etag": "W/\"d8a501988809e681610efab2b3149241\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-pierre-and-miquelon": {
+   "country": "St Pierre & Miquelon",
+   "slug": "st-pierre-and-miquelon",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-pierre-and-miquelon",
+   "public_updated_at": "2025-12-10T12:39:48+00:00",
+   "reviewed_at": "2025-12-10T12:39:48Z",
+   "etag": "W/\"b99841844d16417ea682e960c4176c25\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "st-vincent-and-the-grenadines": {
+   "country": "St Vincent and the Grenadines",
+   "slug": "st-vincent-and-the-grenadines",
+   "url": "https://www.gov.uk/foreign-travel-advice/st-vincent-and-the-grenadines",
+   "public_updated_at": "2026-04-23T14:50:31+01:00",
+   "reviewed_at": "2026-04-23T13:50:31Z",
+   "etag": "W/\"a8eea1d0e9348138a393fb0e7769d503\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "sudan": {
+   "country": "Sudan",
+   "slug": "sudan",
+   "url": "https://www.gov.uk/foreign-travel-advice/sudan",
+   "public_updated_at": "2026-05-11T16:07:13+01:00",
+   "reviewed_at": "2026-05-11T15:07:13Z",
+   "etag": "W/\"a7308b0789a9904fdbd1d1e951ba8074\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Sudan because of the ongoing military conflict in Khartoum and other parts of the country."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel."
+    }
+   ]
+  },
+  "suriname": {
+   "country": "Suriname",
+   "slug": "suriname",
+   "url": "https://www.gov.uk/foreign-travel-advice/suriname",
+   "public_updated_at": "2025-12-10T12:41:46+00:00",
+   "reviewed_at": "2025-12-10T12:41:46Z",
+   "etag": "W/\"59699ad08af9f72d0a71b1946fa21d80\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "sweden": {
+   "country": "Sweden",
+   "slug": "sweden",
+   "url": "https://www.gov.uk/foreign-travel-advice/sweden",
+   "public_updated_at": "2026-08-11T10:23:29+01:00",
+   "reviewed_at": "2026-08-11T09:23:29Z",
+   "etag": "W/\"40863b9f701904382c1ec94bed95a986\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "switzerland": {
+   "country": "Switzerland",
+   "slug": "switzerland",
+   "url": "https://www.gov.uk/foreign-travel-advice/switzerland",
+   "public_updated_at": "2026-08-11T10:23:45+01:00",
+   "reviewed_at": "2026-08-11T09:23:45Z",
+   "etag": "W/\"a6781295563a109ae018403d75023ae8\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "syria": {
+   "country": "Syria",
+   "slug": "syria",
+   "url": "https://www.gov.uk/foreign-travel-advice/syria",
+   "public_updated_at": "2026-07-22T13:44:10+01:00",
+   "reviewed_at": "2026-07-22T12:44:10Z",
+   "etag": "W/\"0146a2c7294bbb0afc696a75e20eeb15\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Syria FCDO advises against all travel to Syria due to unpredictable security conditions and the threat of terrorist attacks."
+    }
+   ]
+  },
+  "taiwan": {
+   "country": "Taiwan",
+   "slug": "taiwan",
+   "url": "https://www.gov.uk/foreign-travel-advice/taiwan",
+   "public_updated_at": "2026-08-07T15:01:42+01:00",
+   "reviewed_at": "2026-08-07T14:01:42Z",
+   "etag": "W/\"0545de8060f77194ac9c15cba4158a6b\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "tajikistan": {
+   "country": "Tajikistan",
+   "slug": "tajikistan",
+   "url": "https://www.gov.uk/foreign-travel-advice/tajikistan",
+   "public_updated_at": "2026-08-19T15:15:52+01:00",
+   "reviewed_at": "2026-08-19T14:15:52Z",
+   "etag": "W/\"72e16d106a1de908536371183033c2bf\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "tanzania": {
+   "country": "Tanzania",
+   "slug": "tanzania",
+   "url": "https://www.gov.uk/foreign-travel-advice/tanzania",
+   "public_updated_at": "2026-05-19T15:47:49+01:00",
+   "reviewed_at": "2026-05-19T14:47:49Z",
+   "etag": "W/\"4633a259bf8b6ca9d90eefc9b76f2870\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to parts of Tanzania Tanzania FCDO advises against all but essential travel to any area within 20km of the Tanzanian border with the Cabo Delgado province of Mozambique, due to attacks by groups linked with Islamic extremism."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to any area within 20km of the Tanzanian border with the Cabo Delgado province of Mozambique, due to attacks by groups linked with Islamic extremism."
+    }
+   ]
+  },
+  "thailand": {
+   "country": "Thailand",
+   "slug": "thailand",
+   "url": "https://www.gov.uk/foreign-travel-advice/thailand",
+   "public_updated_at": "2026-06-30T12:30:58+01:00",
+   "reviewed_at": "2026-06-30T11:30:58Z",
+   "etag": "W/\"861220fcabdf9c382b02ff2be5998705\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to parts of the south, near the Thailand-Malaysia border: Pattani Province Yala Province Narathiwat Province The districts of Chana, Thepa, Na Thawi and Saba Yoi in southern Songkhla Province FCDO also advises against all but essential travel on the Hat Yai to Padang Besar train line that runs through these provinces."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to areas within 20km of the land border with Cambodia."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to these provinces."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 20km of the land border with Cambodia."
+    }
+   ]
+  },
+  "the-gambia": {
+   "country": "The Gambia",
+   "slug": "the-gambia",
+   "url": "https://www.gov.uk/foreign-travel-advice/the-gambia",
+   "public_updated_at": "2026-07-07T11:18:39+01:00",
+   "reviewed_at": "2026-07-07T10:18:39Z",
+   "etag": "W/\"436662e66965b6a91b674cd0397d61d8\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "timor-leste": {
+   "country": "East Timor (Timor-Leste)",
+   "slug": "timor-leste",
+   "url": "https://www.gov.uk/foreign-travel-advice/timor-leste",
+   "public_updated_at": "2025-12-10T12:48:06+00:00",
+   "reviewed_at": "2025-12-10T12:48:06Z",
+   "etag": "W/\"4ac008d999e3beb5d7bb9696531228be\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "togo": {
+   "country": "Togo",
+   "slug": "togo",
+   "url": "https://www.gov.uk/foreign-travel-advice/togo",
+   "public_updated_at": "2025-12-15T16:47:10+00:00",
+   "reviewed_at": "2025-12-15T16:47:10Z",
+   "etag": "W/\"3b7476c96e84c360f0c67122d5c865b9\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 30km of the border with Burkina Faso, except for: the city of Dapaong and the N1 highway leading to it from the south."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the border with Burkina Faso, due to the security situation in Burkina Faso."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 5km of the border with Burkina Faso, due to the security situation in Burkina Faso and the risk of kidnapping in the region."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the rest of the Savanes region."
+    }
+   ]
+  },
+  "tonga": {
+   "country": "Tonga",
+   "slug": "tonga",
+   "url": "https://www.gov.uk/foreign-travel-advice/tonga",
+   "public_updated_at": "2026-03-19T14:02:58+00:00",
+   "reviewed_at": "2026-03-19T14:02:58Z",
+   "etag": "W/\"3023bd6c41f908f72bce67fabf998f04\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "trinidad-and-tobago": {
+   "country": "Trinidad and Tobago",
+   "slug": "trinidad-and-tobago",
+   "url": "https://www.gov.uk/foreign-travel-advice/trinidad-and-tobago",
+   "public_updated_at": "2026-07-30T16:58:19+01:00",
+   "reviewed_at": "2026-07-30T15:58:19Z",
+   "etag": "W/\"46fcfe9957344e46e2a27e41f6ca3fc3\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "tunisia": {
+   "country": "Tunisia",
+   "slug": "tunisia",
+   "url": "https://www.gov.uk/foreign-travel-advice/tunisia",
+   "public_updated_at": "2026-07-24T17:07:53+01:00",
+   "reviewed_at": "2026-07-24T16:07:53Z",
+   "etag": "W/\"71b962f31c834f90fb0b34dbcc0eb50c\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: the Chaambi Mountains National Park the designated military operations zones: Mount Salloum Mount Sammamma Mount Mghila This is due to cross-border terrorist activity and operations by the Tunisian security forces."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: the militarised zone south of the towns of El Borma and Dhehiba within 20km of the rest of the Tunisia-Libya border area north of Dhehiba the town of Ben Guerdane and immediate surrounding area This is due to cross-border terrorist activity and fighting in Libya."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: the Chaambi Mountains National Park the designated military operations zones: Mount Salloum Mount Sammamma Mount Mghila In addition, FCDO advises against all but essential travel to: areas north and west of the town of Ghardimaou in Jendouba Governorate, including El Feidja National Park within 20km of the Tunisia-Algeria border in El Kef and Jendouba governorates, south of the town of Jendouba, including the archaeological site of Chemtou Kasserine Governorate, including the town of Sbeitla within 10km of the rest of the Tunisia-Algeria border south of Kasserine Governorate within 10km of Mount Mghila Mount Orbata There is a heightened Tunisian security presence at the border with Algeria."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: the militarised zone south of the towns of El Borma and Dhehiba within 20km of the rest of the Tunisia-Libya border area north of Dhehiba the town of Ben Guerdane and immediate surrounding area In addition, FCDO advises against all but essential travel to within 75km of the Tunisia-Libya border, including Remada and El Borma but excluding Zarzis, the C118 road and all areas in Medenine Governorate north of the road."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: areas north and west of the town of Ghardimaou in Jendouba Governorate, including El Feidja National Park within 20km of the Tunisia-Algeria border in El Kef and Jendouba governorates, south of the town of Jendouba Kasserine Governorate, including the town of Sbeitla within 10km of the rest of the Tunisia-Algeria border south of Kasserine Governorate within 10km of Mount Mghila Mount Orbata Southern Tunisia, including the Tunisia-Libya border FCDO advises against all travel to: the militarised zone south of the towns of El Borma and Dhehiba within 20km of the rest of the Tunisia-Libya border area north of Dhehiba the town of Ben Guerdane and immediate surrounding area This is due to cross-border terrorist activity and fighting in Libya."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to within 75km of the Tunisia-Libya border, including Remada and El Borma but excluding Zarzis, the C118 road and all areas in Medenine Governorate north of the road."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to: areas north and west of the town of Ghardimaou in Jendouba Governorate, including El Feidja National Park within 20km of the Tunisia-Algeria border in El Kef and Jendouba governorates, south of the town of Jendouba, including the archaeological site of Chemtou Kasserine Governorate, including the town of Sbeitla within 10km of the rest of the Tunisia-Algeria border south of Kasserine Governorate within 10km of Mount Mghila Mount Orbata There is a heightened Tunisian security presence at the border with Algeria."
+    }
+   ]
+  },
+  "turkey": {
+   "country": "Turkey",
+   "slug": "turkey",
+   "url": "https://www.gov.uk/foreign-travel-advice/turkey",
+   "public_updated_at": "2026-07-22T13:48:23+01:00",
+   "reviewed_at": "2026-07-22T12:48:23Z",
+   "etag": "W/\"9abbb9ce85dccee840a2ee06cc4d6e5e\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 10km of the border with Syria due to fighting and a heightened risk of terrorism."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel within 10km of the Turkey-Syria border."
+    }
+   ]
+  },
+  "turkmenistan": {
+   "country": "Turkmenistan",
+   "slug": "turkmenistan",
+   "url": "https://www.gov.uk/foreign-travel-advice/turkmenistan",
+   "public_updated_at": "2026-06-04T13:53:56+01:00",
+   "reviewed_at": "2026-06-04T12:53:56Z",
+   "etag": "W/\"a4e98c33da95e75ecf2824c1c1d7cd24\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "turks-and-caicos-islands": {
+   "country": "Turks and Caicos Islands (British Overseas Territory)",
+   "slug": "turks-and-caicos-islands",
+   "url": "https://www.gov.uk/foreign-travel-advice/turks-and-caicos-islands",
+   "public_updated_at": "2026-03-13T16:34:25+00:00",
+   "reviewed_at": "2026-03-13T16:34:25Z",
+   "etag": "W/\"d693c8112dc89334e87fb5c8241c3def\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "tuvalu": {
+   "country": "Tuvalu",
+   "slug": "tuvalu",
+   "url": "https://www.gov.uk/foreign-travel-advice/tuvalu",
+   "public_updated_at": "2026-03-19T14:07:18+00:00",
+   "reviewed_at": "2026-03-19T14:07:18Z",
+   "etag": "W/\"98735aafadb7c948072377209db0f2df\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "uganda": {
+   "country": "Uganda",
+   "slug": "uganda",
+   "url": "https://www.gov.uk/foreign-travel-advice/uganda",
+   "public_updated_at": "2026-07-27T15:00:28+01:00",
+   "reviewed_at": "2026-07-27T14:00:28Z",
+   "etag": "W/\"1fa8ad73fd498127bb6cc949052e76a3\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the DRC provinces that border Uganda."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to these DRC provinces."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the provinces of DRC that border Uganda, including Virunga National Park."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to South Sudan."
+    }
+   ]
+  },
+  "ukraine": {
+   "country": "Ukraine",
+   "slug": "ukraine",
+   "url": "https://www.gov.uk/foreign-travel-advice/ukraine",
+   "public_updated_at": "2026-08-14T15:37:09+01:00",
+   "reviewed_at": "2026-08-14T14:37:09Z",
+   "etag": "W/\"d35cecb5bc8e98d3ffeaf84bf47f10eb\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Crimea."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 50km of the border with Belarus in the following regions: Volyn Rivne Zhytomyr This is due to the ongoing presence of Russian and Belarusian military and security personnel on the Belarusian side of the border."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to all other regions of Ukraine (with the exception of some Western regions; see below)."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel, they can and do also happen in the western regions, where FCDO advice is against all but essential travel."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel, to leave these areas, if they judge it safe to do so."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Transnistria."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Belarus."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Russia."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to all regions in eastern Ukraine, including any Ukrainian territories which are temporarily under Russian control."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to within 50km of the border with Belarus in the regions of: Volyn Rivne Zhytomyr This is due to the ongoing presence of Russian and Belarusian military and security personnel on the Belarusian side of the border."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to all other regions of Ukraine except for specific regions of western Ukraine (see below)."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel FCDO advises against all but essential travel to the following regions in western Ukraine: All parts: Zakarpattia Ivano-Frankivsk Ternopil Chernivtsi Lviv Parts further than 50km from the border with Belarus: (see Border with Belarus above) Volyn Rivne Zhytomyr Russian invasion of Ukraine The Russian invasion of Ukraine is ongoing, with frequent missile and drone attacks across the country, which injure and kill civilians and cause significant damage to civilian infrastructure, including residential areas, energy, industrial, rail and related facilities."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the regions of: Zakarpattia Ivano-Frankivsk Ternopil Chernivtsi Lviv Volyn Rivne Zhytomyr In the event of attacks, follow the advice of the local authorities, including responding to air raid sirens."
+    }
+   ]
+  },
+  "united-arab-emirates": {
+   "country": "United Arab Emirates",
+   "slug": "united-arab-emirates",
+   "url": "https://www.gov.uk/foreign-travel-advice/united-arab-emirates",
+   "public_updated_at": "2026-07-24T15:52:23+01:00",
+   "reviewed_at": "2026-07-24T14:52:23Z",
+   "etag": "W/\"e5057b0791d9f46f9b7b5a85fc9b2a8f\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "uruguay": {
+   "country": "Uruguay",
+   "slug": "uruguay",
+   "url": "https://www.gov.uk/foreign-travel-advice/uruguay",
+   "public_updated_at": "2025-12-10T13:00:39+00:00",
+   "reviewed_at": "2025-12-10T13:00:39Z",
+   "etag": "W/\"62bcfd22056400343546142af9f66ad9\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "usa": {
+   "country": "USA",
+   "slug": "usa",
+   "url": "https://www.gov.uk/foreign-travel-advice/usa",
+   "public_updated_at": "2026-08-18T10:29:04+01:00",
+   "reviewed_at": "2026-08-18T09:29:04Z",
+   "etag": "W/\"6ae38b7205fa9a72060dddb938c07f6f\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "uzbekistan": {
+   "country": "Uzbekistan",
+   "slug": "uzbekistan",
+   "url": "https://www.gov.uk/foreign-travel-advice/uzbekistan",
+   "public_updated_at": "2026-03-19T14:06:30+00:00",
+   "reviewed_at": "2026-03-19T14:06:30Z",
+   "etag": "W/\"45de9c0dcf198b1e60bea46b2bea72e7\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "vanuatu": {
+   "country": "Vanuatu",
+   "slug": "vanuatu",
+   "url": "https://www.gov.uk/foreign-travel-advice/vanuatu",
+   "public_updated_at": "2026-03-19T14:02:48+00:00",
+   "reviewed_at": "2026-03-19T14:02:48Z",
+   "etag": "W/\"6479eec265661d02677d3df8cc78af23\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "venezuela": {
+   "country": "Venezuela",
+   "slug": "venezuela",
+   "url": "https://www.gov.uk/foreign-travel-advice/venezuela",
+   "public_updated_at": "2026-07-01T19:10:05+01:00",
+   "reviewed_at": "2026-07-01T18:10:05Z",
+   "etag": "W/\"59ef5a35ad3f34850155ba205e58af26\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts",
+    "avoid_all_but_essential_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel Border areas FCDO advises against all travel to: within 80km (50 miles) of the border with Colombia within 40km (25 miles) of the border with Brazil within 40km (25 miles) of the border with Guyana Bolívar FCDO advises against all travel to the Orinoco Mining Arc (‘Arco Minero’) region to the south of the Orinoco river."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the area to the south of the Orinoco river."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Zulia state."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the Orinoco Mining Arc (‘Arco Minero’) region to the south of the Orinoco river."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to the area to the south of the Orinoco river, where drug traffickers and illegal armed groups are active."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Zulia state due to the presence of illegal armed groups and ongoing crime and violence."
+    },
+    {
+     "form": "against all but essential travel",
+     "text": "advises against all but essential travel to the remaining areas of Venezuela If you are a British national already living or travelling in Venezuela, you should be prepared to change your plans quickly if necessary."
+    }
+   ]
+  },
+  "vietnam": {
+   "country": "Vietnam",
+   "slug": "vietnam",
+   "url": "https://www.gov.uk/foreign-travel-advice/vietnam",
+   "public_updated_at": "2026-06-26T12:10:13+01:00",
+   "reviewed_at": "2026-06-26T11:10:13Z",
+   "etag": "W/\"952623f69355424391e633eda76ffa85\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "wallis-and-futuna": {
+   "country": "Wallis & Futuna Islands",
+   "slug": "wallis-and-futuna",
+   "url": "https://www.gov.uk/foreign-travel-advice/wallis-and-futuna",
+   "public_updated_at": "2025-12-10T13:02:12+00:00",
+   "reviewed_at": "2025-12-10T13:02:12Z",
+   "etag": "W/\"c2a3b3cee7db8abf575075c0c9b36ffc\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "western-sahara": {
+   "country": "Western Sahara",
+   "slug": "western-sahara",
+   "url": "https://www.gov.uk/foreign-travel-advice/western-sahara",
+   "public_updated_at": "2026-06-29T14:34:01+01:00",
+   "reviewed_at": "2026-06-29T13:34:01Z",
+   "etag": "W/\"a9bcdaa03ea02f553ecdb30adbe8accb\"",
+   "posture": "AREA-RESTRICTED",
+   "alert_status": [
+    "avoid_all_travel_to_parts"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel FCDO advises against all travel to: Areas in Western Sahara within 40km North and West of ‘the Berm’ boundary line, including the city of Es Semara Areas in Western Sahara the territory south and east of ‘the Berm’ boundary line Western Sahara is a disputed territory."
+    },
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to: within 30km of the Berm boundary line the territory south and east of the Berm boundary line The eastern side of the Berm is sparsely populated with no diplomatic presence from any country."
+    }
+   ]
+  },
+  "yemen": {
+   "country": "Yemen",
+   "slug": "yemen",
+   "url": "https://www.gov.uk/foreign-travel-advice/yemen",
+   "public_updated_at": "2026-07-31T10:35:27+01:00",
+   "reviewed_at": "2026-07-31T09:35:27Z",
+   "etag": "W/\"615392b3f06870d4dfe4bcf71dd0634f\"",
+   "posture": "3-WHOLE-COUNTRY",
+   "alert_status": [
+    "avoid_all_travel_to_whole_country"
+   ],
+   "quotes": [
+    {
+     "form": "against all travel",
+     "text": "advises against all travel to Yemen FCDO advises against all travel to the whole of the Yemen due to the unpredictable security conditions."
+    },
+    {
+     "form": "against all travel",
+     "text": "advise against all travel to Houthi controlled areas."
+    }
+   ]
+  },
+  "zambia": {
+   "country": "Zambia",
+   "slug": "zambia",
+   "url": "https://www.gov.uk/foreign-travel-advice/zambia",
+   "public_updated_at": "2026-06-01T14:58:33+01:00",
+   "reviewed_at": "2026-06-01T13:58:33Z",
+   "etag": "W/\"83ff5d4ca877b0663e243acbeab9c2b4\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  },
+  "zimbabwe": {
+   "country": "Zimbabwe",
+   "slug": "zimbabwe",
+   "url": "https://www.gov.uk/foreign-travel-advice/zimbabwe",
+   "public_updated_at": "2026-07-15T09:15:29+01:00",
+   "reviewed_at": "2026-07-15T08:15:29Z",
+   "etag": "W/\"70f6bd31b7ccafb0e82e5386b5b0d975\"",
+   "posture": "1",
+   "alert_status": [],
+   "quotes": []
+  }
+ }
+}
