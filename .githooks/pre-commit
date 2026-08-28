@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 # TravelWell.World — pre-commit.
 #
-# One job: no commit may leave a generated file out of step with its source.
-# Runs every generator and fails if the repo changed. Takes about a second.
+# Two jobs, a few seconds total:
+#   · no commit may leave a generated file out of step with its source
+#   · no commit may leave the data outside its own gates
+#
+# The second job was added 2026-08-28, after the research library named the
+# failure class from inside their own fix: "fourteen checkers existed and nine
+# had never been invoked once." We carried the same class — validate:providers
+# and check:advisory-text were referenced by NOTHING but themselves, so they
+# were checks only in the sense that a fire extinguisher behind a locked door
+# is safety equipment. Every deterministic, network-free gate now runs here.
+#
+# Deliberately NOT here, and why: check:brand and a11y read the BUILT site, so
+# they belong to the build-and-verify discipline (they'd need a dist/ that a
+# source commit doesn't imply); check:advisory-links needs outbound network,
+# and a blocked run exits nonzero precisely so it can't hand out a tick from
+# an environment that can't verify. Excluding a gate is a stated decision, not
+# a forgotten one — that's the whole lesson.
 #
 # Enabled automatically by `npm install` (the "prepare" script points
 # core.hooksPath at this directory). To set it up by hand:
@@ -27,3 +42,14 @@ if [ ! -x node_modules/.bin/esbuild ]; then
 fi
 
 npm run --silent check:generated
+
+# The data gates — each is sub-second, deterministic, and network-free. Run
+# with output captured and shown only on failure, so a passing commit stays
+# quiet and a failing one says exactly which gate refused and why.
+for gate in validate:ingest validate:si validate:providers check:advisory-text; do
+  if ! out=$(npm run --silent "$gate" 2>&1); then
+    echo "pre-commit: $gate refused this commit:"
+    echo "$out" | tail -20
+    exit 1
+  fi
+done
