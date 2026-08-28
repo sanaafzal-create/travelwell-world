@@ -123,3 +123,32 @@ export function jewelsForSi(
 /** How many destinations contributed — the section says so, so the count is checkable. */
 export const destinationsBehind = (js: PlacedJewel[]): number =>
   new Set(js.map((j) => j.dest.id)).size;
+
+/**
+ * The WHOLE, so the shelf can say a truncation happened (2026-08-28).
+ *
+ * The research library's cap-ratchet named its own blind spot plainly: a
+ * dev-time gate "cannot see that a cap of 12 now cuts a list of 333 — that
+ * needs the list size at runtime, inside her app." This is that. The shelf
+ * line used to present the SHOWN counts as the whole ("24 experiences across
+ * 12 destinations") on an interest holding 586 across 311 — an under-claim no
+ * reader could detect, which is the same defect as a silent truncation, worn
+ * politely. The page now states shown-of-total, so growth under the cap is
+ * visible on the surface it cuts, the day it happens, to everyone.
+ */
+export function jewelTotalsForSi(
+  destinations: Record<string, Destination[]>,
+  siId: string
+): { jewels: number; dests: number } {
+  let jewels = 0;
+  const dests = new Set<string>();
+  for (const list of Object.values(destinations)) {
+    for (const dest of list) {
+      if (dest.status !== "live") continue;
+      for (const jewel of dest.data?.jewels ?? []) {
+        if (jewelSis(jewel).includes(siId)) { jewels++; dests.add(dest.id); }
+      }
+    }
+  }
+  return { jewels, dests: dests.size };
+}

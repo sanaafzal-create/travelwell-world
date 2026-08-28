@@ -4,7 +4,7 @@ import { REGION_SI, taglineSubject, type Region, type SiData } from "@/data/taxo
 import { BackBar } from "@/components/shell/BackBar";
 import { Tagline } from "@/components/ui/primitives";
 import { siJsonLd, useJsonLd } from "@/lib/jsonld";
-import { jewelsForSi, destinationsBehind, type PlacedJewel } from "@/lib/jewels";
+import { jewelsForSi, jewelTotalsForSi, destinationsBehind, type PlacedJewel } from "@/lib/jewels";
 import { type Provider, type Activity, type Destination, providerDesc } from "@/data/places";
 import { siImg, regionImg } from "@/lib/images";
 import { useSiImage } from "@/lib/unsplash";
@@ -362,15 +362,23 @@ function DossierSections({ data }: { data?: SiData }) {
  * — baked into the served HTML by `gen-static-heads` — so a section that rendered
  * on only one layout would tell a crawler about experiences a reader can't see.
  */
-function JewelsSection({ si, jewels }: { si: { name: string }; jewels: PlacedJewel[] }) {
+function JewelsSection({ si, jewels, totals }: { si: { name: string }; jewels: PlacedJewel[]; totals: { jewels: number; dests: number } }) {
   if (!jewels.length) return null;
   const dests = destinationsBehind(jewels);
+  // THE READER CAN TELL THE TRUNCATION HAPPENED (2026-08-28). This line said
+  // "24 experiences across 12 destinations" on an interest holding 586 across
+  // 311 — the shown counts presented as the whole. A dev-time cap check cannot
+  // see a list outgrow its cap; the page can, so the page says shown-of-total
+  // whenever they differ and growth under the cap surfaces the day it happens.
+  const truncated = totals.jewels > jewels.length;
   return (
     <section className="sd-section">
       <span className="eyebrow sd-section__eyebrow">The experiences themselves</span>
       <h2 className="sd-section__title">Don&rsquo;t-miss {si.name.toLowerCase()} experiences</h2>
       <p className="sd-section__sub">
-        Researched, tiered and placed &mdash; {jewels.length} {jewels.length === 1 ? "experience" : "experiences"} across {dests} {dests === 1 ? "destination" : "destinations"}. Open a destination to see it in context.
+        {truncated
+          ? <>Researched, tiered and placed &mdash; a selection of {jewels.length} from our {totals.jewels} experiences across {totals.dests} destinations ({dests} shown here). Open a destination to see everything it holds.</>
+          : <>Researched, tiered and placed &mdash; {jewels.length} {jewels.length === 1 ? "experience" : "experiences"} across {dests} {dests === 1 ? "destination" : "destinations"}. Open a destination to see it in context.</>}
       </p>
       <div className="sd-jewels">
         {jewels.map(({ jewel, dest }, i) => (
@@ -443,7 +451,9 @@ export default function SiDetail() {
   // name-matched photo — the interest's own pick wins, same rule as destinations.
   const heroPhoto = useSiImage(si, 1800, siImg(si.id, 1800));
   // TouristTrip + FAQPage + Event, straight off the dossier (layers 7 and 4b).
-  const placedJewels = jewelsForSi(useDestinations(), si.id);
+  const catalogDests = useDestinations();
+  const placedJewels = jewelsForSi(catalogDests, si.id);
+  const jewelTotals = jewelTotalsForSi(catalogDests, si.id);
   useJsonLd(siJsonLd(si, typeof window !== "undefined" ? window.location.href : "", placedJewels));
 
   const subhead = (
@@ -553,7 +563,7 @@ export default function SiDetail() {
         </div>
         {/* A preview interest with a dossier still shows its depth — the page is
             content-only (no Book button), not empty. Same rule as an L4 destination. */}
-        <JewelsSection si={si} jewels={placedJewels} />
+        <JewelsSection si={si} jewels={placedJewels} totals={jewelTotals} />
         <DossierSections data={si.data} />
         <RegionsSection si={si} />
         <div style={{ height: 80 }} />
@@ -611,7 +621,7 @@ export default function SiDetail() {
         </div>
       </section>
 
-      <JewelsSection si={si} jewels={placedJewels} />
+      <JewelsSection si={si} jewels={placedJewels} totals={jewelTotals} />
 
 
       {rail.length > 0 && (
