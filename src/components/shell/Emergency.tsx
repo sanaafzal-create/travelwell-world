@@ -91,7 +91,7 @@ export function Emergency() {
             <h2 style={{ fontSize: 22 }}>Emergency Help</h2>
             <p className="t-body-s" style={{ color: "var(--muted-foreground)", marginTop: 2 }}>The universal number, your local lines, and quick first-aid steps.</p>
           </div>
-          <button className="tw-iconbtn" aria-label="Close" style={{ width: 36, height: 36, border: 0, background: "var(--surface-alt)" }} onClick={closePanel}>
+          <button className="tw-iconbtn" aria-label="Close" style={{ width: 40, height: 40, border: "1.5px solid var(--border)", background: "var(--surface-alt)" }} onClick={closePanel}>
             <Icon name="close" small />
           </button>
         </div>

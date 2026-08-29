@@ -233,7 +233,7 @@ export function Concierge() {
               Start over
             </button>
           )}
-          <button className="tw-iconbtn" aria-label="Close Concierge" title="Close" style={{ width: 36, height: 36, border: 0, background: "var(--surface-alt)" }} onClick={collapse}>
+          <button className="tw-iconbtn" aria-label="Close Concierge" title="Close" style={{ width: 40, height: 40, border: "1.5px solid var(--border)", background: "var(--surface-alt)" }} onClick={collapse}>
             <Icon name="close" small />
           </button>
         </div>
@@ -280,7 +280,7 @@ export function Concierge() {
                     key={g.lang}
                     lang={g.lang}
                     dir={g.dir as "ltr" | "rtl"}
-                    style={{ padding: "2px 10px", border: "1px solid var(--border)", borderRadius: 999, fontSize: 13, lineHeight: 1.6 }}
+                    style={{ padding: "2px 10px", border: "1px solid var(--border)", borderRadius: 999, fontSize: 13, fontWeight: 600, lineHeight: 1.6 }}
                   >
                     {g.t}
                   </span>

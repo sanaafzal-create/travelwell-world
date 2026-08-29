@@ -26,7 +26,7 @@
    its historic two-line wrap; forcing it flat costs 60px the bar hasn't got. */
 .tw-nav__link--read { white-space: nowrap; }
 .tw-nav__link, .tw-nav__trigger {
-  font-family: var(--font-sans); font-weight: 500; font-size: 15px; color: var(--foreground);
+  font-family: var(--font-sans); font-weight: 500; font-size: 16px; color: var(--foreground);
   background: none; border: 0; cursor: pointer; padding: 9px 14px; border-radius: var(--radius-pill);
   display: inline-flex; align-items: center; gap: 6px; text-decoration: none; transition: background-color .15s ease;
 }
@@ -37,7 +37,7 @@
 
 .tw-header__spacer { flex: 1; }
 .tw-header__actions { display: flex; align-items: center; gap: 4px; }
-.tw-signin { font-family: var(--font-sans); font-weight: 600; font-size: 14px; color: var(--foreground); text-decoration: none; padding: 9px 14px; border-radius: var(--radius-pill); transition: background-color .15s ease; white-space: nowrap; }
+.tw-signin { font-family: var(--font-sans); font-weight: 600; font-size: 16px; color: var(--foreground); text-decoration: none; padding: 9px 14px; border-radius: var(--radius-pill); transition: background-color .15s ease; white-space: nowrap; }
 .tw-signin:hover { background: var(--secondary); text-decoration: none; }
 @media (max-width: 560px) { .tw-signin { display: none; } }
 
@@ -62,7 +62,7 @@
 
 /* Itinerary — a prominent, easy-to-spot labelled pill (senior-first, David).
    Outlined so it stands beside the filled-green Ask-Atlas without competing. */
-.tw-trip-btn { flex: 0 0 auto; position: relative; font-family: var(--font-sans); font-weight: 600; font-size: 15px; height: 48px; padding: 0 18px; border-radius: var(--radius-pill); background: var(--card); color: var(--foreground); border: 1.5px solid var(--primary); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background-color .15s ease; }
+.tw-trip-btn { flex: 0 0 auto; position: relative; font-family: var(--font-sans); font-weight: 600; font-size: 16px; height: 48px; padding: 0 18px; border-radius: var(--radius-pill); background: var(--card); color: var(--foreground); border: 1.5px solid var(--primary); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background-color .15s ease; }
 .tw-trip-btn .ic { width: 20px; height: 20px; color: var(--primary); }
 @media (hover: hover) { .tw-trip-btn:hover { background: var(--secondary); } }
 .tw-trip-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
@@ -78,7 +78,7 @@
 .tw-locale__btn:hover { background: var(--surface-alt); }
 .tw-locale__menu { position: absolute; top: calc(100% + 8px); inset-inline-end: 0; width: 232px; background: var(--popover); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--e2); padding: 6px; z-index: 90; }
 .tw-locale__group { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; padding: 8px 10px 4px; }
-.tw-locale__item { width: 100%; text-align: start; border: 0; background: none; cursor: pointer; padding: 9px 10px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--foreground); }
+.tw-locale__item { width: 100%; text-align: start; border: 0; background: none; cursor: pointer; padding: 9px 10px; border-radius: var(--radius-sm); display: flex; align-items: center; gap: 10px; font-size: 16px; color: var(--foreground); }
 .tw-locale__item:hover { background: var(--secondary); }
 .tw-locale__item .native { color: var(--muted-foreground); margin-inline-start: auto; }
 .tw-locale__item[aria-current="true"] { background: var(--secondary); font-weight: 600; }
@@ -121,7 +121,7 @@
 .tw-step { display: flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; border-radius: var(--radius-pill); transition: opacity .15s ease; }
 .tw-step:hover { text-decoration: none; opacity: .8; }
 .tw-step__dot { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; border: 1.5px solid var(--border); background: var(--card); color: var(--muted-foreground); flex: none; }
-.tw-step__label { font-size: 13.5px; font-weight: 500; color: var(--muted-foreground); white-space: nowrap; }
+.tw-step__label { font-size: 13.5px; font-weight: 600; color: var(--muted-foreground); white-space: nowrap; }
 .tw-step__line { width: 28px; height: 1.5px; background: var(--border); margin: 0 10px; }
 .tw-step[data-state="done"] .tw-step__dot { background: var(--primary); border-color: var(--primary); color: #fff; }
 .tw-step[data-state="done"] .tw-step__label { color: var(--foreground); }
@@ -147,7 +147,7 @@
 .tw-concierge[data-open="true"] { transform: translateX(0); }
 .tw-concierge__head { padding: 18px 20px; border-bottom: 1px solid var(--border-hair); display: flex; align-items: center; gap: 12px; }
 /* "Start over" — quiet ghost control in the head; clears the conversation. */
-.tw-concierge__restart { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; color: var(--muted-foreground); font-family: var(--font-sans); font-size: 13px; font-weight: 500; cursor: pointer; padding: 4px 6px; border-radius: var(--radius-sm); white-space: nowrap; }
+.tw-concierge__restart { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; color: var(--muted-foreground); font-family: var(--font-sans); font-size: 16px; font-weight: 500; cursor: pointer; padding: 4px 6px; border-radius: var(--radius-sm); white-space: nowrap; }
 .tw-concierge__restart:hover { background: var(--surface-alt); color: var(--foreground); }
 /* Collapsed Atlas — a gentle floating pill so Atlas stays beside you across the
    whole journey without taking the screen. Tap to reopen, full history intact. */
@@ -184,10 +184,10 @@
 .tw-footer__legal a:hover { opacity: 1; }
 .tw-concierge__avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(150deg, var(--primary), var(--primary-hover)); display: grid; place-items: center; color: #fff; flex: none; }
 .tw-concierge__title { font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.1; }
-.tw-concierge__sub { font-size: 13px; color: var(--muted-foreground); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+.tw-concierge__sub { font-size: 16px; color: var(--muted-foreground); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
 .tw-concierge__sub .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--safety-1); }
-.tw-concierge__context { padding: 10px 20px; background: var(--surface-alt); border-bottom: 1px solid var(--border-hair); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 13px; color: var(--muted-foreground); }
-.tw-concierge__context .ctx-chip { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 3px 9px; font-weight: 500; color: var(--foreground); }
+.tw-concierge__context { padding: 10px 20px; background: var(--surface-alt); border-bottom: 1px solid var(--border-hair); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 16px; color: var(--muted-foreground); }
+.tw-concierge__context .ctx-chip { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-pill); padding: 3px 9px; font-weight: 600; color: var(--foreground); }
 .tw-concierge__body { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .tw-concierge__foot { border-top: 1px solid var(--border-hair); padding: 14px 16px; }
 
@@ -223,8 +223,11 @@
 .tw-backbar { max-width: var(--content-max); margin-inline: auto; padding: 14px var(--gutter) 2px; }
 .tw-back {
   display: inline-flex; align-items: center; gap: 9px;
-  min-height: 44px; padding: 0; margin-inline-start: -2px;
-  background: none; border: 0; box-shadow: none;
+  /* A ghost control still needs a perceivable edge (David, 2026-08-25 —
+     WCAG 1.4.11): the pill border makes "Back" a thing with a boundary
+     rather than grey words floating on the page. */
+  min-height: 44px; padding: 0 14px; margin-inline-start: -2px;
+  background: none; border: 1.5px solid var(--border); border-radius: var(--radius-pill); box-shadow: none;
   color: var(--muted-foreground);
   font-family: var(--font-sans); font-weight: 600; font-size: 14px;
   letter-spacing: .08em; text-transform: none;
@@ -361,7 +364,7 @@
 /* primer (first-use) */
 .tw-primer { text-align: center; padding: 8px 4px; }
 .tw-primer .tw-concierge__avatar { width: 56px; height: 56px; margin: 0 auto 14px; }
-.tw-stop-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 13px; color: var(--muted-foreground); }
+.tw-stop-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 10px; font-size: 16px; color: var(--muted-foreground); }
 
 /* degraded / offline banner */
 .tw-degraded { background: color-mix(in oklch, var(--safety-3) 14%, white); border: 1px solid color-mix(in oklch, var(--safety-3) 35%, white); color: oklch(.45 .12 55); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 13px; display: flex; gap: 8px; align-items: center; }
@@ -382,8 +385,8 @@
 .tw-trip-coverage i.on { background: var(--primary); }
 .tw-trip-block { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-hair); }
 .tw-trip-block__ic { width: 38px; height: 38px; border-radius: 9px; background: var(--secondary); color: var(--primary); display: grid; place-items: center; flex: none; }
-.tw-trip-block__name { font-weight: 600; font-size: 14px; }
-.tw-trip-block__meta { font-size: 13px; color: var(--muted-foreground); margin-top: 2px; display:flex; gap:6px; align-items:center; }
+.tw-trip-block__name { font-weight: 600; font-size: 16px; }
+.tw-trip-block__meta { font-size: 16px; color: var(--muted-foreground); margin-top: 2px; display:flex; gap:6px; align-items:center; }
 
 .tw-toast { position: fixed; inset-inline: 0; bottom: 24px; margin-inline: auto; width: fit-content; max-width: 90vw; z-index: 110; background: var(--foreground); color: var(--background); padding: 12px 18px; border-radius: var(--radius-pill); box-shadow: var(--e3); display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; opacity: 0; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; pointer-events: none; }
 .tw-toast[data-show="true"] { opacity: 1; transform: translateY(0); }
@@ -445,7 +448,7 @@
 .tw-footer__sig { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--dark-band-muted); margin-top: 16px; max-width: 30ch; }
 .tw-footer__sig .tw { color: var(--accent); font-style: normal; }
 .tw-footer__col h5 { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--dark-band-muted); font-weight: 700; margin-bottom: 16px; }
-.tw-footer__col a { display: block; color: var(--dark-band-foreground); opacity: .85; font-size: 14px; padding: 5px 0; text-decoration: none; }
+.tw-footer__col a { display: block; color: var(--dark-band-foreground); opacity: .85; font-size: 14px; font-weight: 600; padding: 5px 0; text-decoration: none; }
 .tw-footer__col a:hover { opacity: 1; color: var(--accent); text-decoration: none; }
 .tw-footer__bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 40px; padding-top: 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--dark-band-muted); }
 .tw-footer__version { font-family: var(--font-mono); }

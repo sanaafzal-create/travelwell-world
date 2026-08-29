@@ -357,8 +357,8 @@ export default function DestinationDetail() {
                         </span>
                       ) : (
                         <>
-                          <button className="btn btn-primary" onClick={() => openPanel("concierge")} style={{ minHeight: 38, padding: "0 16px", fontSize: 13 }}>Book It</button>
-                          <span className="pv__mode" style={{ fontSize: 13, color: "var(--muted-foreground)" }}>{bookingLabel(p)}</span>
+                          <button className="btn btn-primary" onClick={() => openPanel("concierge")} style={{ minHeight: 44, padding: "0 16px", fontSize: 16 }}>Book It</button>
+                          <span className="pv__mode" style={{ fontSize: 16, color: "var(--muted-foreground)" }}>{bookingLabel(p)}</span>
                         </>
                       )}
                     </div>

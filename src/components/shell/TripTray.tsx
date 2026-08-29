@@ -34,7 +34,7 @@ export function TripTray() {
             {trip.length === 0 ? "Nothing yet — let's begin" : `${trip.length} added · ${covered}/${liveWells} Wells covered`}
           </div>
         </div>
-        <button className="tw-iconbtn" aria-label="Close trip" style={{ width: 36, height: 36, border: 0, background: "var(--surface-alt)" }} onClick={closePanel}>
+        <button className="tw-iconbtn" aria-label="Close trip" style={{ width: 40, height: 40, border: "1.5px solid var(--border)", background: "var(--surface-alt)" }} onClick={closePanel}>
           <Icon name="close" small />
         </button>
       </div>

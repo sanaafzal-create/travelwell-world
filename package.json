@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "a11y": "node scripts/a11y-audit.mjs",
+    "check:readability": "node scripts/readability-audit.mjs",
     "validate:ingest": "esbuild scripts/validate-destinations.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/val.mjs && node scratchpad/val.mjs",
     "gen:sitemap": "esbuild scripts/gen-sitemap.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/sitemap.mjs && node scratchpad/sitemap.mjs",
     "validate:providers": "esbuild scripts/validate-providers.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/valpv.mjs && node scratchpad/valpv.mjs",
