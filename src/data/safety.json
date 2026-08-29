@@ -1535,7 +1535,9 @@
     "lvl": 1,
     "label": "No advisory against travel",
     "summary": "The UK FCDO publishes no country-wide advisory against travel in Uganda. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
+    "considerations": [
+     "FCDO health page (updated 2026-07-27): \"On 15 May the Ugandan Ministry of Health announced an outbreak of Ebola Bundibugyo in Uganda, including in Kampala.\" A named outbreak is health information, not an advisory against travel — the FCDO restricts nothing in Uganda — but it is exactly what an informed traveler checks before booking."
+    ],
     "source": "UK FCDO country advisory — no advisory against travel; alert_status empty (verbatim snapshot from the research library, 2026-08-22)",
     "reported": true,
     "fromAbsence": true
