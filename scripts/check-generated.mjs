@@ -40,6 +40,12 @@ const GENERATORS = [
   ["gen:board", "docs/board.json"],
   ["gen:list-sizes", "docs/list-sizes.json (cap vs current length per published surface)"],
   ["gen:routes", "vercel.json (the rewrite list, read from the router)"],
+  // LAST, deliberately: the manifest HASHES the other generated files, so it
+  // must run after every generator that writes one — the library's own O-10
+  // lesson ("regen is the LAST thing"), applied to the file that exists to
+  // catch staleness. Moving it earlier makes it hash yesterday's content and
+  // fail this very check forever.
+  ["gen:manifest", "docs/manifest.json (read-surface index + content hashes)"],
 ];
 
 // Everything a generator owns. Listed explicitly so an unrelated dirty file
@@ -74,6 +80,7 @@ const OWNED = [
   "docs/advisory-countries.json",
   "docs/board.json",
   "docs/list-sizes.json",
+  "docs/manifest.json",
   // The hosting config. Generated because a rewrite list that drifts from the
   // router either 404s a real page or resurrects the catch-all it replaced.
   "vercel.json",
