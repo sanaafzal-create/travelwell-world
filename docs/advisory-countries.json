@@ -288,6 +288,13 @@
       "fcdo_slug": "france"
     },
     {
+      "iso": "GB",
+      "name": "United Kingdom",
+      "match": [
+        "united kingdom"
+      ]
+    },
+    {
       "iso": "GD",
       "name": "Grenada",
       "match": [
@@ -791,7 +798,5 @@
       "fcdo_slug": "zimbabwe"
     }
   ],
-  "unchecked_served_countries": [
-    "United Kingdom"
-  ]
+  "unchecked_served_countries": []
 }

@@ -23453,7 +23453,7 @@
    "faq": [
     {
      "q": "Where can I trek gorillas instead, right now?",
-     "a": "Rwanda - Volcanoes National Park (US L3, bookable). It's ~2 hours from Kigali, the permit is $1,500 (vs Uganda's $800), and it is the responsible live choice while Uganda is on the Ebola hold. We route all gorilla demand there.",
+     "a": "Rwanda - Volcanoes National Park. **FCDO travel advice for Uganda:** the FCDO names no advisory against travel to Uganda. *https://www.gov.uk/foreign-travel-advice/uganda — page updated 2026-07-27.*",
      "source": "travelweekly.com",
      "si_tag": "safety"
     },
@@ -53868,7 +53868,8 @@
      "q": "Is Colonia Americana worth a night out?",
      "a": "Yes — it is repeatedly ranked among the world's coolest neighborhoods. The Chapultepec/Lafayette district anchors the metro's bar-and-restaurant density and its design-boutique hotels (Villa Ganz, Casa Habita, Hotel Demetria). Use rideshare or registered taxis at night, per standard big-city caution.",
      "source": "mexicotravelandleisure.com, 2026-07-04",
-     "si_tag": "nightlife"
+     "si_tag": "entertainment",
+     "si_fold_note": "folded from the retired `nightlife` slug into Global Live Entertainment 2026-08-23; the content is kept, the retired slug is not"
     }
    ],
    "seo": {
@@ -66015,7 +66016,7 @@
    "faq": [
     {
      "q": "Where can I trek chimps instead, right now?",
-     "a": "Rwanda - Nyungwe Forest (US L3, bookable). It is the direct live twin - chimpanzee trekking on a $250 permit, plus the canopy walk and colobus troops - the responsible live choice while Uganda is on the Ebola hold. We route all chimp demand there.",
+     "a": "Rwanda - Nyungwe Forest. We route all chimp demand there. **FCDO travel advice for Uganda:** the FCDO names no advisory against travel to Uganda. *https://www.gov.uk/foreign-travel-advice/uganda — page updated 2026-07-27.*",
      "source": "travelweekly.com",
      "si_tag": "safety"
     },
@@ -90030,7 +90031,8 @@
      "q": "Where's the best nightlife and cocktail scene?",
      "a": "Roma-Condesa. Licorería Limantour was named **Best Bar in North America in 2022 and 2023**, and the surrounding streets hold the city's densest cluster of cocktail bars, mezcalerías and traditional pulquerías — best done as a guided crawl.",
      "source": "mezcalistas.com, 2026-07-05",
-     "si_tag": "nightlife"
+     "si_tag": "entertainment",
+     "si_fold_note": "folded from the retired `nightlife` slug into Global Live Entertainment 2026-08-23; the content is kept, the retired slug is not"
     },
     {
      "q": "When is Día de Muertos, and can I see the parade?",
@@ -106393,7 +106395,8 @@
      "q": "What is there to do on Fifth Avenue?",
      "a": "Fifth Avenue (Quinta Avenida) is the Riviera Maya's densest dining and nightlife strip — a multi-kilometre pedestrian street of tacos-to-rooftop bars parallel to the sand. It is the town's social spine, best on a weekday evening before the crowds; guided food-and-rooftop crawls are the easy way to graze it.",
      "source": "tripadvisor.com, 2026-07-04",
-     "si_tag": "nightlife"
+     "si_tag": "entertainment",
+     "si_fold_note": "folded from the retired `nightlife` slug into Global Live Entertainment 2026-08-23; the content is kept, the retired slug is not"
     },
     {
      "q": "Are the Xcaret and Xplor parks worth it, especially for families?",
@@ -111227,7 +111230,7 @@
     },
     {
      "q": "Is the DRC border a concern too?",
-     "a": "Yes - separately. The park's western edge borders Virunga in the DR Congo, a standing security concern in its own right; when the park is live, itineraries keep to the eastern/central sectors. But the Ebola L4 is the disqualifying fact today, and it holds the whole park.",
+     "a": "Yes - separately. The park's western edge borders Virunga in the DR Congo, a standing security concern in its own right; when the park is live, itineraries keep to the eastern/central sectors. **FCDO travel advice for Uganda:** the FCDO names no advisory against travel to Uganda. *https://www.gov.uk/foreign-travel-advice/uganda — page updated 2026-07-27.*",
      "source": "national-parks.org",
      "si_tag": "safety"
     },
@@ -143745,7 +143748,8 @@
      "q": "Is there nightlife in Tlaquepaque?",
      "a": "Yes — El Parián runs day into evening. The colonial courtyard's mariachi plays all day and rolls into the night over tequila and regional food, the town's social heart. It is a Pueblo Mágico inside a metro of ~5.27M, so use rideshare or registered taxis after dark.",
      "source": "travelmexicosolo.com / en.wikipedia.org, 2026-07-04",
-     "si_tag": "nightlife"
+     "si_tag": "entertainment",
+     "si_fold_note": "folded from the retired `nightlife` slug into Global Live Entertainment 2026-08-23; the content is kept, the retired slug is not"
     }
    ],
    "seo": {
@@ -155570,7 +155574,7 @@
    "faq": [
     {
      "q": "What's the real risk to plan for at Volcanoes?",
-     "a": "The health advisory and the trek itself - not crime. The L3 is a health precaution (Ebola is a regional concern). The gorilla trek is a strenuous, high-altitude (~2,500-3,700m), often muddy rainforest hike - come with moderate fitness; malaria is year-round (prophylaxis + DEET), and it's remote - carry AMREF Flying Doctors + insurance.",
+     "a": "The trek itself, and the altitude. The gorilla trek is a strenuous, high-altitude (~2,500-3,700m), often muddy rainforest hike — come with moderate fitness; malaria is year-round (prophylaxis + DEET), and it is remote — carry AMREF Flying Doctors + insurance. **FCDO travel advice for Rwanda:** the FCDO advises against all but essential travel to NAMED AREAS — parts of Rusizi District within 10km of the DRC border. *https://www.gov.uk/foreign-travel-advice/rwanda — page updated 2026-06-10. Quoted unchanged; TravelWell does not state whether this destination lies inside a named area.*",
      "source": "cdc.gov",
      "si_tag": "safety"
     },
@@ -155588,7 +155592,7 @@
     },
     {
      "q": "Rwanda or Uganda for gorillas in 2026?",
-     "a": "Rwanda, right now. Rwanda's permit is pricier ($1,500 vs Uganda's $800) but Volcanoes is 2 hours from Kigali and the choice while Uganda is under a US Level 4 'Do Not Travel' (Ebola outbreak). We route gorilla demand to Volcanoes until Uganda's advisory clears.",
+     "a": "Rwanda's permit is pricier ($1,500 vs Uganda's $800), and Volcanoes is 2 hours from Kigali. **FCDO travel advice:** for Rwanda the FCDO advises against all but essential travel to named areas (parts of Rusizi District within 10km of the DRC border) — *gov.uk/foreign-travel-advice/rwanda, updated 2026-06-10*. For Uganda the FCDO names no advisory against travel — *gov.uk/foreign-travel-advice/uganda, updated 2026-07-27*. ⛔ Read both before choosing; TravelWell states no preference on safety grounds.",
      "source": "travelweekly.com",
      "si_tag": "safari"
     },

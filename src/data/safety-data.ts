@@ -273,6 +273,16 @@ export const COUNTRY_ISO: Record<string, string> = {
   Portugal: "PT", Rwanda: "RW", "Saudi Arabia": "SA", "South Africa": "ZA", "South Korea": "KR",
   Spain: "ES", "St. Lucia": "LC", Switzerland: "CH", Tanzania: "TZ", Thailand: "TH",
   "Turks & Caicos": "TC", UAE: "AE", Uganda: "UG",
+  // ── THE UNITED KINGDOM (2026-08-28) ──────────────────────────────────────
+  // Deliberately ABSENT until the 452-strip simulation showed what absence
+  // would do: London and four other live rows book today via their dossiers'
+  // advisory_level, and the strip removes that field — dropping them to
+  // DEFAULT_SAFETY and a "not yet verified" HOLD. The GB row states the truth
+  // instead: the FCDO publishes no advice for its own country, so the gap is
+  // STRUCTURAL, not unchecked — there is no advisory to check, which is a
+  // different fact from "we haven't checked", and holding London over it
+  // would be an over-restriction (still an inaccuracy).
+  "United Kingdom": "GB",
 
   // ── THE FCDO BACKFILL (2026-08-25) ───────────────────────────────────────
   // 233 destinations across 48 countries were reaching DEFAULT_SAFETY, and the

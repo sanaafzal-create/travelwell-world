@@ -1,4 +1,14 @@
 {
+ "GB": {
+  "country": "United Kingdom",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The FCDO is the UK's own government and publishes no travel advice for the United Kingdom — no government in our roster does for its own country. So there is no advisory here to read: a structural gap, not an unchecked one, and never a statement that anywhere is safe.",
+  "considerations": [],
+  "source": "UK FCDO — issues no travel advice for the UK itself (structural: a source does not advise on its own country, 2026-08-28). No second advisory authority is in our roster since the US State Department was retired 2026-08-19.",
+  "reported": true,
+  "fromAbsence": true
+ },
   "AE": {
     "country": "United Arab Emirates",
     "lvl": 3,

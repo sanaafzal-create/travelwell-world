@@ -1,12 +1,12 @@
 {
-  "_why": "David retired the US State Department as a safety authority on 2026-08-18. Traveller-facing prose still cites it in this many places. The number may only go DOWN. It is a ratchet, not a target: erroring on all of them would paint validate:ingest red until 157 dossiers are rewritten by hand, and a permanently red gate is one people learn to pass with --no-verify. Lower this number as the claims are rewritten; the gate refuses any increase.",
-  "_rewritten_by": "a human reading the FCDO, never a script. The alternative is what put a sentence State never wrote into a Cartagena consent screen.",
-  "max": 99,
-  "promise_max": 0,
-  "_promise_note": "Safety promises are ABSOLUTE — target 0, not a tolerance. Ratcheted only so a pre-existing set does not block unrelated work. Remedy is deletion of the claim, never a generated replacement.",
-  "advisory_text_max": 6,
-  "_advisory_text_note": "Hazards attributed to an advisory that does not name them, in FAQ answers. Target 0. Ratcheted only so a pre-existing set does not block unrelated work; a human rewrites from the source text or drops the claim.",
-  "forbidden_question_max": 0,
-  "_forbidden_question_note": "A faq question asking whether a place is safe (David, 2026-08-19). Target 0 and then a hard fail. Ratcheted only until the research library batch that removes ours lands. Delete the whole pair, never the answer alone, and never leave a row with an empty faq.",
-  "_ratcheted": "2026-08-27 — David ruled on the last of each: activity-guidance sentences re-worded to drop the word entirely (his approved phrasing), the country-safety superlative deleted outright, the one activity question re-worded to keep its answer. Both classes are now at their target of ZERO and a single recurrence fails the gate."
+ "_why": "David retired the US State Department as a safety authority on 2026-08-18. Traveller-facing prose still cites it in this many places. The number may only go DOWN. It is a ratchet, not a target: erroring on all of them would paint validate:ingest red until 157 dossiers are rewritten by hand, and a permanently red gate is one people learn to pass with --no-verify. Lower this number as the claims are rewritten; the gate refuses any increase.",
+ "_rewritten_by": "a human reading the FCDO, never a script. The alternative is what put a sentence State never wrote into a Cartagena consent screen.",
+ "max": 97,
+ "promise_max": 0,
+ "_promise_note": "Safety promises are ABSOLUTE \u2014 target 0, not a tolerance. Ratcheted only so a pre-existing set does not block unrelated work. Remedy is deletion of the claim, never a generated replacement.",
+ "advisory_text_max": 6,
+ "_advisory_text_note": "Hazards attributed to an advisory that does not name them, in FAQ answers. Target 0. Ratcheted only so a pre-existing set does not block unrelated work; a human rewrites from the source text or drops the claim.",
+ "forbidden_question_max": 0,
+ "_forbidden_question_note": "A faq question asking whether a place is safe (David, 2026-08-19). Target 0 and then a hard fail. Ratcheted only until the research library batch that removes ours lands. Delete the whole pair, never the answer alone, and never leave a row with an empty faq.",
+ "_ratcheted": "2026-08-27 \u2014 David ruled on the last of each: activity-guidance sentences re-worded to drop the word entirely (his approved phrasing), the country-safety superlative deleted outright, the one activity question re-worded to keep its answer. Both classes are now at their target of ZERO and a single recurrence fails the gate."
 }
