@@ -1,7 +1,7 @@
 {
  "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
  "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
- "generated": "2026-08-28",
+ "generated": "2026-08-29",
  "surfaces": [
   {
    "surface": "si-shelf · jewels (SiDetail JewelsSection)",
@@ -10,21 +10,21 @@
    "reader_can_tell": "YES — the section line prints shown-of-total ('a selection of 24 from our N experiences across M destinations') whenever shown < length (2026-08-28)",
    "lengths_by_interest": {
     "ultra": {
-     "length": 133,
+     "length": 136,
      "shown": 24,
-     "dests": 62,
+     "dests": 64,
      "dests_shown": 12
     },
     "tropical": {
-     "length": 96,
-     "shown": 23,
-     "dests": 63,
+     "length": 108,
+     "shown": 24,
+     "dests": 66,
      "dests_shown": 12
     },
     "romance": {
-     "length": 555,
+     "length": 558,
      "shown": 24,
-     "dests": 295,
+     "dests": 297,
      "dests_shown": 12
     },
     "safari": {
@@ -34,9 +34,9 @@
      "dests_shown": 12
     },
     "expedition": {
-     "length": 433,
+     "length": 435,
      "shown": 19,
-     "dests": 186,
+     "dests": 188,
      "dests_shown": 12
     },
     "ski": {
@@ -52,21 +52,21 @@
      "dests_shown": 8
     },
     "adventure": {
-     "length": 133,
+     "length": 135,
      "shown": 24,
-     "dests": 78,
+     "dests": 79,
      "dests_shown": 12
     },
     "hiking": {
-     "length": 54,
+     "length": 56,
      "shown": 24,
-     "dests": 26,
+     "dests": 28,
      "dests_shown": 12
     },
     "liveaboard": {
-     "length": 106,
+     "length": 110,
      "shown": 24,
-     "dests": 22,
+     "dests": 23,
      "dests_shown": 12
     },
     "river": {
@@ -76,33 +76,33 @@
      "dests_shown": 12
     },
     "diveglobal": {
-     "length": 99,
-     "shown": 17,
-     "dests": 68,
+     "length": 108,
+     "shown": 19,
+     "dests": 72,
      "dests_shown": 12
     },
     "ocean": {
-     "length": 59,
+     "length": 63,
      "shown": 17,
-     "dests": 37,
+     "dests": 39,
      "dests_shown": 12
     },
     "wellness": {
-     "length": 268,
+     "length": 270,
      "shown": 24,
-     "dests": 119,
+     "dests": 120,
      "dests_shown": 12
     },
     "wildlife": {
-     "length": 62,
+     "length": 64,
      "shown": 15,
-     "dests": 36,
+     "dests": 38,
      "dests_shown": 12
     },
     "family": {
-     "length": 404,
+     "length": 405,
      "shown": 24,
-     "dests": 156,
+     "dests": 157,
      "dests_shown": 12
     },
     "senior": {
@@ -112,9 +112,9 @@
      "dests_shown": 6
     },
     "culture": {
-     "length": 765,
+     "length": 790,
      "shown": 24,
-     "dests": 270,
+     "dests": 273,
      "dests_shown": 12
     },
     "deepdive": {

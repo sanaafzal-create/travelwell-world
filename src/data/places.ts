@@ -302,6 +302,12 @@ export const DESTINATIONS: Record<string, Destination[]> = {
  * So this map is permanent, not a migration aid to delete later.
  */
 export const LEGACY_DEST_ID: Record<string, string> = {
+  // The library's dive group (2026-08-25) ships these two as bare ids; they were
+  // renamed to the <city>-<country> convention on ingest, and the bare forms
+  // stay resolvable here so the library's own reconciles and any shared links
+  // keep working. Same rule as every rename: the old slug never dies.
+  antigua: "antigua-antigua-and-barbuda",
+  tobago: "tobago-trinidad-and-tobago",
   paris: "paris-france",
   amsterdam: "amsterdam-netherlands",
   alps: "swiss-alps-switzerland",

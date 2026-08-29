@@ -36,12 +36,12 @@ good as regenerating it.
 | Destinations | 43 | src/data/places.ts:130 · `export const DESTINATIONS: Record<string, Dest` |
 | …with a `price_band` | 7 | src/data/places.ts:101 · `price_band?: string; // coarse overall price l` |
 | …at `depth: verified` | 32 | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
-| Activities | 60 | src/data/places.ts:578 · `export const ACTIVITIES: Record<string, Activi` |
-| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:440 · `export const PROVIDERS: Record<string, Provide` |
+| Activities | 60 | src/data/places.ts:584 · `export const ACTIVITIES: Record<string, Activi` |
+| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:446 · `export const PROVIDERS: Record<string, Provide` |
 | Regions | 13 | src/data/taxonomy.ts:333 · `export const REGIONS: Region[] = [` |
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
-| Sub-region lists | 18 | src/data/places.ts:354 · `export const SUBREGION_TOP: Record<string, str` |
-| Guides | 9 | src/data/places.ts:538 · `export const GUIDES: Guide[] = [` |
+| Sub-region lists | 18 | src/data/places.ts:360 · `export const SUBREGION_TOP: Record<string, str` |
+| Guides | 9 | src/data/places.ts:544 · `export const GUIDES: Guide[] = [` |
 | Country name→ISO entries (`COUNTRY_ISO`) | 99 | src/data/safety-data.ts:259 · `export const COUNTRY_ISO: Record<string, strin` |
 | …of those, countries WITH an advisory row (`safety.json`) | 95 | src/data/safety-data.ts:359 · `export const SAFETY_DATA = safetyJson as Recor` |
 
@@ -83,8 +83,8 @@ hard error in `npm run validate:si`. An unlabeled number is a guessed number.
 
 | Vocabulary | Values | Read from |
 |---|---|---|
-| Budget tier (`price`) | `essential` · `comfort` · `premier` · `luxury` · `ultra` | src/data/places.ts:379 · `export type Price = "essential" | "comfort" | ` |
-| Provider curation (`tier`) | `prime` · `vetted` · `prospective` | src/data/places.ts:375 · `export type Tier = "prime" | "vetted" | "prosp` |
+| Budget tier (`price`) | `essential` · `comfort` · `premier` · `luxury` · `ultra` | src/data/places.ts:385 · `export type Price = "essential" | "comfort" | ` |
+| Provider curation (`tier`) | `prime` · `vetted` · `prospective` | src/data/places.ts:381 · `export type Tier = "prime" | "vetted" | "prosp` |
 | Interest status | `live` · `preview` · `soon` | src/data/taxonomy.ts:19 · `export type Status = "live" | "preview" | "soo` |
 | Destination status | `live` · `future` | src/data/places.ts:35 · `export type DestStatus = "live" | "future"; //` |
 | Destination depth | `verified` · `stub` · `cached` | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
@@ -129,7 +129,7 @@ the provider.
    → `scripts/gen-sitemap.ts vs boardSis() in src/data/taxonomy.ts`
 
 ✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
-   → all 541 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
+   → all 543 indexable destinations listed; 6 unreleased withheld (and stamped noindex)
    → `scripts/gen-sitemap.ts`
 
 ✅ **The advisory consent record is append-only — no update, delete or ALL policy**
@@ -165,11 +165,11 @@ the provider.
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
 ⚠️ **Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage**
-   → 2 of 547 destinations (0%) sit in a country with NO row, across 2 countries: Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR) · of those, 2 actually RENDER "not yet verified" (Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
+   → 4 of 549 destinations (1%) sit in a country with NO row, across 4 countries: Antigua & Barbuda, Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR), Trinidad & Tobago · of those, 4 actually RENDER "not yet verified" (Antigua & Barbuda, Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR), Trinidad & Tobago) — the rest carry a dossier carve-out that supplies its own level
    → `src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts`
 
 ✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
-   → all 547 ids unique across 13 regions
+   → all 549 ids unique across 13 regions
    → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
 
 ⚠️ **Our curated level matches the level State published for that country**
@@ -201,7 +201,7 @@ the provider.
    → `src/data/safety.json`
 
 ✅ **`_`-prefixed dossier files are references and never ship**
-   → interests/: 1 file(s), 0 shipping · destinations/: 3 file(s), 2 shipping
+   → interests/: 1 file(s), 0 shipping · destinations/: 4 file(s), 3 shipping
    → `src/data/interests/, src/data/destinations/`
 
 *Scope note on the safety check: it covers the countries we serve **today**. An
@@ -220,7 +220,7 @@ it is.
 - **7 of 43 destinations carry a `price_band`.**
 - **7 of 43 destinations carry `feel` tags.**
 - **15 of 43 destinations carry a `sub_region`.**
-- **2 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
+- **3 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
 ## Exact-match strings — the characters that bounce a batch
 
