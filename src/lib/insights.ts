@@ -223,6 +223,9 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
     region: s.region ? { code: s.region, name: nameOfRegion(s.region) } : null,
     activities: s.journeyActs.length,
     trip: s.trip.slice(0, 8).map((b) => ({ well: b.well, name: b.name, status: b.status })),
+    // The true length rides beside the sample: `trip` is capped at 8, and Atlas
+    // must never assert a count the context silently cut.
+    trip_total: s.trip.length,
   };
 
   if (here) ctx.viewing = here.kind === "si" ? { kind: "si", name: nameOfSI(here.id) } : here.kind === "region" ? { kind: "region", name: nameOfRegion(here.id) } : here;
@@ -302,6 +305,8 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
     horizon: sig.horizon,
     ...(sig.startsOn ? { startsOn: sig.startsOn } : { dateAnnounced: false }),
   }));
+  // Same rule as `trip_total`: the cap is 6, so the true count travels with it.
+  ctx.happenings_total = signals.length;
 
   return ctx;
 }

@@ -763,6 +763,7 @@
   [data-page="destination-detail"] .dd-related { max-width: var(--content-max); margin-inline:auto; padding: 56px var(--gutter) 0; }
   [data-page="destination-detail"] .dd-related h2 { font-size: var(--t-h2); margin-bottom: 4px; }
   [data-page="destination-detail"] .dd-related__sub { color:var(--muted-foreground); font-size:16px; margin-bottom:22px; }
+  .dd-related__all { color:var(--pine); font-size:16px; font-weight:600; text-decoration:underline; text-underline-offset:3px; white-space:nowrap; }
   [data-page="destination-detail"] .dd-rel-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:16px; }
   [data-page="destination-detail"] .dd-rel { display:flex; flex-direction:column; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--card); box-shadow:var(--e1); text-decoration:none; color:var(--foreground); transition:transform .2s, box-shadow .2s; }
   [data-page="destination-detail"] .dd-rel:hover { transform:translateY(-3px); box-shadow:var(--e2); text-decoration:none; }

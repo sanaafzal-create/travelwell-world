@@ -245,6 +245,7 @@ export function Concierge() {
           ) : (
             <>
               {journeySIs.slice(0, 2).map((s) => <span key={s} className="ctx-chip">{s}</span>)}
+              {journeySIs.length > 2 && <span className="ctx-chip">+{journeySIs.length - 2} more</span>}
               {region && <span className="ctx-chip">{region}</span>}
               <span className="ctx-chip">Trip · {trip.length} blocks</span>
             </>

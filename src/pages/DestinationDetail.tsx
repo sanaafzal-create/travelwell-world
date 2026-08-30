@@ -591,7 +591,10 @@ export default function DestinationDetail() {
 
       <div className="dd-related">
         <h2>Keep exploring</h2>
-        <p className="dd-related__sub">Guides to read before you go, and nearby places worth adding to your trip.</p>
+        <p className="dd-related__sub">
+          Guides to read before you go, and nearby places worth adding to your trip.{" "}
+          <Link className="dd-related__all" to="/guides">All guides <Icon name="arrow" small /></Link>
+        </p>
         <div className="dd-rel-grid">
           {relGuides.map((gg) => (
             <Link className="dd-rel" to={`/guide/${gg.id}`} key={gg.id}>

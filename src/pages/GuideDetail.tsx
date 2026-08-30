@@ -104,7 +104,7 @@ export default function GuideDetail() {
       </div>
 
       <div className="gd-related">
-        <h2>More from the desk</h2>
+        <h2>More from the desk <Link className="dd-related__all" to="/guides" style={{ fontSize: 16, marginLeft: 10 }}>All guides <Icon name="arrow" small /></Link></h2>
         <div className="gd-rel-grid">
           {related.map((r) => (
             <Link className="gd-rel" to={`/guide/${r.id}`} key={r.id}>

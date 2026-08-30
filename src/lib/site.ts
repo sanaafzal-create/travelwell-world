@@ -35,9 +35,31 @@
  */
 export const ORIGIN = "https://www.travelwell.world";
 
-/** An absolute URL on the canonical host. Accepts "/path" or "path". */
-export const absUrl = (path: string): string =>
-  `${ORIGIN}${path.startsWith("/") ? path : `/${path}`}`;
+/**
+ * ── THE LOCALE SOCKET (poured 2026-08-30, machinery deliberately absent) ────
+ *
+ * The research library's three-engines read (SANA-8, 2026-08-29) surfaced one
+ * constraint that makes locale URLs an architecture decision rather than a
+ * preference: Naver Search Advisor reportedly registers a domain or a
+ * subdomain and cannot register a subfolder — so `/ko/` may be unrankable in
+ * the market where Naver holds ~63%. Their own provenance table marks that
+ * claim as SEO-industry sourced, NOT verified against Naver's own docs, and
+ * says nothing should be built on it until they are read. So no shape is
+ * chosen here: not subdomain, not subfolder, not ccTLD.
+ *
+ * What IS poured is the seam: every absolute URL already flows through this
+ * file, and from today it flows through `originFor(locale)` — one function
+ * that answers "which host serves this locale?". Today there is one locale
+ * live and one host, so it returns ORIGIN for everything, and nothing about
+ * the site changes. The day the shape is decided, it changes HERE and every
+ * canonical, og:url, sitemap entry and JSON-LD @id follows — instead of the
+ * nine-language version of the three-copies bug this file exists to prevent.
+ */
+export const originFor = (_locale?: string): string => ORIGIN;
+
+/** An absolute URL on the canonical host for a locale. Accepts "/path" or "path". */
+export const absUrl = (path: string, locale?: string): string =>
+  `${originFor(locale)}${path.startsWith("/") ? path : `/${path}`}`;
 
 /**
  * Is this destination one we want in the index?
