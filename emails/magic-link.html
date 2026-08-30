@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>Your sign-in link — TravelWell</title>
+  <!--
+    TravelWell.World — the magic-link email (Supabase Auth → Email Templates).
+
+    BRAND CANON, held exactly:
+      · "TravelWell" is ONE word, always. The wordmark is text — Travel +
+        pine "Well" + italic champagne ".world" — so no hosted image exists
+        to break, block, or go stale.
+      · The slogan is the registered mark, character-exact: the ellipsis AND
+        the closing full stop are part of it, "Well" carries the pine accent
+        on light grounds, and it sits at the TOP under the header — the same
+        MottoBand position every page uses (trademark evidence before
+        branding). English-only, never localized.
+      · Voice: accurate / plainly / straight. No urgency, no FOMO.
+
+    READABILITY (David, locked): the people most likely to book a premium
+    trip read email at 69. Body 17px at weight 500 on near-black ink; the
+    button is 48px tall at 17px/700; nothing a person reads is under 16px,
+    the footer fine print holds the 13px label floor at 600. Colors are the
+    site's own tokens, hex-frozen for mail clients:
+      Ivory #F7F4EC · card #FFFFFF · Espresso #1C1B18 · Stone #4F4D48
+      Pine #2C6E68 · deep pine #235A55 · Champagne #C2A35B · gold-deep #8a6425
+      control edge #89867E · hairline #E3DFD7 · dark band #211D17
+
+    MAIL-CLIENT DISCIPLINE: tables + inline styles throughout; a VML
+    bulletproof button for Outlook; a hidden preheader; light color-scheme
+    pinned; web fonts requested with full serif/sans fallbacks (Georgia /
+    system sans render the same hierarchy where fonts are stripped); the
+    raw URL printed in full below the button, because a client that blocks
+    buttons must never block the sign-in.
+
+    SUPABASE VARIABLES: {{ .ConfirmationURL }} is the tap target. The same
+    layout serves the "Confirm signup" template unchanged — see README.md.
+  -->
+  <style>
+    /* Progressive niceties only — everything load-bearing is inline. */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Inter:wght@500;600;700&display=swap');
+    a { color: #2C6E68; }
+    @media (max-width: 620px) {
+      .tw-container { width: 100% !important; }
+      .tw-pad { padding-left: 24px !important; padding-right: 24px !important; }
+      /* Phones get MORE, not less — the site's own rule, kept in mail. */
+      .tw-body-copy { font-size: 18px !important; line-height: 1.6 !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#F7F4EC;" bgcolor="#F7F4EC">
+
+  <!-- Preheader: the inbox preview line. Hidden in the body. -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+    One tap and you&rsquo;re in &mdash; no password, ever. The link works once and expires in 15 minutes.
+  </div>
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F7F4EC" style="background-color:#F7F4EC;">
+    <tr>
+      <td align="center" style="padding: 32px 16px 48px;">
+
+        <table role="presentation" class="tw-container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px;">
+
+          <!-- ── Header: the wordmark, in text ─────────────────────────── -->
+          <tr>
+            <td align="center" style="padding: 8px 24px 14px;">
+              <a href="https://www.travelwell.world" target="_blank"
+                 style="text-decoration:none; font-family:'Playfair Display', Georgia, 'Times New Roman', serif; font-size:30px; font-weight:600; letter-spacing:-0.01em; color:#1C1B18;">
+                Travel<span style="color:#2C6E68;">Well</span><span style="font-style:italic; font-weight:500; font-size:18px; color:#8a6425;">.world</span>
+              </a>
+            </td>
+          </tr>
+
+          <!-- ── The motto band: the mark, exact, top of every surface ── -->
+          <tr>
+            <td align="center" style="padding: 0 24px 26px; border-bottom:1px solid #E3DFD7;">
+              <p style="margin:0; font-family:'Playfair Display', Georgia, serif; font-style:italic; font-size:17px; line-height:1.4; color:#4F4D48;">
+                If It&rsquo;s Safer Informed Travel&hellip;
+                <span style="font-style:normal; font-weight:600; color:#1C1B18;">Travel<span style="color:#2C6E68;">Well</span>.</span><sup style="font-size:9px; color:#4F4D48;">&trade;</sup>
+              </p>
+            </td>
+          </tr>
+
+          <tr><td style="height:28px; line-height:28px; font-size:0;">&nbsp;</td></tr>
+
+          <!-- ── The card ──────────────────────────────────────────────── -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFFFFF"
+                     style="background-color:#FFFFFF; border:1px solid #89867E; border-radius:12px;">
+                <tr>
+                  <td class="tw-pad" style="padding: 40px 48px 44px;">
+
+                    <p style="margin:0 0 6px; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#2C6E68;">
+                      Passwordless &middot; one tap
+                    </p>
+
+                    <h1 style="margin:0 0 18px; font-family:'Playfair Display', Georgia, serif; font-weight:600; font-size:28px; line-height:1.2; color:#1C1B18;">
+                      Your sign-in link is ready.
+                    </h1>
+
+                    <p class="tw-body-copy" style="margin:0 0 28px; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:17px; font-weight:500; line-height:1.6; color:#1C1B18;">
+                      One tap below and you&rsquo;re back in your Travel&nbsp;I.D. &mdash; your trips, your pace, your picks, exactly where you left them. <strong>No password, ever.</strong>
+                    </p>
+
+                    <!-- Bulletproof button: VML for Outlook, table for the rest. -->
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
+                      <tr>
+                        <td align="center" bgcolor="#2C6E68" style="border-radius:999px;">
+                          <!--[if mso]>
+                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                            href="{{ .ConfirmationURL }}" style="height:48px;v-text-anchor:middle;width:280px;" arcsize="50%" strokecolor="#235A55" fillcolor="#2C6E68">
+                            <w:anchorlock/>
+                            <center style="color:#FBF9F3;font-family:Arial,sans-serif;font-size:17px;font-weight:bold;">Sign me in &rarr;</center>
+                          </v:roundrect>
+                          <![endif]-->
+                          <!--[if !mso]><!-->
+                          <a href="{{ .ConfirmationURL }}" target="_blank"
+                             style="display:inline-block; padding:14px 44px; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:17px; font-weight:700; line-height:20px; color:#FBF9F3; text-decoration:none; border-radius:999px; background-color:#2C6E68; border:1.5px solid #235A55;">
+                            Sign me in &rarr;
+                          </a>
+                          <!--<![endif]-->
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p style="margin:26px 0 0; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:16px; font-weight:500; line-height:1.6; color:#4F4D48; text-align:center;">
+                      The link works once and expires in 15 minutes.<br>
+                      If it expires, just request a fresh one &mdash; it takes a second.
+                    </p>
+
+                    <!-- The no-button fallback: the URL itself, in full. -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:28px;">
+                      <tr>
+                        <td style="border-top:1px solid #E3DFD7; padding-top:22px;">
+                          <p style="margin:0 0 8px; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#4F4D48;">
+                            Button not working?
+                          </p>
+                          <p style="margin:0; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:16px; font-weight:500; line-height:1.55; word-break:break-all;">
+                            <a href="{{ .ConfirmationURL }}" target="_blank" style="color:#2C6E68; text-decoration:underline;">{{ .ConfirmationURL }}</a>
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <tr><td style="height:22px; line-height:22px; font-size:0;">&nbsp;</td></tr>
+
+          <!-- ── The straight line: what to do if this wasn't you ─────── -->
+          <tr>
+            <td class="tw-pad" style="padding: 0 32px;">
+              <p style="margin:0; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:16px; font-weight:500; line-height:1.6; color:#4F4D48; text-align:center;">
+                Didn&rsquo;t ask for this? You can safely ignore it &mdash; nothing happens unless the link is tapped, and it can&rsquo;t be used by anyone who doesn&rsquo;t have this email.
+              </p>
+            </td>
+          </tr>
+
+          <tr><td style="height:32px; line-height:32px; font-size:0;">&nbsp;</td></tr>
+
+          <!-- ── Footer: the dark band ─────────────────────────────────── -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#211D17" style="background-color:#211D17; border-radius:12px;">
+                <tr>
+                  <td class="tw-pad" align="center" style="padding: 30px 40px 28px;">
+                    <p style="margin:0 0 8px; font-family:'Playfair Display', Georgia, serif; font-size:20px; font-weight:600; color:#F5F1E8;">
+                      Travel<span style="color:#C2A35B;">Well</span><span style="font-style:italic; font-weight:500; font-size:13px; color:#C2A35B;">.world</span>
+                    </p>
+                    <p style="margin:0 0 16px; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; font-weight:600; line-height:1.5; color:#BDB4A5;">
+                      A Travel Operating System &mdash; you choose, you book, we walk beside you.
+                    </p>
+                    <p style="margin:0; font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; font-weight:600; line-height:1.7; color:#BDB4A5;">
+                      TravelWell.World LLC &middot; <a href="https://www.travelwell.world" target="_blank" style="color:#E8E2D6; text-decoration:underline;">www.travelwell.world</a><br>
+                      You&rsquo;re receiving this because a sign-in link was requested for this address.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
