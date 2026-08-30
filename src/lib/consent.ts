@@ -173,3 +173,42 @@ export async function storedAdvisoryConsents(): Promise<AdvisoryConsent[]> {
     return [];
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TERMS ACCEPTANCE — the clickwrap record (Berman; migration 0019).
+   Same both-ways shape as the advisory consent, for the same reasons: the DB row
+   is the record, the local copy is the only thing that works signed-out, and
+   the STATEMENT travels verbatim because its wording is attorney-pending.
+──────────────────────────────────────────────────────────────────────────── */
+export interface TermsAcceptance {
+  statement: string;
+  termsVersion: string;
+  termsUrl: string;
+  at: string;
+}
+
+const TERMS_KEY = "tww:terms-acceptance";
+
+export async function recordTermsAcceptance(a: TermsAcceptance): Promise<"stored" | "local-only"> {
+  try { localStorage.setItem(TERMS_KEY, JSON.stringify(a)); } catch { /* private mode */ }
+  try {
+    const sb = getSupabase();
+    const user = await getCurrentUser();
+    if (!sb || !user) return "local-only";
+    const { error } = await sb.from("terms_acceptances").insert({
+      user_id: user.id,
+      statement: a.statement,
+      terms_version: a.termsVersion,
+      terms_url: a.termsUrl,
+      accepted_at: a.at,
+    });
+    return error ? "local-only" : "stored";
+  } catch {
+    return "local-only";
+  }
+}
+
+/** The locally-held acceptance, if any — used to sync after a later sign-in. */
+export function pendingTermsAcceptance(): TermsAcceptance | null {
+  try { return JSON.parse(localStorage.getItem(TERMS_KEY) ?? "null"); } catch { return null; }
+}

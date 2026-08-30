@@ -45,3 +45,19 @@ export const LEGAL_ENTITY = "TravelWell.World LLC";
  * so it cannot be forgotten the way the old inline placeholder was.
  */
 export const GOVERNING_LAW: string | null = null;
+
+/**
+ * THE TERMS-ACCEPTANCE STATEMENT — clickwrap, per Berman v. Freedom Financial
+ * Network (9th Cir. 2022): terms bind only with reasonably conspicuous notice
+ * and a manifest, unambiguous assent. A footer link is browsewrap and
+ * unenforceable per se — which is what this site had until 2026-08-27, while
+ * the advisory consent screen (the SAFETY surface) already carried the logged
+ * checkbox courts enforce. The weaker mechanism was carrying the limitation of
+ * liability. ATTORNEY-PENDING on exact wording (Pestronk); the record stores
+ * whatever this said on the day, so an edit here never orphans a record.
+ */
+export const TERMS_STATEMENT =
+  "I have read and agree to the Terms of Service and Privacy Policy.";
+/** The Terms text version the assent was given to — bump when /terms changes
+ *  substantively. An acceptance is to the document shown, not to the URL. */
+export const TERMS_VERSION = "2026-08-27";

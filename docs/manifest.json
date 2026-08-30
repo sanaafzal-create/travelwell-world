@@ -13,7 +13,7 @@
   {
    "file": "docs/ground-truth.md",
    "answers": "Every count, field path and vocabulary read from source with file:line, plus conformance checks. The fact sheet for reasoning about this repo without reading it.",
-   "sha256": "5f03d42392f004c4570f8ef76ac20f5c63dbec434f7920da54a25693e493f8d9",
+   "sha256": "05a6f1e59bf5599f427bd64e4f61e994982243524217978fe1e5ac29a4fa5229",
    "bytes": 17586
   },
   {

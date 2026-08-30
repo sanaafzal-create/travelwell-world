@@ -177,7 +177,7 @@ the provider.
    → `src/data/safety.json vs src/data/state-advisory-feed.json`
 
 ✅ **A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate**
-   → 85 zones across 20 country rows, all structured
+   → 86 zones across 20 country rows, all structured
    → `src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts`
 
 ✅ **No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)**

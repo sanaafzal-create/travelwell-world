@@ -1026,6 +1026,12 @@
         "lvl": 3,
         "posture": "all-but-essential"
       },
+       {
+        "name": "In Guanajuato: the areas south-west of road 45D",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "FCDO advises against all but essential travel to the areas south-west of road 45D. (San Miguel de Allende and Guanajuato City sit outside this area.)"
+       },
       {
         "name": "The state of Michoacán",
         "lvl": 3,

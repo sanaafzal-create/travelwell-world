@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef, type ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { savePendingTravelId } from "@/lib/travelId";
 import { sendMagicLink, isSupabaseConfigured } from "@/lib/auth";
+import { recordTermsAcceptance } from "@/lib/consent";
+import { TERMS_STATEMENT, TERMS_VERSION } from "@/lib/legal";
+import { ORIGIN } from "@/lib/site";
 import {
   AGE_COHORTS, ADULT_COHORTS, cohortLabel, isMinorCohort,
   budgetOptionsFor, tierLabel, MAX_BUDGET_PICKS,
@@ -75,6 +78,12 @@ export default function SignUp() {
   const [step, setStep] = useState(0);
   const [name, setName] = useState(""); const [email, setEmail] = useState("");
   const [nameErr, setNameErr] = useState(false); const [emailErr, setEmailErr] = useState(false);
+  // CLICKWRAP, not browsewrap (Berman v. Freedom Financial Network, 9th Cir.
+  // 2022). Until 2026-08-27 the Terms were a footer link — unenforceable per
+  // se — while the SAFETY consent screen already kept the logged, affirmative
+  // record courts enforce. Nothing pre-ticked; the tick is recorded verbatim.
+  const [agreeTerms, setAgreeTerms] = useState(false);
+  const [termsErr, setTermsErr] = useState(false);
   const [age, setAge] = useState("");
   const [activity, setActivity] = useState("");
   const [access, setAccess] = useState<string[]>([]);
@@ -121,6 +130,7 @@ export default function SignUp() {
       let ok = true;
       if (!name.trim()) { setNameErr(true); ok = false; }
       if (!validEmail(email)) { setEmailErr(true); ok = false; }
+      if (!agreeTerms) { setTermsErr(true); ok = false; }
       return ok;
     }
     if (key === "age" && !age) { showToast("Pick an age range to continue"); return false; }
@@ -196,6 +206,37 @@ export default function SignUp() {
                     <input type="email" id="f-email" value={email} placeholder="you@email.com" aria-invalid={emailErr} onChange={(e) => { setEmail(e.target.value); setEmailErr(false); }} />
                     {emailErr && <div className="fld__err" data-show="true"><Icon name="close" small /> That doesn't look like an email yet.</div>}
                     <div className="fld__hint">We'll send a one-tap magic link here — nothing to remember.</div>
+                  </div>
+                  <div className="fld">
+                    <label className="l3__ack" htmlFor="f-terms">
+                      <input
+                        type="checkbox"
+                        id="f-terms"
+                        checked={agreeTerms}
+                        aria-invalid={termsErr}
+                        onChange={(e) => {
+                          setAgreeTerms(e.target.checked);
+                          setTermsErr(false);
+                          if (e.target.checked) {
+                            // Recorded on the tick itself, statement verbatim —
+                            // the wording is attorney-pending and WILL change;
+                            // the record must say what it said that day. Not
+                            // awaited: assent already happened on screen.
+                            void recordTermsAcceptance({
+                              statement: TERMS_STATEMENT,
+                              termsVersion: TERMS_VERSION,
+                              termsUrl: `${ORIGIN}/terms`,
+                              at: new Date().toISOString(),
+                            });
+                          }
+                        }}
+                      />
+                      <span>
+                        I have read and agree to the <Link to="/terms" target="_blank">Terms of Service</Link> and{" "}
+                        <Link to="/privacy" target="_blank">Privacy Policy</Link>.
+                      </span>
+                    </label>
+                    {termsErr && <div className="fld__err" data-show="true"><Icon name="close" small /> The Terms need a read and a tick before we can hold a Travel I.D. for you.</div>}
                   </div>
                 </div>
               </>
