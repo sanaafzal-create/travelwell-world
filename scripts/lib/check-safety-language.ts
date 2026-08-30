@@ -193,15 +193,24 @@ export function countRetiredAuthority(
   data: unknown,
   found: { where: string; match: string; context: string }[],
 ): void {
-  if (!data || typeof data !== "object") return;
-  const d = data as { safety?: Record<string, unknown>; faq?: Array<{ q?: unknown; a?: unknown }> };
-  for (const [field, value] of Object.entries(d.safety ?? {})) {
-    for (const hit of findRetiredAuthority(value)) found.push({ where: `${at}: safety.${field}`, ...hit });
-  }
-  // The ANSWER only, again — and the FAQ matters most here, because it is the
-  // field that emits FAQPage structured data. A citation there is the
-  // machine-readable answer to a safety question, published under our name.
-  for (const [i, f] of (d.faq ?? []).entries()) {
-    for (const hit of findRetiredAuthority(f?.a)) found.push({ where: `${at}: faq #${i + 1}`, ...hit });
-  }
+  // ── THE WHOLE BLOB, NOT TWO FIELDS (2026-08-25) ───────────────────────────
+  // This walked `safety.*` and `faq[].a` only — and the dive-group incident
+  // measured what that missed: 29 retired-authority mentions sitting in
+  // `booking`, 13 in `key_facts`, more in `orbit` and `timing`, all invisible
+  // to a ratchet that was quoted as the proof the payload was clean. A check
+  // pointed one level away from the thing it governs, again — the counter
+  // described two fields while the number was read as describing the dossier.
+  // Now every string in the dossier body is walked, with the path recorded, so
+  // the count means what everyone already believed it meant.
+  const walk = (node: unknown, path: string): void => {
+    if (typeof node === "string") {
+      for (const hit of findRetiredAuthority(node)) found.push({ where: `${at}: ${path}`, ...hit });
+      return;
+    }
+    if (Array.isArray(node)) { node.forEach((v, i) => walk(v, `${path}[${i}]`)); return; }
+    if (node && typeof node === "object") {
+      for (const [k, v] of Object.entries(node as Record<string, unknown>)) walk(v, path ? `${path}.${k}` : k);
+    }
+  };
+  walk(data, "");
 }
