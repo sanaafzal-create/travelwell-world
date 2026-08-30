@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { useStore, type TripBlock } from "@/store/useStore";
+import { pendingAsRecord, fetchTravelId, type TravelIdRecord } from "@/lib/travelId";
 import { useWells, useRegionByCode, useLiveWellCount } from "@/store/useCatalog";
 import { Pill } from "@/components/ui/primitives";
 import { JourneyBar } from "@/components/ui/StepIndicator";
@@ -18,12 +19,35 @@ const SLOTS = [
 const WELL_SLOT: Record<string, string> = { fly: "dawn", activities: "morning", move: "midday", beauty: "afternoon", eat: "evening", stay: "night", shop: "afternoon", gear: "morning" };
 const STATUS_SWATCH: Record<string, string> = { confirmed: "var(--safety-1)", pending: "var(--accent)", idea: "var(--muted-foreground)" };
 
-const PARTY = [{ id: "A", name: "Amara" }, { id: "J", name: "Jhumur" }];
+// The travelling party, from the REAL Travel ID — pending beats demo (Sana,
+// 2026-08-27). The lead is the traveler's own name; party members come from
+// the Sign Up party builder. The Amara/Jhumur pair survives only for a truly
+// cold visitor previewing the itinerary. `id` is the avatar initial.
+function partyFromRecord(rec: TravelIdRecord | null): { id: string; name: string }[] {
+  const lead = rec?.display_name?.trim();
+  if (!lead) return [{ id: "A", name: "Amara" }, { id: "J", name: "Jhumur" }];
+  const initial = (n: string) => n.trim().charAt(0).toUpperCase() || "•";
+  const seen = new Set<string>();
+  const uniq = (n: string) => { let c = initial(n); while (seen.has(c)) c += "·"; seen.add(c); return c; };
+  return [
+    { id: uniq(lead), name: lead.split(/\s+/)[0] },
+    ...(rec?.party ?? []).filter((m) => m.name?.trim()).map((m) => ({ id: uniq(m.name), name: m.name.trim().split(/\s+/)[0] })),
+  ];
+}
 
 export default function Itinerary() {
-  const { trip, region } = useStore();
+  const { trip, region, user } = useStore();
   const navigate = useNavigate();
   const [whom, setWhom] = useState<string>("all");
+  // Pending beats demo, DB beats pending — same rule as Profile/Header.
+  const [idRec, setIdRec] = useState<TravelIdRecord | null>(() => pendingAsRecord());
+  useEffect(() => {
+    let live = true;
+    if (user) fetchTravelId(user.id).then((r) => { if (live && r) setIdRec(r); });
+    else setIdRec(pendingAsRecord());
+    return () => { live = false; };
+  }, [user]);
+  const PARTY = partyFromRecord(idRec);
   const covered = new Set(trip.map((b) => b.well)).size;
   const liveWells = useLiveWellCount();
   const wells = useWells().filter((w) => !w.lux);

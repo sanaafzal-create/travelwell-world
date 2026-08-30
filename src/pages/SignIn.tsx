@@ -4,9 +4,20 @@ import { Icon } from "@/lib/icons";
 import { img } from "@/lib/images";
 import { useStore } from "@/store/useStore";
 import { sendMagicLink, isSupabaseConfigured } from "@/lib/auth";
+import { pendingAsRecord } from "@/lib/travelId";
 import { Eyebrow, BrandMark } from "@/components/ui/primitives";
 
-const USER = { name: "Amara", initial: "A", email: "amara@email.com" };
+// The known-traveler fallback. PENDING BEATS DEMO (Sana, 2026-08-27): a
+// traveler who just signed up sees their own name here, never the showcase
+// persona — the persona survives only for a truly cold visitor previewing
+// this screen.
+const USER = (() => {
+  const p = pendingAsRecord();
+  const name = p?.display_name?.trim();
+  return name
+    ? { name: name.split(/\s+/)[0], initial: name.charAt(0).toUpperCase(), email: "" }
+    : { name: "Amara", initial: "A", email: "amara@email.com" };
+})();
 const TRIP = { name: "Kenya: Anniversary Safari", region: "East Africa", dates: "Jul 12–22, 2026", party: "2 travelers", coverage: 3, total: 6, img: "safariGiraffe" };
 
 type State = "unknown" | "sent" | "recognized";
@@ -84,7 +95,7 @@ export default function SignIn() {
               <Eyebrow className="si-eyebrow">New device · passwordless</Eyebrow>
               <h1 className="si-title">Check your inbox.</h1>
               <p className="si-sub">We sent a one-tap magic link to sign you in securely. No password, ever — just open the email and you're back.</p>
-              <div className="si-mail-to"><Icon name="message" small /> {email || USER.email}</div>
+              <div className="si-mail-to"><Icon name="message" small /> {email || USER.email || "your email"}</div>
               <div className="si-actions" style={{ marginTop: 26 }}>
                 <button className="btn btn-primary" onClick={() => { showToast(`Welcome back, ${USER.name} — you're signed in`); setState("recognized"); }}>I opened the link →</button>
               </div>

@@ -4,7 +4,7 @@ import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow, BrandMark } from "@/components/ui/primitives";
-import { fetchTravelId, saveTravelId, type TravelIdRecord } from "@/lib/travelId";
+import { fetchTravelId, saveTravelId, type TravelIdRecord, pendingAsRecord } from "@/lib/travelId";
 import {
   deriveIdentity, DEMO_IDENTITY, cohortLabel, activityLabel, tierLabel,
   nextCohort, shiftActivity, shiftBudget,
@@ -30,7 +30,8 @@ export default function WelcomeBack() {
   const { user, showToast } = useStore();
   const sis = useSpecialInterests();
   const [rec, setRec] = useState<TravelIdRecord | null>(null);
-  useEffect(() => { if (user) fetchTravelId(user.id).then(setRec); else setRec(null); }, [user]);
+  // Pending beats demo — same rule as Profile (Sana, 2026-08-27).
+  useEffect(() => { if (user) fetchTravelId(user.id).then((r) => setRec(r ?? pendingAsRecord())); else setRec(pendingAsRecord()); }, [user]);
 
   const id = deriveIdentity(rec, DEMO_IDENTITY);
   const curAge = rec?.age_range ?? DEMO_IDENTITY.cohortAge ?? null;

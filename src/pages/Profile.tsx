@@ -5,7 +5,7 @@ import { useStore } from "@/store/useStore";
 import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow, BrandMark } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
-import { fetchTravelId, type TravelIdRecord } from "@/lib/travelId";
+import { fetchTravelId, type TravelIdRecord, pendingAsRecord } from "@/lib/travelId";
 import { deriveIdentity, tierLabel, tierPeak, activityLabel, accessLabel, DEMO_IDENTITY, type DisplayIdentity } from "@/lib/identity";
 import { signOut } from "@/lib/auth";
 
@@ -119,8 +119,10 @@ export default function Profile() {
 
   // When signed in, load the Travel ID from the database.
   useEffect(() => {
-    if (user) fetchTravelId(user.id).then(setRec);
-    else setRec(null);
+    // Pending beats demo: a just-signed-up traveler (magic link not yet
+    // clicked) sees their own Travel ID, never the showcase persona.
+    if (user) fetchTravelId(user.id).then((r) => setRec(r ?? pendingAsRecord()));
+    else setRec(pendingAsRecord());
   }, [user]);
 
   const id = deriveIdentity(rec, DEMO_IDENTITY);

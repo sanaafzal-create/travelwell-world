@@ -70,6 +70,22 @@ export function savePendingTravelId(rec: PendingTravelId): void {
 export function loadPendingTravelId(): PendingTravelId | null {
   try { const v = localStorage.getItem(PENDING_KEY); return v ? (JSON.parse(v) as PendingTravelId) : null; } catch { return null; }
 }
+/**
+ * The pending Travel ID shaped as a record, for surfaces that personalize.
+ *
+ * THE RULE (Sana, 2026-08-27): PENDING BEATS DEMO, EVERYWHERE. A traveler who
+ * has just finished Sign Up but hasn't clicked the magic link yet is not
+ * "nobody" — the header said "Sign in" and every identity surface showed the
+ * Amara showcase persona to the very person who had just typed their own
+ * name. The demo persona's stated purpose is the warm showcase for a COLD
+ * visitor; someone holding a pending Travel ID is warm already.
+ * `user_id` is empty by construction — never write this record anywhere.
+ */
+export function pendingAsRecord(): TravelIdRecord | null {
+  const p = loadPendingTravelId();
+  return p ? ({ user_id: "", ...p } as TravelIdRecord) : null;
+}
+
 export function clearPendingTravelId(): void {
   try { localStorage.removeItem(PENDING_KEY); } catch { /* ignore */ }
 }

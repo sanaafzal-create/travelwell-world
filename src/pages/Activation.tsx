@@ -4,7 +4,7 @@ import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
-import { fetchTravelId, type TravelIdRecord } from "@/lib/travelId";
+import { fetchTravelId, type TravelIdRecord, pendingAsRecord } from "@/lib/travelId";
 
 const STEPS = ["verify", "location", "channel", "whisper"] as const;
 const STEP_LABELS = ["Email", "Safety", "Contact", "Pace", "Done"];
@@ -46,11 +46,14 @@ export default function Activation() {
 
   // When signed in, pull the real Travel ID so the greeting + email aren't placeholders.
   useEffect(() => {
-    if (user) fetchTravelId(user.id).then(setRec);
-    else setRec(null);
+    // Pending beats demo — same rule as Profile (Sana, 2026-08-27).
+    if (user) fetchTravelId(user.id).then((r) => setRec(r ?? pendingAsRecord()));
+    else setRec(pendingAsRecord());
   }, [user]);
 
-  // Fall back to the design-preview persona only when unauthenticated.
+  // rec now carries the PENDING Travel ID for a just-signed-up traveler
+  // (pending beats demo); the persona strings survive only for a truly cold
+  // visitor previewing this screen.
   const email = user?.email ?? "amara@email.com";
   const firstName = (rec?.display_name ?? "Amara").split(" ")[0];
 

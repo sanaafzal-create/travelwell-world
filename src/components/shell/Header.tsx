@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { LOCALES } from "@/data/taxonomy";
 import { useStore } from "@/store/useStore";
 import { useT } from "@/lib/i18n";
+import { fetchTravelId, pendingAsRecord } from "@/lib/travelId";
 import { Logo } from "./Logo";
 
 export function Header() {
@@ -11,6 +12,26 @@ export function Header() {
   const t = useT();
   const [localeOpen, setLocaleOpen] = useState(false);
   const localeRef = useRef<HTMLDivElement>(null);
+  // WHO the header greets (Sana, 2026-08-27): "the navbar should not say
+  // Sign in while we are already in." Three states, best name wins:
+  //   signed in            → the Travel ID's display_name (email prefix only
+  //                          while that loads or if none was ever saved)
+  //   signed UP, link not  → the pending Travel ID's name — this person just
+  //   yet clicked            typed it; showing "Sign in" to them reads as
+  //                          "your sign-up didn't take"
+  //   cold visitor         → "Sign in"
+  const [displayName, setDisplayName] = useState<string | null>(null);
+  useEffect(() => {
+    let live = true;
+    if (user) {
+      setDisplayName(pendingAsRecord()?.display_name ?? null);
+      fetchTravelId(user.id).then((r) => { if (live && r?.display_name) setDisplayName(r.display_name); });
+    } else {
+      setDisplayName(pendingAsRecord()?.display_name ?? null);
+    }
+    return () => { live = false; };
+  }, [user]);
+  const firstName = displayName ? displayName.trim().split(/\s+/)[0] : null;
   const L = LOCALES.find((l) => l.code === locale) || LOCALES[0];
 
   useEffect(() => {
@@ -42,8 +63,11 @@ export function Header() {
         </nav>
         <div className="tw-header__spacer" />
         <div className="tw-header__actions">
-          {user
-            ? <Link className="tw-signin" to="/profile" title="Your Travel ID">{user.email ? user.email.split("@")[0] : "Account"}</Link>
+          {user || firstName
+            ? <Link className="tw-signin tw-signin--me" to="/profile" title="Your Travel ID">
+                <span className="tw-me-av" aria-hidden="true">{(firstName ?? user?.email ?? "A").charAt(0).toUpperCase()}</span>
+                {firstName ?? (user?.email ? user.email.split("@")[0] : "Account")}
+              </Link>
             : <Link className="tw-signin" to="/signin">{t("nav.signin")}</Link>}
           <div className="tw-locale" ref={localeRef}>
             <button
