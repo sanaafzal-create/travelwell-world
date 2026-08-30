@@ -34,7 +34,11 @@ import { existsSync } from "node:fs";
 const BASE = process.env.A11Y_BASE || "http://localhost:4173";
 const WIDTHS = [320, 375, 390, 414, 430, 512, 768, 1024, 1440];
 // A spread of page shapes; the tile-heavy surfaces David named come first.
-const ROUTES = ["/", "/special-interests", "/regions", "/destination/zermatt-switzerland", "/wells-surface", "/about"];
+// The consent screen is in this list by counsel's own example: the duty to
+// warn is owed to "an elderly person with no regular access to the news" —
+// the same traveller the floors exist for. The advisory they are asked to
+// acknowledge must clear the reading floor, always.
+const ROUTES = ["/", "/special-interests", "/regions", "/destination/zermatt-switzerland", "/wells-surface", "/about", "/go?to=Test%20Partner&well=stay&dest=cartagena-colombia"];
 
 const READING_FLOOR = 16;
 const LABEL_FLOOR = 13;
@@ -125,6 +129,11 @@ const AUDIT = () => {
   const CONTROLS = document.body.querySelectorAll('button, [role="button"], a.btn, input:not([type="hidden"]), select, textarea');
   for (const el of CONTROLS) {
     if (!visible(el)) continue;
+    // A native checkbox/radio (appearance: auto) is painted by the OS — its
+    // computed border reads 0px while the rendered control has a real edge.
+    // Measuring the computed style misreports it, same class as the oklch
+    // fills. Only an appearance:none rebuild is ours to measure.
+    if ((el.type === "checkbox" || el.type === "radio") && getComputedStyle(el).appearance !== "none") continue;
     // WCAG 1.4.11 requires a 3:1 boundary only where the boundary is what
     // identifies the component. A transparent text item inside the nav or
     // header landmark is identified by its text and position (the menu bar),

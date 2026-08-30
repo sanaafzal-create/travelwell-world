@@ -41,6 +41,24 @@
  * translation of a quotation is a paraphrase wearing quotation marks. A locale
  * may explain around it; it must never replace it.
  *
+ * ── COUNSEL HAS SEEN THIS DESIGN AND NAMED IT (Pestronk, 20–21 Aug 2026) ───
+ * Quoting the advisory verbatim and converting nothing: "All good." The
+ * read-tick-logged-both-ways record, INCLUDING declines: "Good." The
+ * disclaimer above it in the same size lettering as the advisory: "Excellent."
+ * And the answer that unblocks showing more, not less: volunteering the
+ * advisory "does not create a duty that you otherwise would not have — the
+ * purpose of the safety information is to deter claims." Two boundaries
+ * travel with that: a disclaimer DETERS, it does not absolve (never write one
+ * as a shield), and "generated automatically" is not a defence (Atlas
+ * selecting an operator is us selecting an operator — machine generation must
+ * never be offered as mitigation anywhere). He answered from a letter; the
+ * rendered screen is unreviewed until the post-demo engagement.
+ *
+ * His duty-to-warn example is "an elderly person with no regular access to
+ * the news" — the same traveller the readability floors exist for, which is
+ * why every reading line on this screen clears 16px and the route is in the
+ * readability walk permanently.
+ *
  * ── The three design points, all load-bearing ──────────────────────────────
  * · The ALTERNATIVES button gets focus. Equal size with continue pre-focused
  *   is still a nudge, just a quieter one.

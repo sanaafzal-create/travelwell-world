@@ -1508,30 +1508,30 @@
        scale is retired (David, 2026-08-21). Colour is second, never alone. */
   .l3 { border: 1px solid var(--border); }
   .l3__framing { padding: 22px 24px 18px; border-bottom: 1px solid var(--border-hair); }
-  .l3__framing p { font-size: 14.5px; line-height: 1.6; margin-top: 8px; color: var(--muted-foreground); max-width: 62ch; }
+  .l3__framing p { font-size: 16px; line-height: 1.6; margin-top: 8px; color: var(--muted-foreground); max-width: 62ch; }
 
   .l3__level { display: flex; align-items: center; gap: 14px; padding: 18px 24px; color: #fff; }
   .l3__lvlnum { flex: none; width: 44px; height: 44px; border-radius: 999px; background: rgba(255,255,255,.22); display: grid; place-items: center; font-family: var(--font-mono); font-size: 20px; font-weight: 700; }
   .l3__country { display: block; font-size: 13px; font-weight: 700; letter-spacing: .12em; opacity: .92; }
   .l3__lvlword { display: block; font-family: var(--font-display); font-size: 19px; font-weight: 600; margin-top: 2px; }
-  .l3__updated { display: block; font-size: 13px; opacity: .9; margin-top: 3px; }
+  .l3__updated { display: block; font-size: 13px; font-weight: 600; opacity: .9; margin-top: 3px; }
 
   .l3__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 18px; }
-  .l3__zone { font-size: 14px; line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
+  .l3__zone { font-size: 16px; line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
 
-  .l3__dnt h2, .l3__quote h2 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 10px; }
+  .l3__dnt h2, .l3__quote h2 { font-size: 16px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 10px; }
   .l3__dnt ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-  .l3__dnt li { font-size: 14px; line-height: 1.55; padding-inline-start: 14px; border-inline-start: 3px solid var(--safety-4); }
+  .l3__dnt li { font-size: 16px; line-height: 1.55; padding-inline-start: 14px; border-inline-start: 3px solid var(--safety-4); }
   .l3__dntnote { color: var(--muted-foreground); }
-  .l3__dntfoot { font-size: 13px; color: var(--muted-foreground); margin-top: 10px; }
+  .l3__dntfoot { font-size: 16px; color: var(--muted-foreground); margin-top: 10px; }
 
   /* The government's words, unmistakably theirs. `.l3__verbatim` is the same
      treatment for the refusal screen, where the quote sits outside .l3__quote. */
-  .l3__quote blockquote, .l3__verbatim { margin: 0; padding: 16px 18px; background: var(--surface-alt); border-inline-start: 3px solid var(--primary); border-radius: 0 var(--radius) var(--radius) 0; font-size: 14px; line-height: 1.65; max-height: 340px; overflow-y: auto; }
-  .l3__attrib, .l3__nosource { font-size: 13px; color: var(--muted-foreground); margin-top: 10px; line-height: 1.55; }
+  .l3__quote blockquote, .l3__verbatim { margin: 0; padding: 16px 18px; background: var(--surface-alt); border-inline-start: 3px solid var(--primary); border-radius: 0 var(--radius) var(--radius) 0; font-size: 16px; line-height: 1.65; max-height: 340px; overflow-y: auto; }
+  .l3__attrib, .l3__nosource { font-size: 16px; color: var(--muted-foreground); margin-top: 10px; line-height: 1.55; }
   .l3__attrib a, .l3__nosource a { color: var(--primary); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
 
-  .l3__insurance, .l3__emergency { font-size: 14px; line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; padding-top: 14px; border-top: 1px solid var(--border-hair); }
+  .l3__insurance, .l3__emergency { font-size: 16px; line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; padding-top: 14px; border-top: 1px solid var(--border-hair); }
   .l3__emergency a { color: var(--primary); font-weight: 600; }
 
   .l3__choice { padding: 22px 24px 26px; border-top: 1px solid var(--border-hair); background: var(--surface-alt); }
@@ -1539,7 +1539,7 @@
      control the whole screen funnels to, and it must never be a fiddly target.
      A disabled row stays READABLE (only dimmed): the traveller has to be able
      to read what the second box will say before the first unlocks it. */
-  .l3__ack { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; line-height: 1.55; cursor: pointer; padding: 4px 0; min-height: 32px; }
+  .l3__ack { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.55; cursor: pointer; padding: 4px 0; min-height: 32px; }
   .l3__ack input[type="checkbox"] { flex: none; width: 22px; height: 22px; margin-top: 1px; accent-color: var(--primary); cursor: pointer; }
   .l3__ack input[type="checkbox"]:disabled { cursor: not-allowed; }
   .l3__ack[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
@@ -1550,6 +1550,6 @@
      alternatives. Anything else here is a thumb on the scale. */
   .l3__buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
   .l3__buttons .btn { width: 100%; min-height: 46px; }
-  .l3__readmore { font-size: 13px; color: var(--muted-foreground); margin-top: 14px; }
+  .l3__readmore { font-size: 16px; color: var(--muted-foreground); margin-top: 14px; }
   .l3__readmore a { color: var(--primary); font-weight: 600; }
   @media (max-width: 560px) { .l3__buttons { grid-template-columns: 1fr; } }
