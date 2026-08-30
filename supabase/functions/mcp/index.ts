@@ -10,8 +10,10 @@
 // Guardrails live in the DATA path, so they survive when the reader is a machine
 // with no UI in the loop:
 //   · only `status = live` rows are exposed;
-//   · the safety block (advisory_level, booking_hold) rides in every destination
-//     payload — an agent sees the content-only switch without a human;
+//   · the safety block rides in every destination payload, resolved by the SAME
+//     resolver the site runs (see safety-fallback.ts, generated) — FCDO advice
+//     in words (never the retired numeric scale), booking_hold, and provenance
+//     (source + read date + the official advisory page) on every fact;
 //   · provider results carry the FTC disclosure text as a field, not UI chrome.
 //
 // Deploy:  supabase functions deploy mcp
@@ -28,7 +30,7 @@ const SERVER_INFO = { name: "travelwell-corpus", version: "0.1.0" };
 const FEEL_VOCAB = ["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous"];
 const PRICE_TIERS = ["essential", "comfort", "premier", "luxury", "ultra"];
 const CURATION_TIERS = ["prime", "vetted", "prospective"];
-const HANDOFF_MODES = ["api", "widget", "affiliate", "first-party"];
+const HANDOFF_MODES = ["api", "widget", "affiliate", "first-party", "email-parse", "request-to-book", "lead"];
 
 const cors: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",
@@ -83,7 +85,8 @@ const TOOLS = [
       "Fetch a single live destination dossier by its canonical id (\"<city>-<country>\", lowercase, hyphenated, " +
       "full country — e.g. \"cape-town-south-africa\"). Returns the hook, Signature Interests, feel tags, budget " +
       "range, and the rich `data` block (safety, timing, jewels, and the buffet block of facts/faq/quotes). " +
-      "The safety block travels with the place — respect advisory_level and booking_hold before suggesting a booking.",
+      "The safety block travels with the place — read `advice` and `booking_hold` before suggesting a booking, " +
+      "and cite its `source`, `read_date` and `advisory_page` when you repeat a safety fact.",
     inputSchema: {
       type: "object",
       properties: { id: { type: "string", description: "Canonical destination id, e.g. \"cape-town-south-africa\"" } },
@@ -94,9 +97,12 @@ const TOOLS = [
   {
     name: "get_safety",
     description:
-      "Get the safety posture for a live destination (by id) or for a country (by country name). Returns " +
-      "advisory_level (L1–L4), posture, booking_hold, and notes. L4 and booking-held places are content-only — " +
-      "never surface a booking action for them.",
+      "Get the safety posture for a live destination (by id) or for a country (by country name). Returns the " +
+      "FCDO-derived `advice` in words (no advisory against travel / against all but essential travel / against " +
+      "all travel / not on file), `booking_hold`, `consent_required`, the FCDO's verbatim sentence where we hold " +
+      "one, and provenance — `source`, `read_date`, `advisory_page`. Booking-held places are content-only: never " +
+      "surface a booking action for them. Where consent_required is true, booking happens only on our own consent " +
+      "screen after the traveler reads the complete advisory — send the human to the page, don't book around it.",
     inputSchema: {
       type: "object",
       properties: {
@@ -141,7 +147,7 @@ const TOOLS = [
   },
   {
     name: "list_wells",
-    description: "List the Wells — traveler-need categories (id, name, tag, status). 10 live + 2 soon.",
+    description: "List the Wells — traveler-need categories (id, name, tag, status). THE 13 WELLS: 10 live + 3 soon.",
     inputSchema: { type: "object", properties: {}, additionalProperties: false },
   },
   {
@@ -225,7 +231,7 @@ async function buildResource(uri: string, deps: McpDeps): Promise<any | null> {
       name: SERVER_INFO.name, version: SERVER_INFO.version, access: "read-only",
       corpus: "TravelWell.World destination catalog (world-readable)",
       tools: TOOLS.map((t) => t.name),
-      guardrails: ["only live destinations", "safety block rides every place", "prime/vetted providers only (no unvetted prospects)", "provider disclosure is a field", "no PII, no transactions, no writes"],
+      guardrails: ["only live destinations", "safety block rides every place, resolved by the same resolver the site runs", "every safety fact carries source + read date + the official advisory page", "booking_hold is in the data — a held place cannot be surfaced as bookable", "prime/vetted providers only (no unvetted prospects)", "provider disclosure is a field", "no PII, no transactions, no writes"],
       site: "https://travelwell.world",
     };
   }
@@ -251,8 +257,11 @@ async function handleRpcMessage(msg: any, deps: McpDeps): Promise<any | null> {
           capabilities: { tools: { listChanged: false }, resources: { listChanged: false } },
           serverInfo: SERVER_INFO,
           instructions:
-            "Read-only access to the TravelWell.World destination corpus. Every place carries its safety posture — " +
-            "never suggest booking an L4 or booking-held destination. Partner options are disclosed and may pay a commission.",
+            "Read-only access to the TravelWell.World destination corpus. Every place carries its safety block, " +
+            "resolved from the UK FCDO's advisory: never surface a booking action where booking_hold is true — " +
+            "where the FCDO advises against all travel, we don't sell, so offer bookable alternatives instead. " +
+            "Every safety fact carries its source, the date we read it, and the official advisory page — cite " +
+            "them when you repeat it. Partner options are disclosed and may pay a commission.",
         });
       }
       case "notifications/initialized":

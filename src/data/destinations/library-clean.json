@@ -80062,7 +80062,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow_required": false,
     "air_access_verified": true,
     "air_access_note": "Cusco (CUZ) via Lima (LIM); then rail Ollantaytambo → Aguas Calientes; shuttle bus to the gate",
     "altitude_m": {
@@ -103177,7 +103176,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow_required": false,
     "air_access_verified": true,
     "air_access_note": "Fly Lima (LIM); road ~3–4 hr south on the Panamericana Sur to Paracas/Ica; Nazca overflights depart María Reiche Neuman aerodrome (NZC)",
     "activity_flags": {

@@ -1,16 +1,33 @@
 # Read-only MCP server — build scope
 
-**Status: GREENLIT + BUILT (v1 + safety fallback).** David gave the go (Jul 2026).
-v0 skeleton and v1 full surface are in `supabase/functions/mcp/index.ts`; the
-country-level safety fallback is in `supabase/functions/mcp/safety-fallback.ts`
-(generated from `src/data/safety.json`, so `get_safety` and the safety block on
-every place are lit even before the dossier ingest populates `data.safety` —
-marked `derived:true` so it's never mistaken for dossier-grade). Hardening is in too: per-IP rate limit + body-size/batch caps + free-text length
+**Status: GREENLIT + BUILT (v1 + safety fallback), deployed and verified live 2026-07-21.**
+David gave the go (Jul 2026). v0 skeleton and v1 full surface are in
+`supabase/functions/mcp/index.ts`; the safety module is
+`supabase/functions/mcp/safety-fallback.ts`.
+
+> **2026-08-30 — the safety module was rebuilt and MUST stay generated.** The
+> original fallback was baked ONCE from a June copy of `safety.json` by a
+> scratchpad script that was then deleted; nothing regenerated or guarded it,
+> and it sat deployed for ten weeks citing the retired authority, speaking the
+> retired numeric scale, and defaulting an unknown country to book-freely
+> (fail-open). It is now a bundle of the REAL resolver — `resolveSafety` with
+> the composite-country read, zone joins, stricter-wins, and fail-safe
+> unverified — produced by `npm run gen:mcp-safety` from
+> `scripts/mcp-safety-src.ts` and guarded by `check:generated` (the pre-commit
+> hook), so the machine-facing surface can no longer drift from the site.
+> The agent payload now answers the provenance contract (David, 2026-08-29):
+> every safety fact carries `source`, `read_date` and `advisory_page` (a deep
+> FCDO link, omitted rather than guessed for a country outside our checked
+> set), the FCDO threshold **in words** (never a number), `booking_hold`, and
+> `consent_required` with the instruction that consent happens on OUR screen.
+> **Re-deploy required:** `supabase functions deploy mcp` (Sana), so the live
+> endpoint stops serving the June bake.
+
+Hardening is in too: per-IP rate limit + body-size/batch caps + free-text length
 cap, and the provider curation review (only prime/vetted surfaced — never unvetted
 `prospective`; `booking_url` dropped from the read surface). 32/32 protocol +
 dispatch + fallback + hardening assertions pass under Node (stubbed corpus).
-**Remaining: deploy + connect a real agent client (Sana), and a live smoke-test
-against the deployed URL.** This doc is the reference for what was built and what's left.
+This doc is the reference for what was built and what's left.
 
 Note on rate limiting: it's an in-memory per-isolate window (throttles a single
 hammering caller on one instance). A cross-instance global cap would need a shared

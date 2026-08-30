@@ -39,6 +39,11 @@ const GENERATORS = [
   ["gen:advisory-payload", "docs/advisory-countries.json + migration 0015"],
   ["gen:board", "docs/board.json"],
   ["gen:list-sizes", "docs/list-sizes.json (cap vs current length per published surface)"],
+  // The MCP server's safety module — a bundle of the REAL resolver, so the
+  // machine-facing surface can never again drift from the site (its
+  // predecessor sat deployed for ten weeks citing the retired authority,
+  // because its generator was a deleted scratchpad script nothing guarded).
+  ["gen:mcp-safety", "supabase/functions/mcp/safety-fallback.ts (the MCP safety resolver bundle)"],
   ["gen:routes", "vercel.json (the rewrite list, read from the router)"],
   // LAST, deliberately: the manifest HASHES the other generated files, so it
   // must run after every generator that writes one — the library's own O-10
@@ -84,6 +89,7 @@ const OWNED = [
   // The hosting config. Generated because a rewrite list that drifts from the
   // router either 404s a real page or resurrects the catch-all it replaced.
   "vercel.json",
+  "supabase/functions/mcp/safety-fallback.ts",
 ];
 
 const git = (...args) => execFileSync("git", args, { encoding: "utf8" });
