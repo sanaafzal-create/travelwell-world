@@ -124,8 +124,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2024-09-17",
-    "consent_flow": false
+    "advisory_updated": "2024-09-17"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -616,7 +615,6 @@
     "codes": [
      "L3"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. US State Level 3 (Reconsider Travel) for the UAE amid an active regional conflict that began 28 Feb 2026 (US/Israeli strikes on Iran; Iranian retaliatory strikes on all six GCC states; Hormuz closed; State depart-now for 16 countries 2 Mar 2026), ONGOING as of 2026-08-10. L3 books only via the consent gate, which Sana confirms is NOT built. FAST-MOVING: re-verify State + FCDO before travel. CITATION: level+conflict supplied by Strategy Claude from a 2026-08-09 read of the US Embassy UAE alert 4 Jun 2026 + State-advisory press; ae.usembassy.gov returned 'Technical Difficulties' to a 2026-08-10 re-fetch; conflict corroborated 2026-08-10 via F1/FIA GP-cancellation coverage (Sky Sports/PlanetF1 via web search). EVENT: 2026 Bahrain + Saudi F1 GPs cancelled (F1/FIA 15 Mar 2026); Abu Dhabi GP 2026 status to verify."
    },
    "si_checklist_25": {
@@ -1129,8 +1127,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -1448,7 +1445,6 @@
      "reconsider-travel",
      "regional-ebola-alert"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2). Akagera is EASTERN Rwanda, far from the 10km DRC-border L4 carve-out (which applies to Volcanoes/NW). Disclose L3 + confirm consent. Re-verify each cycle."
    },
@@ -2485,7 +2481,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2 per built French-dossier standard; confirm at travel.state.gov)",
-    "consent_flow": false,
     "note": "France carries a nationwide US L2 (terrorism/civil unrest) — NOT resort-specific; Alpe d'Huez is a safe Alpine resort, main on-mountain risk is the alpine environment (altitude/avalanche/sun/weather), not security"
    },
    "si_checklist_25": null,
@@ -2708,8 +2703,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -3304,7 +3298,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (high altitude + avalanche + Little Cottonwood Canyon: SR-210 traction law, UDOT closures, Interlodge), not security"
    },
    "si_checklist_25": null,
@@ -3693,7 +3686,6 @@
     "codes": [
      "L3"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. US State Level 3 (Reconsider Travel) for Saudi Arabia amid an active regional conflict that began 28 Feb 2026 (US/Israeli strikes on Iran; Iranian retaliatory strikes on all six GCC states; Hormuz closed; State depart-now for 16 countries 2 Mar 2026), ONGOING as of 2026-08-10. L3 books only via the consent gate, which Sana confirms is NOT built. CARVE-OUTS FLAGGED, NOT READ: Saudi historically names Yemen-border + Eastern-Province (Qatif) zones (far from AlUla) - verify at travel.state.gov. FAST-MOVING: re-verify. CITATION: level+conflict supplied by Strategy Claude from a 2026-08-09 read of the US Embassy UAE alert 4 Jun 2026 (Saudi listed L3) + State-advisory press; FCDO wording for Saudi NOT read in this build (required second source - verify); conflict corroborated 2026-08-10 via F1/FIA GP-cancellation coverage (Sky Sports/PlanetF1, web search)."
    },
    "si_checklist_25": {
@@ -3890,8 +3882,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -3978,19 +3969,12 @@
     "hospital": "Lighthouse Medical Center (San Pedro, private) for urgent care; serious trauma -> Karl Heusner Memorial Hospital (KHMH), Belize City - the only trauma centre in Belize; then US evac. Island remoteness flagged.",
     "book_enabled": true,
     "l3_disclosure": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "state_dept_carveout": "cayes/San Pedro open; only Southside Belize City (Haulover Creek Canal to Fabers Road) restricted",
     "stay_in_zone": true,
     "air_access_verified": true,
     "malaria": "none on the cayes; Belize WHO-certified malaria-free 2023; small mainland Cayo District cluster (Apr 2025) - mainland only",
     "water": "do not drink tap water on the cayes; use bottled/filtered",
-    "mosquito_borne": "dengue primary concern; also chikungunya, Zika (day-biting Aedes) - use repellent",
-    "founder_policy_note": "book_enabled rides on the BOOK WITH WARNING bin (Four-Bin v3): full verbatim live US State Dept advisory disclosed + acknowledged at booking; only Southside Belize City is the named danger"
+    "mosquito_borne": "dengue primary concern; also chikungunya, Zika (day-biting Aedes) - use repellent"
    },
    "timing": {
     "inflection_curve_start": "2026-12-20",
@@ -4532,8 +4516,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -4858,7 +4841,6 @@
      "crime",
      "urban-unrest"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Kenya US L2 Exercise Increased Caution - elevated risk in Nairobi/urban areas, not Amboseli; safe licensed-operator safari. Disclose L2. Re-verify each cycle."
    },
@@ -5128,7 +5110,6 @@
      "regional-tensions",
      "terrorism"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Jordan US Level 3 Reconsider Travel (escalated March 2026, regional US-Iran tensions). Disclose PROMINENTLY; heightened-consent booking. Level-4 Do-Not-Travel areas = Syria + Iraq border strips + Mansheyat al Ghayyath + Ruwayshid - Amman is in the CENTRE-WEST, far from them. Functioning capital + arrival hub. Re-verify each cycle (may revert to L2)."
    },
@@ -5501,8 +5482,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2024-08-09",
-    "consent_flow": false
+    "advisory_updated": "2024-08-09"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -6021,7 +6001,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; accessed 2026-07-19)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT the France L2; main risk is the Gemsstock off-piste/freeride environment, not security"
    },
    "si_checklist_25": null,
@@ -6467,8 +6446,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -6576,13 +6554,7 @@
     "air_access_verified": true,
     "altitude": "Antigua ~1,500 m (mild); Acatenango summit 3,976 m = serious AMS; Pacaya ~2,552 m",
     "water": "bottled/purified only",
-    "malaria": "no malaria risk in Antigua (highland); dengue/Zika precaution advised",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    }
+    "malaria": "no malaria risk in Antigua (highland); dengue/Zika precaution advised"
    },
    "timing": {
     "inflection_curve_start": "peak dry season Nov-Mar (baseline); Feb is the sweet spot (crowds dip, dry)",
@@ -7186,7 +7158,6 @@
     ],
     "advisory_updated": "2025-05-22",
     "advisory_verified": "2026-07-12",
-    "consent_flow": false,
     "note": "20 Mar 2026 US Embassy Brussels security reminder layered on top, not a level change"
    },
    "si_checklist_25": null,
@@ -7698,8 +7669,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "TBD verify",
-    "consent_flow": false
+    "advisory_updated": "TBD verify"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -7976,7 +7946,6 @@
     ],
     "advisory_updated": "2025-05-22",
     "advisory_verified": "2026-07-12",
-    "consent_flow": false,
     "note": "Belgium national L2/T; Luxembourg north/east Ardennes = country L1 with localized L2 code-O carve-out for unexploded WWI/WWII ordnance (advisory 2026-04-08)"
    },
    "si_checklist_25": null,
@@ -8069,7 +8038,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "Rodríguez Ballón International (AQP) via Lima (LIM)",
     "altitude_m": {
@@ -8661,8 +8629,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -8993,7 +8960,6 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "consent_flow": false,
     "note": "Aruba US L1 (lowest tier); south of the hurricane belt (very low storm risk); main concern petty theft; AWG (florin ~1.77/USD), USD accepted almost everywhere"
    },
    "si_checklist_25": {
@@ -9668,7 +9634,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + CO-82 winter roads), not security"
    },
    "si_checklist_25": null,
@@ -9977,7 +9942,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Egypt US L2 Exercise Increased Caution - the Nile corridor (Aswan, the cruise, Abu Simbel) is in the L2 zone. Do-Not-Travel carve-out excludes N/Middle Sinai (except Sharm el-Sheikh by air) + the Western Desert/Libya border area (L4), far from Aswan. Disclose L2. Re-verify each cycle."
    },
@@ -10499,8 +10463,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2026 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2026 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -10792,8 +10755,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -11161,8 +11123,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -11502,7 +11463,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "Quintana Roo US L2 (Exercise Increased Caution, dated 2026-05-29) - freely bookable; the real planning is open-water swim discipline + stromatolite protection + hurricane season, not crime; MXN currency"
    },
    "si_checklist_25": {
@@ -11828,7 +11788,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "Quintana Roo/Mexico US L2 (Exercise Increased Caution) - freely bookable; MXN currency, USD widely accepted"
    },
    "si_checklist_25": {
@@ -12095,8 +12054,7 @@
      "T"
     ],
     "advisory_updated": "2026-04",
-    "advisory_verify": true,
-    "consent_flow": false
+    "advisory_verify": true
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -12427,8 +12385,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -12765,7 +12722,6 @@
     "advisory_note": "Mainland L4 (Do Not Travel): Esmeraldas city/north, Guayaquil south of Portete de Tarqui Ave, Durán canton, Huaquillas/Arenillas. Baños/Tungurahua province not named in any L3/L4 zone.",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": "No airport in Baños — access via UIO (Mariscal Sucre, Quito) + ~3-3.5 hr road transfer (~180 km)",
     "altitude_m": 1820,
     "altitude_notes": {
@@ -13454,8 +13410,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -13650,8 +13605,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-12",
-    "consent_flow": false
+    "advisory_updated": "2025-05-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -14059,8 +14013,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -14675,8 +14628,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -15500,7 +15452,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-70 winter driving), not security"
    },
    "si_checklist_25": null,
@@ -15712,8 +15663,7 @@
      "bin": "freely_bookable",
      "level": "L1",
      "advisory_updated": "verify"
-    },
-    "consent_flow": false
+    }
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -16362,8 +16312,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-04-26",
-    "consent_flow": false
+    "advisory_updated": "2026-04-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -16583,8 +16532,7 @@
      "N",
      "C"
     ],
-    "advisory_updated": "2026-07-06",
-    "consent_flow": false
+    "advisory_updated": "2026-07-06"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -16976,8 +16924,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-04 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2026-04 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -17213,8 +17160,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-04 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2026-04 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -17497,8 +17443,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "TBD verify at live-data pass",
-    "consent_flow": false
+    "advisory_updated": "TBD verify at live-data pass"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -18146,7 +18091,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-19",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (high altitude + avalanche + US-191 Gallatin Canyon winter driving), not security"
    },
    "si_checklist_25": null,
@@ -18806,8 +18750,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -19064,12 +19007,6 @@
     "advisory_date": "2026-06-18",
     "advisory_codes": "C (Crime) only",
     "book_enabled": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "l3_disclosure": true,
     "state_dept_carveout": "only Southside Belize City restricted; offshore atolls open",
     "stay_in_zone": true,
@@ -19451,7 +19388,6 @@
     "advisory_text": "Exercise Increased Caution (crime + potential civil unrest)",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "remote_flag": true,
     "hazards": [
@@ -19744,12 +19680,6 @@
      "Venezuela border ~10km"
     ],
     "bogota_in_named_danger": false,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Colombia (level + reason + named-danger areas + complete 'If you decide to travel' guidance, pulled live) + traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "BOG (El Dorado Intl) — direct international incl. major US, EU and LatAm gateways; Colombia's primary hub",
     "altitude_m": 2640,
     "altitude_note": "~2,640 m — mild AMS possible 24–48 hrs; Monserrate 3,152 m and páramo hikes 3,200 m+ add load",
@@ -20316,7 +20246,6 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "consent_flow": false,
     "note": "Bonaire (Dutch special municipality) US L1; Dutch green code; south of the hurricane belt; USD currency"
    },
    "si_checklist_25": {
@@ -20422,7 +20351,6 @@
     "advisory_why": "national crime + kidnapping risk indicator concentrated in cities, favelas, and Level-4 border zones — none describe interior Bonito",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": {
      "primary": "Bonito (BYO) — limited commercial service (~13 km from town)",
@@ -21160,7 +21088,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-70 winter driving), not security"
    },
    "si_checklist_25": null,
@@ -21503,8 +21430,7 @@
      "T"
     ],
     "advisory_updated": "2026-04",
-    "advisory_verify": true,
-    "consent_flow": false
+    "advisory_verify": true
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -21874,8 +21800,7 @@
     ],
     "advisory_updated": "2025-05-22",
     "advisory_verified": "2026-07-12",
-    "security_alert": "20 Mar 2026 U.S. Embassy security reminder active",
-    "consent_flow": false
+    "security_alert": "20 Mar 2026 U.S. Embassy security reminder active"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -22251,8 +22176,7 @@
     ],
     "advisory_updated": "2025-05-22",
     "advisory_verified": "2026-07-12",
-    "security_alert": "20 Mar 2026 U.S. Embassy security reminder active",
-    "consent_flow": false
+    "security_alert": "20 Mar 2026 U.S. Embassy security reminder active"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -22870,7 +22794,6 @@
     "level": "L1",
     "codes": [],
     "advisory_updated": "2026-04-15",
-    "consent_flow": false,
     "note": "Hungary US L1 (Exercise Normal Precautions), safest tier"
    },
    "si_checklist_25": {
@@ -23020,7 +22943,6 @@
     "advisory_level": "L1",
     "book_enabled": true,
     "bin": "freely bookable (L1)",
-    "consent_flow": false,
     "air_access_verified": {
      "international": "EZE (Ezeiza / Ministro Pistarini)",
      "domestic": "AEP (Aeroparque Jorge Newbery)"
@@ -23519,7 +23441,6 @@
      "ebola-sudan-virus-pheic",
      "health-outbreak"
     ],
-    "consent_flow": true,
     "book_suppressed": true,
     "waiver": false,
     "dynamic": true,
@@ -24636,7 +24557,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Egypt US L2 Exercise Increased Caution - Cairo/Giza is in the L2 zone (standard big-city care). Do-Not-Travel carve-out excludes N/Middle Sinai (except Sharm el-Sheikh by air) + the Western Desert/Libya border area (L4), far from Cairo. Disclose L2. Re-verify each cycle."
    },
@@ -25670,7 +25590,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "Quintana Roo/Mexico US L2 (Exercise Increased Caution) - freely bookable; MXN currency, USD widely accepted"
    },
    "si_checklist_25": {
@@ -25999,8 +25918,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -27219,12 +27137,6 @@
      "Venezuela border ~10km"
     ],
     "cartagena_in_named_danger": false,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Colombia (level + reason + named-danger areas + complete 'If you decide to travel' guidance, pulled live) + traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "CTG (Rafael Núñez Intl) — direct international incl. Miami (AA, Avianca) and New York JFK (JetBlue year-round, Avianca seasonal)",
     "water": "bottled",
     "vaccinations": "yellow fever recommended for Tayrona/jungle/Sierra Nevada; dengue present on coast; check CDC",
@@ -27936,8 +27848,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -28196,16 +28107,9 @@
     "hospital": "small local clinic on-caye; serious trauma routes to Belize City hospitals by water taxi/air or air-evac; route around Southside Belize City",
     "book_enabled": true,
     "l3_disclosure": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "state_dept_carveout": "only Southside Belize City restricted; cayes open",
     "stay_in_zone": true,
     "air_access_verified": "BZE -> Caye Caulker (CUK) by Tropic Air / Maya Island Air puddle-jumper, or high-speed water taxi ~45 min; never touches Southside Belize City",
-    "founder_policy_note": "book_enabled rides on the BOOK WITH WARNING bin (Four-Bin v3): full verbatim live US State Dept advisory disclosed + acknowledged at booking; only Southside Belize City is the named danger",
     "the_split": "tidal current + boat traffic in the channel; not lifeguarded/boat-free; swim to sides, watch for boats, don't swim impaired",
     "malaria": "WHO-certified malaria-free (2023); a few mainland Cayo cases reappeared 2025; effectively none on the caye",
     "dengue": "dengue/chikungunya/Zika active (daytime Aedes; Belize City cases up 2025) - DEET/picaridin, cover up",
@@ -29474,7 +29378,6 @@
     "level": "L2 (Exercise Increased Caution — EU state; national terror/protest caveat, not resort-specific)",
     "codes": [],
     "advisory_updated": "2026 (L2 current; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "France is US L2 — a national caveat (terror/protest in cities), NOT Chamonix-specific; the real risk here is the high-alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -29824,8 +29727,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -30595,7 +30497,6 @@
     "advisory_source": "travel.state.gov, updated 2026-05-20, accessed 2026-07-07",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "maritime_headline": "sea + weather is the real risk: cold-water/swell on Punihuil boats (life vests mandatory), rough ferry crossings, exposed sea-cliff hikes, cold/rain exposure year-round",
     "wet_weather_driving": "self-drive island; frequent rain/fog, narrow rural roads, ferry timing — drive to conditions",
@@ -31156,8 +31057,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -31533,7 +31433,6 @@
     "advisory_reissued": "2026-05-20",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access_note": "via Santiago SCL, ~2-3 hr drive to Santa Cruz",
     "key_safety_line": "drink-driving — always use a designated driver or guided wine tour",
@@ -32059,7 +31958,6 @@
     "advisory_updated": "2025-08-11",
     "advisory_verified": "2026-07-12",
     "security_alert": "active terrorism caution (public/tourist locations, Germany/Europe)",
-    "consent_flow": false,
     "zero_drift_flag": "2025-08-11 supersedes the 2026-06-26 value carried from Saxony; back-fix Berlin/Saxony at 01F region-close"
    },
    "si_checklist_25": null,
@@ -32169,7 +32067,6 @@
     "advisory_updated": "2025-05-07",
     "advisory_reason": "crime (property + some violent) concentrated in Montevideo, Canelones, Maldonado, Rivera — not Colonia",
     "book_enabled": true,
-    "consent_flow": false,
     "bin": "freely bookable (L2)",
     "air_access_verified": true,
     "air_access_note": "Montevideo Carrasco (MVD) + ~2.5-hr road transfer, or Buenos Aires day-ferry ~1–3 hr (Buquebus / Colonia Express)",
@@ -32513,8 +32410,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2024-09-17",
-    "consent_flow": false
+    "advisory_updated": "2024-09-17"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -33132,7 +33028,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-70 winter driving), not security"
    },
    "si_checklist_25": null,
@@ -33647,7 +33542,6 @@
     "level": "L2 (Exercise Increased Caution)",
     "codes": [],
     "advisory_updated": "2026 (L2 current; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Italy carries US L2 (general European terrorism/crowded-place caution, not Cortina-specific); main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -33876,8 +33770,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-12",
-    "consent_flow": false
+    "advisory_updated": "2025-05-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -34788,7 +34681,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "France carries a nationwide US L2 (terrorism/civil unrest) — NOT resort-specific; Courchevel is an orderly Alpine resort, main on-mountain risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -35369,7 +35261,6 @@
     "level": "L2 (Exercise Increased Caution — terrorism, EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2025 (L2; monitored current, accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Italy is at US L2 (Exercise Increased Caution) for general terrorism risk common to Europe — not an Aosta Valley-specific threat; main practical risk is the alpine environment, plus petty theft in crowds"
    },
    "si_checklist_25": null,
@@ -36003,7 +35894,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (altitude + avalanche) + end-of-road remoteness, not security"
    },
@@ -36206,8 +36096,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-10-23",
-    "consent_flow": false
+    "advisory_updated": "2025-10-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -36478,7 +36367,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (maritime deep-snow avalanche + tree wells + Cascade winter driving), not security. Altitude modest (base ~4,400 ft / summit ~7,002 ft) — AMS de-emphasized."
    },
@@ -36559,7 +36447,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "Cuenca — Mariscal Lamar (CUE), domestic-only, via Quito (UIO) / Guayaquil (GYE)",
     "altitude_m": {
@@ -37301,7 +37188,6 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "consent_flow": false,
     "note": "Curacao US L1; south of the hurricane belt; ANG (guilder, USD-pegged), USD widely accepted"
    },
    "si_checklist_25": {
@@ -37422,7 +37308,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "Cusco (CUZ) via Lima (LIM)",
     "altitude_m": {
@@ -38369,7 +38254,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "renewed 20 May 2025; L1 confirmed (accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT France L2; the Feb 28 2026 Worldwide Caution does not change Switzerland's L1; main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -38624,7 +38508,6 @@
      "regional-tensions",
      "terrorism"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Jordan US Level 3 Reconsider Travel (escalated March 2026, regional US-Iran tensions). Disclose PROMINENTLY; heightened-consent booking. Level-4 Do-Not-Travel areas = Syria + Iraq border strips + Mansheyat al Ghayyath + Ruwayshid - the Dead Sea resort strip is in the WEST, far from them. Resorts operate through 2026. Re-verify each cycle (may revert to L2)."
    },
@@ -39381,7 +39264,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-80/Parley's winter driving), not security"
    },
    "si_checklist_25": null,
@@ -39855,8 +39737,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -40119,7 +40000,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Tunisia US L2 Exercise Increased Caution (May 2026). Djerba island is in the L2 zone (standard island-resort care). Heightened security around the El Ghriba pilgrimage (after a Sept-2023 incident); 2026 pilgrimage ran with international visitors. Tunisia's L4 Do-Not-Travel areas (western mountains, Libya/Algeria border strips) are far from Djerba. Disclose L2. Re-verify each cycle."
    },
@@ -40484,7 +40364,6 @@
     "codes": [
      "L3"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. US State Level 3 (Reconsider Travel) for Qatar amid an active regional conflict that began 28 Feb 2026 (US/Israeli strikes on Iran; Iranian retaliatory strikes on all six GCC states; Hormuz closed; State depart-now for 16 countries 2 Mar 2026), ONGOING as of 2026-08-10. L3 books only via the consent gate, which Sana confirms is NOT built. FAST-MOVING: re-verify State + FCDO before travel. Doha is the named flight-disruption example: American Airlines cancelled Philadelphia-Doha through end-2026 (restart targeted Jan 2027). CITATION: level+conflict supplied by Strategy Claude from a 2026-08-09 read of the US Embassy UAE alert 4 Jun 2026 (Qatar listed among the L3 states) + State-advisory press; ae.usembassy.gov returned 'Technical Difficulties' to a 2026-08-10 re-fetch; conflict corroborated 2026-08-10 via F1/FIA GP-cancellation coverage (Sky Sports/PlanetF1 via web search)."
    },
    "si_checklist_25": {
@@ -40998,8 +40877,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -41425,7 +41303,6 @@
     "level": "L1",
     "codes": [],
     "advisory_updated": "2025-12-23",
-    "consent_flow": false,
     "note": "Portugal US L1 (Exercise Normal Precautions), safest tier"
    },
    "si_checklist_25": {
@@ -41849,8 +41726,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-06-26",
-    "consent_flow": false
+    "advisory_updated": "2026-06-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -42243,7 +42119,6 @@
     "codes": [
      "L3"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. US State Level 3 (Reconsider Travel) for the UAE amid an active regional conflict that began 28 Feb 2026 (US/Israeli strikes on Iran; Iranian retaliatory missile/drone strikes on all six GCC states; Strait of Hormuz closed to commercial shipping; State 'depart now' for 16 countries + non-emergency personnel ordered out 2 Mar 2026), ONGOING as of 2026-08-10. L3 books only through the consent gate, which Sana confirms is NOT built - so not bookable regardless of level. FAST-MOVING: re-verify both State + FCDO before travel. CITATION: level+conflict supplied by Strategy Claude from a 2026-08-09 read of the US Embassy UAE security alert of 4 Jun 2026 + State-advisory press through late Jul 2026; ae.usembassy.gov returned 'Technical Difficulties' to a 2026-08-10 re-fetch (not re-read directly); conflict corroborated 2026-08-10 via F1/FIA GP-cancellation coverage (Sky Sports/PlanetF1 via web search)."
    },
    "si_checklist_25": {
@@ -42424,8 +42299,7 @@
      "C",
      "U"
     ],
-    "advisory_updated": "2026-03-20",
-    "consent_flow": false
+    "advisory_updated": "2026-03-20"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -42594,8 +42468,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2026-05-18",
-    "consent_flow": false
+    "advisory_updated": "2026-05-18"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -43279,8 +43152,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-08",
-    "consent_flow": false
+    "advisory_updated": "2025-05-08"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -43356,7 +43228,6 @@
     "advisory_level": "L1",
     "book_enabled": true,
     "bin": "freely bookable (L1)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access_note": "El Calafate FTE via Buenos Aires AEP (domestic) / EZE (international); Ushuaia USH; Bariloche BRC",
     "remote_flag": true,
@@ -44191,8 +44062,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-06-26",
-    "consent_flow": false
+    "advisory_updated": "2026-06-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -44443,11 +44313,6 @@
     "emergency": "911",
     "book_enabled": true,
     "bin": "BOOK WITH WARNING",
-    "consent_flow": {
-     "disclosure_required": true,
-     "renders": "full verbatim live advisory + acknowledgment",
-     "wording_status": "hook set only - PENDING compliance-attorney sign-off"
-    },
     "state_dept_carveout": "Ensenada no-restriction",
     "restricted_away_zone": "Mexicali Valley (sole BC restricted zone; not transited on Ensenada corridor)",
     "trauma_evac": "San Diego, USA (nearest tertiary trauma; ground or air ambulance)",
@@ -45402,8 +45267,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -46052,8 +45916,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2024-09-17",
-    "consent_flow": false
+    "advisory_updated": "2024-09-17"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -46118,7 +45981,6 @@
     "advisory_why": "mainland urban crime + kidnapping; favelas L4. Archipelago itself is low-risk controlled-access marine park.",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "FEN via Recife (REC) or Natal (NAT) only — Gol/Azul",
     "no_fly_after_diving": "18-24h surface interval before FEN->mainland flight; plan dive-free last day",
@@ -46513,7 +46375,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Morocco US L2 Exercise Increased Caution (Apr 2025) - same tier as France/Spain/Italy/UK. Standard medina caution; a guide for the vast Fes el-Bali maze the first day. The only Do-Not-Travel area is the remote Western-Sahara Berm, far from Fez. Disclose L2. Re-verify each cycle."
    },
@@ -46911,8 +46772,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-22",
-    "consent_flow": false
+    "advisory_updated": "2025-05-22"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -47240,8 +47100,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -47327,7 +47186,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access_note": "Foz do Iguaçu / Cataratas International Airport (IGU / SBFI), 13 km / ~8 mi from downtown, minutes from the park entrance; LATAM/Azul/Gol",
     "hazards": [
@@ -47973,8 +47831,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -48495,7 +48352,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025 (L1 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Japan has its own advisory (US L1); main risk is the winter/alpine + volcanic environment, not security"
    },
    "si_checklist_25": null,
@@ -48618,7 +48474,6 @@
     "advisory_codes": "C (Crime) / T (Terrorism) / U (Unrest) / K (Kidnapping) — mainland-driven; islands not a named area",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": "none (BIN 4 — standard L2 disclosure only)",
     "l2_disclosure": true,
     "state_dept_carveout": "Galápagos and Quito explicitly NOT designated restricted; L4 zones are mainland-only (Esmeraldas city+north, Guayaquil south of Portete de Tarqui Ave., Duran, Huaquillas/Arenillas, Quevedo/Quinsaloma/Pueblo Viejo)",
     "air_access_verified": true,
@@ -49632,8 +49487,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-04-26",
-    "consent_flow": false
+    "advisory_updated": "2026-04-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -49993,8 +49847,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "verify at live-data pass",
-    "consent_flow": false
+    "advisory_updated": "verify at live-data pass"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -50313,7 +50166,6 @@
     ],
     "advisory_updated": "2025-05-22",
     "advisory_verified": "2026-07-12",
-    "consent_flow": false,
     "note": "20 Mar 2026 US Embassy Brussels security reminder layered on top, not a level change"
    },
    "si_checklist_25": null,
@@ -50610,8 +50462,7 @@
      "T"
     ],
     "advisory_updated": "2024-08-09",
-    "advisory_verify": true,
-    "consent_flow": false
+    "advisory_verify": true
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -50872,8 +50723,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -51212,8 +51062,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -51578,8 +51427,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-05-18",
-    "consent_flow": false
+    "advisory_updated": "2026-05-18"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -51653,7 +51501,6 @@
     "bin": "NO SAFE ZONE (content-only)",
     "content_only": true,
     "redirect_eligible": true,
-    "consent_flow": null,
     "trauma": "limited outside Managua; comprehensive care Managua-only → US medevac",
     "founder_review_flag": "WHY = country-wide political detention (targets perceived govt opponents/NGO/journalist/dual-national/property); may not reach a typical short-stay Granada tourist — reconsideration is a founder/attorney call, NOT a CC call. Flagged, not decided.",
     "source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/nicaragua-travel-advisory.html + Accessed 2026-07-07"
@@ -52849,7 +52696,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2026-07-16 (US State Dept L1, verified current)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -53476,7 +53322,6 @@
     "level": "L1",
     "codes": [],
     "advisory_updated": "reconfirmed 2026-07-16",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — lowest tier; main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -54362,11 +54207,6 @@
     "hyperbaric_chamber": "On-island Guanaja chamber (opened 2016, DAN grant + Dunbar Rock owner); Roatán Cornerstone (DAN IPPN) ~12 km / 8 mi as larger backup",
     "book_enabled": true,
     "bin": "BOOK WITH WARNING",
-    "consent_flow": {
-     "disclosure_required": true,
-     "renders": "full verbatim live US DoS advisory + acknowledgment step",
-     "wording_status": "hook set only — PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "GJA served only by CM Airlines via La Ceiba (~8x/wk, ~30 min) and Roatán (~3x/wk, ~25 min)",
     "no_fly_after_diving": true,
     "remote_flag": true,
@@ -54992,12 +54832,6 @@
     "hospital": "Hospital Herrera Llerandi (6a. Avenida 8-71, Zona 10; +502 2384-5959) — Forbes-recognized best hospital in Guatemala, CAP-accredited; Centro Médico + Hospital Universitario tier; GC is the national medical + medevac hub",
     "book_enabled": true,
     "book_enabled_note": "BOOK WITH WARNING (Four-Bin v3) — founder-blessed as bookable-with-warning; booking enabled with mandatory full-advisory disclosure",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "l3_disclosure": true,
     "in_city_nogo": "Zone 18 + Villa Nueva",
     "state_dept_carveout": "airport Zone 13 + Zona Viva Zones 10/14 + Zone 1 historic safe; NEVER route to Zone 18 or Villa Nueva",
@@ -55804,7 +55638,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025-05-15 (L1 reaffirmed; accessed 2026-07-18; verify live date)",
-    "consent_flow": false,
     "note": "Japan holds US State Dept L1 (lowest tier); main risk is the alpine/avalanche environment, not security"
    },
    "si_checklist_25": null,
@@ -56101,8 +55934,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2026-verify",
-    "consent_flow": false
+    "advisory_updated": "2026-verify"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -56516,8 +56348,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-04 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2026-04 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -56840,8 +56671,7 @@
      "T"
     ],
     "advisory_updated": "2025-05-13",
-    "advisory_updated_note": "task-noted ~2026-04 reaffirmation — verify",
-    "consent_flow": false
+    "advisory_updated_note": "task-noted ~2026-04 reaffirmation — verify"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -57661,7 +57491,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic (straddles CA-NV state line), lowest-risk tier; real risk is environmental (altitude + avalanche + US-50/Echo Summit winter driving), not security"
    },
    "si_checklist_25": null,
@@ -57865,8 +57694,7 @@
     "codes": [
      "C"
     ],
-    "advisory_updated": "2026-03-13",
-    "consent_flow": false
+    "advisory_updated": "2026-03-13"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -58776,8 +58604,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -58873,15 +58700,8 @@
     "advisory_date": "2026-06-18",
     "advisory_codes": "C (Crime) only",
     "book_enabled": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "l3_disclosure": true,
     "state_dept_carveout": "only Southside Belize City restricted; Hopkins open",
-    "founder_policy_note": "book_enabled rides on TWW's BOOK WITH WARNING (Four-Bin v3) posture — full-advisory disclosure + traveler acknowledgment at booking; only Southside Belize City is named, away from Hopkins",
     "stay_in_zone": true,
     "air_access_verified": "BZE (Philip Goldson Intl) -> Dangriga/Hopkins DGA via Tropic Air/Maya Island Air (~25 min flight) + ~40 min drive; or ~2.5 hr direct drive from BZE",
     "malaria": "WHO-certified malaria-free 2023; low localized inland risk only; dengue is an active 2026 risk (2,794 cases in 2025); jungle excursions raise mosquito exposure",
@@ -59115,7 +58935,6 @@
     "advisory_note": "L2 (Oaxaca) — Exercise Increased Caution (Huatulco explicitly unrestricted); updated May 29, 2026",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "malaria": "low/negligible in Huatulco tourist coast",
     "dengue": "endemic seasonal risk, higher May-Nov; use repellent",
@@ -59787,8 +59606,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-12",
-    "consent_flow": false
+    "advisory_updated": "2025-05-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -59864,7 +59682,6 @@
     "advisory_level": "L1",
     "book_enabled": true,
     "bin": "freely bookable (L1)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access_note": "Puerto Iguazu / Cataratas del Iguazu Intl (IGR) via Buenos Aires AEP (domestic) / EZE (international); daily nonstops on Aerolineas Argentinas / Flybondi / JetSmart; IGR<->AEP among busiest domestic routes",
     "trauma_note": "Puerto Iguazu hospital stabilises; serious trauma evac to Buenos Aires by air (IGR->AEP/EZE)",
@@ -60299,8 +60116,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -61318,7 +61134,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2026-04 (reissued after periodic review; re-verified 2026-07-16)",
-    "consent_flow": false,
     "note": "Austria = US L1, among Europe's safest; real risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -61814,7 +61629,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the alpine environment + the party's pace, not security"
    },
    "si_checklist_25": null,
@@ -62434,7 +62248,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "Quintana Roo/Mexico US L2 (Exercise Increased Caution) - freely bookable; MXN currency, USD widely accepted"
    },
    "si_checklist_25": {
@@ -62648,8 +62461,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-08",
-    "consent_flow": false
+    "advisory_updated": "2025-05-08"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -63599,7 +63411,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-19",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + Teton Pass WY-22 winter closures/avalanche control), not security"
    },
    "si_checklist_25": null,
@@ -63862,7 +63673,6 @@
     "advisory_source": "US State Dept, issued 2025-05-29",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": [
      "JJD (Jericoacoara Airport, ~35 min transfer)",
@@ -64849,7 +64659,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2026-07-16 (US State Dept L1, verified current)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -65794,7 +65603,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-70 winter driving), not security"
    },
    "si_checklist_25": null,
@@ -66082,7 +65890,6 @@
      "ebola-sudan-virus-pheic",
      "health-outbreak"
     ],
-    "consent_flow": true,
     "book_suppressed": true,
     "waiver": false,
     "dynamic": true,
@@ -66721,7 +66528,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-19",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (Eastern ice/hardpack + extreme cold/wind chill + Vermont winter driving) - NOT avalanche (no avalanche center governs this lift-served Eastern terrain) and NOT altitude (low)"
    },
    "si_checklist_25": null,
@@ -67441,7 +67247,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025-05-15 (L1; reaffirmed 2026, accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Japan is US L1; main risk at Kiroro is the deep-snow/avalanche environment, not security. Split emergency numbers: 110 police / 119 fire+ambulance"
    },
    "si_checklist_25": null,
@@ -67967,7 +67772,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2026 (L1 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Austria is an EU/Schengen state at US L1; main risk is the alpine environment (avalanche/weather), not security"
    },
    "si_checklist_25": null,
@@ -68469,8 +68273,7 @@
      "T"
     ],
     "advisory_updated": "2025-08-11",
-    "advisory_verified": "2026-07-12",
-    "consent_flow": false
+    "advisory_verified": "2026-07-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -69010,7 +68813,6 @@
     "codes": [
      "L2"
     ],
-    "consent_flow": false,
     "note": "US State Dept Level 2, reissued 30 Apr 2025, accessed 2026-08-09 (travel.state.gov/en/.../indonesia.html). ONLY Level 4 (Do Not Travel) carve-outs: Central Papua (Papua Tengah) + Highland Papua (Papua Pegunungan) for civil unrest; Komodo (East Nusa Tenggara) sits well apart. CORRECTION: the earlier 'Central Sulawesi/Poso' carve-out was in error and is removed. FCDO regional-risks cross-check (gov.uk/foreign-travel-advice/indonesia/regional-risks, accessed 2026-08-09): advises against all travel within 7km of the crater of Mount Lewotobi Laki-Laki on Flores (erupted 17 Jun 2025, alert level 4, mud/debris-flow warning) + disruption to Bali/Flores flights. Labuan Bajo (Komodo gateway) is on Flores, outside the 7km zone but exposed to flight disruption - stricter access flag, not a Komodo booking bar."
    },
    "si_checklist_25": {
@@ -69493,7 +69295,6 @@
     "level": "L1 (Exercise Normal Precautions — EU + Schengen state, euro)",
     "codes": [],
     "advisory_updated": "2026 (L1 current; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Slovenia has its own US advisory (L1); main risk is the alpine environment (avalanche off-piste, weather), not security; petty theft in tourist areas"
    },
    "si_checklist_25": null,
@@ -71202,7 +71003,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2 per built French-dossier standard; confirm at travel.state.gov)",
-    "consent_flow": false,
     "note": "France carries a nationwide US L2 (terrorism/civil unrest) — NOT resort-specific; La Plagne is a safe family Alpine resort, main on-mountain risk is the alpine environment (avalanche/altitude/weather), not security"
    },
    "si_checklist_25": null,
@@ -71897,7 +71697,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; accessed 2026-07-19)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT the France L2; main risk is the freestyle-park and glacier environment, not security"
    },
    "si_checklist_25": null,
@@ -72220,7 +72019,6 @@
      "crime",
      "urban-unrest"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Kenya US L2 Exercise Increased Caution - elevated risk in Nairobi/urban areas, not the Laikipia conservancies (low-density, strong security); safe licensed-operator safari. Disclose L2. Re-verify each cycle."
    },
@@ -72340,13 +72138,6 @@
     "san_marcos_clarification": "L4 'San Marcos Department' (highland border dept) is a DIFFERENT place from 'San Marcos La Laguna,' the safe yoga village on Lake Atitlán (Sololá)",
     "l3_disclosure": true,
     "stay_in_zone": true,
-    "founder_policy_note": "book_enabled rides on TWW's BOOK WITH WARNING (Four-Bin v3) framing (same founder/attorney axis as the held Central-Mexico SR6)",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "GUA (La Aurora Intl) + shuttle/private transfer ~3 hr to Panajachel",
     "altitude": "~1,562 m (5,125 ft) lakeside — mild; volcano summits San Pedro ~3,020 m / Atitlán ~3,535 m reach real altitude",
     "malaria": "none — CDC reports no malaria transmission at Lake Atitlán (highland); insect-bite precautions only; dengue/Zika possible in Guatemala generally",
@@ -72843,8 +72634,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-05-20",
-    "consent_flow": false
+    "advisory_updated": "2025-05-20"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -73278,7 +73068,6 @@
      "mtwara-terrorism-carveout-far",
      "lgbtq-targeting"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Tanzania US L3 Reconsider Travel - the terrorism concern is the Mtwara Region (far southern coast), far from the northern circuit. Bookable with L3 disclosure + consent; also disclose the LGBTQ+ targeting consideration (same-sex relations criminalized). Travel with a licensed operator. Re-verify each cycle."
    },
@@ -73574,7 +73363,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is Eastern winter (extreme Adirondack cold + wind on Whiteface with upper-mountain wind-holds, ice/hardpack + freeze-thaw, Northeast winter driving), not security"
    },
@@ -73669,7 +73457,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "Juliaca (JUL) via Lima (LIM); or rail/road from Cusco & Arequipa",
     "altitude_m": {
@@ -74184,8 +73971,7 @@
     "codes": [
      "C"
     ],
-    "advisory_updated": "2026-03-13",
-    "consent_flow": false
+    "advisory_updated": "2026-03-13"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -74763,8 +74549,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "verify at live-data pass",
-    "consent_flow": false
+    "advisory_updated": "verify at live-data pass"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -75265,7 +75050,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the high-avalanche freeride/heli environment, not security"
    },
    "si_checklist_25": null,
@@ -75714,8 +75498,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-06-26",
-    "consent_flow": false
+    "advisory_updated": "2026-06-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -76405,7 +76188,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2 per built French-dossier standard; confirm at travel.state.gov)",
-    "consent_flow": false,
     "note": "France carries a nationwide US L2 (terrorism/civil unrest) — NOT resort-specific; Les 2 Alpes is a safe Alpine resort, main on-mountain risk is the alpine environment (glacier/crevasse/avalanche/altitude), not security"
    },
    "si_checklist_25": null,
@@ -76511,7 +76293,6 @@
     "advisory_level": "L2",
     "bin": "freely bookable (L2)",
     "book_enabled": true,
-    "consent_flow": "none (L2 is standard-caution, below disclosure threshold)",
     "l3_disclosure": false,
     "air_access_verified": true,
     "air_access_note": "Jorge Chavez Intl (LIM), Callao - new Fraport/LAP terminal opened 2025-06-01; SA hub; LIM->Miraflores ~45-60 min via hotel/DMC transfer (not street taxi)",
@@ -77110,8 +76891,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-12-23",
-    "consent_flow": false
+    "advisory_updated": "2025-12-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -77517,8 +77297,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -77712,8 +77491,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-08",
-    "consent_flow": false
+    "advisory_updated": "2025-05-08"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -78957,8 +78735,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "TBD verify at live-data pass",
-    "consent_flow": false
+    "advisory_updated": "TBD verify at live-data pass"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -79397,7 +79174,6 @@
     "codes": [],
     "advisory_updated": "2026-04-08",
     "advisory_verified": "2026-07-12",
-    "consent_flow": false,
     "note": "north/east of the country localized L2 (WWI/WWII unexploded ordnance, code O, Battle-of-the-Bulge area) — does NOT affect Luxembourg City (L1)"
    },
    "si_checklist_25": null,
@@ -79700,7 +79476,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Egypt US L2 Exercise Increased Caution - the Nile corridor (Luxor, Aswan, the cruise) is in the L2 zone. Do-Not-Travel carve-out excludes N/Middle Sinai (except Sharm el-Sheikh by air) + the Western Desert/Libya border area (L4), far from Luxor. Disclose L2. Re-verify each cycle."
    },
@@ -80014,7 +79789,6 @@
      "crime",
      "urban-unrest"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Kenya US L2 Exercise Increased Caution - elevated risk in Nairobi/urban areas (crime, demonstrations) where tourists are rarely targeted; the Mara is a well-run licensed-operator safari. Disclose L2. Re-verify each cycle."
    },
@@ -81332,7 +81106,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "Quintana Roo US L2 (Exercise Increased Caution, dated 2026-05-29) - freely bookable; the real planning is dive-medevac (nearest chamber Cozumel), not crime; MXN currency, dive prices often USD-quoted"
    },
    "si_checklist_25": {
@@ -81853,7 +81626,6 @@
     "codes": [
      "L2"
     ],
-    "consent_flow": false,
     "note": "US State Dept Level 2 due to terrorism, no sub-national carve-out, accessed 2026-08-09 (travel.state.gov/en/.../maldives.html). State: attacks may occur on remote islands, which can lengthen the response time of authorities (material for liveaboards). FCDO cross-check (gov.uk/foreign-travel-advice/maldives, accessed 2026-08-09): advises against no travel; terrorist attacks cannot be ruled out and could be indiscriminate. Stricter baseline (State L2) drives posture."
    },
    "si_checklist_25": {
@@ -82040,8 +81812,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-12",
-    "consent_flow": false
+    "advisory_updated": "2025-05-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -82217,8 +81988,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -82842,7 +82612,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (high altitude + avalanche + volcanic CO2 at Horseshoe Lake + US-395 winter driving / Tioga Pass winter closure), not security"
    },
    "si_checklist_25": null,
@@ -83080,7 +82849,6 @@
     "advisory_source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/brazil-travel-advisory.html",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": {
      "international": "MAO (Eduardo Gomes International, Manaus) — direct Miami + Panama City",
      "domestic": "MAO — São Paulo / Brasília / Belém via LATAM, Gol, Azul"
@@ -83987,7 +83755,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Morocco US L2 Exercise Increased Caution (Apr 2025) - same tier as France/Spain/Italy/UK. Standard medina caution (touts, pickpockets in crowds). The only Do-Not-Travel area is the remote Western-Sahara Berm (landmines), far from any tourist route. Disclose L2. Re-verify each cycle."
    },
@@ -84401,8 +84168,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -85054,7 +84820,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the mountain environment (steeps/park/glacier) + the party pace, not security"
    },
    "si_checklist_25": null,
@@ -85479,12 +85244,6 @@
      "Venezuela border ~10km"
     ],
     "dating_app_drugging_flag": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Colombia (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "MDE / José María Córdova (Rionegro) — major direct-air gateway",
     "altitude_m": 1495,
     "notes": "Scopolamine/dating-app drugging — 8 suspicious US-citizen deaths in Medellín Nov–Dec 2023 (US Embassy). Trauma: medical-tourism hub w/ top private clinics; carry US-evac coverage. Dengue present. Tap water generally potable. Zone discipline: El Poblado/Laureles/Envigado; vetted transport; do not resist robbery."
@@ -85900,7 +85659,6 @@
      "kidnapping",
      "armed-conflict"
     ],
-    "consent_flow": true,
     "book_suppressed": true,
     "waiver": false,
     "note": "Quirimbas / Cabo Delgado US L4 Do Not Travel (ISIS-linked ASWJ insurgency; islands occupied; kidnapping; Palma 2021). CONTENT-ONLY, Book suppressed, no waiver even for this ultra-luxury island. Re-verify each publish cycle. Parent: quirimbas-archipelago-mozambique."
@@ -86540,7 +86298,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2 per built French-dossier standard; confirm at travel.state.gov)",
-    "consent_flow": false,
     "note": "France carries a nationwide US L2 (terrorism/civil unrest) — NOT resort-specific; Megeve is a safe, genteel Alpine resort, main on-mountain risk is the alpine environment (off-piste avalanche/cold/weather), not security"
    },
    "si_checklist_25": null,
@@ -86856,8 +86613,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-06-26",
-    "consent_flow": false
+    "advisory_updated": "2026-06-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -87222,7 +86978,6 @@
      "landmine-UXO"
     ],
     "advisory_updated": "2025-07-25",
-    "consent_flow": false,
     "note": "L2 (crime+landmines). 50km Thai-border strip = L4 (off-route). Thai land crossings closed 2026 (river cruise from Vietnam unaffected). UXO safety-spine: stay on marked paths."
    },
    "si_checklist_25": {
@@ -87611,7 +87366,6 @@
     "level": "L1",
     "codes": [],
     "advisory_updated": "2026-06-24",
-    "consent_flow": false,
     "note": "Vietnam US L1 (Exercise Normal Precautions), no carve-outs — cleanest of the 3 Mekong countries"
    },
    "si_checklist_25": {
@@ -87726,7 +87480,6 @@
     "advisory_updated": "2026-05-20",
     "regional_exception": "Level 2 — city of Rosario only (~1,000 km from Mendoza)",
     "book_enabled": true,
-    "consent_flow": false,
     "bin": "freely bookable (L1)",
     "air_access_verified": true,
     "air_access_note": "Mendoza El Plumerillo (MDZ) via Buenos Aires (AEP/EZE)",
@@ -88200,8 +87953,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -88776,7 +88528,6 @@
      "civil_unrest"
     ],
     "advisory_updated": "2026 (L2 in effect; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "France nationwide L2 driven by urban/event terrorism + occasional unrest, NOT the Alps; main resort risk is the alpine environment (avalanche/altitude/weather)"
    },
    "si_checklist_25": null,
@@ -89521,7 +89272,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Morocco US L2 Exercise Increased Caution (Apr 2025) - same tier as France/Spain/Italy/UK. The dunes + overland route are mainstream tourism. The only Do-Not-Travel area is the remote Western-Sahara Berm (landmines), far to the south. Remote desert - carry evacuation insurance. Disclose L2. Re-verify each cycle."
    },
@@ -90680,7 +90430,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign state, verify current)",
     "codes": [],
     "advisory_updated": "verify",
-    "consent_flow": false,
     "note": "Monaco is a sovereign state with its own advisory — NOT covered by the France L2 advisory"
    },
    "si_checklist_25": null,
@@ -90994,8 +90743,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -91691,8 +91439,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "verify at live-data pass",
-    "consent_flow": false
+    "advisory_updated": "verify at live-data pass"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -92149,7 +91896,6 @@
     ],
     "advisory_updated": "2025-08-11",
     "advisory_verified": "2026-07-12",
-    "consent_flow": false,
     "note": "active terrorism advisory — attacks can occur with little/no warning at public + tourist locations (markets, festivals, transport)"
    },
    "si_checklist_25": null,
@@ -92433,7 +92179,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (altitude + avalanche + Cascade winter driving + exposed volcanic summit), not security"
    },
@@ -92692,7 +92437,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (deepest maritime snowpack in the country + avalanche + no-fall freeride + tree wells + SR-542 winter access), not security. Altitude low (base ~3,500 ft / top ~5,089 ft) — AMS not a practical concern."
    },
@@ -92922,7 +92666,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (upper-mountain volcanic exposure + avalanche + Cascade winter driving + fast whiteout + night-ski cold), not security"
    },
@@ -93341,8 +93084,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -93650,7 +93392,6 @@
      "ebola-sudan-virus-pheic",
      "health-outbreak"
     ],
-    "consent_flow": true,
     "book_suppressed": true,
     "waiver": false,
     "dynamic": true,
@@ -94026,7 +93767,6 @@
     "codes": [
      "L3"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. US State Level 3 (Reconsider Travel) for Oman amid an active regional conflict that began 28 Feb 2026 (US/Israeli strikes on Iran; Iranian retaliatory strikes on all six GCC states; Strait of Hormuz - which Oman borders - closed; State depart-now for 16 countries 2 Mar 2026), ONGOING as of 2026-08-10. L3 books only via the consent gate, which Sana confirms is NOT built. FAST-MOVING: re-verify. CITATION: level+conflict supplied by Strategy Claude from a 2026-08-09 read of the US Embassy UAE alert 4 Jun 2026 (Oman listed L3) + State-advisory press; FCDO wording for Oman NOT read in this build (required second source - verify); conflict corroborated 2026-08-10 via F1/FIA GP-cancellation coverage (Sky Sports/PlanetF1, web search)."
    },
    "si_checklist_25": {
@@ -94206,8 +93946,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-10-23",
-    "consent_flow": false
+    "advisory_updated": "2025-10-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -94710,8 +94449,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2024-08-09",
-    "consent_flow": false
+    "advisory_updated": "2024-08-09"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -94990,8 +94728,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-04-26",
-    "consent_flow": false
+    "advisory_updated": "2026-04-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -95298,7 +95035,6 @@
      "crime",
      "lgbtq-targeting"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Tanzania US L3 Reconsider Travel - the terrorism concern is the Mtwara Region (far south), NOT the northern safari circuit; Ngorongoro is one of Africa's safest/most beginner-friendly safaris with a licensed operator. Disclose L3 + confirm consent. LGBTQ+ travelers: same-sex relations criminalized + advisory flags targeting - surface plainly. Re-verify each cycle."
    },
@@ -95768,8 +95504,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -96367,7 +96102,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025-05-15 (L1 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Japan holds US State Dept L1 (lowest tier); main risk is the alpine/avalanche environment, not security"
    },
    "si_checklist_25": null,
@@ -96668,8 +96402,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -96922,7 +96655,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (altitude + avalanche + Sierra winter driving), not security"
    },
@@ -97132,8 +96864,7 @@
      "N",
      "C"
     ],
-    "advisory_updated": "2026-07-06",
-    "consent_flow": false
+    "advisory_updated": "2026-07-06"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -98089,7 +97820,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025-05-15 (L1 reaffirmed; accessed 2026-07-18; verify live date)",
-    "consent_flow": false,
     "note": "Japan holds US State Dept L1 (lowest tier); main risk is the alpine/avalanche environment, not security"
    },
    "si_checklist_25": null,
@@ -98460,8 +98190,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -98915,7 +98644,6 @@
      "mtwara-mozambique-border-carveout-far",
      "lgbtq-targeting"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Tanzania US L3 Reconsider Travel - the terrorism concern is the Mtwara Region (far southern coast near Mozambique). Nyerere's photographic TOURIST sector is the northern Rufiji (near Dar), away from the park's far-southern reaches toward the Mozambique border. Bookable with L3 disclosure + consent; also disclose the LGBTQ+ targeting consideration (same-sex relations criminalized). Travel with a licensed operator; keep to the northern Rufiji sector. Re-verify each cycle."
    },
@@ -99244,7 +98972,6 @@
      "reconsider-travel",
      "regional-ebola-alert"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2). Nyungwe is SW Rwanda (Burundi side), away from the 10km DRC-border L4 carve-out (which applies to Volcanoes/NW). Disclose L3 + confirm consent. Re-verify each cycle."
    },
@@ -100171,7 +99898,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the high-alpine environment (avalanche off-piste + altitude), not security"
    },
    "si_checklist_25": null,
@@ -100608,7 +100334,6 @@
     "bin": "NO SAFE ZONE (content-only)",
     "content_only": true,
     "redirect_eligible": true,
-    "consent_flow": false,
     "founder_review_flag": "Political wrongful-detention risk may not register with typical leisure travelers; requires deliberate founder + compliance-attorney review before any Book path — do not soft-open on demand alone",
     "remote_flag": true,
     "trauma_note": "No trauma care on-island; comprehensive care only in Managua; serious cases → Managua → US medical evacuation; long transfer times from lake island"
@@ -101224,8 +100949,7 @@
      "N",
      "C"
     ],
-    "advisory_updated": "2026-07-06",
-    "consent_flow": false
+    "advisory_updated": "2026-07-06"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -101294,7 +101018,6 @@
     "advisory_source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/brazil-travel-advisory.html",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": {
      "international": "CNF (Belo Horizonte / Confins — Tancredo Neves Intl)",
      "gateway_transfer": "~87 mi / ~2 hrs by road to Ouro Preto"
@@ -101951,7 +101674,6 @@
     "codes": [
      "L1"
     ],
-    "consent_flow": false,
     "note": "US State Dept Level 1 (Exercise Normal Precautions), accessed 2026-08-09 (travel.state.gov/content/travel/en/.../palau-travel-advisory.html). FCDO cross-check (gov.uk/foreign-travel-advice/palau/safety-and-security, accessed 2026-08-09): no advice against travel; crime levels low; terrorism cannot be ruled out but no recent history. Both flag unexploded WWII ordnance (mainly Peleliu) + diving/tropical-cyclone hazards. Both at L1 posture."
    },
    "si_checklist_25": {
@@ -102030,7 +101752,6 @@
     "gate_result": "BOOK WITH WARNING",
     "book_enabled": true,
     "bin": "BOOK WITH WARNING",
-    "consent_flow": true,
     "content_only": false,
     "redirect_eligible": false,
     "air_access_verified": {
@@ -102966,7 +102687,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-80/Donner + SR-89 winter driving), not security"
    },
    "si_checklist_25": null,
@@ -103072,7 +102792,6 @@
     "advisory_note": "L2 (Brazil) — Pantanal exempted; route to the park",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": {
      "north": "CGB (Cuiabá) — Porto Jofre / Transpantaneira",
@@ -104239,8 +103958,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -104910,7 +104628,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-80/Parley's winter driving), not security"
    },
    "si_checklist_25": null,
@@ -105148,7 +104865,6 @@
     "regional_caveat": "Rosario L2 (~1,300 km away, not this destination)",
     "book_enabled": true,
     "bin": "freely bookable (L1)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "PMY (Puerto Madryn / El Tehuelche) & REL (Trelew) via Buenos Aires AEP on Aerolíneas Argentinas / Flybondi / JetSMART",
     "remote_flag": true,
@@ -105561,7 +105277,6 @@
      "regional-tensions",
      "terrorism"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Jordan US Level 3 Reconsider Travel (escalated March 2026, regional US-Iran tensions). Disclose PROMINENTLY; heightened-consent booking. Level-4 Do-Not-Travel areas = Syria + Iraq border strips + Mansheyat al Ghayyath + Ruwayshid - Petra is in the SOUTH, far from them. Operators resumed Petra/Wadi Rum/Dead Sea programs through 2026. Re-verify each cycle (may revert to L2)."
    },
@@ -105849,12 +105564,6 @@
     "hyperbaric_chamber": "Nearest chambers on Ambergris Caye (San Pedro): SSS Network 24/7 226-2851; Belize Chamber Project 24/7 226-2660 — DISTANCE FLAG from southern reef, plan conservative profiles",
     "hospital": "No peninsula trauma center; Placencia/Dangriga clinics stabilize; serious trauma evacuates to Belize City",
     "book_enabled": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "l3_disclosure": true,
     "advisory_reissued": "2026-06-18",
     "advisory_codes": "C (Crime) only",
@@ -107666,8 +107375,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -108147,8 +107855,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -108231,7 +107938,6 @@
     "advisory_source": "US State Dept, reissued 2026-05-20; verified 2026-07-07",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "regional_note": "La Araucanía/Arauco/Biobío state-of-emergency active (rural forestry/land-conflict corridors + Ruta-5); attacks target forestry corporations/landowners; advisory does NOT name Pucón, Villarrica, or the Lake District; tourist lake-zone historically safe/open — disclose as context.",
     "air_access_verified": {
      "airport": "ZCO — Temuco / La Araucanía Intl",
@@ -109073,7 +108779,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "Quintana Roo/Mexico US L2 (Exercise Increased Caution) - freely bookable; MXN currency, USD widely accepted"
    },
    "si_checklist_25": {
@@ -110248,7 +109953,6 @@
     "bin": "freely_bookable",
     "level": "L2",
     "codes": [],
-    "consent_flow": false,
     "note": "DR US L2 (Exercise Increased Caution) - freely bookable; gated resort zones among the Caribbean's safest, petty theft the main tourist risk; DOP (~58/USD), USD widely accepted; tourist card bundled in airfare + mandatory E-Ticket"
    },
    "si_checklist_25": {
@@ -110382,7 +110086,6 @@
     "advisory_level": "L2",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": {
      "seasonal": "PDP (Capitán Corbeta CA Curbelo Intl, Punta del Este — busiest Dec-Feb)",
      "year_round_gateway": "MVD (Carrasco Intl, Montevideo) + ~1.5 hr road transfer"
@@ -110729,7 +110432,6 @@
     "advisory_label": "L2 (Nayarit) — Exercise Increased Caution",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access": "Puerto Vallarta (PVR), ~40 min / ~40 km",
     "trauma": "Amerimed / Hospiten / CMQ Puerto Vallarta (~40 min) → US air-evac",
@@ -111279,7 +110981,6 @@
      "health-outbreak",
      "drc-border-adjacent"
     ],
-    "consent_flow": true,
     "book_suppressed": true,
     "waiver": false,
     "dynamic": true,
@@ -111593,7 +111294,6 @@
      "kidnapping",
      "armed-conflict"
     ],
-    "consent_flow": true,
     "book_suppressed": true,
     "waiver": false,
     "note": "Cabo Delgado Province US L4 Do Not Travel (ISIS-linked ASWJ insurgency; islands occupied; kidnapping; Palma 2021). CONTENT-ONLY, Book button suppressed, no waiver. Re-verify each publish cycle. Overall Mozambique L3; Cabo Delgado carved out at L4."
@@ -111695,7 +111395,6 @@
     "advisory_note": "Mainland L4 (Do Not Travel): Esmeraldas city/north, Guayaquil south of Portete de Tarqui Ave, Durán canton, Huaquillas/Arenillas. Quito/Pichincha not named in any L3/L4 zone.",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": "UIO — Mariscal Sucre International, Quito (primary gateway to Galápagos + Amazon)",
     "altitude_m": 2850,
     "altitude_notes": {
@@ -112429,7 +112128,6 @@
     "codes": [
      "L2"
     ],
-    "consent_flow": false,
     "note": "US State Dept Level 2, reissued 30 Apr 2025, accessed 2026-08-09 (travel.state.gov/en/.../indonesia.html). ONLY Level 4 (Do Not Travel) carve-outs: Central Papua (Papua Tengah) + Highland Papua (Papua Pegunungan). Raja Ampat is in Southwest Papua (Papua Barat Daya), outside both. FCDO cross-check (gov.uk/foreign-travel-advice/indonesia/regional-risks, accessed 2026-08-09): no formal advise-against level for Papua; flags armed separatist violence mainly in Highland + Central Papua, security unpredictable, take local advice; does not name Raja Ampat. Stricter reading = State L2 baseline + Papua-context caveat. LIVE ACCESS FLAG: Wayag + Manyaifun/Batangpele reported temporarily closed over nickel-mining disputes - verify northern-route access."
    },
    "si_checklist_25": {
@@ -112707,8 +112405,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -113136,7 +112833,6 @@
     "codes": [
      "L2"
     ],
-    "consent_flow": false,
     "note": "US State Dept Level 2, accessed 2026-08-09 (travel.state.gov/en/.../egypt.html). Level 4 (Do Not Travel) carve-outs: Northern and Middle Sinai Peninsula + parts of the Western Desert. The Red Sea dive coast (Hurghada/Marsa Alam/southern Sinai resort strip) sits outside every carve-out. FCDO cross-check (gov.uk/foreign-travel-advice/egypt, accessed 2026-08-09): advises against all travel to North Sinai Governorate, all but essential to parts of South Sinai + Western Desert + within 20km of the Libya border; names no Red Sea resort. Both agree the dive coast is unrestricted; stricter baseline (State L2) drives posture."
    },
    "si_checklist_25": {
@@ -113429,8 +113125,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -113633,8 +113328,7 @@
      "N",
      "C"
     ],
-    "advisory_updated": "2026-05-05",
-    "consent_flow": false
+    "advisory_updated": "2026-05-05"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -113949,7 +113643,6 @@
     ],
     "advisory_updated": "2025-08-11",
     "advisory_verified": "2026-07-12",
-    "consent_flow": false,
     "alert": "active terrorism alert — persistent threat from groups/lone actors in public/crowded venues across Germany and Europe"
    },
    "si_checklist_25": null,
@@ -114151,7 +113844,6 @@
     "advisory_updated": "2025-08-11",
     "advisory_verified": "2026-07-12",
     "security_alert": "active terrorism caution (public/tourist locations, Germany/Europe)",
-    "consent_flow": false,
     "zero_drift_flag": "2025-08-11 supersedes the 2026-06-26 value carried from Saxony; back-fix Berlin/Saxony at 01F region-close"
    },
    "si_checklist_25": null,
@@ -114466,7 +114158,6 @@
     "advisory_updated": "2025-08-11",
     "advisory_verified": "2026-07-12",
     "security_alert": "active terrorism caution (public/tourist locations, Germany/Europe)",
-    "consent_flow": false,
     "zero_drift_flag": "2025-08-11 supersedes the 2026-06-26 value carried from Saxony; back-fix Berlin/Saxony at 01F region-close"
    },
    "si_checklist_25": null,
@@ -114805,8 +114496,7 @@
      "C",
      "U"
     ],
-    "advisory_updated": "2026-03-20",
-    "consent_flow": false
+    "advisory_updated": "2026-03-20"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -114879,7 +114569,6 @@
     "advisory_source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/brazil-travel-advisory.html",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": {
      "international": "GIG (Galeão / RIOgaleão)",
      "domestic": "SDU (Santos Dumont)"
@@ -115951,7 +115640,6 @@
     "codes": [
      "L3"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. US State Level 3 (Reconsider Travel) for Saudi Arabia amid an active regional conflict that began 28 Feb 2026 (US/Israeli strikes on Iran; Iranian retaliatory strikes on all six GCC states; Hormuz closed; State depart-now for 16 countries 2 Mar 2026), ONGOING as of 2026-08-10. L3 books only via the consent gate, which Sana confirms is NOT built. CARVE-OUTS FLAGGED, NOT READ: Saudi historically names stricter zones near the Yemen border + parts of the Eastern Province (Qatif) - verify current levels at travel.state.gov. FAST-MOVING: re-verify. CITATION: level+conflict supplied by Strategy Claude from a 2026-08-09 read of the US Embassy UAE alert 4 Jun 2026 (Saudi listed L3) + State-advisory press; FCDO wording for Saudi NOT read in this build (required second source - verify); conflict corroborated 2026-08-10 via F1/FIA GP-cancellation coverage (Sky Sports/PlanetF1, web search)."
    },
    "si_checklist_25": {
@@ -116038,12 +115726,6 @@
     "hyperbaric_chamber": "Cornerstone Hyperbaric Chamber & Clinic, Sandy Bay (adjacent to Anthony's Key Resort) — on-island recompression chamber + ER/lab/pharmacy, DAN International Preferred Provider Network partner",
     "book_enabled": true,
     "bin": "BOOK WITH WARNING",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Honduras (level + reason + named-danger areas + complete 'If you decide to travel' guidance, pulled live), plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "Direct air into Juan Manuel Gálvez Intl (RTB), Roatán — Bay Islands reachable without transiting mainland gang zones",
     "no_fly_after_diving": "18-24 hours before RTB departure flight (DAN protocol)",
     "environmental": [
@@ -116562,8 +116244,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -116842,8 +116523,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-13",
-    "consent_flow": false
+    "advisory_updated": "2025-05-13"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -117180,8 +116860,7 @@
      "T"
     ],
     "advisory_updated": "2024-08-09",
-    "security_alert": "2026-03-16 (U.S. Mission Netherlands — heightened vigilance)",
-    "consent_flow": false
+    "security_alert": "2026-03-16 (U.S. Mission Netherlands — heightened vigilance)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -117507,8 +117186,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -117801,7 +117479,6 @@
      "mtwara-terrorism-carveout-far",
      "lgbtq-targeting"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Tanzania US L3 Reconsider Travel - the terrorism concern is the Mtwara Region (far southeastern coast), well away from Ruaha in the south-central interior. Bookable with L3 disclosure + consent; also disclose the LGBTQ+ targeting consideration (same-sex relations criminalized). Travel with a licensed operator; remote fly-in - AMREF evac essential. Re-verify each cycle."
    },
@@ -118517,7 +118194,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (L1 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Japan has its own advisory (US L1); main risk is the winter mountain environment + seismic/volcanic setting, not security"
    },
    "si_checklist_25": null,
@@ -118616,7 +118292,6 @@
     "advisory_reissued": "2026-06-25",
     "book_enabled": true,
     "bin": "freely bookable (L1)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access_note": "San Salvador (SAL / Comalapa) + ~1.5–2 hr drive west; no visa for US stays under 90 days",
     "volcano": {
@@ -119329,7 +119004,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the alpine environment + the apres pace, not security"
    },
    "si_checklist_25": null,
@@ -119897,7 +119571,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; accessed 2026-07-19)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT the France L2; main risk is the glaciated alpine environment (avalanche + crevasse), not security"
    },
    "si_checklist_25": null,
@@ -120399,8 +120072,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -120682,8 +120354,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -121452,8 +121123,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2026 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2026 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -121959,7 +121629,6 @@
      "far-north-l4-carveout",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Kenya US L2 overall; Samburu is the SAFE MAINSTREAM safari zone but lies in northern Kenya where far-north border counties (Mandera, Wajir, Garissa; parts of Marsabit/Turkana) are US L4 Do Not Travel - Samburu is NOT among them. Route via fly-in; disclose L2 + the northern boundary. Re-verify each cycle."
    },
@@ -122102,12 +121771,6 @@
     ],
     "archipelago_in_named_danger": false,
     "island_crime_note": "island petty-crime (beach theft, motorcycle snatch-and-grab, scooter accidents) is lower and different from mainland violent crime; country-level advisory still renders in full at consent",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Colombia (level + reason + named-danger areas + complete 'If you decide to travel' guidance, pulled live) + traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "air_access_verified": "ADZ (Gustavo Rojas Pinilla Intl) — direct international from Panama City (Copa, year-round) + domestic Colombian hubs; no nonstop US, but 1-stop via BOG/PTY (Avianca, Copa, LATAM). Providencia reached by ~20-min inter-island flight or catamaran.",
     "remote_flag": true,
     "water": "bottled",
@@ -122450,7 +122113,6 @@
     "advisory_date": "2024-09-23 (reissued; verified live 2026-07-07)",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": "Charter flights Albrook (PAC) → El Porvenir (PVE) / Corazón de Jesús (CZJ), ~40–45 min, ~$400/pax; OR 4x4 (steep rain-sensitive Cartí road, ~4–5 hrs) + boat, through Guna Cartí checkpoint (passport + ~$20/pax foreigner entry fee, cash, no ATMs)",
     "remote_flag": true,
     "medevac_note": "No hospital in Guna Yala; most cays have no clinic; serious cases require medevac to Panama City / US (can exceed $50,000) — comprehensive medevac insurance mandatory",
@@ -122673,11 +122335,6 @@
     "gate_decision": "BOOK WITH WARNING",
     "book_enabled": true,
     "bin": "BOOK WITH WARNING",
-    "consent_flow": {
-     "disclosure_required": true,
-     "renders": "full verbatim live advisory + traveler acknowledgment",
-     "wording_status": "hook set only — PENDING compliance-attorney sign-off"
-    },
     "content_only": false,
     "air_access_verified": true,
     "air_access_note": "Tuxtla Gutierrez TGZ (Angel Albino Corzo Intl) ~77km / ~1h05-1h30 to San Cristobal via Hwy 190/190D; corridor outside restricted zone",
@@ -123029,12 +122686,6 @@
     "hospital": "San Ignacio Community Hospital (local); trauma to Belize City (~2 hrs) or air-medical evac to Belize City / Guatemala City (verify)",
     "book_enabled": true,
     "l3_disclosure": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "state_dept_carveout": "only Southside Belize City restricted; Cayo open",
     "stay_in_zone": true,
     "air_access_verified": "BZE -> San Ignacio ~2 hr drive, Western/George Price Highway; regional airstrip Maya Flats (verify)",
@@ -123042,8 +122693,7 @@
     "malaria": "CDC: malaria a risk in SOME parts of Belize; treat mainland jungle as potential risk, advise travel-medicine consult",
     "dengue": "present; mosquito-bite avoidance essential",
     "vaccines": "Hepatitis A (all 1+), typhoid (rural/smaller-city) recommended",
-    "water": "bottled/treated only; avoid swimming in fresh unchlorinated water (leptospirosis) — ATM/cave-tubing are unavoidable-immersion guided activities",
-    "founder_policy_note": "book_enabled rides on the BOOK WITH WARNING bin (Four-Bin v3): full verbatim live US State Dept advisory disclosed + acknowledged at booking; only Southside Belize City is the named danger"
+    "water": "bottled/treated only; avoid swimming in fresh unchlorinated water (leptospirosis) — ATM/cave-tubing are unavoidable-immersion guided activities"
    },
    "timing": {
     "curve_shape": "dry-season inland spike (cave/road passability), not beach-weather driven",
@@ -124031,7 +123681,6 @@
     "book_enabled": false,
     "bin": "NO SAFE ZONE (content-only)",
     "redirect_eligible": true,
-    "consent_flow": null,
     "founder_review_flag": "Do not enable Book path, consent flow, or commission until US advisory drops below Level 3 or a defensible carve-out is designated AND founder + compliance attorney sign off in writing. Re-run gate live before any status change.",
     "trauma_note": "Quality care only in Managua (~2.5h+); local stabilization → Managua → likely US medevac; robust evacuation insurance prerequisite (content only)."
    },
@@ -125123,7 +124772,6 @@
     "advisory_source": "travel.state.gov, updated 2026-05-20, accessed 2026-07-07",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "why_l2": "urban crime + periodic civil unrest concentrated in central Santiago (muggings, pickpocketing, distraction/phone theft, protest cycles); Araucania/Arauco/Biobio state-of-emergency is far south, not Santiago",
     "urban_crime_caution": "street-smart in Centro/Bellavista at night; distraction/phone/bag snatch in crowds/metro/markets; vetted taxi/ride-hail over street hails; avoid demonstrations",
@@ -125704,8 +125352,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-10-23",
-    "consent_flow": false
+    "advisory_updated": "2025-10-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -125784,7 +125431,6 @@
     "advisory_source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/brazil-travel-advisory.html",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": {
      "international": "GRU (Guarulhos / São Paulo–Guarulhos International — Brazil's largest)",
      "domestic": "CGH (Congonhas — domestic + regional, close to city core)"
@@ -126372,8 +126018,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -126822,8 +126467,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-06-26",
-    "consent_flow": false
+    "advisory_updated": "2026-06-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -127304,8 +126948,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-06-26",
-    "consent_flow": false
+    "advisory_updated": "2026-06-26"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -128205,7 +127848,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the mountain environment + Nightrace crowds, not security"
    },
    "si_checklist_25": null,
@@ -128430,8 +128072,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-08",
-    "consent_flow": false
+    "advisory_updated": "2025-05-08"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -128518,19 +128159,12 @@
      "red_cross": "125"
     },
     "book_enabled": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "l3_disclosure": true,
     "state_dept_carveout": "Alta Verapaz not among the four named L4 zones (San Marcos, Huehuetenango, Zone 18, Villa Nueva); route via Cobán/Lanquín reads clean/normal-tourist",
     "stay_in_zone": true,
     "air_access_verified": "via La Aurora GUA (Guatemala City) then overland Cobán-Lanquín",
     "remote_flag": true,
-    "remote_flag_detail": "HARD — nearest real hospital ~4 hrs away via Cobán → Guatemala City air-evac; evac-grade travel insurance mandatory; K'anba cave guided-only, no PPE; occasional protester roadblocks (consult PROATUR)",
-    "founder_policy_note": "BOOK WITH WARNING (Four-Bin v3) — founder-blessed as bookable-with-warning, with mandatory full-advisory disclosure"
+    "remote_flag_detail": "HARD — nearest real hospital ~4 hrs away via Cobán → Guatemala City air-evac; evac-grade travel insurance mandatory; K'anba cave guided-only, no PPE; occasional protester roadblocks (consult PROATUR)"
    },
    "timing": {
     "season_shape": "dry-season destination (Nov-Apr); pools clearest & safest, road passable",
@@ -128934,8 +128568,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -129263,7 +128896,6 @@
      "crime",
      "lgbtq-targeting"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Tanzania US L3 Reconsider Travel - the terrorism concern is the Mtwara Region (far south), NOT the northern safari circuit; Serengeti is one of Africa's safest safaris with a licensed operator. Disclose L3 + confirm consent before booking. LGBTQ+ travelers: same-sex relations criminalized + advisory flags targeting - surface plainly. Re-verify each publish cycle."
    },
@@ -129928,7 +129560,6 @@
      "petty-crime"
     ],
     "advisory_updated": "2026 (L2 current; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Italy is on US L2 (general Europe terrorism + pickpocketing); main risk at Sestriere is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -130560,7 +130191,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025-05-15 (L1 reaffirmed; accessed 2026-07-18; verify live date)",
-    "consent_flow": false,
     "note": "Japan holds US State Dept L1 (lowest tier); main risk is the alpine/avalanche environment, not security"
    },
    "si_checklist_25": null,
@@ -131080,8 +130710,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -131490,7 +131119,6 @@
     "codes": [
      "L1"
     ],
-    "consent_flow": false,
     "note": "US State Dept Level 1 (Exercise Normal Precautions) nationwide, reissued 7 Jul 2026 - REPORTED BY Nation Thailand (nationthailand.com) + tvc.co.th citing the State advisory; the state.gov page 403'd automated fetch 2026-08-09 and was NOT read directly. Level 2 carve-outs: the Thai-Cambodian border area + the deep-south provinces Yala, Pattani, Narathiwat. The Similan/Andaman coast (Phang Nga) sits outside all of them. FCDO cross-check READ via WebFetch (gov.uk/foreign-travel-advice/thailand/regional-risks, 2026-08-09): advises against all but essential travel to Pattani/Yala/Narathiwat + parts of Songkhla + within 20km of the Cambodia border; names no Andaman resort. Both leave the dive coast unrestricted; State L1 baseline drives posture."
    },
    "si_checklist_25": {
@@ -131789,7 +131417,6 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "consent_flow": false,
     "note": "Statia (Dutch special municipality) US L1, low crime; USD currency; IN the hurricane belt (Jun-Nov, peak Aug-Oct); serious medical routes to St. Maarten"
    },
    "si_checklist_25": {
@@ -132553,7 +132180,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + Little Cottonwood Canyon: SR-210 traction law, UDOT closures, Interlodge), not security"
    },
    "si_checklist_25": null,
@@ -133050,7 +132676,6 @@
     "level": "L1 (Exercise Normal Precautions — EU/Schengen state)",
     "codes": [],
     "advisory_updated": "2026 (verify current level; travel.state.gov 403 this pass; accessed 2026-07-20)",
-    "consent_flow": false,
     "note": "Austria is EU/Schengen with its own US advisory (L1); main risk is the glaciated alpine environment (avalanche + crevasse + altitude), not security"
    },
    "si_checklist_25": null,
@@ -133306,7 +132931,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; the safety layer is cold/altitude + supervised snow-tubing, not security"
    },
@@ -134231,8 +133855,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2026-05-18",
-    "consent_flow": false
+    "advisory_updated": "2026-05-18"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -134733,7 +134356,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2026 (L1 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Austria is at US L1; main risk is the alpine environment (avalanche/off-piste), not security"
    },
    "si_checklist_25": null,
@@ -136251,7 +135873,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (L1 reaffirmed; accessed 2026-07-16)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT France L2; main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -137234,7 +136855,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + US-40/Rabbit Ears Pass), not security"
    },
    "si_checklist_25": null,
@@ -137698,7 +137318,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the maritime-alpine environment (heavy Cascade snow + avalanche + WSDOT US-2 pass driving), not security"
    },
@@ -137868,8 +137487,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2026-05-18",
-    "consent_flow": false
+    "advisory_updated": "2026-05-18"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -138477,7 +138095,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-19",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (Eastern ice/hardpack + extreme cold/wind chill on Mount Mansfield + Vermont winter driving) - NOT avalanche (no avalanche center governs this lift-served Eastern terrain; Mt Washington Avalanche Center is a different NH mountain) and NOT altitude (low)"
    },
    "si_checklist_25": null,
@@ -138579,7 +138196,6 @@
     "advisory_source": "https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/el-salvador-travel-advisory.html",
     "book_enabled": true,
     "bin": "freely bookable (L1)",
-    "consent_flow": false,
     "air_access_verified": true,
     "air_access_note": "San Salvador (SAL), ~1 hour by road to Suchitoto",
     "trauma": "San Salvador (~1 hr) for definitive trauma; serious cases → US medical evacuation; carry evac insurance",
@@ -139013,7 +138629,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is Eastern winter (ice/hardpack + freeze-thaw, extreme cold + wind-chill, Vermont winter driving), not security"
    },
@@ -139243,7 +138858,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the maritime-alpine environment (heavy Cascade snow + Alpental avalanche terrain + WSDOT I-90 pass driving), not security"
    },
@@ -139458,7 +139072,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is Eastern winter (ice/hardpack + freeze-thaw + extreme cold/wind-chill + remote winter driving; low in-bounds avalanche risk), not security"
    },
@@ -139875,8 +139488,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "TBD verify",
-    "consent_flow": false
+    "advisory_updated": "TBD verify"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -140066,8 +139678,7 @@
     "codes": [
      "C"
     ],
-    "advisory_updated": "2026-03-31",
-    "consent_flow": false
+    "advisory_updated": "2026-03-31"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -140325,7 +139936,6 @@
      "mtwara-terrorism-carveout-far",
      "lgbtq-targeting"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Tanzania US L3 Reconsider Travel - the terrorism concern is the Mtwara Region (far southern coast), ~700km from Tarangire on the northern circuit. Bookable with L3 disclosure + consent; also disclose the LGBTQ+ targeting consideration (same-sex relations criminalized). Travel with a licensed operator. Re-verify each cycle."
    },
@@ -140982,7 +140592,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + remote CO-145/US-550 roads), not security"
    },
    "si_checklist_25": null,
@@ -141503,8 +141112,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2025-12-23",
-    "consent_flow": false
+    "advisory_updated": "2025-12-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -141688,8 +141296,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-08",
-    "consent_flow": false
+    "advisory_updated": "2025-05-08"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -142332,8 +141939,7 @@
      "T"
     ],
     "advisory_updated": "2024-08-09",
-    "security_alert": "2026-03-16 (U.S. Mission Netherlands — heightened vigilance)",
-    "consent_flow": false
+    "security_alert": "2026-03-16 (U.S. Mission Netherlands — heightened vigilance)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -142854,7 +142460,6 @@
      "civil_unrest"
     ],
     "advisory_updated": "2026 (L2 in effect; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "France carries the US L2 advisory (terrorism + civil unrest) — a national/city caution, not a resort risk; main risk in Tignes is the high-alpine environment"
    },
    "si_checklist_25": null,
@@ -142986,13 +142591,7 @@
     "stay_in_zone": true,
     "air_access_verified": "Flores FRS airport, 4–5 daily flights from GUA (TAG/Avianca) — bypasses all four named L4 zones",
     "malaria": "Petén is a CDC-named P. vivax malaria chemoprophylaxis department AND an annual dengue department — pre-trip travel-medicine consult + bite prevention required",
-    "water": "Bottled/filtered only",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for the country (level + reason + named-danger areas + complete 'If you decide to travel' guidance), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    }
+    "water": "Bottled/filtered only"
    },
    "timing": {
     "inflection_curve_start": "early-to-mid November",
@@ -143476,7 +143075,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is the alpine environment (upper-mountain volcanic/glacier exposure + avalanche + Cascade winter driving + fast whiteout), not security"
    },
@@ -144336,7 +143934,6 @@
     "advisory_source": "travel.state.gov, updated 2026-05-20, accessed 2026-07-07",
     "book_enabled": true,
     "bin": "freely bookable (L2)",
-    "consent_flow": false,
     "air_access_verified": true,
     "remote_flag": true,
     "weather_headline": "Patagonian wind (gusts 100+ km/h), 4-seasons-in-a-day, hypothermia risk, river crossings; guided reduces risk",
@@ -145203,7 +144800,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Tunisia US L2 Exercise Increased Caution (May 2026). Mainstream oases (Tozeur, Douz, Matmata, Ksar Ghilane) are in the L2 zone. Do-Not-Travel (L4) carve-outs far to the east/south: within 16km of the Libya border, within 16km of the Algeria border, the desert south of Remada (military zone). A licensed operator routes clear of them. Remote desert - evacuation insurance. Disclose L2. Re-verify each cycle."
    },
@@ -145597,7 +145193,6 @@
     "advisory_updated": "2025-08-11",
     "advisory_verified": "2026-07-12",
     "security_alert": "active terrorism caution (public/tourist locations, Germany/Europe)",
-    "consent_flow": false,
     "zero_drift_flag": "2025-08-11 supersedes the 2026-06-26 value carried from Saxony; back-fix Berlin/Saxony at 01F region-close"
    },
    "si_checklist_25": null,
@@ -145799,8 +145394,7 @@
      "N",
      "C"
     ],
-    "advisory_updated": "2026-07-06",
-    "consent_flow": false
+    "advisory_updated": "2026-07-06"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -146080,7 +145674,6 @@
      "crime",
      "urban-unrest"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Kenya US L2 Exercise Increased Caution - elevated risk in Nairobi/urban areas, not Tsavo; safe licensed-operator safari. Disclose L2. NOTE: CDC recommends yellow-fever vaccine for Taita-Taveta County (Tsavo). Re-verify each cycle."
    },
@@ -146679,7 +146272,6 @@
      "L2",
      "L4-zone-unresolved"
     ],
-    "consent_flow": false,
     "note": "HELD CONTENT-ONLY. Philippines is US State L2 nationwide, reissued 8 May 2025, Kidnapping 'K' indicator. The advisory designates a LEVEL 4 (Do Not Travel) zone: 'The Sulu Archipelago, including the southern Sulu Sea, due to crime, terrorism, civil unrest, and kidnapping.' Tubbataha sits in the Sulu Sea ~150km SE of Puerto Princesa (Cagayancillo, Palawan). NO source that draws the line - the advisory text, the Tubbataha Management Office, UNESCO, or the operators - states whether the park is inside or outside that L4 zone; the boundary could NOT be established and was NOT ruled from a map. Held booking_hold:true pending resolution with the park authority against the live advisory. FCDO (1 Apr 2026): against all travel to western/central Mindanao + the Sulu archipelago. CITATION: L4 wording confirmed verbatim 2026-08-10 via the identical-text childabduction.state.gov mirror (travel.state.gov 403'd); L2/K + FCDO wording supplied by Strategy Claude from a 2026-08-09 read of travel.state.gov + gov.uk/foreign-travel-advice/philippines."
    },
    "si_checklist_25": {
@@ -147088,8 +146680,7 @@
      "T"
     ],
     "advisory_updated": "2024-08-09",
-    "advisory_verified": "2026-07-12",
-    "consent_flow": false
+    "advisory_verified": "2026-07-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -147736,7 +147327,6 @@
      "terrorism",
      "crime"
     ],
-    "consent_flow": false,
     "book_suppressed": false,
     "note": "Tunisia US L2 Exercise Increased Caution (May 2026). Tunis/Carthage/Sidi Bou Said are in the L2 zone. Do-Not-Travel (L4) carve-outs: Chaambi Mountains + western ranges (Kasserine); within 16km of the Libya border; within 16km of the Algeria border EXCEPT Tabarka & Ain Draham; Mount Orbata; the desert south of Remada - all far from the coast. Disclose L2. Re-verify each cycle."
    },
@@ -147932,8 +147522,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -148291,7 +147880,6 @@
      "UXO"
     ],
     "advisory_updated": "2024-11-21",
-    "consent_flow": false,
     "note": "L2 (crime+UXO). Xaisomboun Province = L3 Reconsider (off-route, content-only). UXO safety-spine: advisory names Luang Prabang + Vientiane — stay on marked paths, never touch unknown metal."
    },
    "si_checklist_25": {
@@ -148412,16 +148000,9 @@
     "remote_flag": true,
     "book_enabled": true,
     "l3_disclosure": true,
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Honduras (level + reason + named-danger areas incl. Gracias a Dios L4 + the complete 'If you decide to travel' guidance, pulled live) plus traveler acknowledgment",
-     "wording_status": "hook set only — PENDING compliance-attorney sign-off"
-    },
     "state_dept_carveout": "Bay Islands (Roatan/Utila/Guanaja) explicitly noted by State as better-policed resource-concentration areas; Gracias a Dios Dept = Level 4 Do Not Travel (isolated eastern mainland); danger is mainland, away from Utila",
     "stay_in_zone": true,
     "air_access_verified": "RTB (Roatan) or SAP (San Pedro Sula) international arrival, then ferry to Utila from La Ceiba (~1 hr, ~US$35, Utila Dream ferry) or Roatan-Utila ferry; Utila airstrip = private charter only; routing never touches mainland gang zones",
-    "founder_policy_note": "book_enabled rides on the BOOK WITH WARNING bin (Four-Bin v3): full verbatim live US State Dept advisory disclosed + acknowledged at booking; named danger is mainland (Gracias a Dios L4 + urban gang zones), Bay Islands carved out; keep client in-zone",
     "reef_safety": "protected Mesoamerican marine reserve - no-touch/no-stand, reef-safe sunscreen; wall/deep-site currents; whale-shark no-touch/no-scuba boat protocol",
     "dengue": "dengue occasionally reported on Utila - protect against daytime Aedes (DEET/picaridin)",
     "sandfly": "sandflies/no-see-ums are the signature nuisance, most active dusk-to-dawn; standard DEET underperforms - use oil-based lotion (Skin So Soft), cover up, net/fan at night; bites rarely carry leishmaniasis",
@@ -148955,8 +148536,7 @@
      "T"
     ],
     "advisory_updated": "2024-08-09",
-    "advisory_verified": "2026-07-12",
-    "consent_flow": false
+    "advisory_verified": "2026-07-12"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -150068,7 +149648,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + I-70 winter driving), not security"
    },
    "si_checklist_25": null,
@@ -150682,7 +150261,6 @@
      "petty-crime"
     ],
     "advisory_updated": "2026 (L2 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "France is US L2 (not a warning against travel); concerns are urban terrorism/protests/pickpocketing — in-resort the main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -151243,7 +150821,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Italy carries a US L2 advisory shared with most of Western Europe; the real risk in Val Gardena is the alpine environment (avalanche/altitude), not security"
    },
    "si_checklist_25": null,
@@ -151911,7 +151488,6 @@
      "civil unrest"
     ],
     "advisory_updated": "2026 (L2 per built French-dossier standard; confirm at travel.state.gov)",
-    "consent_flow": false,
     "note": "France carries a nationwide US L2 (terrorism/civil unrest) — NOT resort-specific; Val Thorens is a safe Alpine resort, main on-mountain risk is the alpine environment (altitude/avalanche/weather), not security"
    },
    "si_checklist_25": null,
@@ -152417,12 +151993,6 @@
     "emergency": "911",
     "book_enabled": true,
     "bin": "BOOK WITH WARNING",
-    "consent_flow": {
-     "bin": "BOOK WITH WARNING",
-     "disclosure_required": true,
-     "renders": "full verbatim live US State Dept advisory for Mexico (Baja California section + named carve-outs + 'If you decide to travel'), pulled live, plus traveler acknowledgment",
-     "wording_status": "hook set only — final consent language PENDING compliance-attorney sign-off"
-    },
     "state_dept_carveout": "Ensenada/Tijuana/Rosarito no-restriction",
     "trauma": "Ensenada/Tijuana → San Diego US cross-border evacuation (US-standard trauma care) — a structural cross-border advantage",
     "drink_driving": "always a designated driver / guided wine tour — never self-drive the tasting circuit",
@@ -152994,8 +152564,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -153189,8 +152758,7 @@
     "codes": [
      "T"
     ],
-    "advisory_updated": "2025-05-23",
-    "consent_flow": false
+    "advisory_updated": "2025-05-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -153683,7 +153251,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (L1 reaffirmed; accessed 2026-07-17)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT the France L2; main risk is the alpine/off-piste environment, not security"
    },
    "si_checklist_25": null,
@@ -154066,8 +153633,7 @@
      "T",
      "U"
     ],
-    "advisory_updated": "2025-05-28",
-    "consent_flow": false
+    "advisory_updated": "2025-05-28"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -154834,8 +154400,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2026 (verify current)",
-    "consent_flow": false
+    "advisory_updated": "2026 (verify current)"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -155643,7 +155208,6 @@
      "regional-ebola-alert",
      "drc-border-10km-l4-carveout"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Rwanda US L3 Reconsider Travel (2026 regional Ebola-alert precaution; was L2). Disclose L3 + confirm consent. Standing US L4 Do Not Travel carve-out within 10km of the DRC border - Volcanoes' sectors + lodges are on the Rwandan side (route there, not the border). Uganda's L4 makes Rwanda the LIVE gorilla choice. Re-verify each cycle."
    },
@@ -155946,8 +155510,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "2024-08-23",
-    "consent_flow": false
+    "advisory_updated": "2024-08-23"
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -156234,8 +155797,7 @@
      "T"
     ],
     "advisory_updated": "2024-08-09",
-    "advisory_verify": true,
-    "consent_flow": false
+    "advisory_verify": true
    },
    "si_checklist_25": null,
    "sis_present": [
@@ -156485,7 +156047,6 @@
      "regional-tensions",
      "terrorism"
     ],
-    "consent_flow": true,
     "book_suppressed": false,
     "note": "Jordan US Level 3 Reconsider Travel (escalated March 2026, regional US-Iran tensions). Disclose PROMINENTLY; heightened-consent booking. Level-4 Do-Not-Travel areas = Syria + Iraq border strips + Mansheyat al Ghayyath + Ruwayshid - Wadi Rum is in the DEEP SOUTH, far from them. Operators run desert camps + tours through 2026. Re-verify each cycle (may revert to L2)."
    },
@@ -156905,7 +156466,6 @@
     "codes": [],
     "advisory_updated": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "advisory_verified": "2026-07-13",
-    "consent_flow": false,
     "flag": "US-domestic advisory convention — flag for Zero-Drift",
     "note": "US domestic; real risk is Eastern winter (extreme cold/wind in Mount Washington's shadow + ice/hardpack + Franconia Notch driving) plus a TARGETED Presidential-Range backcountry avalanche flag (MWAC-gated); low in-bounds avalanche; not security"
    },
@@ -157904,7 +157464,6 @@
     "level": "L1-equivalent (domestic US — no state.gov self-advisory)",
     "codes": [],
     "advisory_verified": "2026-07-18",
-    "consent_flow": false,
     "note": "US domestic, lowest-risk tier; real risk is environmental (altitude + avalanche + US-40/Berthoud Pass), not security"
    },
    "si_checklist_25": null,
@@ -158532,7 +158091,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2025-05-15 (L1 reaffirmed; accessed 2026-07-18; verify live date)",
-    "consent_flow": false,
     "note": "Japan holds US State Dept L1 (lowest tier); main risk is the alpine/avalanche environment + active volcano (Mt Zao/Okama, away from runs), not security"
    },
    "si_checklist_25": null,
@@ -159217,7 +158775,6 @@
     "level": "L1 (Exercise Normal Precautions)",
     "codes": [],
     "advisory_updated": "2026-04 (reissued after periodic review; re-verified 2026-07-16)",
-    "consent_flow": false,
     "note": "Austria = US L1, among Europe's safest; real risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -159801,7 +159358,6 @@
     "level": "L1 (Exercise Normal Precautions — sovereign non-EU state)",
     "codes": [],
     "advisory_updated": "2026 (L1 reaffirmed; accessed 2026-07-16)",
-    "consent_flow": false,
     "note": "Switzerland has its own advisory (US L1) — NOT the France L2; main risk is the alpine environment, not security"
    },
    "si_checklist_25": null,
@@ -160172,8 +159728,7 @@
     "bin": "freely_bookable",
     "level": "L1",
     "codes": [],
-    "advisory_updated": "TBD verify",
-    "consent_flow": false
+    "advisory_updated": "TBD verify"
    },
    "si_checklist_25": null,
    "sis_present": [

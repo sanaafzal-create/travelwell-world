@@ -1,7 +1,7 @@
 {
  "_why": "David retired the US State Department as a safety authority on 2026-08-18. Traveller-facing prose still cites it in this many places. The number may only go DOWN. It is a ratchet, not a target: erroring on all of them would paint validate:ingest red until 157 dossiers are rewritten by hand, and a permanently red gate is one people learn to pass with --no-verify. Lower this number as the claims are rewritten; the gate refuses any increase.",
  "_rewritten_by": "a human reading the FCDO, never a script. The alternative is what put a sentence State never wrote into a Cartagena consent screen.",
- "max": 395,
+ "max": 373,
  "promise_max": 0,
  "_promise_note": "Safety promises are ABSOLUTE \u2014 target 0, not a tolerance. Ratcheted only so a pre-existing set does not block unrelated work. Remedy is deletion of the claim, never a generated replacement.",
  "advisory_text_max": 6,
