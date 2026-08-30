@@ -352,8 +352,17 @@ export default function DestinationDetail() {
                         // exist.
                         <span className="dd-pv__held">
                           <Icon name="shield" small /> {s.unverified
-                            ? "Not bookable yet — we haven't verified the travel advisory here, and we won't sell a place we haven't checked. That's our rule, not a statement about this destination."
-                            : "Not bookable — the travel advisory here says do not travel, and we don't sell against that."}
+                            // Post-2026-08-29 this renders only on a genuine
+                            // anomaly (the gate refuses a LIVE unverified row),
+                            // and the wording no longer implies the daily check
+                            // skipped anything — because it didn't (David:
+                            // "that sounds like we're not doing our daily work").
+                            ? "Not bookable — our daily advisory check couldn't give a clean reading for this destination, so booking is paused while a person looks. That's caution on our side, not a statement about this place."
+                            : s.inZone?.posture
+                              // FCDO-transcribed hold → name the authority
+                              // (David's approved sentence, 2026-08-29).
+                              ? "Not bookable — the FCDO safety advisory for this destination says do not travel, and we don't sell against that."
+                              : "Not bookable — the travel advisory here says do not travel, and we don't sell against that."}
                         </span>
                       ) : (
                         <>
@@ -454,7 +463,17 @@ export default function DestinationDetail() {
               {s.bookingHold && (
                 <div className="safety-row safety-row--hold">
                   <span className="safety-row__ic"><Icon name="info" small /></span>
-                  <span><span className="safety-row__k">Not bookable with us right now.</span> We keep the page so you can read it &mdash; we won&rsquo;t sell you a trip here while this stands.</span>
+                  <span>
+                    <span className="safety-row__k">Not bookable with us right now.</span> We keep the page so you can read it &mdash; we won&rsquo;t sell you a trip here while this stands.
+                    {/* The Similar Offer, opt-in (David, 2026-08-29): the block
+                        is stated, and the alternatives arrive only if asked —
+                        a tap is the ask. One control, beside the hold, never
+                        inside the advisory itself. */}
+                    {" "}
+                    <button className="dd-similar-link" onClick={() => openPanel("concierge")}>
+                      Would you like to see similar destinations we can book? <Icon name="arrow" small />
+                    </button>
+                  </span>
                 </div>
               )}
               {s.inZone && (

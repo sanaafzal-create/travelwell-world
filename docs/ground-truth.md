@@ -42,8 +42,8 @@ good as regenerating it.
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:354 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:538 · `export const GUIDES: Guide[] = [` |
-| Country name→ISO entries (`COUNTRY_ISO`) | 99 | src/data/safety-data.ts:259 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 95 | src/data/safety-data.ts:359 · `export const SAFETY_DATA = safetyJson as Recor` |
+| Country name→ISO entries (`COUNTRY_ISO`) | 101 | src/data/safety-data.ts:259 · `export const COUNTRY_ISO: Record<string, strin` |
+| …of those, countries WITH an advisory row (`safety.json`) | 97 | src/data/safety-data.ts:365 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 
@@ -157,7 +157,7 @@ the provider.
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/places.ts (DESTINATIONS)`
 
 ✅ **Every country in `COUNTRY_ISO` has an advisory row — it is the set the daily checker asks about, so a missing row is a country we query and hold no baseline for**
-   → all 95 covered
+   → all 97 covered
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json`
 
 ✅ **The three interests merged in from `special-interests.json` (`sailing`, `yacht`, `wine`) are present in the exported `SIS`**
@@ -165,7 +165,7 @@ the provider.
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
 ⚠️ **Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage**
-   → 2 of 547 destinations (0%) sit in a country with NO row, across 2 countries: Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR) · of those, 2 actually RENDER "not yet verified" (Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR)) — the rest carry a dossier carve-out that supplies its own level
+   → 2 of 547 destinations (0%) sit in a country with NO row, across 2 countries: Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR) · of those, 0 actually RENDER "not yet verified" (none) — the rest carry a dossier carve-out that supplies its own level
    → `src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts`
 
 ✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
@@ -181,7 +181,7 @@ the provider.
    → `src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts`
 
 ✅ **No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)**
-   → all 95 rows consistent
+   → all 97 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
 ⚠️ **The governing-law jurisdiction is set — until it is, the Terms page says so plainly rather than naming a state nobody checked**

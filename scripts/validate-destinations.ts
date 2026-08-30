@@ -19,7 +19,7 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { REGIONS, SIS, SUBREGIONS, boardSis } from "../src/data/taxonomy";
 import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places";
-import { COUNTRY_ISO, SAFETY_DATA } from "../src/data/safety-data";
+import { COUNTRY_ISO, SAFETY_DATA, resolveSafety, isoForCountry, fcdoThreshold } from "../src/data/safety-data";
 import { mergedDestinations } from "./lib/destination-batches";
 import { checkHero } from "./lib/check-hero";
 import { checkSafetyLanguage, countRetiredAuthority, findForbiddenQuestions } from "./lib/check-safety-language";
@@ -190,6 +190,20 @@ for (const { code, d } of rows) {
     }
     if (/\s(–|—|-|\|)\s*$/.test(d.line) || /\.\.\.$/.test(d.line)) {
       errs.push(`${at}: line ends mid-thought — truncated on the way in? ${JSON.stringify(d.line)}`);
+    }
+  }
+  // ── A LIVE ROW MAY NEVER REST AT "UNVERIFIED" (David, 2026-08-29) ────────
+  // The unverified state is a fail-safe for surprises, not a place a row we
+  // check daily is allowed to live: it holds booking AND renders a card whose
+  // wording reads as "we didn't do our daily work" — which is false, and worse
+  // than either selling or refusing cleanly. The two rows that rested there
+  // (the multi-country composites) now resolve as the stricter of their two
+  // component advisories, so this set is EMPTY — and this error is how we are
+  // notified the day any row falls back in: the commit refuses, naming it.
+  if (d.status === "live") {
+    const resolved = resolveSafety(d as { data?: Record<string, unknown>; country?: string }, isoForCountry(String(d.country ?? "")));
+    if (fcdoThreshold(resolved) === "unverified") {
+      errs.push(`${at}: LIVE row resolves UNVERIFIED — no country row, no composite mapping, or an unresolvable read. Give its country a row (or a COMPOSITE_COUNTRY entry), or set status "future". An unverified live page is a silent hold wearing a card that implies the daily check skipped it.`);
     }
   }
   // Region scheme — the 13-code is official; a 15-scheme code must be mapped down.

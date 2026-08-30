@@ -273,6 +273,12 @@ export const COUNTRY_ISO: Record<string, string> = {
   Portugal: "PT", Rwanda: "RW", "Saudi Arabia": "SA", "South Africa": "ZA", "South Korea": "KR",
   Spain: "ES", "St. Lucia": "LC", Switzerland: "CH", Tanzania: "TZ", Thailand: "TH",
   "Turks & Caicos": "TC", UAE: "AE", Uganda: "UG",
+  // ── THE COMPOSITE HALVES (2026-08-29) ────────────────────────────────────
+  // "Sint Maarten (NL) / Saint-Martin (FR)" resolves as the stricter of these
+  // two (COMPOSITE_COUNTRY below); each half holds its own row and its own
+  // verified FCDO slug, so the daily checker reads BOTH pages — the composite
+  // can never rest on a reading nobody refreshes.
+  "Sint Maarten": "SX", "Saint-Martin": "MF",
   // ── THE UNITED KINGDOM (2026-08-28) ──────────────────────────────────────
   // Deliberately ABSENT until the 452-strip simulation showed what absence
   // would do: London and four other live rows book today via their dossiers'
@@ -465,11 +471,46 @@ const holdIfUnverified = (s: SafetyInfo): SafetyInfo =>
  * number than the government page a traveler just read is exactly the kind of
  * unexplained discrepancy that costs trust.
  */
+/**
+ * A ROW THAT SPANS TWO COUNTRIES READS BOTH ADVISORIES AND TAKES THE STRICTER.
+ *
+ * David, 2026-08-29: "I don't quite understand why we're not able to ascertain
+ * that there is not in fact an advisory." He was right — the two composite
+ * rows were falling to DEFAULT_SAFETY ("not yet verified", booking held), and
+ * the card's wording implied the daily check had skipped them. The truth was
+ * structural: a row naming two jurisdictions has two FCDO pages and no single
+ * truthful reading — but we HOLD both pages, and both component countries have
+ * their own checked rows. So the composite resolves as the stricter of its two
+ * halves, sourced to both, and "unverified" stops being the resting state of
+ * a row we check every day. (Chile / Argentina already maps to CL directly
+ * and is not in this table.)
+ */
+const COMPOSITE_COUNTRY: Record<string, [string, string]> = {
+  "Belgium / Luxembourg": ["Belgium", "Luxembourg"],
+  "Sint Maarten (NL) / Saint-Martin (FR)": ["Sint Maarten", "Saint-Martin"],
+};
+
+function compositeBase(countryName: string | undefined): SafetyInfo | null {
+  const halves = countryName ? COMPOSITE_COUNTRY[countryName] : undefined;
+  if (!halves) return null;
+  const [a, b] = halves.map((h) => getSafety(isoForCountry(h)));
+  // Either half unchecked → the composite is unchecked; never average a gap.
+  if (a.unverified || b.unverified) return null;
+  const stricter = b.lvl > a.lvl || (b.bookingHold && !a.bookingHold) ? b : a;
+  return {
+    ...stricter,
+    country: countryName as string,
+    summary: `${countryName} spans two jurisdictions, so we read both advisories and show the stricter. ${halves[0]}: ${a.label}. ${halves[1]}: ${b.label}. ${stricter.summary}`,
+    source: `The stricter of two country advisories — ${halves[0]} and ${halves[1]}, each checked separately. ${stricter.source}`,
+    fromAbsence: Boolean(a.fromAbsence && b.fromAbsence),
+  };
+}
+
 export function resolveSafety(
-  dest: { data?: Record<string, unknown> } | null | undefined,
+  dest: { data?: Record<string, unknown>; country?: string } | null | undefined,
   iso: string | null | undefined,
 ): SafetyInfo {
-  const base = getSafety(iso);
+  const base = compositeBase(dest?.country) ?? getSafety(iso);
   const carve = (dest?.data as { safety?: DossierSafety } | undefined)?.safety;
   if (!carve) return holdIfUnverified(base);
 

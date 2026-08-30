@@ -97,6 +97,8 @@ const SLUG_OVERRIDES: Record<string, Partial<Record<AdvisorySourceId, string>>> 
   BQ: { fcdo: "bonaire-st-eustatius-saba" },
   FO: { fcdo: "denmark" },
   BL: { fcdo: "st-martin-and-st-barthelemy" },
+  SX: { fcdo: "st-maarten" },
+  MF: { fcdo: "st-martin-and-st-barthelemy" },
 };
 
 /**

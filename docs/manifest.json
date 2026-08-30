@@ -13,14 +13,14 @@
   {
    "file": "docs/ground-truth.md",
    "answers": "Every count, field path and vocabulary read from source with file:line, plus conformance checks. The fact sheet for reasoning about this repo without reading it.",
-   "sha256": "05a6f1e59bf5599f427bd64e4f61e994982243524217978fe1e5ac29a4fa5229",
-   "bytes": 17586
+   "sha256": "3792e7407c6d0a83e32bc8142171a7991438b16988e0068e085e0862579089cd",
+   "bytes": 17532
   },
   {
    "file": "docs/reset-facts.txt",
    "answers": "The paste-block distillation of ground-truth for contexts that cannot fetch files.",
-   "sha256": "dbfa0478bd120475ba1c4e55dd1a6452b3ddba28def45a3da58517ab5558bed0",
-   "bytes": 3355
+   "sha256": "a4016aaed65275dcf2890f10449ae7682a6dffbdde560203b20c36cff0b1a01d",
+   "bytes": 3300
   },
   {
    "file": "docs/list-sizes.json",
@@ -37,14 +37,14 @@
   {
    "file": "docs/advisory-links.md",
    "answers": "The advisory deep links per served country, as the site emits them.",
-   "sha256": "18233312c16a11c425258bf459aa4d984ba1480090606c462788273b6036b088",
-   "bytes": 21134
+   "sha256": "6d618054063797c71e953a82e3eb283c7d0f5ded5916c422aed5d60926d4c472",
+   "bytes": 21582
   },
   {
    "file": "docs/advisory-countries.json",
    "answers": "The daily checker's country payload — ISO, name, match strings, verified FCDO slug.",
-   "sha256": "381a56cfbb3a222f49f559acf3aacbb54a67467d7503c707913c5f2fb71c23ee",
-   "bytes": 13821
+   "sha256": "ca82d261f5f265379c5b26bd894cb816ea34ca99eba697e72bf1aea1018f0073",
+   "bytes": 14185
   },
   {
    "file": "vercel.json",

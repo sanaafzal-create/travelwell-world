@@ -1,4 +1,24 @@
 {
+ "SX": {
+  "country": "Sint Maarten",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no advisory against travel for Sint Maarten (its own St Maarten page). That is the absence of a warning rather than a statement that anywhere is safe — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO — St Maarten travel advice (page updated 2025-12-10; slug ETag-verified via the research library, 2026-08-27); in the daily checker",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MF": {
+  "country": "Saint-Martin",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no advisory against travel for Saint-Martin (covered by its St Martin and St Barthélemy page). That is the absence of a warning rather than a statement that anywhere is safe — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO — St Martin and St Barthélemy travel advice (page updated 2025-12-10; slug ETag-verified via the research library, 2026-08-27); in the daily checker",
+  "reported": true,
+  "fromAbsence": true
+ },
  "GB": {
   "country": "United Kingdom",
   "lvl": 1,

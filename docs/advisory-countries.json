@@ -481,6 +481,15 @@
       "fcdo_slug": "monaco"
     },
     {
+      "iso": "MF",
+      "name": "Saint-Martin",
+      "match": [
+        "saint-martin",
+        "st martin and st barthelemy"
+      ],
+      "fcdo_slug": "st-martin-and-st-barthelemy"
+    },
+    {
       "iso": "MQ",
       "name": "Martinique",
       "match": [
@@ -680,6 +689,15 @@
         "el salvador"
       ],
       "fcdo_slug": "el-salvador"
+    },
+    {
+      "iso": "SX",
+      "name": "Sint Maarten",
+      "match": [
+        "sint maarten",
+        "st maarten"
+      ],
+      "fcdo_slug": "st-maarten"
     },
     {
       "iso": "TC",
