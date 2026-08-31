@@ -13,14 +13,14 @@
   {
    "file": "docs/ground-truth.md",
    "answers": "Every count, field path and vocabulary read from source with file:line, plus conformance checks. The fact sheet for reasoning about this repo without reading it.",
-   "sha256": "d284a3bd5e69a4050ff57756da4526d41e1892149a0d7dde090c37cb1fbf8c9e",
-   "bytes": 17532
+   "sha256": "2b7e393682140bfd504f26e595e5d0044b6a3b20f19018d957722fce88c7917e",
+   "bytes": 17585
   },
   {
    "file": "docs/reset-facts.txt",
    "answers": "The paste-block distillation of ground-truth for contexts that cannot fetch files.",
-   "sha256": "a4016aaed65275dcf2890f10449ae7682a6dffbdde560203b20c36cff0b1a01d",
-   "bytes": 3300
+   "sha256": "29000a2559d9084712e03e6db600fbc41ca6c5346b48b8495e08f1a0c9259ad4",
+   "bytes": 3352
   },
   {
    "file": "docs/list-sizes.json",

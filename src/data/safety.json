@@ -236,44 +236,124 @@
   },
   "CO": {
     "country": "Colombia",
-    "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "Reconsider travel due to crime, terrorism, kidnapping and civil unrest, with several regions off-limits entirely.",
+    "lvl": 2,
+    "label": "Exercise increased caution",
+    "summary": "Exercise increased caution country-wide. The FCDO advises against all but essential travel to named parts of Colombia — border regions and several departments, listed below — while the main cities and the Caribbean coast sit outside every named area. No part of Colombia currently carries a do-not-travel advisory (page read in full 2026-08-31).",
     "considerations": [
-      "Violent crime and express kidnapping occur nationwide.",
+      "Violent crime and express kidnapping occur nationwide; drug-assisted robbery (scopolamine) is reported — do not accept food, drinks or flyers from strangers, and use only pre-booked or authorised taxis.",
       "Terrorist attacks target transit and government sites; protests can turn violent.",
-      "Active volcanoes and landslides in some regions."
+      "Active volcanoes, earthquakes and landslides in some regions.",
+      "10 Aug 2026: a magnitude 7.4 earthquake near San José del Palmar (Chocó) affected large parts of the country; Matecaña International Airport in Pereira closed. Follow local authorities and expect aftershocks — re-verify before travel to the west."
     ],
     "medical": "Yellow-fever vaccination is recommended for lower-altitude/jungle regions (verify per region).",
-    "source": "UK FCDO, Mar 2026",
-    "verified": "2026-06",
+    "source": "UK FCDO — Colombia travel advice (page updated 2026-08-18; read in full 2026-08-31)",
+    "verified": "2026-08-31",
     "zones": [
       {
-        "name": "Arauca",
-        "lvl": 4
+        "name": "all of Norte de Santander Department, including Cúcuta",
+        "lvl": 3,
+        "posture": "all-but-essential"
       },
       {
-        "name": "Norte de Santander",
-        "lvl": 4
+        "name": "all of Arauca Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
       },
       {
-        "name": "Cauca",
-        "lvl": 4,
+        "name": "the municipality of Puerto Carreño in Vichada Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "within 5km of the rest of the border with Venezuela",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "note": "The FCDO separately advises against all travel to Venezuela's side of the border — do not use any Colombia-Venezuela land crossing."
+      },
+      {
+        "name": "Chocó Department",
+        "lvl": 3,
+        "posture": "all-but-essential",
         "except": [
-          "Popayan"
-        ],
-        "note": "Parts of the department."
-      },
-      {
-        "name": "Valle del Cauca",
-        "lvl": 4,
-        "except": [
-          "Cali"
+          "the department capital Quibdó",
+          "the towns of Nuquí and Bahía Solano",
+          "Capurganá"
         ]
       },
       {
-        "name": "Within ~10 km of the Venezuela border",
-        "lvl": 4
+        "name": "the western part of Valle del Cauca Department, including Buenaventura",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "the municipality of Jamundí, Valle del Cauca",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "the South Pacific, Sanquianga and Telembi regions of Nariño Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "the southern part of Córdoba Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "the Urabá and Bajo Cauca regions of Antioquia Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "the southern part of Bolívar Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "all of Guaviare Department",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the department capital San José del Guaviare"
+        ]
+      },
+      {
+        "name": "Cartagena del Chairá, San Vicente del Caguan, Puerto Rico, El Doncello, Paujil and La Montañita in Caquetá Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
+      },
+      {
+        "name": "the Ariari region of southern Meta",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "Caño Cristales"
+        ],
+        "note": "If travelling to Caño Cristales, the FCDO advises travelling by air from the town of La Macarena with a reputable tour company."
+      },
+      {
+        "name": "within 5km of the border with Ecuador",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the border crossing on the Pan-American highway at the Puente Internacional de Rumichaca",
+          "the city of Ipiales in Nariño Department"
+        ]
+      },
+      {
+        "name": "all of Cauca Department",
+        "lvl": 3,
+        "posture": "all-but-essential",
+        "except": [
+          "the department capital Popayán"
+        ],
+        "note": "The advisory page nests Cauca inside its Ecuador-border sentence; we hold it as a restricted department in its own right — the stricter of the two readings, consistent with the FCDO's regional-risks detail."
+      },
+      {
+        "name": "Orito, San Miguel, Valle del Guamuez, Puerto Caicedo, Puerto Guzmán, Puerto Asis and Puerto Leguizamo in Putumayo Department",
+        "lvl": 3,
+        "posture": "all-but-essential"
       }
     ]
   },

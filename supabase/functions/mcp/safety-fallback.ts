@@ -245,44 +245,124 @@ var safety_default = {
   },
   CO: {
     country: "Colombia",
-    lvl: 3,
-    label: "Reconsider travel",
-    summary: "Reconsider travel due to crime, terrorism, kidnapping and civil unrest, with several regions off-limits entirely.",
+    lvl: 2,
+    label: "Exercise increased caution",
+    summary: "Exercise increased caution country-wide. The FCDO advises against all but essential travel to named parts of Colombia \u2014 border regions and several departments, listed below \u2014 while the main cities and the Caribbean coast sit outside every named area. No part of Colombia currently carries a do-not-travel advisory (page read in full 2026-08-31).",
     considerations: [
-      "Violent crime and express kidnapping occur nationwide.",
+      "Violent crime and express kidnapping occur nationwide; drug-assisted robbery (scopolamine) is reported \u2014 do not accept food, drinks or flyers from strangers, and use only pre-booked or authorised taxis.",
       "Terrorist attacks target transit and government sites; protests can turn violent.",
-      "Active volcanoes and landslides in some regions."
+      "Active volcanoes, earthquakes and landslides in some regions.",
+      "10 Aug 2026: a magnitude 7.4 earthquake near San Jos\xE9 del Palmar (Choc\xF3) affected large parts of the country; Mateca\xF1a International Airport in Pereira closed. Follow local authorities and expect aftershocks \u2014 re-verify before travel to the west."
     ],
     medical: "Yellow-fever vaccination is recommended for lower-altitude/jungle regions (verify per region).",
-    source: "UK FCDO, Mar 2026",
-    verified: "2026-06",
+    source: "UK FCDO \u2014 Colombia travel advice (page updated 2026-08-18; read in full 2026-08-31)",
+    verified: "2026-08-31",
     zones: [
       {
-        name: "Arauca",
-        lvl: 4
+        name: "all of Norte de Santander Department, including C\xFAcuta",
+        lvl: 3,
+        posture: "all-but-essential"
       },
       {
-        name: "Norte de Santander",
-        lvl: 4
+        name: "all of Arauca Department",
+        lvl: 3,
+        posture: "all-but-essential"
       },
       {
-        name: "Cauca",
-        lvl: 4,
+        name: "the municipality of Puerto Carre\xF1o in Vichada Department",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "within 5km of the rest of the border with Venezuela",
+        lvl: 3,
+        posture: "all-but-essential",
+        note: "The FCDO separately advises against all travel to Venezuela's side of the border \u2014 do not use any Colombia-Venezuela land crossing."
+      },
+      {
+        name: "Choc\xF3 Department",
+        lvl: 3,
+        posture: "all-but-essential",
         except: [
-          "Popayan"
-        ],
-        note: "Parts of the department."
-      },
-      {
-        name: "Valle del Cauca",
-        lvl: 4,
-        except: [
-          "Cali"
+          "the department capital Quibd\xF3",
+          "the towns of Nuqu\xED and Bah\xEDa Solano",
+          "Capurgan\xE1"
         ]
       },
       {
-        name: "Within ~10 km of the Venezuela border",
-        lvl: 4
+        name: "the western part of Valle del Cauca Department, including Buenaventura",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "the municipality of Jamund\xED, Valle del Cauca",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "the South Pacific, Sanquianga and Telembi regions of Nari\xF1o Department",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "the southern part of C\xF3rdoba Department",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "the Urab\xE1 and Bajo Cauca regions of Antioquia Department",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "the southern part of Bol\xEDvar Department",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "all of Guaviare Department",
+        lvl: 3,
+        posture: "all-but-essential",
+        except: [
+          "the department capital San Jos\xE9 del Guaviare"
+        ]
+      },
+      {
+        name: "Cartagena del Chair\xE1, San Vicente del Caguan, Puerto Rico, El Doncello, Paujil and La Monta\xF1ita in Caquet\xE1 Department",
+        lvl: 3,
+        posture: "all-but-essential"
+      },
+      {
+        name: "the Ariari region of southern Meta",
+        lvl: 3,
+        posture: "all-but-essential",
+        except: [
+          "Ca\xF1o Cristales"
+        ],
+        note: "If travelling to Ca\xF1o Cristales, the FCDO advises travelling by air from the town of La Macarena with a reputable tour company."
+      },
+      {
+        name: "within 5km of the border with Ecuador",
+        lvl: 3,
+        posture: "all-but-essential",
+        except: [
+          "the border crossing on the Pan-American highway at the Puente Internacional de Rumichaca",
+          "the city of Ipiales in Nari\xF1o Department"
+        ]
+      },
+      {
+        name: "all of Cauca Department",
+        lvl: 3,
+        posture: "all-but-essential",
+        except: [
+          "the department capital Popay\xE1n"
+        ],
+        note: "The advisory page nests Cauca inside its Ecuador-border sentence; we hold it as a restricted department in its own right \u2014 the stricter of the two readings, consistent with the FCDO's regional-risks detail."
+      },
+      {
+        name: "Orito, San Miguel, Valle del Guamuez, Puerto Caicedo, Puerto Guzm\xE1n, Puerto Asis and Puerto Leguizamo in Putumayo Department",
+        lvl: 3,
+        posture: "all-but-essential"
       }
     ]
   },
