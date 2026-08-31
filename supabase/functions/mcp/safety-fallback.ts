@@ -677,24 +677,46 @@ var safety_default = {
     country: "Indonesia",
     lvl: 2,
     label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism and natural hazards; parts of Papua are off-limits.",
+    summary: "Exercise increased caution due to terrorism and natural hazards. The FCDO's only advise-against areas are small exclusion zones around six active volcanoes \u2014 its earlier Papua restrictions no longer appear on the page (re-read 2026-08-31).",
     considerations: [
       "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
-      "Ongoing terrorism plotting; variable road and ferry safety."
+      "Ongoing terrorism plotting; variable road and ferry safety.",
+      "15 Aug 2026: a strong offshore earthquake north of Flores (East Nusa Tenggara) caused deaths, injuries and damage, with aftershocks continuing \u2014 the FCDO advises following local authorities, staying clear of damaged buildings and affected coastal areas, and expecting transport disruption in Flores and neighbouring NTT areas. Komodo sits in this region; re-verify before travel."
     ],
     medical: "Tap water is not safe \u2014 drink bottled/boiled; dengue is endemic, malaria in Papua/eastern/rural areas, rabies present (incl. Bali); Hep A/B and typhoid recommended.",
-    source: "UK FCDO, Apr 2025",
-    verified: "2026-06",
+    source: "UK FCDO \u2014 Indonesia travel advice (page updated 2026-08-28; read in full 2026-08-31)",
+    verified: "2026-08-31",
     zones: [
       {
-        name: "Central Papua",
+        name: "within 7km of the crater of Mount Lewotobi Laki-Laki on Flores Island, East Nusa Tenggara Province",
         lvl: 4,
-        note: "Conflict, armed separatists, kidnapping."
+        posture: "all"
       },
       {
-        name: "Highland Papua",
+        name: "within 5km of the crater of Mount Sinabung in Karo Regency, North Sumatra",
         lvl: 4,
-        note: "Conflict, armed separatists, kidnapping."
+        posture: "all"
+      },
+      {
+        name: "within 3km of the crater of Mount Marapi in West Sumatra",
+        lvl: 4,
+        posture: "all"
+      },
+      {
+        name: "within 5km of the crater of Mount Semeru in Lumajang Regency, East Java",
+        lvl: 4,
+        posture: "all",
+        note: "Also, in the south-east of Mount Semeru, to within 500m from any riverbank of the Besuk Kobokan river for 13km from the crater."
+      },
+      {
+        name: "within 7km of the crater of Mount Ruang in Northern Sulawesi",
+        lvl: 4,
+        posture: "all"
+      },
+      {
+        name: "within 7km of the crater of Mount Ibu in North Maluku Province",
+        lvl: 4,
+        posture: "all"
       }
     ]
   },
@@ -2118,11 +2140,18 @@ function advisoryLinks(countryName, iso) {
 function agentBlock(resolved, countryName, granularity) {
   const threshold = fcdoThreshold(resolved);
   const quote = fcdoQuote(resolved);
+  const restricted = (resolved.zones ?? []).filter((z) => z.posture || z.lvl >= 3).map((z) => ({
+    area: z.name,
+    restriction: z.posture ? ZONE_POSTURE_TEXT[z.posture] : "restricted area \u2014 this zone's transcription predates the FCDO re-read; read the official advisory page for its current wording",
+    ...z.except?.length ? { except: z.except } : {}
+  }));
+  const postured = (resolved.zones ?? []).filter((z) => z.posture);
+  const partsAdvice = granularity === "country" && threshold === "none" && postured.length ? `advises against ${postured.some((z) => z.posture === "all") ? "all travel" : "all but essential travel"} to parts of ${countryName} \u2014 see restricted_areas` : null;
   const iso = isoForCountry(countryName);
   const fcdo = advisoryLinks(countryName, iso).find((l) => l.source.id === "fcdo");
   const page = fcdo && (iso !== null || !fcdo.deep) ? fcdo.href : void 0;
   return {
-    advice: THRESHOLD_TEXT[threshold],
+    advice: partsAdvice ?? THRESHOLD_TEXT[threshold],
     threshold,
     booking_hold: Boolean(resolved.bookingHold),
     consent_required: threshold === "essential-only",
@@ -2133,6 +2162,7 @@ function agentBlock(resolved, countryName, granularity) {
     source: resolved.source,
     ...resolved.verified ? { read_date: resolved.verified } : {},
     ...page ? { advisory_page: page } : {},
+    ...restricted.length ? { restricted_areas: restricted } : {},
     derived: granularity === "country",
     granularity
   };

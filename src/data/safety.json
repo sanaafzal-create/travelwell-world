@@ -668,24 +668,46 @@
     "country": "Indonesia",
     "lvl": 2,
     "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism and natural hazards; parts of Papua are off-limits.",
+    "summary": "Exercise increased caution due to terrorism and natural hazards. The FCDO's only advise-against areas are small exclusion zones around six active volcanoes — its earlier Papua restrictions no longer appear on the page (re-read 2026-08-31).",
     "considerations": [
       "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
-      "Ongoing terrorism plotting; variable road and ferry safety."
+      "Ongoing terrorism plotting; variable road and ferry safety.",
+      "15 Aug 2026: a strong offshore earthquake north of Flores (East Nusa Tenggara) caused deaths, injuries and damage, with aftershocks continuing — the FCDO advises following local authorities, staying clear of damaged buildings and affected coastal areas, and expecting transport disruption in Flores and neighbouring NTT areas. Komodo sits in this region; re-verify before travel."
     ],
     "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic, malaria in Papua/eastern/rural areas, rabies present (incl. Bali); Hep A/B and typhoid recommended.",
-    "source": "UK FCDO, Apr 2025",
-    "verified": "2026-06",
+    "source": "UK FCDO — Indonesia travel advice (page updated 2026-08-28; read in full 2026-08-31)",
+    "verified": "2026-08-31",
     "zones": [
       {
-        "name": "Central Papua",
+        "name": "within 7km of the crater of Mount Lewotobi Laki-Laki on Flores Island, East Nusa Tenggara Province",
         "lvl": 4,
-        "note": "Conflict, armed separatists, kidnapping."
+        "posture": "all"
       },
       {
-        "name": "Highland Papua",
+        "name": "within 5km of the crater of Mount Sinabung in Karo Regency, North Sumatra",
         "lvl": 4,
-        "note": "Conflict, armed separatists, kidnapping."
+        "posture": "all"
+      },
+      {
+        "name": "within 3km of the crater of Mount Marapi in West Sumatra",
+        "lvl": 4,
+        "posture": "all"
+      },
+      {
+        "name": "within 5km of the crater of Mount Semeru in Lumajang Regency, East Java",
+        "lvl": 4,
+        "posture": "all",
+        "note": "Also, in the south-east of Mount Semeru, to within 500m from any riverbank of the Besuk Kobokan river for 13km from the crater."
+      },
+      {
+        "name": "within 7km of the crater of Mount Ruang in Northern Sulawesi",
+        "lvl": 4,
+        "posture": "all"
+      },
+      {
+        "name": "within 7km of the crater of Mount Ibu in North Maluku Province",
+        "lvl": 4,
+        "posture": "all"
       }
     ]
   },

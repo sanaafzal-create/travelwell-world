@@ -30,6 +30,7 @@ import {
   fcdoThreshold,
   fcdoQuote,
   THRESHOLD_TEXT,
+  ZONE_POSTURE_TEXT,
   type FcdoThreshold,
   type SafetyInfo,
 } from "../src/data/safety-data";
@@ -60,6 +61,14 @@ export interface McpSafety {
   read_date?: string;
   /** The official advisory page for this country — cite it, don't paraphrase us. */
   advisory_page?: string;
+  /**
+   * The country's named advise-against areas, so a country-level answer never
+   * reads "no advisory against travel" while the FCDO's own headline says
+   * "…to parts of". A zone transcribed from FCDO text carries the FCDO's
+   * wording; a legacy zone (pre-re-read) points at the official page rather
+   * than quoting words we do not hold.
+   */
+  restricted_areas?: { area: string; restriction: string; except?: string[] }[];
   /** True when this is the country-level read with no place-level dossier join. */
   derived: boolean;
   granularity: "country" | "place";
@@ -72,6 +81,23 @@ function agentBlock(
 ): McpSafety {
   const threshold = fcdoThreshold(resolved);
   const quote = fcdoQuote(resolved);
+  const restricted = (resolved.zones ?? [])
+    .filter((z) => z.posture || z.lvl >= 3)
+    .map((z) => ({
+      area: z.name,
+      restriction: z.posture
+        ? ZONE_POSTURE_TEXT[z.posture]
+        : "restricted area — this zone's transcription predates the FCDO re-read; read the official advisory page for its current wording",
+      ...(z.except?.length ? { except: z.except } : {}),
+    }));
+  // A country query must not answer "no advisory against travel" when the
+  // FCDO's own page headline is "…to parts of <country>". Only FCDO-transcribed
+  // (postured) zones may put those words in the FCDO's mouth.
+  const postured = (resolved.zones ?? []).filter((z) => z.posture);
+  const partsAdvice =
+    granularity === "country" && threshold === "none" && postured.length
+      ? `advises against ${postured.some((z) => z.posture === "all") ? "all travel" : "all but essential travel"} to parts of ${countryName} — see restricted_areas`
+      : null;
   const iso = isoForCountry(countryName);
   const fcdo = advisoryLinks(countryName, iso).find((l) => l.source.id === "fcdo");
   // A country outside our checked set gets NO page link: `advisoryLinks` would
@@ -79,7 +105,7 @@ function agentBlock(
   // checked" when we didn't. (An index link — composites — is honest and stays.)
   const page = fcdo && (iso !== null || !fcdo.deep) ? fcdo.href : undefined;
   return {
-    advice: THRESHOLD_TEXT[threshold],
+    advice: partsAdvice ?? THRESHOLD_TEXT[threshold],
     threshold,
     booking_hold: Boolean(resolved.bookingHold),
     consent_required: threshold === "essential-only",
@@ -90,6 +116,7 @@ function agentBlock(
     source: resolved.source,
     ...(resolved.verified ? { read_date: resolved.verified } : {}),
     ...(page ? { advisory_page: page } : {}),
+    ...(restricted.length ? { restricted_areas: restricted } : {}),
     derived: granularity === "country",
     granularity,
   };
