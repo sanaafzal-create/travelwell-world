@@ -23253,20 +23253,18 @@
    "key_facts": [
     "BOOKING HOLD: Uganda US L4 Do Not Travel driven by an Ebola (Sudan virus) outbreak - PHEIC declared 2026-05-17. CONTENT-ONLY, no Book path, no waiver. DYNAMIC - re-verify each cycle, flip to live when it clears. Redirect gorilla demand to Rwanda Volcanoes",
     "The world's premier gorilla forest (UNESCO 1994): ~459 mountain gorillas - nearly HALF the world's - across ~25 habituated groups (9 for trekking) in an ancient Afromontane rainforest",
-    "Permit $800 (foreign non-resident; $600 low-season Apr/May/Nov), operator-only since 1 Mar 2026; the Uganda-ONLY 4-hour Gorilla Habituation Experience (Rushaga) $1,500 -> $1,800 on 1 Jan 2027 (all latent while held)",
+    "Permit $800 (foreign non-resident; $600 low-season Apr/May/Nov), operator-only since 1 Mar 2026; the Uganda-ONLY 4-hour Gorilla Habituation Experience (Rushaga) $1,500 -> $1,800 on 1 Jan 2027",
     "One of Earth's most biodiverse forests: 200+ trees, 350+ birds (Albertine Rift endemics), 202 butterflies; the Batwa first people",
-    "Yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); malaria in all regions incl. Bwindi (prophylaxis); strenuous steep/muddy trek (sectors Buhoma easiest, Nkuringo hardest) - all latent while held",
+    "Yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); malaria in all regions incl. Bwindi (prophylaxis); strenuous steep/muddy trek (sectors Buhoma easiest, Nkuringo hardest)",
     "Live twin = volcanoes-np-rwanda (Rwanda, bookable). Trek rules when reopened: 7-10m distance, mandatory mask, max 1hr, max 8/group, armed ranger, min age 15, no trekking if ill"
    ],
    "safety": {
     "emergency": "999 / 112",
-    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Kihihi/Kampala (all latent while held)",
-    "advisory_level": "L4",
-    "malaria": "present in all regions incl. Bwindi lowland forest - prophylaxis (latent while held)",
+    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Kihihi/Kampala",
+    "malaria": "present in all regions incl. Bwindi lowland forest - prophylaxis",
     "yellow_fever": "MANDATORY for entry (all >=1yr, checked at Entebbe, >=10 days before)",
-    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17 - the dominant, disqualifying hazard",
-    "activity_note": "HEALTH-SPINE DOMINANT: Ebola (Sudan virus) outbreak + US L4 Do Not Travel is the disqualifying hazard - CONTENT-ONLY, Book suppressed, no waiver, redirect to Rwanda. DYNAMIC - re-verify each cycle. Gorilla-trek + malaria hazards secondary and moot while held. When reopened: trek rules 7-10m/mask/1hr/max8/armed ranger/no-trek-if-ill; YF mandatory; strenuous high-forest hike",
-    "booking_hold": true,
+    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17. Health information, not an advisory against travel - the FCDO restricts nothing in Uganda; re-verify current outbreak status before travel",
+    "activity_note": "Ebola (Sudan virus) outbreak is standing health information to re-verify each cycle - not a booking hold (health-based holds released, David 2026-08-29). Trek rules 7-10m/mask/1hr/max8/armed ranger/no-trek-if-ill; YF mandatory; strenuous high-forest hike",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
@@ -65703,19 +65701,17 @@
     "BOOKING HOLD: Uganda US L4 Do Not Travel driven by an Ebola (Sudan virus) outbreak - PHEIC declared 2026-05-17. CONTENT-ONLY, no Book path, no waiver. DYNAMIC - re-verify each cycle, flip to live when it clears. Redirect chimp demand to Rwanda's Nyungwe",
     "The primate capital of the world: up to ~1,500 chimpanzees and 13 primate species in a lush tropical rainforest - the richest primate community in East Africa",
     "The chimp trek is the draw (globaladv-primary) - $250 permit (foreign non-resident), plus the full-day Habituation Experience ~$300; safari (big game) is a documented MISS - a forest, not a savanna",
-    "Bigodi wetland (Magombe) community birding walk on the forest edge (200+ birds + primates) - a model of community tourism (all latent while held)",
-    "Yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); malaria in all regions incl. Kibale forest (prophylaxis); chimp-trek rules ~8m/mask/1hr/ranger/no-trek-if-ill - all latent while held",
+    "Bigodi wetland (Magombe) community birding walk on the forest edge (200+ birds + primates) - a model of community tourism",
+    "Yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); malaria in all regions incl. Kibale forest (prophylaxis); chimp-trek rules ~8m/mask/1hr/ranger/no-trek-if-ill",
     "Live twin = nyungwe-forest-rwanda (Rwanda, bookable, US L3 - same chimp trek). Anchors the Uganda cluster with bwindi/queen-elizabeth/murchison-falls"
    ],
    "safety": {
     "emergency": "999 / 112",
-    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Fort Portal/Kampala (all latent while held)",
-    "advisory_level": "L4",
-    "malaria": "present in all regions incl. Kibale forest - prophylaxis (latent while held)",
+    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Fort Portal/Kampala",
+    "malaria": "present in all regions incl. Kibale forest - prophylaxis",
     "yellow_fever": "MANDATORY for entry (all >=1yr, checked at Entebbe, >=10 days before)",
-    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17 - the dominant, disqualifying hazard",
-    "activity_note": "HEALTH-SPINE DOMINANT: Ebola (Sudan virus) outbreak + US L4 Do Not Travel is the disqualifying hazard - CONTENT-ONLY, Book suppressed, no waiver, redirect to Rwanda's Nyungwe. DYNAMIC - re-verify each cycle. Chimp-trek + malaria hazards secondary and moot while held. When reopened: chimp-trek rules ~8m/mask/1hr/ranger/no-trek-if-ill; warm humid forest walk (moderate)",
-    "booking_hold": true,
+    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17. Health information, not an advisory against travel - the FCDO restricts nothing in Uganda; re-verify current outbreak status before travel",
+    "activity_note": "Ebola (Sudan virus) outbreak is standing health information to re-verify each cycle - not a booking hold (health-based holds released, David 2026-08-29). Chimp-trek rules ~8m/mask/1hr/ranger/no-trek-if-ill; warm humid forest walk (moderate)",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
@@ -93204,19 +93200,17 @@
     "BOOKING HOLD: Uganda US L4 Do Not Travel driven by an Ebola (Sudan virus) outbreak - PHEIC declared 2026-05-17. CONTENT-ONLY, no Book path, no waiver. DYNAMIC - re-verify each cycle, flip to live when it clears. Redirect safari demand to Kenya/Tanzania/Akagera",
     "Uganda's largest park (~3,840 km2), bisected by the Victoria Nile which funnels through a 7-m gorge and plunges 43 m - often called the world's most powerful waterfall",
     "The Big Four (lion, elephant, buffalo, leopard - NO rhino in-park; rhino at the separate Ziwa Rhino Sanctuary en route) + endangered Nubian giraffe, across 76+ mammals; 450+ birds incl. the shoebill",
-    "The Nile boat safari to the base of the falls ($30) - hippos, giant crocs, elephants, buffalo; delta shoebill cruise; the top-of-falls hike (all latent while held)",
-    "Park fee $40 (24h); yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); ~300 km / 4h NW of Kampala; malaria in all regions (prophylaxis) - all latent while held",
+    "The Nile boat safari to the base of the falls ($30) - hippos, giant crocs, elephants, buffalo; delta shoebill cruise; the top-of-falls hike",
+    "Park fee $40 (24h); yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); ~300 km / 4h NW of Kampala; malaria in all regions (prophylaxis)",
     "Live twins = Kenya (Maasai Mara/Amboseli L2), Tanzania (Serengeti L3), akagera-np-rwanda (Rwanda Big Five L3). Anchors the Uganda cluster with bwindi/queen-elizabeth/kibale"
    ],
    "safety": {
     "emergency": "999 / 112",
-    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Masindi/Gulu/Kampala (all latent while held)",
-    "advisory_level": "L4",
-    "malaria": "present in all regions - prophylaxis (latent while held)",
+    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Masindi/Gulu/Kampala",
+    "malaria": "present in all regions - prophylaxis",
     "yellow_fever": "MANDATORY for entry (all >=1yr, checked at Entebbe, >=10 days before)",
-    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17 - the dominant, disqualifying hazard",
-    "activity_note": "HEALTH-SPINE DOMINANT: Ebola (Sudan virus) outbreak + US L4 Do Not Travel is the disqualifying hazard - CONTENT-ONLY, Book suppressed, no waiver, redirect to Kenya/Tanzania/Akagera. DYNAMIC - re-verify each cycle. Safari/boat/falls + malaria hazards secondary and moot while held. When reopened: top-of-falls behind railings/guides, keep back from hippos/crocs on the Nile boat, standard game-drive rules",
-    "booking_hold": true,
+    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17. Health information, not an advisory against travel - the FCDO restricts nothing in Uganda; re-verify current outbreak status before travel",
+    "activity_note": "Ebola (Sudan virus) outbreak is standing health information to re-verify each cycle - not a booking hold (health-based holds released, David 2026-08-29). Top-of-falls behind railings/guides, keep back from hippos/crocs on the Nile boat, standard game-drive rules",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
@@ -110789,21 +110783,19 @@
    "key_facts": [
     "BOOKING HOLD: Uganda US L4 Do Not Travel driven by an Ebola (Sudan virus) outbreak - PHEIC declared 2026-05-17. CONTENT-ONLY, no Book path, no waiver. DYNAMIC - re-verify each cycle, flip to live when it clears. Redirect safari demand to Kenya/Tanzania/Akagera",
     "Uganda's most popular savanna park (~1,978 km2, est. 1952 as Kazinga NP, renamed for Queen Elizabeth II): 95+ mammals and 600+ birds - the country's most biodiverse safari",
-    "The tree-climbing lions of Ishasha (lions in fig/acacia trees - rare behaviour); the Kazinga Channel (40km, Lakes Edward<->George; UWA boat $30 - hippos/crocs/elephants/birds); Kyambura Gorge chimps (all latent while held)",
+    "The tree-climbing lions of Ishasha (lions in fig/acacia trees - rare behaviour); the Kazinga Channel (40km, Lakes Edward<->George; UWA boat $30 - hippos/crocs/elephants/birds); Kyambura Gorge chimps",
     "Western edge borders Virunga (DR Congo) - a separate STANDING security concern even apart from the Ebola L4",
-    "Park fee $40 (24h); yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); malaria in all regions (prophylaxis) - all latent while held",
+    "Park fee $40 (24h); yellow fever MANDATORY for entry (all >=1yr, checked at Entebbe); eVisa (no visa-on-arrival); malaria in all regions (prophylaxis)",
     "Live twins = Kenya (Maasai Mara/Amboseli L2), Tanzania (Serengeti L3), akagera-np-rwanda (Rwanda Big Five L3). Anchors the Uganda cluster with bwindi/murchison-falls/kibale"
    ],
    "safety": {
     "emergency": "999 / 112",
-    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Kasese/Mbarara/Kampala (all latent while held)",
-    "advisory_level": "L4",
-    "malaria": "present in all regions - prophylaxis (latent while held)",
+    "hospital": "Remote - AMREF Flying Doctors (~$40 pp/30d) + travel-medical insurance; nearest referral Kasese/Mbarara/Kampala",
+    "malaria": "present in all regions - prophylaxis",
     "yellow_fever": "MANDATORY for entry (all >=1yr, checked at Entebbe, >=10 days before)",
-    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17 - the dominant, disqualifying hazard",
+    "ebola": "Sudan virus outbreak - PHEIC declared 2026-05-17. Health information, not an advisory against travel - the FCDO restricts nothing in Uganda; re-verify current outbreak status before travel",
     "drc_border": "western edge borders Virunga (DR Congo) - separate standing security concern; when live, keep to eastern/central sectors",
-    "activity_note": "HEALTH-SPINE DOMINANT: Ebola (Sudan virus) outbreak + US L4 Do Not Travel is the disqualifying hazard - CONTENT-ONLY, Book suppressed, no waiver, redirect to Kenya/Tanzania/Akagera. DYNAMIC - re-verify each cycle. Safari/boat + malaria hazards + the DRC border are secondary/standing and moot for booking while held. When reopened: standard game-drive/boat rules, keep back from hippos/crocs, ranger-guided",
-    "booking_hold": true,
+    "activity_note": "Ebola (Sudan virus) outbreak is standing health information to re-verify each cycle - not a booking hold (health-based holds released, David 2026-08-29). The DRC border is a separate standing security note (see drc_border). Standard game-drive/boat rules, keep back from hippos/crocs, ranger-guided",
     "fcdo": {
      "posture": "AREA-RESTRICTED",
      "quotes": [
