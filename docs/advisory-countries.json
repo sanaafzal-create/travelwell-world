@@ -18,6 +18,15 @@
       "fcdo_slug": "united-arab-emirates"
     },
     {
+      "iso": "AG",
+      "name": "Antigua & Barbuda",
+      "match": [
+        "antigua & barbuda",
+        "antigua and barbuda"
+      ],
+      "fcdo_slug": "antigua-and-barbuda"
+    },
+    {
       "iso": "AI",
       "name": "Anguilla",
       "match": [
@@ -723,6 +732,15 @@
         "tunisia"
       ],
       "fcdo_slug": "tunisia"
+    },
+    {
+      "iso": "TT",
+      "name": "Trinidad & Tobago",
+      "match": [
+        "trinidad & tobago",
+        "trinidad and tobago"
+      ],
+      "fcdo_slug": "trinidad-and-tobago"
     },
     {
       "iso": "TZ",

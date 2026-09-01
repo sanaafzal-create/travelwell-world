@@ -352,6 +352,15 @@ export const COUNTRY_ISO: Record<string, string> = {
   // This is what the "96 destinations in a country with no row" block waited on.
   Anguilla: "AI", Guadeloupe: "GP", Martinique: "MQ", Montserrat: "MS",
   Mexico: "MX", Brazil: "BR", Guatemala: "GT", Ecuador: "EC", Laos: "LA", Mozambique: "MZ",
+
+  // ── THE 31 AUGUST BATCH: two countries its 20 new rows added ─────────────
+  // Both verified through the ingested FCDO verbatim store (alert_status empty,
+  // zero threshold quotes, ETag'd pages — antigua-and-barbuda 2026-03-13,
+  // trinidad-and-tobago 2026-07-30). Without these, four live rows (antigua,
+  // barbuda, trinidad, tobago) resolve UNVERIFIED and the live-unverified gate
+  // refuses the whole batch — which is exactly what it did, and why these are
+  // here rather than the rows going live on a country nothing checked.
+  "Antigua & Barbuda": "AG", "Trinidad & Tobago": "TT",
 };
 
 export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;

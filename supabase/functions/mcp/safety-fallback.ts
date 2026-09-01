@@ -8,6 +8,26 @@
 
 // src/data/safety.json
 var safety_default = {
+  AG: {
+    country: "Antigua & Barbuda",
+    lvl: 1,
+    label: "No advisory against travel",
+    summary: "The UK FCDO publishes no advisory against travel for Antigua and Barbuda. That is the absence of a warning rather than a statement that anywhere is safe \u2014 read the advisory in full below before you plan.",
+    considerations: [],
+    source: "UK FCDO \u2014 Antigua and Barbuda travel advice (page updated 2026-03-13; slug ETag-verified via the ingested verbatim store, read 2026-08-31); in the daily checker",
+    reported: true,
+    fromAbsence: true
+  },
+  TT: {
+    country: "Trinidad & Tobago",
+    lvl: 1,
+    label: "No advisory against travel",
+    summary: "The UK FCDO publishes no advisory against travel for Trinidad and Tobago. That is the absence of a warning rather than a statement that anywhere is safe \u2014 read the advisory in full below before you plan.",
+    considerations: [],
+    source: "UK FCDO \u2014 Trinidad and Tobago travel advice (page updated 2026-07-30; slug ETag-verified via the ingested verbatim store, read 2026-08-31); in the daily checker",
+    reported: true,
+    fromAbsence: true
+  },
   SX: {
     country: "Sint Maarten",
     lvl: 1,
@@ -1975,7 +1995,16 @@ var COUNTRY_ISO = {
   Guatemala: "GT",
   Ecuador: "EC",
   Laos: "LA",
-  Mozambique: "MZ"
+  Mozambique: "MZ",
+  // ── THE 31 AUGUST BATCH: two countries its 20 new rows added ─────────────
+  // Both verified through the ingested FCDO verbatim store (alert_status empty,
+  // zero threshold quotes, ETag'd pages — antigua-and-barbuda 2026-03-13,
+  // trinidad-and-tobago 2026-07-30). Without these, four live rows (antigua,
+  // barbuda, trinidad, tobago) resolve UNVERIFIED and the live-unverified gate
+  // refuses the whole batch — which is exactly what it did, and why these are
+  // here rather than the rows going live on a country nothing checked.
+  "Antigua & Barbuda": "AG",
+  "Trinidad & Tobago": "TT"
 };
 var isoForCountry = (name) => COUNTRY_ISO[name] ?? null;
 var SAFETY_DATA = safety_default;
@@ -2129,6 +2158,10 @@ var SLUG_OVERRIDES = {
   FO: { fcdo: "denmark" },
   BL: { fcdo: "st-martin-and-st-barthelemy" },
   SX: { fcdo: "st-maarten" },
+  // Ampersand names derive to a broken slug ("antigua-&-barbuda"); the FCDO's
+  // own slugs, ETag-verified via the ingested verbatim store (2026-08-31):
+  AG: { fcdo: "antigua-and-barbuda" },
+  TT: { fcdo: "trinidad-and-tobago" },
   MF: { fcdo: "st-martin-and-st-barthelemy" }
 };
 var derive = (countryName) => countryName.replace(/\s*\([^)]*\)\s*$/, "").replace(/&/g, " and ").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");

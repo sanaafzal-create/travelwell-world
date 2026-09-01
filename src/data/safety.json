@@ -1,4 +1,24 @@
 {
+ "AG": {
+  "country": "Antigua & Barbuda",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no advisory against travel for Antigua and Barbuda. That is the absence of a warning rather than a statement that anywhere is safe — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO — Antigua and Barbuda travel advice (page updated 2026-03-13; slug ETag-verified via the ingested verbatim store, read 2026-08-31); in the daily checker",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "TT": {
+  "country": "Trinidad & Tobago",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no advisory against travel for Trinidad and Tobago. That is the absence of a warning rather than a statement that anywhere is safe — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO — Trinidad and Tobago travel advice (page updated 2026-07-30; slug ETag-verified via the ingested verbatim store, read 2026-08-31); in the daily checker",
+  "reported": true,
+  "fromAbsence": true
+ },
  "SX": {
   "country": "Sint Maarten",
   "lvl": 1,

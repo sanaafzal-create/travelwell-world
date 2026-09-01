@@ -98,6 +98,10 @@ const SLUG_OVERRIDES: Record<string, Partial<Record<AdvisorySourceId, string>>> 
   FO: { fcdo: "denmark" },
   BL: { fcdo: "st-martin-and-st-barthelemy" },
   SX: { fcdo: "st-maarten" },
+  // Ampersand names derive to a broken slug ("antigua-&-barbuda"); the FCDO's
+  // own slugs, ETag-verified via the ingested verbatim store (2026-08-31):
+  AG: { fcdo: "antigua-and-barbuda" },
+  TT: { fcdo: "trinidad-and-tobago" },
   MF: { fcdo: "st-martin-and-st-barthelemy" },
 };
 
