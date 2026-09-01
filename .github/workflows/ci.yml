@@ -57,10 +57,15 @@ jobs:
         run: npm run check:brand
       - name: Install Chromium (for the a11y audit)
         run: npx playwright install --with-deps chromium
-      - name: Accessibility gate (WCAG 2.1 A/AA)
+      - name: Accessibility + readability gates (WCAG 2.1 A/AA · 16px/13px floors · 3:1 edges)
+        # check:readability runs on the line after a11y — same server, same
+        # Chromium, same A11Y_BASE. The library's catch (2026-08-29): it sat
+        # beside a11y in package.json and not here, so the 608 readability
+        # fixes were at zero with nothing in CI refusing the 609th.
         env:
           A11Y_BASE: http://localhost:4173
         run: |
           npm run preview -- --port 4173 --strictPort &
           for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
           npm run a11y
+          npm run check:readability
