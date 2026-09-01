@@ -49,6 +49,8 @@ jobs:
         run: npm run typecheck
       - name: Build
         run: npm run build
+      - name: Structured data — every ld+json parses, every breadcrumb item named
+        run: npm run check:jsonld
       - name: Brand mark — one form only
         # Scans the BUILT output, so it covers metadata, og: tags, JSON-LD and
         # every translated string, not just visible copy. David, 2026-08-04:
