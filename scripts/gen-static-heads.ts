@@ -44,7 +44,7 @@ import { DESTINATIONS, GUIDES, type Destination } from "../src/data/places";
 import { mergedDestinations } from "./lib/destination-batches";
 import { breadcrumbJsonLd, destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
 import { jewelsForSi } from "../src/lib/jewels";
-import { ORIGIN, isIndexableDestination } from "../src/lib/site";
+import { ORIGIN, originFor, isIndexableDestination } from "../src/lib/site";
 
 
 const DIST = "dist";
@@ -236,6 +236,23 @@ function render(p: Page): string {
   html = /<link rel="canonical"/.test(html)
     ? html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${attr(canonical)}$2`)
     : html.replace("</head>", `  <link rel="canonical" href="${attr(canonical)}" />\n  </head>`);
+
+  // hreflang (SOCKET-HREFLANG, 2026-08-29): one link per locale that actually
+  // RESOLVES, plus x-default on en. Today exactly one locale resolves, so the
+  // set is a self-reference + x-default — correct and complete for a
+  // one-language site per the Localization Standard §4 — and the siblings
+  // appear here (and nowhere else) the day `originFor()` starts answering
+  // per-locale. A link to a locale that does not resolve is a link to a 404,
+  // which is worse than no link. Gated/noindex pages emit none: an alternate
+  // on a page we ask engines not to index is a mixed signal.
+  if (!p.noindex) {
+    const LIVE_LOCALES = ["en"] as const;
+    const alternates = [
+      ...LIVE_LOCALES.map((l) => `<link rel="alternate" hreflang="${l}" href="${attr(`${originFor(l)}${p.path}`)}" />`),
+      `<link rel="alternate" hreflang="x-default" href="${attr(`${originFor("en")}${p.path}`)}" />`,
+    ].join("\n  ");
+    html = html.replace("</head>", `  ${alternates}\n  </head>`);
+  }
 
   if (p.noindex) {
     html = html.replace("</head>", `  <meta name="robots" content="noindex, follow" />\n  </head>`);
