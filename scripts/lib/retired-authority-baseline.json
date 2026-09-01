@@ -6,6 +6,8 @@
  "_promise_note": "Safety promises are ABSOLUTE \u2014 target 0, not a tolerance. Ratcheted only so a pre-existing set does not block unrelated work. Remedy is deletion of the claim, never a generated replacement.",
  "advisory_text_max": 6,
  "_advisory_text_note": "Hazards attributed to an advisory that does not name them, in FAQ answers. Target 0. Ratcheted only so a pre-existing set does not block unrelated work; a human rewrites from the source text or drops the claim.",
+ "jewel_si_freetext_max": 936,
+ "_jewel_si_note": "Jewels whose si is not a board slug — each renders on NO interest page, silently. Measured 2026-08-31 (Panel 7 found 891 in the library's lane; our ingested copy holds 936, incl. 46 tagged with retired `nightlife`). Shrinks via the library's mapping batch after David rules on the 14 unambiguous display-name→slug pairs; never rewritten locally.",
  "forbidden_question_max": 0,
  "_forbidden_question_note": "A faq question asking whether a place is safe (David, 2026-08-19). Target 0 and then a hard fail. Ratcheted only until the research library batch that removes ours lands. Delete the whole pair, never the answer alone, and never leave a row with an empty faq.",
  "_ratcheted": "2026-08-27 \u2014 David ruled on the last of each: activity-guidance sentences re-worded to drop the word entirely (his approved phrasing), the country-safety superlative deleted outright, the one activity question re-worded to keep its answer. Both classes are now at their target of ZERO and a single recurrence fails the gate.",

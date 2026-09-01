@@ -466,6 +466,35 @@ if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block,
   }
 }
 
+// \u2500\u2500 FREE-TEXT JEWEL SI TAGS \u2014 invisible on every interest page \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// A jewel's `si` must be a BOARD slug: `ids.includes(x)` is the whole join, so
+// a display name ("Winter / Ski") loads, matches nothing, and renders nowhere \u2014
+// silently, which is why 900+ of them accumulated without any gate noticing
+// (the Toolbox documented the exact failure on providers). Panel 7 (2026-08-29)
+// measured 891 in the library's lane; our ingested copy holds MORE, including
+// jewels tagged with the retired `nightlife`. The mapping is a canon ruling
+// (David's, per Job 70: an arguable mapping is never applied) executed at the
+// library's SOURCE and flowing here as a batch \u2014 never a local rewrite. This
+// gate's only job is to make the number visible on every run and refuse growth
+// until that batch lands.
+{
+  const boardIds = new Set(boardSis().map((s) => s.id));
+  const max = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).jewel_si_freetext_max as number;
+  const bad: Record<string, number> = {};
+  for (const { d } of rows)
+    for (const j of ((d.data as { jewels?: { si?: string }[] } | undefined)?.jewels ?? []))
+      if (j?.si && !boardIds.has(j.si)) bad[j.si] = (bad[j.si] ?? 0) + 1;
+  const n = Object.values(bad).reduce((a, b) => a + b, 0);
+  if (n > max) {
+    console.log(`\n\u2717 FREE-TEXT JEWEL SI TAGS \u2014 ${n} jewels carry an si that is not a board slug (ratchet ${max}). Every one is invisible on its interest page.`);
+    Object.entries(bad).sort((a, b) => b[1] - a[1]).slice(0, 8).forEach(([k, v]) => console.log(`  \u2717 ${v} \u00d7 ${JSON.stringify(k)}`));
+    console.log(`  The fix is the library's mapping batch (David's ruling), never a local rewrite.`);
+    process.exit(1);
+  }
+  if (n < max) console.log(`\n\u2713 free-text jewel si tags: ${n} (ratchet ${max}) \u2014 lower "jewel_si_freetext_max" to ${n} to hold the ground.`);
+  else if (n) console.log(`\n\u00b7 free-text jewel si tags: ${n}, at the ratchet \u2014 each is a jewel no interest page can reach. The library's mapping batch shrinks this.`);
+}
+
 // ── THE SAFETY-PROMISE RATCHET ─────────────────────────────────────────────
 // "Never promise safe" is absolute — an outcome we do not control, said in the
 // field that emits FAQPage structured data. So this is NOT a tolerance and the
