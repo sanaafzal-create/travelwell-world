@@ -73,8 +73,7 @@ import { Icon } from "@/lib/icons";
 import { Button, Eyebrow } from "@/components/ui/primitives";
 import {
   SAFE_HEADER_COLOR, stricterZones, fcdoQuote, fcdoThreshold, THRESHOLD_TEXT,
-  type SafetyInfo, ZONE_POSTURE_TEXT,
-} from "@/data/safety-data";
+  type SafetyInfo, ZONE_POSTURE_TEXT, zoneLvl } from "@/data/safety-data";
 import { advisoryLinks } from "@/data/advisory-sources";
 import { fcdoCountryText } from "@/data/fcdo-text";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
@@ -136,7 +135,7 @@ export function ConsentGate({
   // David's ruling requires; the zone quote remains the where-you-would-be
   // line, and the country text is what the traveller acknowledges reading.
   const countryText = fcdoCountryText(dest.country);
-  const doNotTravel = stricterZones(safety).filter((z) => z.lvl === 4);
+  const doNotTravel = stricterZones(safety).filter((z) => zoneLvl(z) === 4);
   const local = iso ? getEmergencyNumbers(iso) : null;
   const fcdoLink = advisoryLinks(dest.country, iso).find((l) => l.source.id === "fcdo");
 

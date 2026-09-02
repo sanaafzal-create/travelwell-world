@@ -17,7 +17,7 @@ import { fetchSignals } from "./signals";
 import { useStore } from "@/store/useStore";
 import { useCatalog } from "@/store/useCatalog";
 import { resolveDestId, type Destination } from "@/data/places";
-import { resolveSafety, isoForCountry, stricterZones, fcdoThreshold, fcdoQuote, type SafetyZone } from "@/data/safety-data";
+import { resolveSafety, isoForCountry, stricterZones, fcdoThreshold, fcdoQuote, zoneLvl, type SafetyZone } from "@/data/safety-data";
 import { advisoryLinks } from "@/data/advisory-sources";
 
 interface Considered {
@@ -83,7 +83,7 @@ const zoneRestriction = (z: SafetyZone): string =>
     ? "against all travel"
     : z.posture === "all-but-essential"
       ? "against all but essential travel"
-      : z.lvl >= 4
+      : zoneLvl(z) >= 4
         ? "do not travel (our curated reading; not yet re-read from FCDO text)"
         : "reconsider travel (our curated reading; not yet re-read from FCDO text)";
 

@@ -8,7 +8,7 @@ import { useDestinationImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useRegions, useWells, useProviders, useDestinations, useGuides, useCatalogSettled, useCatalogLoaded } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
-import { resolveSafety, stricterZones, isoForCountry, SAFE_HEADER_COLOR, ZONE_POSTURE_TEXT } from "@/data/safety-data";
+import { resolveSafety, stricterZones, isoForCountry, zoneLvl, SAFE_HEADER_COLOR, ZONE_POSTURE_TEXT } from "@/data/safety-data";
 import { CheckItYourself } from "@/components/ui/CheckItYourself";
 import { GlobalAdvisoryNote } from "@/components/ui/GlobalAdvisoryNote";
 import { BackBar } from "@/components/shell/BackBar";
@@ -509,7 +509,7 @@ export default function DestinationDetail() {
                   <div className="safety-zones__h">Areas of {country} under a stricter advisory</div>
                   {zonesToShow.map((z) => (
                     <div className="safety-zone" key={z.name}>
-                      <span className="safety-zone__lvl" style={{ background: SAFE_HEADER_COLOR[z.lvl] }}>{z.posture ? (z.posture === "all" ? "No travel" : "Essential only") : `L${z.lvl}`}</span>
+                      <span className="safety-zone__lvl" style={{ background: SAFE_HEADER_COLOR[zoneLvl(z)] }}>{z.posture ? (z.posture === "all" ? "No travel" : "Essential only") : `L${zoneLvl(z)}`}</span>
                       <span className="safety-zone__b">
                         <span className="safety-zone__n">{z.name}</span>
                         {z.except?.length ? <span className="safety-zone__x"> — except {listOf(z.except)}, which {z.except.length > 1 ? "sit" : "sits"} at the country level</span> : null}

@@ -1801,6 +1801,7 @@ var ZONE_POSTURE_TEXT = {
   all: "FCDO advises against all travel",
   "all-but-essential": "FCDO advises against all but essential travel"
 };
+var zoneLvl = (z) => z.lvl ?? (z.posture === "all-but-essential" ? 3 : 4);
 var DEFAULT_SAFETY = {
   country: "This destination",
   lvl: 2,
@@ -2054,7 +2055,7 @@ function resolveSafety(dest, iso) {
   const posture = normPosture(carve.posture);
   const postureUnknown = posture !== "" && !KNOWN_POSTURES.has(posture);
   const postureFloor = posture === POSTURE_CONSENT ? 3 : 0;
-  const lvl = Math.max(declared ?? 0, zone?.lvl ?? 0, postureFloor) || void 0;
+  const lvl = Math.max(declared ?? 0, zone ? zoneLvl(zone) : 0, postureFloor) || void 0;
   const hold = carve.booking_hold === true || lvl === 4 || zoneUnresolved || posture === POSTURE_HOLD || postureUnknown;
   if (zoneUnresolved) {
     return {

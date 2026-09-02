@@ -38,8 +38,20 @@ export type RiskLevel = 1 | 2 | 3 | 4; // 1 = normal precautions … 4 = do not 
 export interface SafetyZone {
   /** The area, named as the advisory names it — this string is the join key. */
   name: string;
-  /** This zone's level, which may be stricter OR looser than the country's. */
-  lvl: RiskLevel;
+  /**
+   * This zone's level, which may be stricter OR looser than the country's.
+   *
+   * OPTIONAL WHEN `posture` IS PRESENT (2026-08-31, the library's ask ①): a
+   * postured zone is FCDO-transcribed, and the FCDO's verb already orders it —
+   * "against all travel" is the do-not-travel tier, "against all but
+   * essential" the consent tier. The internal ordinal derives from that verb
+   * via `zoneLvl()`, so the library's dossiers need not carry a number the
+   * render never speaks. A zone must carry AT LEAST ONE of `lvl`/`posture`
+   * (validate:ingest refuses otherwise); at runtime a zone with neither
+   * resolves at the strictest tier, because of the two available mistakes,
+   * refusing a bookable place is the recoverable one.
+   */
+  lvl?: RiskLevel;
   /**
    * Places explicitly carved BACK OUT of this zone by the advisory itself.
    * State's Philippines wording is the worked example: Level 3 for Mindanao
@@ -78,6 +90,16 @@ export const ZONE_POSTURE_TEXT: Record<NonNullable<SafetyZone["posture"]>, strin
   all: "FCDO advises against all travel",
   "all-but-essential": "FCDO advises against all but essential travel",
 };
+
+/**
+ * A zone's internal severity ordinal — the ONE place it is derived, so no read
+ * site invents its own mapping. Explicit `lvl` wins (legacy transcriptions);
+ * otherwise the FCDO verb orders it (all → 4, all-but-essential → 3); a zone
+ * carrying neither is invalid (the gate refuses it) and resolves at the
+ * strictest tier rather than silently at the loosest.
+ */
+export const zoneLvl = (z: SafetyZone): RiskLevel =>
+  z.lvl ?? (z.posture === "all-but-essential" ? 3 : 4);
 
 // Verified destination safety data (David's safety.json — 33 countries, keyed
 // by ISO alpha-2, sourced to US State Dept / UK FCDO advisories, verified 2026-06).
@@ -546,7 +568,7 @@ export function resolveSafety(
   const postureUnknown = posture !== "" && !KNOWN_POSTURES.has(posture);
   const postureFloor = posture === POSTURE_CONSENT ? 3 : 0;
 
-  const lvl = (Math.max(declared ?? 0, zone?.lvl ?? 0, postureFloor) || undefined) as RiskLevel | undefined;
+  const lvl = (Math.max(declared ?? 0, zone ? zoneLvl(zone) : 0, postureFloor) || undefined) as RiskLevel | undefined;
   const hold =
     carve.booking_hold === true ||
     lvl === 4 ||
@@ -631,7 +653,7 @@ export function resolveSafety(
  * Philippines it is the most important thing on the page.
  */
 export const stricterZones = (s: SafetyInfo): SafetyZone[] =>
-  (s.zones ?? []).filter((z) => z.lvl > s.lvl).sort((a, b) => b.lvl - a.lvl);
+  (s.zones ?? []).filter((z) => zoneLvl(z) > s.lvl).sort((a, b) => zoneLvl(b) - zoneLvl(a));
 
 /**
  * THE TWO THRESHOLDS, founder-locked (David, 2026-08-23):

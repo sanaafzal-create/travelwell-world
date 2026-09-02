@@ -447,6 +447,26 @@ console.log(`si coverage:  ${tagged}/${rows.length} rows carry an si tag${tagged
 console.log(`             ${covered.length ? covered.map(([k, v]) => `${k}:${v}`).join("  ") : "none — this batch lights up no interest page"}`);
 if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block, but check):`); warns.forEach((w) => console.log("  · " + w)); }
 
+// ── EVERY ZONE ORDERS ITSELF: lvl OR posture, never neither ────────────────
+// `SafetyZone.lvl` became optional when `posture` is present (2026-08-31, the
+// library's ask ①) — a postured zone is FCDO-transcribed and the verb orders
+// it. A zone with NEITHER has no severity at all; `zoneLvl()` fails it safe to
+// the strictest tier at runtime, and this refuses it here so that fallback is
+// a parachute, never a resting state.
+{
+  const zoneErrs: string[] = [];
+  for (const [iso, row] of Object.entries(SAFETY_DATA as Record<string, { country?: string; zones?: { name: string; lvl?: number; posture?: string }[] }>)) {
+    for (const z of row.zones ?? []) {
+      if (z.lvl == null && !z.posture) zoneErrs.push(`${iso} (${row.country}): zone "${z.name}" carries neither lvl nor posture — no severity to resolve`);
+    }
+  }
+  if (zoneErrs.length) {
+    console.log(`\n✗ UNORDERED ZONES — ${zoneErrs.length} zone(s) in safety.json carry neither lvl nor posture:`);
+    zoneErrs.forEach((e) => console.log("  ✗ " + e));
+    process.exit(1);
+  }
+}
+
 // ── THE FORBIDDEN QUESTION ─────────────────────────────────────────────────
 // "Is X safe to visit right now?" may not be asked. The research library's copy
 // has been clean since 2026-08-19 and hard-fails at zero; ours still carries the
