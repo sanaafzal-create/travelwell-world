@@ -40,7 +40,7 @@ export async function fetchJourney(userId: string): Promise<JourneySnapshot | nu
 
   const { data: rows } = await sb
     .from("trip_blocks")
-    .select("well, name, meta, status, whom, position")
+    .select("well, name, meta, status, whom, position, start_on, end_on")
     .eq("journey_id", j.id)
     .order("position", { ascending: true });
 
@@ -51,6 +51,8 @@ export async function fetchJourney(userId: string): Promise<JourneySnapshot | nu
     meta: b.meta ?? "",
     status: b.status as BlockStatus,
     ...(b.whom ? { whom: b.whom } : {}),
+    ...(b.start_on ? { start: b.start_on } : {}),
+    ...(b.end_on ? { end: b.end_on } : {}),
   }));
 
   return {
@@ -120,6 +122,8 @@ export async function replaceBlocks(journeyId: string, userId: string, trip: Tri
     whom: b.whom ?? null,
     status: b.status,
     position: i,
+    start_on: b.start ?? null,
+    end_on: b.end ?? null,
   }));
   await sb.from("trip_blocks").insert(rows);
 }

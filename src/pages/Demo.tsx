@@ -28,20 +28,37 @@ const stats = (si: number, regions: number, wells: number): { v: ReactNode; k: s
   { v: "200+", k: "Vetted providers", tag: "Onboarding" },
 ];
 
-// All twelve Wells, each a revenue line (David: the VCs need to SEE all of them).
+// ALL THIRTEEN Wells, each a revenue line (David: the VCs need to SEE all of
+// them) — thirteen, because the published count is the full roster and this
+// table read twelve until the library's demo audit (2026-08-31) caught the
+// missing Pets-Well.
+//
+// ── THE BANDS ARE THE AUDITED ONES OR THE WORD "UNKNOWN", NEVER A GUESS ────
+// Six bands below are aligned to the commission standard the library audited
+// (TVW-WELL-COMMISSION-STANDARD, 2026-08-27); `insure` 20–40% was locked by
+// David 2026-07-25 and matched the standard independently. gear, beauty,
+// nanny, security and pets carry NO sourced band anywhere in canon — so they
+// say UNKNOWN, because two of them are childcare and close protection, where
+// a failure is a safety incident (rule W2: safety design precedes commercial
+// design) and a made-up percentage is the one number nobody should be asked
+// about in the room. A blank that says UNKNOWN is stronger in diligence than
+// a number that says nothing. `fly` is deliberately not a commission story:
+// the model is a stated service fee per ticket — the tollbooth to the other
+// twelve Wells, not a margin.
 const REV: { id: string; model: string; take: string }[] = [
-  { id: "stay", model: "Commission on bookings", take: "10–18%" },
-  { id: "fly", model: "Affiliate + GDS", take: "1–3%" },
-  { id: "eat", model: "Reservation + experience fees", take: "8–15%" },
-  { id: "move", model: "Transfer commission", take: "10–20%" },
-  { id: "activities", model: "Experience commission", take: "15–25%" },
-  { id: "gear", model: "Retail affiliate", take: "4–10%" },
-  { id: "beauty", model: "Booking commission", take: "10–20%" },
+  { id: "stay", model: "Commission on bookings", take: "8–25% · villas to 40%" },
+  { id: "fly", model: "Service fee per ticket, stated to the traveler", take: "$25–75/ticket" },
+  { id: "eat", model: "Experience commission + per-diner reservation fees", take: "~10% + ~$1/seated diner" },
+  { id: "move", model: "Rental & transfer commission (margin-share shape)", take: "~€19/7-day rental · 4–70% of net margin" },
+  { id: "activities", model: "Experience commission", take: "20–40%" },
+  { id: "gear", model: "Retail affiliate", take: "UNKNOWN" },
+  { id: "beauty", model: "Booking commission", take: "UNKNOWN" },
   { id: "shop", model: "Retail affiliate", take: "5–12%" },
-  { id: "nanny", model: "Vetted-childcare commission", take: "10–20%" },
-  { id: "security", model: "Close-protection commission", take: "10–15%" },
+  { id: "nanny", model: "Vetted childcare — safety design precedes commercial", take: "UNKNOWN" },
+  { id: "security", model: "Close protection — safety design precedes commercial", take: "UNKNOWN" },
   { id: "insure", model: "Travel-insurance commission · at launch", take: "20–40%" },
-  { id: "ship", model: "Logistics & shipping commission · at launch", take: "8–15%" },
+  { id: "ship", model: "Logistics & shipping commission · at launch", take: "8–10% · ~2× per trip" },
+  { id: "pets", model: "Pet-travel services · soon", take: "UNKNOWN" },
 ];
 
 const engines = (si: number, regions: number, wells: number): { ic: string; t: string; s: string }[] => [

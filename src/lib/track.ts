@@ -13,7 +13,17 @@
  */
 import { getSupabase } from "./supabase";
 
-export type EventKind = "view" | "select" | "deselect" | "add" | "remove" | "compare";
+/**
+ * Six browse verbs, plus the four TRANSACTION verbs the library's retention
+ * read asked for (2026-08-31): without `book`/`confirm`/`complete`/`return`,
+ * the log cannot tell a traveller who came back from one who never left —
+ * which is the whole of the retention economics. The DB column is plain text,
+ * so these are additive; nothing emits them yet — the booking flow does, when
+ * it lands, and the vocabulary is waiting rather than invented then.
+ */
+export type EventKind =
+  | "view" | "select" | "deselect" | "add" | "remove" | "compare"
+  | "book" | "confirm" | "complete" | "return";
 export type EventEntity =
   | "si" | "region" | "provider" | "activity" | "well" | "guide" | "destination" | "trip" | "whisper" | "page";
 

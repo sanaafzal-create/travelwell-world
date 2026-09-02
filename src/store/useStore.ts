@@ -11,7 +11,17 @@ import type { IconName } from "@/data/taxonomy";
 import { fetchJourney, createJourney, saveJourneyMeta, replaceBlocks, saveJourneyPosition } from "@/lib/journey";
 import { track, reconcileAnonEvents, registerTrackContext } from "@/lib/track";
 
-export type BlockStatus = "idea" | "pending" | "confirmed";
+/**
+ * `travelled` is the fourth state (the library's ask ③, 2026-08-31): a trip
+ * confirmed for next March and a trip that happened last March must not be
+ * the same value — every post-trip mechanism (the debrief, the Lifetime
+ * Loop's hello, the return event) keys on that difference. Additive: nothing
+ * sets it yet, and the three live states are unchanged. Kept as a union
+ * rather than a boolean on purpose — `idea` (a gap the itinerary can still
+ * sell into) and `pending` (booked but unconfirmed; selling into it
+ * double-books) are opposite facts a boolean would collapse.
+ */
+export type BlockStatus = "idea" | "pending" | "confirmed" | "travelled";
 export interface TripBlock {
   well: string;
   icon: IconName;
@@ -19,6 +29,19 @@ export interface TripBlock {
   meta: string;
   status: BlockStatus;
   whom?: string;
+  /**
+   * THE DATE SOCKET (poured 2026-08-31; the machinery follows the revenue
+   * spec). The library measured the absent date as the single largest
+   * commercial dependency on the board — five systems blocked on it the same
+   * day (Eat-Well's unfilled-meal rule, Well Whispers' fire target, the
+   * in-trip advisory watch's two populations, the fire calendar, and plain
+   * sequence — "you land Tuesday" is not sayable). ISO dates (YYYY-MM-DD),
+   * both optional: an undated block is an `idea`, and dates arrive when
+   * placement does. Rendering always pairs day-number + weekday + date, per
+   * the itinerary canon.
+   */
+  start?: string;
+  end?: string;
 }
 
 export type Panel = "mega" | "concierge" | "tray" | "emergency" | null;

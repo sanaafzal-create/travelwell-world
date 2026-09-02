@@ -252,12 +252,25 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
       // Deliberately uncapped: the largest destination carries 38, which is
       // small, and a capped list would recreate the exact "first twelve in
       // file order" failure the shelf just escaped.
-      const js = (dest.data?.jewels ?? []) as { name?: string; si?: string | string[]; si_all?: string[]; wells?: string[] }[];
+      // ── SIX FIELDS, NOT THREE (the library's ask ④, 2026-08-31) ─────────
+      // Atlas could name a thing we sell and not say what band it sits in,
+      // when it runs, or what the operator calls it — and the prompt forbids
+      // filling that in. tier/when/hook already ride the same row (87.5% /
+      // 82.8% / 91.4% measured), so this is a wider SELECT, not new data.
+      // `price_band` stays OUT: it reads "~€150–350/pp (approx)" and a model
+      // must never turn that into "about €250". And `commission_lane` is
+      // NEVER passed — the sacred line: a model that can see the margin will
+      // weigh the margin whatever the prompt says, so the rule is an absent
+      // field, not a prompt clause.
+      const js = (dest.data?.jewels ?? []) as { name?: string; si?: string | string[]; si_all?: string[]; wells?: string[]; tier?: string; when?: string; hook?: string }[];
       if (js.length) {
         ctx.jewelsHere = js.map((j) => ({
           name: j.name,
           si: Array.isArray(j.si_all) && j.si_all.length ? j.si_all : (Array.isArray(j.si) ? j.si : j.si ? [j.si] : []),
           ...(Array.isArray(j.wells) && j.wells.length ? { wells: j.wells } : {}),
+          ...(j.tier ? { tier: j.tier } : {}),
+          ...(j.when ? { when: j.when } : {}),
+          ...(j.hook ? { hook: j.hook } : {}),
         }));
       }
     }
