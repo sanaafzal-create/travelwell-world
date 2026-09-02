@@ -38,7 +38,10 @@ const WIDTHS = [320, 375, 390, 414, 430, 512, 768, 1024, 1440];
 // warn is owed to "an elderly person with no regular access to the news" —
 // the same traveller the floors exist for. The advisory they are asked to
 // acknowledge must clear the reading floor, always.
-const ROUTES = ["/", "/special-interests", "/regions", "/destination/zermatt-switzerland", "/wells-surface", "/about", "/go?to=Test%20Partner&well=stay&dest=cartagena-colombia"];
+// cartagena's DESTINATION page joined the matrix 2026-08-31: it renders the
+// FCDO-verbatim block (Colombia holds threshold quotes), which zermatt cannot
+// show (Switzerland holds none) — a route per state the floors must hold on.
+const ROUTES = ["/", "/special-interests", "/regions", "/destination/zermatt-switzerland", "/destination/cartagena-colombia", "/wells-surface", "/about", "/go?to=Test%20Partner&well=stay&dest=cartagena-colombia"];
 
 const READING_FLOOR = 16;
 const LABEL_FLOOR = 13;

@@ -1471,8 +1471,21 @@
      reads "L4", so the meaning survives greyscale and colour-blindness, which
      is the accessibility canon's "never colour alone for meaning". */
   [data-page="destination-detail"] .safety-zones { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-hair); }
-  [data-page="destination-detail"] .safety-zones__h { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 8px; }
-  [data-page="destination-detail"] .safety-zone { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; font-size: 13px; line-height: 1.5; }
+  /* 16px, not the 13px label style: the heading's length is country-dependent
+     ("Areas of {country} under a stricter advisory") and long names push it
+     past label brevity — so it takes the reading floor unconditionally. */
+  [data-page="destination-detail"] .safety-zones__h { font-size: 16px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-foreground); margin-bottom: 8px; }
+  /* The FCDO verbatim block on the destination page (SANA-4). Quotes reuse the
+     consent screen's .l3__verbatim (16px, primary edge); the attribution is a
+     short label — 13px earns weight 600+ under the readability floors. */
+  [data-page="destination-detail"] .safety-verbatim { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+  /* The attribution reads as a sentence, not a chip — too long for the label
+     class, so it takes the 16px reading floor. Same for zone rows: an area
+     name with its exceptions is the most safety-critical prose on the card,
+     and 13px was hiding it from exactly the traveler it exists for (caught by
+     widening the audit matrix to a zoned country, 2026-08-31). */
+  [data-page="destination-detail"] .safety-verbatim__attr { font-size: 16px; color: var(--muted-foreground); }
+  [data-page="destination-detail"] .safety-zone { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; font-size: 16px; line-height: 1.5; }
   [data-page="destination-detail"] .safety-zone + .safety-zone { border-top: 1px solid var(--border-hair); }
   [data-page="destination-detail"] .safety-zone__lvl { flex: none; min-width: 30px; text-align: center; padding: 2px 6px; border-radius: 999px; color: #fff; font-size: 13px; font-weight: 700; font-family: var(--font-mono); letter-spacing: .04em; margin-top: 1px; }
   [data-page="destination-detail"] .safety-zone__n { font-weight: 600; }

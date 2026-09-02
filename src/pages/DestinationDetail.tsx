@@ -13,6 +13,7 @@ import { CheckItYourself } from "@/components/ui/CheckItYourself";
 import { GlobalAdvisoryNote } from "@/components/ui/GlobalAdvisoryNote";
 import { BackBar } from "@/components/shell/BackBar";
 import { getEmergencyNumbers, UNIVERSAL_EMERGENCY } from "@/data/emergency-numbers";
+import { fcdoCountryText } from "@/data/fcdo-text";
 
 const TIER: Record<string, string> = { prime: "★ Prime", vetted: "Vetted", prospective: "Prospective" };
 
@@ -142,6 +143,13 @@ export default function DestinationDetail() {
   // dossier declares one (ingest contract §3). Previously only the country level
   // was read, so a named-zone exclusion in a dossier never reached the page.
   const s = resolveSafety(DEST, iso);
+  // The FCDO's threshold text for this country, verbatim, where we hold any —
+  // readable OUTSIDE the consent path (the library's SANA-4, counsel-unblocked;
+  // sequenced behind the MCP work and shipped 2026-08-31). No gate, no checkbox:
+  // where the FCDO advises against nothing there is nothing to consent to, and
+  // where a threshold fires the consent path still runs unchanged elsewhere.
+  // Composite two-country pages get none (each half's page carries its own).
+  const countryText = fcdoCountryText(country);
   // Named areas stricter than what this page already shows. If the destination
   // itself resolved into a zone, that zone is the card's own level — repeating it
   // in the "elsewhere in the country" list would read as a second, separate
@@ -517,6 +525,23 @@ export default function DestinationDetail() {
                       </span>
                     </div>
                   ))}
+                </div>
+              )}
+              {/* The advisory's OWN threshold sentences, complete and verbatim —
+                  every form the FCDO publishes for this country, never a chosen
+                  subset, and English in every locale (safety text is never
+                  machine-translated). This is the store the consent screen
+                  reads, now readable where a traveler plans rather than only
+                  where a booking is gated. */}
+              {countryText && countryText.quotes.length > 0 && (
+                <div className="safety-verbatim">
+                  <div className="safety-zones__h">The advisory, in the FCDO&rsquo;s own words</div>
+                  {countryText.quotes.map((q) => (
+                    <blockquote className="l3__verbatim" tabIndex={0} role="region" aria-label="Travel advisory, quoted verbatim" key={q.form + q.text.slice(0, 40)}>FCDO {q.text}</blockquote>
+                  ))}
+                  <div className="safety-verbatim__attr">
+                    UK FCDO &mdash; {countryText.country} travel advice, page updated {countryText.publicUpdatedAt.slice(0, 10)} &middot; quoted complete and unedited.
+                  </div>
                 </div>
               )}
               {s.medical && (

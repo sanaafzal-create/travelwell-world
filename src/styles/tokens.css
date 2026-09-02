@@ -292,7 +292,11 @@ img { max-width: 100%; display: block; }
 .safety-4 .lvl { background: var(--safety-4); }
 
 /* FTC affiliate disclosure (§9.4) — stone micro, adjacent to CTA, never hidden */
-.ftc { font-size: 13px; line-height: 1.4; color: var(--muted-foreground); display: flex; gap: 6px; align-items: flex-start; }
+/* The FTC affiliate disclosure is a legally required SENTENCE, not a chip —
+   it takes the 16px reading floor. It sat at 13px unseen because the audited
+   /go route rendered the consent state until Colombia's re-read flipped
+   cartagena to the normal handoff (matrix-widening catch, 2026-08-31). */
+.ftc { font-size: 16px; line-height: 1.5; color: var(--muted-foreground); display: flex; gap: 6px; align-items: flex-start; }
 .ftc svg { flex: none; margin-top: 1px; }
 
 /* ============================================================================
