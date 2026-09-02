@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { REGION_DETAIL, SUBREGION_TOP, type Destination } from "@/data/places";
+import { REGION_DETAIL, type Destination } from "@/data/places";
 import { useRegions, useSubregions, useDestinations } from "@/store/useCatalog";
 import { regionImg, img } from "@/lib/images";
 import { useUnsplashImage, useDestinationImage } from "@/lib/unsplash";
@@ -53,7 +53,26 @@ export default function RegionDetail() {
   const DET = REGION_DETAIL[R.code] || ({} as (typeof REGION_DETAIL)[string]);
   const DESTS = destinations[R.code] || [];
   const isSub = Boolean(DET.sub);
+  // ── A SHELF RENDERS ONLY WHEN IT HOLDS SOMETHING (David, 2026-09-01) ──────
+  // "Define the canonical list generously, but a shelf only renders when it
+  // has content. Defined is not the same as published." Before this, the page
+  // walked the CANONICAL list and filled each shelf from the hand-authored
+  // SUBREGION_TOP constant — so an empty canonical shelf rendered as an empty
+  // row, the shelf contents ignored the catalog entirely, and the links were
+  // derived from display names rather than real ids (the exact fragility the
+  // legacy-slug map exists to absorb). Now: canonical order from the list,
+  // contents grouped from the LIVE catalog by (region, sub_region), and a
+  // shelf with nothing on it simply does not render — which is what makes
+  // wiring the ten remaining regions' full-size lists free on this side.
   const subList = subregions[R.code] || [];
+  const bySub: Record<string, Destination[]> = {};
+  for (const d of DESTS) {
+    if (d.status !== "live" || !d.sub_region) continue;
+    (bySub[d.sub_region] ??= []).push(d);
+  }
+  const shelves = subList
+    .map((name) => ({ name, items: bySub[name] ?? [] }))
+    .filter((s) => s.items.length > 0);
   const [open, setOpen] = useState(0);
 
   return (
@@ -128,14 +147,13 @@ export default function RegionDetail() {
         </section>
       )}
 
-      {isSub && (
+      {isSub && shelves.length > 0 && (
         <section className="rd-section">
           <div className="rd-section__head">
-            <div><h2>Travel sub-regions</h2><p>{R.name} is big — we split it into {subList.length} labeled sub-regions, each with its own ranked Top list.</p></div>
+            <div><h2>Travel sub-regions</h2><p>{R.name} is big — we split it into labeled sub-regions. {shelves.length} of them {shelves.length === 1 ? "has" : "have"} destinations you can open today, and more fill in as the library grows.</p></div>
           </div>
           <div className="rd-subs">
-            {subList.map((name, i) => {
-              const top = SUBREGION_TOP[name] || [];
+            {shelves.map(({ name, items }, i) => {
               const isOpen = open === i;
               return (
                 <div key={name} className="rd-sub">
@@ -146,11 +164,11 @@ export default function RegionDetail() {
                   </button>
                   {isOpen && (
                     <div className="rd-sub__panel">
-                      <div className="rd-sub__toplabel">Top in {name}</div>
+                      <div className="rd-sub__toplabel">In {name} — {items.length} destination{items.length === 1 ? "" : "s"}</div>
                       <div className="rd-top">
-                        {top.map((t, ti) => (
-                          <Link key={t} className="rd-top__item" to={`/destination/${t.toLowerCase().replace(/[^a-z]+/g, "-")}`}>
-                            <span className="rd-top__rank">{ti + 1}</span><span className="rd-top__name">{t}</span>
+                        {items.map((d, ti) => (
+                          <Link key={d.id} className="rd-top__item" to={`/destination/${d.id}`}>
+                            <span className="rd-top__rank">{ti + 1}</span><span className="rd-top__name">{d.name}</span>
                           </Link>
                         ))}
                       </div>
