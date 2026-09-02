@@ -23,13 +23,22 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { SIS, REGIONS, ALL_WELLS } from "../src/data/taxonomy";
+import type { Mode } from "../src/data/places";
 
 const WELL_IDS = new Set(ALL_WELLS.map((w) => w.id));
 const SI_SLUGS = new Set(SIS.map((s) => s.id));
 const REGION_CODES = new Set(REGIONS.map((r) => r.code));
 const PRICE = new Set(["essential", "comfort", "premier", "luxury", "ultra"]);
 const TIER = new Set(["prime", "vetted", "prospective"]);
-const MODE = new Set(["api", "widget", "affiliate", "first-party"]);
+// All SEVEN handoff modes — the `Mode` type in places.ts is the source of
+// truth. This set sat at the original four while the type grew to seven
+// (2026-08-27, the library's integration shelves), so 241 supplier rows on
+// shelves 4–6 (email-parse, request-to-book, lead) were refused by nothing
+// but a stale copy of the vocabulary — and one live row (Aggressor
+// Adventures, a request-to-book boat) was flattened to `affiliate`, which
+// misstates WHO IS SELLING. The library caught it (2026-08-31); the fix is
+// deriving the set from the type so the two can never disagree again.
+const MODE = new Set<string>(["api", "widget", "affiliate", "first-party", "email-parse", "request-to-book", "lead"] satisfies Mode[]);
 // The commission column is a LANE LABEL, not a rate — David's own correction,
 // 2026-08-13. A number here means someone recorded a percentage where a lane
 // belongs, and it would render as though we were quoting terms.
@@ -76,9 +85,17 @@ for (const file of files) {
     const at = `${file}:${i + 2} ${r.name || "(no name)"}`;
     rows++;
 
+    // Uniqueness keys on (name, well), not name: a Provider row is a
+    // SUPPLIER × WELL pairing — Club Med is a stay supplier AND a nanny
+    // supplier AND an activities supplier, four rows, one name. The database
+    // agreed all along (providers_name_well_key is unique on (name, well),
+    // and the seed upserts on the same pair); only this check demanded a
+    // uniqueness the storage never had. The library's architectural read
+    // (2026-08-31) is adopted as written.
+    const pairKey = `${r.name} × ${r.well}`;
     if (!r.name) errs.push(`${at}: no name`);
-    else if (seen.has(r.name)) errs.push(`${at}: duplicate provider name — already in ${seen.get(r.name)}`);
-    else seen.set(r.name, file);
+    else if (seen.has(pairKey)) errs.push(`${at}: duplicate (name, well) pairing — already in ${seen.get(pairKey)}`);
+    else seen.set(pairKey, file);
 
     if (!WELL_IDS.has(r.well)) errs.push(`${at}: well "${r.well}" is not a Well id`);
     if (!TIER.has(r.tier)) errs.push(`${at}: tier "${r.tier}" not prime|vetted|prospective`);
