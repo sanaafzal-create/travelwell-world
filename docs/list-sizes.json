@@ -1,7 +1,7 @@
 {
  "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
  "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
- "generated": "2026-09-01",
+ "generated": "2026-09-03",
  "surfaces": [
   {
    "surface": "si-shelf · jewels (SiDetail JewelsSection)",
@@ -16,15 +16,15 @@
      "dests_shown": 12
     },
     "tropical": {
-     "length": 137,
+     "length": 145,
      "shown": 24,
-     "dests": 79,
+     "dests": 84,
      "dests_shown": 12
     },
     "romance": {
-     "length": 577,
+     "length": 588,
      "shown": 24,
-     "dests": 306,
+     "dests": 313,
      "dests_shown": 12
     },
     "safari": {
@@ -34,9 +34,9 @@
      "dests_shown": 12
     },
     "expedition": {
-     "length": 600,
+     "length": 635,
      "shown": 24,
-     "dests": 223,
+     "dests": 233,
      "dests_shown": 12
     },
     "ski": {
@@ -70,15 +70,15 @@
      "dests_shown": 12
     },
     "river": {
-     "length": 60,
+     "length": 61,
      "shown": 20,
-     "dests": 33,
+     "dests": 34,
      "dests_shown": 12
     },
     "diveglobal": {
-     "length": 114,
+     "length": 117,
      "shown": 19,
-     "dests": 76,
+     "dests": 78,
      "dests_shown": 12
     },
     "ocean": {
@@ -94,9 +94,9 @@
      "dests_shown": 12
     },
     "wildlife": {
-     "length": 70,
+     "length": 72,
      "shown": 15,
-     "dests": 42,
+     "dests": 43,
      "dests_shown": 12
     },
     "family": {
@@ -112,9 +112,9 @@
      "dests_shown": 6
     },
     "culture": {
-     "length": 850,
+     "length": 878,
      "shown": 24,
-     "dests": 288,
+     "dests": 297,
      "dests_shown": 12
     },
     "deepdive": {
@@ -136,9 +136,9 @@
      "dests_shown": 12
     },
     "culinary": {
-     "length": 437,
+     "length": 446,
      "shown": 24,
-     "dests": 195,
+     "dests": 199,
      "dests_shown": 12
     },
     "sports": {
