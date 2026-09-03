@@ -8,6 +8,60 @@
 
 // src/data/safety.json
 var safety_default = {
+  TR: {
+    country: "Turkey",
+    lvl: 2,
+    label: "Exercise increased caution",
+    summary: "Exercise increased caution. The FCDO's only advise-against area is the Syria border strip \u2014 the charter coast (Bodrum, Marmaris, G\xF6cek) and the main travel regions sit far outside it.",
+    considerations: [],
+    source: "UK FCDO \u2014 Turkey travel advice (page updated 2026-07-22; threshold quotes ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
+    reported: true,
+    zones: [
+      {
+        name: "within 10km of the border with Syria",
+        lvl: 4,
+        posture: "all",
+        note: "FCDO advises against all travel to within 10km of the border with Syria due to fighting and a heightened risk of terrorism."
+      }
+    ]
+  },
+  MY: {
+    country: "Malaysia",
+    lvl: 2,
+    label: "Exercise increased caution",
+    summary: "Exercise increased caution. The FCDO's only advise-against area is the eastern Sabah coastal islands \u2014 Langkawi and peninsular Malaysia sit on the opposite side of the country.",
+    considerations: [],
+    source: "UK FCDO \u2014 Malaysia travel advice (page updated 2026-03-19; threshold quotes ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
+    reported: true,
+    zones: [
+      {
+        name: "all islands and dive sites off the coast of eastern Sabah from Sandakan to Tawau",
+        lvl: 3,
+        posture: "all-but-essential",
+        note: "Including Lankayan Island, due to the threat of kidnapping."
+      }
+    ]
+  },
+  AU: {
+    country: "Australia",
+    lvl: 1,
+    label: "No advisory against travel",
+    summary: "The UK FCDO publishes no advisory against travel for Australia. That is the absence of a warning rather than a statement that anywhere is safe \u2014 read the advisory in full below before you plan.",
+    considerations: [],
+    source: "UK FCDO \u2014 Australia travel advice (page updated 2026-03-19; slug ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
+    reported: true,
+    fromAbsence: true
+  },
+  NZ: {
+    country: "New Zealand",
+    lvl: 1,
+    label: "No advisory against travel",
+    summary: "The UK FCDO publishes no advisory against travel for New Zealand. That is the absence of a warning rather than a statement that anywhere is safe \u2014 read the advisory in full below before you plan.",
+    considerations: [],
+    source: "UK FCDO \u2014 New Zealand travel advice (page updated 2026-03-19; slug ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
+    reported: true,
+    fromAbsence: true
+  },
   AG: {
     country: "Antigua & Barbuda",
     lvl: 1,
@@ -2005,7 +2059,15 @@ var COUNTRY_ISO = {
   // refuses the whole batch — which is exactly what it did, and why these are
   // here rather than the rows going live on a country nothing checked.
   "Antigua & Barbuda": "AG",
-  "Trinidad & Tobago": "TT"
+  "Trinidad & Tobago": "TT",
+  // ── THE SAILING CAPITALS (2026-09-02): the two countries the 18 minted ids
+  // add that weren't already mapped (Australia and New Zealand were). Safety
+  // rows for all four are built from the ingested FCDO verbatim store (ETag'd
+  // pages): Turkey and Malaysia carry their threshold quotes there. Wired
+  // BEFORE the dossiers arrive, so a live row never lands on a country nothing
+  // checked.
+  Turkey: "TR",
+  Malaysia: "MY"
 };
 var isoForCountry = (name) => COUNTRY_ISO[name] ?? null;
 var SAFETY_DATA = safety_default;

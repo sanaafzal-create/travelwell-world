@@ -539,6 +539,14 @@
       "fcdo_slug": "mexico"
     },
     {
+      "iso": "MY",
+      "name": "Malaysia",
+      "match": [
+        "malaysia"
+      ],
+      "fcdo_slug": "malaysia"
+    },
+    {
       "iso": "MZ",
       "name": "Mozambique",
       "match": [
@@ -732,6 +740,14 @@
         "tunisia"
       ],
       "fcdo_slug": "tunisia"
+    },
+    {
+      "iso": "TR",
+      "name": "Turkey",
+      "match": [
+        "turkey"
+      ],
+      "fcdo_slug": "turkey"
     },
     {
       "iso": "TT",

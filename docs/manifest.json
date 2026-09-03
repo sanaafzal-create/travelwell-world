@@ -7,20 +7,20 @@
   {
    "file": "docs/board.json",
    "answers": "THE BOARD — the 35 interests in David's locked order with Block A fields, the 4 retired slugs, the 13 Wells, categories, img tokens, wired sub-regions. The canonical slug set is interests[].id + retired[].",
-   "sha256": "346668de6f2e743cede7c96128eb38f9ecc4a2fd69b25a24396dfd91e9f65d60",
-   "bytes": 11114
+   "sha256": "6771e80b359b0a6080f61353c7c02ba8848cd57c9f16c9fc3236830ba50c6c8c",
+   "bytes": 15365
   },
   {
    "file": "docs/ground-truth.md",
    "answers": "Every count, field path and vocabulary read from source with file:line, plus conformance checks. The fact sheet for reasoning about this repo without reading it.",
-   "sha256": "d3fb4e374a8fcc3ebfc137ce7c4b05493790053f840d993e45a9468001dec063",
-   "bytes": 17646
+   "sha256": "471ad03b73a6bff2b5de885e069248caf0628d1bb5eb766e78731d69738fb04b",
+   "bytes": 21061
   },
   {
    "file": "docs/reset-facts.txt",
    "answers": "The paste-block distillation of ground-truth for contexts that cannot fetch files.",
-   "sha256": "c93956c9e6a1aa3b6e6bcb455e22319186833e240e9c9a148b3279952ba70e55",
-   "bytes": 3413
+   "sha256": "3e0899c2c7477726a8e40aacd5fcfae04bfc2840e2cd6be4395738b1d7f37c19",
+   "bytes": 3465
   },
   {
    "file": "docs/list-sizes.json",
@@ -37,14 +37,14 @@
   {
    "file": "docs/advisory-links.md",
    "answers": "The advisory deep links per served country, as the site emits them.",
-   "sha256": "cf17998aa8719153922aa0114215d20a00661744f20948f0cbf239798d694ae9",
-   "bytes": 22064
+   "sha256": "447adc1ec08e887eb43801b66e982b94f8534b89c64b2172003fbd9095a82243",
+   "bytes": 22458
   },
   {
    "file": "docs/advisory-countries.json",
    "answers": "The daily checker's country payload — ISO, name, match strings, verified FCDO slug.",
-   "sha256": "319440705887d0f4899bba7a60342c87c16968fa8ff9ae542af924717c3a5875",
-   "bytes": 14571
+   "sha256": "73400e78159109aab450d9193366bb884dbdc695c46d8cb704757defab32763e",
+   "bytes": 14831
   },
   {
    "file": "vercel.json",

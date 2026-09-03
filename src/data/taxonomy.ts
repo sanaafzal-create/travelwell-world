@@ -387,6 +387,34 @@ export const SUBREGIONS: Record<string, string[]> = {
   ],
   "12A": ["Pacific Coast", "Pacific Northwest", "Mountain West", "The Southwest", "Texas & The Gulf", "The Midwest", "The South", "New England", "Mid-Atlantic", "Alaska", "Hawai‘i"],
   "13A": ["British Columbia", "The Rockies", "The Prairies", "Ontario", "Québec", "The Maritimes", "The North"],
+
+  /**
+   * THE TEN REMAINING REGIONS — wired 2026-09-02 from the library's canonical
+   * delivery (SANA-3, in the exact shape specified on 2026-09-01), carrying
+   * David's rulings: the 10S "duplicate" was two countries wearing one name
+   * (Chilean vs Argentine Patagonia — renamed both, kept both, and "Easter
+   * Island" left the string because it named a place absent from all 717 ids);
+   * "Italian Alps" merged into "Italian Alps / Dolomites"; the 1-row DR
+   * variant merged into "DR — Punta Cana & the East"; Bali and Phuket got
+   * their first authored strings, matching the Komodo / Similan forms.
+   *
+   * Thin shelves are DELIBERATE (David: "premature capacity… I am keeping
+   * them") — defined is not the same as published, and the region page only
+   * renders a shelf that holds something (ccf2a1c). Order is display order.
+   * With every region wired, validate:ingest now hard-refuses any dossier
+   * sub_region not on its region's list — the 04A/12A/13A discipline,
+   * everywhere.
+   */
+  "01F": ["Switzerland & the Alps", "Austria", "Provence & the Riviera", "Paris & Île-de-France", "Bavaria & the Alpine South", "French Alps", "Normandy & the Loire", "Belgium & Luxembourg", "The Netherlands", "The Rhine & Mosel", "Berlin & the North", "Saxony & the East", "Alsace & the East", "Bordeaux & the Southwest", "Hungary & the Middle Danube", "Julian Alps / Slovenia"],
+  "02F": ["Italian Alps / Dolomites", "Greece & the Isles", "Portugal & the Douro", "Sicily & Sardinia", "The Adriatic — Croatia", "The Balearics", "Amalfi & the South", "Andalucía & the South", "Barcelona & Catalonia", "Liguria & the Italian Riviera", "Malta", "Rome & Lazio", "Tuscany & Umbria", "Venice & the Veneto"],
+  "03F": ["Norway & the Fjords", "Denmark", "Scotland", "England & Wales", "Finland & the Arctic", "Ireland", "Sweden", "Iceland", "The Baltics — Estonia"],
+  "05A": ["Tanzania — Northern Safari Circuit", "Horn & Highlands", "Kenya — Amboseli / Kilimanjaro views", "Kenya — Laikipia Plateau", "Kenya — Maasai Mara", "Kenya — Samburu / Northern Frontier", "Kenya — Tsavo", "Rwanda — Akagera", "Rwanda — Nyungwe Forest", "Rwanda — Volcanoes / Virunga", "Tanzania — Northern Safari Circuit / Ngorongoro", "Tanzania — Northern Safari Circuit / Serengeti", "Tanzania — Southern Circuit / Nyerere-Selous", "Tanzania — Southern Circuit / Ruaha", "Uganda — Bwindi / SW gorilla country", "Uganda — Kibale Forest", "Uganda — Murchison Falls / Nile", "Uganda — Queen Elizabeth / Rift Valley"],
+  "06A": ["Okavango & Falls", "South Africa", "Namibia Desert & Coast", "Mozambique & Coast"],
+  "07A": ["Southeast Asia", "Bali — Indonesia", "Komodo — Indonesia (East Nusa Tenggara)", "Maldives — Indian Ocean", "Phuket — Thailand (Andaman Sea)", "Raja Ampat — Indonesia (Southwest Papua)", "Similan Islands — Thailand (Andaman Sea)", "Tubbataha Reefs — Philippines (Sulu Sea, Cagayancillo, Palawan)"],
+  "08A": ["Hokkaido", "Japanese Alps/Nagano", "Tōhoku"],
+  "09P": ["Palau — Micronesia (western Pacific)"],
+  "10S": ["Quintana Roo (Cancún & Riviera Maya)", "Baja California Sur (Los Cabos & La Paz)", "Costa Rica", "Jalisco (Puerto Vallarta & Guadalajara)", "Yucatán (Mérida & Chichén Itzá)", "Belize", "Guatemala", "Lima, South Coast & Amazon", "Amazon, Pantanal & Iguaçu", "Andes (Quito) & Galápagos", "Panama", "Chile — Patagonia & The Lakes", "Honduras", "Montevideo & The Atlantic Coast", "Nicaragua", "Northeast Beaches & Bahia", "Northwest, Mendoza Wine & Iguazú", "Oaxaca (Oaxaca City & Coast)", "Rio & The Southeast Coast", "Argentina — Patagonia & Valdés", "Baja California (Valle de Guadalupe & Ensenada)", "Bogotá & The Andes", "Campeche (Campeche City & Calakmul)", "Chiapas (San Cristóbal & Palenque)", "Colombia's Caribbean Coast", "Cusco, Sacred Valley & Machu Picchu", "El Salvador", "Guanajuato (San Miguel de Allende)", "Mexico City", "Nayarit (Riviera Nayarit & Sayulita)", "Santiago & Central Valley Wine", "Atacama & The North", "Buenos Aires & The Pampas"],
+  "11C": ["Eastern Caribbean — Leewards", "DR — North Coast & Interior", "DR — Punta Cana & the East", "Eastern Caribbean — Windwards & South", "Bahamas", "Jamaica — North Coast & Resorts", "Puerto Rico", "ABC Islands", "Jamaica — Kingston & South-East", "Turks & Caicos", "US Virgin Islands", "Jamaica — South Coast", "Spanish Virgin Islands", "Sint Eustatius / Dutch Caribbean (Leewards)"],
 };
 
 export interface Locale {

@@ -100,7 +100,11 @@ for (const file of files) {
     if (!WELL_IDS.has(r.well)) errs.push(`${at}: well "${r.well}" is not a Well id`);
     if (!TIER.has(r.tier)) errs.push(`${at}: tier "${r.tier}" not prime|vetted|prospective`);
     if (!PRICE.has(r.price)) errs.push(`${at}: price "${r.price}" not a budget tier`);
-    if (!MODE.has(r.mode)) errs.push(`${at}: mode "${r.mode}" not api|widget|affiliate|first-party`);
+    // The message derives from the set — when the set moved 4 → 7 the message
+    // stayed at four, which would have sent someone to "correct" a valid
+    // request-to-book row into affiliate and recreate the Aggressor defect.
+    // The library caught it (2026-09-02); deriving makes the drift impossible.
+    if (!MODE.has(r.mode)) errs.push(`${at}: mode "${r.mode}" not ${[...MODE].join("|")}`);
     if (!r.description) warns.push(`${at}: no description — the card renders blank under the name`);
 
     // THE ONE THAT SILENTLY DELISTS A ROW.

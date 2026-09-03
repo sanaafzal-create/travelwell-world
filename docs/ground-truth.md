@@ -30,7 +30,7 @@ good as regenerating it.
 | Thing | Count | Read from |
 |---|---|---|
 | Signature Interests on the board | 35 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
-| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:456 · `export const boardSis = (sis: { retired?: bool` |
+| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:484 · `export const boardSis = (sis: { retired?: bool` |
 | …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:222 · `export const SIS: SpecialInterest[] = [...BASE` |
 | SI categories | 10 | src/data/taxonomy.ts:277 · `export const SI_GROUPS: SiGroup[] = [` |
 | Destinations | 43 | src/data/places.ts:130 · `export const DESTINATIONS: Record<string, Dest` |
@@ -42,8 +42,8 @@ good as regenerating it.
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:301 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:354 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:538 · `export const GUIDES: Guide[] = [` |
-| Country name→ISO entries (`COUNTRY_ISO`) | 103 | src/data/safety-data.ts:281 · `export const COUNTRY_ISO: Record<string, strin` |
-| …of those, countries WITH an advisory row (`safety.json`) | 99 | src/data/safety-data.ts:396 · `export const SAFETY_DATA = safetyJson as Recor` |
+| Country name→ISO entries (`COUNTRY_ISO`) | 105 | src/data/safety-data.ts:281 · `export const COUNTRY_ISO: Record<string, strin` |
+| …of those, countries WITH an advisory row (`safety.json`) | 101 | src/data/safety-data.ts:404 · `export const SAFETY_DATA = safetyJson as Recor` |
 
 ## The Signature-Interest dossier — NINE layers
 
@@ -102,7 +102,7 @@ the provider.
 
 ✅ **Retired interests stay in SIS (the seed carries `delete … where id not in (…)`)**
    → 4 retired rows still present: nightlife, olympic, prosports, compsports
-   → `src/data/taxonomy.ts:456 · `export const boardSis = (sis: { retired?: bool``
+   → `src/data/taxonomy.ts:484 · `export const boardSis = (sis: { retired?: bool``
 
 ✅ **7 launch interests are live, plus `ultra` as the luxury overlay — 8 rows at status live**
    → 8 live: ultra, tropical, romance, safari, expedition, ski, liveaboard, river
@@ -157,7 +157,7 @@ the provider.
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/places.ts (DESTINATIONS)`
 
 ✅ **Every country in `COUNTRY_ISO` has an advisory row — it is the set the daily checker asks about, so a missing row is a country we query and hold no baseline for**
-   → all 99 covered
+   → all 101 covered
    → `src/data/safety-data.ts (COUNTRY_ISO) vs src/data/safety.json`
 
 ✅ **The three interests merged in from `special-interests.json` (`sailing`, `yacht`, `wine`) are present in the exported `SIS`**
@@ -173,15 +173,15 @@ the provider.
    → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
 
 ⚠️ **Our curated level matches the level State published for that country**
-   → 24 diverge: Colombia: ours L2, State L3 (published 2026-03-31); Uganda: ours L1, State L4 (published 2025-12-08); United Kingdom: ours L1, State L2 (published 2025-05-08); Belgium: ours L1, State L2 (published 2026-07-23); Belize: ours L1, State L2 (published 2026-03-12); Botswana: ours L1, State L2 (published 2026-06-17); Costa Rica: ours L1, State L2 (published 2026-04-02); Denmark: ours L1, State L2 (published 2024-09-17); Dominican Republic: ours L1, State L2 (published 2025-06-12); Faroe Islands (Kingdom of Denmark): ours L1, State L2 (published 2024-09-17); Honduras: ours L1, State L3 (published 2024-12-10); Jamaica: ours L1, State L2 (published 2026-06-23); Morocco: ours L1, State L2 (published 2025-04-21); Nicaragua: ours L1, State L3 (published 2026-05-14); Oman: ours L1, State L3 (published 2026-04-09); Panama: ours L1, State L2 (published 2024-09-23); Qatar: ours L1, State L3 (published 2026-03-02); Sweden: ours L1, State L2 (published 2026-05-18); Uruguay: ours L1, State L2 (published 2026-07-28); Zimbabwe: ours L1, State L2 (published 2023-06-27); Grenada: ours L1, State L2 (published 2026-01-05); Maldives: ours L1, State L2 (published 2025-10-07); Guatemala: ours L2, State L3 (published 2026-03-12); Trinidad & Tobago: ours L1, State L3 (published 2026-04-13)
+   → 25 diverge: Colombia: ours L2, State L3 (published 2026-03-31); Uganda: ours L1, State L4 (published 2025-12-08); United Kingdom: ours L1, State L2 (published 2025-05-08); Belgium: ours L1, State L2 (published 2026-07-23); Belize: ours L1, State L2 (published 2026-03-12); Botswana: ours L1, State L2 (published 2026-06-17); Costa Rica: ours L1, State L2 (published 2026-04-02); Denmark: ours L1, State L2 (published 2024-09-17); Dominican Republic: ours L1, State L2 (published 2025-06-12); Faroe Islands (Kingdom of Denmark): ours L1, State L2 (published 2024-09-17); Honduras: ours L1, State L3 (published 2024-12-10); Jamaica: ours L1, State L2 (published 2026-06-23); Morocco: ours L1, State L2 (published 2025-04-21); Nicaragua: ours L1, State L3 (published 2026-05-14); Oman: ours L1, State L3 (published 2026-04-09); Panama: ours L1, State L2 (published 2024-09-23); Qatar: ours L1, State L3 (published 2026-03-02); Sweden: ours L1, State L2 (published 2026-05-18); Uruguay: ours L1, State L2 (published 2026-07-28); Zimbabwe: ours L1, State L2 (published 2023-06-27); Grenada: ours L1, State L2 (published 2026-01-05); Maldives: ours L1, State L2 (published 2025-10-07); Guatemala: ours L2, State L3 (published 2026-03-12); Trinidad & Tobago: ours L1, State L3 (published 2026-04-13); Malaysia: ours L2, State L1 (published 2026-02-22)
    → `src/data/safety.json vs src/data/state-advisory-feed.json`
 
 ✅ **A named area carrying its own advisory level lives in structured `zones[]`, not as prose in `considerations` — prose is invisible to the booking gate**
-   → 102 zones across 20 country rows, all structured
+   → 104 zones across 22 country rows, all structured
    → `src/data/safety.json (`zones[]`) · resolved by `resolveSafety` in src/data/safety-data.ts`
 
 ✅ **No safety row claims verification its own `source` string denies (the source RENDERS on the destination page)**
-   → all 99 rows consistent
+   → all 101 rows consistent
    → `src/data/safety.json vs src/data/safety-data.ts (SafetyInfo.reported)`
 
 ⚠️ **The governing-law jurisdiction is set — until it is, the Terms page says so plainly rather than naming a state nobody checked**
@@ -239,6 +239,53 @@ an email — mail clients smart-quote, which is how a correct string arrives wro
 |---|---|---|
 | sub_region 12A | `Hawai‘i` | U+2018 `‘` |
 | sub_region 13A | `Québec` | U+00E9 `é` |
+| sub_region 01F | `Paris & Île-de-France` | U+00CE `Î` |
+| sub_region 02F | `The Adriatic — Croatia` | U+2014 `—` |
+| sub_region 02F | `Andalucía & the South` | U+00ED `í` |
+| sub_region 03F | `The Baltics — Estonia` | U+2014 `—` |
+| sub_region 05A | `Tanzania — Northern Safari Circuit` | U+2014 `—` |
+| sub_region 05A | `Kenya — Amboseli / Kilimanjaro views` | U+2014 `—` |
+| sub_region 05A | `Kenya — Laikipia Plateau` | U+2014 `—` |
+| sub_region 05A | `Kenya — Maasai Mara` | U+2014 `—` |
+| sub_region 05A | `Kenya — Samburu / Northern Frontier` | U+2014 `—` |
+| sub_region 05A | `Kenya — Tsavo` | U+2014 `—` |
+| sub_region 05A | `Rwanda — Akagera` | U+2014 `—` |
+| sub_region 05A | `Rwanda — Nyungwe Forest` | U+2014 `—` |
+| sub_region 05A | `Rwanda — Volcanoes / Virunga` | U+2014 `—` |
+| sub_region 05A | `Tanzania — Northern Safari Circuit / Ngorongoro` | U+2014 `—` |
+| sub_region 05A | `Tanzania — Northern Safari Circuit / Serengeti` | U+2014 `—` |
+| sub_region 05A | `Tanzania — Southern Circuit / Nyerere-Selous` | U+2014 `—` |
+| sub_region 05A | `Tanzania — Southern Circuit / Ruaha` | U+2014 `—` |
+| sub_region 05A | `Uganda — Bwindi / SW gorilla country` | U+2014 `—` |
+| sub_region 05A | `Uganda — Kibale Forest` | U+2014 `—` |
+| sub_region 05A | `Uganda — Murchison Falls / Nile` | U+2014 `—` |
+| sub_region 05A | `Uganda — Queen Elizabeth / Rift Valley` | U+2014 `—` |
+| sub_region 07A | `Bali — Indonesia` | U+2014 `—` |
+| sub_region 07A | `Komodo — Indonesia (East Nusa Tenggara)` | U+2014 `—` |
+| sub_region 07A | `Maldives — Indian Ocean` | U+2014 `—` |
+| sub_region 07A | `Phuket — Thailand (Andaman Sea)` | U+2014 `—` |
+| sub_region 07A | `Raja Ampat — Indonesia (Southwest Papua)` | U+2014 `—` |
+| sub_region 07A | `Similan Islands — Thailand (Andaman Sea)` | U+2014 `—` |
+| sub_region 07A | `Tubbataha Reefs — Philippines (Sulu Sea, Cagayancillo, Palawan)` | U+2014 `—` |
+| sub_region 08A | `Tōhoku` | U+014D `ō` |
+| sub_region 09P | `Palau — Micronesia (western Pacific)` | U+2014 `—` |
+| sub_region 10S | `Quintana Roo (Cancún & Riviera Maya)` | U+00FA `ú` |
+| sub_region 10S | `Yucatán (Mérida & Chichén Itzá)` | U+00E1 `á` · U+00E9 `é` · U+00E9 `é` · U+00E1 `á` |
+| sub_region 10S | `Amazon, Pantanal & Iguaçu` | U+00E7 `ç` |
+| sub_region 10S | `Andes (Quito) & Galápagos` | U+00E1 `á` |
+| sub_region 10S | `Chile — Patagonia & The Lakes` | U+2014 `—` |
+| sub_region 10S | `Northwest, Mendoza Wine & Iguazú` | U+00FA `ú` |
+| sub_region 10S | `Argentina — Patagonia & Valdés` | U+2014 `—` · U+00E9 `é` |
+| sub_region 10S | `Bogotá & The Andes` | U+00E1 `á` |
+| sub_region 10S | `Chiapas (San Cristóbal & Palenque)` | U+00F3 `ó` |
+| sub_region 10S | `Colombia's Caribbean Coast` | U+0027 `'` |
+| sub_region 11C | `Eastern Caribbean — Leewards` | U+2014 `—` |
+| sub_region 11C | `DR — North Coast & Interior` | U+2014 `—` |
+| sub_region 11C | `DR — Punta Cana & the East` | U+2014 `—` |
+| sub_region 11C | `Eastern Caribbean — Windwards & South` | U+2014 `—` |
+| sub_region 11C | `Jamaica — North Coast & Resorts` | U+2014 `—` |
+| sub_region 11C | `Jamaica — Kingston & South-East` | U+2014 `—` |
+| sub_region 11C | `Jamaica — South Coast` | U+2014 `—` |
 | live `sub_region` | `Engadin / Graubünden` | U+00FC `ü` |
 | live `sub_region` | `Trois Vallées / Savoie` | U+00E9 `é` |
 | live `sub_region` | `Kitzbühel Alps / Tyrol` | U+00FC `ü` |

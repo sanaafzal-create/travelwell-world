@@ -383,6 +383,14 @@ export const COUNTRY_ISO: Record<string, string> = {
   // refuses the whole batch — which is exactly what it did, and why these are
   // here rather than the rows going live on a country nothing checked.
   "Antigua & Barbuda": "AG", "Trinidad & Tobago": "TT",
+
+  // ── THE SAILING CAPITALS (2026-09-02): the two countries the 18 minted ids
+  // add that weren't already mapped (Australia and New Zealand were). Safety
+  // rows for all four are built from the ingested FCDO verbatim store (ETag'd
+  // pages): Turkey and Malaysia carry their threshold quotes there. Wired
+  // BEFORE the dossiers arrive, so a live row never lands on a country nothing
+  // checked.
+  Turkey: "TR", Malaysia: "MY",
 };
 
 export const isoForCountry = (name: string): string | null => COUNTRY_ISO[name] ?? null;

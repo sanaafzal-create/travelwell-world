@@ -230,6 +230,11 @@ for (const { code, d } of rows) {
   // in the bundle); can't strictly check regions whose sub_regions live only in the seed.
   const subs = SUBREGIONS[code];
   if (d.sub_region && subs && !subs.includes(d.sub_region)) errs.push(`${at}: sub_region "${d.sub_region}" isn't a ${code} sub_region (${subs.join(" · ")})`);
+  // A null passes silently where a bad string fails loudly — David's "same
+  // defect one layer down" (bali and phuket sat on no shelf for a week and
+  // nothing said so). All 13 regions are wired as of 2026-09-02, so a LIVE row
+  // with no sub_region renders on no shelf and deserves a named warning.
+  if (!d.sub_region && subs && d.status === "live") warns.push(`${at}: live row with NO sub_region — it sits on no shelf of ${code} and renders on no sub-region panel`);
   // Enums.
   if (d.status && !STATUS.has(d.status)) errs.push(`${at}: status "${d.status}" not live|future`);
   if (d.depth && !DEPTH.has(d.depth)) errs.push(`${at}: depth "${d.depth}" not verified|stub|cached`);
