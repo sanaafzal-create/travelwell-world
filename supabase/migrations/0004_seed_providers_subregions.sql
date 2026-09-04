@@ -223,6 +223,8 @@ insert into public.sub_regions (region_code, name, position) values
   ('05A', 'Uganda — Kibale Forest', 15),
   ('05A', 'Uganda — Murchison Falls / Nile', 16),
   ('05A', 'Uganda — Queen Elizabeth / Rift Valley', 17),
+  ('05A', 'Kenya — South Coast / Diani', 18),
+  ('05A', 'Tanzania — Zanzibar & the Spice Islands', 19),
   ('06A', 'Okavango & Falls', 0),
   ('06A', 'South Africa', 1),
   ('06A', 'Namibia Desert & Coast', 2),

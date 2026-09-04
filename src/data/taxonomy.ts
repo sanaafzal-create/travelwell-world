@@ -408,7 +408,14 @@ export const SUBREGIONS: Record<string, string[]> = {
   "01F": ["Switzerland & the Alps", "Austria", "Provence & the Riviera", "Paris & Île-de-France", "Bavaria & the Alpine South", "French Alps", "Normandy & the Loire", "Belgium & Luxembourg", "The Netherlands", "The Rhine & Mosel", "Berlin & the North", "Saxony & the East", "Alsace & the East", "Bordeaux & the Southwest", "Hungary & the Middle Danube", "Julian Alps / Slovenia"],
   "02F": ["Italian Alps / Dolomites", "Greece & the Isles", "Portugal & the Douro", "Sicily & Sardinia", "The Adriatic — Croatia", "The Balearics", "Amalfi & the South", "Andalucía & the South", "Barcelona & Catalonia", "Liguria & the Italian Riviera", "Malta", "Rome & Lazio", "Tuscany & Umbria", "Venice & the Veneto"],
   "03F": ["Norway & the Fjords", "Denmark", "Scotland", "England & Wales", "Finland & the Arctic", "Ireland", "Sweden", "Iceland", "The Baltics — Estonia"],
-  "05A": ["Tanzania — Northern Safari Circuit", "Horn & Highlands", "Kenya — Amboseli / Kilimanjaro views", "Kenya — Laikipia Plateau", "Kenya — Maasai Mara", "Kenya — Samburu / Northern Frontier", "Kenya — Tsavo", "Rwanda — Akagera", "Rwanda — Nyungwe Forest", "Rwanda — Volcanoes / Virunga", "Tanzania — Northern Safari Circuit / Ngorongoro", "Tanzania — Northern Safari Circuit / Serengeti", "Tanzania — Southern Circuit / Nyerere-Selous", "Tanzania — Southern Circuit / Ruaha", "Uganda — Bwindi / SW gorilla country", "Uganda — Kibale Forest", "Uganda — Murchison Falls / Nile", "Uganda — Queen Elizabeth / Rift Valley"],
+  "05A": ["Tanzania — Northern Safari Circuit", "Horn & Highlands", "Kenya — Amboseli / Kilimanjaro views", "Kenya — Laikipia Plateau", "Kenya — Maasai Mara", "Kenya — Samburu / Northern Frontier", "Kenya — Tsavo", "Rwanda — Akagera", "Rwanda — Nyungwe Forest", "Rwanda — Volcanoes / Virunga", "Tanzania — Northern Safari Circuit / Ngorongoro", "Tanzania — Northern Safari Circuit / Serengeti", "Tanzania — Southern Circuit / Nyerere-Selous", "Tanzania — Southern Circuit / Ruaha", "Uganda — Bwindi / SW gorilla country", "Uganda — Kibale Forest", "Uganda — Murchison Falls / Nile", "Uganda — Queen Elizabeth / Rift Valley",
+    // THE COAST (added 2026-09-03 through the new-shelf process this list
+    // created): all eighteen shelves above are safari circuits, and the entire
+    // Swahili coast — Lamu, Watamu, Diani, Zanzibar, Mafia, Pemba — had no
+    // shelf to land on, blocking ~30 dossiers. Strings assigned on the
+    // library's proposal, following the region's own Country — Place form.
+    // Defined, not yet published: neither renders until its first row lands.
+    "Kenya — South Coast / Diani", "Tanzania — Zanzibar & the Spice Islands"],
   "06A": ["Okavango & Falls", "South Africa", "Namibia Desert & Coast", "Mozambique & Coast"],
   "07A": ["Southeast Asia", "Bali — Indonesia", "Komodo — Indonesia (East Nusa Tenggara)", "Maldives — Indian Ocean", "Phuket — Thailand (Andaman Sea)", "Raja Ampat — Indonesia (Southwest Papua)", "Similan Islands — Thailand (Andaman Sea)", "Tubbataha Reefs — Philippines (Sulu Sea, Cagayancillo, Palawan)"],
   "08A": ["Hokkaido", "Japanese Alps/Nagano", "Tōhoku"],
