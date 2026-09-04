@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { requestPersistentStorage } from "./lib/persistence";
+import { initGa4 } from "./lib/analytics";
 
 /** requestIdleCallback where it exists (not Safari < 16.4), a timeout elsewhere. */
 const requestIdleCallbackSafe = (fn: () => void) =>
@@ -30,6 +31,9 @@ import "./styles/pages.css";
 // panel, never something that should delay the first screen. See lib/persistence
 // for why browsers are more likely to say yes once the app is genuinely in use.
 requestIdleCallbackSafe(() => { void requestPersistentStorage(); });
+// The GA4 socket: a no-op until BOTH the env id and a stored per-visitor
+// opt-in exist (src/lib/analytics.ts) — today neither does, so nothing loads.
+requestIdleCallbackSafe(() => { initGa4(); });
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
