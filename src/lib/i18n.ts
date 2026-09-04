@@ -207,6 +207,12 @@ export const MESSAGES: Record<string, Dict> = {
   "consent.text": { en: "We use essential cookies and local storage to remember your trip and preferences.", es: "Usamos cookies esenciales y almacenamiento local para recordar tu viaje y preferencias.", ar: "نستخدم ملفات تعريف ارتباط أساسية وتخزينًا محليًا لتذكّر رحلتك وتفضيلاتك.", zh: "我们使用必要的 Cookie 和本地存储来记住你的行程与偏好。", fr: "Nous utilisons des cookies essentiels et le stockage local pour mémoriser votre voyage et vos préférences." },
   "consent.see": { en: "See our", es: "Consulta nuestra", ar: "اطّلع على", zh: "查看我们的", fr: "Consultez notre" },
   "consent.ok": { en: "Got it", es: "Entendido", ar: "حسنًا", zh: "知道了", fr: "Compris" },
+  // Analytics opt-in (2026-09-03). English-only until the native-review pass —
+  // the runtime falls back to en by design, and an unreviewed machine
+  // translation on a consent surface is the one place we never ship one.
+  "consent.analytics": { en: "May we also use Google Analytics to understand how the site is used? Optional — nothing loads unless you allow it." },
+  "consent.allow": { en: "Allow analytics" },
+  "consent.essential": { en: "Essential only" },
 
   // ── SI groups ───────────────────────────────────────────────────────────
   "grp.premium.name": { en: "Premium & Signature", es: "Premium y Distintivos", ar: "المميّزة والأساسية", zh: "尊享与招牌", fr: "Premium & Signature" },

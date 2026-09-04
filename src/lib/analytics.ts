@@ -30,7 +30,9 @@
  * the source a long-window conversion is judged by (measurement-stack Part 7.4).
  */
 
-const GA4_ID: string = (import.meta.env.VITE_TWW_GA4_ID as string | undefined) ?? "";
+// Optional-chained: under the prerender's Node ESM, `import.meta.env` does not
+// exist at all, and a bare property read crashes the build.
+const GA4_ID: string = ((import.meta as { env?: Record<string, string | undefined> }).env?.VITE_TWW_GA4_ID) ?? "";
 const CONSENT_KEY = "tww:analyticsConsent";
 const CONSENT_AT_KEY = "tww:analyticsConsentAt";
 

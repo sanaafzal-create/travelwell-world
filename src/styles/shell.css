@@ -176,7 +176,11 @@
 .tw-consent { position: fixed; inset-block-end: 16px; inset-inline: 16px; z-index: 96; max-width: 560px; margin-inline: auto;
   display: flex; align-items: center; gap: 16px; background: var(--popover, var(--card)); border: 1px solid var(--border);
   border-radius: var(--radius); box-shadow: var(--e3); padding: 14px 16px; }
-.tw-consent__text { margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--foreground); }
+/* 16px, not 13.5: consent copy is reading text, and a consent surface is the
+   last place to shrink it. (The audit never caught this because a headless
+   first visit starts dismissed — noted as a matrix gap, 2026-09-03.) */
+.tw-consent__text { margin: 0; font-size: 16px; line-height: 1.5; color: var(--foreground); }
+.tw-consent__actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .tw-consent__text a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
 .tw-consent__ok { flex: none; height: 40px; padding: 0 18px; }
 @media (max-width: 560px) { .tw-consent { flex-direction: column; align-items: stretch; text-align: center; } .tw-consent__ok { width: 100%; } }

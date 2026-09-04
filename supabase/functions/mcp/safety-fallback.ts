@@ -47,7 +47,12 @@ var safety_default = {
     lvl: 1,
     label: "No advisory against travel",
     summary: "The UK FCDO publishes no advisory against travel for Australia. That is the absence of a warning rather than a statement that anywhere is safe \u2014 read the advisory in full below before you plan.",
-    considerations: [],
+    considerations: [
+      "Bushfire season (Nov-Mar) and tropical cyclones in the north; flash flooding.",
+      "Strong ocean rips, marine stingers and saltwater crocodiles in northern waters.",
+      "Intense sun and heat; vast outback driving distances."
+    ],
+    medical: "High-quality care; tap water safe; evacuation insurance wise for remote/outback travel.",
     source: "UK FCDO \u2014 Australia travel advice (page updated 2026-03-19; slug ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
     reported: true,
     fromAbsence: true
@@ -57,7 +62,12 @@ var safety_default = {
     lvl: 1,
     label: "No advisory against travel",
     summary: "The UK FCDO publishes no advisory against travel for New Zealand. That is the absence of a warning rather than a statement that anywhere is safe \u2014 read the advisory in full below before you plan.",
-    considerations: [],
+    considerations: [
+      "Driving on the left on narrow rural roads is a leading cause of visitor injury.",
+      "Earthquakes, volcanic activity and fast-changing alpine/coastal weather.",
+      "Vehicle and hostel theft in tourist areas; strict biosecurity declarations."
+    ],
+    medical: "Care is not free \u2014 carry insurance with evacuation cover; tap water safe.",
     source: "UK FCDO \u2014 New Zealand travel advice (page updated 2026-03-19; slug ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
     reported: true,
     fromAbsence: true
@@ -158,20 +168,6 @@ var safety_default = {
       "Excellent emergency services; the European emergency number is 112."
     ],
     medical: "No special vaccinations; EU-standard care; carry travel plus winter-sports/medevac cover for off-piste and high-alpine activity.",
-    source: "Curated baseline \u2014 the previous source is retired; pending re-verification against the UK FCDO",
-    reported: true
-  },
-  AU: {
-    country: "Australia",
-    lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. The risks to plan for are natural and environmental \u2014 surf, heat, bushfire and wildlife \u2014 rather than crime.",
-    considerations: [
-      "Bushfire season (Nov-Mar) and tropical cyclones in the north; flash flooding.",
-      "Strong ocean rips, marine stingers and saltwater crocodiles in northern waters.",
-      "Intense sun and heat; vast outback driving distances."
-    ],
-    medical: "High-quality care; tap water safe; evacuation insurance wise for remote/outback travel.",
     source: "Curated baseline \u2014 the previous source is retired; pending re-verification against the UK FCDO",
     reported: true
   },
@@ -1373,20 +1369,6 @@ var safety_default = {
       "Svalbard requires special preparation (polar-bear risk outside settlements)."
     ],
     medical: "Excellent tap water; cold-exposure and winter-driving risk.",
-    source: "Curated baseline \u2014 the previous source is retired; pending re-verification against the UK FCDO",
-    reported: true
-  },
-  NZ: {
-    country: "New Zealand",
-    lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. The risks to plan for are environmental \u2014 weather, water and backcountry terrain \u2014 rather than crime.",
-    considerations: [
-      "Driving on the left on narrow rural roads is a leading cause of visitor injury.",
-      "Earthquakes, volcanic activity and fast-changing alpine/coastal weather.",
-      "Vehicle and hostel theft in tourist areas; strict biosecurity declarations."
-    ],
-    medical: "Care is not free \u2014 carry insurance with evacuation cover; tap water safe.",
     source: "Curated baseline \u2014 the previous source is retired; pending re-verification against the UK FCDO",
     reported: true
   },
