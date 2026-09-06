@@ -23,6 +23,19 @@
     "auckland-new-zealand": { "region": "09P", "minted": "2026-09-02" },
     "las-palmas-spain": { "region": "11C", "minted": "2026-09-02", "note": "the Canaries are Atlantic, not Mediterranean — 11C is 'Caribbean & Atlantic', and it puts the ARC's start and finish in one region. David ratified 2026-09-04." },
     "mount-kenya-kenya": { "region": "05A", "minted": "2026-09-04", "note": "overrules mount-kenya — the trailing 'kenya' there is the mountain's name, not the country slot; <place>-<country> doubles like malta-malta, and the drift check then reads it clean" },
-    "maasai-mara-conservancies-kenya": { "region": "05A", "minted": "2026-09-04", "note": "overrules masai-mara-conservancies-kenya — the family is spelled 'maasai' in this catalog (maasai-mara-kenya); one spelling per family" }
+    "maasai-mara-conservancies-kenya": { "region": "05A", "minted": "2026-09-04", "note": "overrules masai-mara-conservancies-kenya — the family is spelled 'maasai' in this catalog (maasai-mara-kenya); one spelling per family" },
+    "yosemite-california": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: Pacific Coast — by state, like Tahoe and Mammoth (sub-region-master: Sierra, not the Rockies)" },
+    "grand-canyon-arizona": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: The Southwest" },
+    "lake-powell-utah": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: The Southwest" },
+    "bryce-canyon-utah": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: The Southwest" },
+    "moab-utah": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: The Southwest" },
+    "zion-utah": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster (Springdale/Virgin gateways live in the name field, not the id). Shelf: The Southwest" },
+    "big-sur-california": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: Pacific Coast" },
+    "glacier-montana": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: Mountain West" },
+    "great-smoky-mountains-tennessee": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: The South" },
+    "mount-rushmore-south-dakota": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: The Midwest — by state, per the master's by-state rule; moveable if a Black Hills read ever says otherwise" },
+    "acadia-maine": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: New England" },
+    "hudson-valley-new-york": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: Mid-Atlantic — NY, same call as Lake Placid" },
+    "governors-island-new-york": { "region": "12A", "minted": "2026-09-05", "note": "glamping roster. Shelf: Mid-Atlantic" }
   }
 }
