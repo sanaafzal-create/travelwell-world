@@ -1,0 +1,26 @@
+{
+  "_note": "The minted-id ledger. An id is MATCHED against this side, never computed on theirs (David, 2026-09-02) — so an id minted for the research library is not real until it is visible in this tree at a pushed head. Every entry here was minted by Sana with its region; the library's dossiers must arrive under these exact ids and regions, and validate:ingest enforces both. Rows leave this ledger when a catalog row exists under the id (the ledger is the reservation, the catalog is the destination). The 21 sailing/city ids below were minted 2026-09-02 (cowes-england overruling cowes-isle-of-wight per the UK constituent-country precedent; las-palmas-spain to 11C 'Caribbean & Atlantic' — David ratified both, 2026-09-04).",
+  "minted": {
+    "la-clusaz-france": { "region": "01F", "minted": "2026-09-02" },
+    "lyon-france": { "region": "01F", "minted": "2026-09-02" },
+    "cowes-england": { "region": "03F", "minted": "2026-09-02", "note": "overrules cowes-isle-of-wight — UK ids use the constituent country (london-england, edinburgh-scotland); the island belongs in the name field" },
+    "athens-greece": { "region": "02F", "minted": "2026-09-02" },
+    "corfu-greece": { "region": "02F", "minted": "2026-09-02" },
+    "lefkada-greece": { "region": "02F", "minted": "2026-09-02" },
+    "trogir-croatia": { "region": "02F", "minted": "2026-09-02" },
+    "sibenik-croatia": { "region": "02F", "minted": "2026-09-02" },
+    "bodrum-turkey": { "region": "02F", "minted": "2026-09-02", "note": "the gulet coast sails the same sea as the Greek islands; Eastern Anatolia would be 04A if it ever comes" },
+    "marmaris-turkey": { "region": "02F", "minted": "2026-09-02" },
+    "gocek-turkey": { "region": "02F", "minted": "2026-09-02" },
+    "las-vegas-nevada": { "region": "12A", "minted": "2026-09-02", "note": "US ids use the state form, per the existing thirty" },
+    "newport-rhode-island": { "region": "12A", "minted": "2026-09-02" },
+    "annapolis-maryland": { "region": "12A", "minted": "2026-09-02" },
+    "san-francisco-california": { "region": "12A", "minted": "2026-09-02" },
+    "langkawi-malaysia": { "region": "07A", "minted": "2026-09-02" },
+    "sydney-australia": { "region": "09P", "minted": "2026-09-02" },
+    "hobart-australia": { "region": "09P", "minted": "2026-09-02", "note": "as ruled" },
+    "the-whitsundays-australia": { "region": "09P", "minted": "2026-09-02" },
+    "auckland-new-zealand": { "region": "09P", "minted": "2026-09-02" },
+    "las-palmas-spain": { "region": "11C", "minted": "2026-09-02", "note": "the Canaries are Atlantic, not Mediterranean — 11C is 'Caribbean & Atlantic', and it puts the ARC's start and finish in one region. David ratified 2026-09-04." }
+  }
+}

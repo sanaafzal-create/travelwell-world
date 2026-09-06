@@ -23,6 +23,11 @@ import { COUNTRY_ISO, SAFETY_DATA, resolveSafety, isoForCountry, fcdoThreshold }
 import { mergedDestinations } from "./lib/destination-batches";
 import { checkHero } from "./lib/check-hero";
 import { checkSafetyLanguage, countRetiredAuthority, findForbiddenQuestions } from "./lib/check-safety-language";
+import MINTED from "../src/data/minted-ids.json";
+
+// The minted-id ledger — ids reserved for the library with their region as part
+// of the mint. See src/data/minted-ids.json for the rule and the roster.
+const MINTED_IDS: Record<string, { region: string }> = (MINTED as { minted: Record<string, { region: string }> }).minted;
 
 // ── Canon, straight from the live source ──────────────────────────────────
 const REGION_CODES = new Set(REGIONS.map((r) => r.code));
@@ -225,6 +230,17 @@ for (const { code, d } of rows) {
   const bundled = Object.entries(DESTINATIONS).find(([, l]) => l.some((d) => d.id === id));
   if (bundled && bundled[0] !== code) {
     warns.push(`${at}: MOVES an existing destination from region ${bundled[0]} to ${code}. The batch wins and the old row is dropped — intended?`);
+  }
+  // ── MINTED IDS ARRIVE WHERE THEY WERE MINTED ─────────────────────────────
+  // An id is matched against our side, never computed on theirs (David,
+  // 2026-09-02) — and the ledger (src/data/minted-ids.json) is where a minted
+  // id becomes visible at a pushed head, so the library can match instead of
+  // holding. The region was part of the mint (las-palmas-spain is 11C by
+  // ruling, not by geography-guess), so a dossier arriving under a minted id
+  // in a different region is a contradiction of the ledger, not a move.
+  const minted = MINTED_IDS[id];
+  if (minted && minted.region !== code) {
+    errs.push(`${at}: id "${id}" was minted for region ${minted.region} (src/data/minted-ids.json) but arrives under ${code} — the mint carries the region; a disagreement is resolved in the ledger first, never by the batch`);
   }
   // sub_region — validate against the region's known set where we have it (12A/13A
   // in the bundle); can't strictly check regions whose sub_regions live only in the seed.
