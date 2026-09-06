@@ -45,6 +45,7 @@ import { mergedDestinations } from "./lib/destination-batches";
 import { breadcrumbJsonLd, destinationJsonLd, siJsonLd } from "../src/lib/jsonld";
 import { jewelsForSi } from "../src/lib/jewels";
 import { ORIGIN, originFor, isIndexableDestination } from "../src/lib/site";
+import { shareImg, siShareImg, regionShareImg } from "../src/lib/images";
 
 
 const DIST = "dist";
@@ -63,6 +64,12 @@ interface Page {
    *  if it is ever linked. */
   noindex?: boolean;
   jsonLd?: object[];
+  /** Share-card image (og:image/twitter:image), absolute URL. The chain can
+   *  never end empty (F-og, 2026-09-04): page-specific here, brand fallback in
+   *  render() — a page that shares with no picture is a closed channel on
+   *  every image platform. */
+  image?: string;
+  imageAlt?: string;
 }
 
 const pages: Page[] = [];
@@ -84,6 +91,10 @@ for (const [code, list] of Object.entries(ALL_DESTINATIONS)) {
       // pair — one inbound link is all it takes, and an indexed page does not
       // age out on its own. Same predicate the sitemap reads.
       noindex: !isIndexableDestination(d),
+      // The destination's own curated token — the same image its hero shows —
+      // so a shared link previews the place, not the brand generic.
+      image: shareImg(d.img),
+      imageAlt: `${d.name}, ${d.country}`,
       jsonLd: destinationJsonLd(d, region?.name ?? "", `${ORIGIN}/destination/${d.id}`, region?.code),
     });
   }
@@ -100,6 +111,8 @@ for (const si of boardSis(SIS)) {
     // served <head>, so an answer engine that runs no JavaScript still reads
     // every experience. Client-side injection alone reached Google and nothing
     // else.
+    image: siShareImg(si.id),
+    imageAlt: si.name,
     jsonLd: siJsonLd(si, `${ORIGIN}/si/${si.id}`, jewelsForSi(ALL_DESTINATIONS, si.id)),
   });
 }
@@ -110,6 +123,8 @@ for (const r of REGIONS) {
     path: `/region/${r.code}`,
     title: `${r.name} — TravelWell.World`,
     description: (r as { blurb?: string }).blurb || `Travel in ${r.name}.`,
+    image: regionShareImg(r.code),
+    imageAlt: r.name,
     // Breadcrumbs only. A region page has a rendered trail to mirror; guides do
     // not, which is why they get none — structured data with no visible
     // counterpart is the violation, not the omission.
@@ -223,14 +238,22 @@ for (const sp of STATIC_PAGES) {
 /** Swap the head fields, leaving body and scripts untouched. */
 function render(p: Page): string {
   const canonical = `${ORIGIN}${p.path}`;
+  // The last link of the share-image chain: no page-specific image → the brand
+  // fallback. The template's tag is replaced, never trusted, so the two can't
+  // drift apart page-by-page — and the tag is never empty on any of the 647.
+  const image = p.image ?? shareImg();
+  const imageAlt = p.imageAlt ?? "TravelWell.World";
   let html = TEMPLATE
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${attr(p.title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${attr(p.description)}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${attr(p.title)}$2`)
     .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${attr(p.description)}$2`)
     .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${attr(canonical)}$2`)
+    .replace(/(<meta property="og:image" content=")[^"]*(")/, `$1${attr(image)}$2`)
+    .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, `$1${attr(imageAlt)}$2`)
     .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${attr(p.title)}$2`)
-    .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${attr(p.description)}$2`);
+    .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${attr(p.description)}$2`)
+    .replace(/(<meta name="twitter:image" content=")[^"]*(")/, `$1${attr(image)}$2`);
 
   // Canonical: replace if present, otherwise add.
   html = /<link rel="canonical"/.test(html)

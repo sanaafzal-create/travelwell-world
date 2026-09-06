@@ -60,3 +60,18 @@ export const img = (key: string, w = 1400, q?: number) =>
 export const IMAGE_TOKENS = Object.keys(IDS);
 export const siImg = (siId: string, w = 900) => img(SI_IMG[siId] || FALLBACK_IMG, w);
 export const regionImg = (code: string, w = 900) => img(REGION_IMG[code] || FALLBACK_IMG, w);
+
+/**
+ * Share-card crop (og:image / twitter:image) — 1200×630, the platforms'
+ * canonical aspect. Same token system as the page images, so a page's card
+ * upgrades the day its token does (a supplier asset lands as a token here and
+ * every tag pointing at it follows — no further code change). Never returns
+ * empty: an unknown or absent token falls back to the brand default, because
+ * a share tag that can be empty is a page that shares with no picture.
+ */
+export const SHARE_IMG_W = 1200;
+export const SHARE_IMG_H = 630;
+export const shareImg = (key?: string) =>
+  `https://images.unsplash.com/photo-${IDS[key ?? FALLBACK_IMG] ?? IDS[FALLBACK_IMG]}?auto=format&fit=crop&w=${SHARE_IMG_W}&h=${SHARE_IMG_H}&q=70`;
+export const siShareImg = (siId: string) => shareImg(SI_IMG[siId] || FALLBACK_IMG);
+export const regionShareImg = (code: string) => shareImg(REGION_IMG[code] || FALLBACK_IMG);

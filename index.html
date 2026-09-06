@@ -20,9 +20,21 @@
     <meta property="og:url" content="https://www.travelwell.world/" />
     <meta property="og:title" content="TravelWell.World — Designed around you." />
     <meta property="og:description" content="TravelWell.World — a Travel Operating System. From a feeling to a beautifully booked trip." />
+    <!-- The share image can never be empty (F-og, 2026-09-04): every page we own
+         used to share with no picture, which shuts the image platforms entirely.
+         This is the site-wide fallback — it mirrors FALLBACK_IMG in
+         src/lib/images.ts (same photo id, 1200×630 share crop) — and the
+         prerender pass replaces it per page: a destination shares its own
+         curated image, an interest and a region theirs. Placeholder Unsplash,
+         same as the page heroes; upgrades to supplier assets by token swap. -->
+    <meta property="og:image" content="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&h=630&q=70" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TravelWell.World" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="TravelWell.World — Designed around you." />
     <meta name="twitter:description" content="TravelWell.World — a Travel Operating System. From a feeling to a beautifully booked trip." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&h=630&q=70" />
 
     <!-- The organization record. This is the field an AI answer engine reads when
          it names or attributes us, so it is STATIC here rather than injected by
