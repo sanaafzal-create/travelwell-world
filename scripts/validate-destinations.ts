@@ -257,9 +257,18 @@ for (const { code, d } of rows) {
   if (d.draw_rank != null && !DRAW.has(d.draw_rank)) errs.push(`${at}: draw_rank "${d.draw_rank}" not anchor|core|emerging`);
   if (d.price_band != null && !TIERS.has(d.price_band)) errs.push(`${at}: price_band "${d.price_band}" not a valid tier`);
   for (const tb of d.tier_range ?? []) if (!TIERS.has(tb)) errs.push(`${at}: tier_range has "${tb}" (not a valid tier)`);
+  // ── THE SI FIELD IS A CONTROLLED VOCABULARY (David, 2026-09-04) ──────────
+  // "Your slugs are the authority, and free text is refused at the border. If
+  // that costs us rows on the next batch, we would rather lose the rows than
+  // keep the ambiguity." This axis is the whole shelf join — a display name
+  // here loads, matches nothing, and the destination silently sits on no
+  // interest page. The merged set measured ZERO free-text and ZERO retired
+  // tags on this field the day this hardened, so the errors cost nothing and
+  // hold the ground. (A RETIRED slug is a valid id but not a valid tag:
+  // boardSis() filters it, so the page it points at does not exist.)
   for (const s of d.si ?? []) {
-    if (!SI_SLUGS.has(s)) warns.push(`${at}: si "${s}" isn't a known SI slug (won't surface)`);
-    else if (!BOARD_SLUGS.has(s)) warns.push(`${at}: si "${s}" is RETIRED — off the board, so no interest page exists for it and this tag surfaces nowhere`);
+    if (!SI_SLUGS.has(s)) errs.push(`${at}: si "${s}" is not a canonical slug — the SI field is a controlled vocabulary (David, 2026-09-04); resolve it at source against taxonomy.ts and resend`);
+    else if (!BOARD_SLUGS.has(s)) errs.push(`${at}: si "${s}" is RETIRED — off the board, no interest page exists, the tag surfaces nowhere. Retired is not a home; the tag comes out (content survives in prose)`);
   }
   for (const f of d.feel ?? []) if (!FEEL.has(f)) errs.push(`${at}: feel "${f}" is outside the controlled vocabulary (breaks matching)`);
   if (!(d.si ?? []).length) warns.push(`${at}: no si tags`);
@@ -523,8 +532,12 @@ if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block,
   const max = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).jewel_si_freetext_max as number;
   const bad: Record<string, number> = {};
   for (const { d } of rows)
-    for (const j of ((d.data as { jewels?: { si?: string }[] } | undefined)?.jewels ?? []))
-      if (j?.si && !boardIds.has(j.si)) bad[j.si] = (bad[j.si] ?? 0) + 1;
+    for (const j of ((d.data as { jewels?: { si?: string | string[] }[] } | undefined)?.jewels ?? []))
+      // A jewel legitimately serves several interests (si as array) — count
+      // each element, not the array object, or a fully-canonical pair reads
+      // as one free-text tag.
+      for (const s of (j?.si == null ? [] : Array.isArray(j.si) ? j.si : [j.si]))
+        if (s && !boardIds.has(s)) bad[s] = (bad[s] ?? 0) + 1;
   const n = Object.values(bad).reduce((a, b) => a + b, 0);
   if (n > max) {
     console.log(`\n\u2717 FREE-TEXT JEWEL SI TAGS \u2014 ${n} jewels carry an si that is not a board slug (ratchet ${max}). Every one is invisible on its interest page.`);
@@ -534,6 +547,35 @@ if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block,
   }
   if (n < max) console.log(`\n\u2713 free-text jewel si tags: ${n} (ratchet ${max}) \u2014 lower "jewel_si_freetext_max" to ${n} to hold the ground.`);
   else if (n) console.log(`\n\u00b7 free-text jewel si tags: ${n}, at the ratchet \u2014 each is a jewel no interest page can reach. The library's mapping batch shrinks this.`);
+}
+
+// \u2500\u2500 FREE-TEXT IN `sis_present` \u2014 inert in the app, but it SHIPS \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// Nothing in src reads data.sis_present, so nothing on a page breaks \u2014 but the
+// field rides the jsonb into Postgres and out through the MCP dossier fetch,
+// so a consumer reading the catalog sees the display-name vocabulary the
+// border exists to refuse (272 free-text tags across 72 names when measured,
+// 2026-09-04 \u2014 `globaladv`, `sports travel`, `day-trips`\u2026). Same ruling, same
+// remedy: the library's resolved batch, never a local rewrite; this counter
+// makes the number visible and refuses growth until that batch lands, then
+// locks at zero like the others.
+{
+  const boardIds = new Set(boardSis().map((s) => s.id));
+  const max = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).sis_present_freetext_max as number;
+  const bad: Record<string, number> = {};
+  for (const { d } of rows)
+    for (const e of ((d.data as { sis_present?: unknown[] } | undefined)?.sis_present ?? [])) {
+      const v = typeof e === "string" ? e : ((e as { si?: string; name?: string })?.si ?? (e as { name?: string })?.name ?? "");
+      if (typeof v === "string" && v.trim() && !boardIds.has(v.trim())) bad[v.trim()] = (bad[v.trim()] ?? 0) + 1;
+    }
+  const n = Object.values(bad).reduce((a, b) => a + b, 0);
+  if (n > max) {
+    console.log(`\n\u2717 FREE-TEXT IN sis_present \u2014 ${n} tags are not board slugs (ratchet ${max}). The field is inert on-page but ships in the data.`);
+    Object.entries(bad).sort((a, b) => b[1] - a[1]).slice(0, 8).forEach(([k, v]) => console.log(`  \u2717 ${v} \u00d7 ${JSON.stringify(k)}`));
+    console.log(`  The fix is the library's resolved batch, never a local rewrite.`);
+    process.exit(1);
+  }
+  if (n < max) console.log(`\u2713 sis_present free-text: ${n} (ratchet ${max}) \u2014 lower "sis_present_freetext_max" to ${n} to hold the ground.`);
+  else if (n) console.log(`\u00b7 sis_present free-text: ${n}, at the ratchet \u2014 shrinks with the library's resolved batch.`);
 }
 
 // ── THE SAFETY-PROMISE RATCHET ─────────────────────────────────────────────
