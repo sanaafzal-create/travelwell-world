@@ -45,7 +45,14 @@ export function Ambient() {
     <>
       <div className="tw-backdrop" data-open={backdropOpen} onClick={closePanel} />
 
-      <div className="tw-whisper" data-show={Boolean(whisper)} role="status" aria-live="polite">
+      {/* A critical whisper (booking change, safety notice — F4) announces
+          assertively and never auto-hides; an ambient one stays polite. */}
+      <div
+        className="tw-whisper"
+        data-show={Boolean(whisper)}
+        role={whisper?.priority === "critical" ? "alert" : "status"}
+        aria-live={whisper?.priority === "critical" ? "assertive" : "polite"}
+      >
         <div className="tw-whisper__ic"><Icon name="sun" small /></div>
         <div style={{ flex: 1 }}>
           <div className="tw-whisper__kind">{whisper?.kind ?? "A gentle idea"}</div>

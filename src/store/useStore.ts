@@ -79,7 +79,17 @@ const DEFAULT_TRIP: TripBlock[] = [
   { well: "fly", icon: "plane", name: "Nairobi → Mara airstrip", meta: "Fly-Well", status: "idea" },
 ];
 
-export interface Whisper { id?: string; kind: string; text: string; href?: string; }
+/**
+ * F4 exemption (ruled 2026-09-04): `priority: "critical"` marks an OPERATIONAL
+ * notice — a booking change, a safety alert — news about the traveler's own
+ * trip, not an ambient suggestion. The dial and quiet hours govern suggestions;
+ * a person who turned the dial off declined marketing, not word that their
+ * booking moved at 2am. Critical whispers bypass the dial, quiet hours and
+ * cadence, replace an ambient whisper on screen, and stay until dismissed
+ * (the card has an explicit close). Same-id dedup still applies, so one
+ * notice can't loop.
+ */
+export interface Whisper { id?: string; kind: string; text: string; href?: string; priority?: "critical"; }
 /** Where the traveler was on the flow before a whisper/idea pulled them off it. */
 export interface Anchor { path: string; label: string; scrollY: number; }
 
@@ -358,19 +368,30 @@ export const useStore = create<State>((set, get) => ({
   },
   clearToast: () => set({ toast: null }),
   showWhisper: (w) => {
-    // Cadence > frequency: respect the dial, sleep hours, the min gap, one at a
-    // time, and never the same idea twice in a session.
-    const dial = get().whisperDial;
-    if (dial === "off" || inQuietHours() || get().whisper) return;
+    // Cadence > frequency for AMBIENT whispers: respect the dial, sleep hours,
+    // the min gap, one at a time, and never the same idea twice in a session.
+    // A critical whisper (see Whisper) skips every gate but same-id dedup —
+    // the single gate used to DROP a safety notice in quiet hours, not delay
+    // it, and 22:00–07:00 is exactly when a cancellation lands (F4).
+    const critical = w.priority === "critical";
     if (w.id && _shownWhisperIds.has(w.id)) return;
-    const now = Date.now();
-    if (now - _lastWhisperAt < WHISPER_GAP_MS[dial]) return;
-    _lastWhisperAt = now;
+    if (!critical) {
+      const dial = get().whisperDial;
+      if (dial === "off" || inQuietHours() || get().whisper) return;
+      const now = Date.now();
+      if (now - _lastWhisperAt < WHISPER_GAP_MS[dial]) return;
+      _lastWhisperAt = now;
+    }
     if (w.id) _shownWhisperIds.add(w.id);
     set({ whisper: w });
     track({ kind: "view", entity: "whisper", entityId: w.id, context: { href: w.href } });
+    // A critical notice never auto-hides — it waits for the person. Clear any
+    // ambient timer either way, so a critical card replacing an ambient one
+    // isn't swept away by the old whisper's 12s clock.
     window.clearTimeout((useStore as unknown as { _w?: number })._w);
-    (useStore as unknown as { _w?: number })._w = window.setTimeout(() => set({ whisper: null }), 12000);
+    if (!critical) {
+      (useStore as unknown as { _w?: number })._w = window.setTimeout(() => set({ whisper: null }), 12000);
+    }
   },
   hideWhisper: () => set({ whisper: null }),
   setAnchor: (a) => set({ anchor: a }),
