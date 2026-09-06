@@ -1,7 +1,7 @@
 {
  "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
  "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
- "generated": "2026-09-03",
+ "generated": "2026-09-06",
  "surfaces": [
   {
    "surface": "si-shelf · jewels (SiDetail JewelsSection)",
@@ -10,97 +10,97 @@
    "reader_can_tell": "YES — the section line prints shown-of-total ('a selection of 24 from our N experiences across M destinations') whenever shown < length (2026-08-28)",
    "lengths_by_interest": {
     "ultra": {
-     "length": 151,
+     "length": 154,
      "shown": 24,
      "dests": 77,
      "dests_shown": 12
     },
     "tropical": {
-     "length": 145,
+     "length": 279,
      "shown": 24,
-     "dests": 84,
+     "dests": 87,
      "dests_shown": 12
     },
     "romance": {
-     "length": 588,
+     "length": 649,
      "shown": 24,
-     "dests": 313,
+     "dests": 319,
      "dests_shown": 12
     },
     "safari": {
-     "length": 93,
+     "length": 139,
      "shown": 24,
      "dests": 48,
      "dests_shown": 12
     },
     "expedition": {
-     "length": 635,
+     "length": 656,
      "shown": 24,
-     "dests": 233,
+     "dests": 234,
      "dests_shown": 12
     },
     "ski": {
-     "length": 540,
+     "length": 1171,
      "shown": 24,
      "dests": 90,
      "dests_shown": 12
     },
     "golf": {
-     "length": 10,
-     "shown": 10,
+     "length": 12,
+     "shown": 12,
      "dests": 8,
      "dests_shown": 8
     },
     "adventure": {
-     "length": 211,
+     "length": 487,
      "shown": 24,
-     "dests": 114,
+     "dests": 171,
      "dests_shown": 12
     },
     "hiking": {
-     "length": 131,
+     "length": 188,
      "shown": 24,
      "dests": 49,
      "dests_shown": 12
     },
     "liveaboard": {
-     "length": 132,
+     "length": 137,
      "shown": 24,
      "dests": 27,
      "dests_shown": 12
     },
     "river": {
-     "length": 61,
-     "shown": 20,
-     "dests": 34,
+     "length": 74,
+     "shown": 24,
+     "dests": 37,
      "dests_shown": 12
     },
     "diveglobal": {
-     "length": 117,
-     "shown": 19,
-     "dests": 78,
+     "length": 200,
+     "shown": 24,
+     "dests": 88,
      "dests_shown": 12
     },
     "ocean": {
-     "length": 74,
-     "shown": 17,
-     "dests": 45,
+     "length": 116,
+     "shown": 20,
+     "dests": 52,
      "dests_shown": 12
     },
     "wellness": {
-     "length": 270,
+     "length": 414,
      "shown": 24,
-     "dests": 120,
+     "dests": 125,
      "dests_shown": 12
     },
     "wildlife": {
-     "length": 72,
-     "shown": 15,
-     "dests": 43,
+     "length": 119,
+     "shown": 21,
+     "dests": 51,
      "dests_shown": 12
     },
     "family": {
-     "length": 406,
+     "length": 489,
      "shown": 24,
      "dests": 158,
      "dests_shown": 12
@@ -112,9 +112,9 @@
      "dests_shown": 6
     },
     "culture": {
-     "length": 878,
+     "length": 1234,
      "shown": 24,
-     "dests": 297,
+     "dests": 306,
      "dests_shown": 12
     },
     "deepdive": {
@@ -124,45 +124,45 @@
      "dests_shown": 12
     },
     "pilgrimage": {
-     "length": 1,
-     "shown": 1,
+     "length": 2,
+     "shown": 2,
      "dests": 1,
      "dests_shown": 1
     },
     "entertainment": {
-     "length": 254,
+     "length": 302,
      "shown": 24,
      "dests": 97,
      "dests_shown": 12
     },
     "culinary": {
-     "length": 446,
+     "length": 631,
      "shown": 24,
      "dests": 199,
      "dests_shown": 12
     },
     "sports": {
-     "length": 71,
+     "length": 76,
      "shown": 24,
-     "dests": 30,
+     "dests": 33,
      "dests_shown": 12
     },
     "sailing": {
-     "length": 4,
-     "shown": 4,
-     "dests": 4,
-     "dests_shown": 4
+     "length": 10,
+     "shown": 10,
+     "dests": 10,
+     "dests_shown": 10
     },
     "yacht": {
-     "length": 15,
-     "shown": 13,
+     "length": 20,
+     "shown": 18,
      "dests": 14,
      "dests_shown": 12
     },
     "wine": {
-     "length": 55,
-     "shown": 16,
-     "dests": 35,
+     "length": 91,
+     "shown": 23,
+     "dests": 36,
      "dests_shown": 12
     }
    }

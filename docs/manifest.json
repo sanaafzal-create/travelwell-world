@@ -25,8 +25,8 @@
   {
    "file": "docs/list-sizes.json",
    "answers": "Every literal cap on a published surface vs the current length of the list it cuts — the cap-ratchet's runtime half.",
-   "sha256": "3524dc070efc9118f653658c69d6b27633987e17ff382563f08f0acca010544d",
-   "bytes": 4831
+   "sha256": "5dc7abc396f7916dbb609455140e9a8e74d1b4dad0e9f6900c573379eeeb7cf1",
+   "bytes": 4840
   },
   {
    "file": "docs/tagline-family.md",

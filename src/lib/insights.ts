@@ -14,6 +14,7 @@ import { getSupabase } from "./supabase";
 import { fetchTravelId } from "./travelId";
 import { cohortLabel, activityLabel, accessLabel } from "./identity";
 import { fetchSignals } from "./signals";
+import { jewelSis } from "./jewels";
 import { useStore } from "@/store/useStore";
 import { useCatalog } from "@/store/useCatalog";
 import { resolveDestId, type Destination } from "@/data/places";
@@ -266,7 +267,10 @@ export async function buildAtlasContext(): Promise<Record<string, unknown>> {
       if (js.length) {
         ctx.jewelsHere = js.map((j) => ({
           name: j.name,
-          si: Array.isArray(j.si_all) && j.si_all.length ? j.si_all : (Array.isArray(j.si) ? j.si : j.si ? [j.si] : []),
+          // The union, from the ONE decider (jewelSis) — this used to prefer
+          // si_all over si while the interest page read only si, so Atlas and
+          // the page could disagree about the same jewel (ruled 2026-09-04).
+          si: jewelSis(j),
           ...(Array.isArray(j.wells) && j.wells.length ? { wells: j.wells } : {}),
           ...(j.tier ? { tier: j.tier } : {}),
           ...(j.when ? { when: j.when } : {}),

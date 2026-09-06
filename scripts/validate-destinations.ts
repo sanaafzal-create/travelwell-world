@@ -532,11 +532,16 @@ if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block,
   const max = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).jewel_si_freetext_max as number;
   const bad: Record<string, number> = {};
   for (const { d } of rows)
-    for (const j of ((d.data as { jewels?: { si?: string | string[] }[] } | undefined)?.jewels ?? []))
+    for (const j of ((d.data as { jewels?: { si?: string | string[]; si_all?: string[] }[] } | undefined)?.jewels ?? []))
       // A jewel legitimately serves several interests (si as array) — count
       // each element, not the array object, or a fully-canonical pair reads
-      // as one free-text tag.
-      for (const s of (j?.si == null ? [] : Array.isArray(j.si) ? j.si : [j.si]))
+      // as one free-text tag. `si_all` counts too as of 2026-09-04: jewelSis()
+      // now joins the UNION of si and si_all, so free text in either is a tag
+      // the renderer carries but can never match.
+      for (const s of [
+        ...(j?.si == null ? [] : Array.isArray(j.si) ? j.si : [j.si]),
+        ...(Array.isArray(j?.si_all) ? j.si_all : []),
+      ])
         if (s && !boardIds.has(s)) bad[s] = (bad[s] ?? 0) + 1;
   const n = Object.values(bad).reduce((a, b) => a + b, 0);
   if (n > max) {

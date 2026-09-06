@@ -66,8 +66,19 @@ export interface PlacedJewel {
  * disagree with the first — the shape of bug this repo keeps finding is two
  * consumers of the same field that were written months apart.
  */
-export const jewelSis = (jewel: { si?: string | string[] }): string[] =>
-  jewel.si == null ? [] : Array.isArray(jewel.si) ? jewel.si : [jewel.si];
+export const jewelSis = (jewel: { si?: string | string[]; si_all?: string[] }): string[] => {
+  // Ruled 2026-09-04, answering the library's field audit: `si` is the jewel's
+  // PRIMARY interest, `si_all` is its full spread, and what a jewel serves is
+  // the UNION of the two — Atlas's insights already read si_all while this
+  // join read only si, which made the interest page and Atlas disagree about
+  // the same jewel. One decider, one answer. (`si_tag` and `shelf_fit` are
+  // library-side fields: nothing here reads them, deliberately.) Free text or
+  // a retired slug in either field simply never matches a board page — safe by
+  // construction — and the ingest ratchet counts both fields so it shrinks.
+  const primary = jewel.si == null ? [] : Array.isArray(jewel.si) ? jewel.si : [jewel.si];
+  const all = Array.isArray(jewel.si_all) ? jewel.si_all : [];
+  return [...new Set([...primary, ...all])];
+};
 
 /**
  * ── AND THE CAP GAINED DEPTH (2026-08-28, David: "VERY THIN. Increase.") ────
