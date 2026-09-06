@@ -415,7 +415,21 @@ export const SUBREGIONS: Record<string, string[]> = {
     // shelf to land on, blocking ~30 dossiers. Strings assigned on the
     // library's proposal, following the region's own Country — Place form.
     // Defined, not yet published: neither renders until its first row lands.
-    "Kenya — South Coast / Diani", "Tanzania — Zanzibar & the Spice Islands"],
+    "Kenya — South Coast / Diani", "Tanzania — Zanzibar & the Spice Islands",
+    // THE COAST, COMPLETED + THE GATEWAYS (2026-09-04, same process — the
+    // library proposed seven with a first destination and a reason each; all
+    // seven assigned as proposed, plus Mikumi ruled its own place-specific
+    // string to match the southern-circuit convention already set). Lamu gets
+    // its own shelf for a SAFETY reason, not a commercial one: the FCDO
+    // advises against all travel to Lamu County "except for Lamu Island and
+    // Manda Island" — filing the island under a county heading would flatten
+    // an exception they wrote deliberately. Mafia was ruled INTO "Zanzibar &
+    // the Spice Islands" (a shelf is where, not what — its dive-product
+    // distinction lives in its SI tags). None of these render until a row lands.
+    "Kenya — North Coast / Malindi & Watamu", "Kenya — Lamu Archipelago",
+    "Kenya — Rift Valley Lakes", "Kenya — Mount Kenya & the Central Highlands",
+    "Kenya — Nairobi", "Tanzania — Mainland Coast & Kilwa",
+    "Tanzania — Arusha & the Northern Gateway", "Tanzania — Southern Circuit / Mikumi"],
   "06A": ["Okavango & Falls", "South Africa", "Namibia Desert & Coast", "Mozambique & Coast"],
   "07A": ["Southeast Asia", "Bali — Indonesia", "Komodo — Indonesia (East Nusa Tenggara)", "Maldives — Indian Ocean", "Phuket — Thailand (Andaman Sea)", "Raja Ampat — Indonesia (Southwest Papua)", "Similan Islands — Thailand (Andaman Sea)", "Tubbataha Reefs — Philippines (Sulu Sea, Cagayancillo, Palawan)"],
   "08A": ["Hokkaido", "Japanese Alps/Nagano", "Tōhoku"],
