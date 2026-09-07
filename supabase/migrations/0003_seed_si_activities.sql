@@ -31,7 +31,7 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('ocean', 'Ocean & Watersports', 'the open water', 'preview', '#2C6E68', false, 'water', null),
   ('wellness', 'Wellness, Spa & Retreats', 'coming home to yourself', 'preview', '#4F8C7A', false, 'nature', null),
   ('wildlife', 'Wildlife & Nature', 'wild places, up close', 'preview', '#4A7A3C', false, 'nature', null),
-  ('glamping', 'Global Glamping', 'wild, but well-appointed', 'preview', '#7A6B4F', false, 'nature', null),
+  ('glamping', 'Global Glamping', 'wild, but well-appointed', 'preview', '#7A6B4F', false, 'adventure', null),
   ('family', 'Family Travel', 'everyone, together', 'preview', '#C98A2E', false, 'lifestage', null),
   ('group', 'Group Travel', 'better, together', 'preview', '#C27A3C', false, 'lifestage', null),
   ('senior', 'Senior Travel', 'unhurried, well-earned', 'preview', '#7A5B3B', false, 'lifestage', null),

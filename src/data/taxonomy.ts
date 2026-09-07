@@ -184,7 +184,8 @@ const BASE_SIS: SpecialInterest[] = [
   /* 5 — Nature & Wellbeing (3) */
   { id: "wellness", name: "Wellness, Spa & Retreats", sig: "coming home to yourself", status: "preview", accent: "#4F8C7A", lux: false, group: "nature" },
   { id: "wildlife", name: "Wildlife & Nature", sig: "wild places, up close", status: "preview", accent: "#4A7A3C", lux: false, group: "nature" },
-  { id: "glamping", name: "Global Glamping", sig: "wild, but well-appointed", status: "preview", accent: "#7A6B4F", lux: false, group: "nature" },
+  // glamping moved nature -> adventure (David's ruling, 2026-09-05: "we need to add glamping into category 3, Adventure and active"). group is single-valued, so the move is out of Nature & Wellbeing.
+  { id: "glamping", name: "Global Glamping", sig: "wild, but well-appointed", status: "preview", accent: "#7A6B4F", lux: false, group: "adventure" },
 
   /* 6 — Life-Stage (3) */
   { id: "family", name: "Family Travel", sig: "everyone, together", status: "preview", accent: "#C98A2E", lux: false, group: "lifestage" },

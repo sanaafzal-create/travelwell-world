@@ -205,7 +205,7 @@
       "sig": "wild, but well-appointed",
       "accent": "#7A6B4F",
       "lux": false,
-      "group": "nature"
+      "group": "adventure"
     },
     {
       "id": "family",
@@ -328,19 +328,23 @@
   "retired": [
     {
       "id": "nightlife",
-      "name": "Nightlife & City"
+      "name": "Nightlife & City",
+      "group": "culture"
     },
     {
       "id": "olympic",
-      "name": "Olympic Travel"
+      "name": "Olympic Travel",
+      "group": "sports"
     },
     {
       "id": "prosports",
-      "name": "Pro Sports Team Travel"
+      "name": "Pro Sports Team Travel",
+      "group": "sports"
     },
     {
       "id": "compsports",
-      "name": "Competitive Sports Team Travel"
+      "name": "Competitive Sports Team Travel",
+      "group": "sports"
     }
   ],
   "categories": [

@@ -66,7 +66,12 @@ const payload = {
    * generated seed carries `delete … where id not in (…)`, so removing one from
    * the array really drops it from Postgres. Never a valid mapping target.
    */
-  retired: retired.map((s) => ({ id: s.id, name: s.name })),
+  retired: retired.map((s) => ({
+    id: s.id, name: s.name,
+    // group rides along (library suggestion, 2026-09-05) so a consumer can see
+    // WHERE a retired slug sat — recognition data, never an acceptance signal.
+    group: (s as { group?: string }).group ?? null,
+  })),
 
   /**
    * CATEGORY HEADINGS, not interests. These are what a text scrape mistakes for
