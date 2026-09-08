@@ -29,6 +29,7 @@ export const MESSAGES: Record<string, Dict> = {
   "nav.guides":  { en: "Read Before Travel", es: "Léelo antes de viajar", ar: "اقرأ قبل السفر", zh: "出行前必读", fr: "À lire avant de partir" },
   "nav.about":   { en: "About", es: "Acerca de", ar: "من نحن", zh: "关于", fr: "À propos" },
   "nav.signin":  { en: "Sign in", es: "Iniciar sesión", ar: "تسجيل الدخول", zh: "登录", fr: "Se connecter" },
+  "nav.signup":  { en: "Sign up", es: "Crear cuenta", ar: "إنشاء حساب", zh: "注册", fr: "Créer un compte" },
   "nav.atlas":   { en: "Speak with Atlas", es: "Habla con Atlas", ar: "تحدّث مع Atlas", zh: "与 Atlas 对话", fr: "Parler avec Atlas" },
 
   // ── Home hero (first screen a cold visitor sees) ────────────────────────

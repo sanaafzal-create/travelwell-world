@@ -68,7 +68,15 @@ export function Header() {
                 <span className="tw-me-av" aria-hidden="true">{(firstName ?? user?.email ?? "A").charAt(0).toUpperCase()}</span>
                 {firstName ?? (user?.email ? user.email.split("@")[0] : "Account")}
               </Link>
-            : <Link className="tw-signin" to="/signin">{t("nav.signin")}</Link>}
+            : <>
+                <Link className="tw-signin" to="/signin">{t("nav.signin")}</Link>
+                {/* The cold visitor's way IN, findable in one glance (David's
+                    first-traveler note, 2026-09-07: a white button below the
+                    fold cost him ten seconds — a VC gives it two). Pine pill,
+                    so it reads as THE action without competing with Emergency,
+                    which stays the only red. */}
+                <Link className="tw-signup" to="/signup">{t("nav.signup")}</Link>
+              </>}
           <div className="tw-locale" ref={localeRef}>
             <button
               className="tw-locale__btn"

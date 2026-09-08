@@ -76,6 +76,25 @@ If the line is deliberate poetry, it still closes on the one-word mark: keep the
 image ("The wild is calling.") and let the mark end it.`,
   },
   {
+    // ── THE BANNED VOCABULARY (David 2026-07-29, re-ruled 2026-09-07) ───────
+    // "honest / honestly / up front / let me be straight" are banned in
+    // traveler-facing copy — each implies everything said before it was less
+    // than accurate ("so you've been lying to me until now?"). The rule was
+    // canon for Atlas's vocabulary; David's 2026-09-07 note makes it a gate
+    // over everything that ships. Scanning dist keeps source comments (which
+    // legitimately discuss the rule) out of scope, same as the mark rules.
+    // "straight" alone stays allowed — canon prefers it — only the
+    // let-me-be-straight construction is the tell.
+    id: "banned-vocabulary",
+    re: /\bhonest(?:ly)?\b|\bup-?front\b|let me be straight/i,
+    headline: "BANNED VOCABULARY SHIPS",
+    advice: `"honest/honestly/upfront/let me be straight" are banned in anything a traveler
+reads (David, 2026-07-29 and 2026-09-07). Each one implies the surrounding copy
+was less than accurate. Replace with: accurate · plainly · in advance · stated
+outright — or simply delete the qualifier; a true sentence doesn't need a
+warm-up. Fix at the source, not here.`,
+  },
+  {
     // ── THE UNRELEASED NAME MUST NOT SHIP ───────────────────────────────────
     // The site is TravelWell.World. The rebrand to TravelVisions.World is real
     // and already on social, but it is NOT announced here — so the name reaching

@@ -41,7 +41,12 @@
 .tw-me-av { width: 26px; height: 26px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; font-size: 13px; font-weight: 700; flex: none; }
 .tw-signin { font-family: var(--font-sans); font-weight: 600; font-size: 16px; color: var(--foreground); text-decoration: none; padding: 9px 14px; border-radius: var(--radius-pill); transition: background-color .15s ease; white-space: nowrap; }
 .tw-signin:hover { background: var(--secondary); text-decoration: none; }
-@media (max-width: 560px) { .tw-signin { display: none; } }
+/* Sign up is the filled pine pill beside the Sign-in text link — the one action
+   a cold visitor must find in a glance. It survives narrow headers where the
+   sign-in link hides; Emergency remains the only red control. */
+.tw-signup { font-family: var(--font-sans); font-weight: 600; font-size: 16px; color: var(--primary-foreground); background: var(--primary); text-decoration: none; padding: 9px 16px; border-radius: var(--radius-pill); transition: background-color .15s ease; white-space: nowrap; }
+.tw-signup:hover { background: var(--primary-hover); text-decoration: none; color: var(--primary-foreground); }
+@media (max-width: 560px) { .tw-signin { display: none; } .tw-signup { padding: 8px 13px; font-size: 15px; } }
 
 /* round icon action buttons */
 .tw-iconbtn { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; position: relative; transition: background-color .15s ease, border-color .15s ease; }
