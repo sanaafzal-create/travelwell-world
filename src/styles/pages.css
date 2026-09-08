@@ -116,6 +116,13 @@
   [data-page="home"] .os-stat .l { font-size: 13px; color: var(--dark-band-muted); margin-top: 8px; }
   [data-page="home"] .os-stat .b { font-size: 13px; color: rgba(255,255,255,.4); margin-top: 4px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
   /* === A Travel Operating System — cinematic feature bands === */
+  /* Marquee Moments tiles — real cards, not tints. They sit on the linen band,
+     so the ground is --card (white): a linen tile on a linen band reads flat.
+     Hover matches the house pattern (wi-card / rg-card): lift + e2 + a
+     primary-tinted edge. */
+  [data-page="home"] .mrq-tile { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--border-hair); border-radius: 14px; padding: 14px; background: var(--card); box-shadow: var(--e1); text-decoration: none; color: inherit; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  [data-page="home"] .mrq-tile:hover { transform: translateY(-3px); box-shadow: var(--e2); border-color: color-mix(in oklch, var(--primary) 30%, var(--border)); text-decoration: none; }
+  @media (prefers-reduced-motion: reduce) { [data-page="home"] .mrq-tile, [data-page="home"] .mrq-tile:hover { transition: none; transform: none; } }
   [data-page="home"] .os-intro { text-align: center; max-width: 780px; margin: 0 auto 44px; }
   [data-page="home"] .os-intro .eyebrow { display: block; margin-bottom: 14px; }
   [data-page="home"] .os-intro h2 { font-size: clamp(32px, 4.6vw, 56px); line-height: 1.04; letter-spacing: -.015em; }

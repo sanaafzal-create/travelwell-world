@@ -335,7 +335,7 @@ export default function Home() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))", gap: 12 }}>
             {MARQUEE_EVENTS.slice(0, 8).map((e) => (
-              <Link key={e.id} to="/calendar" className="mrq-tile" style={{ border: "1px solid var(--border)", borderRadius: 14, padding: 14, background: "var(--surface-alt)", display: "flex", flexDirection: "column", gap: 6, textDecoration: "none", color: "inherit" }}>
+              <Link key={e.id} to="/calendar" className="mrq-tile">
                 <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", minHeight: 22 }}>
                   {e.flagship && <span style={{ background: "var(--gold-deep)", color: "white", fontSize: 13, fontWeight: 600, padding: "2px 8px", borderRadius: 999 }}>{t("mrq.flagship")}</span>}
                   {e.regionName && <span className="t-body-s" style={{ color: "var(--muted-foreground)" }}>{ct(`region.${e.regionCode}.name`, e.regionName)}</span>}
