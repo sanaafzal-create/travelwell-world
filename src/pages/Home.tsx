@@ -350,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* ---- A TRAVEL OPERATING SYSTEM — cinematic bands ---- */}
-      <section className="section band-ivory" style={{ paddingTop: 0 }}>
+      <section className="section band-ivory">
         <div className="container">
           <div className="os-intro">
             <Eyebrow>{t("os.eyebrow")}</Eyebrow>
