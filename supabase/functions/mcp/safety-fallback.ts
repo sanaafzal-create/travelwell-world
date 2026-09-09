@@ -922,41 +922,21 @@ var safety_default = {
     country: "Jordan",
     lvl: 3,
     label: "Reconsider travel",
-    summary: "Reconsider travel due to terrorism and regional conflict; several border zones are off-limits.",
+    summary: "Exercise increased caution. The FCDO advises against all travel only within 3km of the border with Syria; on 25 August 2026 it withdrew the advice against all but essential travel to Aqaba's airport and seaport, following review of the security situation (page read in full 2026-08-25).",
     considerations: [
       "Conflict-driven drone/missile risk region-wide since Feb 2026.",
       "The core Amman-Petra-Wadi Rum-Dead Sea circuit sits away from the Level 4 zones, but the country-wide Level 3 is volatile.",
       "Modest dress and customs sensitivity at religious sites."
     ],
     medical: "Drink bottled water; extreme desert heat and sun exposure at Petra/Wadi Rum \u2014 hydrate and protect from sun.",
-    source: "UK FCDO, May 2026",
-    verified: "2026-06",
+    source: "UK FCDO, page updated 25 Aug 2026 (read in full via the verbatim store)",
+    verified: "2026-09",
     zones: [
       {
-        name: "The Syria and Iraq border areas",
-        lvl: 4
-      },
-      {
-        name: "Designated refugee camps",
-        lvl: 4
-      },
-      {
-        name: "Rusayfah",
-        lvl: 4
-      },
-      {
-        name: "The Baqa'a area of Ayn Basha",
-        lvl: 4
-      },
-      {
-        name: "Mansheyat al Ghayyath and Ruwayshid",
+        name: "within 3km of the border with Syria",
         lvl: 4,
-        note: "Cross-border violence, terrorism and crime."
-      },
-      {
-        name: "Zarqa City",
-        lvl: 3,
-        note: "Terrorism and crime."
+        posture: "all",
+        note: "The Syria and Iraq quotes on Jordan's page are cross-references to those countries' own advisories, not areas inside Jordan \u2014 the Colombia/Venezuela pattern."
       }
     ]
   },
@@ -978,44 +958,68 @@ var safety_default = {
     country: "Kenya",
     lvl: 2,
     label: "Exercise increased caution",
-    summary: "Exercise increased caution; mainstream safari areas are Level 2, but several border and coastal zones are off-limits.",
+    summary: "Exercise increased caution; the mainstream safari circuits and the south coast sit outside every named area, but the FCDO advises against all travel to several north-eastern border areas and most of Lamu County \u2014 with Lamu Island and Manda Island explicitly excepted (page read in full 2026-09-01).",
     considerations: [
       "Violent crime and carjacking, including in Nairobi.",
       "Poor road safety \u2014 avoid night driving.",
       "Maasai Mara, Amboseli and Tsavo sit in the Level 2 zone."
     ],
     medical: "Yellow-fever vaccination recommended (certificate required if arriving from a risk country); malaria prophylaxis strongly advised for safari areas; bottled/treated water; carry medevac insurance.",
-    source: "UK FCDO, Mar 2025",
-    verified: "2026-06",
+    source: "UK FCDO, page updated 1 Sep 2026 (read in full via the verbatim store)",
+    verified: "2026-09",
     zones: [
       {
-        name: "Mandera, Wajir and Garissa counties",
+        name: "Mandera County",
         lvl: 4,
-        note: "The Somalia border counties."
+        posture: "all"
+      },
+      {
+        name: "Tarbaj and Wajir East constituencies in Wajir County",
+        lvl: 4,
+        posture: "all",
+        except: [
+          "Wajir Town"
+        ]
+      },
+      {
+        name: "areas of Wajir County within 60km of Kenya's border with Somalia",
+        lvl: 4,
+        posture: "all"
+      },
+      {
+        name: "Garissa County",
+        lvl: 4,
+        posture: "all",
+        except: [
+          "Garissa Town",
+          "the constituency of Lagdera",
+          "the areas of Balambala constituency which lie north and west of the main road which runs from Saka on the Tana River up to the intersection with the C81 Road"
+        ]
       },
       {
         name: "Lamu County",
-        lvl: 4
+        lvl: 4,
+        posture: "all",
+        except: [
+          "Lamu Island",
+          "Manda Island"
+        ],
+        note: "The FCDO's operational guidance for the excepted islands: fly to Lamu Airport rather than travel by road."
       },
       {
-        name: "Tana River",
-        lvl: 4
+        name: "Garissa Town",
+        lvl: 3,
+        posture: "all-but-essential"
       },
       {
-        name: "Kilifi north of Malindi",
-        lvl: 4
+        name: "Tana River County north of the Tana River as far as the town of Saka",
+        lvl: 3,
+        posture: "all-but-essential"
       },
       {
-        name: "The northern border areas",
-        lvl: 4
-      },
-      {
-        name: "Eastleigh, Nairobi",
-        lvl: 3
-      },
-      {
-        name: "Kibera, Nairobi",
-        lvl: 3
+        name: "within 15km of the east coast between the Tana River and the Galana (Athi-Galana-Sabaki) River",
+        lvl: 3,
+        posture: "all-but-essential"
       }
     ]
   },
@@ -1729,9 +1733,9 @@ var safety_default = {
     label: "No advisory against travel",
     summary: "The UK FCDO publishes no country-wide advisory against travel in Uganda. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading \u2014 read the advisory in full below before you plan.",
     considerations: [
-      'FCDO health page (updated 2026-07-27): "On 15 May the Ugandan Ministry of Health announced an outbreak of Ebola Bundibugyo in Uganda, including in Kampala." A named outbreak is health information, not an advisory against travel \u2014 the FCDO restricts nothing in Uganda \u2014 but it is exactly what an informed traveler checks before booking.'
+      'The Ebola outbreak in Uganda was declared over by the WHO on 27 August 2026; the FCDO updated its page on 2 September 2026 and now holds zero warning quotes for Uganda. One sentence of theirs stays visible rather than rounded off: "The outbreak in neighbouring DRC continues and the risk of transmission into Uganda remains."'
     ],
-    source: "UK FCDO country advisory \u2014 no advisory against travel; alert_status empty (verbatim snapshot from the research library, 2026-08-22)",
+    source: "UK FCDO, page updated 2 Sep 2026 (read via the verbatim store)",
     reported: true,
     fromAbsence: true
   },

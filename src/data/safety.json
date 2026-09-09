@@ -42,7 +42,7 @@
    "Bushfire season (Nov-Mar) and tropical cyclones in the north; flash flooding.",
    "Strong ocean rips, marine stingers and saltwater crocodiles in northern waters.",
    "Intense sun and heat; vast outback driving distances."
- ],
+  ],
   "medical": "High-quality care; tap water safe; evacuation insurance wise for remote/outback travel.",
   "source": "UK FCDO — Australia travel advice (page updated 2026-03-19; slug ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
   "reported": true,
@@ -57,7 +57,7 @@
    "Driving on the left on narrow rural roads is a leading cause of visitor injury.",
    "Earthquakes, volcanic activity and fast-changing alpine/coastal weather.",
    "Vehicle and hostel theft in tourist areas; strict biosecurity declarations."
- ],
+  ],
   "medical": "Care is not free — carry insurance with evacuation cover; tap water safe.",
   "source": "UK FCDO — New Zealand travel advice (page updated 2026-03-19; slug ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
   "reported": true,
@@ -113,1712 +113,1716 @@
   "reported": true,
   "fromAbsence": true
  },
-  "AE": {
-    "country": "United Arab Emirates",
+ "AE": {
+  "country": "United Arab Emirates",
+  "lvl": 3,
+  "label": "Reconsider travel",
+  "summary": "Reconsider travel due to regional conflict and missile/drone risk plus major flight disruption — a sharp, recent change from the UAE's normal baseline.",
+  "considerations": [
+   "Elevated to Level 3 in March 2026 after US-Iran hostilities began (ordered departure of non-emergency US government staff).",
+   "The practical traveler impact is airspace/flight disruption and the volatile regional situation rather than routine local crime.",
+   "Strict local laws apply: zero tolerance for drugs (including residual amounts and CBD), public-conduct and social-media rules, photography restrictions, and Ramadan daytime-fasting norms.",
+   "Status hinges on the US-Iran situation and is fast-moving — re-verify before any booking."
+  ],
+  "medical": "Bottled water commonly preferred; extreme summer heat (45C+) carries serious heat-illness risk at midday.",
+  "source": "UK FCDO, Mar 2026",
+  "verified": "2026-06"
+ },
+ "AI": {
+  "country": "Anguilla",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Anguilla. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-05",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "AR": {
+  "country": "Argentina",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Argentina. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-05",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "AT": {
+  "country": "Austria",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions. Crime is low and rarely violent; the risk to plan for is the mountain — weather and avalanche, managed by resort patrol.",
+  "considerations": [
+   "Ski in-bounds and heed piste closures and avalanche warnings; hire a certified guide off the marked runs.",
+   "Standard urban petty theft and pickpocketing in tourist areas (Vienna, Salzburg, Innsbruck).",
+   "Excellent emergency services; the European emergency number is 112."
+  ],
+  "medical": "No special vaccinations; EU-standard care; carry travel plus winter-sports/medevac cover for off-piste and high-alpine activity.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "AW": {
+  "country": "Aruba",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Aruba. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-07",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "BB": {
+  "country": "Barbados",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Barbados. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-01",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "BE": {
+  "country": "Belgium",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Belgium. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "BL": {
+  "country": "St. Barthélemy (France/EU)",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in St. Barthélemy (France/EU). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "BQ": {
+  "country": "Bonaire, Sint Eustatius and Saba",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Bonaire, Sint Eustatius and Saba. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "BR": {
+  "country": "Brazil",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against all but essential travel to river areas in the west of Amazonas State — listed below in its own words. The rest of Brazil, including Salvador, Rio de Janeiro and the coastal cities, carries no FCDO restriction.",
+  "considerations": [],
+  "source": "UK FCDO — Brazil travel advice, reviewed 2026-05-11 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "River areas in the west of Amazonas State",
     "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "Reconsider travel due to regional conflict and missile/drone risk plus major flight disruption — a sharp, recent change from the UAE's normal baseline.",
-    "considerations": [
-      "Elevated to Level 3 in March 2026 after US-Iran hostilities began (ordered departure of non-emergency US government staff).",
-      "The practical traveler impact is airspace/flight disruption and the volatile regional situation rather than routine local crime.",
-      "Strict local laws apply: zero tolerance for drugs (including residual amounts and CBD), public-conduct and social-media rules, photography restrictions, and Ramadan daytime-fasting norms.",
-      "Status hinges on the US-Iran situation and is fast-moving — re-verify before any booking."
-    ],
-    "medical": "Bottled water commonly preferred; extreme summer heat (45C+) carries serious heat-illness risk at midday.",
-    "source": "UK FCDO, Mar 2026",
-    "verified": "2026-06"
-  },
-  "AI": {
-    "country": "Anguilla",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Anguilla. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-05",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "AR": {
-    "country": "Argentina",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Argentina. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-05",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "AT": {
-    "country": "Austria",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions. Crime is low and rarely violent; the risk to plan for is the mountain — weather and avalanche, managed by resort patrol.",
-    "considerations": [
-      "Ski in-bounds and heed piste closures and avalanche warnings; hire a certified guide off the marked runs.",
-      "Standard urban petty theft and pickpocketing in tourist areas (Vienna, Salzburg, Innsbruck).",
-      "Excellent emergency services; the European emergency number is 112."
-    ],
-    "medical": "No special vaccinations; EU-standard care; carry travel plus winter-sports/medevac cover for off-piste and high-alpine activity.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "AW": {
-    "country": "Aruba",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Aruba. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-07",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "BB": {
-    "country": "Barbados",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Barbados. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-01",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "BE": {
-    "country": "Belgium",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Belgium. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "BL": {
-    "country": "St. Barthélemy (France/EU)",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in St. Barthélemy (France/EU). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "BQ": {
-    "country": "Bonaire, Sint Eustatius and Saba",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Bonaire, Sint Eustatius and Saba. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "BR": {
-    "country": "Brazil",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against all but essential travel to river areas in the west of Amazonas State — listed below in its own words. The rest of Brazil, including Salvador, Rio de Janeiro and the coastal cities, carries no FCDO restriction.",
-    "considerations": [],
-    "source": "UK FCDO — Brazil travel advice, reviewed 2026-05-11 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "River areas in the west of Amazonas State",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "Along the Amazon River and its tributaries west of Codajás and east of Belém do Solimões; any part of the Itaquaí River; any part of the Japurá River or its tributaries; and the Rio Negro and its tributaries north or west of Barcelos."
-      }
-    ]
-  },
-  "BS": {
-    "country": "Bahamas",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to crime, concentrated in parts of Nassau and Freeport.",
-    "considerations": [
-      "Armed robbery and burglary occur mostly in New Providence (Nassau) and Grand Bahama (Freeport).",
-      "Unregulated watercraft and jet-ski operators (assaults reported).",
-      "Swim hazards: never swim alone; occasional shark incidents.",
-      "Firearms and even a single stray round of ammunition are illegal — check bags before flying."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "BW": {
-    "country": "Botswana",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Botswana. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-06",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "BZ": {
-    "country": "Belize",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Belize. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-06",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "CA": {
-    "country": "Canada",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions. Crime is low; plan for weather and distance, which are the practical risks across most of the country.",
-    "considerations": [
-      "Petty theft and vehicle break-ins in tourist areas.",
-      "Winter snow and ice (some provinces require snow tires); remote Arctic areas have slow emergency response.",
-      "Strict firearm-declaration rules at the border."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "CH": {
-    "country": "Switzerland",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions. Crime is low; the risk to plan for is the mountain — weather, altitude and avalanche.",
-    "considerations": [
-      "Year-round alpine hazards: avalanche, sudden weather changes, unmarked terrain.",
-      "Pickpocketing at tourist sites and on public transport.",
-      "Medical care is excellent but expensive — carry insurance with evacuation cover."
-    ],
-    "medical": "Tap water is among the cleanest in Europe; healthcare is not free.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "CL": {
-    "country": "Chile",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to rising crime and periodic large demonstrations.",
-    "considerations": [
-      "Street crime (muggings, pickpocketing) is common and violent crime is increasing in cities.",
-      "Large protests in Santiago and elsewhere arise with little notice and disrupt transport.",
-      "Secure valuables even in locked vehicles."
-    ],
-    "medical": "A low-level Hantavirus (Andes virus) health notice exists, but risk to typical visitors is very low.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "CO": {
-    "country": "Colombia",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution country-wide. The FCDO advises against all but essential travel to named parts of Colombia — border regions and several departments, listed below — while the main cities and the Caribbean coast sit outside every named area. No part of Colombia currently carries a do-not-travel advisory (page read in full 2026-08-31).",
-    "considerations": [
-      "Violent crime and express kidnapping occur nationwide; drug-assisted robbery (scopolamine) is reported — do not accept food, drinks or flyers from strangers, and use only pre-booked or authorised taxis.",
-      "Terrorist attacks target transit and government sites; protests can turn violent.",
-      "Active volcanoes, earthquakes and landslides in some regions.",
-      "10 Aug 2026: a magnitude 7.4 earthquake near San José del Palmar (Chocó) affected large parts of the country; Matecaña International Airport in Pereira closed. Follow local authorities and expect aftershocks — re-verify before travel to the west."
-    ],
-    "medical": "Yellow-fever vaccination is recommended for lower-altitude/jungle regions (verify per region).",
-    "source": "UK FCDO — Colombia travel advice (page updated 2026-08-18; read in full 2026-08-31)",
-    "verified": "2026-08-31",
-    "zones": [
-      {
-        "name": "all of Norte de Santander Department, including Cúcuta",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "all of Arauca Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the municipality of Puerto Carreño in Vichada Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "within 5km of the rest of the border with Venezuela",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "The FCDO separately advises against all travel to Venezuela's side of the border — do not use any Colombia-Venezuela land crossing."
-      },
-      {
-        "name": "Chocó Department",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the department capital Quibdó",
-          "the towns of Nuquí and Bahía Solano",
-          "Capurganá"
-        ]
-      },
-      {
-        "name": "the western part of Valle del Cauca Department, including Buenaventura",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the municipality of Jamundí, Valle del Cauca",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the South Pacific, Sanquianga and Telembi regions of Nariño Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the southern part of Córdoba Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the Urabá and Bajo Cauca regions of Antioquia Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the southern part of Bolívar Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "all of Guaviare Department",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the department capital San José del Guaviare"
-        ]
-      },
-      {
-        "name": "Cartagena del Chairá, San Vicente del Caguan, Puerto Rico, El Doncello, Paujil and La Montañita in Caquetá Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "the Ariari region of southern Meta",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "Caño Cristales"
-        ],
-        "note": "If travelling to Caño Cristales, the FCDO advises travelling by air from the town of La Macarena with a reputable tour company."
-      },
-      {
-        "name": "within 5km of the border with Ecuador",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the border crossing on the Pan-American highway at the Puente Internacional de Rumichaca",
-          "the city of Ipiales in Nariño Department"
-        ]
-      },
-      {
-        "name": "all of Cauca Department",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the department capital Popayán"
-        ],
-        "note": "The advisory page nests Cauca inside its Ecuador-border sentence; we hold it as a restricted department in its own right — the stricter of the two readings, consistent with the FCDO's regional-risks detail."
-      },
-      {
-        "name": "Orito, San Miguel, Valle del Guamuez, Puerto Caicedo, Puerto Guzmán, Puerto Asis and Puerto Leguizamo in Putumayo Department",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      }
-    ]
-  },
-  "CR": {
-    "country": "Costa Rica",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Costa Rica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-05",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "CW": {
-    "country": "Curaçao",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Curaçao. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "DE": {
-    "country": "Germany",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism risk.",
-    "considerations": [
-      "Authorities assess attacks as likely (markets, transit, places of worship, events); recent incidents are on record.",
-      "Standard urban theft and pickpocketing at airports, stations and crowded venues."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "DK": {
-    "country": "Denmark",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Denmark. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "DM": {
-    "country": "Dominica",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Dominica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "DO": {
-    "country": "Dominican Republic",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Dominican Republic. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "EC": {
-    "country": "Ecuador",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against all but essential travel to the Coastal Region provinces and a strip of the Colombian border — listed below in its own words. Quito, the Andean highlands and the Galápagos carry no FCDO restriction.",
-    "considerations": [],
-    "source": "UK FCDO — Ecuador travel advice, reviewed 2026-07-10 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "The Coastal Region provinces of Esmeraldas, Manabí, Santa Elena, Guayas, El Oro, Los Ríos and Santo Domingo de los Tsáchilas",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "airside transit within Guayaquil Airport"
-        ],
-        "note": "Gang-related violence linked to organised crime; the city of Guayaquil is inside this restriction."
-      },
-      {
-        "name": "Within 20km of the Ecuador-Colombia border",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the El Ángel Ecological Reserve",
-          "the Rumichaca border crossing",
-          "the town of Tulcán",
-          "the Pan-American Highway (in Carchi province)"
-        ]
-      }
-    ]
-  },
-  "EE": {
-    "country": "Estonia",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Estonia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "EG": {
-    "country": "Egypt",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism; the Nile corridor — Cairo, Luxor and Aswan — is Level 2, but the Sinai Peninsula and the Western Desert / Libya border are off-limits.",
-    "considerations": [
-      "Terrorist groups can attack with little warning — tourist sites, transport hubs, and places of worship.",
-      "Cairo, Giza and the Luxor–Aswan Nile-cruise corridor sit in the mainstream Level 2 zone.",
-      "Petty crime and harassment occur; use licensed guides and reputable cruise operators."
-    ],
-    "medical": "Hepatitis A/typhoid vaccination advised; drink only bottled or treated water; carry rehydration salts for traveler's diarrhea; sun and heat precautions on the Nile; carry travel/medevac insurance.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "zones": [
-      {
-        "name": "Sinai Peninsula",
-        "lvl": 4,
-        "except": [
-          "Sharm el-Sheikh, arriving by air"
-        ]
-      },
-      {
-        "name": "The Western Desert",
-        "lvl": 4
-      },
-      {
-        "name": "The Libya and Sudan border areas",
-        "lvl": 4
-      }
-    ],
-    "reported": true
-  },
-  "ES": {
-    "country": "Spain",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism risk and notably high tourist-area street crime.",
-    "considerations": [
-      "Authorities assess terrorist attacks as likely.",
-      "Widespread pickpocketing and car break-ins in tourist areas, airports and stations (distraction-team tactics).",
-      "Demonstrations occasionally turn violent.",
-      "A documented sexual-assault risk for younger travelers, often alcohol- or drug-involved."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "zones": [
-      {
-        "name": "Ceuta",
-        "lvl": 3,
-        "note": "Unrest."
-      }
-    ],
-    "reported": true
-  },
-  "ET": {
-    "country": "Ethiopia",
+    "posture": "all-but-essential",
+    "note": "Along the Amazon River and its tributaries west of Codajás and east of Belém do Solimões; any part of the Itaquaí River; any part of the Japurá River or its tributaries; and the Rio Negro and its tributaries north or west of Barcelos."
+   }
+  ]
+ },
+ "BS": {
+  "country": "Bahamas",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to crime, concentrated in parts of Nassau and Freeport.",
+  "considerations": [
+   "Armed robbery and burglary occur mostly in New Providence (Nassau) and Grand Bahama (Freeport).",
+   "Unregulated watercraft and jet-ski operators (assaults reported).",
+   "Swim hazards: never swim alone; occasional shark incidents.",
+   "Firearms and even a single stray round of ammunition are illegal — check bags before flying."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "BW": {
+  "country": "Botswana",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Botswana. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-06",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "BZ": {
+  "country": "Belize",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Belize. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-06",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "CA": {
+  "country": "Canada",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions. Crime is low; plan for weather and distance, which are the practical risks across most of the country.",
+  "considerations": [
+   "Petty theft and vehicle break-ins in tourist areas.",
+   "Winter snow and ice (some provinces require snow tires); remote Arctic areas have slow emergency response.",
+   "Strict firearm-declaration rules at the border."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "CH": {
+  "country": "Switzerland",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions. Crime is low; the risk to plan for is the mountain — weather, altitude and avalanche.",
+  "considerations": [
+   "Year-round alpine hazards: avalanche, sudden weather changes, unmarked terrain.",
+   "Pickpocketing at tourist sites and on public transport.",
+   "Medical care is excellent but expensive — carry insurance with evacuation cover."
+  ],
+  "medical": "Tap water is among the cleanest in Europe; healthcare is not free.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "CL": {
+  "country": "Chile",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to rising crime and periodic large demonstrations.",
+  "considerations": [
+   "Street crime (muggings, pickpocketing) is common and violent crime is increasing in cities.",
+   "Large protests in Santiago and elsewhere arise with little notice and disrupt transport.",
+   "Secure valuables even in locked vehicles."
+  ],
+  "medical": "A low-level Hantavirus (Andes virus) health notice exists, but risk to typical visitors is very low.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "CO": {
+  "country": "Colombia",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution country-wide. The FCDO advises against all but essential travel to named parts of Colombia — border regions and several departments, listed below — while the main cities and the Caribbean coast sit outside every named area. No part of Colombia currently carries a do-not-travel advisory (page read in full 2026-08-31).",
+  "considerations": [
+   "Violent crime and express kidnapping occur nationwide; drug-assisted robbery (scopolamine) is reported — do not accept food, drinks or flyers from strangers, and use only pre-booked or authorised taxis.",
+   "Terrorist attacks target transit and government sites; protests can turn violent.",
+   "Active volcanoes, earthquakes and landslides in some regions.",
+   "10 Aug 2026: a magnitude 7.4 earthquake near San José del Palmar (Chocó) affected large parts of the country; Matecaña International Airport in Pereira closed. Follow local authorities and expect aftershocks — re-verify before travel to the west."
+  ],
+  "medical": "Yellow-fever vaccination is recommended for lower-altitude/jungle regions (verify per region).",
+  "source": "UK FCDO — Colombia travel advice (page updated 2026-08-18; read in full 2026-08-31)",
+  "verified": "2026-08-31",
+  "zones": [
+   {
+    "name": "all of Norte de Santander Department, including Cúcuta",
     "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "The FCDO advises against all travel to several named regions and border areas of Ethiopia, and against all but essential travel to others — each is listed below in the advisory's own terms. Addis Ababa carries no FCDO restriction.",
-    "considerations": [
-      "State describes the security situation in Addis Ababa as stable, with sporadic armed conflict and civil unrest elsewhere.",
-      "Exit bans and communications disruptions are named risk indicators — a traveler can be prevented from leaving, and networks can go down regionally.",
-      "The Do Not Travel regions below cover a large share of the country; the historic northern circuit runs through several of them."
-    ],
-    "zones": [
-      {
-        "name": "The Tigray Region",
-        "lvl": 4,
-        "posture": "all",
-        "note": "FCDO advises against all travel. Civilian flights to and from Tigray have been suspended since 29 January 2026."
-      },
-      {
-        "name": "The Amhara Region",
-        "lvl": 4,
-        "posture": "all",
-        "note": "FCDO advises against all travel to all of Amhara regional state."
-      },
-      {
-        "name": "The Gambela Region",
-        "lvl": 4,
-        "posture": "all",
-        "note": "FCDO advises against all travel."
-      },
-      {
-        "name": "Within 20km of the border with Sudan",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "Within 10km of the border with South Sudan",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "Within 10km of the border with Eritrea",
-        "lvl": 4,
-        "posture": "all",
-        "note": "Including the parts of Afar region within 10km of that border."
-      },
-      {
-        "name": "Within 10km of the border with Kenya",
-        "lvl": 4,
-        "posture": "all",
-        "except": [
-          "principal roads and towns"
-        ]
-      },
-      {
-        "name": "Somali region border areas",
-        "lvl": 4,
-        "posture": "all",
-        "except": [
-          "the border town and crossing at Wajale",
-          "the principal road between Jijiga and Wajale"
-        ],
-        "note": "Within 100km of the Somalia and Kenya borders in Somali region, and within 30km of the Somalia border in Fafan zone."
-      },
-      {
-        "name": "Named areas of Oromia Region",
-        "lvl": 4,
-        "posture": "all",
-        "note": "North of (not including) the A4 in West Shewa; south and west of the A3 in North Shewa including the A3 itself there; West, East, Kellem and Horo Gudru Wollega zones including the main Addis Ababa to Gambela road."
-      },
-      {
-        "name": "In Benishangul-Gumuz: within 20km of the Sudan border, the Metekel zone and the Maokomo special zone",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "In the Central, Southern, Sidama and South West regions (formerly SNNPR): within 10km of the borders with South Sudan and Kenya",
-        "lvl": 4,
-        "posture": "all",
-        "note": "Including the shores of Lake Turkana. The FCDO restricts these border strips, not the whole regions."
-      },
-      {
-        "name": "Areas between 10 and 15km from the border with Eritrea",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "East Shewa and further named areas of Oromia",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the Addis Ababa to Adama Expressway",
-          "10km either side of the expressway between Addis Ababa and Bishoftu",
-          "the A7 from the expressway junction down to Hawassa",
-          "the Hawassa to Mega road (through West Guji and Guji)",
-          "the Finfine special zone section of the A4"
-        ],
-        "note": "All of East Shewa zone, the A4 between Addis Ababa and Cheliya, the remainder of North Shewa, and West Guji and Guji zones — each with the road exceptions listed."
-      },
-      {
-        "name": "In the Somali Region: the Siti, Nogob, Jarar, Shabelle, Korahe and Dollo zones, and areas of Liben and Afder more than 100km from the Somalia and Kenya borders",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "The rest of Benishangul-Gumuz Region",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      }
-    ],
-    "source": "UK FCDO — Ethiopia travel advice, reviewed 2026-05-29 (verbatim snapshot from the research library)",
-    "reported": true
-  },
-  "FI": {
-    "country": "Finland",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Finland. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "FO": {
-    "country": "Faroe Islands (Kingdom of Denmark)",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Faroe Islands (Kingdom of Denmark). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "FR": {
-    "country": "France",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism and persistent petty crime in tourist cities.",
-    "considerations": [
-      "Authorities assess terrorist attacks as likely (tourist sites, transit, gatherings).",
-      "Frequent pickpocketing and phone theft on the Paris Metro/RER and at stations.",
-      "Strikes and demonstrations are common and occasionally disruptive."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "GD": {
-    "country": "Grenada",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Grenada. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "GP": {
-    "country": "Guadeloupe",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Guadeloupe. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "GR": {
-    "country": "Greece",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Greece is generally safe; ordinary precautions apply.",
-    "considerations": [
-      "Pickpocketing in tourist hotspots (Athens metro, ferry terminals).",
-      "Occasional large demonstrations that disrupt transport.",
-      "Wildfire season Apr-Oct and severe summer heat."
-    ],
-    "medical": "Tap water is generally safe on the mainland; bottled is advised on some smaller islands; mind summer heat.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "GT": {
-    "country": "Guatemala",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against all but essential travel to a strip of the Mexican border and three named towns — listed below in its own words. Antigua, Lake Atitlán, Tikal and Guatemala City carry no FCDO restriction.",
-    "considerations": [
-      "Pay particular attention to your security in the border areas with Mexico, Honduras, El Salvador and Belize."
-    ],
-    "source": "UK FCDO — Guatemala travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "Within 5km of the Mexican border, from the Pacific Coast up to and including the Gracias a Dios crossing",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "The towns of Santa Ana Huista, San Antonio Huista and La Democracia, in Huehuetenango",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      }
-    ]
-  },
-  "HN": {
-    "country": "Honduras",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Honduras. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-07",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "HR": {
-    "country": "Croatia",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Croatia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "HU": {
-    "country": "Hungary",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Hungary. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "ID": {
-    "country": "Indonesia",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism and natural hazards. The FCDO's only advise-against areas are small exclusion zones around six active volcanoes — its earlier Papua restrictions no longer appear on the page (re-read 2026-08-31).",
-    "considerations": [
-      "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
-      "Ongoing terrorism plotting; variable road and ferry safety.",
-      "15 Aug 2026: a strong offshore earthquake north of Flores (East Nusa Tenggara) caused deaths, injuries and damage, with aftershocks continuing — the FCDO advises following local authorities, staying clear of damaged buildings and affected coastal areas, and expecting transport disruption in Flores and neighbouring NTT areas. Komodo sits in this region; re-verify before travel."
-    ],
-    "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic, malaria in Papua/eastern/rural areas, rabies present (incl. Bali); Hep A/B and typhoid recommended.",
-    "source": "UK FCDO — Indonesia travel advice (page updated 2026-08-28; read in full 2026-08-31)",
-    "verified": "2026-08-31",
-    "zones": [
-      {
-        "name": "within 7km of the crater of Mount Lewotobi Laki-Laki on Flores Island, East Nusa Tenggara Province",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "within 5km of the crater of Mount Sinabung in Karo Regency, North Sumatra",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "within 3km of the crater of Mount Marapi in West Sumatra",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "within 5km of the crater of Mount Semeru in Lumajang Regency, East Java",
-        "lvl": 4,
-        "posture": "all",
-        "note": "Also, in the south-east of Mount Semeru, to within 500m from any riverbank of the Besuk Kobokan river for 13km from the crater."
-      },
-      {
-        "name": "within 7km of the crater of Mount Ruang in Northern Sulawesi",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "within 7km of the crater of Mount Ibu in North Maluku Province",
-        "lvl": 4,
-        "posture": "all"
-      }
-    ]
-  },
-  "IE": {
-    "country": "Ireland",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Ireland. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-02",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "IS": {
-    "country": "Iceland",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions. The real risks are environmental — weather, road conditions and an unforgiving coastline — rather than crime.",
-    "considerations": [
-      "Rapidly changing, severe weather is the top hazard.",
-      "Ongoing Reykjanes Peninsula volcanic activity can affect the Grindavik area and occasionally airport access.",
-      "Glaciers, river crossings and sneaker waves require care."
-    ],
-    "medical": "Excellent tap water; cold and exposure risk in the highlands.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "IT": {
-    "country": "Italy",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism risk and heavy tourist-area petty crime.",
-    "considerations": [
-      "Possible terrorist attacks at tourist, transit and religious sites.",
-      "Prevalent pickpocketing and bag-snatching on transit and at major attractions.",
-      "Demonstrations can turn disruptive.",
-      "Seismic activity and active southern volcanoes (Stromboli, Vesuvius/Campi Flegrei)."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "JM": {
-    "country": "Jamaica",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Jamaica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-05",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "JO": {
-    "country": "Jordan",
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "all of Arauca Department",
     "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "Reconsider travel due to terrorism and regional conflict; several border zones are off-limits.",
-    "considerations": [
-      "Conflict-driven drone/missile risk region-wide since Feb 2026.",
-      "The core Amman-Petra-Wadi Rum-Dead Sea circuit sits away from the Level 4 zones, but the country-wide Level 3 is volatile.",
-      "Modest dress and customs sensitivity at religious sites."
-    ],
-    "medical": "Drink bottled water; extreme desert heat and sun exposure at Petra/Wadi Rum — hydrate and protect from sun.",
-    "source": "UK FCDO, May 2026",
-    "verified": "2026-06",
-    "zones": [
-      {
-        "name": "The Syria and Iraq border areas",
-        "lvl": 4
-      },
-      {
-        "name": "Designated refugee camps",
-        "lvl": 4
-      },
-      {
-        "name": "Rusayfah",
-        "lvl": 4
-      },
-      {
-        "name": "The Baqa'a area of Ayn Basha",
-        "lvl": 4
-      },
-      {
-        "name": "Mansheyat al Ghayyath and Ruwayshid",
-        "lvl": 4,
-        "note": "Cross-border violence, terrorism and crime."
-      },
-      {
-        "name": "Zarqa City",
-        "lvl": 3,
-        "note": "Terrorism and crime."
-      }
-    ]
-  },
-  "JP": {
-    "country": "Japan",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions. Crime is low; plan for earthquakes and the typhoon season, and know your building's evacuation route.",
-    "considerations": [
-      "Significant natural-hazard exposure: earthquakes, tsunamis, typhoons, heavy northern winter snow.",
-      "Very strict drug laws — some common US prescription medicines are banned.",
-      "Take care with spiked-drink incidents in major nightlife districts."
-    ],
-    "medical": "Excellent care; tap water safe; some US prescription medicines are illegal — check before travel and carry enough supply.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "KE": {
-    "country": "Kenya",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution; mainstream safari areas are Level 2, but several border and coastal zones are off-limits.",
-    "considerations": [
-      "Violent crime and carjacking, including in Nairobi.",
-      "Poor road safety — avoid night driving.",
-      "Maasai Mara, Amboseli and Tsavo sit in the Level 2 zone."
-    ],
-    "medical": "Yellow-fever vaccination recommended (certificate required if arriving from a risk country); malaria prophylaxis strongly advised for safari areas; bottled/treated water; carry medevac insurance.",
-    "source": "UK FCDO, Mar 2025",
-    "verified": "2026-06",
-    "zones": [
-      {
-        "name": "Mandera, Wajir and Garissa counties",
-        "lvl": 4,
-        "note": "The Somalia border counties."
-      },
-      {
-        "name": "Lamu County",
-        "lvl": 4
-      },
-      {
-        "name": "Tana River",
-        "lvl": 4
-      },
-      {
-        "name": "Kilifi north of Malindi",
-        "lvl": 4
-      },
-      {
-        "name": "The northern border areas",
-        "lvl": 4
-      },
-      {
-        "name": "Eastleigh, Nairobi",
-        "lvl": 3
-      },
-      {
-        "name": "Kibera, Nairobi",
-        "lvl": 3
-      }
-    ]
-  },
-  "KH": {
-    "country": "Cambodia",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution; most of the country is fine, but the Thailand border is off-limits and landmines persist in some rural areas.",
-    "considerations": [
-      "Street crime in Phnom Penh (phone and bag snatching), with occasional violent incidents.",
-      "Unexploded ordnance and landmines in remote/forested areas (Battambang, Banteay Meanchey, Pursat, Pailin) — use local guides.",
-      "Poor road safety."
-    ],
-    "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic and malaria occurs in rural/forest/border areas; serious cases evacuate to Bangkok — carry evacuation insurance.",
-    "source": "UK FCDO, Jul 2025",
-    "verified": "2026-06",
-    "zones": [
-      {
-        "name": "Within ~50 km of the Cambodia–Thailand border",
-        "lvl": 4,
-        "note": "2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists."
-      }
-    ]
-  },
-  "KN": {
-    "country": "St. Kitts & Nevis",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in St. Kitts & Nevis. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-01",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "KR": {
-    "country": "South Korea",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions. Crime is low — and note this is the Republic of Korea, not North Korea, which is Do Not Travel.",
-    "considerations": [
-      "Periodic North Korean missile tests and routine civil-defense drills are background context, not an elevated risk.",
-      "Large demonstrations can arise quickly; foreigners are barred from political activity by law.",
-      "Typhoon season in summer/fall; very low crime."
-    ],
-    "medical": "Excellent care; tap water generally safe; spring fine-dust/air-quality advisories.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "LA": {
-    "country": "Laos",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against all but essential travel to one province — named below in its own words. Luang Prabang, Vientiane and the rest of the country carry no FCDO restriction.",
-    "considerations": [],
-    "source": "UK FCDO — Laos travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "Xaisomboun Province",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      }
-    ]
-  },
-  "LC": {
-    "country": "Saint Lucia",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to the risk of crime. Violent crime can occur anywhere on the island, and guests at tourist resorts have been victims.",
-    "considerations": [
-      "Petty crime — purse snatching, pickpocketing — is common in popular tourist areas; most crime against visitors is opportunistic.",
-      "Police response times are slower than travelers from the US or UK may expect. Tourist police are present at most sites.",
-      "Saint Lucia regularly experiences hurricanes; the season runs June to November."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "LU": {
-    "country": "Luxembourg",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Luxembourg. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MA": {
-    "country": "Morocco",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Morocco. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MC": {
-    "country": "Monaco",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Monaco. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MQ": {
-    "country": "Martinique",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Martinique. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MS": {
-    "country": "Montserrat",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Montserrat. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-07",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MT": {
-    "country": "Malta",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Malta. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MV": {
-    "country": "Maldives",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Maldives. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "MX": {
-    "country": "Mexico",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against all but essential travel to named states, cities and border areas of Mexico — listed below in its own words, each with its own exceptions. The Yucatán Peninsula, Mexico City, Baja California Sur and the other main visitor regions carry no FCDO restriction.",
-    "considerations": [],
-    "source": "UK FCDO — Mexico travel advice, reviewed 2026-07-16 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "The city of Tijuana, in Baja California",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "airside transit through Tijuana airport",
-          "the Cross Border Xpress bridge linking the airport across the border",
-          "federal toll road 1D and the Via Rápida through Tijuana to the border"
-        ]
-      },
-      {
-        "name": "The city of Tecate in Baja California, including roads between Tijuana and Tecate",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "The state of Chihuahua",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the city of Chihuahua",
-          "the border crossing in Ciudad Juárez via federal toll road 45",
-          "federal toll road 45D between Chihuahua and Ciudad Juárez",
-          "the Copper Canyon rail route and the towns immediately on it, including Creel",
-          "the road from Creel via San Juanito to San Pedro",
-          "state highway 16 from San Pedro to Chihuahua"
-        ],
-        "note": "The advisory also covers the areas south-west of road 45D."
-      },
-      {
-        "name": "The state of Sinaloa",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the cities of Los Mochis and Mazatlán",
-          "road 32 between El Fuerte and Los Mochis",
-          "the 15D federal toll road running the length of the state",
-          "the Copper Canyon rail route to and from Los Mochis and El Fuerte, and the towns immediately on it"
-        ]
-      },
-      {
-        "name": "The state of Tamaulipas",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the border crossing at Nuevo Laredo via federal toll road 85D from Monterrey",
-          "federal highways 80, 81 and 85 between Tampico, Ciudad Victoria and Magueyes",
-          "the area of Tamaulipas south of those highways"
-        ]
-      },
-      {
-        "name": "The state of Zacatecas",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-       {
-        "name": "In Guanajuato: the areas south-west of road 45D",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "FCDO advises against all but essential travel to the areas south-west of road 45D. (San Miguel de Allende and Guanajuato City sit outside this area.)"
-       },
-      {
-        "name": "The state of Michoacán",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the city of Morelia via federal toll roads 15D, 126 and 43",
-          "toll road 48D between Morelia and its airport",
-          "the town of Pátzcuaro via toll roads 14D and 15 from Morelia, and boat trips on Lake Pátzcuaro",
-          "Federal Highway 15D"
-        ]
-      },
-      {
-        "name": "In Jalisco: the areas south and south-west of Lake Chapala to the Colima border",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "Thirty-nine named municipalities, including Autlán de Navarro, Sayula, Tapalpa, Cocula and Villa Corona — the advisory lists each by name."
-      },
-      {
-        "name": "In Jalisco: eleven northern municipalities",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "Bolaños, Chimaltitán, Colotlán, Hostotipaquillo, Huejúcar, Huequilla el Alto, Mezquitic, San Martín de Bolaños, Santa María de los Ángeles, Totatiche and Villa Guerrero."
-      },
-      {
-        "name": "The state of Colima",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the city of Manzanillo by sea, or by air via Manzanillo-Costalegre International Airport",
-          "direct travel via road 200 from that airport to Manzanillo"
-        ]
-      },
-      {
-        "name": "The state of Guerrero, including the city of Acapulco",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "the town of Zihuatanejo/Ixtapa accessed by air"
-        ]
-      },
-      {
-        "name": "Within 40km of the Guatemalan border, from the Pacific Coast up to and including the Gracias a Dios crossing",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "Federal Highway 199 between Rancho Nuevo, outside San Cristóbal de las Casas, and the Chancalá junction outside Palenque",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "The restriction is the highway segment, not the towns at either end."
-      }
-    ]
-  },
-  "MZ": {
-    "country": "Mozambique",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against all travel to Cabo Delgado Province and named districts of Nampula and Niassa, and against all but essential travel to the excepted areas around Pemba — listed below in its own words. Maputo, Bazaruto and the southern coast carry no FCDO restriction.",
-    "considerations": [],
-    "source": "UK FCDO — Mozambique travel advice, reviewed 2026-08-20 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "Cabo Delgado Province",
-        "lvl": 4,
-        "posture": "all",
-        "except": [
-          "Palma town",
-          "the area around Pemba and Afungi"
-        ],
-        "note": "Attacks by groups with links to Islamist extremism; the excepted areas themselves carry an all-but-essential advisory."
-      },
-      {
-        "name": "Palma town and the area around Pemba and Afungi",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "The districts of Memba and Eráti in Nampula Province",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "The districts of Mecula and Marrupo in Niassa Province",
-        "lvl": 4,
-        "posture": "all"
-      }
-    ]
-  },
-  "NA": {
-    "country": "Namibia",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to crime; no regional carve-outs.",
-    "considerations": [
-      "Opportunistic and property crime, especially in Windhoek.",
-      "The dominant real risk is self-drive gravel-road safety (rollovers, wildlife, fatigue) across vast distances.",
-      "Very limited medical and emergency services in remote areas."
-    ],
-    "medical": "Yellow fever required only if arriving from a risk country; seasonal malaria in the north (Zambezi/Caprivi, Kavango, Etosha fringe); medevac insurance strongly advised.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "NI": {
-    "country": "Nicaragua",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Nicaragua. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "NL": {
-    "country": "Netherlands",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to terrorism risk.",
-    "considerations": [
-      "Authorities assess continued attack plotting (tourist sites, transit, gatherings).",
-      "Standard urban pickpocketing in crowded Amsterdam tourist areas and on transit."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "NO": {
-    "country": "Norway",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Norway is among the safest destinations; the risks are environmental.",
-    "considerations": [
-      "Very low crime.",
-      "Arctic and mountain weather, winter avalanche zones, and fjord/hiking exposure are the main hazards.",
-      "Svalbard requires special preparation (polar-bear risk outside settlements)."
-    ],
-    "medical": "Excellent tap water; cold-exposure and winter-driving risk.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "OM": {
-    "country": "Oman",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Oman. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-07",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "PA": {
-    "country": "Panama",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Panama. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "PE": {
-    "country": "Peru",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution; the tourist circuit is Level 2, but two remote regions are off-limits.",
-    "considerations": [
-      "Petty theft, carjackings and muggings occur even in daylight.",
-      "Demonstrations can block roads and rail without warning.",
-      "Cusco, the Sacred Valley, the Inca Trail and Machu Picchu are NOT in the restricted zones."
-    ],
-    "medical": "Altitude is the key concern — Cusco (~3,400 m) and the Sacred Valley/Inca Trail carry real altitude-sickness risk; acclimatize first. Yellow-fever vaccination recommended for the Amazon/jungle.",
-    "source": "UK FCDO, May 2025",
-    "verified": "2026-06",
-    "zones": [
-      {
-        "name": "The VRAEM (Apurimac, Ene and Mantaro valley)",
-        "lvl": 4
-      },
-      {
-        "name": "The Colombia-border area of Loreto",
-        "lvl": 4
-      }
-    ]
-  },
-  "PF": {
-    "country": "French Polynesia",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "French Polynesia (Tahiti, Bora Bora, the Society Islands) is low-risk; ordinary precautions apply. It has its own US advisory, separate from mainland France.",
-    "considerations": [
-      "Generally low crime, with occasional petty theft.",
-      "Cyclone season Nov-Apr.",
-      "Outer-atoll remoteness means limited services and slower emergency response."
-    ],
-    "medical": "Good care on Tahiti, limited on outer atolls; mosquito-borne illness (e.g. dengue) present; evacuation insurance advised.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "PH": {
-    "country": "Philippines",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution; the country baseline is Level 2, and Mindanao and the Sulu Archipelago carry their own, stricter levels.",
-    "considerations": [
-      "Reissued 8 May 2025 with a Kidnapping indicator.",
-      "UK FCDO advice reissued 1 April 2026: advises against all travel to western and central Mindanao including the Sulu archipelago, and against all but essential travel to the rest of Mindanao.",
-      "Luzon and the Visayas — Manila, Palawan, Cebu, Bohol, Boracay, Siargao — sit at the country baseline."
-    ],
-    "zones": [
-      {
-        "name": "The Sulu Archipelago, including the southern Sulu Sea",
-        "lvl": 4
-      },
-      {
-        "name": "Marawi City, Mindanao",
-        "lvl": 4
-      },
-      {
-        "name": "Mindanao",
-        "lvl": 3,
-        "except": [
-          "Davao City",
-          "Davao del Norte",
-          "Siargao Island",
-          "the Dinagat Islands"
-        ],
-        "note": "The remainder of Mindanao. The four named exceptions sit at the country baseline."
-      }
-    ],
-    "source": "UK FCDO, reissued 1 Apr 2026",
-    "verified": "2026-08"
-  },
-  "PR": {
-    "country": "Puerto Rico (US territory)",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Puerto Rico (US territory). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "PT": {
-    "country": "Portugal",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Portugal is generally safe; ordinary precautions apply.",
-    "considerations": [
-      "Pickpocketing and bag-snatching at popular sites and on transit; car break-ins, especially of rentals.",
-      "Summer wildfire risk on the mainland.",
-      "Note local laws: cannabis/CBD and pepper spray are illegal."
-    ],
-    "medical": "Tap water safe; good healthcare.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "PW": {
-    "country": "Palau",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Palau. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "QA": {
-    "country": "Qatar",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Qatar. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "RW": {
-    "country": "Rwanda",
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the municipality of Puerto Carreño in Vichada Department",
     "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "Reconsider travel due to crime and unrest. Some areas carry increased risk — the DRC border zone below is Do Not Travel.",
-    "considerations": [
-      "Petty crime such as pickpocketing is a risk in urban areas; burglary and targeted theft are less common but do happen.",
-      "Armed groups and military forces clash in nearby countries, and that violence carries a risk of spilling into Rwanda.",
-      "State names Volcanoes National Park as NOT included in the area of increased risk — the gorilla-trekking destination sits outside the border zone."
-    ],
-    "medical": "Active regional Ebola outbreak with heightened screening; yellow fever required if arriving from a transmission country; malaria prophylaxis; bottled/treated water; medevac insurance essential.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "zones": [
-      {
-        "name": "Within ~10 km of the DRC border",
-        "lvl": 4,
-        "except": [
-          "Volcanoes National Park"
-        ],
-        "note": "Unrest. Multiple armed groups, individuals and military forces operate in North and South Kivu; violence may spill into Rwanda without warning. US government employees need special authorisation to travel here. State states Volcanoes National Park is not included in this area."
-      }
-    ],
-    "reported": true
-  },
-  "SA": {
-    "country": "Saudi Arabia",
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "within 5km of the rest of the border with Venezuela",
     "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "Reconsider travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
-    "considerations": [
-      "Conflict-driven drone/missile risk and falling intercept debris since Feb 2026.",
-      "Exit bans can block departure during legal, commercial or family disputes.",
-      "Strict laws on social-media posts, drugs, alcohol (prohibited), dress/behavior, and photography of government/military sites."
-    ],
-    "medical": "Drink bottled water; extreme summer heat (45-50C); Hajj/Umrah pilgrims must meet Saudi vaccination requirements (e.g. meningococcal ACWY) — verify current rules.",
-    "source": "UK FCDO, Mar 2026",
-    "verified": "2026-06",
-    "zones": [
-      {
-        "name": "The Yemen border region (within ~20 miles)",
-        "lvl": 4
-      },
-      {
-        "name": "Qatif, Eastern Province",
-        "lvl": 4
-      }
-    ]
-  },
-  "SE": {
-    "country": "Sweden",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Sweden. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "SI": {
-    "country": "Slovenia",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Slovenia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "SV": {
-    "country": "El Salvador",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in El Salvador. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-06",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "TC": {
-    "country": "Turks and Caicos Islands",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to crime, mostly on Providenciales. It has its own US advisory, not folded under the UK.",
-    "considerations": [
-      "Most crime is on Providenciales; a mix of opportunistic theft and occasional violent crime.",
-      "Police have limited investigative resources.",
-      "Firearms and even a single stray round of ammunition are illegal and strictly enforced (including on departure) — inspect all bags before flying."
-    ],
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "TH": {
-    "country": "Thailand",
-    "lvl": 1,
-    "label": "Exercise normal precautions",
-    "summary": "Exercise normal precautions — State decreased Thailand to Level 1 on 7 July 2026. Some areas carry increased risk.",
-    "considerations": [
-      "Petty theft and scams occur in tourist areas — Bangkok, Phuket, Chiang Mai. Watch for jet-ski and gem scams.",
-      "Road traffic accidents are the leading cause of injury; motorbike hire without a helmet or licence is a common cause."
-    ],
-    "medical": "Tap water is not safe — bottled/boiled; dengue endemic year-round, malaria in border/forest areas, rabies present; Hep A/B and typhoid recommended; excellent private hospitals in Bangkok.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "zones": [
-      {
-        "name": "The Thailand–Cambodia border region",
-        "lvl": 2,
-        "note": "Risk of armed conflict. Thai authorities may set security exclusion zones with little notice; unexploded ordnance is a stated risk. US emergency services near the border are limited."
-      },
-      {
-        "name": "Yala, Pattani and Narathiwat provinces",
-        "lvl": 2,
-        "note": "Risk of unrest."
-      }
-    ],
-    "reported": true
-  },
-  "TN": {
-    "country": "Tunisia",
-    "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "The FCDO advises against travel to named areas of western and southern Tunisia — a national park, designated military zones and two border strips, listed below in its own words. It publishes no advisory against travel to the rest of the country, including Tunis, the coast and Djerba.",
-    "considerations": [
-      "A formal state of emergency has been in place since 2015; security forces are visibly present, including at entry points to some towns and cities.",
-      "Demonstrations happen occasionally, usually in central Tunis and other major cities, and can start with little warning.",
-      "It is illegal to bring drones into Tunisia without authorisation, and some smart electronic devices may be restricted or held on arrival."
-    ],
-    "source": "UK FCDO — Tunisia travel advice, reviewed 2026-07-24 (verbatim snapshot from the research library)",
-    "reported": true,
-    "zones": [
-      {
-        "name": "The Chaambi Mountains National Park",
-        "lvl": 4,
-        "posture": "all",
-        "note": "Cross-border terrorist activity and operations by the Tunisian security forces."
-      },
-      {
-        "name": "The designated military operations zones of Mount Salloum, Mount Sammamma and Mount Mghila",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "The militarised zone south of the towns of El Borma and Dhehiba",
-        "lvl": 4,
-        "posture": "all",
-        "note": "Cross-border terrorist activity and fighting in Libya."
-      },
-      {
-        "name": "Within 20km of the rest of the Tunisia-Libya border area north of Dhehiba",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "The town of Ben Guerdane and immediate surrounding area",
-        "lvl": 4,
-        "posture": "all"
-      },
-      {
-        "name": "Areas north and west of the town of Ghardimaou in Jendouba Governorate, including El Feidja National Park",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "Within 20km of the Tunisia-Algeria border in El Kef and Jendouba governorates, south of the town of Jendouba",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "note": "Including the archaeological site of Chemtou."
-      },
-      {
-        "name": "Kasserine Governorate, including the town of Sbeitla",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "Within 10km of the rest of the Tunisia-Algeria border south of Kasserine Governorate",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "Within 10km of Mount Mghila",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "Mount Orbata",
-        "lvl": 3,
-        "posture": "all-but-essential"
-      },
-      {
-        "name": "Within 75km of the Tunisia-Libya border",
-        "lvl": 3,
-        "posture": "all-but-essential",
-        "except": [
-          "Zarzis",
-          "the C118 road",
-          "all areas in Medenine Governorate north of the C118 road"
-        ],
-        "note": "Including Remada and El Borma."
-      }
-    ]
-  },
-  "TZ": {
-    "country": "Tanzania",
+    "posture": "all-but-essential",
+    "note": "The FCDO separately advises against all travel to Venezuela's side of the border — do not use any Colombia-Venezuela land crossing."
+   },
+   {
+    "name": "Chocó Department",
     "lvl": 3,
-    "label": "Reconsider travel",
-    "summary": "Reconsider travel due to post-election unrest, crime and terrorism; the northern safari circuit is far from the worst areas but the country-wide level is elevated.",
-    "considerations": [
-      "Elevated to Level 3 after the Oct 2025 election (protests, curfews).",
-      "Terrorist-violence risk is highest in the southern Mtwara region near the Mozambique/Cabo Delgado border (avoid within ~20 km of that border).",
-      "Violent crime with limited police response.",
-      "Serengeti, Ngorongoro, Tarangire and Kilimanjaro are far from Mtwara."
+    "posture": "all-but-essential",
+    "except": [
+     "the department capital Quibdó",
+     "the towns of Nuquí and Bahía Solano",
+     "Capurganá"
+    ]
+   },
+   {
+    "name": "the western part of Valle del Cauca Department, including Buenaventura",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the municipality of Jamundí, Valle del Cauca",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the South Pacific, Sanquianga and Telembi regions of Nariño Department",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the southern part of Córdoba Department",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the Urabá and Bajo Cauca regions of Antioquia Department",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the southern part of Bolívar Department",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "all of Guaviare Department",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the department capital San José del Guaviare"
+    ]
+   },
+   {
+    "name": "Cartagena del Chairá, San Vicente del Caguan, Puerto Rico, El Doncello, Paujil and La Montañita in Caquetá Department",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "the Ariari region of southern Meta",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "Caño Cristales"
     ],
-    "medical": "Yellow fever required if arriving from a risk country (Zanzibar enforces strictly); high malaria risk across the mainland and Zanzibar — prophylaxis strongly advised; Kilimanjaro's main hazard is altitude sickness; bottled/treated water; medevac insurance.",
-    "source": "UK FCDO, Oct 2025",
-    "verified": "2026-06"
-  },
-  "UG": {
-    "country": "Uganda",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Uganda. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [
-     "FCDO health page (updated 2026-07-27): \"On 15 May the Ugandan Ministry of Health announced an outbreak of Ebola Bundibugyo in Uganda, including in Kampala.\" A named outbreak is health information, not an advisory against travel — the FCDO restricts nothing in Uganda — but it is exactly what an informed traveler checks before booking."
+    "note": "If travelling to Caño Cristales, the FCDO advises travelling by air from the town of La Macarena with a reputable tour company."
+   },
+   {
+    "name": "within 5km of the border with Ecuador",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the border crossing on the Pan-American highway at the Puente Internacional de Rumichaca",
+     "the city of Ipiales in Nariño Department"
+    ]
+   },
+   {
+    "name": "all of Cauca Department",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the department capital Popayán"
     ],
-    "source": "UK FCDO country advisory — no advisory against travel; alert_status empty (verbatim snapshot from the research library, 2026-08-22)",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "US": {
-    "country": "United States",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in United States. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "UY": {
-    "country": "Uruguay",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Uruguay. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-12",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "VC": {
-    "country": "St. Vincent & the Grenadines",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in St. Vincent & the Grenadines. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-04",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "VG": {
-    "country": "British Virgin Islands",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in British Virgin Islands. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2025-11",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "VI": {
-    "country": "US Virgin Islands (US territory)",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in US Virgin Islands (US territory). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-08",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "VN": {
-    "country": "Vietnam",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Vietnam. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-06",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "ZA": {
-    "country": "South Africa",
+    "note": "The advisory page nests Cauca inside its Ecuador-border sentence; we hold it as a restricted department in its own right — the stricter of the two readings, consistent with the FCDO's regional-risks detail."
+   },
+   {
+    "name": "Orito, San Miguel, Valle del Guamuez, Puerto Caicedo, Puerto Guzmán, Puerto Asis and Puerto Leguizamo in Putumayo Department",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   }
+  ]
+ },
+ "CR": {
+  "country": "Costa Rica",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Costa Rica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-05",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "CW": {
+  "country": "Curaçao",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Curaçao. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "DE": {
+  "country": "Germany",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism risk.",
+  "considerations": [
+   "Authorities assess attacks as likely (markets, transit, places of worship, events); recent incidents are on record.",
+   "Standard urban theft and pickpocketing at airports, stations and crowded venues."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "DK": {
+  "country": "Denmark",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Denmark. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "DM": {
+  "country": "Dominica",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Dominica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "DO": {
+  "country": "Dominican Republic",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Dominican Republic. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "EC": {
+  "country": "Ecuador",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against all but essential travel to the Coastal Region provinces and a strip of the Colombian border — listed below in its own words. Quito, the Andean highlands and the Galápagos carry no FCDO restriction.",
+  "considerations": [],
+  "source": "UK FCDO — Ecuador travel advice, reviewed 2026-07-10 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "The Coastal Region provinces of Esmeraldas, Manabí, Santa Elena, Guayas, El Oro, Los Ríos and Santo Domingo de los Tsáchilas",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "airside transit within Guayaquil Airport"
+    ],
+    "note": "Gang-related violence linked to organised crime; the city of Guayaquil is inside this restriction."
+   },
+   {
+    "name": "Within 20km of the Ecuador-Colombia border",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the El Ángel Ecological Reserve",
+     "the Rumichaca border crossing",
+     "the town of Tulcán",
+     "the Pan-American Highway (in Carchi province)"
+    ]
+   }
+  ]
+ },
+ "EE": {
+  "country": "Estonia",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Estonia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "EG": {
+  "country": "Egypt",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism; the Nile corridor — Cairo, Luxor and Aswan — is Level 2, but the Sinai Peninsula and the Western Desert / Libya border are off-limits.",
+  "considerations": [
+   "Terrorist groups can attack with little warning — tourist sites, transport hubs, and places of worship.",
+   "Cairo, Giza and the Luxor–Aswan Nile-cruise corridor sit in the mainstream Level 2 zone.",
+   "Petty crime and harassment occur; use licensed guides and reputable cruise operators."
+  ],
+  "medical": "Hepatitis A/typhoid vaccination advised; drink only bottled or treated water; carry rehydration salts for traveler's diarrhea; sun and heat precautions on the Nile; carry travel/medevac insurance.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "zones": [
+   {
+    "name": "Sinai Peninsula",
+    "lvl": 4,
+    "except": [
+     "Sharm el-Sheikh, arriving by air"
+    ]
+   },
+   {
+    "name": "The Western Desert",
+    "lvl": 4
+   },
+   {
+    "name": "The Libya and Sudan border areas",
+    "lvl": 4
+   }
+  ],
+  "reported": true
+ },
+ "ES": {
+  "country": "Spain",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism risk and notably high tourist-area street crime.",
+  "considerations": [
+   "Authorities assess terrorist attacks as likely.",
+   "Widespread pickpocketing and car break-ins in tourist areas, airports and stations (distraction-team tactics).",
+   "Demonstrations occasionally turn violent.",
+   "A documented sexual-assault risk for younger travelers, often alcohol- or drug-involved."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "zones": [
+   {
+    "name": "Ceuta",
+    "lvl": 3,
+    "note": "Unrest."
+   }
+  ],
+  "reported": true
+ },
+ "ET": {
+  "country": "Ethiopia",
+  "lvl": 3,
+  "label": "Reconsider travel",
+  "summary": "The FCDO advises against all travel to several named regions and border areas of Ethiopia, and against all but essential travel to others — each is listed below in the advisory's own terms. Addis Ababa carries no FCDO restriction.",
+  "considerations": [
+   "State describes the security situation in Addis Ababa as stable, with sporadic armed conflict and civil unrest elsewhere.",
+   "Exit bans and communications disruptions are named risk indicators — a traveler can be prevented from leaving, and networks can go down regionally.",
+   "The Do Not Travel regions below cover a large share of the country; the historic northern circuit runs through several of them."
+  ],
+  "zones": [
+   {
+    "name": "The Tigray Region",
+    "lvl": 4,
+    "posture": "all",
+    "note": "FCDO advises against all travel. Civilian flights to and from Tigray have been suspended since 29 January 2026."
+   },
+   {
+    "name": "The Amhara Region",
+    "lvl": 4,
+    "posture": "all",
+    "note": "FCDO advises against all travel to all of Amhara regional state."
+   },
+   {
+    "name": "The Gambela Region",
+    "lvl": 4,
+    "posture": "all",
+    "note": "FCDO advises against all travel."
+   },
+   {
+    "name": "Within 20km of the border with Sudan",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "Within 10km of the border with South Sudan",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "Within 10km of the border with Eritrea",
+    "lvl": 4,
+    "posture": "all",
+    "note": "Including the parts of Afar region within 10km of that border."
+   },
+   {
+    "name": "Within 10km of the border with Kenya",
+    "lvl": 4,
+    "posture": "all",
+    "except": [
+     "principal roads and towns"
+    ]
+   },
+   {
+    "name": "Somali region border areas",
+    "lvl": 4,
+    "posture": "all",
+    "except": [
+     "the border town and crossing at Wajale",
+     "the principal road between Jijiga and Wajale"
+    ],
+    "note": "Within 100km of the Somalia and Kenya borders in Somali region, and within 30km of the Somalia border in Fafan zone."
+   },
+   {
+    "name": "Named areas of Oromia Region",
+    "lvl": 4,
+    "posture": "all",
+    "note": "North of (not including) the A4 in West Shewa; south and west of the A3 in North Shewa including the A3 itself there; West, East, Kellem and Horo Gudru Wollega zones including the main Addis Ababa to Gambela road."
+   },
+   {
+    "name": "In Benishangul-Gumuz: within 20km of the Sudan border, the Metekel zone and the Maokomo special zone",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "In the Central, Southern, Sidama and South West regions (formerly SNNPR): within 10km of the borders with South Sudan and Kenya",
+    "lvl": 4,
+    "posture": "all",
+    "note": "Including the shores of Lake Turkana. The FCDO restricts these border strips, not the whole regions."
+   },
+   {
+    "name": "Areas between 10 and 15km from the border with Eritrea",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "East Shewa and further named areas of Oromia",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the Addis Ababa to Adama Expressway",
+     "10km either side of the expressway between Addis Ababa and Bishoftu",
+     "the A7 from the expressway junction down to Hawassa",
+     "the Hawassa to Mega road (through West Guji and Guji)",
+     "the Finfine special zone section of the A4"
+    ],
+    "note": "All of East Shewa zone, the A4 between Addis Ababa and Cheliya, the remainder of North Shewa, and West Guji and Guji zones — each with the road exceptions listed."
+   },
+   {
+    "name": "In the Somali Region: the Siti, Nogob, Jarar, Shabelle, Korahe and Dollo zones, and areas of Liben and Afder more than 100km from the Somalia and Kenya borders",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "The rest of Benishangul-Gumuz Region",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   }
+  ],
+  "source": "UK FCDO — Ethiopia travel advice, reviewed 2026-05-29 (verbatim snapshot from the research library)",
+  "reported": true
+ },
+ "FI": {
+  "country": "Finland",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Finland. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "FO": {
+  "country": "Faroe Islands (Kingdom of Denmark)",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Faroe Islands (Kingdom of Denmark). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "FR": {
+  "country": "France",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism and persistent petty crime in tourist cities.",
+  "considerations": [
+   "Authorities assess terrorist attacks as likely (tourist sites, transit, gatherings).",
+   "Frequent pickpocketing and phone theft on the Paris Metro/RER and at stations.",
+   "Strikes and demonstrations are common and occasionally disruptive."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "GD": {
+  "country": "Grenada",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Grenada. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "GP": {
+  "country": "Guadeloupe",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Guadeloupe. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "GR": {
+  "country": "Greece",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Greece is generally safe; ordinary precautions apply.",
+  "considerations": [
+   "Pickpocketing in tourist hotspots (Athens metro, ferry terminals).",
+   "Occasional large demonstrations that disrupt transport.",
+   "Wildfire season Apr-Oct and severe summer heat."
+  ],
+  "medical": "Tap water is generally safe on the mainland; bottled is advised on some smaller islands; mind summer heat.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "GT": {
+  "country": "Guatemala",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against all but essential travel to a strip of the Mexican border and three named towns — listed below in its own words. Antigua, Lake Atitlán, Tikal and Guatemala City carry no FCDO restriction.",
+  "considerations": [
+   "Pay particular attention to your security in the border areas with Mexico, Honduras, El Salvador and Belize."
+  ],
+  "source": "UK FCDO — Guatemala travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "Within 5km of the Mexican border, from the Pacific Coast up to and including the Gracias a Dios crossing",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "The towns of Santa Ana Huista, San Antonio Huista and La Democracia, in Huehuetenango",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   }
+  ]
+ },
+ "HN": {
+  "country": "Honduras",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Honduras. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-07",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "HR": {
+  "country": "Croatia",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Croatia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "HU": {
+  "country": "Hungary",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Hungary. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "ID": {
+  "country": "Indonesia",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism and natural hazards. The FCDO's only advise-against areas are small exclusion zones around six active volcanoes — its earlier Papua restrictions no longer appear on the page (re-read 2026-08-31).",
+  "considerations": [
+   "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
+   "Ongoing terrorism plotting; variable road and ferry safety.",
+   "15 Aug 2026: a strong offshore earthquake north of Flores (East Nusa Tenggara) caused deaths, injuries and damage, with aftershocks continuing — the FCDO advises following local authorities, staying clear of damaged buildings and affected coastal areas, and expecting transport disruption in Flores and neighbouring NTT areas. Komodo sits in this region; re-verify before travel."
+  ],
+  "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic, malaria in Papua/eastern/rural areas, rabies present (incl. Bali); Hep A/B and typhoid recommended.",
+  "source": "UK FCDO — Indonesia travel advice (page updated 2026-08-28; read in full 2026-08-31)",
+  "verified": "2026-08-31",
+  "zones": [
+   {
+    "name": "within 7km of the crater of Mount Lewotobi Laki-Laki on Flores Island, East Nusa Tenggara Province",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "within 5km of the crater of Mount Sinabung in Karo Regency, North Sumatra",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "within 3km of the crater of Mount Marapi in West Sumatra",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "within 5km of the crater of Mount Semeru in Lumajang Regency, East Java",
+    "lvl": 4,
+    "posture": "all",
+    "note": "Also, in the south-east of Mount Semeru, to within 500m from any riverbank of the Besuk Kobokan river for 13km from the crater."
+   },
+   {
+    "name": "within 7km of the crater of Mount Ruang in Northern Sulawesi",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "within 7km of the crater of Mount Ibu in North Maluku Province",
+    "lvl": 4,
+    "posture": "all"
+   }
+  ]
+ },
+ "IE": {
+  "country": "Ireland",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Ireland. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-02",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "IS": {
+  "country": "Iceland",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions. The real risks are environmental — weather, road conditions and an unforgiving coastline — rather than crime.",
+  "considerations": [
+   "Rapidly changing, severe weather is the top hazard.",
+   "Ongoing Reykjanes Peninsula volcanic activity can affect the Grindavik area and occasionally airport access.",
+   "Glaciers, river crossings and sneaker waves require care."
+  ],
+  "medical": "Excellent tap water; cold and exposure risk in the highlands.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "IT": {
+  "country": "Italy",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism risk and heavy tourist-area petty crime.",
+  "considerations": [
+   "Possible terrorist attacks at tourist, transit and religious sites.",
+   "Prevalent pickpocketing and bag-snatching on transit and at major attractions.",
+   "Demonstrations can turn disruptive.",
+   "Seismic activity and active southern volcanoes (Stromboli, Vesuvius/Campi Flegrei)."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "JM": {
+  "country": "Jamaica",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Jamaica. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-05",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "JO": {
+  "country": "Jordan",
+  "lvl": 3,
+  "label": "Reconsider travel",
+  "summary": "Exercise increased caution. The FCDO advises against all travel only within 3km of the border with Syria; on 25 August 2026 it withdrew the advice against all but essential travel to Aqaba's airport and seaport, following review of the security situation (page read in full 2026-08-25).",
+  "considerations": [
+   "Conflict-driven drone/missile risk region-wide since Feb 2026.",
+   "The core Amman-Petra-Wadi Rum-Dead Sea circuit sits away from the Level 4 zones, but the country-wide Level 3 is volatile.",
+   "Modest dress and customs sensitivity at religious sites."
+  ],
+  "medical": "Drink bottled water; extreme desert heat and sun exposure at Petra/Wadi Rum — hydrate and protect from sun.",
+  "source": "UK FCDO, page updated 25 Aug 2026 (read in full via the verbatim store)",
+  "verified": "2026-09",
+  "zones": [
+   {
+    "name": "within 3km of the border with Syria",
+    "lvl": 4,
+    "posture": "all",
+    "note": "The Syria and Iraq quotes on Jordan's page are cross-references to those countries' own advisories, not areas inside Jordan — the Colombia/Venezuela pattern."
+   }
+  ]
+ },
+ "JP": {
+  "country": "Japan",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions. Crime is low; plan for earthquakes and the typhoon season, and know your building's evacuation route.",
+  "considerations": [
+   "Significant natural-hazard exposure: earthquakes, tsunamis, typhoons, heavy northern winter snow.",
+   "Very strict drug laws — some common US prescription medicines are banned.",
+   "Take care with spiked-drink incidents in major nightlife districts."
+  ],
+  "medical": "Excellent care; tap water safe; some US prescription medicines are illegal — check before travel and carry enough supply.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "KE": {
+  "country": "Kenya",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution; the mainstream safari circuits and the south coast sit outside every named area, but the FCDO advises against all travel to several north-eastern border areas and most of Lamu County — with Lamu Island and Manda Island explicitly excepted (page read in full 2026-09-01).",
+  "considerations": [
+   "Violent crime and carjacking, including in Nairobi.",
+   "Poor road safety — avoid night driving.",
+   "Maasai Mara, Amboseli and Tsavo sit in the Level 2 zone."
+  ],
+  "medical": "Yellow-fever vaccination recommended (certificate required if arriving from a risk country); malaria prophylaxis strongly advised for safari areas; bottled/treated water; carry medevac insurance.",
+  "source": "UK FCDO, page updated 1 Sep 2026 (read in full via the verbatim store)",
+  "verified": "2026-09",
+  "zones": [
+   {
+    "name": "Mandera County",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "Tarbaj and Wajir East constituencies in Wajir County",
+    "lvl": 4,
+    "posture": "all",
+    "except": [
+     "Wajir Town"
+    ]
+   },
+   {
+    "name": "areas of Wajir County within 60km of Kenya's border with Somalia",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "Garissa County",
+    "lvl": 4,
+    "posture": "all",
+    "except": [
+     "Garissa Town",
+     "the constituency of Lagdera",
+     "the areas of Balambala constituency which lie north and west of the main road which runs from Saka on the Tana River up to the intersection with the C81 Road"
+    ]
+   },
+   {
+    "name": "Lamu County",
+    "lvl": 4,
+    "posture": "all",
+    "except": [
+     "Lamu Island",
+     "Manda Island"
+    ],
+    "note": "The FCDO's operational guidance for the excepted islands: fly to Lamu Airport rather than travel by road."
+   },
+   {
+    "name": "Garissa Town",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Tana River County north of the Tana River as far as the town of Saka",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "within 15km of the east coast between the Tana River and the Galana (Athi-Galana-Sabaki) River",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   }
+  ]
+ },
+ "KH": {
+  "country": "Cambodia",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution; most of the country is fine, but the Thailand border is off-limits and landmines persist in some rural areas.",
+  "considerations": [
+   "Street crime in Phnom Penh (phone and bag snatching), with occasional violent incidents.",
+   "Unexploded ordnance and landmines in remote/forested areas (Battambang, Banteay Meanchey, Pursat, Pailin) — use local guides.",
+   "Poor road safety."
+  ],
+  "medical": "Tap water is not safe — drink bottled/boiled; dengue is endemic and malaria occurs in rural/forest/border areas; serious cases evacuate to Bangkok — carry evacuation insurance.",
+  "source": "UK FCDO, Jul 2025",
+  "verified": "2026-06",
+  "zones": [
+   {
+    "name": "Within ~50 km of the Cambodia–Thailand border",
+    "lvl": 4,
+    "note": "2025 conflict; a ceasefire was signed Dec 2025 but crossings remain suspended and landmine/UXO risk persists."
+   }
+  ]
+ },
+ "KN": {
+  "country": "St. Kitts & Nevis",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in St. Kitts & Nevis. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-01",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "KR": {
+  "country": "South Korea",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions. Crime is low — and note this is the Republic of Korea, not North Korea, which is Do Not Travel.",
+  "considerations": [
+   "Periodic North Korean missile tests and routine civil-defense drills are background context, not an elevated risk.",
+   "Large demonstrations can arise quickly; foreigners are barred from political activity by law.",
+   "Typhoon season in summer/fall; very low crime."
+  ],
+  "medical": "Excellent care; tap water generally safe; spring fine-dust/air-quality advisories.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "LA": {
+  "country": "Laos",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against all but essential travel to one province — named below in its own words. Luang Prabang, Vientiane and the rest of the country carry no FCDO restriction.",
+  "considerations": [],
+  "source": "UK FCDO — Laos travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "Xaisomboun Province",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   }
+  ]
+ },
+ "LC": {
+  "country": "Saint Lucia",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to the risk of crime. Violent crime can occur anywhere on the island, and guests at tourist resorts have been victims.",
+  "considerations": [
+   "Petty crime — purse snatching, pickpocketing — is common in popular tourist areas; most crime against visitors is opportunistic.",
+   "Police response times are slower than travelers from the US or UK may expect. Tourist police are present at most sites.",
+   "Saint Lucia regularly experiences hurricanes; the season runs June to November."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "LU": {
+  "country": "Luxembourg",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Luxembourg. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MA": {
+  "country": "Morocco",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Morocco. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MC": {
+  "country": "Monaco",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Monaco. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MQ": {
+  "country": "Martinique",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Martinique. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MS": {
+  "country": "Montserrat",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Montserrat. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-07",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MT": {
+  "country": "Malta",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Malta. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MV": {
+  "country": "Maldives",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Maldives. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "MX": {
+  "country": "Mexico",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against all but essential travel to named states, cities and border areas of Mexico — listed below in its own words, each with its own exceptions. The Yucatán Peninsula, Mexico City, Baja California Sur and the other main visitor regions carry no FCDO restriction.",
+  "considerations": [],
+  "source": "UK FCDO — Mexico travel advice, reviewed 2026-07-16 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "The city of Tijuana, in Baja California",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "airside transit through Tijuana airport",
+     "the Cross Border Xpress bridge linking the airport across the border",
+     "federal toll road 1D and the Via Rápida through Tijuana to the border"
+    ]
+   },
+   {
+    "name": "The city of Tecate in Baja California, including roads between Tijuana and Tecate",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "The state of Chihuahua",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the city of Chihuahua",
+     "the border crossing in Ciudad Juárez via federal toll road 45",
+     "federal toll road 45D between Chihuahua and Ciudad Juárez",
+     "the Copper Canyon rail route and the towns immediately on it, including Creel",
+     "the road from Creel via San Juanito to San Pedro",
+     "state highway 16 from San Pedro to Chihuahua"
+    ],
+    "note": "The advisory also covers the areas south-west of road 45D."
+   },
+   {
+    "name": "The state of Sinaloa",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the cities of Los Mochis and Mazatlán",
+     "road 32 between El Fuerte and Los Mochis",
+     "the 15D federal toll road running the length of the state",
+     "the Copper Canyon rail route to and from Los Mochis and El Fuerte, and the towns immediately on it"
+    ]
+   },
+   {
+    "name": "The state of Tamaulipas",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the border crossing at Nuevo Laredo via federal toll road 85D from Monterrey",
+     "federal highways 80, 81 and 85 between Tampico, Ciudad Victoria and Magueyes",
+     "the area of Tamaulipas south of those highways"
+    ]
+   },
+   {
+    "name": "The state of Zacatecas",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "In Guanajuato: the areas south-west of road 45D",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "note": "FCDO advises against all but essential travel to the areas south-west of road 45D. (San Miguel de Allende and Guanajuato City sit outside this area.)"
+   },
+   {
+    "name": "The state of Michoacán",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the city of Morelia via federal toll roads 15D, 126 and 43",
+     "toll road 48D between Morelia and its airport",
+     "the town of Pátzcuaro via toll roads 14D and 15 from Morelia, and boat trips on Lake Pátzcuaro",
+     "Federal Highway 15D"
+    ]
+   },
+   {
+    "name": "In Jalisco: the areas south and south-west of Lake Chapala to the Colima border",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "note": "Thirty-nine named municipalities, including Autlán de Navarro, Sayula, Tapalpa, Cocula and Villa Corona — the advisory lists each by name."
+   },
+   {
+    "name": "In Jalisco: eleven northern municipalities",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "note": "Bolaños, Chimaltitán, Colotlán, Hostotipaquillo, Huejúcar, Huequilla el Alto, Mezquitic, San Martín de Bolaños, Santa María de los Ángeles, Totatiche and Villa Guerrero."
+   },
+   {
+    "name": "The state of Colima",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the city of Manzanillo by sea, or by air via Manzanillo-Costalegre International Airport",
+     "direct travel via road 200 from that airport to Manzanillo"
+    ]
+   },
+   {
+    "name": "The state of Guerrero, including the city of Acapulco",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "the town of Zihuatanejo/Ixtapa accessed by air"
+    ]
+   },
+   {
+    "name": "Within 40km of the Guatemalan border, from the Pacific Coast up to and including the Gracias a Dios crossing",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Federal Highway 199 between Rancho Nuevo, outside San Cristóbal de las Casas, and the Chancalá junction outside Palenque",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "note": "The restriction is the highway segment, not the towns at either end."
+   }
+  ]
+ },
+ "MZ": {
+  "country": "Mozambique",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against all travel to Cabo Delgado Province and named districts of Nampula and Niassa, and against all but essential travel to the excepted areas around Pemba — listed below in its own words. Maputo, Bazaruto and the southern coast carry no FCDO restriction.",
+  "considerations": [],
+  "source": "UK FCDO — Mozambique travel advice, reviewed 2026-08-20 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "Cabo Delgado Province",
+    "lvl": 4,
+    "posture": "all",
+    "except": [
+     "Palma town",
+     "the area around Pemba and Afungi"
+    ],
+    "note": "Attacks by groups with links to Islamist extremism; the excepted areas themselves carry an all-but-essential advisory."
+   },
+   {
+    "name": "Palma town and the area around Pemba and Afungi",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "The districts of Memba and Eráti in Nampula Province",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "The districts of Mecula and Marrupo in Niassa Province",
+    "lvl": 4,
+    "posture": "all"
+   }
+  ]
+ },
+ "NA": {
+  "country": "Namibia",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to crime; no regional carve-outs.",
+  "considerations": [
+   "Opportunistic and property crime, especially in Windhoek.",
+   "The dominant real risk is self-drive gravel-road safety (rollovers, wildlife, fatigue) across vast distances.",
+   "Very limited medical and emergency services in remote areas."
+  ],
+  "medical": "Yellow fever required only if arriving from a risk country; seasonal malaria in the north (Zambezi/Caprivi, Kavango, Etosha fringe); medevac insurance strongly advised.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "NI": {
+  "country": "Nicaragua",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Nicaragua. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "NL": {
+  "country": "Netherlands",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to terrorism risk.",
+  "considerations": [
+   "Authorities assess continued attack plotting (tourist sites, transit, gatherings).",
+   "Standard urban pickpocketing in crowded Amsterdam tourist areas and on transit."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "NO": {
+  "country": "Norway",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Norway is among the safest destinations; the risks are environmental.",
+  "considerations": [
+   "Very low crime.",
+   "Arctic and mountain weather, winter avalanche zones, and fjord/hiking exposure are the main hazards.",
+   "Svalbard requires special preparation (polar-bear risk outside settlements)."
+  ],
+  "medical": "Excellent tap water; cold-exposure and winter-driving risk.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "OM": {
+  "country": "Oman",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Oman. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-07",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "PA": {
+  "country": "Panama",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Panama. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "PE": {
+  "country": "Peru",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution; the tourist circuit is Level 2, but two remote regions are off-limits.",
+  "considerations": [
+   "Petty theft, carjackings and muggings occur even in daylight.",
+   "Demonstrations can block roads and rail without warning.",
+   "Cusco, the Sacred Valley, the Inca Trail and Machu Picchu are NOT in the restricted zones."
+  ],
+  "medical": "Altitude is the key concern — Cusco (~3,400 m) and the Sacred Valley/Inca Trail carry real altitude-sickness risk; acclimatize first. Yellow-fever vaccination recommended for the Amazon/jungle.",
+  "source": "UK FCDO, May 2025",
+  "verified": "2026-06",
+  "zones": [
+   {
+    "name": "The VRAEM (Apurimac, Ene and Mantaro valley)",
+    "lvl": 4
+   },
+   {
+    "name": "The Colombia-border area of Loreto",
+    "lvl": 4
+   }
+  ]
+ },
+ "PF": {
+  "country": "French Polynesia",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "French Polynesia (Tahiti, Bora Bora, the Society Islands) is low-risk; ordinary precautions apply. It has its own US advisory, separate from mainland France.",
+  "considerations": [
+   "Generally low crime, with occasional petty theft.",
+   "Cyclone season Nov-Apr.",
+   "Outer-atoll remoteness means limited services and slower emergency response."
+  ],
+  "medical": "Good care on Tahiti, limited on outer atolls; mosquito-borne illness (e.g. dengue) present; evacuation insurance advised.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "PH": {
+  "country": "Philippines",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution; the country baseline is Level 2, and Mindanao and the Sulu Archipelago carry their own, stricter levels.",
+  "considerations": [
+   "Reissued 8 May 2025 with a Kidnapping indicator.",
+   "UK FCDO advice reissued 1 April 2026: advises against all travel to western and central Mindanao including the Sulu archipelago, and against all but essential travel to the rest of Mindanao.",
+   "Luzon and the Visayas — Manila, Palawan, Cebu, Bohol, Boracay, Siargao — sit at the country baseline."
+  ],
+  "zones": [
+   {
+    "name": "The Sulu Archipelago, including the southern Sulu Sea",
+    "lvl": 4
+   },
+   {
+    "name": "Marawi City, Mindanao",
+    "lvl": 4
+   },
+   {
+    "name": "Mindanao",
+    "lvl": 3,
+    "except": [
+     "Davao City",
+     "Davao del Norte",
+     "Siargao Island",
+     "the Dinagat Islands"
+    ],
+    "note": "The remainder of Mindanao. The four named exceptions sit at the country baseline."
+   }
+  ],
+  "source": "UK FCDO, reissued 1 Apr 2026",
+  "verified": "2026-08"
+ },
+ "PR": {
+  "country": "Puerto Rico (US territory)",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Puerto Rico (US territory). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "PT": {
+  "country": "Portugal",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Portugal is generally safe; ordinary precautions apply.",
+  "considerations": [
+   "Pickpocketing and bag-snatching at popular sites and on transit; car break-ins, especially of rentals.",
+   "Summer wildfire risk on the mainland.",
+   "Note local laws: cannabis/CBD and pepper spray are illegal."
+  ],
+  "medical": "Tap water safe; good healthcare.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "PW": {
+  "country": "Palau",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Palau. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "QA": {
+  "country": "Qatar",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Qatar. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "RW": {
+  "country": "Rwanda",
+  "lvl": 3,
+  "label": "Reconsider travel",
+  "summary": "Reconsider travel due to crime and unrest. Some areas carry increased risk — the DRC border zone below is Do Not Travel.",
+  "considerations": [
+   "Petty crime such as pickpocketing is a risk in urban areas; burglary and targeted theft are less common but do happen.",
+   "Armed groups and military forces clash in nearby countries, and that violence carries a risk of spilling into Rwanda.",
+   "State names Volcanoes National Park as NOT included in the area of increased risk — the gorilla-trekking destination sits outside the border zone."
+  ],
+  "medical": "Active regional Ebola outbreak with heightened screening; yellow fever required if arriving from a transmission country; malaria prophylaxis; bottled/treated water; medevac insurance essential.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "zones": [
+   {
+    "name": "Within ~10 km of the DRC border",
+    "lvl": 4,
+    "except": [
+     "Volcanoes National Park"
+    ],
+    "note": "Unrest. Multiple armed groups, individuals and military forces operate in North and South Kivu; violence may spill into Rwanda without warning. US government employees need special authorisation to travel here. State states Volcanoes National Park is not included in this area."
+   }
+  ],
+  "reported": true
+ },
+ "SA": {
+  "country": "Saudi Arabia",
+  "lvl": 3,
+  "label": "Reconsider travel",
+  "summary": "Reconsider travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
+  "considerations": [
+   "Conflict-driven drone/missile risk and falling intercept debris since Feb 2026.",
+   "Exit bans can block departure during legal, commercial or family disputes.",
+   "Strict laws on social-media posts, drugs, alcohol (prohibited), dress/behavior, and photography of government/military sites."
+  ],
+  "medical": "Drink bottled water; extreme summer heat (45-50C); Hajj/Umrah pilgrims must meet Saudi vaccination requirements (e.g. meningococcal ACWY) — verify current rules.",
+  "source": "UK FCDO, Mar 2026",
+  "verified": "2026-06",
+  "zones": [
+   {
+    "name": "The Yemen border region (within ~20 miles)",
+    "lvl": 4
+   },
+   {
+    "name": "Qatif, Eastern Province",
+    "lvl": 4
+   }
+  ]
+ },
+ "SE": {
+  "country": "Sweden",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Sweden. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "SI": {
+  "country": "Slovenia",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Slovenia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "SV": {
+  "country": "El Salvador",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in El Salvador. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-06",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "TC": {
+  "country": "Turks and Caicos Islands",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to crime, mostly on Providenciales. It has its own US advisory, not folded under the UK.",
+  "considerations": [
+   "Most crime is on Providenciales; a mix of opportunistic theft and occasional violent crime.",
+   "Police have limited investigative resources.",
+   "Firearms and even a single stray round of ammunition are illegal and strictly enforced (including on departure) — inspect all bags before flying."
+  ],
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "TH": {
+  "country": "Thailand",
+  "lvl": 1,
+  "label": "Exercise normal precautions",
+  "summary": "Exercise normal precautions — State decreased Thailand to Level 1 on 7 July 2026. Some areas carry increased risk.",
+  "considerations": [
+   "Petty theft and scams occur in tourist areas — Bangkok, Phuket, Chiang Mai. Watch for jet-ski and gem scams.",
+   "Road traffic accidents are the leading cause of injury; motorbike hire without a helmet or licence is a common cause."
+  ],
+  "medical": "Tap water is not safe — bottled/boiled; dengue endemic year-round, malaria in border/forest areas, rabies present; Hep A/B and typhoid recommended; excellent private hospitals in Bangkok.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "zones": [
+   {
+    "name": "The Thailand–Cambodia border region",
     "lvl": 2,
-    "label": "Exercise increased caution",
-    "summary": "Exercise increased caution due to high violent-crime rates.",
-    "considerations": [
-      "Armed robbery, carjacking and smash-and-grab at intersections.",
-      "US-government staff need special clearance for many Cape Town informal settlements (a de facto elevated zone).",
-      "Periodic protests and power outages affecting security systems; use caution with e-hailing/taxis.",
-      "Kruger and private reserves are generally well-managed."
+    "note": "Risk of armed conflict. Thai authorities may set security exclusion zones with little notice; unexploded ordnance is a stated risk. US emergency services near the border are limited."
+   },
+   {
+    "name": "Yala, Pattani and Narathiwat provinces",
+    "lvl": 2,
+    "note": "Risk of unrest."
+   }
+  ],
+  "reported": true
+ },
+ "TN": {
+  "country": "Tunisia",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "The FCDO advises against travel to named areas of western and southern Tunisia — a national park, designated military zones and two border strips, listed below in its own words. It publishes no advisory against travel to the rest of the country, including Tunis, the coast and Djerba.",
+  "considerations": [
+   "A formal state of emergency has been in place since 2015; security forces are visibly present, including at entry points to some towns and cities.",
+   "Demonstrations happen occasionally, usually in central Tunis and other major cities, and can start with little warning.",
+   "It is illegal to bring drones into Tunisia without authorisation, and some smart electronic devices may be restricted or held on arrival."
+  ],
+  "source": "UK FCDO — Tunisia travel advice, reviewed 2026-07-24 (verbatim snapshot from the research library)",
+  "reported": true,
+  "zones": [
+   {
+    "name": "The Chaambi Mountains National Park",
+    "lvl": 4,
+    "posture": "all",
+    "note": "Cross-border terrorist activity and operations by the Tunisian security forces."
+   },
+   {
+    "name": "The designated military operations zones of Mount Salloum, Mount Sammamma and Mount Mghila",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "The militarised zone south of the towns of El Borma and Dhehiba",
+    "lvl": 4,
+    "posture": "all",
+    "note": "Cross-border terrorist activity and fighting in Libya."
+   },
+   {
+    "name": "Within 20km of the rest of the Tunisia-Libya border area north of Dhehiba",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "The town of Ben Guerdane and immediate surrounding area",
+    "lvl": 4,
+    "posture": "all"
+   },
+   {
+    "name": "Areas north and west of the town of Ghardimaou in Jendouba Governorate, including El Feidja National Park",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Within 20km of the Tunisia-Algeria border in El Kef and Jendouba governorates, south of the town of Jendouba",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "note": "Including the archaeological site of Chemtou."
+   },
+   {
+    "name": "Kasserine Governorate, including the town of Sbeitla",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Within 10km of the rest of the Tunisia-Algeria border south of Kasserine Governorate",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Within 10km of Mount Mghila",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Mount Orbata",
+    "lvl": 3,
+    "posture": "all-but-essential"
+   },
+   {
+    "name": "Within 75km of the Tunisia-Libya border",
+    "lvl": 3,
+    "posture": "all-but-essential",
+    "except": [
+     "Zarzis",
+     "the C118 road",
+     "all areas in Medenine Governorate north of the C118 road"
     ],
-    "medical": "Malaria risk in the northeast low-veld (Kruger, Limpopo, Mpumalanga, far-north KwaZulu-Natal) — prophylaxis advised there; Cape Town, the Garden Route and the Winelands are malaria-free; yellow fever required only if arriving from a risk country; tap water generally safe in major cities.",
-    "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
-    "reported": true
-  },
-  "ZM": {
-    "country": "Zambia",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Zambia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-06",
-    "reported": true,
-    "fromAbsence": true
-  },
-  "ZW": {
-    "country": "Zimbabwe",
-    "lvl": 1,
-    "label": "No advisory against travel",
-    "summary": "The UK FCDO publishes no country-wide advisory against travel in Zimbabwe. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
-    "considerations": [],
-    "source": "UK FCDO country advisory, reviewed 2026-07",
-    "reported": true,
-    "fromAbsence": true
-  }
+    "note": "Including Remada and El Borma."
+   }
+  ]
+ },
+ "TZ": {
+  "country": "Tanzania",
+  "lvl": 3,
+  "label": "Reconsider travel",
+  "summary": "Reconsider travel due to post-election unrest, crime and terrorism; the northern safari circuit is far from the worst areas but the country-wide level is elevated.",
+  "considerations": [
+   "Elevated to Level 3 after the Oct 2025 election (protests, curfews).",
+   "Terrorist-violence risk is highest in the southern Mtwara region near the Mozambique/Cabo Delgado border (avoid within ~20 km of that border).",
+   "Violent crime with limited police response.",
+   "Serengeti, Ngorongoro, Tarangire and Kilimanjaro are far from Mtwara."
+  ],
+  "medical": "Yellow fever required if arriving from a risk country (Zanzibar enforces strictly); high malaria risk across the mainland and Zanzibar — prophylaxis strongly advised; Kilimanjaro's main hazard is altitude sickness; bottled/treated water; medevac insurance.",
+  "source": "UK FCDO, Oct 2025",
+  "verified": "2026-06"
+ },
+ "UG": {
+  "country": "Uganda",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Uganda. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [
+   "The Ebola outbreak in Uganda was declared over by the WHO on 27 August 2026; the FCDO updated its page on 2 September 2026 and now holds zero warning quotes for Uganda. One sentence of theirs stays visible rather than rounded off: \"The outbreak in neighbouring DRC continues and the risk of transmission into Uganda remains.\""
+  ],
+  "source": "UK FCDO, page updated 2 Sep 2026 (read via the verbatim store)",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "US": {
+  "country": "United States",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in United States. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "UY": {
+  "country": "Uruguay",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Uruguay. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-12",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "VC": {
+  "country": "St. Vincent & the Grenadines",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in St. Vincent & the Grenadines. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-04",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "VG": {
+  "country": "British Virgin Islands",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in British Virgin Islands. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2025-11",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "VI": {
+  "country": "US Virgin Islands (US territory)",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in US Virgin Islands (US territory). That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-08",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "VN": {
+  "country": "Vietnam",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Vietnam. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-06",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "ZA": {
+  "country": "South Africa",
+  "lvl": 2,
+  "label": "Exercise increased caution",
+  "summary": "Exercise increased caution due to high violent-crime rates.",
+  "considerations": [
+   "Armed robbery, carjacking and smash-and-grab at intersections.",
+   "US-government staff need special clearance for many Cape Town informal settlements (a de facto elevated zone).",
+   "Periodic protests and power outages affecting security systems; use caution with e-hailing/taxis.",
+   "Kruger and private reserves are generally well-managed."
+  ],
+  "medical": "Malaria risk in the northeast low-veld (Kruger, Limpopo, Mpumalanga, far-north KwaZulu-Natal) — prophylaxis advised there; Cape Town, the Garden Route and the Winelands are malaria-free; yellow fever required only if arriving from a risk country; tap water generally safe in major cities.",
+  "source": "Curated baseline — the previous source is retired; pending re-verification against the UK FCDO",
+  "reported": true
+ },
+ "ZM": {
+  "country": "Zambia",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Zambia. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-06",
+  "reported": true,
+  "fromAbsence": true
+ },
+ "ZW": {
+  "country": "Zimbabwe",
+  "lvl": 1,
+  "label": "No advisory against travel",
+  "summary": "The UK FCDO publishes no country-wide advisory against travel in Zimbabwe. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
+  "considerations": [],
+  "source": "UK FCDO country advisory, reviewed 2026-07",
+  "reported": true,
+  "fromAbsence": true
+ }
 }

@@ -302,6 +302,14 @@ export const DESTINATIONS: Record<string, Destination[]> = {
  * So this map is permanent, not a migration aid to delete later.
  */
 export const LEGACY_DEST_ID: Record<string, string> = {
+  // The Caribbean full-country renames (library, 2026-09-03/07). st-kitts is
+  // deliberately ABSENT: its row here still IS "st-kitts", so the alias lands
+  // in the same merge as the renamed row, never before it.
+  antigua: "antigua-antigua-and-barbuda",
+  barbuda: "barbuda-antigua-and-barbuda",
+  nevis: "nevis-st-kitts-and-nevis",
+  tobago: "tobago-trinidad-and-tobago",
+  trinidad: "trinidad-trinidad-and-tobago",
   paris: "paris-france",
   amsterdam: "amsterdam-netherlands",
   alps: "swiss-alps-switzerland",

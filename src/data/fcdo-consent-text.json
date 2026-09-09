@@ -226,9 +226,9 @@
    "country": "Azerbaijan",
    "slug": "azerbaijan",
    "url": "https://www.gov.uk/foreign-travel-advice/azerbaijan",
-   "public_updated_at": "2026-07-20T14:03:02+01:00",
-   "reviewed_at": "2026-07-20T13:03:02Z",
-   "etag": "W/\"9983061f6d43bfcc079cc72ad91adb81\"",
+   "public_updated_at": "2026-09-02T11:21:51+01:00",
+   "reviewed_at": "2026-09-02T10:21:51Z",
+   "etag": "W/\"25af340acf70395a15cb2aa82f085c26\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_travel_to_parts",
@@ -291,9 +291,9 @@
    "country": "Bangladesh",
    "slug": "bangladesh",
    "url": "https://www.gov.uk/foreign-travel-advice/bangladesh",
-   "public_updated_at": "2026-07-15T12:12:09+01:00",
-   "reviewed_at": "2026-07-15T11:12:09Z",
-   "etag": "W/\"df4bda54b17586db44074ef1bd7dbe87\"",
+   "public_updated_at": "2026-09-04T10:49:04+01:00",
+   "reviewed_at": "2026-09-04T09:49:04Z",
+   "etag": "W/\"a9796425b3ee7d1e310eb86b339cd94a\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_but_essential_travel_to_parts"
@@ -799,9 +799,9 @@
    "country": "China",
    "slug": "china",
    "url": "https://www.gov.uk/foreign-travel-advice/china",
-   "public_updated_at": "2026-08-10T11:48:49+01:00",
-   "reviewed_at": "2026-08-10T10:48:49Z",
-   "etag": "W/\"a91b61b0d00d25fdf9ac99678eff5677\"",
+   "public_updated_at": "2026-08-27T23:02:55+01:00",
+   "reviewed_at": "2026-08-27T22:02:55Z",
+   "etag": "W/\"664299100822cf0c219f872f583e63b6\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -810,9 +810,9 @@
    "country": "Colombia",
    "slug": "colombia",
    "url": "https://www.gov.uk/foreign-travel-advice/colombia",
-   "public_updated_at": "2026-08-18T15:51:11+01:00",
-   "reviewed_at": "2026-08-18T14:51:11Z",
-   "etag": "W/\"3e3187eb8980082fea4e62c5fd9248d8\"",
+   "public_updated_at": "2026-09-03T15:30:31+01:00",
+   "reviewed_at": "2026-09-03T14:30:31Z",
+   "etag": "W/\"dab477629822ff988e9bfe42fff8e1d1\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_but_essential_travel_to_parts"
@@ -1007,9 +1007,9 @@
    "country": "Democratic Republic of the Congo",
    "slug": "democratic-republic-of-the-congo",
    "url": "https://www.gov.uk/foreign-travel-advice/democratic-republic-of-the-congo",
-   "public_updated_at": "2026-07-29T16:56:43+01:00",
-   "reviewed_at": "2026-07-29T15:56:43Z",
-   "etag": "W/\"fd4ac9c5d732bc093ecc609c066f2d6b\"",
+   "public_updated_at": "2026-08-26T10:19:27+01:00",
+   "reviewed_at": "2026-08-26T09:19:27Z",
+   "etag": "W/\"28edb4b4556accf22ce7f58208ffd876\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_travel_to_parts",
@@ -1731,9 +1731,9 @@
    "country": "Indonesia",
    "slug": "indonesia",
    "url": "https://www.gov.uk/foreign-travel-advice/indonesia",
-   "public_updated_at": "2026-08-16T12:31:33+01:00",
-   "reviewed_at": "2026-08-16T11:31:33Z",
-   "etag": "W/\"de50dd560f1409b910caea336d288ac9\"",
+   "public_updated_at": "2026-08-28T12:29:31+01:00",
+   "reviewed_at": "2026-08-28T11:29:31Z",
+   "etag": "W/\"64409db43b270f75c47f1e4731378101\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_travel_to_parts"
@@ -1826,9 +1826,9 @@
    "country": "Ireland",
    "slug": "ireland",
    "url": "https://www.gov.uk/foreign-travel-advice/ireland",
-   "public_updated_at": "2026-02-26T11:06:23+00:00",
-   "reviewed_at": "2026-02-26T11:06:23Z",
-   "etag": "W/\"47116cabd6f7dc4023d00ec7b3475ac3\"",
+   "public_updated_at": "2026-09-04T10:53:16+01:00",
+   "reviewed_at": "2026-09-04T09:53:16Z",
+   "etag": "W/\"cab3974a99dfffbc2c894c3e631cfb56\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -1902,9 +1902,9 @@
    "country": "Japan",
    "slug": "japan",
    "url": "https://www.gov.uk/foreign-travel-advice/japan",
-   "public_updated_at": "2026-08-19T15:40:39+01:00",
-   "reviewed_at": "2026-08-19T14:40:39Z",
-   "etag": "W/\"5f611eb9755e6c7cf687877f83837d60\"",
+   "public_updated_at": "2026-08-28T16:22:35+01:00",
+   "reviewed_at": "2026-08-28T15:22:35Z",
+   "etag": "W/\"d981b9fd11001b048a505723e9c6cd25\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -1913,13 +1913,12 @@
    "country": "Jordan",
    "slug": "jordan",
    "url": "https://www.gov.uk/foreign-travel-advice/jordan",
-   "public_updated_at": "2026-07-22T13:47:55+01:00",
-   "reviewed_at": "2026-07-22T12:47:55Z",
-   "etag": "W/\"17bbc16c833878315d650fd35149633e\"",
+   "public_updated_at": "2026-08-25T16:36:13+01:00",
+   "reviewed_at": "2026-08-25T15:36:13Z",
+   "etag": "W/\"7af713a3e337339734383ef962c7c085\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
-    "avoid_all_travel_to_parts",
-    "avoid_all_but_essential_travel_to_parts"
+    "avoid_all_travel_to_parts"
    ],
    "quotes": [
     {
@@ -1937,14 +1936,6 @@
     {
      "form": "against all travel",
      "text": "advises against all travel to the provinces in Iraq bordering Jordan."
-    },
-    {
-     "form": "against all but essential travel",
-     "text": "advises against all but essential travel Aqaba Governate FCDO advises against all but essential travel to Aqaba international airport and seaport."
-    },
-    {
-     "form": "against all but essential travel",
-     "text": "advises against all but essential travel to Aqaba international airport and seaport."
     }
    ]
   },
@@ -1963,9 +1954,9 @@
    "country": "Kenya",
    "slug": "kenya",
    "url": "https://www.gov.uk/foreign-travel-advice/kenya",
-   "public_updated_at": "2026-06-24T12:48:44+01:00",
-   "reviewed_at": "2026-06-24T11:48:44Z",
-   "etag": "W/\"e7a5b6cf0415cad3ee8647768b39f20a\"",
+   "public_updated_at": "2026-09-01T12:05:48+01:00",
+   "reviewed_at": "2026-09-01T11:05:48Z",
+   "etag": "W/\"5f56ce62acfa6a3e61e422d9c8bd53a4\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_travel_to_parts",
@@ -2032,9 +2023,9 @@
    "country": "Kyrgyzstan",
    "slug": "kyrgyzstan",
    "url": "https://www.gov.uk/foreign-travel-advice/kyrgyzstan",
-   "public_updated_at": "2026-06-19T16:26:15+01:00",
-   "reviewed_at": "2026-06-19T15:26:15Z",
-   "etag": "W/\"475eda79c90829d9d6301a45957e0976\"",
+   "public_updated_at": "2026-08-26T15:14:04+01:00",
+   "reviewed_at": "2026-08-26T14:14:04Z",
+   "etag": "W/\"1fa96bc70b9fdeab593ff7082da4b9b6\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -2411,9 +2402,9 @@
    "country": "Mexico",
    "slug": "mexico",
    "url": "https://www.gov.uk/foreign-travel-advice/mexico",
-   "public_updated_at": "2026-07-16T16:08:09+01:00",
-   "reviewed_at": "2026-07-16T15:08:09Z",
-   "etag": "W/\"9288c75ec98199a511ff0a0e1ae6b6b2\"",
+   "public_updated_at": "2026-09-04T00:25:51+01:00",
+   "reviewed_at": "2026-09-03T23:25:51Z",
+   "etag": "W/\"bb4d04686a8d88b265643a007a37c37f\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_but_essential_travel_to_parts"
@@ -2686,9 +2677,9 @@
    "country": "Nepal",
    "slug": "nepal",
    "url": "https://www.gov.uk/foreign-travel-advice/nepal",
-   "public_updated_at": "2026-08-06T10:10:31+01:00",
-   "reviewed_at": "2026-08-06T09:10:31Z",
-   "etag": "W/\"a1dd8484b7e4954b1514a38f31065d9e\"",
+   "public_updated_at": "2026-09-01T09:47:59+01:00",
+   "reviewed_at": "2026-09-01T08:47:59Z",
+   "etag": "W/\"ba8ce78dfbc33302abadb77406eb9940\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -2741,9 +2732,9 @@
    "country": "Niger",
    "slug": "niger",
    "url": "https://www.gov.uk/foreign-travel-advice/niger",
-   "public_updated_at": "2026-06-19T16:00:50+01:00",
-   "reviewed_at": "2026-06-19T15:00:50Z",
-   "etag": "W/\"62ec4a0d95a501817225f09d1ef1ac5c\"",
+   "public_updated_at": "2026-08-29T15:30:01+01:00",
+   "reviewed_at": "2026-08-29T14:30:01Z",
+   "etag": "W/\"1b01e8ded5da836015ebfe61acd0796e\"",
    "posture": "3-WHOLE-COUNTRY",
    "alert_status": [
     "avoid_all_travel_to_whole_country"
@@ -2851,9 +2842,9 @@
    "country": "Norway",
    "slug": "norway",
    "url": "https://www.gov.uk/foreign-travel-advice/norway",
-   "public_updated_at": "2026-08-21T21:50:00+01:00",
-   "reviewed_at": "2026-08-21T20:50:00Z",
-   "etag": "W/\"53385d4e5f4b81a490999d99d45dd912\"",
+   "public_updated_at": "2026-08-25T09:47:40+01:00",
+   "reviewed_at": "2026-08-25T08:47:40Z",
+   "etag": "W/\"3511a5a105037f8b43d6cf4aaab72069\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -3199,9 +3190,9 @@
    "country": "Rwanda",
    "slug": "rwanda",
    "url": "https://www.gov.uk/foreign-travel-advice/rwanda",
-   "public_updated_at": "2026-06-10T15:14:19+01:00",
-   "reviewed_at": "2026-06-10T14:14:19Z",
-   "etag": "W/\"efc98b297df7546b1ce4a0ac8b1e305b\"",
+   "public_updated_at": "2026-09-04T10:15:14+01:00",
+   "reviewed_at": "2026-09-04T09:15:14Z",
+   "etag": "W/\"8bc0688d81e639b4523b3ae8393ed3de\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_but_essential_travel_to_parts"
@@ -3213,7 +3204,7 @@
     },
     {
      "form": "against all but essential travel",
-     "text": "advises against all but essential travel to parts of the Rubavu and Rusizi Districts."
+     "text": "advises against all but essential travel to parts of the Rusizi District."
     }
    ]
   },
@@ -3328,9 +3319,9 @@
    "country": "Slovakia",
    "slug": "slovakia",
    "url": "https://www.gov.uk/foreign-travel-advice/slovakia",
-   "public_updated_at": "2026-08-11T10:22:25+01:00",
-   "reviewed_at": "2026-08-11T09:22:25Z",
-   "etag": "W/\"03f9dbbd1a84a5a35b86dc700b070d6b\"",
+   "public_updated_at": "2026-08-28T14:01:26+01:00",
+   "reviewed_at": "2026-08-28T13:01:26Z",
+   "etag": "W/\"29bf0fb748423af64f165c384d251cda\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -3428,9 +3419,9 @@
    "country": "South Sudan",
    "slug": "south-sudan",
    "url": "https://www.gov.uk/foreign-travel-advice/south-sudan",
-   "public_updated_at": "2026-05-26T13:55:03+01:00",
-   "reviewed_at": "2026-05-26T12:55:03Z",
-   "etag": "W/\"e3a28d3aed78ae6612be9dcd44aaf559\"",
+   "public_updated_at": "2026-08-25T10:10:08+01:00",
+   "reviewed_at": "2026-08-25T09:10:08Z",
+   "etag": "W/\"b7d5a8f69c83722e5b7d321b69ddbfd6\"",
    "posture": "3-WHOLE-COUNTRY",
    "alert_status": [
     "avoid_all_travel_to_whole_country"
@@ -3604,9 +3595,9 @@
    "country": "Syria",
    "slug": "syria",
    "url": "https://www.gov.uk/foreign-travel-advice/syria",
-   "public_updated_at": "2026-07-22T13:44:10+01:00",
-   "reviewed_at": "2026-07-22T12:44:10Z",
-   "etag": "W/\"0146a2c7294bbb0afc696a75e20eeb15\"",
+   "public_updated_at": "2026-09-02T14:13:57+01:00",
+   "reviewed_at": "2026-09-02T13:13:57Z",
+   "etag": "W/\"078d9add6d88661ed96027ec7794bfbf\"",
    "posture": "3-WHOLE-COUNTRY",
    "alert_status": [
     "avoid_all_travel_to_whole_country"
@@ -3622,9 +3613,9 @@
    "country": "Taiwan",
    "slug": "taiwan",
    "url": "https://www.gov.uk/foreign-travel-advice/taiwan",
-   "public_updated_at": "2026-08-07T15:01:42+01:00",
-   "reviewed_at": "2026-08-07T14:01:42Z",
-   "etag": "W/\"0545de8060f77194ac9c15cba4158a6b\"",
+   "public_updated_at": "2026-08-28T13:31:24+01:00",
+   "reviewed_at": "2026-08-28T12:31:24Z",
+   "etag": "W/\"1536211d7580a4002dc80a2fc15ff557\"",
    "posture": "1",
    "alert_status": [],
    "quotes": []
@@ -3868,29 +3859,12 @@
    "country": "Uganda",
    "slug": "uganda",
    "url": "https://www.gov.uk/foreign-travel-advice/uganda",
-   "public_updated_at": "2026-07-27T15:00:28+01:00",
-   "reviewed_at": "2026-07-27T14:00:28Z",
-   "etag": "W/\"1fa8ad73fd498127bb6cc949052e76a3\"",
+   "public_updated_at": "2026-09-02T16:45:31+01:00",
+   "reviewed_at": "2026-09-02T15:45:31Z",
+   "etag": "W/\"4759cca5cada6b45f8631b99d76aeebf\"",
    "posture": "1",
    "alert_status": [],
-   "quotes": [
-    {
-     "form": "against all travel",
-     "text": "advises against all travel to the DRC provinces that border Uganda."
-    },
-    {
-     "form": "against all travel",
-     "text": "advises against all travel to these DRC provinces."
-    },
-    {
-     "form": "against all travel",
-     "text": "advises against all travel to the provinces of DRC that border Uganda, including Virunga National Park."
-    },
-    {
-     "form": "against all travel",
-     "text": "advises against all travel to South Sudan."
-    }
-   ]
+   "quotes": []
   },
   "ukraine": {
    "country": "Ukraine",
@@ -4018,9 +3992,9 @@
    "country": "Venezuela",
    "slug": "venezuela",
    "url": "https://www.gov.uk/foreign-travel-advice/venezuela",
-   "public_updated_at": "2026-07-01T19:10:05+01:00",
-   "reviewed_at": "2026-07-01T18:10:05Z",
-   "etag": "W/\"59ef5a35ad3f34850155ba205e58af26\"",
+   "public_updated_at": "2026-09-02T15:49:14+01:00",
+   "reviewed_at": "2026-09-02T14:49:14Z",
+   "etag": "W/\"b9a8d7ee3fcf0c1bff945a5819de5b08\"",
    "posture": "AREA-RESTRICTED",
    "alert_status": [
     "avoid_all_travel_to_parts",
