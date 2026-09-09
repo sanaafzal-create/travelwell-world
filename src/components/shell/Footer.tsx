@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useT } from "@/lib/i18n";
-import { useSiCount, useRegionCount, useWellCount } from "@/store/useCatalog";
+import { useSiCount, useRegionCount, useWellCount, useProviderCount } from "@/store/useCatalog";
 import { Tagline } from "@/components/ui/primitives";
 import { MASTER_TAGLINE_SUBJECT } from "@/data/taxonomy";
 
@@ -10,6 +10,7 @@ export function Footer() {
   const siCount = useSiCount();
   const regionCount = useRegionCount();
   const wellCount = useWellCount();
+  const providerCount = useProviderCount();
   return (
     <footer className="tw-footer">
       <div className="tw-footer__inner">
@@ -24,7 +25,7 @@ export function Footer() {
             <Link to="/special-interests">{t("foot.si", { n: siCount })}</Link>
             <Link to="/regions">{t("foot.regions", { n: regionCount })}</Link>
             <Link to="/wells">{t("foot.wells", { n: wellCount })}</Link>
-            <Link to="/providers">{t("foot.providers")}</Link>
+            <Link to="/providers">{t("foot.providers", { n: providerCount })}</Link>
           </div>
           <div className="tw-footer__col">
             <h5>{t("foot.journeys")}</h5>

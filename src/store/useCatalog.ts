@@ -182,6 +182,14 @@ export const useRegionCount = () => useCatalog((s) => s.regions.length);
  */
 export const useWellCount = () => useCatalog((s) => s.wells.length);
 /**
+ * Providers across every Well, deduplicated by name (one company can serve two
+ * Wells; a traveler counts companies, not rows). Replaces the "200+" literal
+ * that shipped in the footer while the seeded catalog held 58 — same fifteen-
+ * places failure mode as the interest count above.
+ */
+export const useProviderCount = () =>
+  useCatalog((s) => new Set(Object.values(s.providers).flat().map((p) => p.name)).size);
+/**
  * LIVE Wells only — the denominator for trip COVERAGE ("3 of 10 Wells covered").
  * Deliberately different from the published roster above: a traveler can only
  * cover a Well that exists, so counting Insure/Ship/Pets here would make every

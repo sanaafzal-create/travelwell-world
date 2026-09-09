@@ -130,7 +130,10 @@ export const MESSAGES: Record<string, Dict> = {
   "foot.si":        { en: "{n} Special Interests", es: "{n} Intereses Especiales", ar: "{n} اهتمامًا خاصًّا", zh: "{n} 种特别兴趣", fr: "{n} Centres d'Intérêt" },
   "foot.regions":   { en: "{n} Regions", es: "{n} Regiones", ar: "{n} منطقة", zh: "{n} 个地区", fr: "{n} Régions" },
   "foot.wells":     { en: "{n} Wells", es: "{n} Wells", ar: "{n} Wells", zh: "{n} 个 Well", fr: "{n} Wells" },
-  "foot.providers": { en: "200+ Providers", es: "Más de 200 proveedores", ar: "أكثر من 200 مزوّد", zh: "200+ 家供应商", fr: "200+ prestataires" },
+  // Derived count, same rule as foot.si — "200+" shipped as a literal while the
+  // seeded catalog held 58, and an invented number in the footer is exactly the
+  // claim the safety pages promise we never make.
+  "foot.providers": { en: "{n} Providers", es: "{n} proveedores", ar: "{n} مزوّدًا", zh: "{n} 家供应商", fr: "{n} prestataires" },
   "foot.plan":      { en: "Plan Your Trip", es: "Planifica tu viaje", ar: "خطّط لرحلتك", zh: "规划你的行程", fr: "Planifiez votre voyage" },
   "foot.guides":    { en: "Travel Guides", es: "Guías de viaje", ar: "أدلّة السفر", zh: "旅行指南", fr: "Guides de voyage" },
   "foot.luxury":    { en: "Luxury Worlds", es: "Mundos de Lujo", ar: "عوالم الفخامة", zh: "奢华世界", fr: "Mondes de Luxe" },

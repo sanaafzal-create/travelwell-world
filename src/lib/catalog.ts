@@ -17,6 +17,7 @@
  * shapes / app logic rather than flat catalog rows.
  */
 import { getSupabase } from "./supabase";
+import { SIS as BUNDLE_SIS } from "@/data/taxonomy";
 import type { SpecialInterest, Status, Well, Region, IconName } from "@/data/taxonomy";
 import type { Activity, Provider, Tier, Price, Mode, Destination, Guide } from "@/data/places";
 
@@ -50,6 +51,15 @@ export async function fetchCatalog(): Promise<DbCatalog | null> {
 
     const siRows = siRes.error ? [] : siRes.data ?? [];
     if (siRows.length) {
+      // RETIREMENT IS BOARD CANON, NOT A DB COLUMN. The four retired interests
+      // keep their Postgres row on purpose (the seed's delete-where-not-in
+      // would otherwise drop them), so the DB legitimately answers 39 — but it
+      // carries no `retired` flag, and a mapped row without the flag REPLACES
+      // the bundle row that has it. Every published count then hydrated from
+      // 35 back up to 39, and the footer disagreed with the board the moment
+      // the DB loaded. The flag's source of truth is `SIS` in taxonomy.ts
+      // (David's board), so it is re-applied here by id.
+      const retiredIds = new Set(BUNDLE_SIS.filter((s) => s.retired).map((s) => s.id));
       out.sis = siRows.map((r) => ({
         id: r.id as string,
         name: r.name as string,
@@ -58,6 +68,7 @@ export async function fetchCatalog(): Promise<DbCatalog | null> {
         accent: r.accent as string,
         lux: Boolean(r.is_lux),
         group: r.grp as string,
+        ...(retiredIds.has(r.id as string) ? { retired: true } : {}),
         ...(r.data ? { data: r.data as Record<string, unknown> } : {}),
       }));
     }

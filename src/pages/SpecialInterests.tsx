@@ -19,9 +19,12 @@ export default function SpecialInterests() {
   const t = useT();
   const ct = useCatalogName();
   const SIS = useSpecialInterests();
-  // Default to the live set so the page opens showing what's ready now (no
-  // "coming soon" clutter on first view); the roadmap is one tap away.
-  const [filter, setFilter] = useState<Filter>("live");
+  // Default to the FULL board (David, 2026-09-08: he opened this page and saw
+  // "only the seven live" — the "Ready now" chip was preselected and read as
+  // the whole offer). For a VC the 35-interest board IS the pitch; the live
+  // subset is one tap away and every non-live tile is already marked "soon",
+  // so nothing bookable is overstated by opening wide.
+  const [filter, setFilter] = useState<Filter>("all");
 
   const match = (status: string) =>
     filter === "all" || (filter === "live" && status === "live") || (filter === "soon" && status !== "live");
