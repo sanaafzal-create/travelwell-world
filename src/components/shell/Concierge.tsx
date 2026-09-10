@@ -6,6 +6,7 @@ import { useAtlas } from "@/lib/useAtlas";
 import { useSpeechInput } from "@/lib/useSpeech";
 import { useLiveVoice } from "@/lib/useLiveVoice";
 import { premiumVoiceReady } from "@/lib/voice/index";
+import { LANG_TAG } from "@/lib/voice/browser";
 import { subscribeSpeaking } from "@/lib/voice";
 import { atlasSpeak, atlasStopSpeaking } from "@/lib/voice/index";
 import { renderMarkdown, stripMarkdown } from "@/lib/markdown";
@@ -25,7 +26,7 @@ const HERO_WELLS = [
 ];
 
 export function Concierge() {
-  const { io, setIo, journeySIs, region, trip, addToTrip, showToast } = useStore();
+  const { io, setIo, journeySIs, region, trip, addToTrip, showToast, locale } = useStore();
   const navigate = useNavigate();
   const t = useT();
   const ct = useCatalogName();
@@ -73,7 +74,10 @@ export function Concierge() {
     useSpeechInput(
       setInput,
       (finalText) => { const cleaned = finalText.trim(); setInput(cleaned); setReview(!!cleaned); },
-      undefined,
+      // The ears listen in the site's language. This was hard-wired en-US while
+      // the placeholder advertised five input languages — Spanish spoken into
+      // English recognition transcribes as noise. Same tag map as the voice belt.
+      LANG_TAG[locale] || "en-US",
       // Say WHY the mic stopped. Silent failure reads as "the mic is broken" and
       // is unfixable by the person in front of it.
       (reason) => showToast(reason),

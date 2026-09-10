@@ -8,7 +8,11 @@
 import { speak as webSpeak, stopSpeaking, speechOutputSupported } from "../voice";
 import type { Mouth, Ears, EarsHandlers } from "./types";
 
-const LANG_TAG: Record<string, string> = {
+/** Locale code → BCP-47 recognition tag, all nine languages. Exported so every
+ *  ear (this belt, the dictation hook's callers) resolves the SAME tag — the
+ *  Concierge mic was hard-wired to en-US while its placeholder advertised five
+ *  input languages, so Spanish dictation ran through English recognition. */
+export const LANG_TAG: Record<string, string> = {
   en: "en-US", es: "es-ES", ar: "ar-SA", zh: "zh-CN", fr: "fr-FR",
   de: "de-DE", pt: "pt-PT", ja: "ja-JP", ko: "ko-KR",
 };
