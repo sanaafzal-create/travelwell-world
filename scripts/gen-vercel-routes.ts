@@ -36,6 +36,7 @@
  */
 import { readFileSync } from "node:fs";
 import { writeGenerated } from "./lib/write-generated";
+import { LOCALES } from "../src/data/taxonomy";
 
 const APP = "src/App.tsx";
 const app = readFileSync(APP, "utf8");
@@ -60,16 +61,39 @@ const rewrites = real
   .sort()
   .map((source) => ({ source, destination: "/index.html" }));
 
+// ── LOCALE PREFIXES REDIRECT, THEY NEVER 404 ────────────────────────────────
+// We have no locale-prefixed URLs (one URL, nine languages via the in-app
+// switcher — the Well names and the slogan are English-only by canon, so the
+// address is too). But `/en` is the single most PREDICTABLE wrong guess on the
+// internet — the header shows "EN", every competitor uses the prefix, and
+// during the old `/(.*)` catch-all era (see header) every such URL returned
+// 200, so `/en/...` links survive in indexes and inboxes to this day. David
+// reached one from an email on 2026-09-09 and got the 404.
+//
+// A 308 is strictly better than the 404 on both fronts: a human lands on the
+// real page, and a crawler holding a stale `/en/...` URL is told the canonical
+// instead of just "gone". `/en/regions` → `/regions`; a path that is garbage
+// after the prefix is stripped still falls through to the 404, so this
+// launders nothing. The codes come from LOCALES in taxonomy.ts — add a
+// language, the redirect follows; never hand-type the roster.
+const localeAlt = LOCALES.map((l) => l.code).sort().join("|");
+const redirects = [
+  { source: `/:locale(${localeAlt})`, destination: "/", permanent: true },
+  { source: `/:locale(${localeAlt})/:path(.*)`, destination: "/:path", permanent: true },
+];
+
 const config = {
   $schema: "https://openapi.vercel.sh/vercel.json",
   buildCommand: "npm run build",
   outputDirectory: "dist",
   framework: "vite",
-  // GENERATED — see scripts/gen-vercel-routes.ts. Anything not listed here and
-  // not a real file on disk gets Vercel's 404 (our branded dist/404.html), which
-  // is what lets a dead URL from an old build fall out of the index.
+  // GENERATED — see scripts/gen-vercel-routes.ts. Locale prefixes 308 to the
+  // unprefixed path; anything else not listed here and not a real file on disk
+  // gets Vercel's 404 (our branded dist/404.html), which is what lets a dead
+  // URL from an old build fall out of the index.
+  redirects,
   rewrites,
 };
 
 writeGenerated("vercel.json", JSON.stringify(config, null, 2) + "\n");
-console.log(`Wrote vercel.json — ${rewrites.length} rewrites from ${APP}; every other path now 404s.`);
+console.log(`Wrote vercel.json — ${rewrites.length} rewrites from ${APP}, ${redirects.length} locale-prefix redirects (${LOCALES.length} codes); every other path now 404s.`);

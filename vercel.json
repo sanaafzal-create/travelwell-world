@@ -3,6 +3,18 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    {
+      "source": "/:locale(ar|de|en|es|fr|ja|ko|pt|zh)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(ar|de|en|es|fr|ja|ko|pt|zh)/:path(.*)",
+      "destination": "/:path",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/",
