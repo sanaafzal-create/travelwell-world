@@ -285,8 +285,15 @@ export const MESSAGES: Record<string, Dict> = {
   "io.read": { en: "Read", es: "Leer", ar: "قراءة", zh: "阅读", fr: "Lire" },
   "io.hear": { en: "Hear", es: "Escuchar", ar: "استماع", zh: "听", fr: "Écouter" },
   "io.both": { en: "Both", es: "Ambos", ar: "كلاهما", zh: "两者", fr: "Les deux" },
-  "atlas.cue":  { en: "Type and press Enter, or tap the mic to talk.", es: "Escribe y pulsa Enter, o toca el micrófono para hablar.", ar: "اكتب واضغط Enter، أو انقر الميكروفون للتحدّث.", zh: "输入后按 Enter，或点按麦克风说话。", fr: "Écrivez puis appuyez sur Entrée, ou touchez le micro pour parler." },
+  "atlas.cue":  { en: "Type and press Enter, or tap Talk to speak.", es: "Escribe y pulsa Enter, o toca Hablar para dictar.", ar: "اكتب واضغط Enter، أو انقر «تحدّث» للإملاء.", zh: "输入后按 Enter，或点按“说话”来口述。", fr: "Écrivez puis appuyez sur Entrée, ou touchez Parler pour dicter." },
   "atlas.cue.hear":  { en: "Choose Hear to have Atlas speak back.", es: "Elige Escuchar para que Atlas responda en voz alta.", ar: "اختر «استماع» ليجيبك Atlas بصوته.", zh: "选择“收听”让 Atlas 出声回答。", fr: "Choisissez Écouter pour qu'Atlas réponde à voix haute." },
+  // Talk → Stop → Send — the labeled three-state voice button (David 2026-09-07 ④).
+  "atlas.talk": { en: "Talk", es: "Hablar", ar: "تحدّث", zh: "说话", fr: "Parler" },
+  "atlas.stop": { en: "Stop", es: "Detener", ar: "إيقاف", zh: "停止", fr: "Arrêter" },
+  "atlas.send": { en: "Send", es: "Enviar", ar: "إرسال", zh: "发送", fr: "Envoyer" },
+  "atlas.listening": { en: "Listening…", es: "Escuchando…", ar: "أستمع إليك…", zh: "正在聆听……", fr: "J'écoute…" },
+  "atlas.draftLive": { en: "your words, live — tap Stop when you're done", es: "tus palabras, en vivo — toca Detener al terminar", ar: "كلماتك مباشرةً — انقر «إيقاف» عند الانتهاء", zh: "你的话正实时显示——说完请点“停止”", fr: "vos mots, en direct — touchez Arrêter quand vous avez fini" },
+  "atlas.draftReady": { en: "read it over, then tap Send", es: "revísalo y toca Enviar", ar: "راجِعها ثم انقر «إرسال»", zh: "读一遍，然后点“发送”", fr: "relisez, puis touchez Envoyer" },
 };
 
 /**

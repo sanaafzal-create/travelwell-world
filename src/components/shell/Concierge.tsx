@@ -60,10 +60,19 @@ export function Concierge() {
   // just ENDS the recording and leaves the text sitting in the box, so you read
   // it, fix any misheard word, and send it yourself. You stay in control of when
   // it goes to Atlas — the mic is a keyboard alternative, not a send button.
+  //
+  // TALK → STOP → SEND, in words, at the top (David, 2026-09-07 note ④): the
+  // only voice control was "a little white button with a little white
+  // microphone that you really can't see" below the whole dialog. It IS a
+  // three-step process — he asked that it say so. One green button in the
+  // panel header walks the three states: Talk (start dictating) → Stop (end
+  // recording) → Send (the reviewed words go to Atlas). `review` is the third
+  // state: dictation finished, transcript in the box, waiting on the person.
+  const [review, setReview] = useState(false);
   const { supported: voiceSupported, listening, start: startVoice, stop: stopVoice } =
     useSpeechInput(
       setInput,
-      (finalText) => { setInput(finalText.trim()); },
+      (finalText) => { const cleaned = finalText.trim(); setInput(cleaned); setReview(!!cleaned); },
       undefined,
       // Say WHY the mic stopped. Silent failure reads as "the mic is broken" and
       // is unfixable by the person in front of it.
@@ -78,8 +87,20 @@ export function Concierge() {
     if (listening) { stopVoice(); return; }
     if (live) { showToast("You're in a live conversation — just talk, or end it to type."); return; }
     if (!voiceSupported) { showToast("Voice input isn't supported in this browser yet — please type for now."); return; }
+    // Talking from the primer screen counts as beginning the conversation —
+    // nobody should have to pick a mode with their mouth already open.
+    if (!primed) { resetVision(); setPrimed(true); setMessages([]); }
     atlasStopSpeaking(); // don't let Atlas talk over the traveler
+    setReview(false);
     startVoice();
+  };
+
+  // The header button's current face: one control, three labeled states.
+  const talkState: "talk" | "stop" | "send" = listening ? "stop" : review && input.trim() ? "send" : "talk";
+  const onTalkCta = () => {
+    if (talkState === "stop") { stopVoice(); return; }
+    if (talkState === "send") { onSend(input); return; }
+    onMic();
   };
 
   const onLive = () => {
@@ -91,7 +112,9 @@ export function Concierge() {
 
   useEffect(() => {
     if (isOpen && bodyRef.current) bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
-  }, [messages, busy, isOpen]);
+    // `input` is a dep so the LIVE transcript bubble (rendered in the body while
+    // dictating) stays scrolled into view as the words stream in.
+  }, [messages, busy, isOpen, listening, review, input]);
 
   // The mirror: when the traveler chose to HEAR Atlas, speak each new reply
   // aloud (in their language) while the same text stays on screen. Routed through
@@ -136,6 +159,7 @@ export function Concierge() {
     if (!trimmed || busy || listening) return;
     atlasStopSpeaking();
     setInput("");
+    setReview(false);
     // In the vision loop's "ask" stage, capture the dream and write it back
     // verbatim (Atlas heard every word) instead of routing to the model.
     if (visionStage === "ask") {
@@ -224,12 +248,24 @@ export function Concierge() {
       <div className="tw-concierge" data-open={isOpen} role="dialog" aria-modal="false" aria-label="Speak with Atlas — your Concierge" aria-hidden={!isOpen} {...(isOpen ? {} : ({ inert: "" } as any))}>
         <div className="tw-concierge__head">
           <div className="tw-concierge__avatar"><Icon name="sparkles" /></div>
-          <div style={{ flex: 1 }}>
+          <div className="tw-concierge__titles">
             <div className="tw-concierge__title">Speak with Atlas</div>
             <div className="tw-concierge__sub"><span className="dot" /> Your Concierge · powered by Atlas</div>
           </div>
+          {/* THE green voice control, top right, in words (David 2026-09-07 ④):
+              Talk starts dictating, Stop ends it, Send posts the reviewed words.
+              Pine — Emergency stays the only red on the page. */}
+          <button
+            className="tw-talk-cta"
+            data-state={talkState}
+            aria-label={talkState === "talk" ? "Talk — dictate a message to Atlas" : talkState === "stop" ? "Stop recording" : "Send your words to Atlas"}
+            onClick={onTalkCta}
+          >
+            <Icon name={talkState === "talk" ? "mic" : talkState === "stop" ? "stop" : "send"} small />
+            {t(`atlas.${talkState}`)}
+          </button>
           {primed && messages.length > 0 && (
-            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); clearHeroTimers(); setHeroActive(false); setHeroFocus(null); setHeroReveal(false); setHeroCue(""); resetVision(); }}>
+            <button className="tw-concierge__restart" aria-label="Start over" title="Start over" onClick={() => { reset(); setInput(""); setReview(false); if (listening) stopVoice(); clearHeroTimers(); setHeroActive(false); setHeroFocus(null); setHeroReveal(false); setHeroCue(""); resetVision(); }}>
               Start over
             </button>
           )}
@@ -326,6 +362,16 @@ export function Concierge() {
                   </div>
                 );
               })}
+              {/* The spoken words print on the MAIN screen as they stream (David
+                  ④: "not just in the moving dialog at the bottom") — a draft
+                  bubble where the sent message will land. It stays through
+                  review so what Send will post is exactly what's on screen. */}
+              {(listening || (review && input.trim().length > 0)) && (
+                <div className="tw-msg tw-msg--user tw-msg--draft" aria-live="polite">
+                  {input.trim() || <i>{t("atlas.listening")}</i>}
+                  <span className="tw-msg__draftlbl">{listening ? t("atlas.draftLive") : t("atlas.draftReady")}</span>
+                </div>
+              )}
               {busy && (
                 <div className="tw-msg tw-msg--bot">
                   <span className="tw-typing"><span /><span /><span /></span>
@@ -432,7 +478,7 @@ export function Concierge() {
             <div className="tw-listening-live" role="status" aria-live="polite">
               <span className="tw-listen-orb" aria-hidden="true"><Icon name="mic" /></span>
               <span className="tw-wave" aria-hidden="true">{Array.from({ length: 6 }).map((_, i) => <i key={i} style={{ animationDelay: `${i * 0.09}s` }} />)}</span>
-              <span className="tw-listen-copy"><b>Listening…</b> tap stop when you're done — your words are in the box, then you send.</span>
+              <span className="tw-listen-copy"><b>Listening…</b> tap <b>Stop</b> when you're done, read your words, then tap <b>Send</b>.</span>
             </div>
           )}
           {(live || liveConnecting) && (

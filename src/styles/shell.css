@@ -156,6 +156,30 @@
 /* "Start over" — quiet ghost control in the head; clears the conversation. */
 .tw-concierge__restart { display: inline-flex; align-items: center; gap: 5px; border: 0; background: none; color: var(--muted-foreground); font-family: var(--font-sans); font-size: 16px; font-weight: 500; cursor: pointer; padding: 4px 6px; border-radius: var(--radius-sm); white-space: nowrap; }
 .tw-concierge__restart:hover { background: var(--surface-alt); color: var(--foreground); }
+/* Talk → Stop → Send — THE voice control, top right of the head, in words
+   (David 2026-09-07 ④). Solid pine: the green he asked for is the brand green,
+   and Emergency keeps red to itself. While recording it pulses so "Stop" is
+   unmissable; the label is the state, so a first-timer never hunts for a mic. */
+.tw-talk-cta { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 16px; border: 0; border-radius: var(--radius-pill); background: var(--primary); color: var(--primary-foreground); font-family: var(--font-sans); font-size: 15px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background-color .15s ease; }
+.tw-talk-cta:hover { background: var(--primary-hover); }
+.tw-talk-cta:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.tw-talk-cta .ic { width: 17px; height: 17px; }
+.tw-talk-cta[data-state="stop"] { animation: tw-talk-pulse 1.6s ease-in-out infinite; }
+@keyframes tw-talk-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--primary) 55%, transparent); }
+  50%      { box-shadow: 0 0 0 8px color-mix(in oklch, var(--primary) 0%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tw-talk-cta[data-state="stop"] { animation: none; box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 35%, transparent); }
+}
+/* Phone-width head: the avatar and sub-line step aside so Talk/Stop/Send,
+   Start over and Close all keep full-size tap targets (~44px canon). */
+@media (max-width: 480px) {
+  .tw-concierge__head .tw-concierge__avatar { display: none; }
+  .tw-concierge__sub { display: none; }
+  .tw-concierge__restart { font-size: 14px; padding: 4px; }
+  .tw-talk-cta { padding: 0 13px; font-size: 14px; }
+}
 /* Collapsed Atlas — a gentle floating pill so Atlas stays beside you across the
    whole journey without taking the screen. Tap to reopen, full history intact. */
 .tw-atlas-fab { position: fixed; inset-block-end: 22px; inset-inline-end: 22px; z-index: 94; width: 58px; height: 58px; border-radius: 50%; border: 0; background: var(--primary); color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: var(--e3); transition: transform .15s ease, background-color .15s ease; }
@@ -194,6 +218,10 @@
 .tw-footer__legal a { color: inherit; opacity: .85; }
 .tw-footer__legal a:hover { opacity: 1; }
 .tw-concierge__avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(150deg, var(--primary), var(--primary-hover)); display: grid; place-items: center; color: #fff; flex: none; }
+/* The title block yields first when the head is tight (min-width: 0 lets it
+   shrink; ellipsis keeps it one line) — the Talk/Stop/Send control never does. */
+.tw-concierge__titles { flex: 1; min-width: 0; }
+.tw-concierge__titles > div { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tw-concierge__title { font-family: var(--font-display); font-weight: 600; font-size: 17px; line-height: 1.1; }
 .tw-concierge__sub { font-size: 16px; color: var(--muted-foreground); display: flex; align-items: center; gap: 6px; margin-top: 2px; }
 .tw-concierge__sub .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--safety-1); }
@@ -208,6 +236,12 @@
 [dir="rtl"] .tw-msg--bot { border-bottom-left-radius: 16px; border-bottom-right-radius: 5px; }
 .tw-msg--user { background: var(--primary); color: #fff; border-bottom-right-radius: 5px; align-self: flex-end; }
 [dir="rtl"] .tw-msg--user { border-bottom-right-radius: 16px; border-bottom-left-radius: 5px; }
+/* The dictation draft — spoken words printing on the main screen as they
+   stream (David ④), in the spot where the sent message will land. Dashed and
+   slightly lifted so it reads as "not sent yet"; the tiny label says what to
+   do next, so the state is never color alone (AA canon). */
+.tw-msg--draft { background: color-mix(in oklch, var(--primary) 88%, #fff); outline: 2px dashed color-mix(in oklch, var(--primary) 45%, #fff); outline-offset: 2px; display: flex; flex-direction: column; gap: 4px; }
+.tw-msg__draftlbl { font-size: 12px; font-weight: 600; opacity: .85; letter-spacing: .01em; }
 /* Rendered markdown inside a reply bubble — kept tight so it reads as one message. */
 .tw-msg p { margin: 0; }
 .tw-msg p + p, .tw-msg p + ul, .tw-msg p + ol, .tw-msg ul + p, .tw-msg ol + p { margin-top: 8px; }
