@@ -31,12 +31,22 @@ import {
  * closed on a price grid rather than on the traveller's own words. Steps are
  * selected by `key` (never by index) and validation is keyed too, so this array
  * IS the running order: reorder here and the flow follows.
+ *
+ * PARTY-FIRST (David, confirmed 2026-09-09 — the one amendment to the locked
+ * order). "Who's traveling" sat fourth, so a parent answered three steps about
+ * themselves while staring at "Young Adult 18–24" wondering where their kids
+ * go. It now comes right after the name: each person's age range is captured
+ * as they're added, so every step after already knows it's building for a
+ * family of four or the two of you. Couples build together — one conversation,
+ * a Travel ID per adult (the model's unit is a person, not an account) —
+ * and children ride the party, never own accounts. The builder still ends on
+ * the vision; that part of the spec is untouched.
  */
 const STEPS = [
   { key: "you", label: "You", sub: "Name & email" },
-  { key: "age", label: "Age range", sub: "Safe & exciting" },
-  { key: "move", label: "How you move", sub: "Pace & access" },
   { key: "party", label: "Your party", sub: "Who's traveling" },
+  { key: "age", label: "Age range", sub: "Yours — safe & exciting" },
+  { key: "move", label: "How you move", sub: "Pace & access" },
   { key: "budget", label: "Budget blend", sub: "Per-Well tiers" },
   { key: "notif", label: "Notifications", sub: "Who hears from us" },
   { key: "dream", label: "Your dream", sub: "In your own words" },
@@ -252,7 +262,7 @@ export default function SignUp() {
                     So the age on each tile is a suggestion of where most people
                     land, and the traveler's own pick is what we store. */}
                 <h2 className="ob__title">Pick the pace that matches your body</h2>
-                <Why ic="shield">The age is a <b>suggestion of where most people land</b>, never a fact from a birthday — pick the one that reads like your day. It shapes <b>pace, rest and timing</b>, <b>never your budget</b>, and it's yours to change anytime.</Why>
+                <Why ic="shield">The age is a <b>suggestion of where most people land</b>, never a fact from a birthday — pick the one that reads like your day. It shapes <b>pace, rest and timing</b>, <b>never your budget</b>, and it's yours to change anytime.{party.length > 0 && <> Everyone you added already has their range — <b>this one is yours.</b></>}</Why>
                 <div className="ob__fields">
                   <div className="choices choices--rich" role="group" aria-label="Pace">
                     {ADULT_COHORTS.map((c) => (
@@ -315,7 +325,7 @@ export default function SignUp() {
               <>
                 <Eyebrow className="ob__eyebrow">Your party</Eyebrow>
                 <h2 className="ob__title">Who's coming with you?</h2>
-                <Why ic="heart">A couple or family travels on <b>one itinerary and one budget</b>. Travelers who pay separately get their own party — you can link them later. Add anyone you'll book & pay for.</Why>
+                <Why ic="heart">A couple or family travels on <b>one itinerary and one budget</b> — one conversation, and each adult gets their own Travel ID. <b>Children ride your party</b>: they shape every plan, but never get an account or a message. Add anyone you'll book & pay for; travelers who pay separately can link their own party later.</Why>
                 <div className="ob__fields">
                   <div className="party-list">
                     <div className="party-member">
