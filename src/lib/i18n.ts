@@ -144,6 +144,13 @@ export const MESSAGES: Record<string, Dict> = {
   "foot.firstaid":  { en: "First Aid Kit", es: "Botiquín", ar: "حقيبة الإسعافات", zh: "急救包", fr: "Trousse de secours" },
   "foot.sitemap":   { en: "Sitemap", es: "Mapa del sitio", ar: "خريطة الموقع", zh: "网站地图", fr: "Plan du site" },
   "foot.disclosure":{ en: "Affiliate Disclosure", es: "Divulgación de afiliados", ar: "إفصاح الشراكة", zh: "联盟披露", fr: "Divulgation d'affiliation" },
+
+  /* Not found (the real 404 — see src/pages/NotFound.tsx) */
+  "nf.title":   { en: "Not found", es: "Página no encontrada", ar: "الصفحة غير موجودة", zh: "页面未找到", fr: "Page introuvable" },
+  "nf.lead":    { en: "That page wandered off the map. Let's get you back on the trail.", es: "Esa página se salió del mapa. Volvamos al camino.", ar: "هذه الصفحة خرجت عن الخريطة. لنعد بك إلى المسار.", zh: "这个页面走出了地图。让我们带你回到正轨。", fr: "Cette page s'est égarée hors de la carte. Revenons sur le sentier." },
+  "nf.home":    { en: "Back to Home", es: "Volver al inicio", ar: "العودة إلى الرئيسية", zh: "返回首页", fr: "Retour à l'accueil" },
+  "nf.explore": { en: "Design your journey", es: "Diseña tu viaje", ar: "صمّم رحلتك", zh: "设计你的旅程", fr: "Concevez votre voyage" },
+  "nf.sitemap": { en: "View the sitemap", es: "Ver el mapa del sitio", ar: "عرض خريطة الموقع", zh: "查看网站地图", fr: "Voir le plan du site" },
   "foot.contact":   { en: "Contact", es: "Contacto", ar: "اتصل بنا", zh: "联系我们", fr: "Contact" },
   "foot.privacy":   { en: "Privacy Policy", es: "Política de privacidad", ar: "سياسة الخصوصية", zh: "隐私政策", fr: "Politique de confidentialité" },
   "foot.terms":     { en: "Terms of Service", es: "Términos del servicio", ar: "شروط الخدمة", zh: "服务条款", fr: "Conditions d'utilisation" },

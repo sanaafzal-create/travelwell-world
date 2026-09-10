@@ -39,7 +39,7 @@ const Disclosure = lazy(() => import("@/pages/Disclosure"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const Sitemap = lazy(() => import("@/pages/Sitemap"));
 const Go = lazy(() => import("@/pages/Go"));
-const Placeholder = lazy(() => import("@/pages/Placeholder").then((m) => ({ default: m.Placeholder })));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 // Don't resume into auth/utility flows — only the trip-building journey.
 const NO_RESUME = new Set(["", "signin", "signup", "verify", "activation", "go", "sitemap"]);
@@ -122,7 +122,10 @@ export default function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/sitemap" element={<Sitemap />} />
         <Route path="/go" element={<Go />} />
-        <Route path="*" element={<Placeholder title="Not found" eyebrow="404" lead="That page wandered off the map. Let's get you back on the trail." />} />
+        {/* The real 404, not the Placeholder scaffold — its "Preview · scaffolded
+            screen" pill shipped on every dead URL until David hit one (2026-09-09)
+            and read the whole site as unfinished. */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
     </>
