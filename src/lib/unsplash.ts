@@ -11,6 +11,7 @@
  */
 import { useEffect, useState } from "react";
 import { getSupabase } from "./supabase";
+import { SI_QUERY } from "./images";
 
 export interface UnsplashCredit { name: string; link: string }
 export interface UnsplashPhoto { url: string; alt: string; credit: UnsplashCredit }
@@ -91,16 +92,20 @@ export interface DestinationHero {
  * hero for all 35 interests in `data.hero` — without this the SI page ignored it
  * and every new interest sat on the generic mountain photo.
  *
- * Precedence: `data.hero.url` (pinned) > `data.hero.query` > the interest name.
+ * Precedence: `data.hero.url` (pinned) > `data.hero.query` > the curated
+ * SI_QUERY default > the interest name. The curated map sits BELOW David's
+ * dossier channel on purpose — his pick always wins the moment it lands — and
+ * above the raw name, because "Winter/Ski" and "Golf Globally" are labels, not
+ * search queries.
  */
 export function useSiImage(
-  si: { name: string; data?: Record<string, unknown> },
+  si: { id?: string; name: string; data?: Record<string, unknown> },
   width: number,
   fallback: string,
 ): { src: string; credit?: UnsplashCredit } {
   const hero = (si.data as { hero?: DestinationHero } | undefined)?.hero;
   const pinned = hero?.url && /^https:\/\//i.test(hero.url) ? hero.url : undefined;
-  const auto = useUnsplashImage(pinned ? "" : (hero?.query || si.name), fallback, width);
+  const auto = useUnsplashImage(pinned ? "" : (hero?.query || (si.id && SI_QUERY[si.id]) || si.name), fallback, width);
   return pinned ? { src: pinned, credit: hero?.credit } : auto;
 }
 

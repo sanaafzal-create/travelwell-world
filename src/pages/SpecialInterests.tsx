@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@/lib/icons";
-import { SI_GROUPS, MASTER_TAGLINE_SUBJECT } from "@/data/taxonomy";
+import { SI_GROUPS, MASTER_TAGLINE_SUBJECT, type SpecialInterest } from "@/data/taxonomy";
 import { siImg } from "@/lib/images";
+import { useSiImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useSpecialInterests } from "@/store/useCatalog";
 import { Eyebrow, Tagline } from "@/components/ui/primitives";
@@ -13,6 +14,14 @@ import { useT } from "@/lib/i18n";
 import { useCatalogName } from "@/lib/i18n-catalog";
 
 type Filter = "all" | "live" | "soon";
+
+/** Tile image: the subject-matched photo (SI_QUERY / David's data.hero, cached
+ *  server-side) over the instant token placeholder. Its own component because
+ *  hooks can't run inside the tile map — same shape as the destination cards. */
+function SiTileImg({ si }: { si: SpecialInterest }) {
+  const photo = useSiImage(si, 700, siImg(si.id, 700));
+  return <img src={photo.src} alt="" loading="lazy" referrerPolicy="no-referrer" />;
+}
 
 export default function SpecialInterests() {
   const { journeySIs, toggleSI } = useStore();
@@ -87,7 +96,7 @@ export default function SpecialInterests() {
                         aria-label={isSoon ? t("sip.openSoonLabel", { name }) : t("sip.openLabel", { name })}
                       >
                         <span className="si-tile__img">
-                          <img src={siImg(s.id, 700)} alt="" loading="lazy" referrerPolicy="no-referrer" />
+                          <SiTileImg si={s} />
                         </span>
                         <span className="si-tile__scrim" />
                         <span className="si-tile__accent" style={{ background: s.accent }} />

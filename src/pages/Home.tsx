@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@/lib/icons";
 import { siImg, img } from "@/lib/images";
-import { taglineSubject } from "@/data/taxonomy";
+import { taglineSubject, type SpecialInterest } from "@/data/taxonomy";
+import { useSiImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useSpecialInterests, useSiCount, useWellCount, useRegionCount } from "@/store/useCatalog";
 import { ButtonLink, Button, Eyebrow, Tagline } from "@/components/ui/primitives";
@@ -10,6 +11,18 @@ import { cx } from "@/lib/utils";
 import { useT } from "@/lib/i18n";
 import { useCatalogName, useChip } from "@/lib/i18n-catalog";
 import { MARQUEE_EVENTS, whenLabel } from "@/lib/marquee";
+
+/** Featured-card media: the subject-matched photo (SI_QUERY / David's
+ *  data.hero, cached server-side) under the accent gradient, painting over the
+ *  instant token. Its own component because hooks can't run inside the map. */
+function SiCardMedia({ si, children }: { si: SpecialInterest; children: React.ReactNode }) {
+  const photo = useSiImage(si, 800, siImg(si.id, 800));
+  const media = {
+    backgroundImage: `linear-gradient(150deg, color-mix(in oklch, ${si.accent} 30%, transparent), rgba(20,18,14,.55)), url('${photo.src}')`,
+    backgroundSize: "cover", backgroundPosition: "center",
+  };
+  return <div className="si-card__media" style={media}>{children}</div>;
+}
 
 /* ---- "How it works" steps (mirrors the design's custom inline SVGs) ---- */
 const STEPS = [
@@ -299,15 +312,11 @@ export default function Home() {
           <div className="si-rail">
             {featured.map((s) => {
               const live = s.status === "live";
-              const media = {
-                backgroundImage: `linear-gradient(150deg, color-mix(in oklch, ${s.accent} 30%, transparent), rgba(20,18,14,.55)), url('${siImg(s.id, 800)}')`,
-                backgroundSize: "cover", backgroundPosition: "center",
-              };
               return (
                 <div key={s.id} className={cx("si-card", !live && "is-preview")}>
-                  <div className="si-card__media" style={media}>
+                  <SiCardMedia si={s}>
                     <span className={cx("si-card__pill pill", live ? "pill-live" : "pill-preview")} style={{ background: "rgba(255,255,255,.92)" }}>{live ? t("pill.live") : t("pill.preview")}</span>
-                  </div>
+                  </SiCardMedia>
                   <div className="si-card__body">
                     <h3>{ct(`si.${s.id}.name`, s.name)}</h3>
                     <Tagline subject={taglineSubject(s)} className="sig" />

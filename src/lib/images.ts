@@ -28,13 +28,79 @@ const IDS: Record<string, string> = {
   luxuryPool: "1571896349842-33c89424de2d",
 };
 
+/**
+ * INSTANT placeholder per interest — the token that paints before the matched
+ * photo arrives (see SI_QUERY below). Nearest-subject token from the verified
+ * set above, never a new unverified photo id: a wrong-but-plausible flash for
+ * half a second beats a broken image forever. All 35 board ids are present so
+ * nothing silently lands on the generic mountain (14 did, and with 17 sharing
+ * it the board read as one trip sold thirty-five ways — David's note ⑥ wants
+ * every interest impressive on its own).
+ */
 const SI_IMG: Record<string, string> = {
-  ultra: "luxuryPool", tropical: "tropicalBeach", romance: "venice", safari: "safariGiraffe",
-  expedition: "mountainValley", adventure: "desertDunes",
-  liveaboard: "oceanAerial", river: "venice", diveglobal: "oceanAerial", ocean: "maldivesResort", wellness: "spaWellness",
-  family: "baliRice", hiking: "mountainValley", ski: "northernLights", olympic: "dubai", senior: "santorini",
-  culinary: "restaurant", culture: "kyoto", deepdive: "marrakech", entertainment: "dubai", nightlife: "dubai",
-  sports: "mountainValley", spectator: "dubai", prosports: "paris", compsports: "oceanAerial",
+  ultra: "luxuryPool", tropical: "tropicalBeach", romance: "paris", safari: "safariGiraffe",
+  expedition: "mountainValley", adventure: "desertDunes", ski: "northernLights", golf: "baliRice",
+  rail: "mountainValley", barge: "venice", privatejet: "dubai", caravan: "desertDunes",
+  overland: "safariJeep", motoring: "mountainValley",
+  liveaboard: "oceanAerial", river: "venice", diveglobal: "maldivesResort", ocean: "oceanAerial",
+  sailing: "oceanAerial", yacht: "maldivesResort",
+  wellness: "spaWellness", wildlife: "elephant", glamping: "desertDunes",
+  family: "baliRice", group: "tropicalBeach", hiking: "mountainValley", senior: "santorini",
+  culinary: "restaurant", wine: "baliRice", culture: "kyoto", deepdive: "marrakech", pilgrimage: "kyoto",
+  entertainment: "dubai", sports: "mountainValley", spectator: "dubai",
+  // Off the board (retired) — kept so a legacy link still paints something sane.
+  olympic: "dubai", nightlife: "dubai", prosports: "paris", compsports: "oceanAerial",
+};
+
+/**
+ * The MATCHED photo per interest — a curated Unsplash search query, resolved at
+ * runtime through the `unsplash` Edge Function (key server-side; results cached
+ * in public.unsplash_cache, so each query costs one API call EVER, then every
+ * visitor reads the cache). This is how the board gets 35 distinct,
+ * subject-true images without hand-picking photo ids nobody here can verify —
+ * a query that drifts still returns *a* photo; a dead id returns a broken tile.
+ *
+ * Precedence in useSiImage: David's dossier hero (`data.hero.url`, then
+ * `data.hero.query`) ALWAYS wins over this map — these are the defaults until
+ * he names each hero, not a rival channel. Raw interest names make poor
+ * queries ("Winter/Ski", "Golf Globally"), which is why this map exists.
+ */
+export const SI_QUERY: Record<string, string> = {
+  ultra: "luxury resort infinity pool sunset",
+  tropical: "tropical island beach turquoise palm trees",
+  romance: "honeymoon couple sunset beach romantic",
+  safari: "african safari savanna wildlife giraffe",
+  expedition: "polar expedition ship iceberg antarctica",
+  ski: "skiing alps powder snow slope",
+  golf: "golf course green fairway morning",
+  rail: "scenic mountain railway train viaduct",
+  barge: "canal boat waterway france",
+  privatejet: "private jet tarmac aviation luxury",
+  caravan: "camel caravan sahara desert dunes",
+  overland: "overland expedition 4x4 desert track",
+  motoring: "classic car scenic coastal road",
+  adventure: "adventure paragliding mountains",
+  hiking: "hikers mountain ridge trail trekking",
+  liveaboard: "dive boat liveaboard tropical sea",
+  river: "river cruise danube europe",
+  diveglobal: "scuba diving underwater coral reef",
+  ocean: "watersports turquoise sea snorkeling",
+  sailing: "sailboat sailing regatta open sea",
+  yacht: "luxury yacht mediterranean harbor",
+  wellness: "spa wellness retreat serene",
+  wildlife: "wildlife nature photography animals",
+  glamping: "glamping tent luxury camping stars",
+  family: "family vacation beach children",
+  group: "group of friends traveling together",
+  senior: "senior couple traveling europe",
+  culture: "ancient temple heritage architecture",
+  deepdive: "traditional artisan local market culture",
+  pilgrimage: "pilgrimage sacred temple candles",
+  entertainment: "live concert stage lights crowd",
+  culinary: "fine dining chef plating cuisine",
+  sports: "trail running athlete mountains",
+  spectator: "stadium crowd sports match floodlights",
+  wine: "vineyard rows wine tasting golden hour",
 };
 
 const REGION_IMG: Record<string, string> = {
