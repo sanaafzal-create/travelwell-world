@@ -80,9 +80,11 @@
 
 /* schema / coming-soon tiles.
    These are NOT inert — the card opens the interest's page. They keep the
-   desaturated image and the "Coming soon" badge (the real status signal) and
-   have no add control, because a preview interest can't be picked. */
-.si-tile--soon .si-tile__img img { filter: saturate(.18) brightness(1.04); }
+   "Coming soon" badge (the real status signal) and have no add control,
+   because a preview interest can't be picked. FULL COLOR, deliberately
+   (David, 2026-09-10, overruling the old desaturate convention site-wide):
+   "we really need colorful pictures, not Black & White… even if they are
+   coming soon" — the badge carries the status; the picture carries the WOW. */
 .si-soon-badge { position: absolute; top: 14px; inset-inline-end: 14px; z-index: 4; background: rgba(255,255,255,.92); color: var(--muted-foreground); font-weight: 600; font-size: 13px; padding: 5px 11px; border-radius: var(--radius-pill); display: inline-flex; align-items: center; gap: 5px; }
 .si-soon-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--muted-foreground); }
 

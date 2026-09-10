@@ -316,8 +316,12 @@ img { max-width: 100%; display: block; }
   display: grid; place-items: center; flex: none;
 }
 
-/* Preview/schema media is desaturated (§7 / Hard Constraint 6) */
-.is-preview .media { filter: saturate(0.25) brightness(1.02); }
+/* Preview/schema media used to be desaturated (§7 / Hard Constraint 6).
+   RETIRED by David, 2026-09-10: "we really need colorful pictures, not
+   Black & White… even if they are coming soon" — full color everywhere;
+   the Coming-soon/Preview badge is the status signal, never the palette.
+   (Also the accessible reading: status was already conveyed by text, so
+   nothing leans on color alone in either direction.) */
 
 /* ---- Focus ring, used on any custom interactive element -------------- */
 .focusable:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 4px; }
