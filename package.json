@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.4.0",
   "type": "module",
-  "description": "TravelWell.World — a Travel Operating System. React + TypeScript + Tailwind + Supabase + Claude.",
+  "description": "TravelWell.World \u2014 a Travel Operating System. React + TypeScript + Tailwind + Supabase + Claude.",
   "scripts": {
     "dev": "vite",
     "build": "npm run gen:sitemap && tsc -b && vite build && npm run gen:heads && npm run prerender",
@@ -34,7 +34,8 @@
     "gen:board": "esbuild scripts/gen-board.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genboard.mjs && node scratchpad/genboard.mjs",
     "gen:manifest": "esbuild scripts/gen-manifest.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genmanifest.mjs && node scratchpad/genmanifest.mjs",
     "gen:list-sizes": "esbuild scripts/gen-list-sizes.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genlistsizes.mjs && node scratchpad/genlistsizes.mjs",
-    "gen:mcp-safety": "esbuild scripts/gen-mcp-safety.ts --bundle --platform=node --format=esm --external:esbuild --outfile=scratchpad/genmcpsafety.mjs && node scratchpad/genmcpsafety.mjs"
+    "gen:mcp-safety": "esbuild scripts/gen-mcp-safety.ts --bundle --platform=node --format=esm --external:esbuild --outfile=scratchpad/genmcpsafety.mjs && node scratchpad/genmcpsafety.mjs",
+    "gen:status": "esbuild scripts/gen-mvp-status.ts --bundle --platform=node --format=esm --alias:@=./src --define:import.meta.env={} --outfile=scratchpad/genstatus.mjs && node scratchpad/genstatus.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

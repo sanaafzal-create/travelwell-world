@@ -32,6 +32,7 @@ const SURFACES: { file: string; answers: string }[] = [
   { file: "docs/ground-truth.md", answers: "Every count, field path and vocabulary read from source with file:line, plus conformance checks. The fact sheet for reasoning about this repo without reading it." },
   { file: "docs/reset-facts.txt", answers: "The paste-block distillation of ground-truth for contexts that cannot fetch files." },
   { file: "docs/list-sizes.json", answers: "Every literal cap on a published surface vs the current length of the list it cuts — the cap-ratchet's runtime half." },
+  { file: "docs/mvp-live-status.md", answers: "What the MVP has LIVE vs preview per surface — the Board with per-interest shelf depth, Wells, regions, destinations by depth, languages by coverage, the safety spine — David's instruction sheet for walking a VC through the site." },
   { file: "docs/tagline-family.md", answers: "The documented slogan family in active use (regenerate before any filing)." },
   { file: "docs/advisory-links.md", answers: "The advisory deep links per served country, as the site emits them." },
   { file: "docs/advisory-countries.json", answers: "The daily checker's country payload — ISO, name, match strings, verified FCDO slug." },

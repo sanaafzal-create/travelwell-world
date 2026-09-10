@@ -29,6 +29,12 @@
    "bytes": 4840
   },
   {
+   "file": "docs/mvp-live-status.md",
+   "answers": "What the MVP has LIVE vs preview per surface — the Board with per-interest shelf depth, Wells, regions, destinations by depth, languages by coverage, the safety spine — David's instruction sheet for walking a VC through the site.",
+   "sha256": "bc53acd66c24c233bcd9a8a8b3cfa79eb3917397449382aa480b6d2dd03e5cfd",
+   "bytes": 9666
+  },
+  {
    "file": "docs/tagline-family.md",
    "answers": "The documented slogan family in active use (regenerate before any filing).",
    "sha256": "883f917b3384e446d17668b7dc1f4746d90996bb55c5036956bb79fd37143625",

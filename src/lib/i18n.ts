@@ -221,9 +221,9 @@ export const MESSAGES: Record<string, Dict> = {
   // Analytics opt-in (2026-09-03). English-only until the native-review pass —
   // the runtime falls back to en by design, and an unreviewed machine
   // translation on a consent surface is the one place we never ship one.
-  "consent.analytics": { en: "May we also use Google Analytics to understand how the site is used? Optional — nothing loads unless you allow it." },
-  "consent.allow": { en: "Allow analytics" },
-  "consent.essential": { en: "Essential only" },
+  "consent.analytics": { en: "May we also use Google Analytics to understand how the site is used? Optional — nothing loads unless you allow it.", es: "¿Podemos usar también Google Analytics para entender cómo se usa el sitio? Opcional — nada se carga sin tu permiso.", ar: "هل نستخدم أيضًا Google Analytics لفهم كيفية استخدام الموقع؟ اختياري — لا يُحمَّل شيء دون إذنك.", zh: "我们可以使用 Google Analytics 了解网站的使用情况吗？可选——未经允许不会加载任何内容。", fr: "Pouvons-nous aussi utiliser Google Analytics pour comprendre l'usage du site ? Optionnel — rien ne se charge sans votre accord." },
+  "consent.allow": { en: "Allow analytics", es: "Permitir analítica", ar: "السماح بالتحليلات", zh: "允许分析", fr: "Autoriser l'analyse" },
+  "consent.essential": { en: "Essential only", es: "Solo esenciales", ar: "الأساسية فقط", zh: "仅必要项", fr: "Essentiels uniquement" },
 
   // ── SI groups ───────────────────────────────────────────────────────────
   "grp.premium.name": { en: "Premium & Signature", es: "Premium y Distintivos", ar: "المميّزة والأساسية", zh: "尊享与招牌", fr: "Premium & Signature" },

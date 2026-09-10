@@ -45,6 +45,7 @@ const GENERATORS = [
   // because its generator was a deleted scratchpad script nothing guarded).
   ["gen:mcp-safety", "supabase/functions/mcp/safety-fallback.ts (the MCP safety resolver bundle)"],
   ["gen:routes", "vercel.json (the rewrite list, read from the router)"],
+  ["gen:status", "docs/mvp-live-status.md (what the MVP has live, per surface — David's instruction sheet)"],
   // LAST, deliberately: the manifest HASHES the other generated files, so it
   // must run after every generator that writes one — the library's own O-10
   // lesson ("regen is the LAST thing"), applied to the file that exists to
@@ -85,6 +86,7 @@ const OWNED = [
   "docs/advisory-countries.json",
   "docs/board.json",
   "docs/list-sizes.json",
+  "docs/mvp-live-status.md",
   "docs/manifest.json",
   // The hosting config. Generated because a rewrite list that drifts from the
   // router either 404s a real page or resurrects the catch-all it replaced.
