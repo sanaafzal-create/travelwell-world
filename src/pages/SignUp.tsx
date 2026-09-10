@@ -5,6 +5,8 @@ import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { savePendingTravelId } from "@/lib/travelId";
 import { sendMagicLink, isSupabaseConfigured } from "@/lib/auth";
+import { useSpeechInput } from "@/lib/useSpeech";
+import { LANG_TAG } from "@/lib/voice/browser";
 import { recordTermsAcceptance } from "@/lib/consent";
 import { TERMS_STATEMENT, TERMS_VERSION } from "@/lib/legal";
 import { ORIGIN } from "@/lib/site";
@@ -84,7 +86,7 @@ type Member = { name: string; age: string; rel: string };
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const { openPanel, showToast } = useStore();
+  const { openPanel, showToast, locale } = useStore();
   const [step, setStep] = useState(0);
   const [name, setName] = useState(""); const [email, setEmail] = useState("");
   const [nameErr, setNameErr] = useState(false); const [emailErr, setEmailErr] = useState(false);
@@ -106,6 +108,26 @@ export default function SignUp() {
   const [length, setLength] = useState("");
   const [budget, setBudget] = useState<Record<string, string[]>>({});
   const [openDD, setOpenDD] = useState<string | null>(null);
+
+  // SPEAK THE VISION (David 2026-09-07 note ⑦: "Don't make them type their
+  // vision"). The same Talk/Stop control as the Atlas panel, right on the dream
+  // field: words stream into the textarea live, and when they stop, Atlas
+  // writes it back — "let me see if I've got this" — so they see they were
+  // heard before they continue. Dictation fills the box, never auto-advances;
+  // the traveler reads it, fixes any word, and continues themselves.
+  const [dreamHeard, setDreamHeard] = useState(false);
+  const { supported: speakSupported, listening: dreamListening, start: startDreamVoice, stop: stopDreamVoice } =
+    useSpeechInput(
+      setDream,
+      (finalText) => { const cleaned = finalText.trim(); setDream(cleaned); setDreamHeard(!!cleaned); },
+      LANG_TAG[locale] || "en-US",
+      (reason) => showToast(reason),
+    );
+  const onDreamSpeak = () => {
+    if (dreamListening) { stopDreamVoice(); return; }
+    setDreamHeard(false);
+    startDreamVoice();
+  };
 
   const isBuild = step >= STEPS.length;
   const lastStep = step === STEPS.length - 1;
@@ -402,9 +424,28 @@ export default function SignUp() {
                     which is why it ends the builder and opens every trip after. */}
                 <Why ic="sparkles">Now we know who you are — tell us where you&rsquo;re dreaming of. A couple of sentences is plenty, vague ("somewhere warm") or specific. Atlas reads this to seed your first trip, and asks it fresh every time after.</Why>
                 <div className="ob__fields">
+                  {/* Speak the vision (David ⑦): the green Talk control right on the
+                      field — nobody has to type their dream. Rendered only where
+                      the browser can actually listen; typing is always there. */}
+                  {speakSupported && (
+                    <button type="button" className="tw-talk-cta ob-speak" data-state={dreamListening ? "stop" : "talk"} onClick={onDreamSpeak}>
+                      <Icon name={dreamListening ? "stop" : "mic"} small />
+                      {dreamListening ? "Stop — I've said it" : "Speak your vision"}
+                    </button>
+                  )}
                   <div className="fld">
-                    <label htmlFor="f-dream">Your dream, in a line or two</label>
-                    <textarea id="f-dream" value={dream} onChange={(e) => setDream(e.target.value)} placeholder="e.g. A safari for our 10th anniversary in July — romantic, a little wild, easy on the feet." />
+                    <label htmlFor="f-dream">Your dream, in a line or two{dreamListening ? " — speaking now, your words appear here" : ""}</label>
+                    <textarea id="f-dream" value={dream} onChange={(e) => { setDream(e.target.value); }} placeholder={dreamListening ? "Listening…" : "e.g. A safari for our 10th anniversary in July — romantic, a little wild, easy on the feet."} />
+                    {/* Atlas writes the dream back so they SEE they were heard —
+                        "let me see if I've got this" — before they continue. Quotes
+                        the live box, so an edited word is reflected instantly and
+                        the card can never disagree with what will be saved. */}
+                    {dreamHeard && !dreamListening && dream.trim().length > 0 && (
+                      <div className="ob-heard" role="status">
+                        <span className="ob-heard__ic"><Icon name="sparkles" small /></span>
+                        <span>Let me see if I&rsquo;ve got this — <i>&ldquo;{dream.trim()}&rdquo;</i> Is that your vision? If it reads right, continue — or fix any word in the box.</span>
+                      </div>
+                    )}
                   </div>
                   <div className="fld">
                     <label>Pick a theme or two <span className="opt">— not the full catalog, just a feeling</span></label>
