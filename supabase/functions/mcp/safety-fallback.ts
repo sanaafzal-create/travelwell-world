@@ -1514,27 +1514,24 @@ var safety_default = {
   },
   RW: {
     country: "Rwanda",
-    lvl: 3,
-    label: "Reconsider travel",
-    summary: "Reconsider travel due to crime and unrest. Some areas carry increased risk \u2014 the DRC border zone below is Do Not Travel.",
+    lvl: 2,
+    label: "Exercise increased caution",
+    summary: "No country-wide advisory against travel. The FCDO advises against all but essential travel to the parts of Rusizi District within 10 km of the DRC border \u2014 the named zone below.",
     considerations: [
       "Petty crime such as pickpocketing is a risk in urban areas; burglary and targeted theft are less common but do happen.",
-      "Armed groups and military forces clash in nearby countries, and that violence carries a risk of spilling into Rwanda.",
-      "State names Volcanoes National Park as NOT included in the area of increased risk \u2014 the gorilla-trekking destination sits outside the border zone."
+      "The FCDO notes that risks from potential fighting in the DRC can affect the Rwandan side of the border, that borders in remote areas are often poorly marked, and that crossings with the DRC can close at short notice."
     ],
-    medical: "Active regional Ebola outbreak with heightened screening; yellow fever required if arriving from a transmission country; malaria prophylaxis; bottled/treated water; medevac insurance essential.",
-    source: "Curated baseline \u2014 the previous source is retired; pending re-verification against the UK FCDO",
+    medical: "Yellow fever certificate required if arriving from a transmission country; malaria prophylaxis advised year-round; bottled or treated water; medevac insurance essential for the volcano treks.",
+    source: "UK FCDO \u2014 Rwanda travel advice (page updated 2026-06-10; read in full via the verbatim store, 2026-09-04)",
+    verified: "2026-09",
     zones: [
       {
-        name: "Within ~10 km of the DRC border",
-        lvl: 4,
-        except: [
-          "Volcanoes National Park"
-        ],
-        note: "Unrest. Multiple armed groups, individuals and military forces operate in North and South Kivu; violence may spill into Rwanda without warning. US government employees need special authorisation to travel here. State states Volcanoes National Park is not included in this area."
+        name: "Parts of Rusizi District within 10 km of the DRC border",
+        lvl: 3,
+        posture: "all-but-essential",
+        note: "The FCDO's own scope: includes the Rwandan islands in Lake Kivu and Kamembe Airport."
       }
-    ],
-    reported: true
+    ]
   },
   SA: {
     country: "Saudi Arabia",
