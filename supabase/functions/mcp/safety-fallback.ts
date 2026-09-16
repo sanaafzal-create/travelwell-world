@@ -2100,24 +2100,28 @@ function resolveSafety(dest, iso) {
   const declared = carve.advisory_level ? LEVEL_FROM_ADVISORY[carve.advisory_level.toUpperCase()] : void 0;
   const zone = carve.zone ? findZone(base.zones, carve.zone) : void 0;
   const zoneUnresolved = Boolean(carve.zone) && !zone;
+  const exceptWanted = (carve.zone_except ?? "").trim().toLowerCase();
+  const exceptResolved = exceptWanted !== "" && !!zone && (zone.except ?? []).some((e) => e.trim().toLowerCase() === exceptWanted);
+  const exceptUnresolved = exceptWanted !== "" && !exceptResolved;
   const posture = normPosture(carve.posture);
   const postureUnknown = posture !== "" && !KNOWN_POSTURES.has(posture);
   const postureFloor = posture === POSTURE_CONSENT ? 3 : 0;
-  const lvl = Math.max(declared ?? 0, zone ? zoneLvl(zone) : 0, postureFloor) || void 0;
-  const hold = carve.booking_hold === true || lvl === 4 || zoneUnresolved || posture === POSTURE_HOLD || postureUnknown;
-  if (zoneUnresolved) {
+  const lvl = Math.max(declared ?? 0, zone && !exceptResolved ? zoneLvl(zone) : 0, postureFloor) || void 0;
+  const hold = carve.booking_hold === true || lvl === 4 || zoneUnresolved || exceptUnresolved || posture === POSTURE_HOLD || postureUnknown;
+  if (zoneUnresolved || exceptUnresolved) {
     return {
       ...base,
       lvl: Math.max(base.unverified ? 2 : base.lvl, 3),
       label: "Not yet verified \u2014 check the official advisory",
-      summary: `This destination is recorded as sitting in a named advisory area (\u201C${carve.zone}\u201D) that we do not hold a level for. Read the official advisory below before you plan anything here.`,
+      summary: zoneUnresolved ? `This destination is recorded as sitting in a named advisory area (\u201C${carve.zone}\u201D) that we do not hold a level for. Read the official advisory below before you plan anything here.` : `This destination is recorded as an exception (\u201C${carve.zone_except}\u201D) inside the advisory area \u201C${carve.zone}\u201D, and the advisory we hold no longer names that exception. Read the official advisory below before you plan anything here.`,
       unverified: true,
       bookingHold: true
     };
   }
   const postureNote = postureUnknown ? `Booking is held here: this destination carries a booking posture (\u201C${carve.posture}\u201D) that we do not recognise, and we will not sell a place whose restriction we cannot read.` : null;
+  const exceptNote = exceptResolved && zone?.note ? zone.note : null;
   if (!lvl) {
-    const extra = [carve.notes, postureNote].filter(Boolean);
+    const extra = [exceptNote, carve.notes, postureNote].filter(Boolean);
     return holdIfUnverified({
       ...base,
       ...extra.length ? { considerations: [...base.considerations, ...extra] } : {},
@@ -2138,7 +2142,7 @@ function resolveSafety(dest, iso) {
     fromAbsence: false,
     ...baseDenies ? { reported: true } : {},
     ...carve.verified ? { verified: carve.verified } : {},
-    ...postureNote ? { considerations: [...base.considerations, postureNote] } : {},
+    ...postureNote || exceptNote ? { considerations: [...base.considerations, ...[exceptNote, postureNote].filter(Boolean)] } : {},
     unverified: false,
     bookingHold: hold,
     ...zone ? { inZone: zone } : {},

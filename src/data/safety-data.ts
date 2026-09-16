@@ -434,6 +434,22 @@ interface DossierSafety {
    * and holds booking at runtime (below) so it can never fail open.
    */
   zone?: string;
+  /**
+   * The named EXCEPTION inside that zone this destination IS — an exact match
+   * against an entry of the zone's `except[]` (the FCDO writes carve-outs into
+   * its advise-against sentences: "Lamu County, except for Lamu Island and
+   * Manda Island"). Declared, never inferred from the destination's own name —
+   * the same fuzzy-geography rule as `zone` itself. When it resolves, the
+   * zone's level does NOT apply (the row sits at the country baseline) while
+   * the zone's `note` — the FCDO's operational guidance, e.g. fly-don't-drive —
+   * still prints. The zone LINK survives on purpose: if the FCDO drops the
+   * exception, the country-row edit removes the `except` entry, this
+   * declaration stops resolving, and the destination re-holds by itself — one
+   * row changes and every destination in it follows, in the strict direction.
+   * A `zone_except` that doesn't resolve fails exactly like an unresolvable
+   * zone: no level printed, booking held. Requires `zone`.
+   */
+  zone_except?: string;
 }
 
 /**
@@ -567,6 +583,14 @@ export function resolveSafety(
   // reaching production; this is what happens if one ever slips past it.
   const zoneUnresolved = Boolean(carve.zone) && !zone;
 
+  // The except clause, load-bearing at runtime (see `zone_except` above): a
+  // resolved exception means the zone's level does not apply here — the FCDO
+  // itself carved this place out — while the zone note still reaches the card.
+  const exceptWanted = (carve.zone_except ?? "").trim().toLowerCase();
+  const exceptResolved = exceptWanted !== "" && !!zone &&
+    (zone.except ?? []).some((e) => e.trim().toLowerCase() === exceptWanted);
+  const exceptUnresolved = exceptWanted !== "" && !exceptResolved;
+
   // If a dossier declares BOTH a level and a zone and they disagree, the
   // STRICTER wins. Two sources of truth on one page can't both be shown, and of
   // the two possible mistakes — refusing a bookable place, or selling a held one
@@ -576,20 +600,23 @@ export function resolveSafety(
   const postureUnknown = posture !== "" && !KNOWN_POSTURES.has(posture);
   const postureFloor = posture === POSTURE_CONSENT ? 3 : 0;
 
-  const lvl = (Math.max(declared ?? 0, zone ? zoneLvl(zone) : 0, postureFloor) || undefined) as RiskLevel | undefined;
+  const lvl = (Math.max(declared ?? 0, zone && !exceptResolved ? zoneLvl(zone) : 0, postureFloor) || undefined) as RiskLevel | undefined;
   const hold =
     carve.booking_hold === true ||
     lvl === 4 ||
     zoneUnresolved ||
+    exceptUnresolved ||
     posture === POSTURE_HOLD ||
     postureUnknown;
 
-  if (zoneUnresolved) {
+  if (zoneUnresolved || exceptUnresolved) {
     return {
       ...base,
       lvl: Math.max(base.unverified ? 2 : base.lvl, 3) as RiskLevel,
       label: "Not yet verified — check the official advisory",
-      summary: `This destination is recorded as sitting in a named advisory area (“${carve.zone}”) that we do not hold a level for. Read the official advisory below before you plan anything here.`,
+      summary: zoneUnresolved
+        ? `This destination is recorded as sitting in a named advisory area (“${carve.zone}”) that we do not hold a level for. Read the official advisory below before you plan anything here.`
+        : `This destination is recorded as an exception (“${carve.zone_except}”) inside the advisory area “${carve.zone}”, and the advisory we hold no longer names that exception. Read the official advisory below before you plan anything here.`,
       unverified: true,
       bookingHold: true,
     };
@@ -603,10 +630,15 @@ export function resolveSafety(
     ? `Booking is held here: this destination carries a booking posture (“${carve.posture}”) that we do not recognise, and we will not sell a place whose restriction we cannot read.`
     : null;
 
+  // A resolved exception carries the zone's note to the card — the FCDO's
+  // operational guidance for exactly the carved-out place ("fly to Lamu
+  // Airport rather than travel by road") must not vanish with the level.
+  const exceptNote = exceptResolved && zone?.note ? zone.note : null;
+
   // A dossier that only carries notes (no level, no zone) enriches the country
   // record rather than overriding it — it isn't a carve-out.
   if (!lvl) {
-    const extra = [carve.notes, postureNote].filter(Boolean) as string[];
+    const extra = [exceptNote, carve.notes, postureNote].filter(Boolean) as string[];
     return holdIfUnverified({
       ...base,
       ...(extra.length ? { considerations: [...base.considerations, ...extra] } : {}),
@@ -645,7 +677,7 @@ export function resolveSafety(
     fromAbsence: false,
     ...(baseDenies ? { reported: true } : {}),
     ...(carve.verified ? { verified: carve.verified } : {}),
-    ...(postureNote ? { considerations: [...base.considerations, postureNote] } : {}),
+    ...(postureNote || exceptNote ? { considerations: [...base.considerations, ...[exceptNote, postureNote].filter(Boolean) as string[]] } : {}),
     unverified: false,
     bookingHold: hold,
     ...(zone ? { inZone: zone } : {}),

@@ -238,6 +238,27 @@ Four rules, so this can't drift:
 - **An unresolvable zone fails safe at runtime too**: no level printed, booking
   held. The gate should catch it first; this is what happens if one slips past.
 
+**And the exception, when the destination IS one** (added 2026-09-16, for the
+Lamu shape — "Lamu County, except for Lamu Island and Manda Island"): a
+destination that the FCDO's own sentence carves out of a zone declares it,
+exactly, against the zone's `except[]`:
+
+```jsonc
+"data": { "safety": { "zone": "Lamu County", "zone_except": "Lamu Island" } }
+```
+
+A resolved `zone_except` means the zone's level does **not** apply — the row
+sits at the country baseline — while the zone's `note` (the FCDO's operational
+guidance, e.g. fly-don't-drive) still prints on the card. The zone **link
+survives on purpose**: if the FCDO drops the exception, the country-row edit
+removes the `except` entry, the declaration stops resolving, and the destination
+re-holds by itself — one row changes, every destination follows, in the strict
+direction. Same rules as the zone join: **declared and exact, never inferred
+from the destination's own name**; `zone_except` without `zone` is rejected; an
+entry that isn't on the zone's `except[]` is rejected with the list printed; and
+an unresolvable exception fails safe at runtime (no level printed, booking
+held).
+
 The card shows the zones a traveler needs: the one this destination is *in*
 (named, so the level is checkable against the advisory they're about to open),
 and the rest of the country's stricter areas below the considerations.

@@ -329,20 +329,38 @@ for (const { code, d } of rows) {
     // level, which is right for safety and wrong for a page anyone wants to
     // publish. The gate is where a bad join should be caught and fixed.
     const zoneName = data.safety?.zone;
+    const zoneExcept = (data.safety as { zone_except?: string } | undefined)?.zone_except;
     if (zoneName) {
       const iso = d.country ? COUNTRY_ISO[d.country] : undefined;
-      const row = iso ? (SAFETY_DATA as Record<string, { zones?: { name: string }[] }>)[iso] : undefined;
+      const row = iso ? (SAFETY_DATA as Record<string, { zones?: { name: string; except?: string[] }[] }>)[iso] : undefined;
       if (!iso) {
         errs.push(`${at}: safety.zone "${zoneName}" but country "${d.country}" has no ISO mapping in COUNTRY_ISO — nothing to join the zone against.`);
       } else if (!row) {
         errs.push(`${at}: safety.zone "${zoneName}" but ${d.country} (${iso}) has no row in src/data/safety.json — add the country baseline first, zones live on it.`);
       } else {
         const names = (row.zones ?? []).map((z) => z.name);
-        const hit = names.some((n) => n.trim().toLowerCase() === zoneName.trim().toLowerCase());
+        const hit = (row.zones ?? []).find((z) => z.name.trim().toLowerCase() === zoneName.trim().toLowerCase());
         if (!hit) {
           errs.push(`${at}: safety.zone "${zoneName}" doesn't match any zone on the ${d.country} row. Known zones: ${names.length ? names.map((n) => `"${n}"`).join(", ") : "(none — the country row carries no zones)"}`);
+        } else if (zoneExcept) {
+          // ── THE EXCEPT LINK ─────────────────────────────────────────────────
+          // `safety.zone_except` claims this destination IS one of the zone's
+          // FCDO-named exceptions ("Lamu County, except for Lamu Island and
+          // Manda Island"), which lifts the zone's level back to the country
+          // baseline at runtime. Same doctrine as the zone join: declared and
+          // exact, never inferred — and a claim that doesn't join is caught
+          // here, because the runtime fallback fails safe (booking held, no
+          // level printed), which is right for a traveler and wrong for a page
+          // anyone intends to publish.
+          const excepts = hit.except ?? [];
+          const ok = excepts.some((e) => e.trim().toLowerCase() === zoneExcept.trim().toLowerCase());
+          if (!ok) {
+            errs.push(`${at}: safety.zone_except "${zoneExcept}" is not an exception on zone "${hit.name}" (${d.country}). The zone's except list: ${excepts.length ? excepts.map((e) => `"${e}"`).join(", ") : "(none — the zone carries no exceptions, so nothing can sit outside its level)"}`);
+          }
         }
       }
+    } else if (zoneExcept) {
+      errs.push(`${at}: safety.zone_except "${zoneExcept}" without safety.zone — an exception is an exception to a NAMED zone; declare the zone it carves out of.`);
     }
     for (const [i, j] of (data.jewels ?? []).entries()) {
       if (!j?.name) errs.push(`${at}: jewel #${i + 1} missing "name"`);
