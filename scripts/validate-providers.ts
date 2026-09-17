@@ -117,6 +117,27 @@ for (const file of files) {
       else bySi[s] = (bySi[s] || 0) + 1;
     }
 
+    // ── STAGE 1 IS A GATE, NOT A PREFERENCE (2026-09-17) ─────────────────────
+    // `mor` records who is merchant of record for the integration — a contract
+    // term, never a marketing one. "travelwell" is the Stage 2 flip: a
+    // deliberate, funded, bonded, post-raise decision (CLAUDE.md "Payments",
+    // David-locked), so a row declaring US as merchant fails the build
+    // outright. The Viator MERCHANT-tier shelf contradiction (2026-09-05) was
+    // caught by a human reading carefully; this catches the next one by
+    // machine. "unknown" is the honest default until a contract says
+    // otherwise; an absent column is allowed — the ledger fills over time.
+    if (r.mor) {
+      const MOR = new Set(["supplier", "aggregator", "travelwell", "unknown"]);
+      if (!MOR.has(r.mor)) {
+        errs.push(`${at}: mor "${r.mor}" not supplier|aggregator|travelwell|unknown — contract nuance goes in mor_note, the field stays controlled`);
+      } else if (r.mor === "travelwell") {
+        errs.push(`${at}: mor "travelwell" — TravelWell as merchant of record is the Stage 2 flip (post-funding, bonded, on purpose). No Stage 1 row may declare it; if a supplier's only lane makes us the merchant, the row is HELD, never reshaped to fit.`);
+      }
+    }
+    if (r.horizontal && !/^(true|false)$/i.test(r.horizontal)) {
+      errs.push(`${at}: horizontal "${r.horizontal}" must be true or false — it is a flag, not an enumeration (a horizontal supplier follows the board by construction; never expand it to 35 slugs)`);
+    }
+
     // ── A PER-DOOR DESCRIPTION FOR A DOOR THIS PROVIDER DOESN'T STAND IN ────
     // `desc_by_si` lets one provider read differently on each interest page it
     // serves. The failure it invites is a framing keyed to an interest the row

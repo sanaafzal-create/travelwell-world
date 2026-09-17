@@ -400,6 +400,37 @@ export interface Provider {
   /** Which Special Interests this provider serves (real taxonomy keys). The matching keystone. */
   si: string[];
   /**
+   * HORIZONTAL — serves every interest on the board (adopted from the library's
+   * shelf register, 2026-09-17). A flag, deliberately NOT thirty-five
+   * enumerated slugs: the enumeration freezes a reach judgement as data and
+   * goes stale the day the board gains an interest, while the flag follows the
+   * board by construction. `si` stays for the true per-interest matches; a
+   * horizontal row surfaces on every interest shelf.
+   */
+  horizontal?: boolean;
+  /**
+   * MERCHANT OF RECORD for this supplier's integration — who legally sells and
+   * holds the traveller's card (ledger fields, 2026-09-17; the register's ask).
+   * Controlled: "supplier" (the operator/hotel/insurer itself), "aggregator"
+   * (the platform between us and them — Viator, GetYourGuide, Mozio…),
+   * "travelwell" (US — ⛔ FORBIDDEN in Stage 1 and the validator fails the
+   * build on it; becoming MoR is the deliberate post-funding Stage 2 flip,
+   * never a drift), or "unknown" (not yet contract-confirmed — the honest
+   * default; MoR is a contract term, not a marketing one). Nuance that doesn't
+   * fit one word (Expedia Collect vs Partner Collect) goes in `mor_note`.
+   */
+  mor?: "supplier" | "aggregator" | "travelwell" | "unknown";
+  /** Free-text nuance on the MoR read — the contract clause, the dual-mode split, the provenance. */
+  mor_note?: string;
+  /**
+   * Does the booking close on OUR surface (Atlas orchestrates end-to-end)
+   * rather than handing the traveller off? Customer ownership is always ours —
+   * this field records whether an integration honours that or leaks the
+   * traveller to the supplier's page. Distinct from `mor` on purpose: owning
+   * the customer never implies being the merchant (David-locked).
+   */
+  keeps_traveller_on_our_page?: boolean;
+  /**
    * THE SAME PROVIDER, DESCRIBED BY THE DOOR THE TRAVELLER CAME THROUGH.
    *
    * `desc` is one sentence and a provider surfaces on every interest it serves,

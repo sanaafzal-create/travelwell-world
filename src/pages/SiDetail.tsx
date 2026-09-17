@@ -229,7 +229,7 @@ function providerRail(
       // haven't wired supply for this yet," while the old behaviour said "here are
       // your dive boats" and pointed at a lodge in the Maasai Mara. Wrong is worse
       // than absent, and a fallback would reintroduce exactly the wrong.
-      .filter((p) => (p.si ?? []).includes(siId))
+      .filter((p) => p.horizontal || (p.si ?? []).includes(siId))
       // Three per Well rather than two. With eleven liveaboard rows arriving, a
       // cap of two showed four boats out of eleven on the page whose entire
       // subject is the boats.
@@ -581,7 +581,7 @@ export default function SiDetail() {
   // same rule as the jewels shelf: a truncation the reader cannot tell happened
   // is the four-regions class, however polite the copy around it.
   const railTotal = Object.values(providers).flat()
-    .filter((p) => p.tier !== "prospective" && (p.si ?? []).includes(si.id)).length;
+    .filter((p) => p.tier !== "prospective" && (p.horizontal || (p.si ?? []).includes(si.id))).length;
   // Counted from the SETTLED catalog only. Before it settles the browser holds
   // the 44-row bundle, and a count taken then would understate the page — the
   // same reason `DestinationDetail` waits before saying it has no such place.
