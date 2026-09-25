@@ -1,0 +1,703 @@
+[
+ {
+  "id": "lamu-island-kenya",
+  "region_code": "05A",
+  "name": "Lamu Island",
+  "country": "Kenya",
+  "line": "Seven hundred years of Swahili stone, and no cars",
+  "status": "live",
+  "depth": "verified",
+  "sub_region": "Kenya — Lamu Archipelago",
+  "si": [
+   "culture",
+   "deepdive",
+   "romance",
+   "tropical",
+   "ultra",
+   "family"
+  ],
+  "tier_range": [
+   "essential",
+   "comfort",
+   "premier",
+   "ultra"
+  ],
+  "draw_rank": "anchor",
+  "data": {
+   "safety": {
+    "booking_hold": true,
+    "zone": "Lamu County",
+    "zone_except": "Lamu Island",
+    "notes": "FCDO advises against all travel to Lamu County, except for Lamu Island and Manda Island.",
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/kenya",
+    "verified": "2026-09-03",
+    "malaria": "high on the Kenyan coast, year-round",
+    "medevac": "by air, coordinated through AMREF",
+    "emergency": "999 / 112 · Kenya Red Cross 1199",
+    "fcdo": {
+     "posture": "bookable_caution",
+     "url": "https://www.gov.uk/foreign-travel-advice/kenya",
+     "authority_updated": "2026-09-01",
+     "read": "2026-09-03",
+     "quoted_verbatim": true,
+     "alert_status": [
+      "avoid_all_travel_to_parts",
+      "avoid_all_but_essential_travel_to_parts"
+     ],
+     "coverage_judgement": "NOT MADE — TravelWell does not state whether this destination lies inside or outside a named area. The FCDO's own exception clause names Lamu Island and Manda Island; that is a fact about its text, not our judgement.",
+     "posture_note": "bookable_caution conforms to the existing vocabulary. It is NOT a lifting of the booking hold — see booking_hold."
+    }
+   },
+   "key_facts": [
+    "Lamu Old Town was inscribed by UNESCO in 2001 as the oldest and best-preserved Swahili settlement in East Africa, cited for its coral-stone buildings, inner courtyards, verandas and carved doors. Source: https://whc.unesco.org/en/list/1055/ accessed 2026-06-29, V.",
+    "The island has no cars; transport is by dhow and by more than three thousand donkeys, including the transfer from the airstrip. Source: https://www.spiritedpursuit.com/blog/ultimate-guide-to-exploring-lamu-kenya accessed 2026-06-29, V.",
+    "Maulidi was developed in its Lamu form by al-Habib Swaleh in 1866 and runs four days of praise-poem recitals, music, dhow and donkey races and a zeffe parade. Source: https://lamu.go.ke/maulid-festival/ accessed 2026-06-29, V.",
+    "Maulidi falls in Rabi ul Awwal, the third month of the Islamic calendar, placing it around May-June in 2026, and moves roughly eleven days earlier each year. Source: https://www.exploriada.com/festivals/africa/kenya/maulid/ accessed 2026-09-03, V.",
+    "The Lamu Cultural Festival runs 30 November to 2 December 2026. Source: https://www.instagram.com/p/DWTFoVsiYFK/ accessed 2026-09-03, V.",
+    "Shela Beach runs roughly 12 km from Shela Village toward Kipungani, about a 45-minute beach walk or a 10-minute boat from town. Source: https://bestkenya.ke/blog/kenya-coast-guide/lamu-island-complete-guide accessed 2026-06-29, V.",
+    "Safarilink flies to Manda Airport (LAU) with seven nonstop flights a week from Malindi plus direct service to Nairobi; Manda sits about a mile from the town centre with no road link. Source: https://www.flightsfrom.com/LAU accessed 2026-09-03, V.",
+    "The Majlis on Manda Island offers private-island pool villas and a spa from KES 30,000+ per night, the only rate in this file and the property's own published floor. Source: https://www.thehotelguru.com/best-hotels-in/kenya/lamu accessed 2026-09-03, est.",
+    "Commission hooks on an IATA/IATAN number and CLIA has essentially no African representation, so a CLIA-only agency needs a host's IATA/IATAN or a DMC that accepts those affiliations. Source: https://www.foratravel.com/join/resources/travel-agent-commission accessed 2026-06-29, V.",
+    "The FCDO's alert_status for Kenya is avoid_all_travel_to_parts and avoid_all_but_essential_travel_to_parts, with no numeric level; the FCDO publishes none for any country. Source: https://www.gov.uk/api/content/foreign-travel-advice/kenya read 2026-09-03, V.",
+    "Malaria risk is high on the Kenyan coast and evacuation from the island is by air via AMREF. Source: https://wwwnc.cdc.gov/travel/yellowbook/2024/preparing/yellow-fever-vaccine-malaria-prevention-by-country/kenya accessed 2026-06-29, V."
+   ],
+   "jewels": [
+    {
+     "name": "Lamu Old Town — UNESCO-listed 2001",
+     "si": "culture",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The carved-door and courtyard houses",
+     "si": "culture",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The car-free town — donkeys and dhows",
+     "si": "culture",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The Lamu Cultural Festival",
+     "si": "culture",
+     "tier": "essential",
+     "commission": "operator-direct",
+     "when": "2026-11-30/2026-12-02"
+    },
+    {
+     "name": "Seven centuries of continuous habitation",
+     "si": "deepdive",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Maulidi as Lamu made it",
+     "si": "deepdive",
+     "tier": null,
+     "commission": "none held",
+     "when": "lunar — Rabi ul Awwal",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The Swahili house form, with a guide",
+     "si": "deepdive",
+     "tier": "essential",
+     "commission": "operator-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "Peponi, Shela",
+     "si": "romance",
+     "tier": "premier",
+     "commission": "hotel-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "Forodhani House, Shela beach",
+     "si": "romance",
+     "tier": "premier",
+     "commission": "villa-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "The Shela beach walk",
+     "si": "romance",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Shela Beach — roughly 12 km of sand (Source: bestkenya.ke, V)",
+     "si": "tropical",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Dhow island-hopping",
+     "si": "tropical",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "The Majlis, Manda Island",
+     "si": "ultra",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "year-round"
+    },
+    {
+     "name": "Kizingoni Beach Houses",
+     "si": "family",
+     "tier": "comfort",
+     "commission": "villa-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "The donkeys — three thousand of them",
+     "si": "family",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    }
+   ],
+   "faq": [
+    {
+     "q": "Why are there no cars on Lamu?",
+     "a": "The town predates them and its alleys are too narrow — transport is by donkey, of which there are more than three thousand, and by dhow.",
+     "source": "https://www.spiritedpursuit.com/blog/ultimate-guide-to-exploring-lamu-kenya",
+     "accessed": "2026-06-29"
+    },
+    {
+     "q": "What is Lamu Old Town listed for?",
+     "a": "UNESCO inscribed it in 2001 as the oldest and best-preserved Swahili settlement in East Africa, citing its coral-stone buildings, inner courtyards, verandas and carved doors.",
+     "source": "https://whc.unesco.org/en/list/1055/",
+     "accessed": "2026-06-29"
+    },
+    {
+     "q": "When is the Maulidi festival?",
+     "a": "It falls in Rabi ul Awwal, the third month of the Islamic calendar, placing it around May to June in 2026, and it moves about eleven days earlier each year — so the dates must be confirmed for the year of travel rather than carried forward.",
+     "source": "https://www.exploriada.com/festivals/africa/kenya/maulid/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "When is the Lamu Cultural Festival?",
+     "a": "30 November to 2 December 2026, over three days.",
+     "source": "https://www.instagram.com/p/DWTFoVsiYFK/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "How do I get to Lamu?",
+     "a": "Fly to Manda Airport on Safarilink — seven nonstop flights a week from Malindi, plus service from Nairobi — then cross to the island by boat, as there is no road link.",
+     "source": "https://www.flightsfrom.com/LAU",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "What does the FCDO say about Lamu?",
+     "a": "The FCDO advises against all travel to a list of named areas in northern and eastern Kenya, and its wording for one of them reads \"Lamu County, except for Lamu Island and Manda Island.\" The full quoted text and the page's own updated date are in the safety section, and travellers should read the FCDO's page directly before booking.",
+     "source": "https://www.gov.uk/foreign-travel-advice/kenya",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "Is there a malaria risk?",
+     "a": "Malaria risk is high on the Kenyan coast, and this is a remote island where medical evacuation is by air — prophylaxis, evening bite protection and a travel-health consultation before departure are the planning items.",
+     "source": "https://wwwnc.cdc.gov/travel/yellowbook/2024/preparing/yellow-fever-vaccine-malaria-prevention-by-country/kenya",
+     "accessed": "2026-06-29"
+    }
+   ]
+  }
+ },
+ {
+  "id": "burgundy-france",
+  "region_code": "01F",
+  "name": "Burgundy",
+  "country": "France",
+  "line": "The world's grandest vineyard, at four miles an hour",
+  "status": "live",
+  "depth": "verified",
+  "sub_region": "Alsace & the East",
+  "si": [
+   "barge",
+   "wine",
+   "ultra",
+   "culture",
+   "culinary",
+   "romance"
+  ],
+  "tier_range": [
+   "essential",
+   "comfort",
+   "premier",
+   "luxury",
+   "ultra"
+  ],
+  "draw_rank": "anchor",
+  "data": {
+   "safety": {
+    "source": "https://www.gov.uk/foreign-travel-advice/france",
+    "verified": "2026-09-03",
+    "medical": "no ship's doctor on a 6-20 guest vessel; distance to a hospital varies by night. Ask the operator where the itinerary sits each evening.",
+    "emergency": "112 across France · 15 for a medical response",
+    "fcdo": {
+     "posture": "bookable_standard",
+     "url": "https://www.gov.uk/foreign-travel-advice/france",
+     "read": "2026-09-03",
+     "alert_status": [],
+     "quoted_verbatim": true,
+     "coverage_judgement": "NOT MADE. An empty alert_status is the ABSENCE of a warning and TravelWell does not convert it into a reassurance."
+    }
+   },
+   "key_facts": [
+    "The FCDO's machine-readable alert_status for France is an empty array: it names no area it advises against travelling to, and publishes no numeric level for any country. Source: https://www.gov.uk/api/content/foreign-travel-advice/france read 2026-09-03, V.",
+    "Belmond Afloat in France operates seven péniche-hôtels sleeping four to twelve guests, April to October, across Burgundy, Champagne, Franche-Comté, Provence, Languedoc-Roussillon and the Rhône. Source: https://www.vitabrevis.travel/belmond-afloat-france-river-cruises accessed 2026-09-03, V.",
+    "European Waterways runs an 18-vessel fleet carrying six to twenty passengers on six-night all-inclusive cruises across France, Italy, Belgium, the Netherlands, Germany, Luxembourg, England, Ireland and Scotland. Source: https://www.cruisemapper.com/cruise-lines/European-Waterways-110 accessed 2026-09-03, V.",
+    "Belmond Lilas is an eight-guest Supreme class barge with a high-season full-charter week at EUR 90,000; Fleur de Lys carries six guests in three king-size canopied four-poster suites at EUR 81,400. Source: https://www.french-waterways.com/barge/lilac/ and /barge/fleurdelys/ accessed 2026-09-03, V.",
+    "Category guide pricing runs roughly USD 8,300 to 14,000+ per person per cruise week. Source: https://www.french-waterways.com/hotel-barge-cruises/grandeluxe-hotel-barges/ accessed 2026-09-03, est.",
+    "L'Art de Vivre launches a Canal du Nivernais itinerary for 2026, 'The Hidden Heart of France', featuring a well-preserved Gallo-Roman village and a 12th-century fortress. Source: https://www.europeanwaterways.com/ accessed 2026-09-03, V.",
+    "Shannon Princess, Ireland's only luxury hotel barge, joined the European Waterways fleet in January 2025. Source: https://www.cruisemapper.com/cruise-lines/European-Waterways-110 accessed 2026-09-03, V.",
+    "The 166th Hospices de Beaune wine auction falls on 15 November 2026 at the Halles de Beaune, held by tradition on the third Sunday of November; it is the oldest and most prestigious wine auction in the world, selling in 228-litre barrels, and has funded the hospital since 1859. Source: https://hospices-beaune.com/en/vente-auction-hospices-de-beaune accessed 2026-09-03, V.",
+    "The Hôtel-Dieu de Beaune was founded in 1443 under Guigone de Salins and Nicolas Rolin and is one of the finest surviving examples of fifteenth-century Burgundian architecture. Source: https://en.wikipedia.org/wiki/Hospices_de_Beaune accessed 2026-09-03, V.",
+    "The Route des Grands Crus runs about 60 km along the foot of the Côte d'Or escarpment from Dijon to Santenay, through the Côte de Nuits and the Côte de Beaune. Source: https://en.wikipedia.org/wiki/Route_des_Grands_Crus accessed 2026-09-03, V.",
+    "Clos de Vougeot is 50.6 hectares, the largest single grand cru vineyard in the Côte de Nuits, walled by the Cistercians of Cîteaux from the 12th to the early 14th century, and holds 16 of the 1,247 Climats. Source: https://en.wikipedia.org/wiki/Clos_de_Vougeot accessed 2026-09-03, V.",
+    "The Climats of Burgundy — 1,247 named parcels — were listed as a UNESCO World Heritage Site in 2015. Source: https://france.fr/en/burgundy/article/5-minute-guide-climats-burgundy accessed 2026-09-03, V."
+   ],
+   "jewels": [
+    {
+     "name": "Belmond Lilas — full charter, EUR 90,000 high-season week",
+     "si": "barge",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "April-October"
+    },
+    {
+     "name": "Belmond Fleur de Lys — full charter, EUR 81,400 high-season week",
+     "si": "barge",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "April-October"
+    },
+    {
+     "name": "Belmond Amaryllis, southern Burgundy — Grand Luxe, 4 cabins",
+     "si": "barge",
+     "tier": "luxury",
+     "commission": "none held",
+     "when": "March-October"
+    },
+    {
+     "name": "L'Art de Vivre — the Canal du Nivernais, new for 2026",
+     "si": "barge",
+     "tier": "premier",
+     "commission": "broker / operator-direct",
+     "when": "2026 season"
+    },
+    {
+     "name": "A cabin rather than the whole boat — the entry to the category",
+     "si": "barge",
+     "tier": "premier",
+     "commission": "broker / operator-direct",
+     "when": "March-October"
+    },
+    {
+     "name": "The six-night all-inclusive fare, chef aboard",
+     "si": "barge",
+     "tier": "premier",
+     "commission": "broker / operator-direct",
+     "when": "March-October"
+    },
+    {
+     "name": "The Route des Grands Crus — 60 km, Dijon to Santenay (Source: en.wikipedia.org, V)",
+     "si": "wine",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Clos de Vougeot — 50.6 ha, 16 of the 1,247 Climats",
+     "si": "wine",
+     "tier": "essential",
+     "commission": "none held",
+     "when": "year-round"
+    },
+    {
+     "name": "The Climats of Burgundy — UNESCO 2015, 1,247 parcels",
+     "si": "wine",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The 166th Hospices de Beaune wine auction",
+     "si": "wine",
+     "tier": "premier",
+     "commission": "none held",
+     "when": "2026-11-15"
+    },
+    {
+     "name": "The Hospices' own holdings — Corton-Charlemagne, Meursault, Pommard",
+     "si": "wine",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The Hôtel-Dieu de Beaune — founded 1443",
+     "si": "culture",
+     "tier": "essential",
+     "commission": "none held",
+     "when": "year-round"
+    },
+    {
+     "name": "Clos de Vougeot's Cistercian wall",
+     "si": "culture",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "The Climats as a heritage landscape",
+     "si": "culture",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "A canopied four-poster on the water",
+     "si": "romance",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "April-October"
+    },
+    {
+     "name": "The whole-boat charter — sole use, four to twelve",
+     "si": "romance",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "April-October"
+    },
+    {
+     "name": "The chef aboard, every vessel",
+     "si": "culinary",
+     "tier": "premier",
+     "commission": "broker / operator-direct",
+     "when": "March-October"
+    },
+    {
+     "name": "Regional wine and open bar inside the fare",
+     "si": "culinary",
+     "tier": "premier",
+     "commission": "broker / operator-direct",
+     "when": "March-October"
+    },
+    {
+     "name": "Belmond Lilas and Fleur de Lys as the top of the library",
+     "si": "ultra",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "April-October"
+    },
+    {
+     "name": "Sole-use vessel charter at five figures a week",
+     "si": "ultra",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "April-October"
+    },
+    {
+     "name": "Grand Luxe and Supreme class as published categories",
+     "si": "ultra",
+     "tier": "luxury",
+     "commission": "none held",
+     "when": "March-October"
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is the difference between a hotel barge and a river cruise?",
+     "a": "Scale and pace. A hotel barge carries six to twenty guests on a canal at walking speed for six nights, all-inclusive with a chef aboard; a river cruise ship carries an order of magnitude more people on a navigable river.",
+     "source": "https://www.europeanwaterways.com/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "When does the barge season run?",
+     "a": "Roughly March or April through October. The vessels are out of the water outside that window.",
+     "source": "https://www.french-waterways.com/barge/amaryllis/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "Can I book a single cabin, or must I take the whole boat?",
+     "a": "Both. Each operator sells cabin-by-cabin and also charters the vessel whole for a family or a group.",
+     "source": "https://www.vitabrevis.travel/belmond-afloat-france-river-cruises",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "What does a whole-boat charter cost?",
+     "a": "The operators publish high-season weekly charter figures of EUR 90,000 for the eight-guest Belmond Lilas and EUR 81,400 for the six-guest Fleur de Lys; per-person guide ranges for the category run from roughly USD 8,300 to 14,000 and up for a cruise week.",
+     "source": "https://www.french-waterways.com/barge/lilac/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "When is the Hospices de Beaune wine auction?",
+     "a": "The 166th falls on 15 November 2026 at the Halles de Beaune, held by tradition on the third Sunday of November.",
+     "source": "https://hospices-beaune.com/en/vente-auction-hospices-de-beaune",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "What are the Climats, and why are they UNESCO-listed?",
+     "a": "They are 1,247 named vineyard parcels, listed in 2015 for a viticulture model that ties a wine to an exact piece of ground, each parcel differing in soil and sun.",
+     "source": "https://france.fr/en/burgundy/article/5-minute-guide-climats-burgundy",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "How long is the Route des Grands Crus?",
+     "a": "About 60 kilometres, running along the foot of the Côte d'Or escarpment from Dijon in the north to Santenay in the south, through the Côte de Nuits and the Côte de Beaune.",
+     "source": "https://en.wikipedia.org/wiki/Route_des_Grands_Crus",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "Is there a travel advisory for France?",
+     "a": "The FCDO's own machine-readable advisory field for France is empty — it names no area it advises against travelling to, and it publishes no numeric level for any country. Travellers should read the FCDO's France page directly before booking.",
+     "source": "https://www.gov.uk/foreign-travel-advice/france",
+     "accessed": "2026-09-03"
+    }
+   ]
+  }
+ },
+ {
+  "id": "diani-beach-kenya",
+  "region_code": "05A",
+  "name": "Diani Beach",
+  "country": "Kenya",
+  "line": "Africa's leading beach, with a safari up the road",
+  "status": "live",
+  "depth": "verified",
+  "sub_region": "Kenya — South Coast / Diani",
+  "si": [
+   "tropical",
+   "diveglobal",
+   "ocean",
+   "romance",
+   "family",
+   "wellness",
+   "ultra"
+  ],
+  "tier_range": [
+   "essential",
+   "comfort",
+   "premier",
+   "luxury",
+   "ultra"
+  ],
+  "draw_rank": "anchor",
+  "data": {
+   "safety": {
+    "source": "https://www.gov.uk/foreign-travel-advice/kenya",
+    "verified": "2026-09-03",
+    "malaria": "year-round coastal transmission risk",
+    "emergency": "999 / 112 · Kenya Red Cross 1199",
+    "fcdo": {
+     "posture": "bookable_standard",
+     "url": "https://www.gov.uk/foreign-travel-advice/kenya",
+     "authority_updated": "2026-09-01",
+     "read": "2026-09-03",
+     "quoted_verbatim": true,
+     "coverage_judgement": "NOT MADE — TravelWell does not state whether this destination lies inside a named area"
+    }
+   },
+   "key_facts": [
+    "The FCDO advises against all travel to named areas including Lamu County except for Lamu Island and Manda Island, and against all but essential travel to further named areas. TravelWell does not state whether this destination lies inside a named area. Source: gov.uk/foreign-travel-advice/kenya, FCDO page updated 2026-09-01, read 2026-09-03.",
+    "Roughly 25 km of white coral sand behind a fringing reef; repeatedly named Africa's Leading Beach Destination at the World Travel Awards, whose 2024 Africa gala was held at Diani. Source: https://www.travelandtourworld.com/news/article/africas-best-tourism-destinations-and-leaders-shine-at-the-2024-world-travel-awards-in-diani-beach-kenya/ accessed 2026-06-29, V.",
+    "Diving the Crab, established 1985, is a PADI 5-star centre with 29 dive sites all within a 40-minute boat ride; whale sharks are seen November to February. Source: divingthecrab.com/diving-kenya, accessed 2026-09-03.",
+    "Two kite monsoons: Kusi June-September is the stronger season, Kaskazi December-February the lighter and the beginner window. Source: iksurfmag.com, accessed 2026-06-29.",
+    "Ukunda Airstrip (UKA/HKUK) serves Diani, Ukunda, Tiwi and Msambweni; six airlines operate, and the Nairobi route carries roughly 31 flights a week, 37% of all weekly departures. Source: flightsfrom.com/UKA and en.wikipedia.org/wiki/Ukunda_Airport, accessed 2026-09-03.",
+    "Alfajiri Villas is three private-use villas each with its own chef and butler; Almanara is nine villas plus a five-bedroom boutique hotel with personal chef and waiter service. Source: alfajirivillas.com and almanararesort.com, accessed 2026-09-03.",
+    "Colobus Conservation protects the endangered Angolan black-and-white colobus and runs the colobridge rope bridges over Diani Beach Road. Source: lonelyplanet.com Diani colobus centre, accessed 2026-06-29.",
+    "A dedicated always-staffed recompression chamber on the immediate south coast is NOT publicly confirmed; DAN Southern Africa's 24-hour hotline +27 82 810 6010 coordinates the nearest available chamber. Source: dansa.org/chamber-network, accessed 2026-06-29.",
+    "The Kenyan coast carries year-round malaria transmission risk. Source: wwwnc.cdc.gov/travel/destinations/traveler/none/kenya, accessed 2026-06-29."
+   ],
+   "jewels": [
+    {
+     "name": "The lagoon beach — roughly 25 km of coral sand (Source: travelandtourworld.com, V)",
+     "si": "tropical",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Diving the Crab — 29 sites within 40 minutes",
+     "si": "diveglobal",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "Whale sharks off the reef",
+     "si": "diveglobal",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "November-February"
+    },
+    {
+     "name": "Funguo House Reef Wreck",
+     "si": "diveglobal",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "Kaskazi kite season — the beginner wind",
+     "si": "ocean",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "December-February"
+    },
+    {
+     "name": "Kusi kite season — the advanced wind",
+     "si": "ocean",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "June-September"
+    },
+    {
+     "name": "Snorkelling the fringing reef",
+     "si": "ocean",
+     "tier": "essential",
+     "commission": "operator-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "Sunset dhow sail to the sandbank",
+     "si": "romance",
+     "tier": "comfort",
+     "commission": "operator-direct",
+     "when": "year-round"
+    },
+    {
+     "name": "Colobus Conservation and the colobridges",
+     "si": "family",
+     "tier": "essential",
+     "commission": "none held",
+     "when": "year-round"
+    },
+    {
+     "name": "Alfajiri Villas — three private-use villas",
+     "si": "ultra",
+     "tier": "ultra",
+     "commission": "none held",
+     "when": "year-round"
+    },
+    {
+     "name": "Almanara Luxury Boutique Hotel & Villas",
+     "si": "ultra",
+     "tier": "luxury",
+     "commission": "none held",
+     "when": "year-round"
+    },
+    {
+     "name": "Leopard Beach Resort & Spa",
+     "si": "wellness",
+     "tier": "premier",
+     "commission": "bed-bank (Bedsonline/HBX, WebBeds)",
+     "when": "year-round"
+    },
+    {
+     "name": "Baobab Beach Resort & Spa",
+     "si": "wellness",
+     "tier": "comfort",
+     "commission": "bed-bank (Bedsonline/HBX, WebBeds)",
+     "when": "year-round"
+    },
+    {
+     "name": "The reef-protected lagoon for small children",
+     "si": "family",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Beach-and-bush combine out of Ukunda (UKA)",
+     "si": "family",
+     "tier": "premier",
+     "commission": "bed-bank + air, agent-assembled",
+     "when": "year-round"
+    },
+    {
+     "name": "Africa's Leading Beach Destination — the award strip",
+     "si": "tropical",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    },
+    {
+     "name": "Low-tide sandbank walk to the reef",
+     "si": "tropical",
+     "tier": null,
+     "commission": "none held",
+     "when": "year-round",
+     "tier_absent_reason": "not-sold"
+    }
+   ],
+   "faq": [
+    {
+     "q": "When is whale shark season at Diani Beach?",
+     "a": "November through February is the window the dive operators publish for whale shark encounters here.",
+     "source": "https://www.divingthecrab.com/diving-kenya/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "How many dive sites are there, and how far out?",
+     "a": "Twenty-nine sites, all within a forty-minute boat ride, with dolphins a frequent sighting on the way.",
+     "source": "https://www.divingthecrab.com/diving-kenya/",
+     "accessed": "2026-09-03"
+    },
+    {
+     "q": "Which kite season suits a beginner?",
+     "a": "Kaskazi, December to February, is the lighter of the two monsoons; Kusi, June to September, is stronger and suits an experienced rider.",
+     "source": "https://www.iksurfmag.com/travel-guides/africa/kenya/diani-beach/",
+     "accessed": "2026-06-29"
+    },
+    {
+     "q": "Is there a recompression chamber nearby?",
+     "a": "A dedicated always-staffed chamber on the immediate south coast is not publicly confirmed. The DAN Southern Africa 24-hour hotline, +27 82 810 6010, coordinates the nearest available chamber and evacuation, and the current nearest operational chamber should be verified with the dive operator at the time of travel.",
+     "source": "https://www.dansa.org/chamber-network",
+     "accessed": "2026-06-29"
+    },
+    {
+     "q": "Do I need malaria precautions?",
+     "a": "The Kenyan coast carries year-round malaria transmission risk; prophylaxis and evening bite protection are the standard planning items, and a travel-health consultation before departure is the route to a current recommendation.",
+     "source": "https://wwwnc.cdc.gov/travel/destinations/traveler/none/kenya",
+     "accessed": "2026-06-29"
+    },
+    {
+     "q": "How do I combine Diani with a safari?",
+     "a": "Ukunda Airstrip is ten to fifteen minutes from the resorts and runs roughly 31 flights a week to Nairobi, which is the connection most beach-and-bush itineraries are built on.",
+     "source": "https://www.flightsfrom.com/UKA",
+     "accessed": "2026-09-03"
+    }
+   ]
+  }
+ }
+]

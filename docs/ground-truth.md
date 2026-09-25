@@ -129,7 +129,7 @@ the provider.
    → `scripts/gen-sitemap.ts vs boardSis() in src/data/taxonomy.ts`
 
 ✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
-   → all 560 indexable destinations listed; 0 unreleased withheld (and stamped noindex)
+   → all 563 indexable destinations listed; 0 unreleased withheld (and stamped noindex)
    → `scripts/gen-sitemap.ts`
 
 ✅ **The advisory consent record is append-only — no update, delete or ALL policy**
@@ -165,11 +165,11 @@ the provider.
    → `src/data/taxonomy.ts (`import siExtra from "./special-interests.json"`)`
 
 ⚠️ **Every INGESTED destination has a country advisory row — the fail-safe card is correct behaviour, not coverage**
-   → 2 of 560 destinations (0%) sit in a country with NO row, across 2 countries: Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR) · of those, 0 actually RENDER "not yet verified" (none) — the rest carry a dossier carve-out that supplies its own level
+   → 2 of 563 destinations (0%) sit in a country with NO row, across 2 countries: Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR) · of those, 0 actually RENDER "not yet verified" (none) — the rest carry a dossier carve-out that supplies its own level
    → `src/data/safety.json vs the merged catalog · fallback is DEFAULT_SAFETY in src/data/safety-data.ts`
 
 ✅ **No destination id appears under more than one region — the seed upserts on id, so a duplicate emits twice and the database keeps whichever ran last**
-   → all 560 ids unique across 13 regions
+   → all 563 ids unique across 13 regions
    → `src/data/places.ts + src/data/destinations/ · merged by scripts/lib/destination-batches.ts`
 
 ⚠️ **Our curated level matches the level State published for that country**
@@ -201,7 +201,7 @@ the provider.
    → `src/data/safety.json`
 
 ✅ **`_`-prefixed dossier files are references and never ship**
-   → interests/: 1 file(s), 0 shipping · destinations/: 3 file(s), 2 shipping
+   → interests/: 1 file(s), 0 shipping · destinations/: 4 file(s), 3 shipping
    → `src/data/interests/, src/data/destinations/`
 
 *Scope note on the safety check: it covers the countries we serve **today**. An
@@ -220,7 +220,7 @@ it is.
 - **7 of 43 destinations carry a `price_band`.**
 - **7 of 43 destinations carry `feel` tags.**
 - **15 of 43 destinations carry a `sub_region`.**
-- **2 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
+- **3 shipping destination dossier file(s)** and **0 shipping interest dossier file(s)** in the drop-in folders.
 
 ## Exact-match strings — the characters that bounce a batch
 

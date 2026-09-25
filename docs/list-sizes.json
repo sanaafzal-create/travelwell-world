@@ -1,7 +1,7 @@
 {
  "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
  "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
- "generated": "2026-09-06",
+ "generated": "2026-09-25",
  "surfaces": [
   {
    "surface": "si-shelf · jewels (SiDetail JewelsSection)",
@@ -10,21 +10,21 @@
    "reader_can_tell": "YES — the section line prints shown-of-total ('a selection of 24 from our N experiences across M destinations') whenever shown < length (2026-08-28)",
    "lengths_by_interest": {
     "ultra": {
-     "length": 154,
+     "length": 160,
      "shown": 24,
-     "dests": 77,
+     "dests": 80,
      "dests_shown": 12
     },
     "tropical": {
-     "length": 279,
+     "length": 284,
      "shown": 24,
-     "dests": 87,
+     "dests": 89,
      "dests_shown": 12
     },
     "romance": {
-     "length": 649,
+     "length": 655,
      "shown": 24,
-     "dests": 319,
+     "dests": 322,
      "dests_shown": 12
     },
     "safari": {
@@ -51,6 +51,12 @@
      "dests": 8,
      "dests_shown": 8
     },
+    "barge": {
+     "length": 6,
+     "shown": 6,
+     "dests": 1,
+     "dests_shown": 1
+    },
     "adventure": {
      "length": 487,
      "shown": 24,
@@ -76,21 +82,21 @@
      "dests_shown": 12
     },
     "diveglobal": {
-     "length": 200,
+     "length": 203,
      "shown": 24,
-     "dests": 88,
+     "dests": 89,
      "dests_shown": 12
     },
     "ocean": {
-     "length": 116,
-     "shown": 20,
-     "dests": 52,
+     "length": 119,
+     "shown": 22,
+     "dests": 53,
      "dests_shown": 12
     },
     "wellness": {
-     "length": 414,
+     "length": 416,
      "shown": 24,
-     "dests": 125,
+     "dests": 126,
      "dests_shown": 12
     },
     "wildlife": {
@@ -100,9 +106,9 @@
      "dests_shown": 12
     },
     "family": {
-     "length": 489,
+     "length": 494,
      "shown": 24,
-     "dests": 158,
+     "dests": 160,
      "dests_shown": 12
     },
     "senior": {
@@ -112,15 +118,15 @@
      "dests_shown": 6
     },
     "culture": {
-     "length": 1234,
+     "length": 1241,
      "shown": 24,
-     "dests": 306,
+     "dests": 308,
      "dests_shown": 12
     },
     "deepdive": {
-     "length": 29,
-     "shown": 12,
-     "dests": 29,
+     "length": 32,
+     "shown": 14,
+     "dests": 30,
      "dests_shown": 12
     },
     "pilgrimage": {
@@ -136,9 +142,9 @@
      "dests_shown": 12
     },
     "culinary": {
-     "length": 631,
+     "length": 633,
      "shown": 24,
-     "dests": 199,
+     "dests": 200,
      "dests_shown": 12
     },
     "sports": {
@@ -160,9 +166,9 @@
      "dests_shown": 12
     },
     "wine": {
-     "length": 91,
-     "shown": 23,
-     "dests": 36,
+     "length": 96,
+     "shown": 24,
+     "dests": 37,
      "dests_shown": 12
     }
    }
