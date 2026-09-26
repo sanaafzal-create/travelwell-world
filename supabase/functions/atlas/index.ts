@@ -10,6 +10,7 @@
 // NEVER fabricates a price, provider, or safety fact (the Trust Language).
 
 import Anthropic from "npm:@anthropic-ai/sdk@^0.69.0";
+import { TOOL_DEFS, runTool, realDeps, ToolArgError } from "../_shared/corpus.ts";
 
 const MODEL = "claude-opus-4-8";
 
@@ -47,7 +48,16 @@ Hard rules (non-negotiable):
 - When you reference monetized options, note that partners are disclosed and may pay a commission — never hide it.
 - Insure-Well and Ship-Well are "activated at launch" — present them plainly as not yet bookable.
 - If the traveler says "stop", step back gracefully in one short line.
-- BREVITY IS THE DEFAULT (David-locked): at most two short sentences, about 25 words — plain, warm, and specific, never brochure hype or scene-painting. Say the one useful thing and hand the turn back. Expand only when the traveler explicitly asks for more. Offer at most 3 options, each a one-line reason it fits.`;
+- BREVITY IS THE DEFAULT (David-locked): at most two short sentences, about 25 words — plain, warm, and specific, never brochure hype or scene-painting. Say the one useful thing and hand the turn back. Expand only when the traveler explicitly asks for more. Offer at most 3 options, each a one-line reason it fits.
+
+THE LOOKUP TOOLS (new — you can go and CHECK instead of guessing):
+- You now hold the same read-only tools outside agents use on our corpus: search_destinations, get_destination, get_safety, search_providers, list_regions, list_special_interests, list_wells, list_guides.
+- USE THEM for any claim about what WE hold or sell: a destination, a bookable experience (jewels ride in get_destination's data), a provider, a safety posture, the board, the Wells. A claim about our catalog that you did not just look up or receive in context is a guess — don't make it.
+- The context you receive still governs where it is present (a page's safety block, jewelsHere). The tools are for what was NOT handed to you — another destination the traveler mentions, a comparison, a multi-stop trip. Context and tools agree because they read the same data; if they ever seem to differ, prefer the tool result and say you double-checked.
+- SAFETY THROUGH TOOLS IS THE SAME LAW: get_safety and every destination's safety block return the resolver's verdict — posture in words, booking_hold, fcdo_verbatim, provenance. Quote fcdo_verbatim EXACTLY when you repeat an advisory (never paraphrase, never translate it); never speak a numeric level; booking_hold true is content-only, no exceptions, and the two-message Similar Offer rule applies exactly as above. YOU decide nothing about safety — you fetch and relay the verdict.
+- Tool results describe OUR catalog, not the world: absence from results means "we don't list it yet", never "it doesn't exist". Say the first, never the second.
+- If a tool errors or returns nothing useful, say plainly you couldn't check right now — never fill the gap from memory.
+- Be purposeful: a few lookups per turn at most, small limits, then answer. The traveler is waiting.`;
 
 interface ChatMessage { role: "user" | "assistant"; content: string; }
 
@@ -104,20 +114,72 @@ Deno.serve(async (req: Request) => {
       ? `\n\nVOICE MODE — the traveler is LISTENING, not reading. Answer for the ear: at most two short sentences (~25 words total). One warm word, then the facts, then hand the turn back with a short question or a clear next step. Never speak lists aloud — the options are on their screen; give a one-line summary instead. No scene-painting paragraphs.`
       : "";
 
+    // The corpus tools, in Anthropic dialect — the SAME roster and handlers the
+    // public MCP server exposes (_shared/corpus.ts). Atlas can now go and look
+    // things up instead of having everything handed to it in advance.
+    const tools = TOOL_DEFS.map((t) => ({ name: t.name, description: t.description, input_schema: t.schema as Record<string, unknown> }));
+
     const base = {
       model: MODEL,
-      max_tokens: voice ? 220 : 1024,
+      // Tool-use turns carry structured blocks, so the ceiling stays roomy even
+      // in voice mode; spoken BREVITY is governed by the prompt, not the cap.
+      max_tokens: voice ? 400 : 1024,
       system: SYSTEM + contextNote + langNote + voiceNote,
-      messages: messages.map((m) => ({ role: m.role, content: m.content })),
+      tools,
     };
+
+    // ── The tool loop ──────────────────────────────────────────────────────────
+    // Call → run requested tools → feed results back → call again, until Atlas
+    // answers in text. Hard caps make it a loop, not a leash-slip: at most
+    // MAX_TOOL_ROUNDS rounds, every tool result size-capped, every tool error
+    // fed BACK to the model as data (so Atlas says "I couldn't check" instead of
+    // the whole request failing). The trail is returned to the client so the UI
+    // can show what was checked — diligence made visible.
+    const MAX_TOOL_ROUNDS = 6;
+    const RESULT_CAP = 24_000; // chars per tool result fed back to the model
+    const msgs: Anthropic.MessageParam[] = messages.map((m) => ({ role: m.role, content: m.content }));
+    const checked: string[] = [];
+
     // Prefer extended thinking, but never let a thinking-param rejection drop us
     // to the canned fallback — retry once without it so Atlas always truly speaks.
+    const call = async (withThinking: boolean) =>
+      client.messages.create(withThinking ? ({ ...base, messages: msgs, thinking: { type: "adaptive" } } as never) : ({ ...base, messages: msgs } as never));
+    let thinking = true;
     let response;
     try {
-      response = await client.messages.create({ ...base, thinking: { type: "adaptive" } });
+      response = await call(thinking);
     } catch (thinkingErr) {
       console.warn("atlas: thinking param rejected, retrying without it", thinkingErr);
-      response = await client.messages.create(base);
+      thinking = false;
+      response = await call(thinking);
+    }
+
+    let rounds = 0;
+    while (response.stop_reason === "tool_use" && rounds < MAX_TOOL_ROUNDS) {
+      rounds++;
+      msgs.push({ role: "assistant", content: response.content });
+      const results: Anthropic.ToolResultBlockParam[] = [];
+      for (const block of response.content) {
+        if (block.type !== "tool_use") continue;
+        let payload: string;
+        let isError = false;
+        try {
+          const out = await runTool(block.name, (block.input ?? {}) as Record<string, unknown>, realDeps);
+          if (out === null) { payload = `Unknown tool: ${block.name}`; isError = true; }
+          else {
+            payload = JSON.stringify(out);
+            if (payload.length > RESULT_CAP) payload = payload.slice(0, RESULT_CAP) + `"…[truncated at ${RESULT_CAP} chars — narrow the query]`;
+            checked.push(block.name);
+          }
+        } catch (e) {
+          // Errors are DATA to the model: it must say "couldn't check", never invent.
+          payload = e instanceof ToolArgError ? e.message : `Tool failed: ${(e as Error).message}`;
+          isError = true;
+        }
+        results.push({ type: "tool_result", tool_use_id: block.id, content: payload, ...(isError ? { is_error: true } : {}) });
+      }
+      msgs.push({ role: "user", content: results });
+      response = await call(thinking);
     }
 
     if (response.stop_reason === "refusal") {
@@ -133,7 +195,10 @@ Deno.serve(async (req: Request) => {
       .join("\n")
       .trim();
 
-    return Response.json({ reply: reply || "I'm here — tell me your dream in a sentence." }, { headers: cors, status: 200 });
+    return Response.json(
+      { reply: reply || "I'm here — tell me your dream in a sentence.", ...(checked.length ? { checked } : {}) },
+      { headers: cors, status: 200 }
+    );
   } catch (err) {
     console.error("atlas error", err);
     return Response.json(

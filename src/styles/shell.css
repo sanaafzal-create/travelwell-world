@@ -242,6 +242,9 @@
    do next, so the state is never color alone (AA canon). */
 .tw-msg--draft { background: color-mix(in oklch, var(--primary) 88%, #fff); outline: 2px dashed color-mix(in oklch, var(--primary) 45%, #fff); outline-offset: 2px; display: flex; flex-direction: column; gap: 4px; }
 .tw-msg__draftlbl { font-size: 12px; font-weight: 600; opacity: .85; letter-spacing: .01em; }
+/* The lookup trail — "Checked: the live safety advisory · our destinations".
+   Quiet by design: proof of diligence under the reply, never competing with it. */
+.tw-msg--bot .tw-msg__checked { display: block; margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); font-size: 12px; color: var(--muted-foreground); }
 /* Rendered markdown inside a reply bubble — kept tight so it reads as one message. */
 .tw-msg p { margin: 0; }
 .tw-msg p + p, .tw-msg p + ul, .tw-msg p + ol, .tw-msg ul + p, .tw-msg ol + p { margin-top: 8px; }

@@ -30,7 +30,7 @@ export async function askAtlas(
   context?: Record<string, unknown>,
   locale?: string,
   voice?: boolean
-): Promise<{ reply: string; degraded?: boolean }> {
+): Promise<{ reply: string; checked?: string[]; degraded?: boolean }> {
   const sb = getSupabase();
   if (!sb) {
     return {
@@ -44,7 +44,8 @@ export async function askAtlas(
       body: { messages, context, locale, voice },
     });
     if (error) throw error;
-    return { reply: (data as { reply: string }).reply };
+    const d = data as { reply: string; checked?: string[] };
+    return { reply: d.reply, ...(d.checked?.length ? { checked: d.checked } : {}) };
   } catch {
     return {
       reply:

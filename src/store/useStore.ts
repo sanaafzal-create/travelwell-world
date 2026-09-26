@@ -52,7 +52,9 @@ export type WhisperDial = "off" | "rare" | "balanced" | "active";
 // store (not a modal's local state) so it survives navigation and reload, and
 // stays revisable rather than fire-and-forget. `dock` is its own visibility,
 // independent of `panel`, so route changes never close Atlas.
-export interface AtlasMsg { role: "user" | "assistant"; content: string; }
+// `checked` — which corpus tools Atlas called for this reply (server-reported).
+// Rendered as a small "Checked: …" line so a lookup reads as diligence, not lag.
+export interface AtlasMsg { role: "user" | "assistant"; content: string; checked?: string[]; }
 export type AtlasDock = "hidden" | "collapsed" | "open";
 const ATLAS_HISTORY_CAP = 50; // keep localStorage bounded; send-window is separate
 

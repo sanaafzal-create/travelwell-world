@@ -14,6 +14,18 @@ import { useSpecialInterests } from "@/store/useCatalog";
 import { useT } from "@/lib/i18n";
 import { useCatalogName } from "@/lib/i18n-catalog";
 
+/** Traveler-facing names for the corpus tools in the "Checked:" trail. */
+const CHECK_LABEL: Record<string, string> = {
+  search_destinations: "our destinations",
+  get_destination: "the destination dossier",
+  get_safety: "the live safety advisory",
+  search_providers: "our providers",
+  list_regions: "the regions",
+  list_special_interests: "the interests board",
+  list_wells: "the Wells",
+  list_guides: "the guides",
+};
+
 // Atlas Guided-Flow WOW — the hero demo strip. Atlas points to one Well at a
 // time; the traveler always taps for themselves. (Demo-hero: a single scripted
 // choreography, built on the real focus→UI seam so it generalizes later.)
@@ -352,6 +364,14 @@ export function Concierge() {
                 return (
                   <div key={i} className={`tw-msg tw-msg--${m.role === "user" ? "user" : "bot"}`}>
                     {m.role === "user" ? m.content : renderMarkdown(m.content)}
+                    {/* The lookup trail — Atlas went and CHECKED (the corpus tools).
+                        Shown so a two-second lookup reads as diligence, not lag:
+                        the machine that verifies beats the machine that recalls. */}
+                    {m.role === "assistant" && m.checked && m.checked.length > 0 && (
+                      <span className="tw-msg__checked">
+                        Checked: {[...new Set(m.checked)].map((t) => CHECK_LABEL[t] ?? t).join(" · ")}
+                      </span>
+                    )}
                     {isSpokenNow && (
                       <button
                         type="button"

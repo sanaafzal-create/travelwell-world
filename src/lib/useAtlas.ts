@@ -39,8 +39,8 @@ export function useAtlas() {
       // brevity rules server-side so spoken answers are short.
       const st2 = useStore.getState();
       const voice = st2.io === "hear" || st2.io === "both";
-      const { reply } = await askAtlas(history, ctx, st2.locale, voice);
-      useStore.getState().addAtlasMessage({ role: "assistant", content: reply });
+      const { reply, checked } = await askAtlas(history, ctx, st2.locale, voice);
+      useStore.getState().addAtlasMessage({ role: "assistant", content: reply, ...(checked?.length ? { checked } : {}) });
     } finally {
       useStore.getState().setAtlasBusy(false);
     }
