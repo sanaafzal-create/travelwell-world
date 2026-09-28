@@ -43,6 +43,14 @@ const localeCoverage = (code: string) =>
   Object.values(MESSAGES).filter((entry) => (entry as Record<string, string | undefined>)[code]).length;
 const totalKeys = Object.keys(MESSAGES).length;
 
+// The answer layer — the FAQ surface that earns search citations. Coverage AND
+// the clock: a question without an accessed date cannot report as stale, it
+// reports as nothing (David 2026-09-28) — so the undated count is printed
+// until it reaches zero and the freshness becomes computable.
+const faqRows = liveDests.filter((d) => Array.isArray((d.data as { faq?: unknown[] } | undefined)?.faq) && ((d.data as { faq: unknown[] }).faq.length > 0));
+const faqQs = liveDests.reduce((n, d) => n + (((d.data as { faq?: { accessed?: string }[] } | undefined)?.faq) ?? []).length, 0);
+const faqDated = liveDests.reduce((n, d) => n + (((d.data as { faq?: { accessed?: string }[] } | undefined)?.faq) ?? []).filter((f) => f.accessed).length, 0);
+
 const zoneCount = Object.values(SAFETY as Record<string, { zones?: unknown[] }>).reduce(
   (n, c) => n + (c.zones?.length ?? 0), 0);
 
@@ -85,6 +93,7 @@ deliberately not built yet (see CLAUDE.md "Foundation sockets").
 | Travel guides | **${GUIDES.length}** editorial guides | all live |
 | Languages | **${LOCALES.length}** on the switcher | ${LOCALES.filter((l) => localeCoverage(l.code) > 0).length} fully translated (see Languages) |
 | Safety records | **${Object.keys(SAFETY).length}** countries, ${zoneCount} named zones | advisory checker runs daily |
+| Answer layer (traveler FAQ) | **${faqQs}** questions on ${faqRows.length} of ${liveDests.length} rows | ${faqDated} carry an accessed date — staleness is computable only for those |
 
 ## The Board — ${BOARD.length} Signature Interests, ${SI_GROUPS.length} categories (David-locked 2026-08-10)
 
