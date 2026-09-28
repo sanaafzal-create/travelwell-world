@@ -35,7 +35,20 @@
  * Runbook: docs/atlas-evals.md
  */
 
-const env = (k: string) => process.env[k] || process.env[`VITE_${k}`] || "";
+// Load .env / .env.local ourselves — plain Node doesn't, and "configure the
+// env" should not require knowing that. Process env still wins over the files.
+import { readFileSync } from "node:fs";
+const fileEnv: Record<string, string> = {};
+for (const f of [".env", ".env.local"]) {
+  try {
+    for (const line of readFileSync(f, "utf8").split("\n")) {
+      const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*"?([^"#]*)"?\s*$/);
+      if (m) fileEnv[m[1]] = m[2].trim();
+    }
+  } catch { /* file absent is fine */ }
+}
+const env = (k: string) =>
+  process.env[k] || process.env[`VITE_${k}`] || fileEnv[k] || fileEnv[`VITE_${k}`] || "";
 const URL_BASE = env("SUPABASE_URL").replace(/\/$/, "");
 const ANON = env("SUPABASE_ANON_KEY");
 
@@ -168,7 +181,8 @@ async function ask(c: EvalCase): Promise<string> {
 async function main() {
   if (!URL_BASE || !ANON) {
     console.error("✗ BLOCKED, NOT PASSED — no SUPABASE_URL / SUPABASE_ANON_KEY (or VITE_-prefixed) in the environment.");
-    console.error("  This suite runs against the DEPLOYED atlas function. Configure the env and re-run.");
+    console.error("  Fix: a .env file in the repo root with VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY");
+    console.error("  (values: Supabase dashboard \u2192 Project Settings \u2192 API \u2192 Project URL + anon public key).");
     process.exit(2);
   }
   const filter = process.argv[2]?.toLowerCase();
