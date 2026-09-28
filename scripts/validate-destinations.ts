@@ -20,6 +20,7 @@ import { join } from "node:path";
 import { REGIONS, SIS, SUBREGIONS, boardSis } from "../src/data/taxonomy";
 import { DESTINATIONS, LEGACY_DEST_ID, resolveDestId } from "../src/data/places";
 import { COUNTRY_ISO, SAFETY_DATA, resolveSafety, isoForCountry, fcdoThreshold } from "../src/data/safety-data";
+import { ACTIVITY_LEVELS } from "../src/lib/identity";
 import { mergedDestinations } from "./lib/destination-batches";
 import { checkHero } from "./lib/check-hero";
 import { checkSafetyLanguage, countRetiredAuthority, findForbiddenQuestions } from "./lib/check-safety-language";
@@ -599,6 +600,36 @@ if (warns.length) { console.log(`\n⚠︎ ${warns.length} warnings (won't block,
   }
   if (n < max) console.log(`\u2713 sis_present free-text: ${n} (ratchet ${max}) \u2014 lower "sis_present_freetext_max" to ${n} to hold the ground.`);
   else if (n) console.log(`\u00b7 sis_present free-text: ${n}, at the ratchet \u2014 shrinks with the library's resolved batch.`);
+}
+
+// ── THE PACE VOCABULARY RATCHET (the Lifetime Loop's other half, 2026-09-28) ──
+// The traveler's activity_level is FOUR values (identity.ts); a jewel pace
+// outside them can never match a traveler, so it ships as a silently dead
+// field. The library measured 68 distinct free-text paces against the four and
+// holds a mapping ready as a proposal; their gate reads our identity.ts live,
+// and this is the same gate on our side of the wall, reading the SAME source.
+// Ratcheted (253 pre-existing) rather than hard-failed, so the gate is not
+// born red — a NEW free-text pace fails now; the count locks at zero when the
+// mapping batch lands. Nuance ("moderate wet-rock footing") belongs in the
+// jewel note, never the field — the mor/mor_note doctrine.
+{
+  const paceVocab = new Set(ACTIVITY_LEVELS.map((a) => a.v));
+  const max = JSON.parse(readFileSync("scripts/lib/retired-authority-baseline.json", "utf8")).jewel_pace_freetext_max as number;
+  const bad: Record<string, number> = {};
+  for (const { d } of rows)
+    for (const j of ((d.data as { jewels?: { fit_rules?: { pace?: string } }[] } | undefined)?.jewels ?? [])) {
+      const v = j?.fit_rules?.pace;
+      if (typeof v === "string" && v.trim() && !paceVocab.has(v.trim())) bad[v.trim()] = (bad[v.trim()] ?? 0) + 1;
+    }
+  const n = Object.values(bad).reduce((a, b) => a + b, 0);
+  if (n > max) {
+    console.log(`\n\u2717 FREE-TEXT PACE \u2014 ${n} jewel paces are outside the traveler vocabulary (${[...paceVocab].join(" | ")}); the ratchet allows ${max}.`);
+    Object.entries(bad).sort((a, b) => b[1] - a[1]).slice(0, 8).forEach(([k, v]) => console.log(`  \u2717 ${v} \u00d7 ${JSON.stringify(k)}`));
+    console.log(`  The fix is the library's pace-mapping batch onto identity.ts, never a local rewrite.`);
+    process.exit(1);
+  }
+  if (n < max) console.log(`\u2713 jewel pace free-text: ${n} (ratchet ${max}) \u2014 lower "jewel_pace_freetext_max" to ${n} to hold the ground.`);
+  else if (n) console.log(`\u00b7 jewel pace free-text: ${n}, at the ratchet \u2014 shrinks with the library's mapping batch.`);
 }
 
 // ── THE SAFETY-PROMISE RATCHET ─────────────────────────────────────────────
