@@ -25,7 +25,6 @@
   "draw_rank": "anchor",
   "data": {
    "safety": {
-    "booking_hold": true,
     "zone": "Lamu County",
     "zone_except": "Lamu Island",
     "notes": "FCDO advises against all travel to Lamu County, except for Lamu Island and Manda Island.",
@@ -46,7 +45,7 @@
       "avoid_all_but_essential_travel_to_parts"
      ],
      "coverage_judgement": "NOT MADE — TravelWell does not state whether this destination lies inside or outside a named area. The FCDO's own exception clause names Lamu Island and Manda Island; that is a fact about its text, not our judgement.",
-     "posture_note": "bookable_caution conforms to the existing vocabulary. It is NOT a lifting of the booking hold — see booking_hold."
+     "posture_note": "bookable_caution conforms to the existing vocabulary. The booking hold carried at ingest (2026-09-24) was lifted on David's ruling of 2026-09-28: the hold was reasoned from the retired State Level 4, and the FCDO's own exception clause names Lamu Island."
     }
    },
    "key_facts": [

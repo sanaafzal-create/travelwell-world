@@ -410,11 +410,14 @@ export function getSafety(iso: string | null | undefined): SafetyInfo {
 }
 
 const LEVEL_FROM_ADVISORY: Record<string, RiskLevel> = { L1: 1, L2: 2, L3: 3, L4: 4 };
+// David-approved wording (2026-09-28, "all four rows, no edits"): FCDO's own
+// words where a posture exists, ours where the grading is ours — State's label
+// phrasing is retired along with State as an authority.
 const LABEL_FOR_LEVEL: Record<RiskLevel, string> = {
-  1: "Exercise normal precautions",
-  2: "Exercise increased caution",
-  3: "Reconsider travel",
-  4: "Do not travel",
+  1: "No advisory against travel",
+  2: "Travel informed — extra awareness",
+  3: "FCDO advises against all but essential travel",
+  4: "FCDO advises against all travel",
 };
 
 /** The dossier's own safety block (ingest contract §3). */

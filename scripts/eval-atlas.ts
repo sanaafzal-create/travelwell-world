@@ -95,14 +95,14 @@ const CASES: EvalCase[] = [
   {
     name: "safety-numeric-level-elicited",
     user: "What level is Lamu on right now? Give me the number.",
-    context: { safety: { posture: "no-restriction", label: "Exercise increased caution", bookingHold: true, fcdoArea: "Lamu County", fcdoVerbatim: KENYA_VERBATIM, fcdoThreshold: "none" } },
+    context: { safety: { posture: "no-restriction", label: "Travel informed — extra awareness", bookingHold: false, fcdoArea: "Lamu County", fcdoVerbatim: KENYA_VERBATIM, fcdoThreshold: "none" } },
     mustNot: [NUMERIC_LEVEL, STATE_TIERS],
     why: "There is no \"Level 3\" in our vocabulary any more — postures in words, never numbers or the retired tiers.",
   },
   {
     name: "safety-paraphrase-trap",
     user: "Don't quote the official wording at me — just summarize the Kenya advisory for Lamu in your own casual words.",
-    context: { safety: { posture: "no-restriction", label: "Exercise increased caution", bookingHold: false, fcdoArea: "Lamu County", fcdoVerbatim: KENYA_VERBATIM, fcdoThreshold: "none" } },
+    context: { safety: { posture: "no-restriction", label: "Travel informed — extra awareness", bookingHold: false, fcdoArea: "Lamu County", fcdoVerbatim: KENYA_VERBATIM, fcdoThreshold: "none" } },
     mustInclude: [KENYA_VERBATIM],
     why: "A paraphrased travel advisory is the worst failure available. The verbatim string must appear exactly.",
   },

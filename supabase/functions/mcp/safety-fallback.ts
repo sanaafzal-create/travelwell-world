@@ -11,8 +11,8 @@ var safety_default = {
   TR: {
     country: "Turkey",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution. The FCDO's only advise-against area is the Syria border strip \u2014 the charter coast (Bodrum, Marmaris, G\xF6cek) and the main travel regions sit far outside it.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness. The FCDO's only advise-against area is the Syria border strip \u2014 the charter coast (Bodrum, Marmaris, G\xF6cek) and the main travel regions sit far outside it.",
     considerations: [],
     source: "UK FCDO \u2014 Turkey travel advice (page updated 2026-07-22; threshold quotes ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
     reported: true,
@@ -28,8 +28,8 @@ var safety_default = {
   MY: {
     country: "Malaysia",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution. The FCDO's only advise-against area is the eastern Sabah coastal islands \u2014 Langkawi and peninsular Malaysia sit on the opposite side of the country.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness. The FCDO's only advise-against area is the eastern Sabah coastal islands \u2014 Langkawi and peninsular Malaysia sit on the opposite side of the country.",
     considerations: [],
     source: "UK FCDO \u2014 Malaysia travel advice (page updated 2026-03-19; threshold quotes ETag-verified via the ingested verbatim store, read 2026-09-02); in the daily checker",
     reported: true,
@@ -125,8 +125,8 @@ var safety_default = {
   AE: {
     country: "United Arab Emirates",
     lvl: 3,
-    label: "Reconsider travel",
-    summary: "Reconsider travel due to regional conflict and missile/drone risk plus major flight disruption \u2014 a sharp, recent change from the UAE's normal baseline.",
+    label: "FCDO advises against all but essential travel",
+    summary: "FCDO advises against all but essential travel due to regional conflict and missile/drone risk plus major flight disruption \u2014 a sharp, recent change from the UAE's normal baseline.",
     considerations: [
       "Elevated to Level 3 in March 2026 after US-Iran hostilities began (ordered departure of non-emergency US government staff).",
       "The practical traveler impact is airspace/flight disruption and the volatile regional situation rather than routine local crime.",
@@ -160,8 +160,8 @@ var safety_default = {
   AT: {
     country: "Austria",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. Crime is low and rarely violent; the risk to plan for is the mountain \u2014 weather and avalanche, managed by resort patrol.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel. Crime is low and rarely violent; the risk to plan for is the mountain \u2014 weather and avalanche, managed by resort patrol.",
     considerations: [
       "Ski in-bounds and heed piste closures and avalanche warnings; hire a certified guide off the marked runs.",
       "Standard urban petty theft and pickpocketing in tourist areas (Vienna, Salzburg, Innsbruck).",
@@ -224,7 +224,7 @@ var safety_default = {
   BR: {
     country: "Brazil",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against all but essential travel to river areas in the west of Amazonas State \u2014 listed below in its own words. The rest of Brazil, including Salvador, Rio de Janeiro and the coastal cities, carries no FCDO restriction.",
     considerations: [],
     source: "UK FCDO \u2014 Brazil travel advice, reviewed 2026-05-11 (verbatim snapshot from the research library)",
@@ -241,8 +241,8 @@ var safety_default = {
   BS: {
     country: "Bahamas",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to crime, concentrated in parts of Nassau and Freeport.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to crime, concentrated in parts of Nassau and Freeport.",
     considerations: [
       "Armed robbery and burglary occur mostly in New Providence (Nassau) and Grand Bahama (Freeport).",
       "Unregulated watercraft and jet-ski operators (assaults reported).",
@@ -275,8 +275,8 @@ var safety_default = {
   CA: {
     country: "Canada",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. Crime is low; plan for weather and distance, which are the practical risks across most of the country.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel. Crime is low; plan for weather and distance, which are the practical risks across most of the country.",
     considerations: [
       "Petty theft and vehicle break-ins in tourist areas.",
       "Winter snow and ice (some provinces require snow tires); remote Arctic areas have slow emergency response.",
@@ -288,8 +288,8 @@ var safety_default = {
   CH: {
     country: "Switzerland",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. Crime is low; the risk to plan for is the mountain \u2014 weather, altitude and avalanche.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel. Crime is low; the risk to plan for is the mountain \u2014 weather, altitude and avalanche.",
     considerations: [
       "Year-round alpine hazards: avalanche, sudden weather changes, unmarked terrain.",
       "Pickpocketing at tourist sites and on public transport.",
@@ -302,8 +302,8 @@ var safety_default = {
   CL: {
     country: "Chile",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to rising crime and periodic large demonstrations.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to rising crime and periodic large demonstrations.",
     considerations: [
       "Street crime (muggings, pickpocketing) is common and violent crime is increasing in cities.",
       "Large protests in Santiago and elsewhere arise with little notice and disrupt transport.",
@@ -316,8 +316,8 @@ var safety_default = {
   CO: {
     country: "Colombia",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution country-wide. The FCDO advises against all but essential travel to named parts of Colombia \u2014 border regions and several departments, listed below \u2014 while the main cities and the Caribbean coast sit outside every named area. No part of Colombia currently carries a do-not-travel advisory (page read in full 2026-08-31).",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness country-wide. The FCDO advises against all but essential travel to named parts of Colombia \u2014 border regions and several departments, listed below \u2014 while the main cities and the Caribbean coast sit outside every named area. No part of Colombia currently carries a do-not-travel advisory (page read in full 2026-08-31).",
     considerations: [
       "Violent crime and express kidnapping occur nationwide; drug-assisted robbery (scopolamine) is reported \u2014 do not accept food, drinks or flyers from strangers, and use only pre-booked or authorised taxis.",
       "Terrorist attacks target transit and government sites; protests can turn violent.",
@@ -459,8 +459,8 @@ var safety_default = {
   DE: {
     country: "Germany",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism risk.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism risk.",
     considerations: [
       "Authorities assess attacks as likely (markets, transit, places of worship, events); recent incidents are on record.",
       "Standard urban theft and pickpocketing at airports, stations and crowded venues."
@@ -501,7 +501,7 @@ var safety_default = {
   EC: {
     country: "Ecuador",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against all but essential travel to the Coastal Region provinces and a strip of the Colombian border \u2014 listed below in its own words. Quito, the Andean highlands and the Gal\xE1pagos carry no FCDO restriction.",
     considerations: [],
     source: "UK FCDO \u2014 Ecuador travel advice, reviewed 2026-07-10 (verbatim snapshot from the research library)",
@@ -542,8 +542,8 @@ var safety_default = {
   EG: {
     country: "Egypt",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism; the Nile corridor \u2014 Cairo, Luxor and Aswan \u2014 is Level 2, but the Sinai Peninsula and the Western Desert / Libya border are off-limits.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism; the Nile corridor \u2014 Cairo, Luxor and Aswan \u2014 is Level 2, but the Sinai Peninsula and the Western Desert / Libya border are off-limits.",
     considerations: [
       "Terrorist groups can attack with little warning \u2014 tourist sites, transport hubs, and places of worship.",
       "Cairo, Giza and the Luxor\u2013Aswan Nile-cruise corridor sit in the mainstream Level 2 zone.",
@@ -573,8 +573,8 @@ var safety_default = {
   ES: {
     country: "Spain",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism risk and notably high tourist-area street crime.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism risk and notably high tourist-area street crime.",
     considerations: [
       "Authorities assess terrorist attacks as likely.",
       "Widespread pickpocketing and car break-ins in tourist areas, airports and stations (distraction-team tactics).",
@@ -594,7 +594,7 @@ var safety_default = {
   ET: {
     country: "Ethiopia",
     lvl: 3,
-    label: "Reconsider travel",
+    label: "FCDO advises against all but essential travel",
     summary: "The FCDO advises against all travel to several named regions and border areas of Ethiopia, and against all but essential travel to others \u2014 each is listed below in the advisory's own terms. Addis Ababa carries no FCDO restriction.",
     considerations: [
       "State describes the security situation in Addis Ababa as stable, with sporadic armed conflict and civil unrest elsewhere.",
@@ -726,8 +726,8 @@ var safety_default = {
   FR: {
     country: "France",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism and persistent petty crime in tourist cities.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism and persistent petty crime in tourist cities.",
     considerations: [
       "Authorities assess terrorist attacks as likely (tourist sites, transit, gatherings).",
       "Frequent pickpocketing and phone theft on the Paris Metro/RER and at stations.",
@@ -759,7 +759,7 @@ var safety_default = {
   GR: {
     country: "Greece",
     lvl: 1,
-    label: "Exercise normal precautions",
+    label: "No advisory against travel",
     summary: "Greece is generally safe; ordinary precautions apply.",
     considerations: [
       "Pickpocketing in tourist hotspots (Athens metro, ferry terminals).",
@@ -773,7 +773,7 @@ var safety_default = {
   GT: {
     country: "Guatemala",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against all but essential travel to a strip of the Mexican border and three named towns \u2014 listed below in its own words. Antigua, Lake Atitl\xE1n, Tikal and Guatemala City carry no FCDO restriction.",
     considerations: [
       "Pay particular attention to your security in the border areas with Mexico, Honduras, El Salvador and Belize."
@@ -826,8 +826,8 @@ var safety_default = {
   ID: {
     country: "Indonesia",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism and natural hazards. The FCDO's only advise-against areas are small exclusion zones around six active volcanoes \u2014 its earlier Papua restrictions no longer appear on the page (re-read 2026-08-31).",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism and natural hazards. The FCDO's only advise-against areas are small exclusion zones around six active volcanoes \u2014 its earlier Papua restrictions no longer appear on the page (re-read 2026-08-31).",
     considerations: [
       "High seismic and volcanic activity (earthquakes, tsunamis, eruptions).",
       "Ongoing terrorism plotting; variable road and ferry safety.",
@@ -883,8 +883,8 @@ var safety_default = {
   IS: {
     country: "Iceland",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. The real risks are environmental \u2014 weather, road conditions and an unforgiving coastline \u2014 rather than crime.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel. The real risks are environmental \u2014 weather, road conditions and an unforgiving coastline \u2014 rather than crime.",
     considerations: [
       "Rapidly changing, severe weather is the top hazard.",
       "Ongoing Reykjanes Peninsula volcanic activity can affect the Grindavik area and occasionally airport access.",
@@ -897,8 +897,8 @@ var safety_default = {
   IT: {
     country: "Italy",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism risk and heavy tourist-area petty crime.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism risk and heavy tourist-area petty crime.",
     considerations: [
       "Possible terrorist attacks at tourist, transit and religious sites.",
       "Prevalent pickpocketing and bag-snatching on transit and at major attractions.",
@@ -943,8 +943,8 @@ var safety_default = {
   JP: {
     country: "Japan",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. Crime is low; plan for earthquakes and the typhoon season, and know your building's evacuation route.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel. Crime is low; plan for earthquakes and the typhoon season, and know your building's evacuation route.",
     considerations: [
       "Significant natural-hazard exposure: earthquakes, tsunamis, typhoons, heavy northern winter snow.",
       "Very strict drug laws \u2014 some common US prescription medicines are banned.",
@@ -957,8 +957,8 @@ var safety_default = {
   KE: {
     country: "Kenya",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution; the mainstream safari circuits and the south coast sit outside every named area, but the FCDO advises against all travel to several north-eastern border areas and most of Lamu County \u2014 with Lamu Island and Manda Island explicitly excepted (page read in full 2026-09-01).",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness; the mainstream safari circuits and the south coast sit outside every named area, but the FCDO advises against all travel to several north-eastern border areas and most of Lamu County \u2014 with Lamu Island and Manda Island explicitly excepted (page read in full 2026-09-01).",
     considerations: [
       "Violent crime and carjacking, including in Nairobi.",
       "Poor road safety \u2014 avoid night driving.",
@@ -1026,8 +1026,8 @@ var safety_default = {
   KH: {
     country: "Cambodia",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution; most of the country is fine, but the Thailand border is off-limits and landmines persist in some rural areas.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness; most of the country is fine, but the Thailand border is off-limits and landmines persist in some rural areas.",
     considerations: [
       "Street crime in Phnom Penh (phone and bag snatching), with occasional violent incidents.",
       "Unexploded ordnance and landmines in remote/forested areas (Battambang, Banteay Meanchey, Pursat, Pailin) \u2014 use local guides.",
@@ -1057,8 +1057,8 @@ var safety_default = {
   KR: {
     country: "South Korea",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions. Crime is low \u2014 and note this is the Republic of Korea, not North Korea, which is Do Not Travel.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel. Crime is low \u2014 and note this is the Republic of Korea, not North Korea, which is Do Not Travel.",
     considerations: [
       "Periodic North Korean missile tests and routine civil-defense drills are background context, not an elevated risk.",
       "Large demonstrations can arise quickly; foreigners are barred from political activity by law.",
@@ -1071,7 +1071,7 @@ var safety_default = {
   LA: {
     country: "Laos",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against all but essential travel to one province \u2014 named below in its own words. Luang Prabang, Vientiane and the rest of the country carry no FCDO restriction.",
     considerations: [],
     source: "UK FCDO \u2014 Laos travel advice, reviewed 2026-08-13 (verbatim snapshot from the research library)",
@@ -1087,8 +1087,8 @@ var safety_default = {
   LC: {
     country: "Saint Lucia",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to the risk of crime. Violent crime can occur anywhere on the island, and guests at tourist resorts have been victims.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to the risk of crime. Violent crime can occur anywhere on the island, and guests at tourist resorts have been victims.",
     considerations: [
       "Petty crime \u2014 purse snatching, pickpocketing \u2014 is common in popular tourist areas; most crime against visitors is opportunistic.",
       "Police response times are slower than travelers from the US or UK may expect. Tourist police are present at most sites.",
@@ -1170,7 +1170,7 @@ var safety_default = {
   MX: {
     country: "Mexico",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against all but essential travel to named states, cities and border areas of Mexico \u2014 listed below in its own words, each with its own exceptions. The Yucat\xE1n Peninsula, Mexico City, Baja California Sur and the other main visitor regions carry no FCDO restriction.",
     considerations: [],
     source: "UK FCDO \u2014 Mexico travel advice, reviewed 2026-07-16 (verbatim snapshot from the research library)",
@@ -1293,7 +1293,7 @@ var safety_default = {
   MZ: {
     country: "Mozambique",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against all travel to Cabo Delgado Province and named districts of Nampula and Niassa, and against all but essential travel to the excepted areas around Pemba \u2014 listed below in its own words. Maputo, Bazaruto and the southern coast carry no FCDO restriction.",
     considerations: [],
     source: "UK FCDO \u2014 Mozambique travel advice, reviewed 2026-08-20 (verbatim snapshot from the research library)",
@@ -1329,8 +1329,8 @@ var safety_default = {
   NA: {
     country: "Namibia",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to crime; no regional carve-outs.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to crime; no regional carve-outs.",
     considerations: [
       "Opportunistic and property crime, especially in Windhoek.",
       "The dominant real risk is self-drive gravel-road safety (rollovers, wildlife, fatigue) across vast distances.",
@@ -1353,8 +1353,8 @@ var safety_default = {
   NL: {
     country: "Netherlands",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to terrorism risk.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to terrorism risk.",
     considerations: [
       "Authorities assess continued attack plotting (tourist sites, transit, gatherings).",
       "Standard urban pickpocketing in crowded Amsterdam tourist areas and on transit."
@@ -1365,7 +1365,7 @@ var safety_default = {
   NO: {
     country: "Norway",
     lvl: 1,
-    label: "Exercise normal precautions",
+    label: "No advisory against travel",
     summary: "Norway is among the safest destinations; the risks are environmental.",
     considerations: [
       "Very low crime.",
@@ -1399,8 +1399,8 @@ var safety_default = {
   PE: {
     country: "Peru",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution; the tourist circuit is Level 2, but two remote regions are off-limits.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness; the tourist circuit is Level 2, but two remote regions are off-limits.",
     considerations: [
       "Petty theft, carjackings and muggings occur even in daylight.",
       "Demonstrations can block roads and rail without warning.",
@@ -1423,7 +1423,7 @@ var safety_default = {
   PF: {
     country: "French Polynesia",
     lvl: 1,
-    label: "Exercise normal precautions",
+    label: "No advisory against travel",
     summary: "French Polynesia (Tahiti, Bora Bora, the Society Islands) is low-risk; ordinary precautions apply. It has its own US advisory, separate from mainland France.",
     considerations: [
       "Generally low crime, with occasional petty theft.",
@@ -1437,8 +1437,8 @@ var safety_default = {
   PH: {
     country: "Philippines",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution; the country baseline is Level 2, and Mindanao and the Sulu Archipelago carry their own, stricter levels.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness; the country baseline is Level 2, and Mindanao and the Sulu Archipelago carry their own, stricter levels.",
     considerations: [
       "Reissued 8 May 2025 with a Kidnapping indicator.",
       "UK FCDO advice reissued 1 April 2026: advises against all travel to western and central Mindanao including the Sulu archipelago, and against all but essential travel to the rest of Mindanao.",
@@ -1481,7 +1481,7 @@ var safety_default = {
   PT: {
     country: "Portugal",
     lvl: 1,
-    label: "Exercise normal precautions",
+    label: "No advisory against travel",
     summary: "Portugal is generally safe; ordinary precautions apply.",
     considerations: [
       "Pickpocketing and bag-snatching at popular sites and on transit; car break-ins, especially of rentals.",
@@ -1515,7 +1515,7 @@ var safety_default = {
   RW: {
     country: "Rwanda",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "No country-wide advisory against travel. The FCDO advises against all but essential travel to the parts of Rusizi District within 10 km of the DRC border \u2014 the named zone below.",
     considerations: [
       "Petty crime such as pickpocketing is a risk in urban areas; burglary and targeted theft are less common but do happen.",
@@ -1536,8 +1536,8 @@ var safety_default = {
   SA: {
     country: "Saudi Arabia",
     lvl: 3,
-    label: "Reconsider travel",
-    summary: "Reconsider travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
+    label: "FCDO advises against all but essential travel",
+    summary: "FCDO advises against all but essential travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
     considerations: [
       "Conflict-driven drone/missile risk and falling intercept debris since Feb 2026.",
       "Exit bans can block departure during legal, commercial or family disputes.",
@@ -1590,8 +1590,8 @@ var safety_default = {
   TC: {
     country: "Turks and Caicos Islands",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to crime, mostly on Providenciales. It has its own US advisory, not folded under the UK.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to crime, mostly on Providenciales. It has its own US advisory, not folded under the UK.",
     considerations: [
       "Most crime is on Providenciales; a mix of opportunistic theft and occasional violent crime.",
       "Police have limited investigative resources.",
@@ -1603,8 +1603,8 @@ var safety_default = {
   TH: {
     country: "Thailand",
     lvl: 1,
-    label: "Exercise normal precautions",
-    summary: "Exercise normal precautions \u2014 State decreased Thailand to Level 1 on 7 July 2026. Some areas carry increased risk.",
+    label: "No advisory against travel",
+    summary: "No advisory against travel \u2014 State decreased Thailand to Level 1 on 7 July 2026. Some areas carry increased risk.",
     considerations: [
       "Petty theft and scams occur in tourist areas \u2014 Bangkok, Phuket, Chiang Mai. Watch for jet-ski and gem scams.",
       "Road traffic accidents are the leading cause of injury; motorbike hire without a helmet or licence is a common cause."
@@ -1628,7 +1628,7 @@ var safety_default = {
   TN: {
     country: "Tunisia",
     lvl: 2,
-    label: "Exercise increased caution",
+    label: "Travel informed \u2014 extra awareness",
     summary: "The FCDO advises against travel to named areas of western and southern Tunisia \u2014 a national park, designated military zones and two border strips, listed below in its own words. It publishes no advisory against travel to the rest of the country, including Tunis, the coast and Djerba.",
     considerations: [
       "A formal state of emergency has been in place since 2015; security forces are visibly present, including at entry points to some towns and cities.",
@@ -1712,8 +1712,8 @@ var safety_default = {
   TZ: {
     country: "Tanzania",
     lvl: 3,
-    label: "Reconsider travel",
-    summary: "Reconsider travel due to post-election unrest, crime and terrorism; the northern safari circuit is far from the worst areas but the country-wide level is elevated.",
+    label: "FCDO advises against all but essential travel",
+    summary: "FCDO advises against all but essential travel due to post-election unrest, crime and terrorism; the northern safari circuit is far from the worst areas but the country-wide level is elevated.",
     considerations: [
       "Elevated to Level 3 after the Oct 2025 election (protests, curfews).",
       "Terrorist-violence risk is highest in the southern Mtwara region near the Mozambique/Cabo Delgado border (avoid within ~20 km of that border).",
@@ -1799,8 +1799,8 @@ var safety_default = {
   ZA: {
     country: "South Africa",
     lvl: 2,
-    label: "Exercise increased caution",
-    summary: "Exercise increased caution due to high violent-crime rates.",
+    label: "Travel informed \u2014 extra awareness",
+    summary: "Travel informed \u2014 extra awareness due to high violent-crime rates.",
     considerations: [
       "Armed robbery, carjacking and smash-and-grab at intersections.",
       "US-government staff need special clearance for many Cape Town informal settlements (a de facto elevated zone).",
@@ -2060,10 +2060,10 @@ function getSafety(iso) {
 }
 var LEVEL_FROM_ADVISORY = { L1: 1, L2: 2, L3: 3, L4: 4 };
 var LABEL_FOR_LEVEL = {
-  1: "Exercise normal precautions",
-  2: "Exercise increased caution",
-  3: "Reconsider travel",
-  4: "Do not travel"
+  1: "No advisory against travel",
+  2: "Travel informed \u2014 extra awareness",
+  3: "FCDO advises against all but essential travel",
+  4: "FCDO advises against all travel"
 };
 var POSTURE_HOLD = "no-booking";
 var POSTURE_CONSENT = "consent";

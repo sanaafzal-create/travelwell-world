@@ -73,11 +73,12 @@ export function IconChip({ name, className }: { name: string; className?: string
 }
 
 /** Safety Card chip — color is ALWAYS paired with a number + label. */
+// David-approved wording (2026-09-28) — State's label phrasing is retired.
 const SAFETY_LABEL: Record<number, string> = {
-  1: "Normal precautions",
-  2: "Increased caution",
-  3: "Reconsider travel",
-  4: "Do not travel",
+  1: "No advisory against travel",
+  2: "Travel informed — extra awareness",
+  3: "FCDO advises against all but essential travel",
+  4: "FCDO advises against all travel",
 };
 export function SafetyChip({ level, label }: { level: 1 | 2 | 3 | 4; label?: string }) {
   return (

@@ -81,10 +81,10 @@
   --dark-band-muted: oklch(0.74 0.008 80);
 
   /* ---- Safety Card 1–4 ramp (§3.2) — color is always paired w/ text -- */
-  --safety-1: oklch(0.55 0.10 150);            /* Normal precautions  green */
-  --safety-2: oklch(0.74 0.085 85);            /* Increased caution   gold  */
-  --safety-3: oklch(0.65 0.15 55);             /* Reconsider travel   amber */
-  --safety-4: oklch(0.50 0.20 27);             /* Do not travel       red   */
+  --safety-1: oklch(0.55 0.10 150);            /* no advisory              green */
+  --safety-2: oklch(0.74 0.085 85);            /* travel informed          gold  */
+  --safety-3: oklch(0.65 0.15 55);             /* against all-but-essential amber */
+  --safety-4: oklch(0.50 0.20 27);             /* against all travel       red   */
 
   /* ---- Radius (§6) ---------------------------------------------------- */
   --radius: 0.75rem;                            /* 12px cards/buttons */

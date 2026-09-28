@@ -197,7 +197,7 @@ their country — luck, not a gate. All ten are now structured, and
 
 ```jsonc
 "PH": {
-  "country": "Philippines", "lvl": 2, "label": "Exercise increased caution",
+  "country": "Philippines", "lvl": 2, "label": "Travel informed — extra awareness",
   "summary": "…",
   "considerations": ["Reissued 8 May 2025 with a Kidnapping indicator.", "…"],
   "zones": [
