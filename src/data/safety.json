@@ -115,18 +115,18 @@
  },
  "AE": {
   "country": "United Arab Emirates",
-  "lvl": 3,
-  "label": "FCDO advises against all but essential travel",
-  "summary": "FCDO advises against all but essential travel due to regional conflict and missile/drone risk plus major flight disruption — a sharp, recent change from the UAE's normal baseline.",
+  "lvl": 2,
+  "label": "Travel informed — extra awareness",
+  "summary": "Travel informed — extra awareness. The FCDO's UAE page (updated 24 Jul 2026, read live 29 Sep 2026) carries no areas-advised-against section at all — its regional note on flight disruption is a disclosure, quoted below, not an instruction not to go.",
   "considerations": [
-   "Elevated to Level 3 in March 2026 after US-Iran hostilities began (ordered departure of non-emergency US government staff).",
+   "The FCDO's regional note, quoted: \"British nationals currently in the Middle East should be prepared for possible flight cancellations, periodic airspace closures, and potential travel disruptions.\" A disclosure, not an instruction not to go.",
    "The practical traveler impact is airspace/flight disruption and the volatile regional situation rather than routine local crime.",
    "Strict local laws apply: zero tolerance for drugs (including residual amounts and CBD), public-conduct and social-media rules, photography restrictions, and Ramadan daytime-fasting norms.",
-   "Status hinges on the US-Iran situation and is fast-moving — re-verify before any booking."
+   "The regional situation is fast-moving — the daily checker watches this page; re-verify before any booking."
   ],
   "medical": "Bottled water commonly preferred; extreme summer heat (45C+) carries serious heat-illness risk at midday.",
-  "source": "UK FCDO, Mar 2026",
-  "verified": "2026-06"
+  "source": "UK FCDO — UAE travel advice (page updated 24 Jul 2026; read live 29 Sep 2026, library File 2)",
+  "verified": "2026-09"
  },
  "AI": {
   "country": "Anguilla",
@@ -911,16 +911,16 @@
  },
  "JO": {
   "country": "Jordan",
-  "lvl": 3,
-  "label": "Reconsider travel",
-  "summary": "Exercise increased caution. The FCDO advises against all travel only within 3km of the border with Syria; on 25 August 2026 it withdrew the advice against all but essential travel to Aqaba's airport and seaport, following review of the security situation (page read in full 2026-08-25).",
+  "lvl": 2,
+  "label": "Travel informed — extra awareness",
+  "summary": "Travel informed — extra awareness. The FCDO advises against all travel only within 3km of the border with Syria; on 25 August 2026 it withdrew the advice against all but essential travel to Aqaba's airport and seaport, following review of the security situation (page read in full 2026-08-25).",
   "considerations": [
-   "Conflict-driven drone/missile risk region-wide since Feb 2026.",
-   "The core Amman-Petra-Wadi Rum-Dead Sea circuit sits away from the Level 4 zones, but the country-wide Level 3 is volatile.",
+   "The FCDO's regional note, quoted: \"British nationals currently in the Middle East should be prepared for possible flight cancellations, periodic airspace closures, and potential travel disruptions.\" A disclosure, not an instruction not to go.",
+   "The core Amman–Petra–Wadi Rum–Dead Sea circuit sits 40–300km from the single advise-against strip on the Syria border (the nearest, Amman, is ~40km from a 3km-deep restriction).",
    "Modest dress and customs sensitivity at religious sites."
   ],
   "medical": "Drink bottled water; extreme desert heat and sun exposure at Petra/Wadi Rum — hydrate and protect from sun.",
-  "source": "UK FCDO, page updated 25 Aug 2026 (read in full via the verbatim store)",
+  "source": "UK FCDO, page updated 25 Aug 2026 (read in full via the verbatim store; measured against the live page 29 Sep 2026, library File 2)",
   "verified": "2026-09",
   "zones": [
    {
@@ -1526,25 +1526,27 @@
  },
  "SA": {
   "country": "Saudi Arabia",
-  "lvl": 3,
-  "label": "FCDO advises against all but essential travel",
-  "summary": "FCDO advises against all but essential travel due to regional conflict, terrorism and missile/drone risk; some areas are off-limits.",
+  "lvl": 2,
+  "label": "Travel informed — extra awareness",
+  "summary": "Travel informed — extra awareness. The FCDO's one advise-against area is the Yemen border region — Riyadh sits ~920km from it and AlUla ~1,200km. The regional flight-disruption note is a disclosure, quoted below.",
   "considerations": [
-   "Conflict-driven drone/missile risk and falling intercept debris since Feb 2026.",
+   "The FCDO's regional note, quoted: \"British nationals currently in the Middle East should be prepared for possible flight cancellations, periodic airspace closures, and potential travel disruptions.\" A disclosure, not an instruction not to go.",
    "Exit bans can block departure during legal, commercial or family disputes.",
    "Strict laws on social-media posts, drugs, alcohol (prohibited), dress/behavior, and photography of government/military sites."
   ],
   "medical": "Drink bottled water; extreme summer heat (45-50C); Hajj/Umrah pilgrims must meet Saudi vaccination requirements (e.g. meningococcal ACWY) — verify current rules.",
-  "source": "UK FCDO, Mar 2026",
-  "verified": "2026-06",
+  "source": "UK FCDO — Saudi Arabia travel advice (page updated 20 Sep 2026; read live 29 Sep 2026, library File 2)",
+  "verified": "2026-09",
   "zones": [
    {
-    "name": "The Yemen border region (within ~20 miles)",
-    "lvl": 4
+    "name": "within 10km of the border with Yemen",
+    "lvl": 4,
+    "posture": "all"
    },
    {
-    "name": "Qatif, Eastern Province",
-    "lvl": 4
+    "name": "between 10km and 80km from the border with Yemen, including Abha and Khamis Mushait in Aseer Province",
+    "lvl": 3,
+    "posture": "all-but-essential"
    }
   ]
  },
@@ -1721,7 +1723,8 @@
   "label": "No advisory against travel",
   "summary": "The UK FCDO publishes no country-wide advisory against travel in Uganda. That is the absence of a warning rather than a statement that anywhere is safe, and a particular destination may still carry its own reading — read the advisory in full below before you plan.",
   "considerations": [
-   "The Ebola outbreak in Uganda was declared over by the WHO on 27 August 2026; the FCDO updated its page on 2 September 2026 and now holds zero warning quotes for Uganda. One sentence of theirs stays visible rather than rounded off: \"The outbreak in neighbouring DRC continues and the risk of transmission into Uganda remains.\""
+   "The Ebola outbreak in Uganda was declared over by the WHO on 27 August 2026; the FCDO updated its page on 2 September 2026 and now holds zero warning quotes for Uganda. One sentence of theirs stays visible rather than rounded off: \"The outbreak in neighbouring DRC continues and the risk of transmission into Uganda remains.\"",
+   "The FCDO's vigilance advice for western Uganda and the DRC border, quoted: \"The Allied Democratic Forces (ADF), a militant group with links to Daesh, may target tourists and foreign nationals near the border between Uganda and the Democratic Republic of the Congo (DRC).\" It advises vigilance there, not against travel — parks on or near that border (Bwindi, Queen Elizabeth) show this before booking."
   ],
   "source": "UK FCDO, page updated 2 Sep 2026 (read via the verbatim store)",
   "reported": true,
