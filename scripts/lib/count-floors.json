@@ -1,0 +1,17 @@
+{
+  "__note": "The expected count of every load-bearing collection, measured from source. check:floors refuses any commit where reality disagrees in EITHER direction — below is the vanishing-country shape (library incident, 2026-09-29: eleven countries silently lost to swallowed timeouts), above means these floors are stale. Update ONLY via `npm run check:floors -- --accept`, staged in the same commit as the change that moved the counts; a deliberate shrink gets its reason in the commit message.",
+  "counts": {
+    "safety_countries": 101,
+    "safety_zones": 100,
+    "destinations_total": 563,
+    "destinations_live": 563,
+    "faq_questions": 875,
+    "board_sis": 35,
+    "sis_live": 8,
+    "wells": 13,
+    "regions": 13,
+    "locales": 9,
+    "providers": 58,
+    "guides": 9
+  }
+}

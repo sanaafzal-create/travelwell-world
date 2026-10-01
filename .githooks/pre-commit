@@ -46,7 +46,7 @@ npm run --silent check:generated
 # The data gates — each is sub-second, deterministic, and network-free. Run
 # with output captured and shown only on failure, so a passing commit stays
 # quiet and a failing one says exactly which gate refused and why.
-for gate in validate:ingest validate:si validate:providers check:advisory-text; do
+for gate in validate:ingest validate:si validate:providers check:advisory-text check:floors; do
   if ! out=$(npm run --silent "$gate" 2>&1); then
     echo "pre-commit: $gate refused this commit:"
     echo "$out" | tail -20

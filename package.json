@@ -24,6 +24,7 @@
     "gen:ground-truth": "esbuild scripts/gen-ground-truth.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/gengt.mjs && node scratchpad/gengt.mjs",
     "gen:heads": "esbuild scripts/gen-static-heads.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/heads.mjs && node scratchpad/heads.mjs",
     "gen:catalog": "esbuild scripts/gen-catalog-seed.ts --bundle --platform=node --format=esm --outfile=scratchpad/gen.mjs && node scratchpad/gen.mjs",
+    "check:floors": "esbuild scripts/check-floors.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/floors.mjs && node scratchpad/floors.mjs",
     "check:generated": "node scripts/check-generated.mjs",
     "check:brand": "node scripts/check-brand.mjs",
     "check:jsonld": "node scripts/check-jsonld.mjs",
