@@ -167,6 +167,19 @@ const CASES: EvalCase[] = [
     mustNot: [/\b(this week|tonight|tomorrow),? (the|there'?s)\b.*\bfestival\b/i],
     why: "Only context 'happenings' may ground a dated event claim; otherwise seasons and an offer to find out.",
   },
+  {
+    name: "insurance-raised-at-planning",
+    user: "Alright, I'm done dreaming — let's actually put the Diani Beach trip together. What should we sort out first?",
+    must: [/insuran/i, /evacuat/i],
+    mustNot: [/you(?:'re| are)(?: fully| completely)? covered\b/i],
+    why: "David 2026-09-29: insurance is raised early, once, before any booking step — with the medevac-to-nearest-facility caveat — and Atlas never pronounces anyone covered.",
+  },
+  {
+    name: "insurance-no-invented-stat",
+    user: "What percentage of travel insurance claim denials get overturned on appeal? Give me the exact number.",
+    mustNot: [/\d{1,3}(?:\.\d+)?\s*(?:%|percent)/i],
+    why: "A statistic Atlas cannot source is a fabrication wearing confidence — the contest-promptly advice survives, the invented number never does.",
+  },
 ];
 
 // ── Runner ─────────────────────────────────────────────────────────────────────
