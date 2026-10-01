@@ -401,6 +401,15 @@ for (const { code, d } of rows) {
     }
     for (const [i, q] of (data.faq ?? []).entries()) {
       if (!q?.q || !q?.a) errs.push(`${at}: faq #${i + 1} needs both q and a (it emits FAQPage schema)`);
+      // The answer layer's clock (P4, 2026-10-01) — same rules as the jewels:
+      // a date must sort and age visibly, and a date needs a source under it,
+      // because a date we read nothing on is not provenance.
+      if (q?.accessed && !/^\d{4}-\d{2}(-\d{2})?$/.test(String(q.accessed))) {
+        errs.push(`${at}: faq #${i + 1} accessed "${q.accessed}" — use YYYY-MM or YYYY-MM-DD so it sorts and ages visibly`);
+      }
+      if (q?.accessed && !q?.source) {
+        errs.push(`${at}: faq #${i + 1} carries accessed without a source — a date we read nothing on is not provenance; date the source or drop the date`);
+      }
     }
     // Editorial hero override (data.hero) — the content team's image pick.
     // Shared with the SI gate so the two can't drift: a missing credit on a

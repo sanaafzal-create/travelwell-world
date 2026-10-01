@@ -76,8 +76,12 @@ export interface Jewel {
   source?: string;                                 // where the claim came from — a URL or a named publisher
   accessed?: string;                               // when we last read it (YYYY-MM or YYYY-MM-DD)
 }
-/** A traveler Q&A — answer-first; the array auto-emits FAQPage JSON-LD (AI-citation). */
-export interface Faq { q: string; a: string; source?: string }
+/** A traveler Q&A — answer-first; the array auto-emits FAQPage JSON-LD (AI-citation).
+ *  `accessed` follows the jewel rule (library P4 ruling, 2026-10-01): the date the
+ *  source was read (YYYY-MM or YYYY-MM-DD), REQUIRES `source` — a date we read
+ *  nothing on is not provenance — and is absent with the reason, never invented.
+ *  It is the answer layer's clock: without it staleness is not computable. */
+export interface Faq { q: string; a: string; source?: string; accessed?: string }
 /**
  * The dossier `data` jsonb. **v1 ingest tier (David-locked 2026-08): carry
  * safety + timing + jewels(+si+commission) + faq** — the render spine, the money,
