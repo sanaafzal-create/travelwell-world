@@ -427,6 +427,24 @@ export interface Provider {
   /** Free-text nuance on the MoR read — the contract clause, the dual-mode split, the provenance. */
   mor_note?: string;
   /**
+   * CONFIRMATION-RETURN — how the booking record reaches us after the traveller
+   * books (the ledger's upgradeable field; CLAUDE.md: "email-parse everywhere to
+   * start → api as each provider ships it"; added 2026-10-01 for the library's
+   * C1 — their ladder's rung 3 vs rung 4 is exactly this field, and `mode`
+   * deliberately does not answer it because handoff surface and confirmation
+   * return are different axes). Controlled: "api" (the record returns in the
+   * booking call itself), "postback" (async — an affiliate network conversion
+   * with our sub-ID, a webhook, a callback), "email-parse" (a confirmation
+   * email is read and matched to the traveller). ABSENT = not yet verified,
+   * and Stage 1 treats absent as email-parse — the honest floor, because a
+   * return path we haven't verified is one we don't have. Upgrading a supplier
+   * is a one-field edit here; the rung must NEVER be baked into destination
+   * dossiers, where it would go stale per-destination the week a supplier
+   * ships an API — the dossier points at the provider and the rung resolves at
+   * read time (the safety-zone principle on the supply side).
+   */
+  confirmation_return?: "api" | "postback" | "email-parse";
+  /**
    * Does the booking close on OUR surface (Atlas orchestrates end-to-end)
    * rather than handing the traveller off? Customer ownership is always ours —
    * this field records whether an integration honours that or leaks the

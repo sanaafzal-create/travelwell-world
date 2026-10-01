@@ -137,6 +137,17 @@ for (const file of files) {
     if (r.horizontal && !/^(true|false)$/i.test(r.horizontal)) {
       errs.push(`${at}: horizontal "${r.horizontal}" must be true or false — it is a flag, not an enumeration (a horizontal supplier follows the board by construction; never expand it to 35 slugs)`);
     }
+    // ── CONFIRMATION-RETURN IS A LEDGER FIELD, NOT A GUESS (2026-10-01) ─────
+    // The library's C1: `mode: affiliate` cannot say whether the booking record
+    // comes back to us, because handoff surface and confirmation return are
+    // different axes. This field answers it per supplier, controlled; absent is
+    // allowed and Stage 1 reads absent as email-parse — the honest floor.
+    if (r.confirmation_return) {
+      const CR = new Set(["api", "postback", "email-parse"]);
+      if (!CR.has(r.confirmation_return)) {
+        errs.push(`${at}: confirmation_return "${r.confirmation_return}" not api|postback|email-parse — the rung is controlled; nuance goes in mor_note`);
+      }
+    }
 
     // ── A PER-DOOR DESCRIPTION FOR A DOOR THIS PROVIDER DOESN'T STAND IN ────
     // `desc_by_si` lets one provider read differently on each interest page it
