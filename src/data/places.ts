@@ -478,7 +478,28 @@ export interface Provider {
   region?: string;
   /** Real affiliate/booking URL the /go handoff redirects to. Filled from David's provider intel. */
   bookingUrl?: string;
+  /**
+   * STABLE REFERENCE KEY (the library's S1, 2026-10-02) — what a dossier's
+   * section 9 points at, so the ladder rung resolves at read time instead of
+   * being copied into 640 files. Minted from the name's slug at first
+   * appearance and NEVER changed after: **a rename keeps its id** — before
+   * changing a provider's name, set `id` explicitly to the original slug (the
+   * SI-rename rule, applied to suppliers). Usually absent in source: the
+   * materialized id is `providerId()` below, and the seed writes it to the
+   * `id` column every outside reference joins on.
+   */
+  id?: string;
 }
+
+/** The slug an unset provider id materializes to — one derivation, used by the
+ *  validator, the seed and any reader, so three copies can't drift. */
+export const providerSlug = (name: string): string =>
+  name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[''.]/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+/** The stable id outside references join on. Explicit `id` wins (a renamed
+ *  supplier keeps it); otherwise the name's slug. */
+export const providerId = (p: Pick<Provider, "id" | "name">): string => p.id ?? providerSlug(p.name);
 /**
  * What this provider's card should say on a given interest page.
  *

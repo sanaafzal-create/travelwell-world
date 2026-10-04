@@ -35,6 +35,24 @@ import {
   type SafetyInfo,
 } from "../src/data/safety-data";
 import { advisoryLinks } from "../src/data/advisory-sources";
+// The library's FCDO warning-text store (their F4 delivery, 2026-10-02): the
+// FCDO's own paragraphs per country, verbatim and in published order, with
+// provenance dates and the OGL licence. 140 countries carry text; the file
+// names the 85 that don't, so "no record" never means "not fetched". Joined by
+// the FCDO's own slug — the same slug the advisory deep link uses — so the
+// text and the link can never point at different pages.
+import WARNING_TEXT from "../src/data/fcdo-warning-text.json";
+
+interface WarningRecord {
+  country: string; bucket: string; alert_status: string[]; paragraphs: string[];
+  public_updated_at?: string; text_read_on?: string; checked_on?: string;
+  source_url: string; words?: number;
+}
+const WARNINGS_BY_SLUG: Record<string, WarningRecord> = Object.fromEntries(
+  ((WARNING_TEXT as { records: WarningRecord[] }).records ?? []).map((r) => [r.country, r]),
+);
+const OGL = (WARNING_TEXT as { _licence?: string })._licence ??
+  "Contains public sector information licensed under the Open Government Licence v3.0.";
 
 export interface McpSafety {
   /** The FCDO threshold in the advisory's own words — never a number. */
@@ -72,6 +90,22 @@ export interface McpSafety {
   /** True when this is the country-level read with no place-level dossier join. */
   derived: boolean;
   granularity: "country" | "place";
+  /**
+   * The FCDO's own warning paragraphs for this country, VERBATIM and in
+   * published order (the library's warning-text store, F4). They INFORM and
+   * never gate — `threshold`/`booking_hold` above remain the only gates. An
+   * agent drawing on them quotes exact sentences, attributed to the FCDO and
+   * dated with `public_updated_at`, never melted into its own safety claims.
+   * Absent = the FCDO publishes no warning text for this country, or the
+   * country sits outside the store's 225 — the advisory_page link still stands.
+   */
+  fcdo_warning_text?: {
+    paragraphs: string[];
+    public_updated_at?: string;
+    text_read_on?: string;
+    source_url: string;
+    licence: string;
+  };
 }
 
 function agentBlock(
@@ -104,6 +138,12 @@ function agentBlock(
   // derive a slug from the name, and a guessed URL that 404s reads as "we
   // checked" when we didn't. (An index link — composites — is honest and stays.)
   const page = fcdo && (iso !== null || !fcdo.deep) ? fcdo.href : undefined;
+  // Warning text joins by the SAME slug the deep link lands on — the trailing
+  // path segment of a deep FCDO link — so text and link cannot disagree about
+  // which page they describe. No deep link → no join → no text (fail-quiet;
+  // the advisory_page fallback still points somewhere honest).
+  const slug = fcdo?.deep && page ? page.split("/").pop() : undefined;
+  const warning = slug ? WARNINGS_BY_SLUG[slug] : undefined;
   return {
     advice: partsAdvice ?? THRESHOLD_TEXT[threshold],
     threshold,
@@ -117,6 +157,15 @@ function agentBlock(
     ...(resolved.verified ? { read_date: resolved.verified } : {}),
     ...(page ? { advisory_page: page } : {}),
     ...(restricted.length ? { restricted_areas: restricted } : {}),
+    ...(warning ? {
+      fcdo_warning_text: {
+        paragraphs: warning.paragraphs,
+        ...(warning.public_updated_at ? { public_updated_at: warning.public_updated_at } : {}),
+        ...(warning.text_read_on ? { text_read_on: warning.text_read_on } : {}),
+        source_url: warning.source_url,
+        licence: OGL,
+      },
+    } : {}),
     derived: granularity === "country",
     granularity,
   };

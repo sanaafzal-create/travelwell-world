@@ -16,7 +16,7 @@ import { writeFileSync, readFileSync, readdirSync, unlinkSync } from "node:fs";
 // header of that file for what a second, forgotten consumer cost us.
 import { mergedDestinations } from "./lib/destination-batches";
 import { SIS, SUBREGIONS, REGIONS } from "../src/data/taxonomy";
-import { ACTIVITIES, PROVIDERS, DESTINATIONS, GUIDES } from "../src/data/places";
+import { ACTIVITIES, PROVIDERS, DESTINATIONS, GUIDES, providerId } from "../src/data/places";
 import { LOCAL_SIGNALS } from "../src/data/local-signals";
 
 // Provider research arrives as CSVs in src/data/providers/ (David's sets,
@@ -248,7 +248,7 @@ const allProviders: CsvProvider[] = [...Object.values(PROVIDERS).flat(), ...read
 const seenPk = new Set<string>();
 const provRows = allProviders
   .filter((p) => { const k = `${p.name}|${p.well}`; if (seenPk.has(k)) return false; seenPk.add(k); return true; })
-  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"}, ${p.bookingUrl ? q(p.bookingUrl) : "null"}, ${p.desc_by_si && Object.keys(p.desc_by_si).length ? q(JSON.stringify(p.desc_by_si)) : "null"})`)
+  .map((p) => `  (${q(p.name)}, ${q(p.well)}, ${q(p.tier)}, ${q(p.price)}, ${q(p.mode)}, ${q(p.desc)}, ${q(p.commission)}, ${pgArr(p.si)}, ${p.region ? q(p.region) : "null"}, ${p.bookingUrl ? q(p.bookingUrl) : "null"}, ${p.desc_by_si && Object.keys(p.desc_by_si).length ? q(JSON.stringify(p.desc_by_si)) : "null"}, ${q(providerId(p))})`)
   .join(",\n");
 
 const subRows = Object.entries(SUBREGIONS)
@@ -279,15 +279,19 @@ alter table public.providers add column if not exists booking_url text;
 -- it serves, and the sentence a traveller reads should answer the door they came
 -- through. Additive and nullable: a row that fills none of it renders description.
 alter table public.providers add column if not exists desc_by_si jsonb;
+-- The stable reference key (library S1, 2026-10-02): what dossier section-9
+-- references join on. Minted from the name's slug; a RENAME KEEPS ITS ID.
+alter table public.providers add column if not exists id text;
+create index if not exists providers_id_idx on public.providers (id);
 create index if not exists providers_region_idx on public.providers (region);
 
-insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url, desc_by_si) values
+insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url, desc_by_si, id) values
 ${provRows}
 on conflict (name, well) do update set
   tier = excluded.tier, price = excluded.price, mode = excluded.mode,
   description = excluded.description, commission = excluded.commission,
   si = excluded.si, region = excluded.region, booking_url = excluded.booking_url,
-  desc_by_si = excluded.desc_by_si;
+  desc_by_si = excluded.desc_by_si, id = excluded.id;
 
 -- Sub-regions -----------------------------------------------------------------
 create table if not exists public.sub_regions (

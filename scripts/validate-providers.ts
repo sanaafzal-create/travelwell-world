@@ -190,6 +190,34 @@ for (const file of files) {
   });
 }
 
+// ── THE STABLE ID IS ONE KEY, ONE ENTITY (library S1, 2026-10-02) ───────────
+// Dossier section-9 references join on providerId(). Two DIFFERENT suppliers
+// whose names slug to the same id would silently merge under one reference —
+// refused here, across the whole merged set (bundle + CSVs), before any
+// outside reference can be built on the collision.
+{
+  const { PROVIDERS, providerId } = await import("../src/data/places");
+  const byId = new Map<string, Set<string>>();
+  for (const p of Object.values(PROVIDERS).flat()) {
+    const id = providerId(p);
+    (byId.get(id) ?? byId.set(id, new Set()).get(id)!).add(p.name);
+  }
+  for (const f of files) {
+    const lines = readFileSync(f, "utf8").trim().split(/\r?\n/).filter(Boolean);
+    const header = parseCsvLine(lines[0]);
+    const nameIdx = header.indexOf("name"); const idIdx = header.indexOf("id");
+    for (const line of lines.slice(1)) {
+      const cols = parseCsvLine(line); const name = cols[nameIdx]; if (!name) continue;
+      const id = (idIdx >= 0 && cols[idIdx]) ? cols[idIdx] : providerId({ name });
+      (byId.get(id) ?? byId.set(id, new Set()).get(id)!).add(name);
+    }
+  }
+  for (const [id, names] of byId) {
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id)) errs.push(`provider id "${id}" isn't a clean slug — ids are lowercase-hyphenated, minted once, kept on rename`);
+    if (names.size > 1) errs.push(`provider id "${id}" is claimed by ${names.size} different suppliers (${[...names].join(" · ")}) — two entities under one reference key; give the renamed/colliding one an explicit id`);
+  }
+}
+
 console.log(`\n── PROVIDER GATE ───────────────────────────`);
 console.log(`files: ${files.length}   rows: ${rows}   with a booking URL: ${withUrl}`);
 console.log(`interests covered: ${Object.entries(bySi).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${k}:${v}`).join("  ") || "none"}`);
