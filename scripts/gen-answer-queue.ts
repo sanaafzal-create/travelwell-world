@@ -8,9 +8,12 @@
  * Caribbean, then Western Europe, then the US, then everywhere else. It is an
  * ordinal, deliberately — the 31 Aug demand research ranks the regions but we
  * hold no per-row demand numbers yet, and an invented weight is a guessed
- * number wearing a formula's clothes. When the GSC → BigQuery export has
- * accumulated real query volume per market, the ordinal upgrades to a measured
- * weight and this header will say so.
+ * number wearing a formula's clothes. THE CLOCK IS NOW RUNNING: the
+ * GSC → BigQuery bulk export went live on 2026-10-05 (project
+ * project-8ca0cead-6e94-4194-899, dataset `searchconsole`, location US) —
+ * day one of our query history; nothing earlier exists, by Google's design.
+ * Once it has accumulated real query volume per market, the ordinal upgrades
+ * to a measured weight and this header will say so.
  *
  * Within a region, the queue is: rows whose answers carry NO accessed date
  * first (staleness unknowable, which is worse than stale — a corpus with no
