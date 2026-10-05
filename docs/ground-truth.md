@@ -30,18 +30,18 @@ good as regenerating it.
 | Thing | Count | Read from |
 |---|---|---|
 | Signature Interests on the board | 35 | src/data/taxonomy.ts:223 · `export const SIS: SpecialInterest[] = [...BASE` |
-| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:506 · `export const boardSis = (sis: { retired?: bool` |
+| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:510 · `export const boardSis = (sis: { retired?: bool` |
 | …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:223 · `export const SIS: SpecialInterest[] = [...BASE` |
 | SI categories | 10 | src/data/taxonomy.ts:278 · `export const SI_GROUPS: SiGroup[] = [` |
-| Destinations | 43 | src/data/places.ts:134 · `export const DESTINATIONS: Record<string, Dest` |
-| …with a `price_band` | 7 | src/data/places.ts:105 · `price_band?: string; // coarse overall price l` |
+| Destinations | 43 | src/data/places.ts:164 · `export const DESTINATIONS: Record<string, Dest` |
+| …with a `price_band` | 7 | src/data/places.ts:135 · `price_band?: string; // coarse overall price l` |
 | …at `depth: verified` | 32 | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
-| Activities | 60 | src/data/places.ts:660 · `export const ACTIVITIES: Record<string, Activi` |
-| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:522 · `export const PROVIDERS: Record<string, Provide` |
+| Activities | 60 | src/data/places.ts:690 · `export const ACTIVITIES: Record<string, Activi` |
+| Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:552 · `export const PROVIDERS: Record<string, Provide` |
 | Regions | 13 | src/data/taxonomy.ts:334 · `export const REGIONS: Region[] = [` |
 | Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:302 · `export const WELLS: Well[] = [` |
-| Sub-region lists | 18 | src/data/places.ts:366 · `export const SUBREGION_TOP: Record<string, str` |
-| Guides | 9 | src/data/places.ts:620 · `export const GUIDES: Guide[] = [` |
+| Sub-region lists | 18 | src/data/places.ts:396 · `export const SUBREGION_TOP: Record<string, str` |
+| Guides | 9 | src/data/places.ts:650 · `export const GUIDES: Guide[] = [` |
 | Country name→ISO entries (`COUNTRY_ISO`) | 105 | src/data/safety-data.ts:281 · `export const COUNTRY_ISO: Record<string, strin` |
 | …of those, countries WITH an advisory row (`safety.json`) | 101 | src/data/safety-data.ts:404 · `export const SAFETY_DATA = safetyJson as Recor` |
 
@@ -83,8 +83,8 @@ hard error in `npm run validate:si`. An unlabeled number is a guessed number.
 
 | Vocabulary | Values | Read from |
 |---|---|---|
-| Budget tier (`price`) | `essential` · `comfort` · `premier` · `luxury` · `ultra` | src/data/places.ts:391 · `export type Price = "essential" | "comfort" | ` |
-| Provider curation (`tier`) | `prime` · `vetted` · `prospective` | src/data/places.ts:387 · `export type Tier = "prime" | "vetted" | "prosp` |
+| Budget tier (`price`) | `essential` · `comfort` · `premier` · `luxury` · `ultra` | src/data/places.ts:421 · `export type Price = "essential" | "comfort" | ` |
+| Provider curation (`tier`) | `prime` · `vetted` · `prospective` | src/data/places.ts:417 · `export type Tier = "prime" | "vetted" | "prosp` |
 | Interest status | `live` · `preview` · `soon` | src/data/taxonomy.ts:19 · `export type Status = "live" | "preview" | "soo` |
 | Destination status | `live` · `future` | src/data/places.ts:35 · `export type DestStatus = "live" | "future"; //` |
 | Destination depth | `verified` · `stub` · `cached` | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
@@ -102,7 +102,7 @@ the provider.
 
 ✅ **Retired interests stay in SIS (the seed carries `delete … where id not in (…)`)**
    → 4 retired rows still present: nightlife, olympic, prosports, compsports
-   → `src/data/taxonomy.ts:506 · `export const boardSis = (sis: { retired?: bool``
+   → `src/data/taxonomy.ts:510 · `export const boardSis = (sis: { retired?: bool``
 
 ✅ **7 launch interests are live, plus `ultra` as the luxury overlay — 8 rows at status live**
    → 8 live: ultra, tropical, romance, safari, expedition, ski, liveaboard, river
@@ -122,7 +122,7 @@ the provider.
 
 ✅ **Destination id is `<city>-<country>`, lowercase and hyphenated**
    → 43 of 43 are hyphenated multi-part; 0 are single-word and cannot conform
-   → `src/data/places.ts:134 · `export const DESTINATIONS: Record<string, Dest``
+   → `src/data/places.ts:164 · `export const DESTINATIONS: Record<string, Dest``
 
 ✅ **The sitemap lists exactly the interests on the board — no retired ones, none missing**
    → all 35 board interests listed, no retired ones
@@ -237,7 +237,7 @@ an email — mail clients smart-quote, which is how a correct string arrives wro
 
 | Where | String | The character to watch |
 |---|---|---|
-| sub_region 12A | `Hawai‘i` | U+2018 `‘` |
+| sub_region 12A | `Hawai'i` | U+0027 `'` |
 | sub_region 13A | `Québec` | U+00E9 `é` |
 | sub_region 01F | `Paris & Île-de-France` | U+00CE `Î` |
 | sub_region 02F | `The Adriatic — Croatia` | U+2014 `—` |

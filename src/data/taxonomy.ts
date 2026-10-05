@@ -386,7 +386,11 @@ export const SUBREGIONS: Record<string, string[]> = {
     // shelved either way, and the choice is per-destination rather than by rule.
     "Saudi Arabia",
   ],
-  "12A": ["Pacific Coast", "Pacific Northwest", "Mountain West", "The Southwest", "Texas & The Gulf", "The Midwest", "The South", "New England", "Mid-Atlantic", "Alaska", "Hawai‘i"],
+  // The 26 (David's ruling T6, 30 Sep 2026; strings verbatim from the library's
+  // US-26-SUBREGIONS.json master, Iowa in The Great Plains & Dakotas by his
+  // confirmation). Replaced the original 11 on 2026-10-05; every live US row was
+  // re-shelved by the master's own placements in the same commit.
+  "12A": ["New England", "New York State & the Hudson", "New York City", "Mid-Atlantic", "The Carolinas & Lowcountry", "Florida - Atlantic & the Keys", "Florida - Gulf & Central", "The Deep South", "Appalachia & the Smokies", "The Great Lakes", "The Great Plains & Dakotas", "The Ozarks & Mid-South", "Texas", "The Southwest Desert", "Utah Canyon Country", "The Colorado Rockies", "Greater Yellowstone", "Idaho & the Northern Rockies", "The Great Basin & Nevada", "Southern California", "Central Coast & the Sierra", "Northern California & Wine Country", "The Pacific Northwest", "Alaska", "Hawai'i", "US Territories"],
   "13A": ["British Columbia", "The Rockies", "The Prairies", "Ontario", "Québec", "The Maritimes", "The North"],
 
   /**

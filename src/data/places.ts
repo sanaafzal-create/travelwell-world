@@ -75,6 +75,36 @@ export interface Jewel {
   commission?: string;                             // the earning path/lane for this jewel (the money)
   source?: string;                                 // where the claim came from — a URL or a named publisher
   accessed?: string;                               // when we last read it (YYYY-MM or YYYY-MM-DD)
+  // ── The jewel extension (library proposal 2 Oct, accepted with edits 5 Oct;
+  //    David's rulings of 2 Oct: every jewel stays in inventory whether or not
+  //    it pays us, and the traveller is told plainly when we earn nothing). ──
+  /**
+   * Whether this jewel pays us. "none" is a FACT and needs evidence; "unknown"
+   * is the honest default and is NEVER displayed as "none" — the disclosure
+   * line renders only for the two known states (commissioned → the standing
+   * FTC line; none → the no-commission line), and unknown makes no claim
+   * either way. Drives ordering only WITHIN fit (see Atlas's presentation
+   * contract): commission never admits a jewel that fails fit, and never
+   * outranks a better-fitting one.
+   */
+  commission_status?: "commissioned" | "none" | "unknown";
+  /** The booking machinery OBSERVED on the operator's own site (FareHarbor,
+   *  Tock, Recreation.gov, "own site", "phone only", "not observed"…) — a
+   *  supply-side fact that says which engine unlocks the most inventory. Never
+   *  a ladder rung: rungs live on the provider row (confirmation_return). */
+  booking_route?: string;
+  /** Distance from the anchor EXACTLY as a source states it, quoted — never
+   *  computed. Interim until `geo` is populated. */
+  distance?: string;
+  /** A sourced coordinate (same shape as destination geo, plus its source) so
+   *  Atlas can answer "within an hour's drive". Proposed, filling over time. */
+  geo?: { lat: number; lng: number; source: string };
+  /** The STABLE PROVIDER ID (providerId(), the S1 roster) of the provider row
+   *  this jewel books through. Absent for an operator with no row yet (S2:
+   *  carried by name in prose, no booking route, until it earns a row). The
+   *  ladder rung resolves through this reference at read time — never baked
+   *  into the dossier. */
+  provider_ref?: string;
 }
 /** A traveler Q&A — answer-first; the array auto-emits FAQPage JSON-LD (AI-citation).
  *  `accessed` follows the jewel rule (library P4 ruling, 2026-10-01): the date the

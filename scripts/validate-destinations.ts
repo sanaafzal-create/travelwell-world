@@ -48,7 +48,12 @@ const DEPTH = new Set(["verified", "stub", "cached"]);
 const CHECKABLE_CLAIM =
   /[$€£¥]\s?\d|\d+\s?(usd|eur|gbp|chf|km|kilometres|kilometers|miles|mi\b|hours?|hrs?|mins?|minutes?|nights?|days?|people|guests|pax|metres|meters|ft\b|feet)\b|\b\d{1,2}[:.]\d{2}\s?(am|pm)?\b|\b\d+\s?%/i;
 const DRAW = new Set(["anchor", "core", "emerging"]);
-const FEEL = new Set(["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous"]);
+// 24 words. +luxurious +scenic (David's ruling, 2 Oct 2026); +lush +spiritual
+// (F2, 4 Oct — added because no neighbor existed in the set). The other three
+// F2 candidates MAP instead of joining: relaxed→serene, lively→buzzy,
+// cultural→historic — a vocabulary stays comparable by preferring a mapping
+// wherever a near-synonym exists, and only growing where one doesn't.
+const FEEL = new Set(["dramatic","serene","rugged","refined","wild","polished","cosmopolitan","buzzy","festive","romantic","secluded","family-friendly","coastal","alpine","historic","tropical","urban","remote","pastoral","adventurous","luxurious","scenic","lush","spiritual"]);
 const ADVISORY = new Set(["L1", "L2", "L3", "L4"]);
 /** The three FCDO booking postures. Closed set — see the gate below. */
 const POSTURES = new Set(["book-freely", "consent", "no-booking"]);
@@ -397,6 +402,22 @@ for (const { code, d } of rows) {
       }
       if (j?.accessed && !/^\d{4}-\d{2}(-\d{2})?$/.test(String(j.accessed))) {
         errs.push(`${at}: jewel "${j.name}" accessed "${j.accessed}" — use YYYY-MM or YYYY-MM-DD so it sorts and ages visibly`);
+      }
+      // The jewel extension (accepted 2026-10-05). commission_status is a
+      // three-value fact vocabulary; "none" is a displayed claim, so it needs
+      // the same evidence discipline as a verified figure — a sourceless jewel
+      // cannot assert it. geo carries its source or it is a guessed pin.
+      if (j?.commission_status && !["commissioned", "none", "unknown"].includes(String(j.commission_status))) {
+        errs.push(`${at}: jewel "${j.name}" commission_status "${j.commission_status}" — commissioned|none|unknown only; unknown is the honest default`);
+      }
+      if (j?.commission_status === "none" && !j?.source) {
+        errs.push(`${at}: jewel "${j.name}" claims commission_status "none" with no source — "none" is a displayed fact and needs evidence; leave it unknown until there is some`);
+      }
+      if (j?.geo && (typeof j.geo.lat !== "number" || typeof j.geo.lng !== "number" || !j.geo.source)) {
+        errs.push(`${at}: jewel "${j.name}" geo must be { lat, lng, source } — a coordinate without a source is a guessed pin`);
+      }
+      if (j?.provider_ref && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(String(j.provider_ref))) {
+        errs.push(`${at}: jewel "${j.name}" provider_ref "${j.provider_ref}" isn't a provider id slug — reference the S1 roster's ids, never display names`);
       }
     }
     for (const [i, q] of (data.faq ?? []).entries()) {

@@ -97,10 +97,10 @@ Confirmed locked so far:
 
 The Mexico anchor tier is built under the locked strings; Central America (by country) is the next block. Remaining 10S strings arrive from the master per block — nothing here is wired to a live destination yet (the three 10S demo destinations carry no sub_region).
 
-### 12A — United States *(use taxonomy.ts strings as-is)*
-`Pacific Coast` · `Pacific Northwest` · `Mountain West` · `The Southwest` · `Texas & The Gulf` · `The Midwest` · `The South` · `New England` · `Mid-Atlantic` · `Alaska` · `Hawai‘i`
-⚠ **Copy these verbatim** — the validator does exact-string matching. Two gotchas: **`The`** is capitalised in `Texas & The Gulf`, and **`Hawai‘i`** uses the ʻokina (U+2018), not a straight apostrophe. Both previously drifted in this doc and would have failed ingest.
-*Pacific Northwest added 2026-08 (Sana's call, on David's prep): the 7 OR/WA ski resorts (Mt Hood, Mt Bachelor, Snoqualmie, Stevens Pass, Crystal, Mt Baker, + Timberline) had no clean home — Pacific Coast reads California-centric, Mountain West is the Rockies. Companion calls: NY/Adirondacks (Lake Placid) → Mid-Atlantic (it's NY); Tahoe + Mammoth → Pacific Coast (by state — Sierra, not the Rockies, keeps Mountain West pure).*
+### 12A — United States — THE 26 *(David's ruling T6, 30 Sep 2026; use taxonomy.ts strings as-is)*
+`New England` · `New York State & the Hudson` · `New York City` · `Mid-Atlantic` · `The Carolinas & Lowcountry` · `Florida - Atlantic & the Keys` · `Florida - Gulf & Central` · `The Deep South` · `Appalachia & the Smokies` · `The Great Lakes` · `The Great Plains & Dakotas` · `The Ozarks & Mid-South` · `Texas` · `The Southwest Desert` · `Utah Canyon Country` · `The Colorado Rockies` · `Greater Yellowstone` · `Idaho & the Northern Rockies` · `The Great Basin & Nevada` · `Southern California` · `Central Coast & the Sierra` · `Northern California & Wine Country` · `The Pacific Northwest` · `Alaska` · `Hawai'i` · `US Territories`
+⚠ **Copy these verbatim** — the validator does exact-string matching, and the source of truth is the library's `handoff/US-26-SUBREGIONS.json` (their master; Iowa sits in `The Great Plains & Dakotas` by David's confirmation; the territories shelf carries Puerto Rico, the USVI, Guam, the Northern Marianas and American Samoa). Note **`Hawai'i` here uses a straight apostrophe** — the 26-master's spelling, which replaced the old 11-list's ʻokina; and the two Florida shelves use a plain hyphen, not an em dash.
+*The original 11 (Pacific Coast · Mountain West · The Southwest · Texas & The Gulf · The Midwest · The South · …) were replaced 2026-10-05; all 34 live US rows were re-shelved in the same commit by the master's own placements, so no row ever carried a shelf the taxonomy didn't.*
 
 ### 13A — Canada *(use taxonomy.ts strings as-is)*
 British Columbia · The Rockies · The Prairies · Ontario · Québec · The Maritimes · The North
