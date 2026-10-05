@@ -1,0 +1,3820 @@
+[
+ {
+  "id": "acklins-crooked-island-bahamas",
+  "region_code": "11C",
+  "name": "Acklins & Crooked Island",
+  "country": "Bahamas",
+  "line": "The Bight of Acklins bonefish flats",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "adventure",
+   "sports",
+   "ocean",
+   "yacht",
+   "culture",
+   "wildlife"
+  ],
+  "feel": [
+   "remote",
+   "secluded",
+   "wild",
+   "serene",
+   "tropical"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "Bight of Acklins",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "wildlife"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "\"Acklins & Crooked Island curve around a 1,000 square foot lagoon known as The Bight. The water here is shallow, often no deeper than knee-height, even 5 miles off-shore. The conditions are an angler's dream.\" (The same page elsewhere calls it \"a 500-square-mile lagoon\"; the two figures are the official site's own and disagree.)",
+     "commission_status": "none",
+     "booking_route": "none needed - open water; fished with a lodge guide or DIY"
+    },
+    {
+     "name": "Crooked Island Lodge & Marina",
+     "source": "https://www.crookedislandlodge.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "adventure",
+      "ocean",
+      "yacht",
+      "privatejet"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "\"The Crooked Island Lodge has 8 air-conditioned guest rooms located just steps from white sand beaches, a private 3500' runway and an authentic local restaurant and bar\"; at the northern tip of Crooked Island overlooking Bird Rock Lighthouse; 8 hotel rooms and 6 cottages, \"All Doubles ~~~ $395 per night *10% VAT tax\" (https://www.crookedislandlodge.com/lodge, accessed 2026-10-03). \"Come enjoy the Bahamas as it was 40 years ago.\"",
+     "commission_status": "unknown",
+     "booking_route": "own website form or email info@crookedislandlodge.com; 242-478-8989 or 242-478-8180"
+    },
+    {
+     "name": "Acklins Creekside Bonefish Lodge",
+     "source": "https://www.bahamas.com/hotels/acklins-creekside-bonefish-lodge",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "romance",
+      "family"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "Founded by natives of Acklins at Chester's Bay: \"Just 50 paces from your bed, you can step into a three-mile, ankle-to-knee-deep flat for kayaking, wading, and DIY bone fishing\" (bahamas.com). Own site: the lodge \"accommodates twenty persons maximum\"; \"Two/2 persons Double Occupancy $157.00 Per Night + 15% gratuity + 10% VAT + 8% energy surcharge\"; guided bonefish day \"$650.00 (two/2 share boat/guide)\" (https://acklinscreeksidebonefishlodge.com/, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "own website booking (\"Reservation must be made direct via our hotel or our website\") or (242) 357-4179"
+    },
+    {
+     "name": "Crooked & Acklins Island Trophy Lodge",
+     "source": "https://www.bahamas.com/hotels/crooked-acklins-trophy-lodge",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "sports"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 4,
+     "blurb": "\"Our small, quiet and private lodge is located off the beaten track on a white sandy beach, and is managed by a very friendly Bahamian couple. It has five large double rooms\"; \"This is the only lodge in the entire atoll which provides fishing opportunities from both islands -- Crooked and Acklins -- on the same trip, with just a 15-minute transfer by car on both sides.\" Winding Bay, Major's Cay, Crooked Island; owners Jean-Paul Tissieres & Herle Hamon.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 344-2136, contact@crookedandacklinstrophylodge.com); also sold as packages by Aardvark McLeod and Fish Partner"
+    },
+    {
+     "name": "Bird Rock Lighthouse",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/bird-rock-lighthouse",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "\"This magnificent structure stands 112 feet above sea level and is situated on a cay just off Pittstown Point, accessible only by boat.\" \"Construction of the lighthouse started in 1866, and it became operational in 1876.\" \"Chartered boat tours to the island can be arranged through Crooked Island Lodge, Scavella Enterprises, and/or local fishing guides.\"",
+     "commission_status": "none",
+     "booking_route": "none needed to view; a boat trip is arranged through Crooked Island Lodge, Scavella Enterprises or local guides"
+    },
+    {
+     "name": "Crooked Island Marina",
+     "source": "https://www.crookedislandlodge.com/marina",
+     "accessed": "2026-10-03",
+     "si": [
+      "yacht",
+      "sailing",
+      "sports"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "move"
+     ],
+     "draw_rank": 6,
+     "blurb": "\"Our new 35 slip marina offers dockage for vessels to 160' with 10' mean low water depths throughout. We are located at Pitts Town Point near the 112' tall Bird Rock Light House, making us a perfect stopping off point for all trips north and south to the Turks and Caicos, Dominican Republic, Puerto Rico and beyond.\" Two fuel docks, six pumps, \"dawn to dusk daily\"; \"Acceptable forms of payment are Visa and Mastercard only.\"",
+     "commission_status": "unknown",
+     "booking_route": "VHF channel 16 on arrival; reservations by email info@crookedislandlodge.com"
+    },
+    {
+     "name": "Turtle Sound",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/turtle-sound",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "adventure",
+      "ocean"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 7,
+     "blurb": "\"One of the natural wonders of The Bahamas, with incredible blue-green water and an abundance of turtles, this beautiful waterway is often referred to as an inland river. It runs from the eastern end of the French Wells Channel, nine miles inland to just behind the Moss Town and Seaview settlements.\" \"a perfect setting for all types of soft adventure or fly fishing.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - natural waterway; Crooked Island Lodge arranges trips to Turtle Sound on request"
+    },
+    {
+     "name": "Pompey Bay Beach",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "tropical"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "\"Pompey Bay Beach in Acklins is the site of one of the largest Lucayan settlements in The Bahamas.\" Wikipedia places it \"just south of Spring Point\" (https://en.wikipedia.org/wiki/Acklins, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Grey's Point Bonefish Inn",
+     "source": "https://www.bahamas.com/hotels/greys-point-bonefish-inn",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "sports"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 9,
+     "blurb": "\"located in the heart of Acklins' fishing grounds. There are bonefish flats adjacent to the property and you can cast a fishing line just a few steps outside your room.\" \"we can arrange deep-sea and reef fishing trips on our 23-foot sport fisherman boat. Packages are available that include fishing, accommodations, meals/soft drinks and airport transfers.\" Contact Mr. Newton Williamson.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 344-3210, greyspoint@hotmail.com)"
+    },
+    {
+     "name": "Crooked Island offshore, flats and inshore fishing",
+     "source": "https://www.crookedislandlodge.com/fishing",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "adventure",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"Blue and White Marlin abound and catches of 4-5 per day are not uncommon. Our Marlin fishery is strictly catch and release.\" \"The flats fishing on the south side of Crooked Island has the friendliest bonefish found anywhere. The average bonefish is around three to four pounds\". \"The lodge works with a talented group of local guides\".",
+     "commission_status": "unknown",
+     "booking_route": "through Crooked Island Lodge (email info@crookedislandlodge.com; 242-478-8989)"
+    },
+    {
+     "name": "Wall diving and The Dungeons",
+     "source": "https://www.crookedislandlodge.com/sights",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 11,
+     "blurb": "\"Enjoy one of the closest and shallowest walls in the Caribbean at 200 yards and 33 feet to the Dungeons one of our most spectacular dives.\" \"Walk right out of your lodgings, onto the beach and into our crystal clear waters.\"",
+     "commission_status": "unknown",
+     "booking_route": "through Crooked Island Lodge (email info@crookedislandlodge.com)"
+    },
+    {
+     "name": "Creekside guided bonefishing (Terrance and Elvis)",
+     "source": "https://acklinscreeksidebonefishlodge.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "sports"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 12,
+     "blurb": "\"Our guides Terrance and his brother Elvis will be delighted to teach you how to fly fish and tie fly as they accompany you at the crack of dawn to master bone-fish flats.\" \"Bone-fishing flats are untouched in this area with an average weight of 4-9 pound fish.\" \"FULLY GUIDED BONE FISH DAY (Guides daily tips NOT included) $650.00 (two/2 share boat/guide)\".",
+     "commission_status": "unknown",
+     "booking_route": "own website booking or (242) 357-4179"
+    },
+    {
+     "name": "Long Cay",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/long-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "wildlife",
+      "tropical"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 13,
+     "blurb": "\"Long Cay was originally called Fortune Island by Christopher Columbus, because he found a conch pearl when he first arrived there.\" Home to the first jail in the islands, \"the first port of entry in the southern Bahamas\", once \"4,000 residents, but today has a very small population that is sometimes less than 50 persons\"; St. David & St. Augustines Church; \"flamingos flock on the banks of the south shore\".",
+     "commission_status": "none",
+     "booking_route": "none needed - reached by the daily ferry into Cabbage Hill or private boat"
+    },
+    {
+     "name": "Castle Island Lighthouse",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/castle-island-lighthouse",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing",
+      "expedition"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 14,
+     "blurb": "\"Remote Castle Island, off the southernmost tip of Acklins, has a conspicuous 1867 lighthouse once used as the retreat of pirates who attacked ships in the nearby passage. The lighthouse is approximately five miles away from the main settlement of Salina Point. A boat is required to get to the island.\"",
+     "commission_status": "none",
+     "booking_route": "none needed to view; a boat is required"
+    },
+    {
+     "name": "Pitts Town Point private runway (MYCP)",
+     "source": "https://www.crookedislandlodge.com/our-airport",
+     "accessed": "2026-10-03",
+     "si": [
+      "privatejet",
+      "adventure"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly"
+     ],
+     "draw_rank": 15,
+     "blurb": "\"Crooked Island Lodge and Marina owns and operates its own 3500' runway, parking, and hangars\"; paved, \"3500' long by 40' wide\"; \"Landing fee and parking is waived for pilots and passengers arriving for boats staying at the marina or overnight lodge guests. All others, $125 landing fee, plus $75/night parking.\" \"No aviation fuel is available and there is no customs or immigration on Crooked Island.\"",
+     "commission_status": "unknown",
+     "booking_route": "Unicom 122.8 and the airport release form by email to info@crookedislandlodge.com"
+    },
+    {
+     "name": "Cascarilla bark harvest",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "culinary"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 16,
+     "blurb": "\"Acklins Island is one of only two islands in The Bahamas where Cascarilla Bark grows. The bitter herb has long been used in traditional Bush Medicine. Today, it's harvested and exported as the main ingredient in Campari Liquor.\"",
+     "commission_status": "none",
+     "booking_route": "none - no tour or seller is named on the page"
+    },
+    {
+     "name": "Samana Cay Lucayan sites",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "expedition"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 17,
+     "blurb": "\"Ten ancient Lucayan sites have been unearthed by National Geographic Society Archeologists in Samana Cay alone.\" Wikipedia places Samana Cay \"northeast of Spring Point in Acklins\" (https://en.wikipedia.org/wiki/Acklins, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none - no access route or operator is named on the page"
+    },
+    {
+     "name": "Plana Cays",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/plana-cays",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "expedition"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 18,
+     "blurb": "\"The Plana Cays, two small islands east of Mason's Bay, Acklins, are a protected reserve for endangered great iguanas and the very rare hutias (guinea pig like rodents), the only native mammal of The Bahamas.\"",
+     "commission_status": "none",
+     "booking_route": "none - a protected reserve; no visitor access route is given"
+    },
+    {
+     "name": "Landrail Point",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/landrail-point",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 19,
+     "blurb": "\"This northern port was the site of The Islands of The Bahamas first General Post Office. Its remaining walls are now part of the Crooked Island Lodge at Pittstown Point.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public settlement"
+    },
+    {
+     "name": "Conch Schell's Restaurant & Lounge",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/conch-schells-restaurant-lounge",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 20,
+     "blurb": "\"The beachfront restaurant and lounge offer a traditional Bahamian menu. We have Native Nights on the beach some weekends, with a fish fry and Rake & Scrape music.\" At the Trophy Lodge, Winding Bay, Major's Cay, Crooked Island.",
+     "commission_status": "unknown",
+     "booking_route": "phone only ((242) 344-2563)"
+    },
+    {
+     "name": "Crooked Island Lodge Restaurant & Sunset Bar & Grill",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/crooked-island-lodge-restaurant",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "romance",
+      "yacht"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 21,
+     "blurb": "\"The main lodge of this remote island resort on Crooked Island's northwestern tip was once The Bahamas' first post-office; it now functions as a restaurant, bar, and library.\" The lodge: the Sunset Bar & Grill has \"an incredible view of Bird Rock Lighthouse\"; restaurant open \"for Breakfast, Lunch, and Dinner, daily by reservation. Dinner reservations must be made by 12pm each day\" (https://www.crookedislandlodge.com/services, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "phone/email reservation ((242) 344-2507 on the official listing; info@crookedislandlodge.com)"
+    },
+    {
+     "name": "JuNette's Cafe & Club House",
+     "source": "https://www.bahamas.com/hotels/acklins-creekside-bonefish-lodge",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 22,
+     "blurb": "At Acklins Creekside Bonefish Lodge: \"You can dine onsite at JuNette's Café & Club House, where our guests say, 'The food is awesome!'\" The lodge's own site lists meals \"@) $100 per person per day (prepared/served to order in/from JuNette's Cafe & Club\" (https://acklinscreeksidebonefishlodge.com/, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "through the lodge ((242) 357-4179)"
+    },
+    {
+     "name": "Seaview Bay",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 23,
+     "blurb": "\"The beaches here are stunning, and often, yours and yours alone. Try North Side Beach, on Long Cay, or perhaps Seaview Bay on Crooked Island.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "North Side Beach",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/north-side-beach",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 24,
+     "blurb": "On Long Cay: \"Come and see the clear white sand and crystal clear water.\" The Long Cay listing adds \"there are great secluded beaches on the cays north side, with crystal clear water and clean white sand\" (https://www.bahamas.com/plan-your-trip/things-to-do/long-cay, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Lovely Bay Beach",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 25,
+     "blurb": "Named among the island's beaches on the official site; Lovely Bay is one of Acklins' two largest settlements, \"Lovely Bay in the northwestern tip of the island\" (https://en.wikipedia.org/wiki/Acklins, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Colonel Hill",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/colonel-hill",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 26,
+     "blurb": "\"This settlement has the highest point on the island, with an unmatched view. It is home to the Central and Local Government offices, Post Office and Police Station, plus Central Park, a community park that is the site of homecomings and other major events.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public settlement"
+    },
+    {
+     "name": "Spring Point and the Outside Kitchen",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/spring-point",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 27,
+     "blurb": "\"This is Acklins capital and the location of Outside Kitchen, a stonehouse ruin smothered by flowering bushes.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public settlement"
+    },
+    {
+     "name": "Airport Inn Restaurant & Bar",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/airport-inn-restaurant-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 28,
+     "blurb": "\"A charming restaurant that overlooks the airport offering delicious Bahamian dishes and native delicacies. Breakfast, lunch and dinner is served daily.\" Spring Point; Mrs. Mable E. Hanna.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 344-3600, acklinsairportinn@outlook.com)"
+    },
+    {
+     "name": "Seaside Restaurant and Bar",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/seaside-restaurant-and-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 29,
+     "blurb": "Listed by the official site for Acklins & Crooked Island at General Delivery, Lovely Bay; Ms. Claudine Virgil. The listing carries no description or menu.",
+     "commission_status": "unknown",
+     "booking_route": "phone only ((242) 344-3609)"
+    },
+    {
+     "name": "Aardvark McLeod - Crooked Island Trophy Lodge",
+     "source": "https://www.aardvarkmcleod.com/destination/crooked-island-trophy-lodge",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "sports"
+     ],
+     "commission": "bundle",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "activities",
+      "stay"
+     ],
+     "draw_rank": 30,
+     "blurb": "UK fly-fishing agent selling the Trophy Lodge: \"simple and comfortable\", placed for \"the best areas of Crooked Island and Acklins in the same week\"; capacity 10 guests; guides \"All natives of the atoll\"; bonefish average \"around 4 pounds; island record is 17.6lb\"; season \"January through June, November through December\".",
+     "commission_status": "unknown",
+     "booking_route": "agent - Alex Jardine or Charlotte Chilcott, +44 (0)1980 847389, or the page's Book Now link"
+    },
+    {
+     "name": "Fish Partner - Crooked & Acklins Islands Trophy Lodge",
+     "source": "https://fishpartner.com/?p=26155",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "sports"
+     ],
+     "commission": "bundle",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "activities",
+      "stay"
+     ],
+     "draw_rank": 31,
+     "blurb": "Reykjavik fly-fishing outfitter selling the Trophy Lodge with published packages: \"4 nights / 3 days package base 2 : $1990/person\"; \"7 nights / 6 days package base 2 : $3690/person\"; prices \"included 12% of VAT\". \"The record bonefish caught on the island went 17,6 lbs!\"",
+     "commission_status": "unknown",
+     "booking_route": "agent - contact form on the page; (+354) 571 4545"
+    },
+    {
+     "name": "Bahamasair (Nassau to Colonel Hill)",
+     "source": "https://www.crookedislandlodge.com/getting-here",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly"
+     ],
+     "draw_rank": 32,
+     "blurb": "\"Bahamas Air services the island from Nassau twice each week, Wednesdays and Saturdays. Bahamas Air lands at Colonel Hill (MYCI) airport\" - as stated by Crooked Island Lodge. Carib Journal reports \"several flights a week to Acklins' Spring Point Airport\" (https://www.caribjournal.com/2025/06/17/bahamas-acklins-island, accessed 2026-10-03). The carrier's own homepage, read 2026-10-03, does not list either route.",
+     "commission_status": "unknown",
+     "booking_route": "own website booking (bahamasair.com)"
+    },
+    {
+     "name": "Scavella Enterprises",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/bird-rock-lighthouse",
+     "accessed": "2026-10-03",
+     "si": [
+      "sailing",
+      "culture"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 33,
+     "blurb": "Named by the official site as one of three ways to reach Bird Rock Lighthouse: \"Chartered boat tours to the island can be arranged through Crooked Island Lodge, Scavella Enterprises, and/or local fishing guides.\" No own page or contact was found.",
+     "commission_status": "unknown",
+     "booking_route": "not stated - no contact on the page read"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to Acklins Island?",
+     "a": "Fly to Nassau first, then on to Acklins: Bahamasair operates \"several flights a week to Acklins' Spring Point Airport\". Crooked Island, across the Bight, is reachable \"by twice-daily ferries from Acklins\" (https://www.bahamas.com/islands/acklins-crooked-island, accessed 2026-10-03).",
+     "source": "https://www.caribjournal.com/2025/06/17/bahamas-acklins-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where is Acklins Island?",
+     "a": "In the southern Bahamas, \"385 km (239 mi) Southeast of Nassau\". It is \"one of a group of islands arranged along a large, shallow lagoon called the Bight of Acklins\", with Crooked Island in the north and Acklins in the southeast.",
+     "source": "https://en.wikipedia.org/wiki/Acklins",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How far is Acklins from Nassau?",
+     "a": "Acklins lies \"385 km (239 mi) Southeast of Nassau\".",
+     "source": "https://en.wikipedia.org/wiki/Acklins",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the Acklins airport code?",
+     "a": "Spring Point Airport on Acklins is AXP on the official site's island map. Crooked Island has Colonel Hill (CRI) and Pitts Town Point (PWN). \"This regional airport connects Acklins Island to neighboring Crooked Island and Nassau.\"",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the population of Acklins?",
+     "a": "692 at the 2022 census (the article cites the Government of The Bahamas' 2022 preliminary census results); \"The population of Acklins was 565 at the 2010 census, with the largest populations at Lovely Bay in the northwestern tip of the island and in Salina Point in the southernmost area of the island.\"",
+     "source": "https://en.wikipedia.org/wiki/Acklins",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Acklins known for?",
+     "a": "Bonefishing first: \"The shallow waters of the Bight of Acklins and many winding flats make Acklins & Crooked Island one of the top spots for bonefishing in The Bahamas.\" Also its Lucayan past - \"Pompey Bay Beach in Acklins is the site of one of the largest Lucayan settlements in The Bahamas\" - and cascarilla: \"Acklins Island is one of only two islands in The Bahamas where Cascarilla Bark grows\", exported \"as the main ingredient in Campari Liquor.\"",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is bonefishing like on Acklins Island?",
+     "a": "Acklins Creekside Bonefish Lodge: \"Bone-fishing flats are untouched in this area with an average weight of 4-9 pound fish.\" \"Wade fishing directly across from the lodge is also a great option.\" A flats licence is needed: \"All anglers over the age of 12 will need a license to fish\", from \"$15.00\" for a day.",
+     "source": "https://acklinscreeksidebonefishlodge.com/",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Acklins Creekside Bonefish Lodge?",
+     "a": "A lodge at Chester's Bay, Acklins: \"Just 50 paces from your bed, you can step into a three-mile, ankle-to-knee-deep flat for kayaking, wading, and DIY bone fishing.\" Rooms have \"two standard beds, private bath\"; guests dine at JuNette's Café & Club House. \"The nightly hotel rate includes airport transfers, all meals, snacks, and soft drinks\". Contact (242) 357-4179.",
+     "source": "https://www.bahamas.com/hotels/acklins-creekside-bonefish-lodge",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What are Acklins and Crooked Island?",
+     "a": "\"This small atoll includes the islands of Acklins, Crooked Island and Long Cay, wrapped around the Bight of Acklins.\" Acklins is \"The largest island in the group\"; Crooked Island \"is reachable by air, via the Colonel Hill Airport, or by twice-daily ferries from Acklins\"; Long Cay \"is only 8 sq miles\".",
+     "source": "https://www.bahamas.com/islands/acklins-crooked-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What hotels are there on Acklins, Bahamas?",
+     "a": "Fishing lodges rather than hotels. On Acklins the official site lists Acklins Creekside Bonefish Lodge (https://www.bahamas.com/hotels/acklins-creekside-bonefish-lodge) and Grey's Point Bonefish Inn, \"located in the heart of Acklins' fishing grounds\"; across the Bight on Crooked Island are the Crooked & Acklins Island Trophy Lodge (https://www.bahamas.com/hotels/crooked-acklins-trophy-lodge) and Crooked Island Lodge & Marina (https://www.crookedislandlodge.com/), all accessed 2026-10-03.",
+     "source": "https://www.bahamas.com/hotels/greys-point-bonefish-inn",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "Acklins & Crooked Island, Bahamas: Bonefishing, Lodges & Getting There | TravelWell",
+    "meta_description": "Bonefish the Bight of Acklins, see Bird Rock Lighthouse and Turtle Sound, pick from four fishing lodges, and reach Acklins & Crooked Island via Nassau.",
+    "slug": "acklins-crooked-island-bahamas",
+    "primary_keyword": "Acklins Crooked Island Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Acklins Crooked Island Bahamas bonefishing"
+   }
+  }
+ },
+ {
+  "id": "berry-islands-bahamas",
+  "region_code": "11C",
+  "name": "The Berry Islands",
+  "country": "Bahamas",
+  "line": "About 30 cays and a seven-mile beach",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "sports",
+   "tropical",
+   "yacht",
+   "diveglobal",
+   "ocean"
+  ],
+  "feel": [
+   "secluded",
+   "remote",
+   "tropical",
+   "coastal"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "Great Harbour Cay Beach",
+     "source": "https://www.bahamas.com/natural-wonders/great-harbour-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "romance",
+      "family"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "\"Roughly 7 miles long and 2.5 miles at its widest point, Great Harbour Cay in The Berry Islands is known for its welcoming atmosphere and white sand beaches\" with \"ultra-romantic scenery, crystal clear waters, peace and quiet.\" The Out Islands board lists \"Seven continuous miles of beautiful beaches and a protected harbor\" (https://www.myoutislands.com/bahamas-islands/berry-islands/beaches, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Chub Cay Resort & Marina",
+     "source": "https://www.chubcay.com/accommodations",
+     "accessed": "2026-10-03",
+     "si": [
+      "yacht",
+      "sports",
+      "diveglobal",
+      "tropical"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "\"This private island paradise sits at the southern tip of The Berry Islands. It is a sport fisherman's and diver's dream location, at the edge of 'The Pocket'\" (https://www.bahamas.com/hotels/chub-cay-club, accessed 2026-10-03). Its own site lists 11 Clubhouse Suites, 8 Beach Cabanas and 18 Private Villas, \"108 slips, vessels to 160'\" and customs and fuel \"daily 7am-7pm\". ⛔ \"Chub Cay is a private island club. Port-of-entry services are limited; the rest of the island is members-only\" (https://www.chubcay.com/visit, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "members reserve through the member portal; visitors phone (786) 209-0025, VHF 68 or info@chubcay.com - \"Contact and written permission are required before entering\""
+    },
+    {
+     "name": "Hoffman's Cay Blue Hole",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "adventure",
+      "ocean"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "\"A popular spot for travellers, Hoffman's Cay Blue Hole is 600 ft wide with a cliff that hangs 20 feet above the water. Jump off and dive into this unique natural wonder. Nearby, you may also stumble upon The Hoffman Cay Ruins, a peculiar rock structure echoing ghosts of the past.\" Reached by boat; The Right Choice runs \"tours to the Blue Hole\".",
+     "commission_status": "none",
+     "booking_route": "none needed - an uninhabited natural site; boat access through a tour operator"
+    },
+    {
+     "name": "Chub Cay sportfishing and the 2027 tournaments",
+     "source": "https://www.chubcay.com/fishing",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "yacht",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 4,
+     "blurb": "\"Billfish Capital of the Bahamas\": The Pocket has \"marlin and sailfish in abundance, plus wahoo, mahi, and tuna\"; the north-side flats are \"some of the best bonefishing in the world\"; charters with \"experienced captains\" from the marina. Published 2027 dates: Winter Wahoo Shootout Jan 21-23 (members only, $3,500 + VAT), Classic Feb 18-20 and Open Mar 11-13 (open to public, $5,000 + VAT each), Invitational Apr 1-3 (members only, $5,000 + VAT).",
+     "commission_status": "unknown",
+     "booking_route": "own website tournament inquiry form; charters through the marina"
+    },
+    {
+     "name": "Great Harbour Cay bonefish flats",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "sports",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "\"Head to the saltwater flats of Great Harbour Cay - or most any flat across the archipelago - and match wits with the elusive grey ghost.\" The Out Islands board: bonefish schools \"in the thousands\", fished in creeks on Great Harbour Cay, on beaches and uninhabited cays further south, and \"catch and release\" rules apply in the Out Islands (https://myoutislands.com/blog/boi-news/king-of-the-flats-conquer-bonefishing-in-the-berrys, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed to see the flats; fishing through a licensed guide or lodge"
+    },
+    {
+     "name": "Chub Cay Wall",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "ocean",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 6,
+     "blurb": "\"A continuous wall stretching from Chub Cay to Whale Cay and dropping to a depth of nearly 4,000 feet, the Chub Cay Wall offers divers a high-visibility glimpse at Caribbean reef sharks, spotted eagle rays, and abundant black coral.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a natural dive site; dives sold by Chub Cay Divers to Chub Cay guests"
+    },
+    {
+     "name": "Chub Cay Divers",
+     "source": "https://www.chubcaydivers.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "ocean",
+      "family"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "\"A watersports and island tour center, offering our services exclusively to guests of Chub Cay Resort & Marina\"; PADI Five Star Dive Resort; reefs \"5 minutes from the marina\", snorkelling, paddleboarding at Turtle Creek, a Blue Hole trip with rock jumping, and sandbar visits.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only (+1 (242) 809-5574, contact@chubcaydivers.com) - Chub Cay guests only"
+    },
+    {
+     "name": "Soul Fly Lodge",
+     "source": "https://www.soulflylodge.com/rates",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "ocean",
+      "adventure"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "activities",
+      "eat"
+     ],
+     "draw_rank": 7,
+     "blurb": "\"A consciously Crafted Bahamas fly fishing experience\": guided permit and bonefish fly fishing from Maverick HPX-V skiffs, up to 6 rooms and 8 anglers on 4 boats, \"minutes from the runway\" at Great Harbour Cay. Packages include \"guided fishing, lodging, all meals, beverages, airport transfers\"; per person $3,365-$7,585 double, up to $12,520 for \"Single Everything\", and \"Primo Permit\" 6 days/7 nights single $19,750; \"10% VAT not included; airfare and tips excluded.\"",
+     "commission_status": "unknown",
+     "booking_route": "own website contact form, kyle@soulflylodge.com, WhatsApp (603) 969-3050 or (207) 630-6211; 50% deposit within 10 days, balance 60 days before arrival"
+    },
+    {
+     "name": "Carriearl Boutique Hotel and Restaurant",
+     "source": "https://myoutislands.com/blog/boi-news/king-of-the-flats-conquer-bonefishing-in-the-berrys",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "romance",
+      "sports"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 9,
+     "blurb": "The Out Islands board: Carriearl \"features four ensuite bedrooms\" and is a social hub with a restaurant and cocktail lounge; its \"Tasty Tingums\" plate is lobster and shrimp tempura, calamari and cracked conch; it provides a free shuttle for boaters at Great Harbour Cay Marina. Its own site (carriearl.com) returned HTTP 522 when read.",
+     "commission_status": "unknown",
+     "booking_route": "not observed - the hotel's own site did not load when read"
+    },
+    {
+     "name": "Flo's Conch Bar",
+     "source": "https://www.bahamas.com/vendor/flos-conch-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "yacht",
+      "culture"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"Little Harbour is home to Flo's Conch Bar, a local landmark favored by passing boaters\" (https://www.bahamas.com/islands/berry-islands). Its listing: \"We are world renowned for our Bahamian seafood, especially 'conchy' conch fritters and other specialties, plus Chester's Rum Punch from his own secret recipe, and panoramic ocean views.\" Hours \"12:00 noon Until for Lunch and Dinner\".",
+     "commission_status": "none",
+     "booking_route": "phone only ((242) 457-3969)"
+    },
+    {
+     "name": "The New Beach Club (\"Da Beach Club\")",
+     "source": "https://www.bahamas.com/vendor/new-beach-club",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "tropical",
+      "family"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 11,
+     "blurb": "\"Also known as 'Da Beach Club', we are located just above the tranquil beach shore, and across from the Great Harbour Cay Airport.\" Hours: \"Tuesday through Sunday / Breakfast 8:00 a.m.-11:00 a.m. / Lunch 11:00 a.m.-3:30 p.m.\" Yachting magazine: \"a popular midday stop for lunch and a drink\" (https://www.yachtingmagazine.com/cruising-and-chartering/island-icon-berry-islands/, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "phone only ((242) 367-8108)"
+    },
+    {
+     "name": "Chub Cay Clubhouse Restaurant",
+     "source": "https://www.chubcay.com/dining",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "yacht"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 16,
+     "blurb": "\"Breakfast, lunch and dinner - local flavors, traditional favorites, and fresh daily specials\", with \"outdoor seating on the terrace overlooking the infinity pool and Bahamian sunsets\" and holiday menus for Thanksgiving, Christmas Day and New Year's Eve. ⛔ \"clubhouse restaurant and bar are for members\"; non-member property owners may use The Nauti Rooster Bar & Grill for a fee.",
+     "commission_status": "none",
+     "booking_route": "members only - (786) 209-0025 or info@chubcay.com"
+    },
+    {
+     "name": "The Right Choice (boat tours and water taxi)",
+     "source": "https://www.bahamas.com/vendor/right-choice",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "family",
+      "tropical",
+      "adventure"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities",
+      "move"
+     ],
+     "draw_rank": 12,
+     "blurb": "\"We are the right choice for viewing the underwater treasures of The Berry Islands by glassbottom boat and speed boat. We also offer water taxi service, tours to the Blue Hole, and excursions to cays within the chain and to other islands of The Bahamas.\" Contact: Mr. Cardinal Rolle, Great Harbour Cay.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 367-8145, cardyrolle@hotmail.com)"
+    },
+    {
+     "name": "Percy Darville, bonefishing guide",
+     "source": "https://myoutislands.com/blog/boi-news/king-of-the-flats-conquer-bonefishing-in-the-berrys",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "ocean",
+      "culture"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 13,
+     "blurb": "\"One of the most well known local faces on the bonefishing circuit\" in the Berry Islands; his family has lived in the area for over 100 years. Named by the Out Islands board; no contact details were printed on the page read.",
+     "commission_status": "unknown",
+     "booking_route": "not observed - no booking route printed on the page read"
+    },
+    {
+     "name": "Great Harbour Cay Marina",
+     "source": "https://www.yachtingmagazine.com/cruising-and-chartering/island-icon-berry-islands/",
+     "accessed": "2026-10-03",
+     "si": [
+      "yacht",
+      "sailing",
+      "sports"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "move"
+     ],
+     "draw_rank": 14,
+     "blurb": "\"The cay's well-protected namesake hurricane hole marina, a port of entry\", with \"65 slips and can accommodate yachts up to 150 feet\" (Yachting, April 25, 2024). The Out Islands board's bonefishing article names Great Harbour Cay Marina as where private boats can dock (https://myoutislands.com/blog/boi-news/king-of-the-flats-conquer-bonefishing-in-the-berrys, accessed 2026-10-03). greatharbourcaymarina.com returned HTTP 404 when read, so this is a guide-site source.",
+     "commission_status": "unknown",
+     "booking_route": "not observed - the marina's own site did not load when read"
+    },
+    {
+     "name": "Shelling Beach, Sand Dollar Hill and Sugar Beach",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 15,
+     "blurb": "\"Shelling Beach, Sand Dollar Hill, Sugar Beach - even the names of the beaches are irresistible. Across the Berry Islands' 30-cay cluster, discover a pristine and secluded stretch of powder-soft sand that seems made for beachcombing.\" Yachting: Sugar Beach \"often ranks as one the prettiest beaches in the Bahamas. Its caves entice visitors to explore\" (https://www.yachtingmagazine.com/cruising-and-chartering/island-icon-berry-islands/, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beaches"
+    },
+    {
+     "name": "Shark Creek Beach",
+     "source": "https://www.yachtingmagazine.com/cruising-and-chartering/island-icon-berry-islands/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "wildlife",
+      "family"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 18,
+     "blurb": "A \"wide, shallow\" beach on Great Harbour Cay that \"attracts shell collectors and nature lovers\" (Yachting, April 25, 2024); also on the Out Islands board's Berry Islands beach list.",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Great Stirrup Cay Lighthouse",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing",
+      "yacht"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 19,
+     "blurb": "\"This 268-acre cay has been privately owned by Norwegian Cruise Line since 1977 and is the site of the Great Stirrup Cay Lighthouse\" (bahamas.com). The Out Islands board: \"an 1863 lighthouse\", and Williamstown, \"now abandoned\", established \"during the reign of William IV\" (https://www.myoutislands.com/bahamas-islands/berry-islands/landmarks-attractions, accessed 2026-10-03). ⛔ Seen from the water or by cruise; the cay is private.",
+     "commission_status": "none",
+     "booking_route": "none - a private cay; no public access route stated"
+    },
+    {
+     "name": "Big Whale Cay",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 20,
+     "blurb": "\"Big Whale Cay is the site of an historic lighthouse and of Big Whale Cay Airport\" (bahamas.com). The Out Islands board: a retreat with \"Spanish-styled buildings, winding roads, a church, and museum\" (https://www.myoutislands.com/bahamas-islands/berry-islands/landmarks-attractions, accessed 2026-10-03). No public access route was stated on either page.",
+     "commission_status": "none",
+     "booking_route": "none - no public access route stated"
+    },
+    {
+     "name": "Perfect Day at CocoCay (Little Stirrup Cay)",
+     "source": "https://www.royalcaribbean.com/perfect-day-at-cococay",
+     "accessed": "2026-10-03",
+     "si": [
+      "family",
+      "tropical",
+      "entertainment"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 17,
+     "blurb": "Little Stirrup Cay, \"Also known as Coco Cay\", is \"a port of call for Royal Caribbean International Cruises\" (https://www.bahamas.com/islands/berry-islands, accessed 2026-10-03). Royal Caribbean's own page: Thrill Waterpark with \"Daredevil's Peak\", the \"tallest waterslide in the Caribbean\" at 135 feet; Coco Beach Club; adults-only Hideaway Beach; Oasis Lagoon. ⛔ For Royal Caribbean cruise guests only.",
+     "commission_status": "unknown",
+     "booking_route": "own website booking - sold only as part of a Royal Caribbean cruise"
+    },
+    {
+     "name": "Day Away Excursion to Great Harbour Cay",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/day-away-excursion-to-great-harbour-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "wildlife",
+      "senior"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities",
+      "fly"
+     ],
+     "draw_rank": 21,
+     "blurb": "\"On this excursion, you will be flown into Great Harbour Cay on one of our twice-daily flights, or charters can be arranged\"; visits to historical sites and landmarks, Berry Islands hospitality and a chance to spot manatees. Operator: Berry Islands Air Travel Agency. No price shown.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 451-0404, kwallace@bahamas.com); listed website fergsair.com did not resolve when read"
+    },
+    {
+     "name": "Makers Air",
+     "source": "https://makersair.com/bahamas-flights/flights-to-great-harbour-cay/",
+     "accessed": "2026-10-03",
+     "si": [
+      "privatejet",
+      "sports",
+      "yacht"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly"
+     ],
+     "draw_rank": 22,
+     "blurb": "Scheduled flights from Fort Lauderdale Executive (FXE): to Great Harbour Cay \"Scheduled Service: Daily\" (\"seven days a week\"), to Chub Cay \"Scheduled Service: Mondays, Fridays\" (https://makersair.com/bahamas-flights/flights-to-chub-cay/, accessed 2026-10-03), private charters daily; 40 lb checked baggage included, excess \"$2.00 per pound\"; complimentary valet parking; passport books required, cards not accepted.",
+     "commission_status": "unknown",
+     "booking_route": "FareHarbor booking widget (book.makerssuite.com) or (954) 771-0330, info@makersair.com"
+    },
+    {
+     "name": "LeAir",
+     "source": "https://www.flyleair.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "sports"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly"
+     ],
+     "draw_rank": 23,
+     "blurb": "A Bahamian airline based at Nassau's Lynden Pindling International Airport; Great Harbour Cay is a destination in its booking form. The Out Islands board's table lists LeAir Nassau to Great Harbour Cay \"Daily\" (https://www.myoutislands.com/plan-your-trip-to-bahamas/new-flights, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "own website booking"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to the Berry Islands, Bahamas?",
+     "a": "By air or by private boat. Makers Air flies from Fort Lauderdale Executive (FXE) to Great Harbour Cay with \"Scheduled Service: Daily\" and to Chub Cay \"Mondays, Fridays\", plus private charters daily. The Out Islands board also lists LeAir and Bahamasair from Nassau to Great Harbour Cay, and Aztec Airways and Tropic Ocean Airways from Fort Lauderdale. Boaters can clear customs at Chub Cay \"daily 7am-7pm\" after obtaining written permission.",
+     "source": "https://makersair.com/bahamas-flights/flights-to-great-harbour-cay/",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What airport serves the Berry Islands, Bahamas?",
+     "a": "Two main airports: \"Great Harbour Cay Airport welcomes domestic flights via Nassau\" and \"Chub Cay International Airport is often the gateway to the Berry Islands for international travellers, located just 45 minutes by plane from South Florida.\" Big Whale Cay also has an airport.",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where are the Berry Islands?",
+     "a": "In The Bahamas: \"a cluster of 30 cays, southeast of Bimini\", per the Bahamas Out Islands Promotion Board. Chub Cay sits at the southern tip, and its airport is \"45 minutes by plane from South Florida\" (bahamas.com).",
+     "source": "https://www.myoutislands.com/bahamas-islands/berry-islands/about",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What are the Berry Islands known for?",
+     "a": "Fishing and the water. The official site leads with \"Unparalleled big game fishing\" and says \"Two things are required in The Berry Islands: a boat and a love of water.\" Chub Cay is \"The Billfish Capital of The Bahamas\", Great Harbour Cay's flats are for bonefishing, and Hoffman's Cay Blue Hole \"is 600 ft wide with a cliff that hangs 20 feet above the water.\"",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What are the things to do in the Berry Islands, Bahamas?",
+     "a": "The official site names big-game fishing, bonefishing on \"the saltwater flats of Great Harbour Cay\", diving the Chub Cay Wall (\"Caribbean reef sharks, spotted eagle rays, and abundant black coral\"), jumping into Hoffman's Cay Blue Hole, beachcombing at Shelling Beach, Sand Dollar Hill and Sugar Beach, and lunch at Flo's Conch Bar on Little Harbour Cay.",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Is CocoCay in the Berry Islands?",
+     "a": "Yes. bahamas.com lists Little Stirrup Cay among The Berry Islands: \"Also known as Coco Cay, this private island is a port of call for Royal Caribbean International Cruises.\" Royal Caribbean's Perfect Day at CocoCay is for its cruise guests only.",
+     "source": "https://www.bahamas.com/islands/berry-islands",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the population of the Berry Islands, Bahamas?",
+     "a": "About 700 residents, most of them at Bullock's Harbour and Great Harbour Cay, according to the Bahamas Out Islands Promotion Board.",
+     "source": "https://www.myoutislands.com/bahamas-islands/berry-islands/about",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What hotels are in the Berry Islands, Bahamas?",
+     "a": "Three were sourced for this build: Chub Cay Resort & Marina (Clubhouse Suites, Beach Cabanas and Private Villas - a private club where \"the rest of the island is members-only\"), Soul Fly Lodge, an all-inclusive fly-fishing lodge of up to 6 rooms at Great Harbour Cay, and Carriearl Boutique Hotel with four ensuite bedrooms. This answer quotes Soul Fly's own page: \"guided fishing, lodging, all meals, beverages, airport transfers\".",
+     "source": "https://www.soulflylodge.com/rates",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the weather like in the Berry Islands?",
+     "a": "No Berry Islands climate table was read for this build. What NOAA states for the whole basin: \"The Atlantic hurricane season runs from June 1 to November 30.\" \"The peak of the Atlantic hurricane season is September 10, with most activity occurring between mid-August and mid-October.\"",
+     "source": "https://www.nhc.noaa.gov/climo/",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "The Berry Islands, Bahamas: Chub Cay, Great Harbour Cay & Bonefishing | TravelWell",
+    "meta_description": "About 30 cays: Great Harbour Cay's 7-mile beach and bonefish flats, Hoffman's Cay Blue Hole, Chub Cay billfishing, and flights from Fort Lauderdale and Nassau.",
+    "slug": "berry-islands-bahamas",
+    "primary_keyword": "Berry Islands Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Berry Islands Bahamas"
+   }
+  }
+ },
+ {
+  "id": "cat-island-bahamas",
+  "region_code": "11C",
+  "name": "Cat Island",
+  "country": "Bahamas",
+  "line": "Mt. Alvernia and the Hermitage",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "pilgrimage",
+   "culture",
+   "tropical",
+   "ocean",
+   "diveglobal",
+   "yacht",
+   "hiking"
+  ],
+  "feel": [
+   "secluded",
+   "serene",
+   "remote",
+   "historic",
+   "coastal"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "The Hermitage on Mt. Alvernia",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/the-hermitage-on-mt-alvernia",
+     "accessed": "2026-10-03",
+     "si": [
+      "pilgrimage",
+      "culture",
+      "hiking"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "\"Mount Alvernia, also known locally as Como Hill, is the highest point in The Islands of The Bahamas at 206 feet (63 meters).\" Father Jerome (Monsignor John Hawes) \"built The Hermitage on the peak of Mt. Alvernia in 1939, a small medieval monastery\"; the way up is \"via a stone staircase on a steep rocky incline\" past \"hand-carved stone reliefs of the Stations of the Cross\", with a \"360-degree view\" from the top",
+     "commission_status": "none",
+     "booking_route": "none needed - the page names no fee or booking"
+    },
+    {
+     "name": "Annual Rake & Scrape Festival, Arthur's Town",
+     "source": "https://www.tourismtoday.com/events/cat-island-rake-and-scrape-festival",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "entertainment",
+      "family"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "2026 edition \"June 4-6, 2026\" at the Rake and Scrape Festival Site, Arthur's Town, during the Bahamas Labour Day weekend: local and national rake and scrape artists, a gospel concert, a battle of the bands, quadrille dancing, a children's corner and a market; proceeds fund scholarships for local high school graduates. The Ministry: details \"may change at any given time\"",
+     "commission_status": "none",
+     "booking_route": "none seen - the listing names no ticketing; contact bbastian@bahamas.com, (242) 302-2000"
+    },
+    {
+     "name": "Port Howe rose-coloured beach",
+     "source": "https://www.bahamas.com/islands/cat-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "the Ministry: \"lay claim to a rose-colored stretch near Port Howe\"; the island has \"an eight-mile pink sand beach\" (the page does not say whether the two are the same stretch)",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Old Bight Beach",
+     "source": "https://www.bahamas.com/islands/cat-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 4,
+     "blurb": "the Ministry: \"Choose between the white sands of Old Bight Beach\"; Rollezz Villas, which sits on it, calls it \"one of the longest uninterrupted sandy beaches in The Bahamas\"",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beach"
+    },
+    {
+     "name": "Cat Island Regatta, New Bight",
+     "source": "https://www.tourismtoday.com/events/cat-island-regatta-1",
+     "accessed": "2026-10-03",
+     "si": [
+      "sailing",
+      "culture",
+      "spectator"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "2026 edition \"Jul 30 - Aug 2, 2026\" at the \"Regatta Site, Cultural Village, New Bight\": sailing competitions, local arts and crafts, native food and rake 'n' scrape music. Contact Mr. William Seymour, 242-557-1640. The Ministry: details \"may change at any given time\"",
+     "commission_status": "none",
+     "booking_route": "none seen - the listing names no ticketing"
+    },
+    {
+     "name": "Fernandez Bay Village",
+     "source": "https://www.fernandezbayvillage.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "romance",
+      "ocean",
+      "sailing"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 6,
+     "blurb": "villas and cottages on a \"mile long stretch of white sand beach\" off The Queens Highway, with restaurant and tiki bar; kayaks and paddleboards, 13' whaler rentals and a \"snorkel friendly blue hole\", mangrove eco tours, fishing charters, a \"seasonal catamaran tour\" and island tours to The Hermitage. Offers \"15% discount for all private and commercial airline pilots\" (code PILOT)",
+     "commission_status": "unknown",
+     "booking_route": "own website booking (innRoad engine, fernandezbayvillage.client.innroad.com); phone +1 (954) 518-4500; WhatsApp 1 (242) 808-5711"
+    },
+    {
+     "name": "Hawk's Nest Resort & Marina",
+     "source": "https://www.hawks-nest.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "yacht",
+      "tropical"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "activities",
+      "eat"
+     ],
+     "draw_rank": 7,
+     "blurb": "\"a private pilot and fisherman's paradise\" at the island's south end, with an airstrip \"a few hundred feet from the hotel/restaurant/bar\", lodging, fishing charters and tournaments, shark feeding, kayaks and SUP; vessels sit \"100 yards from a 800ft drop off\"",
+     "commission_status": "unknown",
+     "booking_route": "phone 1-242-342-7050 or 1-954-376-3865; reservation forms on the site's contact page"
+    },
+    {
+     "name": "Greenwood Beach Resort - diving and kitesurfing",
+     "source": "https://www.greenwoodbeachresort.com/activities",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "adventure",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "\"A boutique beachfront retreat on Cat Island\" at 1 Ocean Drive (Port Howe area); scuba courses and rentals, seasonal \"Oceanic white tip shark diving\", kitesurfing courses and rental, and a snorkel trip to \"the island's only sea-accessible bat cave reachable exclusively by boat\"",
+     "commission_status": "unknown",
+     "booking_route": "WhatsApp +1 242 808 1846; info@greenwoodbeachresort.com"
+    },
+    {
+     "name": "Greenwood Beach Resort",
+     "source": "https://www.greenwoodbeachresort.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "tropical"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 9,
+     "blurb": "the rooms behind the dive and kite programme: Executive King and Executive Family rooms, with breakfast, lunch and dinner served beachfront",
+     "commission_status": "unknown",
+     "booking_route": "own website booking (direct-book.com/properties/greenwoodbeachresort); WhatsApp +1 242 808 1846"
+    },
+    {
+     "name": "Shannas Cove",
+     "source": "https://www.shannascove.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "romance",
+      "tropical"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"Nature's Best-Kept Secret in the Bahamas\" at the northern tip of Cat Island: five bungalows (Dolphin, Seahorse, Lizard, Turtle, Parrot) of 32-40 square metres plus terraces; a restaurant serving \"an extensive breakfast followed by lunch and dinner\"; kayaking, boating and fishing",
+     "commission_status": "unknown",
+     "booking_route": "own website booking; phone +1 (242) 359-9668; shannascove@gmail.com"
+    },
+    {
+     "name": "Hawk's Nest Marina",
+     "source": "https://www.hawks-nest.com/marina",
+     "accessed": "2026-10-03",
+     "si": [
+      "yacht",
+      "ocean",
+      "sailing"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 11,
+     "blurb": "\"The 28-slip marina\" with \"7-foot draft at MLT\" and a basin of \"10 feet and deeper\", \"40,000-gallon diesel storage\", 50- and 100-amp pedestals, \"Two air-conditioned fish-cleaning houses\", and use of the resort's pool and clubhouse bar",
+     "commission_status": "unknown",
+     "booking_route": "phone 1-242-342-7050 or 1-954-376-3865"
+    },
+    {
+     "name": "Rollezz Villas Beach Resort",
+     "source": "https://rollezz.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family",
+      "romance"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "draw_rank": 12,
+     "blurb": "beachfront villas in Old Bight, \"approximately 4.3 miles from New Bight Airport\", on \"one of the longest uninterrupted sandy beaches in The Bahamas\"; published rates from $259/night (King with Kitchenette) to $550/night (3-bedroom Turtle House), \"subject to 10% VAT, 6.5% BOIPB, and 8% Hotel Tax\"",
+     "commission_status": "unknown",
+     "booking_route": "own website reservations; phone 242-557-0005; rollezzvillasbeachresort@gmail.com; air-inclusive packages through partner providers"
+    },
+    {
+     "name": "Pigeon Cay Beach Club",
+     "source": "https://www.pigeoncaybahamas.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "draw_rank": 13,
+     "blurb": "cottage rentals \"just three miles south of Bennetts Harbour\" with direct beach access; eight options from the Sea Studio (1-2 persons, $225/night) to the Big House (up to 6, $425/night), \"plus 10% government VAT and 6% resort levy\"",
+     "commission_status": "unknown",
+     "booking_route": "own website booking portal; phone (242) 354-5084; pcbclub@gmail.com"
+    },
+    {
+     "name": "St. Francis of Assisi Catholic Church, Old Bight",
+     "source": "https://myoutislands.com/bahamas-islands/cat-island/landmarks-attractions",
+     "accessed": "2026-10-03",
+     "si": [
+      "pilgrimage",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 14,
+     "blurb": "\"sits atop a ridge in the settlement of Old Bight\", a \"beautifully crafted legacy built by Father Jerome\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a parish church"
+    },
+    {
+     "name": "Arthur's Town, Sidney Poitier's boyhood island",
+     "source": "https://www.bahamas.com/islands/cat-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "motoring"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 15,
+     "blurb": "\"Arthur's Town is the capital of Cat Island and the birth place of Academy-Award-winning actor and diplomat, Sidney Poitier\"; \"Sir Sidney Poitier, grew up on Cat Island, just outside of Arthur's Town\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a settlement"
+    },
+    {
+     "name": "The Fish Fry, New Bight",
+     "source": "https://www.bahamas.com/islands/cat-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 16,
+     "blurb": "the Ministry: \"The Fish Fry, at New Bight, is a great place to start.\" Wikivoyage: \"a collection of food vendor stands selling fish and local snacks\"",
+     "commission_status": "none",
+     "booking_route": "none needed - walk-in vendor stands"
+    },
+    {
+     "name": "Deveaux House plantation ruins, Port Howe",
+     "source": "https://myoutislands.com/bahamas-islands/cat-island/landmarks-attractions",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "hiking"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 17,
+     "blurb": "\"ruins of the 18th-century plantation\" in the Port Howe area; \"In 1783, it was given to Colonel Andrew Deveaux\"",
+     "commission_status": "none",
+     "booking_route": "none named on the page"
+    },
+    {
+     "name": "The Bridge Inn, New Bight",
+     "source": "https://www.bahamas.com/hotels/the-bridge-inn",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "tropical",
+      "family"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 18,
+     "blurb": "\"a secluded, warm and friendly atmosphere\" for \"a nature-lover's vacation\": free airport shuttle, rental cars, complimentary bicycles, restaurant and bar; arranges bonefishing, deep-drop and sport fishing, scuba diving, nighttime crabbing and tours to The Hermitage, the bat caves and the Deveaux Plantation; \"a secluded mile-long beach, just a short walk away\"",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 342-3013, bridgeinncatisland@yahoo.com)"
+    },
+    {
+     "name": "Orange Creek Inn",
+     "source": "https://www.orangecreekinn.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "draw_rank": 19,
+     "blurb": "studios with kitchenettes \"Immediately north of Arthurs town\", an \"On-site convenience store\", airport pickup, car rental \"an average of $80 USD per day\" and bicycles $10/day",
+     "commission_status": "unknown",
+     "booking_route": "own website reservations or the bahamago.com portal; phone 1 242 354 4110; info@orangecreekinn.com"
+    },
+    {
+     "name": "Armbrister Plantation and the Boiling Hole",
+     "source": "https://myoutislands.com/bahamas-islands/cat-island/landmarks-attractions",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 20,
+     "blurb": "\"just south of the Hermitage\"; its \"Boiling Point\" or \"Boiling Hole\": \"Its tidal conditions cause burps of bubbles, which inspired the folklore of a sea monster\"",
+     "commission_status": "none",
+     "booking_route": "none named on the page"
+    },
+    {
+     "name": "Mermaid Hole, Bain Town",
+     "source": "https://myoutislands.com/bahamas-islands/cat-island/landmarks-attractions",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 21,
+     "blurb": "\"a 65-foot wide, 10-feet deep lake called Mermaid Hole. Many believe a mermaid lives amongst the 4-bed holes\"",
+     "commission_status": "none",
+     "booking_route": "none named on the page"
+    },
+    {
+     "name": "Griffin Bat Cave",
+     "source": "https://myoutislands.com/bahamas-islands/cat-island/landmarks-attractions",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "culture",
+      "wildlife"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 22,
+     "blurb": "near Dickie's Road; it \"was once a hideout for slaves\"",
+     "commission_status": "none",
+     "booking_route": "none named on the page"
+    },
+    {
+     "name": "Church of the Holy Redeemer, Freetown",
+     "source": "https://www.monsignorhawes.com/cat-island-the-bahamas/",
+     "accessed": "2026-10-03",
+     "si": [
+      "pilgrimage",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 23,
+     "blurb": "\"the largest church which was built by Hawes on Cat Island\", with architectural elements like his church at Mullewa, Western Australia",
+     "commission_status": "none",
+     "booking_route": "none needed - a church"
+    },
+    {
+     "name": "Our Lady of Sion, Port Howe",
+     "source": "https://www.monsignorhawes.com/cat-island-the-bahamas/",
+     "accessed": "2026-10-03",
+     "si": [
+      "pilgrimage",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 24,
+     "blurb": "a Father Jerome church at Port Howe, modified by a later priest and \"restored to Hawes' design and decor\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a church"
+    },
+    {
+     "name": "Big Blue Hole, Orange Creek",
+     "source": "https://myoutislands.com/bahamas-islands/cat-island/landmarks-attractions",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 25,
+     "blurb": "\"near Orange Creek and just off Dickies Road\"; the \"deep blue hole has strong undersea currents\" and local lore says it \"devours horses\"",
+     "commission_status": "none",
+     "booking_route": "none named on the page"
+    },
+    {
+     "name": "Reynold Butler, bonefishing guide",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "adventure"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 26,
+     "blurb": "listed by Marlin's Cat Island guide under bonefishing guides and boat rentals, 242.464.6022; the Ministry: \"the elusive bonefish in Cat Island's creeks and flats\"",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.464.6022)"
+    },
+    {
+     "name": "Ricky Dean Fishing and Dive Charter",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "diveglobal"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 27,
+     "blurb": "listed by Marlin's Cat Island guide among fishing charters, 242.354.4218; Marlin: fishing year-round, half and full-day charters plus wade fishing",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.354.4218)"
+    },
+    {
+     "name": "Cappum Small Fishing Guide Service",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 28,
+     "blurb": "listed by Marlin's Cat Island guide among fishing charters, 242.354.4052",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.354.4052)"
+    },
+    {
+     "name": "Top Cat's Fishing Service",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 29,
+     "blurb": "listed by Marlin's Cat Island guide among fishing charters, 242.554.7100",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.554.7100)"
+    },
+    {
+     "name": "Bahamas Sailing Catamaran Charters",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "sailing",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 30,
+     "blurb": "listed by Marlin's Cat Island guide under boat rentals and charters, 242.342.5155",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.342.5155)"
+    },
+    {
+     "name": "Da Smoke Pot, near Arthur's Town",
+     "source": "https://en.wikivoyage.org/wiki/Cat_Island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 31,
+     "blurb": "Wikivoyage: \"a favorite hang for locals and visitors alike. Delicious fried fish, conch, fries, and local beer\"",
+     "commission_status": "unknown",
+     "booking_route": "none seen - walk-in"
+    },
+    {
+     "name": "Yardie's Restaurant, Bar & Conch, Bennett's Harbour",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 32,
+     "blurb": "listed by Marlin's Cat Island guide under selected dining, 242.354.6076",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.354.6076)"
+    },
+    {
+     "name": "Ann's & Dex's Place @ Hallover Restaurant & Bar",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 33,
+     "blurb": "listed by Marlin's Cat Island guide under selected dining, 242.342.2028",
+     "commission_status": "unknown",
+     "booking_route": "phone only (242.342.2028)"
+    },
+    {
+     "name": "Makers Air - Fort Lauderdale to Cat Island",
+     "source": "https://makersair.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "privatejet"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly"
+     ],
+     "draw_rank": 34,
+     "blurb": "the Ministry lists Makers Air \"Ft. Lauderdale, FL (FXE) | New Bight, Cat Island (TBI) | Daily (November 1, 2025)\"; its own site sells New Bight and Arthur's Town flights by seat (\"Book A Seat\") or charter (\"Book A Plane\")",
+     "commission_status": "unknown",
+     "booking_route": "own website booking (Book A Seat / Book A Plane)"
+    },
+    {
+     "name": "Western Air - Nassau to Cat Island",
+     "source": "https://www.westernairbahamas.com/",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly"
+     ],
+     "draw_rank": 35,
+     "blurb": "Western Air calls Cat Island \"the perfect escape\" with \"a breathtaking 8-mile stretch of an untouched pink sand beach\"; the Ministry lists it daily Nassau to Arthur's Town (ATC) and Nassau to New Bight (TBI). Cat Island office (242) 342-3111",
+     "commission_status": "unknown",
+     "booking_route": "own website booking (westernair.flythebahamas.com)"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to Cat Island, Bahamas from Nassau?",
+     "a": "By air. The Ministry of Tourism lists Western Air flying \"Nassau, Nassau & Paradise Island (NAS) | Arthur's Town, Cat Island (ATC) | Daily\" and \"Nassau, Nassau & Paradise Island (NAS) | New Bight, Cat Island (TBI) | Daily\", with daily return legs.",
+     "source": "https://www.bahamas.com/getting-here/flying",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How do I get to Cat Island, Bahamas from Florida?",
+     "a": "Makers Air flies from Fort Lauderdale Executive Airport (FXE). Daily service to New Bight (TBI) began on 1 November 2025, and service to Arthur's Town (ATC) began on May 12, 2026 on a \"Tuesday and Thursday schedule\". When New Bight is temporarily closed, \"operations will seamlessly transition to Arthur's Town\".",
+     "source": "https://www.bahamas.com/pressroom/makers-air-announces-new-scheduled-service-to-arthurs-town-cat-island-beginning-may-12-2026",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Cat Island, Bahamas known for?",
+     "a": "In the Ministry of Tourism's words, it is \"Anchored by Mt. Alvernia, The Bahamas' highest point\", and \"perfect for diving, kiteboarding, and meandering along miles of rolling hills, nature trails, and an eight-mile pink sand beach.\" It is the home of rake 'n' scrape music (\"Every June the Annual Rake & Scrape Festival celebrates the heritage of music\"), and \"Sir Sidney Poitier, grew up on Cat Island, just outside of Arthur's Town.\"",
+     "source": "https://www.bahamas.com/islands/cat-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "When is the best time to visit Cat Island, Bahamas?",
+     "a": "No page read names a best season for Cat Island. What is published: \"The Atlantic hurricane season runs from June 1 to November 30\", with its peak on September 10 and \"most activity occurring between mid-August and mid-October\" (NOAA). The island's two big dated events in 2026 were the Rake & Scrape Festival in Arthur's Town (June 4-6) and the Cat Island Regatta in New Bight (Jul 30 - Aug 2), per the Ministry of Tourism's event listings.",
+     "source": "https://www.nhc.noaa.gov/climo/",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where should I stay on Cat Island, Bahamas?",
+     "a": "Marlin's Cat Island guide lists, among others, Apple Tree Inn in Arthur's Town, Fernandez Bay Village at Fernandez Bay, Hawk's Nest Resort & Marina, Ocean Dream Beach Resort and Shannas Cove at Orange Creek; it also lists Greenwood Beach Resort and Pigeon Cay Beach Club for charters. All are independent, small properties.",
+     "source": "https://www.marlinmag.com/cat-island-destination-guide/",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How long is Cat Island, Bahamas?",
+     "a": "About fifty miles. The Ministry of Tourism: \"Fifty miles is all Cat Island needs to leave an unforgettable impression.\"",
+     "source": "https://www.bahamas.com/islands/cat-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the Cat Island, Bahamas airport code?",
+     "a": "There are two airports: Arthur's Town Airport (ATC), which \"serves the northern end of Cat Island\", and New Bight Airport (TBI), \"located near Mt. Alvernia\".",
+     "source": "https://www.bahamas.com/islands/cat-island/getting-to-cat-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What should I know about New Bight Airport on Cat Island, Bahamas?",
+     "a": "The Ministry of Tourism: \"Cat Island's New Bight Airport, located near Mt. Alvernia, welcomes international travellers with Customs and Immigration services.\" Its code is TBI.",
+     "source": "https://www.bahamas.com/islands/cat-island/getting-to-cat-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the Cat Island, Bahamas currency compared with the US dollar?",
+     "a": "\"The Bahamian dollar is maintained at the same level as the U.S. dollar and both are accepted interchangeably on all islands.\"",
+     "source": "https://www.bahamas.com/faq",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What time is it on Cat Island, Bahamas?",
+     "a": "\"The Bahamas falls in the Eastern Time Zone, and follows Daylight Saving Time.\"",
+     "source": "https://www.bahamas.com/faq",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "Cat Island, Bahamas: The Hermitage, Rake & Scrape, Bonefishing & Where to Stay | TravelWell",
+    "meta_description": "Mt. Alvernia and Father Jerome's Hermitage, the June Rake & Scrape Festival, pink sand near Port Howe, bonefishing, and beach inns across Cat Island.",
+    "slug": "cat-island-bahamas",
+    "primary_keyword": "Cat Island Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Cat Island Bahamas Mount Alvernia"
+   }
+  }
+ },
+ {
+  "id": "inagua-bahamas",
+  "region_code": "11C",
+  "name": "Inagua",
+  "country": "Bahamas",
+  "line": "Inagua's West Indian Flamingos",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "wildlife",
+   "ocean",
+   "adventure"
+  ],
+  "feel": [
+   "remote",
+   "wild",
+   "secluded",
+   "rugged"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "Inagua National Park",
+     "source": "https://bnt.bs/parks/inagua-national-park/",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "adventure",
+      "expedition"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "Established in 1965 and covering 287 square miles, the park is \"the site of the largest breeding colony of West Indian Flamingos in the world\", numbering \"approximately 70,000\", with the Bahama parrot, the endemic Inagua Woodstar, wild donkeys and freshwater terrapins; a Ramsar Wetland of International Importance. Visits are confirmed in advance with the BNT Inagua or Nassau office, and \"Pre-payment to a BNT Office confirms your reservation.\"",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only - BNT Nassau office +1 (242) 393-1317; Inagua: Henry Nixon, Senior BNT Park Warden +1 (242) 464-7618 (BNT visitor sheet)"
+    },
+    {
+     "name": "Great Inagua Lighthouse",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/great-inagua-lighthouse",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "adventure"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "On Mortimers Hill, Matthew Town: \"113 feet (34.44 meters)\" tall with \"visibility to 17 miles (27.35 kilometers)\"; once \"one of only three kerosene burning lighthouses in The Bahamas, but it is now automated\"; \"A climb up the lighthouse offers amazing panoramic views of nearby Matthew Town and its environs.\" The island page dates it to 1870 and adds views of \"Inagua and Cuba to the southwest\" on clear days",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only - (242) 339-1271, palacious44@hotmail.com (bahamas.com listing); no fee or hours published"
+    },
+    {
+     "name": "Little Inagua National Park",
+     "source": "https://bnt.bs/parks/little-inagua-national-park/",
+     "accessed": "2026-10-03",
+     "si": [
+      "expedition",
+      "wildlife",
+      "ocean"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "\"62,800 - acre national park\", est. 2002, \"Only accessible by boat\", \"Remote, inaccessible and with no freshwater\", \"a no-take zone\" with \"little to no infrastructure or trail systems\"; \"a documented nesting location for critically endangered sea turtle species.\" The Ministry: \"the largest uninhabited cay in the Caribbean\"",
+     "commission_status": "unknown",
+     "booking_route": "none observed - BNT gives only its general contact page (bnt.bs/contact-us/); no boat operator named"
+    },
+    {
+     "name": "Tara Lindo, Certified Advanced Bird Guide",
+     "source": "https://www.bahamas.com/vendor/tara-lindo",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 4,
+     "blurb": "A \"Certified Advanced Bird Guide\" and Physical Education Teacher at the Inagua All Age School, guiding part-time on Great Inagua for American Flamingos, the endemic Inagua Woodstar and over 120 bird species",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only - (242) 453-0158, lilninebig10@hotmail.com; the listing also names bahamago.com/tour; no prices published"
+    },
+    {
+     "name": "Great Inagua Tours (Colin Ingraham)",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/great-inagua-tours",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "ocean"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "\"tour guide for over twenty years, specializing in birding and island tours\"; the island tour takes in the National Park for flamingos and wild donkeys, caves, the Morton Salt facility, the lighthouse and the museum; he also offers \"trawling for deepsea fish like tuna and wahoo, or snorkeling on the reefs\"; Burnside Street, Matthew Town",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only - (242) 339-1336, greatinaguatours@hotmail.com"
+    },
+    {
+     "name": "Snook and bonefish flats",
+     "source": "https://www.bahamas.com/island/inagua",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "sports"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 6,
+     "blurb": "\"Inagua is the only island in The Bahamas known for its snook fishing\" (bahamas.com/islands/inagua); the Ministry's island page also lists bonefish flats. No fishing guide is named on either page",
+     "commission_status": "unknown",
+     "booking_route": "none observed - no fishing operator named on the Ministry pages read"
+    },
+    {
+     "name": "Henry Nixon, Senior BNT Park Warden",
+     "source": "https://bnt.bs/storage/2020/01/Inagua-National-Park-Travel-Info.pdf",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 7,
+     "blurb": "The BNT's senior park warden, descendant of Sam Nixon (first flamingo warden, 1952) and Jimmy Nixon; the Trust's Inagua contact for park visits, at +1 (242) 464-7618. Rates \"include Park user fees and the BNT Warden's time\" and do not include vehicle rental, fuel or the optional warden gratuity",
+     "commission_status": "unknown",
+     "booking_route": "phone only - +1 (242) 464-7618; pre-payment to a BNT office confirms the reservation"
+    },
+    {
+     "name": "Morton Salt saltworks",
+     "source": "https://bnt.bs/blog/a-collaborative-approach-to-protect-inaguas-flamingos/",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "wildlife"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "Morton Salt Bahamas has \"supported the BNT and flamingo conservation for decades\"; its saltpans give flamingos feeding habitat through naturally occurring brine shrimp, and it provides \"office space and maintain[s] vital access roads to the park\". The Morton Salt facility is a stop on Great Inagua Tours' island tour",
+     "commission_status": "unknown",
+     "booking_route": "none observed - no visitor programme published; seen as a stop on a guided island tour (Great Inagua Tours)"
+    },
+    {
+     "name": "Union Creek Reserve",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/union-creek-reserve",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 9,
+     "blurb": "\"4,940 acres (seven square miles)\" of mangroves and an enclosed tidal creek on the northwestern shore, habitat for young Green Turtles, studied since 1974 by the BNT and the Archie Carr Center for Sea Turtle Research at the University of Florida. \"It is not open to the public so as to protect the habitat where turtles lay their eggs.\" (The BNT's 2026 draft management plan measures it at approximately 6,150 acres.)",
+     "commission_status": "none",
+     "booking_route": "none - not open to the public"
+    },
+    {
+     "name": "Malley Suites",
+     "source": "https://www.bahamas.com/hotels/malley-suites",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"Malley Suites opened in 2012 to help meet the demands of short-term visitors to Inagua\"; three one-bedroom apartments with full kitchens and one with a kitchenette, on Meadow Street, Matthew Town; \"Free WiFi, air-conditioning, a standby backup generator, and laundry facilities are also available.\"",
+     "commission_status": "unknown",
+     "booking_route": "email only - Mr. Ransford Malcolm, ransfordmalcolm6@gmail.com (the listing's phone number is incomplete); no website or rate"
+    },
+    {
+     "name": "Lighthouse Restaurant Bar and Grill",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/lighthouse-restaurant-bar-and-grill",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 11,
+     "blurb": "On Lighthouse Rd, Matthew Town: \"octagon in its shape with clear views of the historical Lighthouse, the ocean and sunset\"; Chef Jacquleen A. Francis, \"a certified Culinarian from the University of the Bahamas\", cooks \"Bahamian cuisine as well as exotic dishes\"; open \"8:00 am to 11:00 pm\"; reservations welcome",
+     "commission_status": "unknown",
+     "booking_route": "walk-in; reservations welcome but no phone or email is published on the listing"
+    },
+    {
+     "name": "Matthew Town",
+     "source": "https://www.bahamas.com/blog/inagua-a-bird-lovers-paradise",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 12,
+     "blurb": "\"The only settlement on Great Inagua, Matthew Town, was once a bustling cosmopolitan city. Today, it's considerably quieter, but its robust salt industry dates back centuries.\" Home of the airport, the lighthouse, the BNT's Inagua contact and the island's one bank",
+     "commission_status": "none",
+     "booking_route": "none needed - public settlement"
+    },
+    {
+     "name": "Casper Burrows, local guide",
+     "source": "https://caribbeanbirdingtrail.org/?p=2925",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 13,
+     "blurb": "Named by the Caribbean Birding Trail as a local guide on Great Inagua, at 242-395-0856, alongside BNT warden Henry Nixon. No own page was found",
+     "commission_status": "unknown",
+     "booking_route": "phone only - 242-395-0856 (as listed by the Caribbean Birding Trail)"
+    },
+    {
+     "name": "Brenville Suites",
+     "source": "https://caribbeanbirdingtrail.org/?p=2925",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "draw_rank": 14,
+     "blurb": "Listed by the Caribbean Birding Trail as lodging near the airport, 242-339-1004. No own page was found",
+     "commission_status": "unknown",
+     "booking_route": "phone only - 242-339-1004 (as listed by the Caribbean Birding Trail)"
+    },
+    {
+     "name": "Morton House",
+     "source": "https://caribbeanbirdingtrail.org/?p=2925",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay"
+     ],
+     "draw_rank": 15,
+     "blurb": "Listed by the Caribbean Birding Trail as lodging \"run by Morton Salt Company\". No own page, contact or rate was found",
+     "commission_status": "unknown",
+     "booking_route": "none observed - no contact published on the page read"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to Inagua island?",
+     "a": "By air or by mail boat. The Ministry of Tourism: \"Bahamasair operates flights between Nassau and IGA with a layover in Mayaguana ~ 1 hour and 30 minutes\", and \"Weekly mail boat service runs between Nassau and Inagua, with a travel time 36 hours\". On the island, rental cars are named as the best option.",
+     "source": "https://www.bahamas.com/islands/inagua/getting-to-inagua",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Inagua National Park?",
+     "a": "A Bahamas National Trust park on Great Inagua, established in 1965 and covering 287 square miles. It is \"the site of the largest breeding colony of West Indian Flamingos in the world\", is a Ramsar Wetland of International Importance and an Important Bird Area, and is home to the Bahama parrot, the endemic Inagua Woodstar, wild donkeys and freshwater terrapins.",
+     "source": "https://bnt.bs/parks/inagua-national-park/",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Are there flamingos on Inagua, Bahamas?",
+     "a": "Yes, at every time of year. The Bahamas National Trust: \"The best time to visit Inagua is from November to June. However, any time you plan to go, you will still see flamingos and other wildlife. During the breeding season (March-May), there are masses of flamingos.\" Park visits are confirmed in advance with the BNT, and \"Pre-payment to a BNT Office confirms your reservation.\"",
+     "source": "https://bnt.bs/storage/2020/01/Inagua-National-Park-Travel-Info.pdf",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where can I stay in Inagua, Bahamas?",
+     "a": "The Ministry of Tourism lists Malley Suites on Meadow Street, Matthew Town, which \"opened in 2012 to help meet the demands of short-term visitors to Inagua\", with three one-bedroom apartments with full kitchens and one with a kitchenette, booked by email to Mr. Ransford Malcolm. No rate is published.",
+     "source": "https://www.bahamas.com/hotels/malley-suites",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is there to do in Inagua, Bahamas?",
+     "a": "The Ministry of Tourism points to the flamingos and over 140 bird species, the Great Inagua Lighthouse in Matthew Town (climb it for \"panoramic views of Inagua and Cuba to the southwest\" on a clear day), Union Creek Reserve's turtle research, Little Inagua by boat, snook fishing and bonefish flats.",
+     "source": "https://www.bahamas.com/island/inagua",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where is Inagua located in the Bahamas?",
+     "a": "At the very south. The Ministry of Tourism calls it \"The southernmost island in The Bahamas\" and \"The third largest island in The Bahamas, Great Inagua stretches 20 miles long\"; its neighbour Little Inagua is \"the largest uninhabited cay in the Caribbean\".",
+     "source": "https://www.bahamas.com/islands/inagua",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the airport at Matthew Town, Inagua?",
+     "a": "Inagua International Airport (IGA) in Matthew Town. The Ministry of Tourism: \"Great Inagua is most commonly reached through Great Inagua Airport\" and \"Located in Inagua's Matthew Town, Inagua International Airport services domestic routes\".",
+     "source": "https://www.bahamas.com/islands/inagua",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the Inagua woodstar?",
+     "a": "A hummingbird found on Inagua. The Ministry of Tourism: \"In 2015 they were classified as an entirely different species; now they are known as the Inagua woodstar.\" Certified birding guides in Matthew Town lead tours to see it.",
+     "source": "https://www.bahamas.com/blog/inagua-a-bird-lovers-paradise",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Is Great Inagua inhabited?",
+     "a": "Yes, at one settlement. The Ministry of Tourism: \"The only settlement on Great Inagua, Matthew Town, was once a bustling cosmopolitan city. Today, it's considerably quieter, but its robust salt industry dates back centuries.\"",
+     "source": "https://www.bahamas.com/blog/inagua-a-bird-lovers-paradise",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Morton Salt on Inagua, Bahamas?",
+     "a": "The Bahamas National Trust says Morton Salt Bahamas has \"supported the BNT and flamingo conservation for decades\": its saltpans give flamingos feeding habitat through naturally occurring brine shrimp, and it provides office space and maintains access roads to the park.",
+     "source": "https://bnt.bs/blog/a-collaborative-approach-to-protect-inaguas-flamingos/",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "Inagua, Bahamas: Flamingos, Inagua National Park, Lighthouse & Where to Stay | TravelWell",
+    "meta_description": "Inagua National Park's flamingo colony, the Inagua woodstar, the 1870 lighthouse, snook fishing and bird guides on the southernmost island of The Bahamas.",
+    "slug": "inagua-bahamas",
+    "primary_keyword": "Inagua Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Inagua National Park flamingos Bahamas"
+   }
+  }
+ },
+ {
+  "id": "mayaguana-bahamas",
+  "region_code": "11C",
+  "name": "Mayaguana",
+  "country": "Bahamas",
+  "line": "The easternmost island of The Bahamas",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "wildlife",
+   "diveglobal",
+   "tropical",
+   "adventure"
+  ],
+  "feel": [
+   "secluded",
+   "remote",
+   "coastal",
+   "wild"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "Booby Cay",
+     "source": "https://www.bahamas.com/natural-wonders/booby-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "expedition",
+      "tropical"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "\"Located east of mainland Mayaguana, Booby Cay gets its name from the flock of brown boobies that call it home. It's also the natural habitat for small endemic rock iguanas, and descendants of wild goats left behind by early settlers.\" The Ministry page gives the Administrator's Office, (242) 339-3100, and states no boat access or operator.",
+     "commission_status": "none",
+     "booking_route": "none needed for the place itself - the Ministry page names no boat or operator; Administrator's Office (242) 339-3100"
+    },
+    {
+     "name": "Mayaguana's offshore reefs, walls and drop-offs",
+     "source": "https://www.bahamas.com/islands/mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "ocean",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "\"The underwater world that surrounds Mayaguana is as healthy and untouched as you might expect. Dive offshore reefs in the 45-60 ft range, breathtaking walls and drop-offs, even a cave system.\" No dive shop is named on the Ministry page.",
+     "commission_status": "none",
+     "booking_route": "none needed for the reefs themselves - no dive operator is named on the Ministry page"
+    },
+    {
+     "name": "Horse Pond Beach",
+     "source": "https://www.bahamas.com/islands/mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "\"Located 10 miles east of Abraham's Bay, Horse Pond Beach is known to locals as an excellent spot for crabbing - hunting for land crabs hiding in crevices of limestone rocks.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a beach"
+    },
+    {
+     "name": "Mayaguana Baycaner Beach Resort",
+     "source": "https://www.bahamas.com/hotels/baycaner-beach-resort",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "diveglobal",
+      "adventure"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 4,
+     "blurb": "The Ministry of Tourism listing, in the hotel's words: \"Our 16-room hotel is located in a corner of a quiet beach, and your room is just steps away from it. The atmosphere is very laidback, but we do quite a bit of fly fishing, scuba diving, and snorkeling here.\" Baycaner Avenue (Pirate's Well per the Caribbean Birding Trail, run by Earnel 'Shorty' Brown); listed amenities include Bar & Lounge, Fishing Guide, Handicap Accessible, On the Beach, Restaurant, WiFi. The two websites tied to it did not serve the hotel on 2026-10-03: baycanerbeach.com now carries an unrelated gambling page and baycanerbeachresort.com returned an expired certificate.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only - (242) 339-3726, baycanerbeach@gmail.com (Ministry listing); no working booking engine found"
+    },
+    {
+     "name": "Flats fly fishing for bonefish, permit and tarpon",
+     "source": "https://www.islands.com/1572832/underrated-island-mayaguana-bahamas-pristine-beauty-secluded-beaches/",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean",
+      "tropical"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "The Ministry frames the island as \"A Pirate Stronghold Turned Prized Fishing Spot\" (bahamas.com); Islands.com (May 4, 2024) lists \"Fly fishing for bonefish, permit, and tarpon\" along with lure fishing and spearfishing; the Baycaner's Ministry listing names a \"Fishing Guide\" among its amenities. No independent fishing guide or lodge on Mayaguana was found on a page read.",
+     "commission_status": "unknown",
+     "booking_route": "through the Baycaner's fishing guide, phone/email only - (242) 339-3726 (Ministry listing)"
+    },
+    {
+     "name": "Blackwood Point flamingo colony",
+     "source": "https://caribbeanbirdingtrail.org/sites/bahamas/mayaguana/",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "expedition"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 6,
+     "blurb": "The Caribbean Birding Trail names \"Blackwood Point\" east of Pirate's Well for its flamingo colony, and lists the American Flamingo among the island's Bahamian specialties, with the endemic Bahama Woodstar. It says plainly: \"no guides available\".",
+     "commission_status": "none",
+     "booking_route": "none needed - a natural site; no guide is offered (Caribbean Birding Trail)"
+    },
+    {
+     "name": "Betsy Bay, Abraham's Bay and Pirate's Well homecoming festivals",
+     "source": "https://www.bahamas.com/islands/mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "culinary"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities",
+      "eat"
+     ],
+     "draw_rank": 7,
+     "blurb": "\"Try land crabs served with grits, rice, or dumplings, fish salad, boiled conch, and more at the Betsy Bay, Abraham's Bay, and the Pirate's Well homecoming festivals.\" No dated edition of any of the three was found on a page read.",
+     "commission_status": "none",
+     "booking_route": "none needed - community festivals; no ticketing seen"
+    },
+    {
+     "name": "Curtis Creek",
+     "source": "https://caribbeanbirdingtrail.org/sites/bahamas/mayaguana/",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "adventure",
+      "ocean"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "On the north shore, with \"tidal flats\" named as a birding site by the Caribbean Birding Trail; Wikivoyage lists \"Curtis Creek mangrove paddling and snorkeling\", and Islands.com says canoes rent \"for around $25 at the resort\" (the Baycaner).",
+     "commission_status": "none",
+     "booking_route": "none needed for the creek - canoe hire through the Baycaner per Islands.com, phone/email (242) 339-3726"
+    },
+    {
+     "name": "Beach picnics and shore snorkelling",
+     "source": "https://www.bahamas.com/islands/mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family",
+      "ocean"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 9,
+     "blurb": "\"The stretches of picturesque beaches on Mayaguana are perfect for picnicking, sunbathing, shelling, and strolling. With unbelievable aquamarine water, you can snorkel just offshore to see coral heads, sand dollars, and starfish.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public beaches"
+    },
+    {
+     "name": "Paradise Villas, Abraham's Bay",
+     "source": "https://en.wikivoyage.org/wiki/Mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "adventure"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 10,
+     "blurb": "Wikivoyage: \"Simple air-conditioned rooms with restaurant\" in Abraham's Bay, +1 242 339-3065, and \"Dootch offers reef and fishing excursions\". No own website or Ministry listing was found, so this rests on a guide site.",
+     "commission_status": "unknown",
+     "booking_route": "phone only - +1 242 339-3065 (Wikivoyage)"
+    },
+    {
+     "name": "Island tours with Glen and \"Zoom\" (Floyd Farrington)",
+     "source": "https://en.wikivoyage.org/wiki/Mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "adventure"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities",
+      "move"
+     ],
+     "draw_rank": 11,
+     "blurb": "Wikivoyage lists \"Island tours with Glen and 'Zoom' (Floyd Farrington): 1(242)439-4171\", and notes locals provide transport for USD $20-40 a day. No own page found.",
+     "commission_status": "unknown",
+     "booking_route": "phone only - 1 (242) 439-4171 (Wikivoyage)"
+    },
+    {
+     "name": "Velva and Elvin's place, Pirate's Well",
+     "source": "https://en.wikivoyage.org/wiki/Mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 12,
+     "blurb": "Wikivoyage's one drinking listing: \"Velva and Elvin's place in Pirates Well: 1(242)339-3068\". It describes island food as fresh fish, conch and lobster with rice, beans and locally grown watermelon and sweet potatoes. No own page found.",
+     "commission_status": "unknown",
+     "booking_route": "phone only - 1 (242) 339-3068 (Wikivoyage)"
+    },
+    {
+     "name": "Saturday airport parties",
+     "source": "https://en.wikivoyage.org/wiki/Mayaguana",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "entertainment"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 13,
+     "blurb": "Wikivoyage lists \"Weekly Saturday airport parties featuring local food and reggae\". Not confirmed on any other page read, and written before the new terminal opened on February 27, 2026.",
+     "commission_status": "none",
+     "booking_route": "none needed - a community gathering"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to Mayaguana?",
+     "a": "By air on Bahamasair from Nassau. Its booking engine lists the Nassau (NAS) - Mayaguana (MYG) route; for the week of October 4-10, 2026 it showed one flight, UP-425 on Monday October 5, departing Nassau 9:30 AM and arriving 12:15 PM with \"1 Stop\". Check the carrier for your own dates.",
+     "source": "https://book.bahamasair.com/ibe/availability?tripType=ONE_WAY&language=en&dateFormat=dd/MM/yyyy&depPort=NAS&arrPort=MYG&adult=1&child=0&infant=0&currency=USD&departureDate=05%20Oct%202026",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Mayaguana's airport code?",
+     "a": "MYG. The Ministry of Tourism: Mayaguana Airport (MYG), \"Located near Abraham's Bay, it is the only airport serving the island with regularly scheduled service to Nassau.\"",
+     "source": "https://www.bahamas.com/islands/mayaguana",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Does Mayaguana have a new airport?",
+     "a": "A new terminal. The Tribune reported (March 2, 2026) that the Prime Minister opened a $2.1 million terminal on February 27, 2026: \"just under 3,200 square feet\", fully air-conditioned, with ticketing, 30-passenger seating, baggage screening and a police station, on a 6,700-foot runway.",
+     "source": "http://www.tribune242.com/news/2026/mar/02/pm-opens-21m-mayaguana-airport-tied-to-2000-job-seaport-project",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the Mayaguana port project?",
+     "a": "A planned cruise and cargo port, in three phases: a temporary marine offloading facility and deep-water port, then a cruise ship terminal, then a deep-water transshipment port. It is owned by the Government of The Bahamas, the Mayaguana Island Development Fund and Global Lead Consultant Group Limited, operated by Mayaguana Port Group Ltd., and as of April 22, 2026 was \"expected to move into detailed planning in the coming months\". It is not built.",
+     "source": "https://www.caribjournal.com/2026/04/22/bahamas-new-cruise-port-mayaguana/",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where should I stay in Mayaguana, Bahamas?",
+     "a": "The one hotel listed by the Ministry of Tourism is the Mayaguana Baycaner Beach Resort on Baycaner Avenue: \"Our 16-room hotel is located in a corner of a quiet beach, and your room is just steps away from it.\" It books by phone, (242) 339-3726, or baycanerbeach@gmail.com.",
+     "source": "https://www.bahamas.com/hotels/baycaner-beach-resort",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Mayaguana known for?",
+     "a": "Solitude, fishing and reefs. The Ministry of Tourism calls it \"More isolated and less developed than any other island in The Bahamas\" and \"A Pirate Stronghold Turned Prized Fishing Spot\", and says \"Mayaguana is the only island in The Bahamas that conserves its original Arawak name.\"",
+     "source": "https://www.bahamas.com/islands/mayaguana",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How far is Mayaguana from Nassau?",
+     "a": "About 560 km (350 mi): Mayaguana is \"About 100 km (62 mi) north of Great Inagua and 560 km (350 mi) southeast of the capital Nassau\".",
+     "source": "https://en.wikipedia.org/wiki/Mayaguana",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How far is Mayaguana from Turks and Caicos?",
+     "a": "About 100 km (62 mi). Settlement began in 1812, \"when people began to migrate from the Turks and Caicos Islands, which are located about 100 km (62 mi) southeast.\"",
+     "source": "https://en.wikipedia.org/wiki/Mayaguana",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the population of Mayaguana?",
+     "a": "208 in the 2022 census, as given in the Wikipedia infobox (citing the Government's preliminary 2022 census results); the 2010 census counted 277.",
+     "source": "https://en.wikipedia.org/wiki/Mayaguana",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How big is Mayaguana?",
+     "a": "\"It has an area of about 280 km2 (110 sq mi)\", and it is \"the easternmost island and district of The Bahamas\".",
+     "source": "https://en.wikipedia.org/wiki/Mayaguana",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "Mayaguana, Bahamas: Booby Cay, Reefs, Beaches & Where to Stay | TravelWell",
+    "meta_description": "Mayaguana, the least developed Bahamas island: Booby Cay, offshore reefs and walls, Horse Pond Beach, homecoming festivals and the 16-room Baycaner.",
+    "slug": "mayaguana-bahamas",
+    "primary_keyword": "Mayaguana Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Mayaguana Bahamas"
+   }
+  }
+ },
+ {
+  "id": "ragged-island-bahamas",
+  "region_code": "11C",
+  "name": "Ragged Island",
+  "country": "Bahamas",
+  "line": "More bonefish than people",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "sports",
+   "expedition",
+   "sailing",
+   "culture",
+   "tropical"
+  ],
+  "feel": [
+   "remote",
+   "secluded",
+   "rugged",
+   "serene",
+   "coastal"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "Lost Key Lodge",
+     "source": "https://lostkeylodge.com/pricing-and-availability",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "expedition",
+      "adventure",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "activities",
+      "eat"
+     ],
+     "draw_rank": 1,
+     "blurb": "The island's fly-fishing lodge, \"Accommodating 4 anglers maximum\", fishing \"easily-waded white sand flats as well as hidden, unspoiled mangrove creeks\" for bonefish, permit and barracuda, plus tarpon and blue-water marlin, tuna, wahoo and sailfish. \"The cost for 7 nights 6 days of fishing is $4,995.00. This includes everything once you reach the airport at Lost Key Lodge\"; blue-water charters \"$400.00 per day per person\"; the Georgetown charter \"$850 per person round trip\" is extra. Fall 2026 and Spring 2027 weeks read Full; Fall 2027 weeks show open spaces. Fly Fisherman (23 May 2024) says it is co-owned by lifelong resident Phicol Wallace and opened in March 2021 (https://www.flyfisherman.com/editorial/ragged-island-fishing-jumentos-cays/498375, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only (530-941-8524, info@lostkeylodge.com)"
+    },
+    {
+     "name": "Ragged Island bonefish flats",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "ocean",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "\"The island is a haven for avid fishermen, with its unparalleled flats ideal for bonefishing.\" Beyond the flats: \"It's not uncommon to snag an abundance of grouper, snapper, barracuda, tuna, and kingfish during a one-day expedition on the water.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public flats; guided fishing through Lost Key Lodge or Alvin Munroe"
+    },
+    {
+     "name": "Alvin Munroe",
+     "source": "https://www.bahamas.com/vendor/alvin-munroe",
+     "accessed": "2026-10-03",
+     "si": [
+      "sports",
+      "wildlife",
+      "ocean"
+     ],
+     "commission": "guide",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "Fishing guide: \"As a lifelong fisherman and native of Ragged Island, I know all of the best places for whatever kind of catch you want.\" \"There is great bonefishing on the west side of the mainland and the cays\", trolling for mackerel and kingfish, bottom fishing for snappers and Margaret fish, and \"excursions to the cays for birding, picnicking or snorkeling\". \"Reservations are required at least one week in advance.\" The listing is undated; current operation was not confirmed on any other page.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 432-1825, Silver Tail Club, Charles Street, Duncan Town)"
+    },
+    {
+     "name": "Jumentos Cays",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "sailing",
+      "expedition",
+      "yacht",
+      "tropical"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 4,
+     "blurb": "\"The surrounding Jumentos Cays offer a ready-made island hopping itinerary for curious travellers. If you've dreamt of having a private beach, or even a private island, all you need is a boat.\" The chain of \"islets, cays, and rocks\" stretches \"over 100 miles\" and the cays are uninhabited.",
+     "commission_status": "none",
+     "booking_route": "none needed - open water; reached by own or chartered boat"
+    },
+    {
+     "name": "Hog Cay",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "sailing",
+      "wildlife",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "\"Just north of mainland Ragged Island lies Hog Cay. Its sandy shores are popular with Ragged Islanders, perfect for all-day picnics and celebrations\"; \"a great ecotourism destination that offers plenty of birdwatching opportunities, bonfires, and romantic picnic spots.\" \"Spend the day on the cay, and end it with a bonfire on the beach.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public cay reached by boat"
+    },
+    {
+     "name": "Valentine's Day Cook Out on Hog Cay",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities",
+      "eat"
+     ],
+     "draw_rank": 6,
+     "blurb": "bahamas.com calls it \"a famous annual Valentine's Day celebration\" on Hog Cay. The Bahamian Project names Maxine Wallace of Maxine Drug and Groceries as \"the founder and driving force behind the popular Valentine's Day Cook Out on Hog Cay\": \"The annual Cook Out is Maxine's way of saying thank you to the visitors, many of whom come back every year\" (https://www.bahamianproject.com/2024/08/exuma-ragged-island-mailboat/, accessed 2026-10-03). No dated edition was published by an organiser.",
+     "commission_status": "unknown",
+     "booking_route": "none observed - no organiser page or booking found"
+    },
+    {
+     "name": "Duncan Town",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 7,
+     "blurb": "\"One lighthouse, one harbour, and a salt pond that stretches the length of Duncan Town, Ragged Island's one and only settlement. Residents still harvest salt from their family plots.\" Ragged Islanders \"build boats, booms, and masts for sailing sloops, race boats in regattas, and fish\", and \"nearly every home is built to have a breathtaking view of the ocean.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public settlement"
+    },
+    {
+     "name": "Ragged Island Salt Ponds",
+     "source": "https://www.bahamas.com/vendor/ragged-island-salt-ponds",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "expedition"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "\"These salt ponds are remnants of the thriving salt industry that formerly existed on Ragged Island\", developed in the 19th century by Duncan Taylor and his brother Major Taylor from Long Island. Production continues at reduced levels: the government manages the largest reservoir and the rest are family plots; \"Rainwater settles in the ponds and salt forms as it evaporates\", raked by hand in the April-to-August harvest and sold locally or shipped to Nassau.",
+     "commission_status": "none",
+     "booking_route": "none needed - visible from the settlement; listing phone (242) 344-1508"
+    },
+    {
+     "name": "Duncan Town's shared church",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "pilgrimage"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 9,
+     "blurb": "\"Three Religions. One Roof.\" \"Because the population is so small, members of three different religious denominations gather at the same church on Sundays, to celebrate together.\" The page does not name the church.",
+     "commission_status": "none",
+     "booking_route": "none needed - a place of worship"
+    },
+    {
+     "name": "Pigeon Cay and the Bishop Churton memorial cross",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "pilgrimage",
+      "sailing"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"Pigeon Cay is visible off the coast of Ragged Island near Gun Point. Look for the memorial cross honoring Henry Norris Churton, Bishop of Nassau, who died at sea when his boat capsized in 1904.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - seen from the coast near Gun Point"
+    },
+    {
+     "name": "Hill Top View Bar",
+     "source": "https://bahamas.com/vendor/hill-top-view-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 11,
+     "blurb": "\"This is a great place to meet the locals, who hang out here after a long day of fishing. It has a very quiet atmosphere, with no music or games, which allows for uninterrupted conversation.\" Soft drinks, beer and mixed cocktails; manager Mr. Raphael Wallace. The listing is undated and gives no hours; whether it reopened after Irma was not confirmed on any page read.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 344-1505, Taylor Street, Duncan Town)"
+    },
+    {
+     "name": "People-to-People local dishes",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 12,
+     "blurb": "\"Join People-to-People volunteers for a taste of favourite local dishes like grilled and steamed fish, cracked conch, free-range mutton, and turtle soup.\" The page names no host, day or place.",
+     "commission_status": "unknown",
+     "booking_route": "none observed - no booking contact on the page"
+    },
+    {
+     "name": "Maxine Drug and Groceries",
+     "source": "https://www.bahamianproject.com/2024/08/exuma-ragged-island-mailboat/",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "sailing"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "shop",
+      "eat"
+     ],
+     "draw_rank": 13,
+     "blurb": "Duncan Town's store, run by Maxine Wallace, founder of the Hog Cay Valentine's Day Cook Out: \"Maxine who runs 'Maxine Drug and Groceries' and is the founder and driving force behind the popular Valentine's Day Cook Out on Hog Cay\" (March 2024 voyage, posted 18 August 2024). No own page was found; this is a guide-site source.",
+     "commission_status": "unknown",
+     "booking_route": "none needed - a shop; no contact published"
+    },
+    {
+     "name": "Marjorie Wallace straw and shell craft",
+     "source": "https://bahamas.com/vendor/marjorie-wallace",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "shop"
+     ],
+     "draw_rank": 14,
+     "blurb": "\"Mrs. Wallace is known for her straw and shell craft, and she uses the local Androsia batik in her designs\": straw bags, mats, curtains, place mats and cushions, and jewellery from seashells, fish scales, conch and whelk shells and seeds. The listing is undated; current trading was not confirmed on any other page.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 344-1505, Taylor Street, Duncan Town)"
+    },
+    {
+     "name": "Captain C mailboat",
+     "source": "https://www.bahamianproject.com/2024/09/captain-c-and-the-maycock-brothers/",
+     "accessed": "2026-10-03",
+     "si": [
+      "expedition",
+      "culture"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "move"
+     ],
+     "draw_rank": 15,
+     "blurb": "The freight lifeline: \"Nassau, Staniel Cay, Black Point, Farmer's Cay, Barraterre, Duncan Town and back\", on the route since 2001 under the Maycock family; in September 2024 \"A renovation of the Captain C will be made this year in Louisianna, where it was first built.\" The page does not say it carries passengers, and no current schedule or fare was read.",
+     "commission_status": "unknown",
+     "booking_route": "none observed - no schedule or booking contact on the page"
+    }
+   ],
+   "faq": [
+    {
+     "q": "What is Ragged Island known for?",
+     "a": "Bonefishing. \"There's more bonefish than people on Ragged Island Bahamas, hence why it's known as a fisherman's paradise.\" The official site also names its salt ponds - residents \"still harvest salt from their family plots\" - its boat builders, and the one church where \"members of three different religious denominations gather\" on Sundays.",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where is Ragged Island, Bahamas?",
+     "a": "At the southern end of the Jumentos chain: \"Great and Little Ragged Island lie at the end of a chain of islets, cays, and rocks that stretch over 100 miles.\" Its one settlement is Duncan Town. Lost Key Lodge places the island 60 miles north of Cuba (https://lostkeylodge.com/, accessed 2026-10-03).",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How do I get to Ragged Island, Bahamas?",
+     "a": "By charter flight or boat. The official site: \"The Duncan Town Airport is the only airport servicing Ragged Island\" and \"most travellers stay in nearby Long Island and venture over for a day, via boat or charter flight.\" Lost Key Lodge routes its anglers through Georgetown, Exuma (\"American Airlines is very convenient out of Atlanta\") and arranges a charter to Duncan Town at \"$850 per person round trip\" (https://lostkeylodge.com/pricing-and-availability, accessed 2026-10-03).",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Does Ragged Island, Bahamas have an airport?",
+     "a": "Yes: \"The Duncan Town Airport is the only airport servicing Ragged Island.\" No scheduled airline route to it was found - Bahamasair's homepage does not list it (https://www.bahamasair.com/, accessed 2026-10-03) - and visitors arrive by charter flight.",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Are there hotels on Ragged Island, Bahamas?",
+     "a": "One fishing lodge was found. Lost Key Lodge takes \"4 anglers maximum\" on a \"7 nights 6 days of fishing\" package at $4,995.00 (https://lostkeylodge.com/pricing-and-availability, accessed 2026-10-03). For other visitors, the official site says \"most travellers stay in nearby Long Island and venture over for a day, via boat or charter flight.\"",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the fishing like on Ragged Island, Bahamas?",
+     "a": "Flats and offshore. \"The island is a haven for avid fishermen, with its unparalleled flats ideal for bonefishing\", and \"It's not uncommon to snag an abundance of grouper, snapper, barracuda, tuna, and kingfish during a one-day expedition on the water.\" Local guide Alvin Munroe says \"There is great bonefishing on the west side of the mainland and the cays\" (https://www.bahamas.com/vendor/alvin-munroe, accessed 2026-10-03).",
+     "source": "https://www.bahamas.com/islands/ragged-island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the population of Ragged Island, Bahamas?",
+     "a": "The 2022 census recorded 44 residents, down from 72 in 2010. A March 2024 visit reported \"The 65 residents are served by electricity from BEC, a reverse osmosis plant for water, roads and an airstrip\" (https://www.bahamianproject.com/2024/08/exuma-ragged-island-mailboat/, accessed 2026-10-03).",
+     "source": "https://en.wikipedia.org/wiki/Ragged_Island,_Bahamas",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the history of Ragged Island, Bahamas?",
+     "a": "Salt, then storm. The salt ponds were \"developed in the 19th century by Duncan Taylor and his brother Major Taylor\", and Duncan Town is named for him (https://www.bahamas.com/vendor/ragged-island-salt-ponds, accessed 2026-10-03). The industry peaked in the 1930s before declining. On 8 September 2017 Hurricane Irma struck Duncan Town directly and the prime minister ordered an evacuation; a solar farm completed by February 2020 was built to supply \"at least 90% of the island's energy needs.\"",
+     "source": "https://en.wikipedia.org/wiki/Ragged_Island,_Bahamas",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the weather like on Ragged Island, Bahamas?",
+     "a": "The island sits in the Atlantic hurricane belt: \"The Atlantic hurricane season runs from June 1 to November 30.\" \"The peak of the Atlantic hurricane season is September 10, with most activity occurring between mid-August and mid-October.\" Hurricane Irma struck Duncan Town on 8 September 2017.",
+     "source": "https://www.nhc.noaa.gov/climo/",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "Ragged Island, Bahamas: Bonefishing, Duncan Town & the Jumentos Cays | TravelWell",
+    "meta_description": "Ragged Island: bonefish flats, Lost Key Lodge, Duncan Town's salt ponds, Hog Cay and the Jumentos Cays, reached by charter flight to Duncan Town Airport.",
+    "slug": "ragged-island-bahamas",
+    "primary_keyword": "Ragged Island Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Ragged Island Bahamas"
+   }
+  }
+ },
+ {
+  "id": "rum-cay-bahamas",
+  "region_code": "11C",
+  "name": "Rum Cay",
+  "country": "Bahamas",
+  "line": "Petroglyphs and the HMS Conqueror wreck",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "diveglobal",
+   "culture",
+   "wildlife",
+   "yacht",
+   "adventure"
+  ],
+  "feel": [
+   "secluded",
+   "remote",
+   "serene",
+   "historic",
+   "tropical"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "HMS Conqueror wreck, Sumner Point Reef",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "culture",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "\"In 1861, the 101-gun HMS Conqueror, Britain's first propellor-driven warship, wrecked on Sumner Point Reef\"; the Ministry's diving page lists \"HMS Conqueror, Rum Cay\" among its stand-out shipwreck dives",
+     "commission_status": "none",
+     "booking_route": "none needed - a public wreck site; bahamas.com names no dive operator on Rum Cay"
+    },
+    {
+     "name": "The Grand Canyon wall dive",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 2,
+     "blurb": "\"From the 60ft walls of the 'Grand Canyon', to steep drop-offs and tunnel systems, divers can take their pick\" in Rum Cay's \"gin-clear turquoise waters\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a public reef site; bahamas.com names no dive operator on Rum Cay"
+    },
+    {
+     "name": "Hartford Cave",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "adventure",
+      "hiking"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "\"Hartford Cave holds the secrets of the Lucayan-Arawak people that once lived here\" - Lucayan petroglyphs the Ministry calls \"perhaps the largest display of such art in The Bahamas\"",
+     "commission_status": "none",
+     "booking_route": "none needed - bahamas.com lists no fee or booking"
+    },
+    {
+     "name": "Conception Island National Park",
+     "source": "https://www.bahamas.com/natural-wonders/conception-island",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "diveglobal",
+      "yacht",
+      "sailing"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 4,
+     "blurb": "\"Measuring 7-9 km2\", \"a large protected cove with shallow water and groves of stag-horn coral you can swim through\", \"essential habitat for nesting seabirds and green turtles\", \"great for snorkeling and diving\"; the Ministry's Rum Cay page links it as an offshore highlight. Contact listed: Bahamas National Trust, (242) 393-1317, bnt@bnt.bs",
+     "commission_status": "none",
+     "booking_route": "none observed - the page lists the Bahamas National Trust contact, (242) 393-1317, and no booking or fee"
+    },
+    {
+     "name": "Port Nelson and the Sir Milo Butler square",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "\"Today, Port Nelson is the only inhabited town in sleepy Rum Cay\", with street signs shaped like the island and \"the town square named for The Bahamas' first Governor-General, Sir Milo Butler, a Rum Cay native\"",
+     "commission_status": "none",
+     "booking_route": "none needed - a public town"
+    },
+    {
+     "name": "Northern-coast surf beaches",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "adventure"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 6,
+     "blurb": "\"Rum Cay's northern coast in particular offers perfect surf conditions on undisturbed beaches\"; the Ministry also names \"secret surf spots\" and \"miles of white sand beaches\"",
+     "commission_status": "none",
+     "booking_route": "none needed - free public beaches"
+    },
+    {
+     "name": "Kay's Restaurant & Sand Bar",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/kays-restaurant-sand-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "yacht",
+      "culture"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat",
+      "shop"
+     ],
+     "draw_rank": 7,
+     "blurb": "King Street, Port Nelson: \"We serve home-cooked Bahamian dishes for breakfast, lunch and dinner, in an island-style setting\" - conch, fish, lobster, beef and mutton; listed hours \"Daily 7:00 a.m. - 10:00 p.m.\"; a \"Crab-eating Contest during crab season\". A cruiser reported on noonsite in June 2017 that Kaye's \"is now also the island store in one corner\"",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 331-2816, lastchancerc@yahoo.com)"
+    },
+    {
+     "name": "Port Nelson anchorage",
+     "source": "https://www.noonsite.com/place/bahamas/out-islands/rum-cay/",
+     "accessed": "2026-10-03",
+     "si": [
+      "yacht",
+      "sailing"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 8,
+     "blurb": "Cruisers on noonsite: in March 2016 \"The government dock is mostly destroyed from Hurricane Joaquin, and the mail boat now uses part of the old marina instead\"; in June 2017 \"the marina entrance completely closed in with sand\" and \"the marina is closed and the ownership is still tied up in court\". Boats anchor off Port Nelson; no current marina is confirmed",
+     "commission_status": "none",
+     "booking_route": "none needed - an open anchorage; no marina booking exists"
+    },
+    {
+     "name": "Southern Air Charter, Nassau to Rum Cay",
+     "source": "https://www.bahamas.com/islands/rum-cay/getting-to-rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "privatejet"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "fly",
+      "move"
+     ],
+     "draw_rank": 9,
+     "blurb": "The Ministry: \"Southern Air Charter operates flights to Rum Cay once per week ~ 45 minutes\" from Nassau (NAS) into Port Nelson Airport (RCY), \"The sole airport serving Rum Cay\"; the carrier offers \"private charters throughout the Bahamas, Florida and the Caribbean\"",
+     "commission_status": "unknown",
+     "booking_route": "carrier website and phone ((242) 377-2017, (954) 302-3107, southernairbah@gmail.com) - https://www.southernaircharter.com/"
+    },
+    {
+     "name": "The Lady Francis mail boat",
+     "source": "https://www.bahamas.com/islands/rum-cay/getting-to-rum-cay",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "move"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"The Lady Francis departs weekly from Potter's Cay Dock, Nassau to Rum Cay, time is approximately 48 to 72 hours (or 2 to 3 days)\"",
+     "commission_status": "unknown",
+     "booking_route": "not stated on the page - departs Potter's Cay Dock, Nassau"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to Rum Cay, Bahamas?",
+     "a": "By air or by mail boat from Nassau. The Ministry of Tourism: \"Southern Air Charter operates flights to Rum Cay once per week ~ 45 minutes\" from Nassau (NAS), and \"The Lady Francis departs weekly from Potter's Cay Dock, Nassau to Rum Cay, time is approximately 48 to 72 hours (or 2 to 3 days).\"",
+     "source": "https://www.bahamas.com/islands/rum-cay/getting-to-rum-cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What airport serves Rum Cay?",
+     "a": "\"Port Nelson Airport (RCY): The sole airport serving Rum Cay.\" The Ministry says it receives Southern Air Charter's weekly flight from Nassau, about 45 minutes.",
+     "source": "https://www.bahamas.com/islands/rum-cay/getting-to-rum-cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the Rum Cay airport code?",
+     "a": "RCY. The Ministry of Tourism lists \"Port Nelson Airport (RCY)\" as \"The sole airport serving Rum Cay.\"",
+     "source": "https://www.bahamas.com/islands/rum-cay/getting-to-rum-cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where is Rum Cay, Bahamas?",
+     "a": "In the south-central Bahamas, \"20 miles (32 km) southwest of San Salvador Island\". Its main settlement is Port Nelson.",
+     "source": "https://en.wikipedia.org/wiki/Rum_Cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is Rum Cay known for?",
+     "a": "The Ministry of Tourism calls it \"one of the best-kept secrets in The Bahamas\", home to \"historical ruins, vivid coral reefs, miles of white sand beaches, and thrilling surf\": the 1861 wreck of HMS Conqueror on Sumner Point Reef, Hartford Cave's Lucayan-Arawak petroglyphs, the 60ft walls of the 'Grand Canyon' dive, and surf on the northern coast.",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the population of Rum Cay?",
+     "a": "\"a population was recorded as 90 as of 2022.\" Port Nelson is the only inhabited town.",
+     "source": "https://en.wikipedia.org/wiki/Rum_Cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How big is Rum Cay?",
+     "a": "\"It measures 30 square miles (78 km2) in area.\"",
+     "source": "https://en.wikipedia.org/wiki/Rum_Cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Are there hotels on Rum Cay, Bahamas?",
+     "a": "The Ministry of Tourism points visitors to a neighbouring island: \"Make nearby Long Island your home base, and hop over to Rum Cay for the day via boat or charter flight.\" No on-island hotel was confirmed by a current source in this build.",
+     "source": "https://www.bahamas.com/islands/rum-cay",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where can I eat on Rum Cay, Bahamas?",
+     "a": "The Ministry of Tourism lists Kay's Restaurant & Sand Bar on King Street, Port Nelson: \"We serve home-cooked Bahamian dishes for breakfast, lunch and dinner, in an island-style setting\", with conch, fish, lobster, beef and mutton; listed hours \"Daily 7:00 a.m. - 10:00 p.m.\"; phone (242) 331-2816.",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/kays-restaurant-sand-bar",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "Rum Cay, Bahamas: HMS Conqueror Wreck, Hartford Cave & Getting There | TravelWell",
+    "meta_description": "Rum Cay: the 1861 HMS Conqueror wreck, Hartford Cave petroglyphs, Grand Canyon wall dives, Port Nelson, and the weekly flight and mail boat from Nassau.",
+    "slug": "rum-cay-bahamas",
+    "primary_keyword": "Rum Cay Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "Rum Cay Bahamas"
+   }
+  }
+ },
+ {
+  "id": "san-salvador-bahamas",
+  "region_code": "11C",
+  "name": "San Salvador",
+  "country": "Bahamas",
+  "line": "Where Columbus came ashore",
+  "status": "future",
+  "depth": "verified",
+  "sub_region": "Bahamas",
+  "si": [
+   "diveglobal",
+   "culture",
+   "tropical",
+   "yacht",
+   "family"
+  ],
+  "feel": [
+   "historic",
+   "secluded",
+   "remote",
+   "tropical",
+   "coastal"
+  ],
+  "data": {
+   "safety": {
+    "posture": "book-freely",
+    "source": "https://www.gov.uk/foreign-travel-advice/bahamas",
+    "verified": "2026-10-03"
+   },
+   "jewels": [
+    {
+     "name": "Columbus Monument, Long Bay",
+     "source": "https://www.bahamas.com/vendor/columbus-monument",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior",
+      "diveglobal"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 1,
+     "blurb": "\"This monument to Columbus landfall is located at Long Bay, so named for Columbus long boat. This is the point where he came ashore. A monument placed on the floor of the ocean in Long Bay marks the exact spot where Columbus dropped anchor on October 12th, 1492. On the beach, a simple white cross commemorates the first land discovered in the West Indies.\" The cross, \"erected by Columbian historian Ruth D. Wolper and the people of San Salvador in 1956, is the most photographed spot on the island.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public monument on the beach"
+    },
+    {
+     "name": "Riding Rock Resort & Marina",
+     "source": "https://www.ridingrock.com/about-riding-rock-resort/",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "tropical",
+      "group"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat"
+     ],
+     "draw_rank": 2,
+     "blurb": "\"Built, owned and operated by the William's family since the 1960's\"; 22 rooms (18 deluxe in a two-storey building, 4 oceanfront in a single-storey one), \"custom designed for dive travelers, with all of the diving facilities close at hand\". Published 2026 all-inclusive dive packages run from $1,051 (5 days, quad) to $2,711 (8 days, single), including \"Accommodations, meals, San Salvador Airport transfers to/from the resort and all taxes\" (https://www.ridingrock.com/rates-package/, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only (800.272.1492, 242.331.2631, reservations@RidingRock.com) plus an online enquiry form"
+    },
+    {
+     "name": "Club Med Columbus Isle",
+     "source": "https://www.clubmed.us/r/columbus-isle/y",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "diveglobal",
+      "romance",
+      "sailing",
+      "family"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 3,
+     "blurb": "An all-inclusive resort on 89 acres; the package covers \"accommodations, unlimited gourmet dining and drinks (alcoholic and non-alcoholic), and access to 25+ included activities\" including sailing, snorkelling and paddleboarding; rooms are \"brightly coloured, heritage-style bungalows with charming Creole design touches\". Scuba diving is extra, with a diving doctor on site; Junior Club Med is named for July-August.",
+     "commission_status": "commissioned",
+     "booking_route": "own website booking or +1 (888) 932-2582; travel advisors book through the Club Med Travel Advisors portal (cmta.pro.clubmed)"
+    },
+    {
+     "name": "Guanahani Divers",
+     "source": "https://www.ridingrock.com/bahamas-diving/",
+     "accessed": "2026-10-03",
+     "si": [
+      "diveglobal",
+      "ocean",
+      "wildlife"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities",
+      "gear"
+     ],
+     "draw_rank": 4,
+     "blurb": "Riding Rock's dive operation: \"Both boats are suitable for 20 divers\"; \"Scalloped Hammerheads being a favorite with visiting divers\", \"regularly seen in our waters in the cooler winter months\"; extra boat dives \"$50.00 per dive, provided we have a minimum of 6 divers\". Its site guide names 20 sites, among them Telephone Pole (\"photographed since 1974\"), Devil's Claw's double wall and Runway 10, where hammerheads are occasionally seen (https://www.ridingrock.com/san-salvador-dive-sites/, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "with the resort: 800.272.1492 or reservations@RidingRock.com; dives are bundled into Riding Rock's dive packages"
+    },
+    {
+     "name": "Dixon Hill Lighthouse",
+     "source": "https://www.bahamas.com/vendor/dixon-hill-lighthouse",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior",
+      "family"
+     ],
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 5,
+     "blurb": "\"Built in 1887 on a former plantation owned by John Dixon, this lighthouse is still occupied and operated by lighthouse keepers who refuel the 400,000 candle powered lighthouse by hand every 2 hours and 15 minutes.\" Listed phone (242) 331-2227.",
+     "commission_status": "unknown",
+     "booking_route": "none listed - bahamas.com gives a phone number, (242) 331-2227, and no admission"
+    },
+    {
+     "name": "Grotto Beach, Sandy Point",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "romance"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 6,
+     "blurb": "Named first under \"Find A Sandy Stretch\" on the official island page: \"Grotto Beach at Sandy Point\". Sandy Point Cave and Double Cave dive sites lie off this coast (https://myoutislands.com/bahamas-diving/san-salvador-diving, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - public beach"
+    },
+    {
+     "name": "Great Lake National Park",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/the-great-lake-preserve",
+     "accessed": "2026-10-03",
+     "si": [
+      "wildlife",
+      "culture"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 7,
+     "blurb": "\"San Salvador is known as 'The Land of Lakes'. In the center of the island is the Great Lake, which served as the major means of transportation in days past. This is a protected body of water, in order to preserve its natural pristine wonder for future generations.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - protected public lake"
+    },
+    {
+     "name": "Riding Rock Marina",
+     "source": "https://www.ridingrock.com/riding-rock-marina-2/",
+     "accessed": "2026-10-03",
+     "si": [
+      "yacht",
+      "sailing"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "move"
+     ],
+     "draw_rank": 8,
+     "blurb": "\"Twenty-five slips are available, accommodating boats up to 160 feet with advanced notice.\" \"Draft at the marina entrance is 8 feet at low tide and 12 feet at high tide.\" \"The fuel dock is open all year for diesel, gasoline and ice\", 8 a.m. to 5 p.m. Sunday-Friday. Dockage published at $3.00 per foot per day.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only (800.272.1492, 242.331.2631, reservations@RidingRock.com)"
+    },
+    {
+     "name": "Odyssey III deep-sea fishing charter (Riding Rock)",
+     "source": "https://www.ridingrock.com/fishing/",
+     "accessed": "2026-10-03",
+     "si": [
+      "ocean",
+      "sports",
+      "group"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 9,
+     "blurb": "Riding Rock's 28-foot charter boat: \"1/2 Day (4 Hours) $800\" and \"Full Day (8 Hours) $1200\" per vessel, maximum 5 persons; \"Tackle, bait, and water are provided\"; targets Blue Marlin, Wahoo, Dolphin, Kingfish and Tuna, and the resort encourages \"catch and release sport fishing in an effort towards conservation\".",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only (800.272.1492, 242.331.2631, reservations@RidingRock.com)"
+    },
+    {
+     "name": "Guanahani Beach Club Resort",
+     "source": "https://www.bahamas.com/hotels/guanahani-beach-club-resort",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "sailing",
+      "adventure",
+      "romance"
+     ],
+     "commission": "hotel",
+     "tier_absent_reason": "not-established",
+     "wells": [
+      "stay",
+      "eat",
+      "activities"
+     ],
+     "draw_rank": 10,
+     "blurb": "\"Our secluded property is located on the southeast coast of San Salvador, just 15 minutes from the San Salvador International\" airport; private villas, the Patio Restaurant Bar, a Surf & Sail Center with catamaran sailing, diving, kayaking and kitesurfing, at Sunrise Road, Snowy Bay, Sandy Point. Its own site (guanahanibeachclub.com) returned only a bot check when read, so this listing is the source.",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 452-0438, info@guanahanibeachclub.com, Ms. Elena Sparta) per the official listing"
+    },
+    {
+     "name": "The Chicago Herald Monument",
+     "source": "https://www.bahamas.com/vendor/chicago-herald-monument",
+     "accessed": "2026-10-03",
+     "si": [
+      "culture",
+      "senior"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 11,
+     "blurb": "\"The 1892 Worlds Fair, held in Chicago, celebrated the 400th anniversary of the discovery of the New World. In 1891, the Chicago Herald, an American newspaper, erected this sphere (hewn from native limestone) in commemoration of Columbus landfall.\"",
+     "commission_status": "none",
+     "booking_route": "none needed - public monument"
+    },
+    {
+     "name": "Snow Beach and Snow Bay",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "sailing"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 12,
+     "blurb": "Named on the official island page under \"Find A Sandy Stretch\" (Snow Beach) and \"Drop Anchor In A Pristine Bay\" (\"Dim Bay, Long Bay, and Snow Bay\"). Guanahani Beach Club lists its address as Snowy Bay, Sandy Point (https://www.bahamas.com/hotels/guanahani-beach-club-resort, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - public beach and bay"
+    },
+    {
+     "name": "Bonefish Bay Beach",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03",
+     "si": [
+      "tropical",
+      "family"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 13,
+     "blurb": "Named on the official island page under \"Find A Sandy Stretch\". Club Med's Christopher Restaurant gives its address as Bonefish Bay, Cockburn Town (https://www.bahamas.com/vendor/christopher-restaurant, accessed 2026-10-03), and the Frasgate wreck lies \"off Bonefish Bay\" (https://myoutislands.com/bahamas-diving/san-salvador-diving, accessed 2026-10-03).",
+     "commission_status": "none",
+     "booking_route": "none needed - public beach"
+    },
+    {
+     "name": "Watling's Blue Hole",
+     "source": "https://www.bahamas.com/natural-wonders/watlings-blue-hole",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "wildlife"
+     ],
+     "tier_absent_reason": "not-sold",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 14,
+     "blurb": "\"Watling's Blue Hole, southwestern San Salvador Island\" - \"a popular spot among researchers interested in the categories of soluble rocks in The Bahamas\": large water-filled, subcylindrical voids that extend well below sea level.",
+     "commission_status": "none",
+     "booking_route": "none listed - a natural site; the official page names no access fee or operator"
+    },
+    {
+     "name": "Gerace Research Centre",
+     "source": "https://www.bahamas.com/plan-your-trip/things-to-do/the-gerace-research-center",
+     "accessed": "2026-10-03",
+     "si": [
+      "deepdive",
+      "wildlife",
+      "group"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities"
+     ],
+     "draw_rank": 15,
+     "blurb": "\"The Gerace Research Center, formerly the Bahamian Field Station, occupies an old U.S. Navy base at Graham's Harbour on San Salvador's northern coast\", working in archaeology, biology, geology and marine science for over 50 years and supporting conservation of the endangered San Salvador rock iguana. Its own site lists \"separate housing for undergraduates, graduate students, faculty and researchers\", field courses, and \"SCUBA tanks are available for rent\" (https://www.geraceresearchcentre.com/facilities.html, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "phone/email only ((242) 331-2520, grcsansal@gmail.com); facilities serve students, faculty and researchers"
+    },
+    {
+     "name": "Columbus Tavern Restaurant and Bar",
+     "source": "https://www.bahamas.com/vendor/columbus-tavern-restaurant-and-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 16,
+     "blurb": "\"Located in the heart of North Victoria Hill, we specialize in native Bahamian dishes, but we are widely known for our delicious melt-in-ya-mouth Cracked Conch.\" Queen's Highway, North Victoria Hill; (242) 331-2612.",
+     "commission_status": "unknown",
+     "booking_route": "phone only ((242) 331-2612)"
+    },
+    {
+     "name": "Riding Rock Inn Restaurant and Driftwood Lounge",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/riding-rock-inn-restaurant-and-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "diveglobal"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 17,
+     "blurb": "\"Our restaurant specializes in American and Bahamian cuisine, with an accent on fresh fish. We offer a friendly, casual atmosphere and a magnificent ocean view.\" Queen's Highway, Cockburn Town; (242) 331-2631. Breakfast 7:30-9:00 am, lunch 12:30-2:00 pm, dinner 6:30-8:30 pm; meals \"can be purchased a la carte\" (https://www.ridingrock.com/about-riding-rock-resort/, accessed 2026-10-03).",
+     "commission_status": "unknown",
+     "booking_route": "phone only ((242) 331-2631)"
+    },
+    {
+     "name": "Christopher Restaurant (Club Med Columbus Isle)",
+     "source": "https://www.bahamas.com/vendor/christopher-restaurant",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary",
+      "family"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 18,
+     "blurb": "\"Located at the Club Med Resort, buffet style restaurant\" serving breakfast, lunch and dinner with rotating nightly themes - Bahamian, Mediterranean, Asian, French, American and Mexican. Bonefish Bay, Cockburn Town; (242) 331-2000.",
+     "commission_status": "unknown",
+     "booking_route": "included in the Club Med all-inclusive stay; listed phone (242) 331-2000"
+    },
+    {
+     "name": "The Sands Hotel Restaurant and Bar",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/sands-hotel-restaurant-and-bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 19,
+     "blurb": "\"The restaurant at The Sands Residence offers a variety of tantalizing Bahamian dishes in an intimate setting.\" Queen's Highway, Cockburn Town; (242) 331-1018.",
+     "commission_status": "unknown",
+     "booking_route": "phone only ((242) 331-1018)"
+    },
+    {
+     "name": "Paradis Restaurant & Bar",
+     "source": "https://www.bahamas.com/plan-your-trip/restaurants/paradis-restaurant--bar",
+     "accessed": "2026-10-03",
+     "si": [
+      "culinary"
+     ],
+     "commission": "venue",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "eat"
+     ],
+     "draw_rank": 20,
+     "blurb": "\"Specializing in Bahamian cuisine, Paradis Restaurant & Bar offers a wide variety of scrumptious down-home dishes – from fresh Grouper Fingers to Jerk Chicken.\" Columbus Plaza, Queen's Highway, Bonefish Bay; (242) 331-2400.",
+     "commission_status": "unknown",
+     "booking_route": "phone only ((242) 331-2400)"
+    },
+    {
+     "name": "San Sal Kitesurfing",
+     "source": "https://www.bahamas.com/hotels/guanahani-beach-club-resort",
+     "accessed": "2026-10-03",
+     "si": [
+      "adventure",
+      "sports",
+      "ocean"
+     ],
+     "commission": "operator",
+     "tier_absent_reason": "does-not-compete",
+     "wells": [
+      "activities",
+      "gear"
+     ],
+     "draw_rank": 21,
+     "blurb": "Named on the official listing for Guanahani Beach Club Resort as the provider of kitesurfing courses and equipment rentals at the resort's Surf & Sail Center, Snowy Bay, Sandy Point. No own page for San Sal Kitesurfing was read.",
+     "commission_status": "unknown",
+     "booking_route": "through Guanahani Beach Club: (242) 452-0438 or info@guanahanibeachclub.com"
+    }
+   ],
+   "faq": [
+    {
+     "q": "How do I get to San Salvador, Bahamas?",
+     "a": "By air. The official tourism site says \"San Salvador Airport (ZSA)\" is \"the island's only airport\" and \"welcomes international and domestic arrivals\". No ferry or mail-boat service to San Salvador is described on the official getting-here page.",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Which airlines fly to San Salvador, Bahamas?",
+     "a": "Wikipedia's airport page lists Bahamasair to \"Deadman's Cay, Miami, Nassau, Rock Sound\", Air Canada Rouge to \"Montréal–Trudeau\" and Air Caraïbes \"Seasonal: Paris–Orly\". Check the carrier for current schedules; none was read on a carrier's own page.",
+     "source": "https://en.wikipedia.org/wiki/San_Salvador_Airport",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the San Salvador, Bahamas airport code?",
+     "a": "ZSA. The official site names it \"San Salvador Airport (ZSA)\"; its ICAO code is \"MYSM\" (https://en.wikipedia.org/wiki/San_Salvador_Airport, accessed 2026-10-03).",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is San Salvador, Bahamas known for?",
+     "a": "Columbus's landfall and its diving. The official site calls it \"a unique island with sparkling lakes, historic monuments, secluded beaches, and dive sites\", with \"50+ Dive Sites\", and says Columbus's landing is marked by \"a stone cross on San Salvador's Long Bay\".",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is there to do in San Salvador, Bahamas?",
+     "a": "The official island page lists beaches (\"Grotto Beach at Sandy Point, Bonefish Bay Beach, and Snow Beach\"), bays to anchor in (\"Dim Bay, Long Bay, and Snow Bay\"), \"50+ Dive Sites\" including \"Devil's Claw, Vicky's Reef, and Runway 10\", fishing for \"blue marlin, wahoo, dolphin, kingfish, and tuna\", the Columbus landfall cross, the Gerace Research Centre, Great Lake National Park and Watling's Blue Hole.",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Where should I stay in San Salvador, Bahamas?",
+     "a": "The official site says lodging ranges from \"all-inclusive luxury villas to fully furnished beachfront cottages\". The properties read for this dossier are Club Med Columbus Isle (all-inclusive), Riding Rock Resort & Marina (a dive resort with 22 rooms) and Guanahani Beach Club Resort (private villas at Snowy Bay, Sandy Point).",
+     "source": "https://www.bahamas.com/islands/san-salvador",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Is there a Club Med in San Salvador, Bahamas?",
+     "a": "Yes: Club Med Columbus Isle, an all-inclusive resort on 89 acres. The package covers \"accommodations, unlimited gourmet dining and drinks (alcoholic and non-alcoholic), and access to 25+ included activities\"; scuba diving is extra.",
+     "source": "https://www.clubmed.us/r/columbus-isle/y",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "Are there all-inclusive resorts in San Salvador, Bahamas?",
+     "a": "Club Med Columbus Isle is all-inclusive. Riding Rock Resort & Marina also sells \"All Inclusive Dive Vacation Packages\" and non-diver packages that include \"Accommodations, meals, San Salvador Airport transfers to/from the resort and all taxes\" but exclude alcoholic drinks, sodas, bottled water and gratuities (https://www.ridingrock.com/rates-package/, accessed 2026-10-03).",
+     "source": "https://www.clubmed.us/r/columbus-isle/y",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "How big is San Salvador, Bahamas?",
+     "a": "San Salvador Island covers \"163 km2 (63 sq mi)\". The official tourism site adds that the island is \"the exposed peak of a 15,000 ft mountain\" (https://www.bahamas.com/islands/san-salvador, accessed 2026-10-03).",
+     "source": "https://en.wikipedia.org/wiki/San_Salvador_Island",
+     "accessed": "2026-10-03"
+    },
+    {
+     "q": "What is the population of San Salvador, Bahamas?",
+     "a": "\"The 2022 census recorded 824 residents\", per Wikipedia's island article.",
+     "source": "https://en.wikipedia.org/wiki/San_Salvador_Island",
+     "accessed": "2026-10-03"
+    }
+   ],
+   "seo": {
+    "meta_title": "San Salvador, Bahamas: Columbus Landfall, Wall Diving & Where to Stay | TravelWell",
+    "meta_description": "Columbus's 1492 landfall at Long Bay, the 1887 Dixon Hill Lighthouse, 50+ dive sites, Club Med Columbus Isle and Riding Rock, reached via ZSA airport.",
+    "slug": "san-salvador-bahamas",
+    "primary_keyword": "San Salvador Bahamas",
+    "jsonld_type": "TouristDestination"
+   },
+   "hero": {
+    "query": "San Salvador Bahamas"
+   }
+  }
+ }
+]

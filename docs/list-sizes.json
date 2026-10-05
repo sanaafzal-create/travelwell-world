@@ -1,7 +1,7 @@
 {
  "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
  "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
- "generated": "2026-10-03",
+ "generated": "2026-10-05",
  "surfaces": [
   {
    "surface": "si-shelf · jewels (SiDetail JewelsSection)",
@@ -10,21 +10,21 @@
    "reader_can_tell": "YES — the section line prints shown-of-total ('a selection of 24 from our N experiences across M destinations') whenever shown < length (2026-08-28)",
    "lengths_by_interest": {
     "ultra": {
-     "length": 241,
+     "length": 244,
      "shown": 24,
-     "dests": 117,
+     "dests": 118,
      "dests_shown": 12
     },
     "tropical": {
-     "length": 284,
+     "length": 381,
      "shown": 24,
-     "dests": 89,
+     "dests": 94,
      "dests_shown": 12
     },
     "romance": {
-     "length": 663,
+     "length": 725,
      "shown": 24,
-     "dests": 322,
+     "dests": 330,
      "dests_shown": 12
     },
     "safari": {
@@ -34,7 +34,7 @@
      "dests_shown": 12
     },
     "expedition": {
-     "length": 662,
+     "length": 666,
      "shown": 24,
      "dests": 238,
      "dests_shown": 12
@@ -46,10 +46,10 @@
      "dests_shown": 12
     },
     "golf": {
-     "length": 12,
-     "shown": 12,
-     "dests": 8,
-     "dests_shown": 8
+     "length": 15,
+     "shown": 15,
+     "dests": 10,
+     "dests_shown": 10
     },
     "rail": {
      "length": 23,
@@ -64,10 +64,10 @@
      "dests_shown": 1
     },
     "privatejet": {
-     "length": 3,
-     "shown": 3,
-     "dests": 3,
-     "dests_shown": 3
+     "length": 9,
+     "shown": 9,
+     "dests": 8,
+     "dests_shown": 8
     },
     "caravan": {
      "length": 2,
@@ -82,25 +82,25 @@
      "dests_shown": 3
     },
     "motoring": {
-     "length": 4,
-     "shown": 4,
-     "dests": 4,
-     "dests_shown": 4
+     "length": 6,
+     "shown": 6,
+     "dests": 6,
+     "dests_shown": 6
     },
     "adventure": {
-     "length": 504,
+     "length": 552,
      "shown": 24,
-     "dests": 179,
+     "dests": 187,
      "dests_shown": 12
     },
     "hiking": {
-     "length": 191,
+     "length": 204,
      "shown": 24,
-     "dests": 50,
+     "dests": 56,
      "dests_shown": 12
     },
     "liveaboard": {
-     "length": 137,
+     "length": 140,
      "shown": 24,
      "dests": 27,
      "dests_shown": 12
@@ -112,99 +112,111 @@
      "dests_shown": 12
     },
     "diveglobal": {
-     "length": 203,
+     "length": 238,
      "shown": 24,
-     "dests": 89,
+     "dests": 92,
      "dests_shown": 12
     },
     "ocean": {
-     "length": 125,
+     "length": 187,
      "shown": 22,
-     "dests": 54,
+     "dests": 63,
      "dests_shown": 12
     },
     "wellness": {
-     "length": 433,
+     "length": 441,
      "shown": 24,
-     "dests": 130,
+     "dests": 136,
      "dests_shown": 12
     },
     "wildlife": {
-     "length": 130,
+     "length": 183,
      "shown": 21,
-     "dests": 55,
+     "dests": 64,
      "dests_shown": 12
+    },
+    "glamping": {
+     "length": 8,
+     "shown": 8,
+     "dests": 8,
+     "dests_shown": 8
     },
     "family": {
-     "length": 503,
+     "length": 620,
      "shown": 24,
-     "dests": 160,
+     "dests": 169,
      "dests_shown": 12
     },
+    "group": {
+     "length": 16,
+     "shown": 16,
+     "dests": 7,
+     "dests_shown": 7
+    },
     "senior": {
-     "length": 6,
-     "shown": 6,
-     "dests": 6,
-     "dests_shown": 6
+     "length": 30,
+     "shown": 23,
+     "dests": 13,
+     "dests_shown": 12
     },
     "culture": {
-     "length": 1252,
+     "length": 1327,
      "shown": 24,
-     "dests": 309,
+     "dests": 317,
      "dests_shown": 12
     },
     "deepdive": {
-     "length": 32,
+     "length": 33,
      "shown": 14,
-     "dests": 30,
+     "dests": 31,
      "dests_shown": 12
     },
     "pilgrimage": {
-     "length": 2,
-     "shown": 2,
-     "dests": 1,
-     "dests_shown": 1
+     "length": 7,
+     "shown": 7,
+     "dests": 5,
+     "dests_shown": 5
     },
     "entertainment": {
-     "length": 311,
+     "length": 346,
      "shown": 24,
-     "dests": 99,
+     "dests": 107,
      "dests_shown": 12
     },
     "culinary": {
-     "length": 637,
+     "length": 706,
      "shown": 24,
-     "dests": 202,
+     "dests": 211,
      "dests_shown": 12
     },
     "sports": {
-     "length": 67,
+     "length": 89,
      "shown": 24,
-     "dests": 30,
+     "dests": 38,
      "dests_shown": 12
     },
     "spectator": {
-     "length": 22,
+     "length": 32,
      "shown": 22,
-     "dests": 12,
+     "dests": 19,
      "dests_shown": 12
     },
     "sailing": {
-     "length": 20,
-     "shown": 20,
-     "dests": 12,
+     "length": 56,
+     "shown": 24,
+     "dests": 19,
      "dests_shown": 12
     },
     "yacht": {
-     "length": 21,
-     "shown": 17,
-     "dests": 15,
+     "length": 50,
+     "shown": 24,
+     "dests": 22,
      "dests_shown": 12
     },
     "wine": {
-     "length": 97,
+     "length": 102,
      "shown": 24,
-     "dests": 38,
+     "dests": 40,
      "dests_shown": 12
     }
    }
