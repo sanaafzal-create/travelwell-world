@@ -29,17 +29,17 @@ good as regenerating it.
 
 | Thing | Count | Read from |
 |---|---|---|
-| Signature Interests on the board | 35 | src/data/taxonomy.ts:223 · `export const SIS: SpecialInterest[] = [...BASE` |
-| …rows in `SIS` including retired | 39 | src/data/taxonomy.ts:510 · `export const boardSis = (sis: { retired?: bool` |
-| …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:223 · `export const SIS: SpecialInterest[] = [...BASE` |
-| SI categories | 10 | src/data/taxonomy.ts:278 · `export const SI_GROUPS: SiGroup[] = [` |
+| Signature Interests on the board | 36 | src/data/taxonomy.ts:229 · `export const SIS: SpecialInterest[] = [...BASE` |
+| …rows in `SIS` including retired | 40 | src/data/taxonomy.ts:517 · `export const boardSis = (sis: { retired?: bool` |
+| …at `status: live` (incl. `ultra` overlay) | 8 | src/data/taxonomy.ts:229 · `export const SIS: SpecialInterest[] = [...BASE` |
+| SI categories | 10 | src/data/taxonomy.ts:285 · `export const SI_GROUPS: SiGroup[] = [` |
 | Destinations | 43 | src/data/places.ts:164 · `export const DESTINATIONS: Record<string, Dest` |
 | …with a `price_band` | 7 | src/data/places.ts:135 · `price_band?: string; // coarse overall price l` |
 | …at `depth: verified` | 32 | src/data/places.ts:36 · `export type DestDepth = "verified" | "stub" | ` |
 | Activities | 60 | src/data/places.ts:690 · `export const ACTIVITIES: Record<string, Activi` |
 | Providers **in the bundle** | 58 (CSVs under `src/data/providers/` merge on top at seed time — run `npm run gen:catalog` to see the DB total) | src/data/places.ts:552 · `export const PROVIDERS: Record<string, Provide` |
-| Regions | 13 | src/data/taxonomy.ts:334 · `export const REGIONS: Region[] = [` |
-| Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:302 · `export const WELLS: Well[] = [` |
+| Regions | 13 | src/data/taxonomy.ts:341 · `export const REGIONS: Region[] = [` |
+| Wells (10 live + 3 soon) | 13 | src/data/taxonomy.ts:309 · `export const WELLS: Well[] = [` |
 | Sub-region lists | 18 | src/data/places.ts:396 · `export const SUBREGION_TOP: Record<string, str` |
 | Guides | 9 | src/data/places.ts:650 · `export const GUIDES: Guide[] = [` |
 | Country name→ISO entries (`COUNTRY_ISO`) | 105 | src/data/safety-data.ts:281 · `export const COUNTRY_ISO: Record<string, strin` |
@@ -96,36 +96,36 @@ the provider.
 
 ## Conformance — does the data obey the rules?
 
-✅ **The board is 35 Signature Interests in 10 categories (David-locked 2026-08-10)**
-   → 35 on the board, 10 categories
-   → `src/data/taxonomy.ts:278 · `export const SI_GROUPS: SiGroup[] = [``
+⚠️ **The board is 35 Signature Interests in 10 categories (David-locked 2026-08-10)**
+   → 36 on the board, 10 categories
+   → `src/data/taxonomy.ts:285 · `export const SI_GROUPS: SiGroup[] = [``
 
 ✅ **Retired interests stay in SIS (the seed carries `delete … where id not in (…)`)**
    → 4 retired rows still present: nightlife, olympic, prosports, compsports
-   → `src/data/taxonomy.ts:510 · `export const boardSis = (sis: { retired?: bool``
+   → `src/data/taxonomy.ts:517 · `export const boardSis = (sis: { retired?: bool``
 
 ✅ **7 launch interests are live, plus `ultra` as the luxury overlay — 8 rows at status live**
    → 8 live: ultra, tropical, romance, safari, expedition, ski, liveaboard, river
-   → `src/data/taxonomy.ts:223 · `export const SIS: SpecialInterest[] = [...BASE``
+   → `src/data/taxonomy.ts:229 · `export const SIS: SpecialInterest[] = [...BASE``
 
 ✅ **No two interests share a slogan subject — the `If It's [X]…` slot must name one world**
-   → all 35 subjects distinct
-   → `src/data/taxonomy.ts:232 · `export const SI_TAGLINE_SUBJECT: Record<string``
+   → all 36 subjects distinct
+   → `src/data/taxonomy.ts:238 · `export const SI_TAGLINE_SUBJECT: Record<string``
 
 ✅ **13 Wells total, 10 live + 3 soon**
    → 13 total, 10 live, 3 not live
-   → `src/data/taxonomy.ts:302 · `export const WELLS: Well[] = [``
+   → `src/data/taxonomy.ts:309 · `export const WELLS: Well[] = [``
 
 ✅ **13-code region scheme**
    → 13 regions
-   → `src/data/taxonomy.ts:334 · `export const REGIONS: Region[] = [``
+   → `src/data/taxonomy.ts:341 · `export const REGIONS: Region[] = [``
 
 ✅ **Destination id is `<city>-<country>`, lowercase and hyphenated**
    → 43 of 43 are hyphenated multi-part; 0 are single-word and cannot conform
    → `src/data/places.ts:164 · `export const DESTINATIONS: Record<string, Dest``
 
 ✅ **The sitemap lists exactly the interests on the board — no retired ones, none missing**
-   → all 35 board interests listed, no retired ones
+   → all 36 board interests listed, no retired ones
    → `scripts/gen-sitemap.ts vs boardSis() in src/data/taxonomy.ts`
 
 ✅ **The sitemap lists every indexable destination (merged catalog, not the bundle)**
@@ -149,7 +149,7 @@ the provider.
    → `supabase/functions/atlas/index.ts + voice-agent/index.ts`
 
 ✅ **Every interest dossier layer is optional, but a populated one must carry labeled figures**
-   → 0 of 39 interests carry a dossier
+   → 0 of 40 interests carry a dossier
    → `src/data/taxonomy.ts:80 · `export interface SiData {``
 
 ✅ **Every country holding a destination **currently in the catalog** has a country-level safety row (the advisory cascade is country → destination)**
@@ -188,8 +188,8 @@ the provider.
    → UNSET for TravelWell.World LLC. Terms renders the with-counsel wording; set GOVERNING_LAW in src/lib/legal.ts once confirmed and the real clause renders with no other edit
    → `src/lib/legal.ts · rendered by src/pages/Terms.tsx`
 
-✅ **No user-facing copy states a count IN WORDS that disagrees with the taxonomy — the numeric counts read from the store, a spelled-out one cannot**
-   → none — every spelled-out count matches
+⚠️ **No user-facing copy states a count IN WORDS that disagrees with the taxonomy — the numeric counts read from the store, a spelled-out one cannot**
+   → 1 wrong: "Thirty-five reasons to go" — the taxonomy says 36
    → `src/lib/i18n.ts + src/lib/i18n-catalog.ts vs boardSis(SIS) / WELLS+LUX_WELLS`
 
 ✅ **No RESOLVED destination prints a level under a source that denies holding one — the row check can't see this, it only exists after a carve-out merges over an unverified baseline**
@@ -215,7 +215,7 @@ Stating this explicitly because an empty structure and a filled one look
 identical in a schema, and a plan that assumes inheritance needs to know which
 it is.
 
-- **0 of 39 interests carry a dossier.** The only `booking_window` value in the repo is inside `src/data/interests/_REFERENCE.golf.json`, which is `_`-prefixed and never ships. **There is nothing to inherit booking windows from.**
+- **0 of 40 interests carry a dossier.** The only `booking_window` value in the repo is inside `src/data/interests/_REFERENCE.golf.json`, which is `_`-prefixed and never ships. **There is nothing to inherit booking windows from.**
 - **14 jewels across 7 of 43 destinations** — all hand-authored here. Any larger figure quoted for the experience catalogue (5,422, say) is counting a research library this repo cannot read; **nothing in it has been ingested.** 2 of the 14 carry a `source`, 0 an `accessed` date.
 - **7 of 43 destinations carry a `price_band`.**
 - **7 of 43 destinations carry `feel` tags.**

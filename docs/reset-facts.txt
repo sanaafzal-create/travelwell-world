@@ -7,28 +7,32 @@ number elsewhere in this document, this one is right and the other is stale.
 CATALOGUE
   Destinations ............ 43   (all ids conform to <city>-<country>)
   Activities .............. 60
-  Signature Interests ..... 35 on the board, in 10 categories
-                          39 rows in total, 4 retired but not deleted
+  Signature Interests ..... 36 on the board, in 10 categories
+                          40 rows in total, 4 retired but not deleted
   Live interests .......... 8 rows, of which ultra is the luxury overlay
                           so the bookable set is 7: tropical, romance, safari, expedition, ski, liveaboard, river
   Regions ................. 13
   Wells ................... 13 — 10 live, 3 not yet (Insure-Well, Ship-Well, Pets-Well)
   Providers ............... 58 in the bundle; more once the CSVs merge at seed time
-  Slogan variants ......... 37 — 1 master, 1 category, 35 interest subjects
+  Slogan variants ......... 38 — 1 master, 1 category, 36 interest subjects
 
 NOT POPULATED YET  (an empty structure and a filled one look identical in a schema)
-  Interests with a dossier ....... 0 of 39
+  Interests with a dossier ....... 0 of 40
   Destinations with price_band ... 7 of 43
   Destinations with feel tags .... 7 of 43
   Destinations with sub_region ... 15 of 43
 
-CONFORMANCE  27 checks, 3 failing
+CONFORMANCE  27 checks, 5 failing
+  FAILING — The board is 35 Signature Interests in 10 categories (David-locked 2026-
+           36 on the board, 10 categories
   FAILING — Every INGESTED destination has a country advisory row
            2 of 572 destinations (0%) sit in a country with NO row, across 2 countries: Belgium / Luxembourg, Sint Maarten (NL) / Saint-Martin (FR) · of those, 0 actually RENDER "not yet verified" (none) — the rest carry a dossier carve-out that supplies its own level
   FAILING — Our curated level matches the level State published for that country
            30 diverge: Colombia: ours L2, State L3 (published 2026-03-31); Jordan: ours L2, State L3 (published 2026-05-04); United Arab Emirates: ours L2, State L3 (published 2026-03-03); Rwanda: ours L2, State L3 (published 2026-05-11); Saudi Arabia: ours L2, State L3 (published 2026-03-13); UAE: ours L2, State L3 (published 2026-03-03); Uganda: ours L1, State L4 (published 2025-12-08); United Kingdom: ours L1, State L2 (published 2025-05-08); Belgium: ours L1, State L2 (published 2026-07-23); Belize: ours L1, State L2 (published 2026-03-12); Botswana: ours L1, State L2 (published 2026-06-17); Costa Rica: ours L1, State L2 (published 2026-04-02); Denmark: ours L1, State L2 (published 2024-09-17); Dominican Republic: ours L1, State L2 (published 2025-06-12); Faroe Islands (Kingdom of Denmark): ours L1, State L2 (published 2024-09-17); Honduras: ours L1, State L3 (published 2024-12-10); Jamaica: ours L1, State L2 (published 2026-06-23); Morocco: ours L1, State L2 (published 2025-04-21); Nicaragua: ours L1, State L3 (published 2026-05-14); Oman: ours L1, State L3 (published 2026-04-09); Panama: ours L1, State L2 (published 2024-09-23); Qatar: ours L1, State L3 (published 2026-03-02); Sweden: ours L1, State L2 (published 2026-05-18); Uruguay: ours L1, State L2 (published 2026-07-28); Zimbabwe: ours L1, State L2 (published 2023-06-27); Grenada: ours L1, State L2 (published 2026-01-05); Maldives: ours L1, State L2 (published 2025-10-07); Guatemala: ours L2, State L3 (published 2026-03-12); Trinidad & Tobago: ours L1, State L3 (published 2026-04-13); Malaysia: ours L2, State L1 (published 2026-02-22)
   FAILING — The governing-law jurisdiction is set
            UNSET for TravelWell.World LLC. Terms renders the with-counsel wording; set GOVERNING_LAW in src/lib/legal.ts once confirmed and the real clause renders with no other edit
+  FAILING — No user-facing copy states a count IN WORDS that disagrees with the taxo
+           1 wrong: "Thirty-five reasons to go" — the taxonomy says 36
 
 THE RESEARCH LIBRARY IS A DIFFERENT INVENTORY. Its dossier counts answer a
 different question from these. Never compare the two without saying which is which.

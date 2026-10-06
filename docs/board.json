@@ -3,7 +3,7 @@
   "_rule": "A slug is a Signature Interest ONLY if it appears in `interests`. Categories, Wells and retired rows are listed so a consumer can recognise them and reject them, never so it can accept them.",
   "_generated_by": "npm run gen:board",
   "counts": {
-    "interests": 35,
+    "interests": 36,
     "retired": 4,
     "categories": 10,
     "wells": 13
@@ -204,6 +204,15 @@
       "status": "preview",
       "sig": "wild, but well-appointed",
       "accent": "#7A6B4F",
+      "lux": false,
+      "group": "adventure"
+    },
+    {
+      "id": "parks",
+      "name": "National & State Parks",
+      "status": "preview",
+      "sig": "the wild, kept",
+      "accent": "#44704B",
       "lux": false,
       "group": "adventure"
     },
@@ -627,7 +636,8 @@
       "Tōhoku"
     ],
     "09P": [
-      "Palau — Micronesia (western Pacific)"
+      "Palau — Micronesia (western Pacific)",
+      "American Samoa"
     ],
     "10S": [
       "Quintana Roo (Cancún & Riviera Maya)",

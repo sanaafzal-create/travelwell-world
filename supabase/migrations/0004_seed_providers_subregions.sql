@@ -268,6 +268,7 @@ insert into public.sub_regions (region_code, name, position) values
   ('08A', 'Japanese Alps/Nagano', 1),
   ('08A', 'Tōhoku', 2),
   ('09P', 'Palau — Micronesia (western Pacific)', 0),
+  ('09P', 'American Samoa', 1),
   ('10S', 'Quintana Roo (Cancún & Riviera Maya)', 0),
   ('10S', 'Baja California Sur (Los Cabos & La Paz)', 1),
   ('10S', 'Costa Rica', 2),

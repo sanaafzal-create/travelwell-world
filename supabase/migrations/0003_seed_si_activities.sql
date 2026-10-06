@@ -32,6 +32,7 @@ insert into public.special_interests (id, name, signature, status, accent, is_lu
   ('wellness', 'Wellness, Spa & Retreats', 'coming home to yourself', 'preview', '#4F8C7A', false, 'nature', null),
   ('wildlife', 'Wildlife & Nature', 'wild places, up close', 'preview', '#4A7A3C', false, 'nature', null),
   ('glamping', 'Global Glamping', 'wild, but well-appointed', 'preview', '#7A6B4F', false, 'adventure', null),
+  ('parks', 'National & State Parks', 'the wild, kept', 'preview', '#44704B', false, 'adventure', null),
   ('family', 'Family Travel', 'everyone, together', 'preview', '#C98A2E', false, 'lifestage', null),
   ('group', 'Group Travel', 'better, together', 'preview', '#C27A3C', false, 'lifestage', null),
   ('senior', 'Senior Travel', 'unhurried, well-earned', 'preview', '#7A5B3B', false, 'lifestage', null),
@@ -58,7 +59,7 @@ on conflict (id) do update set
 -- insert-and-upsert only, so a removed interest would linger in Postgres and —
 -- because the app reads DB-first with the bundle only as fallback — keep showing
 -- in production after it had been deleted from the source. Silent and confusing.
-delete from public.special_interests where id not in ('ultra', 'tropical', 'romance', 'safari', 'expedition', 'ski', 'golf', 'rail', 'barge', 'privatejet', 'caravan', 'overland', 'motoring', 'adventure', 'hiking', 'liveaboard', 'river', 'diveglobal', 'ocean', 'wellness', 'wildlife', 'glamping', 'family', 'group', 'senior', 'culture', 'deepdive', 'pilgrimage', 'entertainment', 'culinary', 'sports', 'spectator', 'nightlife', 'olympic', 'prosports', 'compsports', 'sailing', 'yacht', 'wine');
+delete from public.special_interests where id not in ('ultra', 'tropical', 'romance', 'safari', 'expedition', 'ski', 'golf', 'rail', 'barge', 'privatejet', 'caravan', 'overland', 'motoring', 'adventure', 'hiking', 'liveaboard', 'river', 'diveglobal', 'ocean', 'wellness', 'wildlife', 'glamping', 'parks', 'family', 'group', 'senior', 'culture', 'deepdive', 'pilgrimage', 'entertainment', 'culinary', 'sports', 'spectator', 'nightlife', 'olympic', 'prosports', 'compsports', 'sailing', 'yacht', 'wine');
 
 -- Activities ------------------------------------------------------------------
 -- Laddered experiences per Special Interest. si_id is a plain key (not all

@@ -186,6 +186,12 @@ const BASE_SIS: SpecialInterest[] = [
   { id: "wildlife", name: "Wildlife & Nature", sig: "wild places, up close", status: "preview", accent: "#4A7A3C", lux: false, group: "nature" },
   // glamping moved nature -> adventure (David's ruling, 2026-09-05: "we need to add glamping into category 3, Adventure and active"). group is single-valued, so the move is out of Nature & Wellbeing.
   { id: "glamping", name: "Global Glamping", sig: "wild, but well-appointed", status: "preview", accent: "#7A6B4F", lux: false, group: "adventure" },
+  // The 36th seat (David 4 Oct 2026, the call delegated; ruled by Sana 6 Oct):
+  // US launch depth, globally named — a parks traveller is a multi-country
+  // network (Banff, Kruger, Torres del Paine next), and the board's interests
+  // span countries by design. Preview until the 81-park batch lands and David
+  // flips it — the ski pattern, ingest-then-flip.
+  { id: "parks", name: "National & State Parks", sig: "the wild, kept", status: "preview", accent: "#44704B", lux: false, group: "adventure" },
 
   /* 6 — Life-Stage (3) */
   { id: "family", name: "Family Travel", sig: "everyone, together", status: "preview", accent: "#C98A2E", lux: false, group: "lifestage" },
@@ -242,6 +248,7 @@ export const SI_TAGLINE_SUBJECT: Record<string, string> = {
   //   river       "River Cruising" → "the River"   a product category became a longing.
   tropical: "Tropical", romance: "Love", safari: "Safari", liveaboard: "Diving",
   river: "the River", expedition: "Expedition", ski: "Winter", ultra: "Ultra-Luxury",
+  parks: "the Parks",
   // `diveglobal` held "Diving" and had to move: David's own rule is that no two
   // interests share a subject, and `liveaboard` is a LIVE launch interest while
   // this one is preview — so the live one takes the prime noun. "the World Below"
@@ -438,7 +445,7 @@ export const SUBREGIONS: Record<string, string[]> = {
   "06A": ["Okavango & Falls", "South Africa", "Namibia Desert & Coast", "Mozambique & Coast"],
   "07A": ["Southeast Asia", "Bali — Indonesia", "Komodo — Indonesia (East Nusa Tenggara)", "Maldives — Indian Ocean", "Phuket — Thailand (Andaman Sea)", "Raja Ampat — Indonesia (Southwest Papua)", "Similan Islands — Thailand (Andaman Sea)", "Tubbataha Reefs — Philippines (Sulu Sea, Cagayancillo, Palawan)"],
   "08A": ["Hokkaido", "Japanese Alps/Nagano", "Tōhoku"],
-  "09P": ["Palau — Micronesia (western Pacific)"],
+  "09P": ["Palau — Micronesia (western Pacific)", "American Samoa"],
   "10S": ["Quintana Roo (Cancún & Riviera Maya)", "Baja California Sur (Los Cabos & La Paz)", "Costa Rica", "Jalisco (Puerto Vallarta & Guadalajara)", "Yucatán (Mérida & Chichén Itzá)", "Belize", "Guatemala", "Lima, South Coast & Amazon", "Amazon, Pantanal & Iguaçu", "Andes (Quito) & Galápagos", "Panama", "Chile — Patagonia & The Lakes", "Honduras", "Montevideo & The Atlantic Coast", "Nicaragua", "Northeast Beaches & Bahia", "Northwest, Mendoza Wine & Iguazú", "Oaxaca (Oaxaca City & Coast)", "Rio & The Southeast Coast", "Argentina — Patagonia & Valdés", "Baja California (Valle de Guadalupe & Ensenada)", "Bogotá & The Andes", "Campeche (Campeche City & Calakmul)", "Chiapas (San Cristóbal & Palenque)", "Colombia's Caribbean Coast", "Cusco, Sacred Valley & Machu Picchu", "El Salvador", "Guanajuato (San Miguel de Allende)", "Mexico City", "Nayarit (Riviera Nayarit & Sayulita)", "Santiago & Central Valley Wine", "Atacama & The North", "Buenos Aires & The Pampas"],
   "11C": ["Eastern Caribbean — Leewards", "DR — North Coast & Interior", "DR — Punta Cana & the East", "Eastern Caribbean — Windwards & South", "Bahamas", "Jamaica — North Coast & Resorts", "Puerto Rico", "ABC Islands", "Jamaica — Kingston & South-East", "Turks & Caicos", "US Virgin Islands", "Jamaica — South Coast", "Spanish Virgin Islands", "Sint Eustatius / Dutch Caribbean (Leewards)"],
 };

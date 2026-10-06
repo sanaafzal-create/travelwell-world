@@ -1,7 +1,7 @@
 # The TravelWell slogan family — in active use
 
 *Generated from the live taxonomy by `scripts/gen-tagline-list.ts`. Content
-last changed 2026-08-14. Do not hand-edit — regenerate.*
+last changed 2026-10-06. Do not hand-edit — regenerate.*
 
 **The construction:** `If It's [X]… TravelWell.™`
 
@@ -16,10 +16,10 @@ every instance on the site is the same construction by build, not by convention.
 
 | | |
 |---|---|
-| Distinct variants in active use | **37** |
+| Distinct variants in active use | **38** |
 | — master | 1 |
 | — category (Safer Informed Travel) | 1 |
-| — special-interest subjects | 35 (8 on live interests, 27 on preview interests) |
+| — special-interest subjects | 36 (8 on live interests, 28 on preview interests) |
 | Closing mark, every variant | `TravelWell.™` |
 
 ## 1. The master variant
@@ -55,7 +55,7 @@ line on a published page that is not yet bookable.
 | `liveaboard` | Dive Liveaboards | Diving | If It's Diving… TravelWell.™ | locked map |
 | `river` | River Cruises | the River | If It's the River… TravelWell.™ | locked map |
 
-### Preview interests (27)
+### Preview interests (28)
 
 | id | Interest | Subject `[X]` | Rendered line | Subject source |
 |---|---|---|---|---|
@@ -73,6 +73,7 @@ line on a published page that is not yet bookable.
 | `wellness` | Wellness, Spa & Retreats | Wellness | If It's Wellness… TravelWell.™ | locked map |
 | `wildlife` | Wildlife & Nature | Wildlife | If It's Wildlife… TravelWell.™ | locked map |
 | `glamping` | Global Glamping | Global Glamping | If It's Global Glamping… TravelWell.™ | falls back to full name |
+| `parks` | National & State Parks | the Parks | If It's the Parks… TravelWell.™ | locked map |
 | `family` | Family Travel | Family | If It's Family… TravelWell.™ | locked map |
 | `group` | Group Travel | Group Travel | If It's Group Travel… TravelWell.™ | falls back to full name |
 | `senior` | Senior Travel | Senior Travel | If It's Senior Travel… TravelWell.™ | falls back to full name |
