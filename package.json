@@ -36,6 +36,7 @@
     "gen:manifest": "esbuild scripts/gen-manifest.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genmanifest.mjs && node scratchpad/genmanifest.mjs",
     "gen:list-sizes": "esbuild scripts/gen-list-sizes.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genlistsizes.mjs && node scratchpad/genlistsizes.mjs",
     "gen:mcp-safety": "esbuild scripts/gen-mcp-safety.ts --bundle --platform=node --format=esm --external:esbuild --outfile=scratchpad/genmcpsafety.mjs && node scratchpad/genmcpsafety.mjs",
+    "gen:provider-roster": "esbuild scripts/gen-provider-roster.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/genroster.mjs && node scratchpad/genroster.mjs",
     "gen:answer-queue": "esbuild scripts/gen-answer-queue.ts --bundle --platform=node --format=esm --alias:@=./src --define:import.meta.env={} --outfile=scratchpad/genqueue.mjs && node scratchpad/genqueue.mjs",
     "gen:status": "esbuild scripts/gen-mvp-status.ts --bundle --platform=node --format=esm --alias:@=./src --define:import.meta.env={} --outfile=scratchpad/genstatus.mjs && node scratchpad/genstatus.mjs",
     "eval:atlas": "esbuild scripts/eval-atlas.ts --bundle --platform=node --format=esm --define:import.meta.env={} --outfile=scratchpad/evalatlas.mjs && node scratchpad/evalatlas.mjs"

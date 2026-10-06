@@ -47,6 +47,7 @@ const GENERATORS = [
   ["gen:routes", "vercel.json (the rewrite list, read from the router)"],
   ["gen:status", "docs/mvp-live-status.md (what the MVP has live, per surface — David's instruction sheet)"],
   ["gen:answer-queue", "docs/answer-queue.md (the harvest queue the library works from — ruled region order)"],
+  ["gen:provider-roster", "docs/provider-ids.json (the stable supplier reference keys — section-9 joins on these)"],
   // LAST, deliberately: the manifest HASHES the other generated files, so it
   // must run after every generator that writes one — the library's own O-10
   // lesson ("regen is the LAST thing"), applied to the file that exists to

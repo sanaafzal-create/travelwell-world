@@ -1,0 +1,560 @@
+{
+ "_what": "The stable provider ids (S1, ruled 2026-10-04): what a dossier section-9 reference joins on. Minted as the name's slug; a RENAME KEEPS ITS ID, so the id is the durable key and the name is display. One id = one supplier entity, across wells.",
+ "_rule": "Reference by id. A supplier not in this roster is a named operator with no row yet (S2): carry it by name in the dossier with no booking route until it earns a row through validate:providers.",
+ "_db_column": "slug (providers.id is the uuid primary key and is never the reference)",
+ "count": 92,
+ "providers": {
+  "angama-mara": {
+   "name": "Angama Mara",
+   "wells": [
+    "stay"
+   ]
+  },
+  "governors-camp": {
+   "name": "Governors' Camp",
+   "wells": [
+    "stay"
+   ]
+  },
+  "mahali-mzuri": {
+   "name": "Mahali Mzuri",
+   "wells": [
+    "stay"
+   ]
+  },
+  "sarova-mara-game-camp": {
+   "name": "Sarova Mara Game Camp",
+   "wells": [
+    "stay"
+   ]
+  },
+  "fairmont-mara-safari-club": {
+   "name": "Fairmont Mara Safari Club",
+   "wells": [
+    "stay"
+   ]
+  },
+  "mara-serena-safari-lodge": {
+   "name": "Mara Serena Safari Lodge",
+   "wells": [
+    "stay"
+   ]
+  },
+  "basecamp-explorer": {
+   "name": "Basecamp Explorer",
+   "wells": [
+    "stay"
+   ]
+  },
+  "entim-mara-camp": {
+   "name": "Entim Mara Camp",
+   "wells": [
+    "stay"
+   ]
+  },
+  "backstage-hotel-zermatt": {
+   "name": "Backstage Hotel Zermatt",
+   "wells": [
+    "stay"
+   ]
+  },
+  "hotel-arlberg-st-anton": {
+   "name": "Hotel Arlberg St. Anton",
+   "wells": [
+    "stay"
+   ]
+  },
+  "hotel-mont-blanc-chamonix": {
+   "name": "Hôtel Mont-Blanc Chamonix",
+   "wells": [
+    "stay"
+   ]
+  },
+  "badrutts-palace-hotel-st-moritz": {
+   "name": "Badrutt's Palace Hotel, St. Moritz",
+   "wells": [
+    "stay"
+   ]
+  },
+  "cheval-blanc-courchevel": {
+   "name": "Cheval Blanc Courchevel",
+   "wells": [
+    "stay"
+   ]
+  },
+  "cristallo-a-luxury-collection-resort-cortina": {
+   "name": "Cristallo, a Luxury Collection Resort, Cortina",
+   "wells": [
+    "stay"
+   ]
+  },
+  "tennerhof-gourmet-and-spa-hotel-kitzbuhel": {
+   "name": "Tennerhof Gourmet & Spa Hotel, Kitzbühel",
+   "wells": [
+    "stay"
+   ]
+  },
+  "kenya-airways": {
+   "name": "Kenya Airways",
+   "wells": [
+    "fly"
+   ]
+  },
+  "safarilink": {
+   "name": "SafariLink",
+   "wells": [
+    "fly"
+   ]
+  },
+  "qatar-airways": {
+   "name": "Qatar Airways",
+   "wells": [
+    "fly"
+   ]
+  },
+  "airkenya-express": {
+   "name": "AirKenya Express",
+   "wells": [
+    "fly"
+   ]
+  },
+  "emirates": {
+   "name": "Emirates",
+   "wells": [
+    "fly"
+   ]
+  },
+  "skyward-private-jets": {
+   "name": "Skyward Private Jets",
+   "wells": [
+    "fly"
+   ]
+  },
+  "bush-dinner-by-angama": {
+   "name": "Bush Dinner by Angama",
+   "wells": [
+    "eat"
+   ]
+  },
+  "emakoko-restaurant": {
+   "name": "Emakoko Restaurant",
+   "wells": [
+    "eat"
+   ]
+  },
+  "talisman-nairobi": {
+   "name": "Talisman, Nairobi",
+   "wells": [
+    "eat"
+   ]
+  },
+  "carnivore-nairobi": {
+   "name": "Carnivore Nairobi",
+   "wells": [
+    "eat"
+   ]
+  },
+  "private-chef-mara": {
+   "name": "Private Chef — Mara",
+   "wells": [
+    "eat"
+   ]
+  },
+  "chez-vrony-zermatt": {
+   "name": "Chez Vrony, Zermatt",
+   "wells": [
+    "eat"
+   ]
+  },
+  "chesa-veglia-st-moritz": {
+   "name": "Chesa Veglia, St. Moritz",
+   "wells": [
+    "eat"
+   ]
+  },
+  "le-chabichou-courchevel": {
+   "name": "Le Chabichou, Courchevel",
+   "wells": [
+    "eat"
+   ]
+  },
+  "rifugio-averau-cortina": {
+   "name": "Rifugio Averau, Cortina",
+   "wells": [
+    "eat"
+   ]
+  },
+  "mara-land-cruiser-safaris": {
+   "name": "Mara Land Cruiser Safaris",
+   "wells": [
+    "move"
+   ]
+  },
+  "abercrombie-and-kent-transfers": {
+   "name": "Abercrombie & Kent Transfers",
+   "wells": [
+    "move"
+   ]
+  },
+  "scenic-air-transfers": {
+   "name": "Scenic Air Transfers",
+   "wells": [
+    "move"
+   ]
+  },
+  "nairobi-executive-cars": {
+   "name": "Nairobi Executive Cars",
+   "wells": [
+    "move"
+   ]
+  },
+  "self-drive-kenya": {
+   "name": "Self-Drive Kenya",
+   "wells": [
+    "move"
+   ]
+  },
+  "alpybus-alpine-transfers": {
+   "name": "Alpybus Alpine Transfers",
+   "wells": [
+    "move"
+   ]
+  },
+  "safari-outfitters-co": {
+   "name": "Safari Outfitters Co.",
+   "wells": [
+    "gear"
+   ]
+  },
+  "optics-and-binoculars-rental": {
+   "name": "Optics & Binoculars Rental",
+   "wells": [
+    "gear"
+   ]
+  },
+  "travelwell-gear-edit": {
+   "name": "TravelWell Gear Edit",
+   "wells": [
+    "gear"
+   ]
+  },
+  "angama-spa": {
+   "name": "Angama Spa",
+   "wells": [
+    "beauty"
+   ]
+  },
+  "sundowner-wellness": {
+   "name": "Sundowner Wellness",
+   "wells": [
+    "beauty"
+   ]
+  },
+  "mara-hot-air-balloon": {
+   "name": "Mara Hot-Air Balloon",
+   "wells": [
+    "activities"
+   ]
+  },
+  "maasai-village-cultural-visit": {
+   "name": "Maasai Village Cultural Visit",
+   "wells": [
+    "activities"
+   ]
+  },
+  "big-cat-tracking-experience": {
+   "name": "Big Cat Tracking Experience",
+   "wells": [
+    "activities"
+   ]
+  },
+  "walking-safari-olare-motorogi": {
+   "name": "Walking Safari — Olare Motorogi",
+   "wells": [
+    "activities"
+   ]
+  },
+  "photography-safari-workshop": {
+   "name": "Photography Safari Workshop",
+   "wells": [
+    "activities"
+   ]
+  },
+  "night-game-drive": {
+   "name": "Night Game Drive",
+   "wells": [
+    "activities"
+   ]
+  },
+  "zermatters-ski-and-guide-school": {
+   "name": "Zermatters Ski & Guide School",
+   "wells": [
+    "activities"
+   ]
+  },
+  "compagnie-des-guides-de-chamonix": {
+   "name": "Compagnie des Guides de Chamonix",
+   "wells": [
+    "activities"
+   ]
+  },
+  "arlberg-ski-school-st-anton": {
+   "name": "Arlberg Ski School, St. Anton",
+   "wells": [
+    "activities"
+   ]
+  },
+  "schweizer-skischule-st-moritz": {
+   "name": "Schweizer Skischule St. Moritz",
+   "wells": [
+    "activities"
+   ]
+  },
+  "esf-courchevel": {
+   "name": "ESF Courchevel",
+   "wells": [
+    "activities"
+   ]
+  },
+  "scuola-sci-cortina": {
+   "name": "Scuola Sci Cortina",
+   "wells": [
+    "activities"
+   ]
+  },
+  "rote-teufel-ski-school-kitzbuhel": {
+   "name": "Rote Teufel Ski School, Kitzbühel",
+   "wells": [
+    "activities"
+   ]
+  },
+  "maasai-market-curated": {
+   "name": "Maasai Market Curated",
+   "wells": [
+    "shop"
+   ]
+  },
+  "utamaduni-craft-centre": {
+   "name": "Utamaduni Craft Centre",
+   "wells": [
+    "shop"
+   ]
+  },
+  "mara-family-nannies": {
+   "name": "Mara Family Nannies",
+   "wells": [
+    "nanny"
+   ]
+  },
+  "discreet-protection-kenya": {
+   "name": "Discreet Protection Kenya",
+   "wells": [
+    "security"
+   ]
+  },
+  "aggressor-adventures": {
+   "name": "Aggressor Adventures",
+   "wells": [
+    "activities"
+   ]
+  },
+  "explorer-ventures-fleet": {
+   "name": "Explorer Ventures Fleet",
+   "wells": [
+    "activities"
+   ]
+  },
+  "master-liveaboards": {
+   "name": "Master Liveaboards",
+   "wells": [
+    "activities"
+   ]
+  },
+  "liveaboardcom": {
+   "name": "LiveAboard.com",
+   "wells": [
+    "activities"
+   ]
+  },
+  "divebooker": {
+   "name": "DiveBooker",
+   "wells": [
+    "activities"
+   ]
+  },
+  "emperor-divers": {
+   "name": "Emperor Divers",
+   "wells": [
+    "activities"
+   ]
+  },
+  "scubaspa": {
+   "name": "Scubaspa",
+   "wells": [
+    "activities"
+   ]
+  },
+  "carpe-diem-maldives": {
+   "name": "Carpe Diem Maldives",
+   "wells": [
+    "activities"
+   ]
+  },
+  "la-galigo": {
+   "name": "La Galigo",
+   "wells": [
+    "activities"
+   ]
+  },
+  "dewi-nusantara": {
+   "name": "Dewi Nusantara",
+   "wells": [
+    "activities"
+   ]
+  },
+  "nautilus-liveaboards": {
+   "name": "Nautilus Liveaboards",
+   "wells": [
+    "activities"
+   ]
+  },
+  "bedsonline": {
+   "name": "Bedsonline",
+   "wells": [
+    "stay"
+   ]
+  },
+  "grace-bay-club": {
+   "name": "Grace Bay Club",
+   "wells": [
+    "stay"
+   ]
+  },
+  "amanyara": {
+   "name": "Amanyara",
+   "wells": [
+    "stay"
+   ]
+  },
+  "beaches-turks-and-caicos": {
+   "name": "Beaches Turks & Caicos",
+   "wells": [
+    "stay"
+   ]
+  },
+  "sandals-royal-bahamian": {
+   "name": "Sandals Royal Bahamian",
+   "wells": [
+    "stay"
+   ]
+  },
+  "the-cove-eleuthera": {
+   "name": "The Cove Eleuthera",
+   "wells": [
+    "stay"
+   ]
+  },
+  "jade-mountain": {
+   "name": "Jade Mountain",
+   "wells": [
+    "stay"
+   ]
+  },
+  "eden-rock-st-barths": {
+   "name": "Eden Rock St Barths",
+   "wells": [
+    "stay"
+   ]
+  },
+  "hotel-christopher-st-barth": {
+   "name": "Hotel Christopher St Barth",
+   "wells": [
+    "stay"
+   ]
+  },
+  "spice-island-beach-resort": {
+   "name": "Spice Island Beach Resort",
+   "wells": [
+    "stay"
+   ]
+  },
+  "curtain-bluff": {
+   "name": "Curtain Bluff",
+   "wells": [
+    "stay"
+   ]
+  },
+  "cap-juluca": {
+   "name": "Cap Juluca",
+   "wells": [
+    "stay"
+   ]
+  },
+  "bucuti-and-tara-beach-resort": {
+   "name": "Bucuti & Tara Beach Resort",
+   "wells": [
+    "stay"
+   ]
+  },
+  "hotel-riu-palace-aruba": {
+   "name": "Hotel Riu Palace Aruba",
+   "wells": [
+    "stay"
+   ]
+  },
+  "the-crane-resort": {
+   "name": "The Crane Resort",
+   "wells": [
+    "stay"
+   ]
+  },
+  "de-palm-tours": {
+   "name": "De Palm Tours",
+   "wells": [
+    "activities"
+   ]
+  },
+  "big-blue-collective": {
+   "name": "Big Blue Collective",
+   "wells": [
+    "activities"
+   ]
+  },
+  "island-routes-caribbean-adventures": {
+   "name": "Island Routes Caribbean Adventures",
+   "wells": [
+    "activities"
+   ]
+  },
+  "viator": {
+   "name": "Viator",
+   "wells": [
+    "activities"
+   ]
+  },
+  "getyourguide": {
+   "name": "GetYourGuide",
+   "wells": [
+    "activities"
+   ]
+  },
+  "american-airlines": {
+   "name": "American Airlines",
+   "wells": [
+    "fly"
+   ]
+  },
+  "jetblue": {
+   "name": "JetBlue",
+   "wells": [
+    "fly"
+   ]
+  },
+  "delta-air-lines": {
+   "name": "Delta Air Lines",
+   "wells": [
+    "fly"
+   ]
+  }
+ }
+}

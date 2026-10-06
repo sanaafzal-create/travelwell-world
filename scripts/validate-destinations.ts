@@ -431,6 +431,15 @@ for (const { code, d } of rows) {
       if (q?.accessed && !q?.source) {
         errs.push(`${at}: faq #${i + 1} carries accessed without a source — a date we read nothing on is not provenance; date the source or drop the date`);
       }
+      // INTERNAL FIELDS NEVER REACH A TRAVELER ANSWER (2026-10-06). A library
+      // script once copied jewel lines - working fields and all - into faq
+      // answers: 280 live rows read "PRICE TIER [essential] - COMMISSION: ..."
+      // to travelers (and to every answer engine) for three days, and only a
+      // human reading a diff on THEIR side caught it. Their lane gate (SF-124)
+      // now blocks it at source; this is our side of the same wall.
+      if (q?.a && /PRICE TIER \[|COMMISSION:\s|\bdraw_rank\b|\[when:|TIMING \[|TIER \[/.test(q.a)) {
+        errs.push(`${at}: faq #${i + 1} answer carries internal working fields — traveler answers never ship machine notes; clean at source and resend`);
+      }
     }
     // Editorial hero override (data.hero) — the content team's image pick.
     // Shared with the SI gate so the two can't drift: a missing credit on a

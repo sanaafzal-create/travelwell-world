@@ -24,11 +24,14 @@ alter table public.providers add column if not exists booking_url text;
 alter table public.providers add column if not exists desc_by_si jsonb;
 -- The stable reference key (library S1, 2026-10-02): what dossier section-9
 -- references join on. Minted from the name's slug; a RENAME KEEPS ITS ID.
-alter table public.providers add column if not exists id text;
-create index if not exists providers_id_idx on public.providers (id);
+-- Column named slug, NOT id: providers.id is the uuid PRIMARY KEY from
+-- 0001, and the first cut of this tried to write slugs into it - caught by
+-- the library reading the live table (4 Oct) before the re-run could fail.
+alter table public.providers add column if not exists slug text;
+create index if not exists providers_slug_idx on public.providers (slug);
 create index if not exists providers_region_idx on public.providers (region);
 
-insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url, desc_by_si, id) values
+insert into public.providers (name, well, tier, price, mode, description, commission, si, region, booking_url, desc_by_si, slug) values
   ('Angama Mara', 'stay', 'prime', 'ultra', 'api', 'Clifftop tented suites with sweeping Mara views', 'Commission partner', '{"safari"}', '05A', null, null, 'angama-mara'),
   ('Governors'' Camp', 'stay', 'prime', 'premier', 'api', 'Front-row tents on the Mara River', 'Commission partner', '{"safari"}', '05A', null, null, 'governors-camp'),
   ('Mahali Mzuri', 'stay', 'prime', 'ultra', 'widget', 'Sir Richard Branson''s tented camp', 'Commission partner', '{"safari"}', '05A', null, null, 'mahali-mzuri'),
@@ -125,7 +128,7 @@ on conflict (name, well) do update set
   tier = excluded.tier, price = excluded.price, mode = excluded.mode,
   description = excluded.description, commission = excluded.commission,
   si = excluded.si, region = excluded.region, booking_url = excluded.booking_url,
-  desc_by_si = excluded.desc_by_si, id = excluded.id;
+  desc_by_si = excluded.desc_by_si, slug = excluded.slug;
 
 -- Sub-regions -----------------------------------------------------------------
 create table if not exists public.sub_regions (
