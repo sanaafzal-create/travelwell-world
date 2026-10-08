@@ -79,11 +79,44 @@ const cors = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
+// ── Rate limit per client IP (Josh's outside read, finding 5, 2026-10-08) ──
+// This endpoint runs the most expensive model with up to six tool rounds per
+// request, verify_jwt is off (the public site calls it anonymously), and until
+// today it had NO cap while the MCP endpoint had one — anyone who found it
+// could run the bill up at will, or make Atlas slow on demo day. Same shape as
+// the MCP limiter, tighter cap (each request here costs more).
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 8;                 // requests per window, per client IP
+const MAX_BODY_BYTES = 32_768;
+const hits = new Map<string, { n: number; resetAt: number }>();
+function rateRetryAfter(ip: string, now: number): number | null {
+  const e = hits.get(ip);
+  if (!e || now >= e.resetAt) { hits.set(ip, { n: 1, resetAt: now + RATE_WINDOW_MS }); return null; }
+  if (++e.n > RATE_MAX) return Math.ceil((e.resetAt - now) / 1000);
+  return null;
+}
+function sweep(now: number) { if (hits.size > 5000) for (const [k, v] of hits) if (now >= v.resetAt) hits.delete(k); }
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: cors });
 
+  // Rate limit + body cap BEFORE any parsing or model work.
+  const now = Date.now();
+  const ip = (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() || "unknown";
+  sweep(now);
+  const retry = rateRetryAfter(ip, now);
+  if (retry) {
+    return new Response(JSON.stringify({ error: "Atlas is getting a lot of questions right now — try again in a moment." }),
+      { status: 429, headers: { ...cors, "Content-Type": "application/json", "Retry-After": String(retry) } });
+  }
+  const raw = await req.text();
+  if (raw.length > MAX_BODY_BYTES) {
+    return new Response(JSON.stringify({ error: "Request too large." }),
+      { status: 413, headers: { ...cors, "Content-Type": "application/json" } });
+  }
+
   try {
-    const { messages, context, locale, voice } = (await req.json()) as {
+    const { messages, context, locale, voice } = JSON.parse(raw) as {
       messages: ChatMessage[];
       context?: Record<string, unknown>;
       locale?: string;

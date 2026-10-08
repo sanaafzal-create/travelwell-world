@@ -13,7 +13,15 @@ import { useWells, useSiCount, useRegionCount, useWellCount } from "@/store/useC
    prototype's <script> data arrays — replace with audited data before use.
    ========================================================================== */
 
-const ACCESS_CODE = "TWW2026";
+/* The investor gate's codes come from the environment, NEVER from this public
+   repository, and are NEVER printed on the page — the old hardcoded code sat
+   in the page source and was printed under its own input box until 2026-10-08
+   (Josh's outside read, finding 1). Comma-separated list in VITE_DEMO_CODES so
+   each investor can hold their own; set in Vercel env, not here. This remains
+   a soft client-side curtain, not a lock — nothing truly sensitive belongs
+   behind it, and the commission detail it gates is demo-scoped. */
+const ACCESS_CODES: string[] = String(import.meta.env.VITE_DEMO_CODES ?? "")
+  .split(",").map((s) => s.trim().toUpperCase()).filter(Boolean);
 
 // Placeholder-economics styling: the design wraps the "—" sentinels in .ph.
 const Ph = ({ children }: { children: ReactNode }) => <span className="ph">{children}</span>;
@@ -297,7 +305,7 @@ function Gate({ onUnlock }: { onUnlock: () => void }) {
   const [err, setErr] = useState(false);
 
   const submit = () => {
-    if (code.trim().toUpperCase() === ACCESS_CODE) {
+    if (ACCESS_CODES.includes(code.trim().toUpperCase())) {
       setErr(false);
       onUnlock();
     } else {
@@ -328,8 +336,7 @@ function Gate({ onUnlock }: { onUnlock: () => void }) {
               <Icon name="info" small /> That code isn't right. Try again or request access.
             </div>
             <div className="inv-gate__hint">
-              Demo code: <b style={{ color: "#fff" }}>{ACCESS_CODE}</b> · or{" "}
-              <a href="#" style={{ color: "var(--accent)" }} onClick={(e) => e.preventDefault()}>request access</a>
+              Need a code? <a href="mailto:david@travelwell.world?subject=Investor%20demo%20access" style={{ color: "var(--accent)" }}>Request access</a>
             </div>
             <button className="btn btn-gold" style={{ width: "100%", marginTop: 20, height: 50 }} onClick={submit}>
               Unlock demo

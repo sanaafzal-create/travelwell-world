@@ -404,7 +404,16 @@ export default function DestinationDetail() {
                       {(j.when || j.commission) && (
                         <div className="dd-jewel__meta">
                           {j.when && <span><Icon name="calendar" small /> {j.when}</span>}
-                          {j.commission && <span><Icon name="info" small /> {j.commission}</span>}
+                          {/* NEVER render the raw commission lane string — it carries
+                              working notes and rate ranges ("DMC 15–25%"), which were
+                              readable in public page source until 2026-10-08 (Josh's
+                              outside read, finding 3). The traveler sees the standing
+                              FTC disclosure; the lane detail stays internal. A jewel
+                              marked commission_status "none" earns the no-commission
+                              line instead (David 2 Oct). */}
+                          {j.commission_status === "none"
+                            ? <span><Icon name="info" small /> No commission earned on this — enjoy.</span>
+                            : j.commission && <span><Icon name="info" small /> Booking may earn us a commission — at no extra cost to you.</span>}
                         </div>
                       )}
                     </div>
