@@ -9,7 +9,9 @@
  * ordinal, deliberately — the 31 Aug demand research ranks the regions but we
  * hold no per-row demand numbers yet, and an invented weight is a guessed
  * number wearing a formula's clothes. THE CLOCK IS NOW RUNNING: the
- * GSC → BigQuery bulk export went live on 2026-10-05 (project
+ * GSC → BigQuery bulk export went live on 2026-10-05 and was VERIFIED FLOWING
+ * on 2026-10-08 — searchdata_url_impression carries data from 2026-10-04 onward,
+ * so day one of query history is 2026-10-04 (project
  * project-8ca0cead-6e94-4194-899, dataset `searchconsole`, location US) —
  * day one of our query history; nothing earlier exists, by Google's design.
  * Once it has accumulated real query volume per market, the ordinal upgrades
