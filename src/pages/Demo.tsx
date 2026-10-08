@@ -20,8 +20,9 @@ import { useWells, useSiCount, useRegionCount, useWellCount } from "@/store/useC
    each investor can hold their own; set in Vercel env, not here. This remains
    a soft client-side curtain, not a lock — nothing truly sensitive belongs
    behind it, and the commission detail it gates is demo-scoped. */
-const ACCESS_CODES: string[] = String(import.meta.env.VITE_DEMO_CODES ?? "")
-  .split(",").map((s) => s.trim().toUpperCase()).filter(Boolean);
+const ACCESS_CODES: string[] = String(
+  ((import.meta as unknown as { env?: Record<string, string> }).env ?? {}).VITE_DEMO_CODES ?? "",
+).split(",").map((s) => s.trim().toUpperCase()).filter(Boolean);
 
 // Placeholder-economics styling: the design wraps the "—" sentinels in .ph.
 const Ph = ({ children }: { children: ReactNode }) => <span className="ph">{children}</span>;
