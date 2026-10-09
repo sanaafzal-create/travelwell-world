@@ -19,7 +19,10 @@
      target (AA); the sparkle nods to Atlas leading the way. */
   /* Full-width third row under the CTA pair, matching their 52px/16px metrics
      so the three read as one control group rather than a button and a footnote. */
-  [data-page="home"] .hero__tour { display: flex; width: 100%; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; height: 52px; padding: 0 28px; border-radius: var(--radius-pill); background: none; border: 1.5px solid var(--primary); color: var(--primary); font-family: var(--font-sans); font-weight: 600; font-size: 16px; cursor: pointer; transition: background-color .15s ease, color .15s ease; }
+  /* Content-width like the two CTAs above it (Sana 2026-10-09) — the old
+     width:100% stretched it across the whole column and it read as a stray.
+     The ≤900px block below stretches it full-width with the rest of the group. */
+  [data-page="home"] .hero__tour { display: inline-flex; justify-content: center; align-items: center; gap: 7px; margin-top: 14px; height: 52px; padding: 0 28px; border-radius: var(--radius-pill); background: none; border: 1.5px solid var(--primary); color: var(--primary); font-family: var(--font-sans); font-weight: 600; font-size: 16px; cursor: pointer; transition: background-color .15s ease, color .15s ease; }
   @media (hover: hover) { [data-page="home"] .hero__tour:hover { background: var(--primary); color: #fff; } }
   [data-page="home"] .hero__taps { margin-top: 18px; font-size: 16px; color: var(--muted-foreground); display: flex; align-items: center; gap: 8px; }
   [data-page="home"] .hero__taps .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted-foreground); }
@@ -213,6 +216,7 @@
   [data-page="home"] .hero__copy { padding: 48px 0 8px; }
   [data-page="home"] .hero__cta { flex-direction: column; align-items: stretch; gap: 12px; }
   [data-page="home"] .hero__cta > * { width: 100%; }
+  [data-page="home"] .hero__tour { display: flex; width: 100%; }
   [data-page="home"] .hero__taps { flex-direction: column; align-items: flex-start; gap: 6px; }
   [data-page="home"] .hero__taps .dot { display: none; }
   [data-page="home"] .si-rail,
