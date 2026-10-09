@@ -2,7 +2,7 @@
  "_what": "The stable provider ids (S1, ruled 2026-10-04): what a dossier section-9 reference joins on. Minted as the name's slug; a RENAME KEEPS ITS ID, so the id is the durable key and the name is display. One id = one supplier entity, across wells.",
  "_rule": "Reference by id. A supplier not in this roster is a named operator with no row yet (S2): carry it by name in the dossier with no booking route until it earns a row through validate:providers.",
  "_db_column": "slug (providers.id is the uuid primary key and is never the reference)",
- "count": 92,
+ "count": 94,
  "providers": {
   "angama-mara": {
    "name": "Angama Mara",
@@ -414,6 +414,18 @@
   },
   "nautilus-liveaboards": {
    "name": "Nautilus Liveaboards",
+   "wells": [
+    "activities"
+   ]
+  },
+  "amawaterways": {
+   "name": "AmaWaterways",
+   "wells": [
+    "activities"
+   ]
+  },
+  "uniworld-boutique-river-cruise-collection": {
+   "name": "Uniworld Boutique River Cruise Collection",
    "wells": [
     "activities"
    ]
