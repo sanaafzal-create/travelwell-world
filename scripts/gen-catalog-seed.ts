@@ -89,8 +89,16 @@ const slug = (s: string) =>
 const WELL_REMAP: Record<string, string> = { lodging: "stay" };
 function readTleuEvents(validRegions: Set<string>): LocalSignal[] {
   let raw: TleuEvent[] = [];
-  try { raw = JSON.parse(readFileSync("src/data/tleu-events.json", "utf8")); }
-  catch { return []; }
+  // Accept both containers: our original bare array, and the library's v2
+  // envelope ({_what, count, counts, retired, events: [...]}) — their
+  // TLEU-EVENTS-v2.json is per-event identical to our shape (verified
+  // 2026-10-09: same 16 keys, si = the 36 board ids exactly, wells within
+  // the 13, region_code null-or-valid), so the envelope was the only thing
+  // between us and a drop-in load. Rows under `retired` never enter.
+  try {
+    const parsed = JSON.parse(readFileSync("src/data/tleu-events.json", "utf8"));
+    raw = Array.isArray(parsed) ? parsed : (parsed.events ?? []);
+  } catch { return []; }
   const seen = new Set<string>();
   return raw.map((e) => {
     let id = e.id ?? `tleu-${slug(e.title)}`;
