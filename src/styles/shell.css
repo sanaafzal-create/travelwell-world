@@ -106,7 +106,7 @@
 .tw-mega__close { position: absolute; top: 14px; inset-inline-end: 16px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border); background: var(--card); color: var(--foreground); display: grid; place-items: center; cursor: pointer; transition: background-color .15s ease; }
 .tw-mega__close:hover { background: var(--surface-alt); }
 .tw-mega__inner { max-width: var(--content-max); margin-inline: auto; padding: 32px var(--gutter) 36px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 36px; }
-.tw-mega__col h4 { font-family: var(--font-sans); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; margin-bottom: 14px; }
+.tw-mega__col h4, .tw-mega__locale h4 { font-family: var(--font-sans); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 700; margin-bottom: 14px; }
 .tw-mega__link { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: var(--radius-sm); color: var(--foreground); text-decoration: none; font-size: 14.5px; transition: background-color .12s ease; }
 .tw-mega__link:hover { background: var(--surface-alt); text-decoration: none; }
 .tw-mega__link--gold { color: var(--gold-deep); font-weight: 600; }
@@ -121,6 +121,15 @@
 .tw-mega__feature .sig { font-family: var(--font-display); font-style: italic; font-size: 13.5px; color: rgba(255,255,255,.85); margin-top: 4px; }
 .tw-mega__viewall { display:inline-flex; align-items:center; gap:6px; margin-top: 10px; font-weight: 600; font-size: 13.5px; color: var(--primary); }
 .tw-mega__signature { grid-column: 1 / -1; border-top: 1px solid var(--border-hair); margin-top: 6px; padding-top: 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+/* Language inside the menu — phones only (≤560px turns it on, below). Desktop
+   keeps the globe in the header bar, so this stays off there. */
+.tw-mega__locale { display: none; grid-column: 1 / -1; border-top: 1px solid var(--border-hair); padding-top: 16px; }
+.tw-mega__loc-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.tw-mega__loc-btn { min-height: 44px; padding: 0 16px; border-radius: var(--radius-pill); border: 1px solid var(--border); background: var(--card); color: var(--foreground); font-family: var(--font-sans); font-size: 15px; font-weight: 500; cursor: pointer; transition: background-color .15s ease; }
+.tw-mega__loc-btn:hover { background: var(--surface-alt); }
+.tw-mega__loc-btn[aria-current="true"] { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); font-weight: 600; }
+.tw-mega__loc-soon { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-foreground); font-weight: 600; margin: 14px 0 8px; }
 
 .tw-backdrop { position: fixed; inset: 0; background: rgba(28,27,24,.28); z-index: 60; opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility .2s; }
 .tw-backdrop[data-open="true"] { opacity: 1; visibility: visible; }
@@ -541,16 +550,31 @@
 @media (max-width: 560px) {
   .tw-mega__inner { grid-template-columns: 1fr; padding-top: 60px; }
   .tw-footer__top { grid-template-columns: 1fr; }
-  .tw-locale__btn span.loc-lbl, .tw-locale__btn .ic-sm:last-child { display: none; } /* globe alone — label and chevron both go */
+  /* The locale globe leaves the phone bar entirely (Sana 2026-10-09) — it was
+     the control pushing Emergency and Atlas off-screen. Language lives in the
+     burger menu on phones: the .tw-mega__locale section turns on here. */
+  .tw-locale { display: none; }
+  .tw-mega__locale { display: block; }
   /* Tighten the header so its content fits a phone without overflow.
      (Re-measured 2026-10-09 after Sign up joined the bar: the ".world" suffix
      comes off the phone logo — the one-word mark stands alone — and Sign up
      compresses. Emergency and Trip stay fully on-screen down to 360px.) */
   .tw-header__bar { padding: 0 10px; gap: 3px; }
-  .tw-header__actions { gap: 3px; }
+  /* min-width: 0 lets the actions group shrink at all — without it the flex
+     default (min-width: auto) forbids it and the bar overflows instead. Only
+     Sign up inside it actually gives way; see its rule below. */
+  .tw-header__actions { gap: 3px; flex: 0 1 auto; min-width: 0; }
   .tw-logo { font-size: 20px; margin-inline-end: 2px; }
   .tw-logo .lworld { display: none; }
   .tw-signup { font-size: 14px; padding: 8px 11px; }
+  /* Sign up is the ONE item allowed to shrink on a phone — but only in the
+     long-string locales: "Créer un compte" runs 143px and was pushing Emergency
+     and Atlas clean off the screen in fr/es/ar. An ellipsised CTA is the lesser
+     evil there until those strings get a short mobile variant (flagged
+     2026-10-09 — a copy decision, not a CSS one). English and Chinese fit at
+     natural width and are excluded, because text-overflow trips on subpixel
+     rounding and ellipsised "Sign …" even when the integer widths said it fit. */
+  html:not([lang="en"]):not([lang="zh"]) .tw-signup { flex: 0 1 auto; min-width: 56px; overflow: hidden; text-overflow: ellipsis; }
   .tw-iconbtn { width: 44px; height: 44px; }               /* was 40px — hold the >=44px tap-target bar */
   .tw-talk-btn, .tw-trip-btn { width: 48px; height: 48px; } /* Ask Atlas + Itinerary: the two big, easy-to-tap actions */
   /* The label collapses on a narrow header, but the button keeps its red fill and
@@ -559,6 +583,18 @@
   .tw-emerg-btn .lbl { display: none; }
   .tw-emerg-btn { width: 56px; height: 48px; padding: 0; justify-content: center; }
   .tw-locale__btn { padding-inline: 8px; }
+}
+/* The narrowest phones (≤400px: iPhone mini/SE at 375, small Androids at 360).
+   Measured 2026-10-09: with the globe gone the bar still needs ~400px, so this
+   tier shaves it to ~355 — every control fully on-screen at 360, Emergency
+   first among them. Tap targets hold the 44px floor. */
+@media (max-width: 400px) {
+  .tw-header__bar { padding: 0 6px; gap: 2px; }
+  .tw-header__actions { gap: 2px; }
+  .tw-logo { font-size: 18px; }
+  .tw-signup { font-size: 13px; padding: 8px 7px; }
+  .tw-emerg-btn { width: 50px; }
+  .tw-talk-btn, .tw-trip-btn { width: 44px; height: 44px; }
 }
 
 /* ── Atlas Guided-Flow WOW — the pulse Atlas points with ──────────────────

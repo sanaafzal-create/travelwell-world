@@ -3,10 +3,10 @@ import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { useSpecialInterests, useWells, useRegions, useSiCount, useRegionCount, useWellCount } from "@/store/useCatalog";
 import { ButtonLink, Tagline, BrandMark } from "@/components/ui/primitives";
-import { MASTER_TAGLINE_SUBJECT } from "@/data/taxonomy";
+import { LOCALES, MASTER_TAGLINE_SUBJECT } from "@/data/taxonomy";
 
 export function MegaMenu() {
-  const { panel, closePanel } = useStore();
+  const { panel, closePanel, locale, setLocale } = useStore();
   const sis = useSpecialInterests();
   const open = panel === "mega";
   // Published counts come from the catalog, never a literal (see useCatalog).
@@ -71,6 +71,37 @@ export function MegaMenu() {
           <Link className="tw-mega__link tw-mega__link--gold" to="/luxury" onClick={close}><Icon name="sparkle" />Luxury &amp; Ultra-Luxury</Link>
           <Link className="tw-mega__link" to="/about" onClick={close}><Icon name="globe" />About / Architecture</Link>
           <Link className="tw-mega__link" to="/demo" onClick={close}><Icon name="sparkles" />Investor Demo</Link>
+        </div>
+        {/* Language, phones only (Sana 2026-10-09): the globe left the ≤560px
+            header bar — it was the control pushing Emergency off-screen — and
+            lives here instead. Desktop keeps the header globe; CSS hides this
+            section above 560px. Picking a language keeps the menu open, so the
+            menu re-rendering in the new language is its own confirmation. */}
+        <div className="tw-mega__locale" role="group" aria-label="Change language">
+          <h4>Language</h4>
+          <div className="tw-mega__loc-grid">
+            {LOCALES.filter((l) => l.tier === "launch").map((l) => (
+              <button
+                key={l.code} className="tw-mega__loc-btn"
+                aria-current={l.code === locale || undefined}
+                onClick={() => setLocale(l.code)}
+              >
+                {l.native}
+              </button>
+            ))}
+          </div>
+          <div className="tw-mega__loc-soon">Coming soon</div>
+          <div className="tw-mega__loc-grid">
+            {LOCALES.filter((l) => l.tier === "staged").map((l) => (
+              <button
+                key={l.code} className="tw-mega__loc-btn"
+                aria-current={l.code === locale || undefined}
+                onClick={() => setLocale(l.code)}
+              >
+                {l.native}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="tw-mega__signature">
           <p className="signature">A Travel Operating System — <span className="tw"><BrandMark world /></span></p>
