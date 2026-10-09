@@ -8,7 +8,11 @@ import { fetchTravelId, pendingAsRecord } from "@/lib/travelId";
 import { Logo } from "./Logo";
 
 export function Header() {
-  const { locale, setLocale, openPanel, trip, user } = useStore();
+  const { locale, setLocale, panel, openPanel, closePanel, trip, user } = useStore();
+  // The convention: first click opens the mega menu, the same click closes it.
+  // aria-expanded drives the chevron rotation + active fill in shell.css too.
+  const megaOpen = panel === "mega";
+  const toggleMega = () => (megaOpen ? closePanel() : openPanel("mega"));
   const t = useT();
   const [localeOpen, setLocaleOpen] = useState(false);
   const localeRef = useRef<HTMLDivElement>(null);
@@ -45,12 +49,12 @@ export function Header() {
   return (
     <header className="tw-header">
       <div className="tw-header__bar">
-        <button className="tw-iconbtn tw-burger" aria-label="Menu" onClick={() => openPanel("mega")}>
+        <button className="tw-iconbtn tw-burger" aria-label="Menu" aria-controls="tw-mega" aria-expanded={megaOpen} onClick={toggleMega}>
           <Icon name="menu" />
         </button>
         <Logo />
         <nav className="tw-nav" aria-label="Primary">
-          <button className="tw-nav__trigger" aria-controls="tw-mega" onClick={() => openPanel("mega")}>
+          <button className="tw-nav__trigger" aria-controls="tw-mega" aria-expanded={megaOpen} onClick={toggleMega}>
             {t("nav.worlds")} <Icon name="chev" small className="chev" />
           </button>
           <Link className="tw-nav__link" to="/plan">{t("nav.plan")}</Link>
