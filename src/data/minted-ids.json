@@ -1,539 +1,539 @@
 {
-  "_note": "The minted-id ledger. An id is MATCHED against this side, never computed on theirs (David, 2026-09-02) — so an id minted for the research library is not real until it is visible in this tree at a pushed head. Every entry here was minted by Sana with its region; the library's dossiers must arrive under these exact ids and regions, and validate:ingest enforces both. Rows leave this ledger when a catalog row exists under the id (the ledger is the reservation, the catalog is the destination). The 21 sailing/city ids below were minted 2026-09-02 (cowes-england overruling cowes-isle-of-wight per the UK constituent-country precedent; las-palmas-spain to 11C 'Caribbean & Atlantic' — David ratified both, 2026-09-04).",
-  "minted": {
-    "la-clusaz-france": {
-      "region": "01F",
-      "minted": "2026-09-02"
-    },
-    "lyon-france": {
-      "region": "01F",
-      "minted": "2026-09-02"
-    },
-    "cowes-england": {
-      "region": "03F",
-      "minted": "2026-09-02",
-      "note": "overrules cowes-isle-of-wight — UK ids use the constituent country (london-england, edinburgh-scotland); the island belongs in the name field"
-    },
-    "athens-greece": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "corfu-greece": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "lefkada-greece": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "trogir-croatia": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "sibenik-croatia": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "bodrum-turkey": {
-      "region": "02F",
-      "minted": "2026-09-02",
-      "note": "the gulet coast sails the same sea as the Greek islands; Eastern Anatolia would be 04A if it ever comes"
-    },
-    "marmaris-turkey": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "gocek-turkey": {
-      "region": "02F",
-      "minted": "2026-09-02"
-    },
-    "las-vegas-nevada": {
-      "region": "12A",
-      "minted": "2026-09-02",
-      "note": "US ids use the state form, per the existing thirty"
-    },
-    "newport-rhode-island": {
-      "region": "12A",
-      "minted": "2026-09-02"
-    },
-    "annapolis-maryland": {
-      "region": "12A",
-      "minted": "2026-09-02"
-    },
-    "san-francisco-california": {
-      "region": "12A",
-      "minted": "2026-09-02"
-    },
-    "langkawi-malaysia": {
-      "region": "07A",
-      "minted": "2026-09-02"
-    },
-    "sydney-australia": {
-      "region": "09P",
-      "minted": "2026-09-02"
-    },
-    "hobart-australia": {
-      "region": "09P",
-      "minted": "2026-09-02",
-      "note": "as ruled"
-    },
-    "the-whitsundays-australia": {
-      "region": "09P",
-      "minted": "2026-09-02"
-    },
-    "auckland-new-zealand": {
-      "region": "09P",
-      "minted": "2026-09-02"
-    },
-    "las-palmas-spain": {
-      "region": "11C",
-      "minted": "2026-09-02",
-      "note": "the Canaries are Atlantic, not Mediterranean — 11C is 'Caribbean & Atlantic', and it puts the ARC's start and finish in one region. David ratified 2026-09-04."
-    },
-    "mount-kenya-kenya": {
-      "region": "05A",
-      "minted": "2026-09-04",
-      "note": "overrules mount-kenya — the trailing 'kenya' there is the mountain's name, not the country slot; <place>-<country> doubles like malta-malta, and the drift check then reads it clean"
-    },
-    "maasai-mara-conservancies-kenya": {
-      "region": "05A",
-      "minted": "2026-09-04",
-      "note": "overrules masai-mara-conservancies-kenya — the family is spelled 'maasai' in this catalog (maasai-mara-kenya); one spelling per family"
-    },
-    "yosemite-california": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: Pacific Coast — by state, like Tahoe and Mammoth (sub-region-master: Sierra, not the Rockies)"
-    },
-    "grand-canyon-arizona": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: The Southwest"
-    },
-    "lake-powell-utah": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: The Southwest"
-    },
-    "bryce-canyon-utah": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: The Southwest"
-    },
-    "moab-utah": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: The Southwest"
-    },
-    "zion-utah": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster (Springdale/Virgin gateways live in the name field, not the id). Shelf: The Southwest"
-    },
-    "big-sur-california": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: Pacific Coast"
-    },
-    "glacier-montana": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: Mountain West"
-    },
-    "great-smoky-mountains-tennessee": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: The South"
-    },
-    "mount-rushmore-south-dakota": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: The Midwest — by state, per the master's by-state rule; moveable if a Black Hills read ever says otherwise"
-    },
-    "acadia-maine": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: New England"
-    },
-    "hudson-valley-new-york": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: Mid-Atlantic — NY, same call as Lake Placid"
-    },
-    "governors-island-new-york": {
-      "region": "12A",
-      "minted": "2026-09-05",
-      "note": "glamping roster. Shelf: Mid-Atlantic"
-    },
-    "hammonasset-beach-connecticut": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "jones-beach-new-york": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "letchworth-new-york": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "watkins-glen-new-york": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "shenandoah-virginia": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Mid-Atlantic"
-    },
-    "liberty-new-jersey": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "congaree-south-carolina": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Carolinas & Lowcountry"
-    },
-    "everglades-florida": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Florida - Atlantic & the Keys"
-    },
-    "biscayne-florida": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Florida - Atlantic & the Keys"
-    },
-    "dry-tortugas-florida": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Florida - Atlantic & the Keys"
-    },
-    "blue-spring-florida": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "honeymoon-island-florida": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "new-river-gorge-west-virginia": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Appalachia & the Smokies"
-    },
-    "mammoth-cave-kentucky": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Appalachia & the Smokies"
-    },
-    "cuyahoga-valley-ohio": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Lakes"
-    },
-    "indiana-dunes-indiana": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Lakes"
-    },
-    "voyageurs-minnesota": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Lakes"
-    },
-    "isle-royale-michigan": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Lakes"
-    },
-    "illinois-beach-illinois": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "indiana-dunes-state-park-indiana": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster; the bare candidate collided with the national park — the state park keeps its full name in the id"
-    },
-    "starved-rock-illinois": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "warren-dunes-michigan": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "badlands-south-dakota": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Plains & Dakotas"
-    },
-    "theodore-roosevelt-north-dakota": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Plains & Dakotas"
-    },
-    "wind-cave-south-dakota": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Plains & Dakotas"
-    },
-    "hot-springs-arkansas": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Ozarks & Mid-South"
-    },
-    "gateway-arch-missouri": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Ozarks & Mid-South"
-    },
-    "lake-of-the-ozarks-missouri": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "big-bend-texas": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Texas"
-    },
-    "guadalupe-mountains-texas": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Texas"
-    },
-    "big-bend-ranch-texas": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Texas"
-    },
-    "garner-texas": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "palo-duro-canyon-texas": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "saguaro-arizona": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Southwest Desert"
-    },
-    "white-sands-new-mexico": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Southwest Desert"
-    },
-    "carlsbad-caverns-new-mexico": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Southwest Desert"
-    },
-    "petrified-forest-arizona": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Southwest Desert"
-    },
-    "arches-utah": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Utah Canyon Country"
-    },
-    "capitol-reef-utah": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Utah Canyon Country"
-    },
-    "canyonlands-utah": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Utah Canyon Country"
-    },
-    "sand-hollow-utah": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "rocky-mountain-colorado": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Colorado Rockies"
-    },
-    "mesa-verde-colorado": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Colorado Rockies"
-    },
-    "great-sand-dunes-colorado": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Colorado Rockies"
-    },
-    "black-canyon-of-the-gunnison-colorado": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Colorado Rockies"
-    },
-    "yellowstone-wyoming": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Greater Yellowstone"
-    },
-    "grand-teton-wyoming": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Greater Yellowstone"
-    },
-    "death-valley-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Basin & Nevada"
-    },
-    "great-basin-nevada": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Great Basin & Nevada"
-    },
-    "joshua-tree-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Southern California"
-    },
-    "channel-islands-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Southern California"
-    },
-    "sequoia-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Central Coast & the Sierra"
-    },
-    "kings-canyon-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Central Coast & the Sierra"
-    },
-    "pinnacles-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Central Coast & the Sierra"
-    },
-    "point-lobos-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "redwood-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Northern California & Wine Country"
-    },
-    "lassen-volcanic-california": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Northern California & Wine Country"
-    },
-    "olympic-washington": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Pacific Northwest"
-    },
-    "mount-rainier-washington": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Pacific Northwest"
-    },
-    "crater-lake-oregon": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Pacific Northwest"
-    },
-    "north-cascades-washington": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: The Pacific Northwest"
-    },
-    "silver-falls-oregon": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster"
-    },
-    "glacier-bay-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Greater Yellowstone"
-    },
-    "denali-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "kenai-fjords-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "wrangell-st-elias-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "katmai-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "lake-clark-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "gates-of-the-arctic-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "kobuk-valley-alaska": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Alaska"
-    },
-    "hawaii-volcanoes-hawaii": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Hawai'i"
-    },
-    "haleakala-hawaii": {
-      "region": "12A",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: Hawai'i"
-    },
-    "virgin-islands-us-virgin-islands": {
-      "region": "11C",
-      "minted": "2026-10-06",
-      "note": "US parks roster. Shelf: US Territories"
-    },
-    "american-samoa": {
-      "region": "09P",
-      "minted": "2026-10-06",
-      "note": "US parks roster; single-token island id like aruba/curacao — the doubled candidate read as a stutter. Region 09P (geography wins), new shelf 'American Samoa'; the FCDO USA page covers it (advisory-sources)"
-    }
+ "_note": "The minted-id ledger. An id is MATCHED against this side, never computed on theirs (David, 2026-09-02) — so an id minted for the research library is not real until it is visible in this tree at a pushed head. Every entry here was minted by Sana with its region; the library's dossiers must arrive under these exact ids and regions, and validate:ingest enforces both. Rows leave this ledger when a catalog row exists under the id (the ledger is the reservation, the catalog is the destination). The 21 sailing/city ids below were minted 2026-09-02 (cowes-england overruling cowes-isle-of-wight per the UK constituent-country precedent; las-palmas-spain to 11C 'Caribbean & Atlantic' — David ratified both, 2026-09-04).",
+ "minted": {
+  "la-clusaz-france": {
+   "region": "01F",
+   "minted": "2026-09-02"
+  },
+  "lyon-france": {
+   "region": "01F",
+   "minted": "2026-09-02"
+  },
+  "cowes-england": {
+   "region": "03F",
+   "minted": "2026-09-02",
+   "note": "overrules cowes-isle-of-wight — UK ids use the constituent country (london-england, edinburgh-scotland); the island belongs in the name field"
+  },
+  "athens-greece": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "corfu-greece": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "lefkada-greece": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "trogir-croatia": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "sibenik-croatia": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "bodrum-turkey": {
+   "region": "02F",
+   "minted": "2026-09-02",
+   "note": "the gulet coast sails the same sea as the Greek islands; Eastern Anatolia would be 04A if it ever comes"
+  },
+  "marmaris-turkey": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "gocek-turkey": {
+   "region": "02F",
+   "minted": "2026-09-02"
+  },
+  "las-vegas-nevada": {
+   "region": "12A",
+   "minted": "2026-09-02",
+   "note": "US ids use the state form, per the existing thirty"
+  },
+  "newport-rhode-island": {
+   "region": "12A",
+   "minted": "2026-09-02"
+  },
+  "annapolis-maryland": {
+   "region": "12A",
+   "minted": "2026-09-02"
+  },
+  "san-francisco-california": {
+   "region": "12A",
+   "minted": "2026-09-02"
+  },
+  "langkawi-malaysia": {
+   "region": "07A",
+   "minted": "2026-09-02"
+  },
+  "sydney-australia": {
+   "region": "09P",
+   "minted": "2026-09-02"
+  },
+  "hobart-australia": {
+   "region": "09P",
+   "minted": "2026-09-02",
+   "note": "as ruled"
+  },
+  "the-whitsundays-australia": {
+   "region": "09P",
+   "minted": "2026-09-02"
+  },
+  "auckland-new-zealand": {
+   "region": "09P",
+   "minted": "2026-09-02"
+  },
+  "las-palmas-spain": {
+   "region": "11C",
+   "minted": "2026-09-02",
+   "note": "the Canaries are Atlantic, not Mediterranean — 11C is 'Caribbean & Atlantic', and it puts the ARC's start and finish in one region. David ratified 2026-09-04."
+  },
+  "mount-kenya-kenya": {
+   "region": "05A",
+   "minted": "2026-09-04",
+   "note": "overrules mount-kenya — the trailing 'kenya' there is the mountain's name, not the country slot; <place>-<country> doubles like malta-malta, and the drift check then reads it clean"
+  },
+  "maasai-mara-conservancies-kenya": {
+   "region": "05A",
+   "minted": "2026-09-04",
+   "note": "overrules masai-mara-conservancies-kenya — the family is spelled 'maasai' in this catalog (maasai-mara-kenya); one spelling per family"
+  },
+  "yosemite-california": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: Pacific Coast — by state, like Tahoe and Mammoth (sub-region-master: Sierra, not the Rockies)"
+  },
+  "grand-canyon-arizona": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: The Southwest"
+  },
+  "lake-powell-utah": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: The Southwest"
+  },
+  "bryce-canyon-utah": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: The Southwest"
+  },
+  "moab-utah": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: The Southwest"
+  },
+  "zion-utah": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster (Springdale/Virgin gateways live in the name field, not the id). Shelf: The Southwest"
+  },
+  "big-sur-california": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: Pacific Coast"
+  },
+  "glacier-montana": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: Mountain West"
+  },
+  "great-smoky-mountains-tennessee": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: The South"
+  },
+  "mount-rushmore-south-dakota": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: The Midwest — by state, per the master's by-state rule; moveable if a Black Hills read ever says otherwise"
+  },
+  "acadia-maine": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: New England"
+  },
+  "hudson-valley-new-york": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: Mid-Atlantic — NY, same call as Lake Placid"
+  },
+  "governors-island-new-york": {
+   "region": "12A",
+   "minted": "2026-09-05",
+   "note": "glamping roster. Shelf: Mid-Atlantic"
+  },
+  "hammonasset-beach-connecticut": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "jones-beach-new-york": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "letchworth-new-york": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "watkins-glen-new-york": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "shenandoah-virginia": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Mid-Atlantic"
+  },
+  "liberty-new-jersey": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "congaree-south-carolina": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Carolinas & Lowcountry"
+  },
+  "everglades-florida": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Florida - Atlantic & the Keys"
+  },
+  "biscayne-florida": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Florida - Atlantic & the Keys"
+  },
+  "dry-tortugas-florida": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Florida - Atlantic & the Keys"
+  },
+  "blue-spring-florida": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "honeymoon-island-florida": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "new-river-gorge-west-virginia": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Appalachia & the Smokies"
+  },
+  "mammoth-cave-kentucky": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Appalachia & the Smokies"
+  },
+  "cuyahoga-valley-ohio": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Lakes"
+  },
+  "indiana-dunes-indiana": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Lakes"
+  },
+  "voyageurs-minnesota": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Lakes"
+  },
+  "isle-royale-michigan": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Lakes"
+  },
+  "illinois-beach-illinois": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "indiana-dunes-state-park-indiana": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster; the bare candidate collided with the national park — the state park keeps its full name in the id"
+  },
+  "starved-rock-illinois": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "warren-dunes-michigan": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "badlands-south-dakota": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Plains & Dakotas"
+  },
+  "theodore-roosevelt-north-dakota": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Plains & Dakotas"
+  },
+  "wind-cave-south-dakota": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Plains & Dakotas"
+  },
+  "hot-springs-arkansas": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Ozarks & Mid-South"
+  },
+  "gateway-arch-missouri": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Ozarks & Mid-South"
+  },
+  "lake-of-the-ozarks-missouri": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "big-bend-texas": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Texas"
+  },
+  "guadalupe-mountains-texas": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Texas"
+  },
+  "big-bend-ranch-texas": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Texas"
+  },
+  "garner-texas": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "palo-duro-canyon-texas": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "saguaro-arizona": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Southwest Desert"
+  },
+  "white-sands-new-mexico": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Southwest Desert"
+  },
+  "carlsbad-caverns-new-mexico": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Southwest Desert"
+  },
+  "petrified-forest-arizona": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Southwest Desert"
+  },
+  "arches-utah": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Utah Canyon Country"
+  },
+  "capitol-reef-utah": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Utah Canyon Country"
+  },
+  "canyonlands-utah": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Utah Canyon Country"
+  },
+  "sand-hollow-utah": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "rocky-mountain-colorado": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Colorado Rockies"
+  },
+  "mesa-verde-colorado": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Colorado Rockies"
+  },
+  "great-sand-dunes-colorado": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Colorado Rockies"
+  },
+  "black-canyon-of-the-gunnison-colorado": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Colorado Rockies"
+  },
+  "yellowstone-wyoming": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Greater Yellowstone"
+  },
+  "grand-teton-wyoming": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Greater Yellowstone"
+  },
+  "death-valley-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Basin & Nevada"
+  },
+  "great-basin-nevada": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Great Basin & Nevada"
+  },
+  "joshua-tree-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Southern California"
+  },
+  "channel-islands-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Southern California"
+  },
+  "sequoia-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Central Coast & the Sierra"
+  },
+  "kings-canyon-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Central Coast & the Sierra"
+  },
+  "pinnacles-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Central Coast & the Sierra"
+  },
+  "point-lobos-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "redwood-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Northern California & Wine Country"
+  },
+  "lassen-volcanic-california": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Northern California & Wine Country"
+  },
+  "olympic-washington": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Pacific Northwest"
+  },
+  "mount-rainier-washington": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Pacific Northwest"
+  },
+  "crater-lake-oregon": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Pacific Northwest"
+  },
+  "north-cascades-washington": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: The Pacific Northwest"
+  },
+  "silver-falls-oregon": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster"
+  },
+  "glacier-bay-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "denali-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "kenai-fjords-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "wrangell-st-elias-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "katmai-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "lake-clark-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "gates-of-the-arctic-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "kobuk-valley-alaska": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Alaska"
+  },
+  "hawaii-volcanoes-hawaii": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Hawai'i"
+  },
+  "haleakala-hawaii": {
+   "region": "12A",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: Hawai'i"
+  },
+  "virgin-islands-us-virgin-islands": {
+   "region": "11C",
+   "minted": "2026-10-06",
+   "note": "US parks roster. Shelf: US Territories"
+  },
+  "american-samoa": {
+   "region": "09P",
+   "minted": "2026-10-06",
+   "note": "US parks roster; single-token island id like aruba/curacao — the doubled candidate read as a stutter. Region 09P (geography wins), new shelf 'American Samoa'; the FCDO USA page covers it (advisory-sources)"
   }
+ }
 }
