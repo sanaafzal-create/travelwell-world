@@ -245,17 +245,18 @@ export default function Home() {
               {t("hero.lead")}
             </p>
             <div className="hero__cta">
-              <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 28px", fontSize: 16 }}>{t("hero.cta1")}</ButtonLink>
-              <Button variant="secondary" style={{ height: 52 }} onClick={() => openPanel("concierge")}>{t("hero.cta2")}</Button>
+              <ButtonLink to="/special-interests" style={{ height: 52, padding: "0 18px", fontSize: 16 }}>{t("hero.cta1")}</ButtonLink>
+              <Button variant="secondary" style={{ height: 52, padding: "0 14px" }} onClick={() => openPanel("concierge")}>{t("hero.cta2")}</Button>
+              {/* Guided-walk entry: Atlas takes you through the whole journey hands-free
+                  (also reachable unattended via /?tour=safari). Inside the CTA group as
+                  a full-basis second row, so it spans exactly the pair above. */}
+              <button
+                className="hero__tour"
+                onClick={() => { startTour("safari"); navigate("/special-interests"); }}
+              >
+                <Icon name="sparkles" small /> Take the guided tour
+              </button>
             </div>
-            {/* Guided-walk entry: Atlas takes you through the whole journey hands-free
-                (also reachable unattended via /?tour=safari). */}
-            <button
-              className="hero__tour"
-              onClick={() => { startTour("safari"); navigate("/special-interests"); }}
-            >
-              <Icon name="sparkles" small /> Take the guided tour
-            </button>
             <p className="hero__taps"><span>{t("hero.taps1")}</span><span className="dot" /><span>{t("hero.taps2")}</span></p>
           </div>
           <div className="hero__media">
