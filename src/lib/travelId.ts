@@ -22,6 +22,9 @@ export interface TravelIdRecord {
   dietary: string | null;
   accessibility: string | null;    // the "anything to plan around" side
   consent: boolean;
+  // Source-country capture (migration 0021) — the waitlist's demand signal:
+  // ISO-3166 alpha-2, chosen by the traveler at sign-up, never inferred.
+  home_country: string | null;
 }
 
 /** A member of the travelling party (mirrors the SignUp wizard's Member). */
@@ -47,7 +50,7 @@ export async function saveTravelId(
   // error names and retry — Postgres reports missing columns one at a time, so loop
   // over the optional set. Persists everything else rather than losing the whole
   // Travel ID; self-heals once the migration runs.
-  const OPTIONAL_COLS = ["party", "activity_level", "access_needs", "capabilities"];
+  const OPTIONAL_COLS = ["party", "activity_level", "access_needs", "capabilities", "home_country"];
   for (let i = 0; error && i < OPTIONAL_COLS.length; i++) {
     const hit = OPTIONAL_COLS.find((c) => c in payload && new RegExp(c, "i").test(error!.message));
     if (!hit) break;

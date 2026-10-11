@@ -7,6 +7,7 @@ import { Eyebrow, BrandMark } from "@/components/ui/primitives";
 import { cx } from "@/lib/utils";
 import { fetchTravelId, type TravelIdRecord, pendingAsRecord } from "@/lib/travelId";
 import { deriveIdentity, tierLabel, tierPeak, activityLabel, accessLabel, DEMO_IDENTITY, type DisplayIdentity } from "@/lib/identity";
+import { countryName } from "@/lib/countries";
 import { signOut } from "@/lib/auth";
 
 const BUDGET_WELLS = [
@@ -26,6 +27,7 @@ function InterestChips({ interests }: { interests: string[] }) {
 
 /** The permanent Identity Card — the CONSTANT (who they are). No trip vision here. */
 function IdentityCard({ id }: { id: DisplayIdentity }) {
+  const { locale } = useStore();
   return (
     <div className="idp">
       <div className="idp__top">
@@ -40,6 +42,7 @@ function IdentityCard({ id }: { id: DisplayIdentity }) {
           <span>ID · {id.id}</span>
           <span>PARTY · {id.party.length}</span>
           {id.cohort && <span>AGE · {id.cohort.range}</span>}
+          {id.homeCountry && <span>FROM · {countryName(id.homeCountry, locale).toUpperCase()}</span>}
           <span>SINCE · {id.since.toUpperCase()}</span>
         </div>
       </div>

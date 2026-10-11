@@ -217,6 +217,8 @@ export interface DisplayIdentity {
   capabilities: string | null;  // the enabling side ("fully up for")
   accessibility: string | null; // the "anything to plan around" side
   dietary: string | null;
+  /** ISO-3166 alpha-2 the traveler says they travel from (the waitlist's source-country signal). */
+  homeCountry: string | null;
   /** The per-trip VARIABLE — the current vision. Not part of the permanent identity. */
   vision: string | null;
   synced: boolean;
@@ -273,6 +275,7 @@ export function deriveIdentity(
     capabilities: rec.capabilities ?? demo.capabilities,
     accessibility: rec.accessibility ?? demo.accessibility,
     dietary: rec.dietary ?? demo.dietary,
+    homeCountry: rec.home_country ?? null,
     vision: rec.trip_intent ?? demo.vision,
     synced: true,
   };
@@ -296,6 +299,8 @@ export const DEMO_IDENTITY: Omit<DisplayIdentity, "synced" | "cohort"> & { cohor
   capabilities: "Happy on gentle game-drive tracks and short nature walks; comfortable with early starts.",
   accessibility: "Step-free rooms preferred; a rest in the afternoon.",
   dietary: "Pescatarian (Jhumur) · No shellfish",
+  // The showcase persona claims no source country — the signal is real answers only.
+  homeCountry: null,
   vision: "An unhurried anniversary safari — golden-hour game drives, candlelit dinners under the stars, and a few slow mornings with coffee and a view.",
 };
 

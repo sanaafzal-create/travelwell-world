@@ -4,6 +4,7 @@ import { Icon } from "@/lib/icons";
 import { useStore } from "@/store/useStore";
 import { Eyebrow } from "@/components/ui/primitives";
 import { savePendingTravelId } from "@/lib/travelId";
+import { countryOptions, suggestedCountry } from "@/lib/countries";
 import { sendMagicLink, isSupabaseConfigured } from "@/lib/auth";
 import { useSpeechInput } from "@/lib/useSpeech";
 import { LANG_TAG } from "@/lib/voice/browser";
@@ -90,6 +91,11 @@ export default function SignUp() {
   const [step, setStep] = useState(0);
   const [name, setName] = useState(""); const [email, setEmail] = useState("");
   const [nameErr, setNameErr] = useState(false); const [emailErr, setEmailErr] = useState(false);
+  // Source-country capture (the waitlist's demand signal). Optional — a chosen
+  // answer or nothing; never pre-selected from the browser locale, which would
+  // write "US" for half the world and poison the signal. The locale's country
+  // is only PINNED at the top of the list as the likely answer.
+  const [homeCountry, setHomeCountry] = useState("");
   // CLICKWRAP, not browsewrap (Berman v. Freedom Financial Network, 9th Cir.
   // 2022). Until 2026-08-27 the Terms were a footer link — unenforceable per
   // se — while the SAFETY consent screen already kept the logged, affirmative
@@ -152,9 +158,10 @@ export default function SignUp() {
       dietary: null,
       accessibility: knowNote.trim() || null,
       consent: true,
+      home_country: homeCountry || null,
     });
     if (isSupabaseConfigured && validEmail(email)) sendMagicLink(email);
-  }, [isBuild, name, age, dream, budget, party, email, activity, access, ableNote, knowNote]);
+  }, [isBuild, name, age, dream, budget, party, email, activity, access, ableNote, knowNote, homeCountry]);
 
   function validate(): boolean {
     const key = STEPS[step].key;
@@ -238,6 +245,28 @@ export default function SignUp() {
                     <input type="email" id="f-email" value={email} placeholder="you@email.com" aria-invalid={emailErr} onChange={(e) => { setEmail(e.target.value); setEmailErr(false); }} />
                     {emailErr && <div className="fld__err" data-show="true"><Icon name="close" small /> That doesn't look like an email yet.</div>}
                     <div className="fld__hint">We'll send a one-tap magic link here — nothing to remember.</div>
+                  </div>
+                  <div className="fld">
+                    <label htmlFor="f-country">Country you'll travel from</label>
+                    {(() => {
+                      const options = countryOptions(locale);
+                      const sugg = suggestedCountry();
+                      const pinned = sugg ? options.find((o) => o.code === sugg) : undefined;
+                      return (
+                        <select
+                          id="f-country"
+                          value={homeCountry}
+                          onChange={(e) => setHomeCountry(e.target.value)}
+                        >
+                          <option value="">Choose a country (optional)</option>
+                          {pinned && <option value={pinned.code}>{pinned.name}</option>}
+                          {options.filter((o) => o.code !== pinned?.code).map((o) => (
+                            <option key={o.code} value={o.code}>{o.name}</option>
+                          ))}
+                        </select>
+                      );
+                    })()}
+                    <div className="fld__hint">Helps us bring the right seasons, prices and deals to where you start from.</div>
                   </div>
                   <div className="fld">
                     <label className="l3__ack" htmlFor="f-terms">
