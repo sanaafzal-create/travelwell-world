@@ -61,6 +61,13 @@ const destByRegion = (code: string) => {
 
 const depthCount = (depth: string) => liveDests.filter((d) => d.depth === depth).length;
 
+// Jewel counts — minted as a status-sheet row (2026-10-16) because the deck's
+// counts rule says every slide number comes from THIS sheet, and slide 5 was
+// about to carry a jewel figure measured nowhere on our side.
+const jewelsOf = (d: { data?: unknown }) => (((d.data as { jewels?: unknown[] } | undefined)?.jewels) ?? []).length;
+const jewelTotal = allDests.reduce((n, d) => n + jewelsOf(d), 0);
+const jewelLive = liveDests.reduce((n, d) => n + jewelsOf(d), 0);
+
 const siRow = (s: (typeof SIS)[number]) => {
   if (s.status === "live") {
     const n = shelf(s.id);
@@ -89,6 +96,7 @@ deliberately not built yet (see CLAUDE.md "Foundation sockets").
 | Wells | **${allWells.length}** (the full roster is the published count) | ${liveWells.length} live, ${allWells.length - liveWells.length} marked soon |
 | Regions | **${REGIONS.length}** (the official 13-code scheme) | ${REGIONS.filter((r) => r.status === "live").length} live |
 | Destinations | **${allDests.length}** rows | ${liveDests.length} live (${depthCount("verified")} verified · ${depthCount("stub")} stub · ${depthCount("cached")} cached) |
+| Jewels (sourced bookable/experiential facts) | **${jewelTotal}** authored | ${jewelLive} on live rows — the number a slide may cite is this row's, with this sheet's date |
 | Providers | **${providerNames.size}** across ${Object.keys(PROVIDERS).length} Wells | all seeded; booking is handoff/affiliate — see Payments below |
 | Travel guides | **${GUIDES.length}** editorial guides | all live |
 | Languages | **${LOCALES.length}** on the switcher | ${LOCALES.filter((l) => localeCoverage(l.code) > 0).length} fully translated (see Languages) |
