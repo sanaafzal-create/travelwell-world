@@ -1,7 +1,7 @@
 {
  "_": "GENERATED — npm run gen:list-sizes. Do not hand-edit; the numbers are read from the catalog at generation time.",
  "_for": "The research library's cap ratchet (their 2026-08-24 ask): compare each literal cap against the list it currently cuts.",
- "generated": "2026-10-05",
+ "generated": "2026-10-17",
  "surfaces": [
   {
    "surface": "si-shelf · jewels (SiDetail JewelsSection)",
@@ -10,7 +10,7 @@
    "reader_can_tell": "YES — the section line prints shown-of-total ('a selection of 24 from our N experiences across M destinations') whenever shown < length (2026-08-28)",
    "lengths_by_interest": {
     "ultra": {
-     "length": 244,
+     "length": 243,
      "shown": 24,
      "dests": 118,
      "dests_shown": 12
@@ -178,7 +178,7 @@
      "dests_shown": 5
     },
     "entertainment": {
-     "length": 346,
+     "length": 344,
      "shown": 24,
      "dests": 107,
      "dests_shown": 12

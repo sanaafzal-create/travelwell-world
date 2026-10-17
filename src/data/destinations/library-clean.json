@@ -87275,7 +87275,7 @@
     "On-mountain FINE DINING is a signature (Cast & Cut seafood, Fireside Dining, Royal Street Cafe - reservations required)",
     "Ultra lodging: Stein Eriksen Lodge (Utah's longest-running Forbes Five-Star) + St. Regis Deer Valley (private funicular) + Montage + Goldener Hirsch + Grand Summit",
     "US-TRAFFIC CANDOR: spend leader, lower-volume by design (ticket cap); no per-resort count published - consensus only",
-    "SLC ~36 mi / ~40 min via I-80/Parley's; Sundance 22 Jan-1 Feb 2026 = final Utah edition (Park City host, NOT a Deer Valley venue); 2002 Olympic freestyle heritage + expected 2034 moguls; Deer Valley Music Festival (summer)",
+    "SLC ~36 mi / ~40 min via I-80/Parley's; Sundance 22 Jan-1 Feb 2026 = final Utah edition (Park City host, NOT a Deer Valley venue; Boulder CO from 2027); 2002 Olympic freestyle heritage + expected 2034 moguls; Deer Valley Music Festival (summer)",
     "NO on-site cat/heli (groomed-luxury; regional guided BC via third parties only); NO natural hot springs in-resort (Homestead Crater, Midway ~25 min); Ikon/ticket prices dynamic (adult Ikon start ~$1,449 as accessed)"
    ],
    "safety": {
@@ -87296,13 +87296,13 @@
     "posture": "book-freely"
    },
    "timing": {
-    "peak": "High winter (Christmas/NY + Presidents' Week 'typically reaches capacity'; Sundance 22 Jan-1 Feb 2026; Feb-Mar)",
-    "shoulder": "early season (early-mid Dec), Jan midweek outside Sundance, late-March spring skiing",
+    "peak": "High winter (Christmas/NY + Presidents' Week 'typically reaches capacity'; Feb-Mar); the Sundance spillover ended with the 2026 final Utah edition",
+    "shoulder": "early season (early-mid Dec), Jan midweek, late-March spring skiing",
     "green": "May-Jun + Oct-Nov lull; summer Deer Valley Music Festival + biking + hiking",
-    "booking_lead": "Christmas/NY + Presidents' + Sundance + Five-Star hotels 4-8 mo (Sundance ~1 yr); regular winter 3-6 mo; capped tickets = pre-buy essential at peaks",
+    "booking_lead": "Christmas/NY + Presidents' + Five-Star hotels 4-8 mo; regular winter 3-6 mo; capped tickets = pre-buy essential at peaks",
     "off_season_specials": "late-March spring skiing; summer Music Festival + biking; midweek luxury value",
-    "event_peaks": "Christmas/NY, Sundance (22 Jan-1 Feb 2026, final Utah edition, Park City host), MLK + Presidents', spring break, Deer Valley Music Festival (Jul-Aug - verify)",
-    "fire_date": "FIRE spring early-bird (Apr-Jun) Ikon renewals + Sundance-farewell + Five-Star pre-book; fire again Sep-Nov"
+    "event_peaks": "Christmas/NY, MLK + Presidents', spring break, Deer Valley Music Festival (Jul-Aug - verify); Sundance departed for Boulder CO after the 2026 final Utah edition",
+    "fire_date": "FIRE spring early-bird (Apr-Jun) Ikon renewals + Five-Star pre-book; fire again Sep-Nov"
    },
    "jewels": [
     {
@@ -87921,47 +87921,6 @@
      ],
      "commission_embedded": false,
      "commission_basis": "lane"
-    },
-    {
-     "name": "The final Utah Sundance (2026), next door",
-     "status": "future",
-     "tier": "ultra",
-     "price_band": "lodging-driven",
-     "timing": "22 Jan-1 Feb 2026",
-     "draw_rank": 1,
-     "hook": "January 2026 is the last Sundance Utah will host before Boulder — a farewell-year marquee filling Park City",
-     "si": "entertainment",
-     "blurb": "January 2026 is the last Sundance Utah will host before Boulder — a farewell-year marquee filling Park City",
-     "when": "22 Jan-1 Feb 2026",
-     "commission": "festival-week lodging/package",
-     "wells": [
-      "activities"
-     ],
-     "wells_basis": "full pass 2026-10-05, additive — text",
-     "si_all": [
-      "entertainment",
-      "ultra"
-     ],
-     "shelf_fit": {
-      "adventure": "destination",
-      "culinary": "destination",
-      "entertainment": "primary",
-      "expedition": "destination",
-      "family": "destination",
-      "romance": "destination",
-      "ski": "destination",
-      "ultra": "evidenced",
-      "wellness": "destination"
-     },
-     "commission_lane": [
-      "package",
-      "event"
-     ],
-     "commission_embedded": false,
-     "commission_basis": "lane",
-     "si_raw": "Live Entertainment & Festivals",
-     "si_map_basis": "normalised from free text 'Live Entertainment & Festivals' by gen_normalise_jewel_si",
-     "si_basis": "tier=='ultra' implies the ultra interest; gen_ultra_from_tier"
     },
     {
      "name": "The Deer Valley Music Festival",
@@ -88742,7 +88701,7 @@
     },
     {
      "name": "Private whole-home + concierge + Deer Valley ski school + on-mountain private dining + short SLC private transfer",
-     "why_ultra": "staffed Empire Pass or Silver Lake residence + private instruction + a reserved Fireside/Cast & Cut evening + a 40-min private airport transfer (and Sundance) for exclusive-use groups",
+     "why_ultra": "staffed Empire Pass or Silver Lake residence + private instruction + a reserved Fireside/Cast & Cut evening + a 40-min private airport transfer for exclusive-use groups",
      "earning": "PM/villa specialists + resort + transfer",
      "virtuoso_value_add": false,
      "mor": "commissionable",
@@ -234447,7 +234406,7 @@
     "A GENUINE 1880s silver-mining town (64 National-Register Main Street buildings) - not a built village; base ~6,900 ft = moderate altitude vs the CO/Cottonwood giants",
     "Salt Lake City International (SLC) ~32-36 mi / ~35-45 min via I-80/Parley's - the closest major airport to a major US resort",
     "US-TRAFFIC CANDOR: among the highest-volume US resorts (largest by area; town ~600k visitors) but no per-resort count published - consensus only",
-    "SUNDANCE Film Festival 22 Jan-1 Feb 2026 = the LAST Utah edition (relocates to Boulder CO 2027) - do NOT describe Park City as a Sundance host beyond 2026",
+    "SUNDANCE Film Festival 22 Jan-1 Feb 2026 = the LAST Utah edition (first Boulder CO edition 21-31 Jan 2027) - do NOT describe Park City as a Sundance host beyond 2026",
     "Utah 2034 Winter Olympics awarded (10-26 Feb 2034); Park City Mountain hosts snowboard (halfpipe/slopestyle) + freestyle; Utah Olympic Park (2002 legacy) sliding/jumping",
     "NO on-resort cat/heli - Park City Powder Cats is a SEPARATE Uinta snowcat op ~35 min (15,000+ private ac, ~$990-1,190/day); NO natural hot springs in town (Homestead Crater, Midway ~30 min); Epic/lift prices dynamic"
    ],
@@ -234469,13 +234428,13 @@
     "posture": "book-freely"
    },
    "timing": {
-    "peak": "High winter (Christmas/NY, Sundance 22 Jan-1 Feb 2026, MLK, Presidents', Feb-Mar); final Utah Sundance amplifies late-Jan",
-    "shoulder": "early season (late Nov-mid Dec), Jan midweek outside Sundance, April spring skiing",
+    "peak": "High winter (Christmas/NY, MLK, Presidents', Feb-Mar); Sundance's final Utah edition was Jan 2026 - from 2027 the festival runs in Boulder CO (21-31 Jan), so late-Jan loses its festival spike",
+    "shoulder": "early season (late Nov-mid Dec), Jan midweek, April spring skiing",
     "green": "May-Jun + Oct-Nov lull; summer Kimball Arts + biking + Utah Olympic Park",
-    "booking_lead": "Christmas/NY + Presidents' + Sundance + Canyons luxury 4-8 mo (Sundance lodging ~1 yr); regular winter 3-6 mo; spring 1-3 mo",
+    "booking_lead": "Christmas/NY + Presidents' + Canyons luxury 4-8 mo; regular winter 3-6 mo; spring 1-3 mo",
     "off_season_specials": "April spring-skiing; summer Kimball Arts + biking + Olympic Park; midweek value",
-    "event_peaks": "Christmas/NY, Sundance (22 Jan-1 Feb 2026, final Utah edition), MLK + Presidents', spring break, Kimball Arts (summer - verify)",
-    "fire_date": "FIRE spring early-bird (Apr-Jun) Epic renewals + Sundance-farewell + luxury pre-book (Sundance far ahead); fire again Sep-Nov"
+    "event_peaks": "Christmas/NY, MLK + Presidents', spring break, Kimball Arts (summer - verify); Sundance departed after the 2026 final Utah edition (Boulder CO, 21-31 Jan 2027 onward)",
+    "fire_date": "FIRE spring early-bird (Apr-Jun) Epic renewals + luxury pre-book; fire again Sep-Nov"
    },
    "jewels": [
     {
@@ -235234,44 +235193,6 @@
      "si_map_basis": "normalised from free text 'Culinary & Apres' by gen_normalise_jewel_si"
     },
     {
-     "name": "The final Utah Sundance (2026)",
-     "status": "future",
-     "tier": "premier",
-     "price_band": "lodging-driven",
-     "timing": "22 Jan-1 Feb 2026",
-     "draw_rank": 1,
-     "hook": "January 2026 is the last Sundance Film Festival Utah will host before Boulder — a farewell-year cultural marquee that fills the town",
-     "si": "entertainment",
-     "blurb": "January 2026 is the last Sundance Film Festival Utah will host before Boulder — a farewell-year cultural marquee that fills the town",
-     "when": "22 Jan-1 Feb 2026",
-     "commission": "festival-week lodging/package",
-     "wells": [
-      "activities"
-     ],
-     "wells_basis": "derived from name/blurb/hook",
-     "si_all": [
-      "entertainment"
-     ],
-     "shelf_fit": {
-      "adventure": "destination",
-      "culinary": "destination",
-      "entertainment": "primary",
-      "expedition": "destination",
-      "family": "destination",
-      "romance": "destination",
-      "ski": "destination",
-      "wellness": "destination"
-     },
-     "commission_lane": [
-      "package",
-      "event"
-     ],
-     "commission_embedded": false,
-     "commission_basis": "lane",
-     "si_raw": "Live Entertainment & Festivals",
-     "si_map_basis": "normalised from free text 'Live Entertainment & Festivals' by gen_normalise_jewel_si"
-    },
-    {
      "name": "Skiing toward the 2034 Olympics",
      "status": "future",
      "tier": "essential",
@@ -235868,7 +235789,7 @@
     },
     {
      "name": "Private whole-home + concierge + Park City Powder Cats charter + short SLC private transfer",
-     "why_ultra": "staffed Old-Town or Canyons residence paired with a private Uinta cat day + a 35-min private airport transfer (and Sundance) for exclusive-use groups",
+     "why_ultra": "staffed Old-Town or Canyons residence paired with a private Uinta cat day + a 35-min private airport transfer for exclusive-use groups",
      "earning": "PM/villa specialists + operator + transfer",
      "virtuoso_value_add": false,
      "mor": "commissionable",
