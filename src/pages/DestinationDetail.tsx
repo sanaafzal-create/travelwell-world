@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { destinationJsonLd, useJsonLd } from "@/lib/jsonld";
 import { Icon } from "@/lib/icons";
@@ -8,7 +9,9 @@ import { useDestinationImage } from "@/lib/unsplash";
 import { useStore } from "@/store/useStore";
 import { useRegions, useWells, useProviders, useDestinations, useGuides, useCatalogSettled, useCatalogLoaded } from "@/store/useCatalog";
 import { cx } from "@/lib/utils";
-import { resolveSafety, stricterZones, isoForCountry, zoneLvl, SAFE_HEADER_COLOR, ZONE_POSTURE_TEXT } from "@/data/safety-data";
+import { resolveSafety, stricterZones, isoForCountry, zoneLvl, fcdoThreshold, SAFE_HEADER_COLOR, ZONE_POSTURE_TEXT } from "@/data/safety-data";
+import { ConsentGate, type AdvisoryConsent } from "@/components/safety/ConsentGate";
+import { recordAdvisoryConsent } from "@/lib/consent";
 import { CheckItYourself } from "@/components/ui/CheckItYourself";
 import { GlobalAdvisoryNote } from "@/components/ui/GlobalAdvisoryNote";
 import { BackBar } from "@/components/shell/BackBar";
@@ -104,6 +107,16 @@ function providersByWell(allWells: Record<string, Well>, providers: Record<strin
 export default function DestinationDetail() {
   const { id } = useParams();
   const { openPanel } = useStore();
+  // THE CONSENT GATE, ON THE PAGE THAT NEEDED IT (David's board ruling, issue
+  // #41, 2026-10-15: "Pemba is 'all but essential travel', so it needs the
+  // consent screen it is missing"). /go carried the gate from the start, but no
+  // caller on this page routes through /go — Book It opens Atlas directly, so a
+  // Level-"essential-only" destination sold past the screen the founder-locked
+  // thresholds require. Same semantics as /go: once per visit, never persisted —
+  // an advisory can move between one booking and the next, and stale consent is
+  // not consent.
+  const [gateOpen, setGateOpen] = useState(false);
+  const [consented, setConsented] = useState(false);
   const regions = useRegions();
   const wells = useWells();
   const providers = useProviders();
@@ -157,6 +170,17 @@ export default function DestinationDetail() {
   const zonesToShow = stricterZones(s).filter((z) => z.name !== s.inZone?.name);
   // Local emergency line joins off the same ISO key (David's emergency-numbers data).
   const localEmergency = iso ? (getEmergencyNumbers(iso).emergency || UNIVERSAL_EMERGENCY) : UNIVERSAL_EMERGENCY;
+
+  // Whether booking from THIS page must pass the consent screen first. The
+  // condition is the derived THRESHOLD — the same one derivation /go, the
+  // refusal and Atlas's context read — never a raw level number. A held page
+  // never reaches here: its buttons are replaced by the stated reason below.
+  const needsConsent = !s.bookingHold && fcdoThreshold(s) === "essential-only" && !consented;
+  // The ONE booking handler every Book It button calls — gating buttons
+  // individually is how the Level-4 half-build happened (buttons multiply, one
+  // gets missed). "Add to trip" stays ungated on purpose: placed ≠ booked, and
+  // parking an idea is not a sale.
+  const bookIt = () => { if (needsConsent) setGateOpen(true); else openPanel("concierge"); };
 
   const groups = providersByWell(allWells, providers, R.code);
 
@@ -258,6 +282,30 @@ export default function DestinationDetail() {
           <Link className="btn" to="/special-interests">Start from an interest instead</Link>
         </p>
       </div>
+    );
+  }
+
+  // AGAINST ALL BUT ESSENTIAL TRAVEL — the gate itself, rendered in place of the
+  // page the moment Book It is pressed, exactly as /go renders it mid-handoff.
+  // Recorded BOTH ways (continued and alternatives), not awaited — a traveller
+  // never waits on a network round-trip to act on a safety decision they have
+  // already made. Either decision lands back in Atlas: "continued" proceeds to
+  // the booking conversation Book It always opened; "alternatives" opens the
+  // same panel, where the warn-and-solve canon takes over.
+  if (gateOpen && needsConsent) {
+    return (
+      <ConsentGate
+        dest={DEST}
+        safety={s}
+        iso={iso}
+        onReadMore={() => setGateOpen(false)}
+        onDecision={(c: AdvisoryConsent) => {
+          void recordAdvisoryConsent(c);
+          setGateOpen(false);
+          if (c.decision === "continued") setConsented(true);
+          openPanel("concierge");
+        }}
+      />
     );
   }
 
@@ -374,8 +422,11 @@ export default function DestinationDetail() {
                         </span>
                       ) : (
                         <>
-                          <button className="btn btn-primary" onClick={() => openPanel("concierge")} style={{ minHeight: 44, padding: "0 16px", fontSize: 16 }}>Book It</button>
-                          <span className="pv__mode" style={{ fontSize: 16, color: "var(--muted-foreground)" }}>{bookingLabel(p)}</span>
+                          <button className="btn btn-primary" onClick={bookIt} style={{ minHeight: 44, padding: "0 16px", fontSize: 16 }}>Book It</button>
+                          {/* The cue that the advisory comes first — said before
+                              the press, so the gate never reads as a bait-and-
+                              switch on a button that promised a booking. */}
+                          <span className="pv__mode" style={{ fontSize: 16, color: "var(--muted-foreground)" }}>{needsConsent ? `Travel advisory to read first · ${bookingLabel(p)}` : bookingLabel(p)}</span>
                         </>
                       )}
                     </div>

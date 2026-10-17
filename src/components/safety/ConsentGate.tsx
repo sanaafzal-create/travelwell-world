@@ -113,12 +113,17 @@ const listOf = (xs: string[]): string =>
   xs.length <= 1 ? (xs[0] ?? "") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
 
 export function ConsentGate({
-  dest, safety, iso, onDecision,
+  dest, safety, iso, onDecision, onReadMore,
 }: {
   dest: { id: string; name: string; country: string };
   safety: SafetyInfo;
   iso: string | null;
   onDecision: (c: AdvisoryConsent) => void;
+  /** When the gate renders ON the destination page itself (the Book It path,
+   *  2026-10-17), "read more" must close the gate rather than Link to the route
+   *  it is already covering — same-route navigation changes nothing, so the
+   *  control would read as dead. Callers off the page omit this and keep the Link. */
+  onReadMore?: () => void;
 }) {
   const alternativesRef = useRef<HTMLButtonElement>(null);
   // Focus the alternatives button, not continue. Done on mount rather than with
@@ -309,7 +314,11 @@ export function ConsentGate({
             </Button>
           </div>
           <p className="l3__readmore">
-            Or <Link to={`/destination/${dest.id}`}>read more about {dest.name}</Link> first.
+            Or{" "}
+            {onReadMore
+              ? <button type="button" className="l3__readmore-link" onClick={onReadMore}>read more about {dest.name}</button>
+              : <Link to={`/destination/${dest.id}`}>read more about {dest.name}</Link>}
+            {" "}first.
           </p>
         </div>
       </div>

@@ -1579,4 +1579,7 @@
   .l3__buttons .btn { width: 100%; min-height: 46px; }
   .l3__readmore { font-size: 16px; color: var(--muted-foreground); margin-top: 14px; }
   .l3__readmore a { color: var(--primary); font-weight: 600; }
+  /* The in-page gate's "read more" is a button (it closes the gate, it doesn't
+     navigate) — dressed as the link it replaces, down to the focus ring. */
+  .l3__readmore-link { border:0; background:none; padding:0; cursor:pointer; font:inherit; font-size:16px; color:var(--primary); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
   @media (max-width: 560px) { .l3__buttons { grid-template-columns: 1fr; } }

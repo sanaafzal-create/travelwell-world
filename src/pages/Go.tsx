@@ -30,11 +30,13 @@ const REFUSAL_STATEMENT = "I have read and understood this complete safety advis
  *
  * HONEST LIMIT, stated because it matters more than the code: no caller supplies
  * `dest` yet. `WellsSurface` and `Providers` are Well- and region-scoped and
- * genuinely don't know a destination, and the destination page's Book It opens
- * Atlas rather than routing through here. So today this is a capability with one
- * live consumer — a hand-built or shared link — not yet a gate across the
- * product. Making it one means deciding whether destination-originated bookings
- * should route through `/go`, which is a product call, not plumbing.
+ * genuinely don't know a destination. The product call this note used to wait on
+ * was made on 2026-10-17 (David's board ruling, issue #41 — Pemba): the
+ * destination page's Book It does NOT route through here; it renders the SAME
+ * `ConsentGate` in place, against the same derived threshold, recording through
+ * the same `recordAdvisoryConsent` — one implementation, two doors. So this
+ * page's gates now hold for hand-built and shared links, and the destination
+ * page holds its own.
  *
  * TWO RULES ARE ENFORCED HERE, and the difference between them is the point —
  * the two thresholds, founder-locked (David, 2026-08-23). AGAINST ALL TRAVEL
